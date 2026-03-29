@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function GlobeIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -59,36 +61,42 @@ const services = [
   {
     icon: <GlobeIcon />,
     title: "Website Design",
+    slug: "website-design",
     description:
       "High-performance websites built for speed, SEO, and conversions. Designed to represent your San Antonio business the way it deserves.",
   },
   {
     icon: <SearchIcon />,
     title: "Local SEO",
+    slug: "local-seo",
     description:
       "Rank higher on Google Maps and local search results. We optimize your presence so SA customers find you first.",
   },
   {
     icon: <ShareIcon />,
     title: "Social Media",
+    slug: "social-media",
     description:
       "Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement in the SA market.",
   },
   {
     icon: <TargetIcon />,
     title: "PPC / Google Ads",
+    slug: "ppc-google-ads",
     description:
       "Targeted ad campaigns that put your business in front of customers actively searching for your services in San Antonio.",
   },
   {
     icon: <SparkleIcon />,
     title: "AI Search Optimization",
+    slug: "ai-search-optimization",
     description:
       "Get your business recommended by AI assistants and voice search. The next frontier of local visibility is here.",
   },
   {
     icon: <ShieldIcon />,
     title: "Reputation Management",
+    slug: "reputation-management",
     description:
       "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your San Antonio business has earned.",
   },
@@ -115,8 +123,9 @@ export default function ServicesSection() {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
-            <div
+            <Link
               key={service.title}
+              href={`/services/${service.slug}`}
               className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
             >
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488]">
@@ -128,7 +137,7 @@ export default function ServicesSection() {
               <p className="text-sm leading-relaxed text-gray">
                 {service.description}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

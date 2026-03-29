@@ -1,11 +1,12 @@
 import Link from "next/link";
 
 const serviceLinks = [
-  { label: "Web Design", href: "#services" },
-  { label: "SEO", href: "#services" },
-  { label: "Google Ads (PPC)", href: "#services" },
-  { label: "Social Media", href: "#services" },
-  { label: "Content Marketing", href: "#services" },
+  { label: "Web Design", href: "/services/website-design" },
+  { label: "Local SEO", href: "/services/local-seo" },
+  { label: "Google Ads (PPC)", href: "/services/ppc-google-ads" },
+  { label: "Social Media", href: "/services/social-media" },
+  { label: "AI Search", href: "/services/ai-search-optimization" },
+  { label: "Reputation", href: "/services/reputation-management" },
 ];
 
 const industryLinks = [
