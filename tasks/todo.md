@@ -23,6 +23,29 @@
 
 ---
 
-## Task 2: Homepage Build [NOT STARTED]
+## Task 2: Homepage Lower Sections + SEO [COMPLETED]
+
+### What was done
+- Built FAQ section with smooth accordion (CSS grid-rows animation), 7 SA-focused Q&As, and embedded FAQ JSON-LD schema
+- Built CTA Banner section (dark #0F172A background) with violet gradient CTA button
+- Built Contact section with two-column layout: contact info (phone tel: link, email, location) + React Hook Form (Name, Email, Phone, Service select, Message) with client+server validation
+- Created server action (`app/actions/contact.ts`) for form submission (placeholder for email integration)
+- Added LocalBusiness JSON-LD schema in layout.tsx (appears on every page)
+- Enhanced metadata: OpenGraph, Twitter card, robots, canonical URL, SA-keyword title format
+- Installed react-hook-form dependency
+
+### Section order (final)
+Hero, StatsBar, Services, WhyUs, Industries, Testimonials, Pricing, Process, About, FAQ, CTABanner, Contact
+
+### What's ready to build on
+- All homepage sections complete
+- Contact form ready for email service integration (Resend/SendGrid)
+- Phone number is placeholder (210) 555-1234 -- needs real number
+- Schema markup in place for LocalBusiness + FAQ
+- Ready for service pages, contact page, blog, etc.
+
+---
+
+## Task 3: TBD [NOT STARTED]
 
 _(Next task TBD)_
