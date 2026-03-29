@@ -66,6 +66,7 @@ interface FormValues {
   phone: string;
   service: string;
   message: string;
+  smsConsent: boolean;
 }
 
 const inputClasses =
@@ -290,6 +291,25 @@ export default function Contact() {
                       {errors.message.message}
                     </p>
                   )}
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <input
+                    id="smsConsent"
+                    type="checkbox"
+                    className="mt-1 h-4 w-4 shrink-0 rounded border-border text-primary accent-primary focus:ring-2 focus:ring-primary/20"
+                    {...register("smsConsent")}
+                  />
+                  <label
+                    htmlFor="smsConsent"
+                    className="text-xs text-gray leading-relaxed"
+                  >
+                    I agree to receive occasional text messages from Pearl
+                    Street Digital at the phone number provided. Message and
+                    data rates may apply. Reply STOP to opt out at any time.
+                    Consent is not a condition of purchase. See our Privacy
+                    Policy for details.
+                  </label>
                 </div>
 
                 {serverError && (

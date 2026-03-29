@@ -2,7 +2,7 @@ const stats = [
   { value: "2026", label: "Founded" },
   { value: "San Antonio, TX", label: "Based In" },
   { value: "Small Business", label: "Our Focus" },
-  { value: "You Own It", label: "Our Model" },
+  { value: "You Own Everything", label: "Our Model" },
 ];
 
 export default function About() {

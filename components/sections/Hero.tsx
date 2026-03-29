@@ -48,6 +48,7 @@ export default function Hero() {
           fill
           className="object-cover object-center"
           priority
+          quality={60}
           sizes="(max-width: 900px) 100vw, 42vw"
         />
         {/* Right fade */}
