@@ -1,0 +1,34 @@
+import type { CaseStudyData } from "@/lib/case-studies-data";
+
+export default function CaseStudyResults({ study }: { study: CaseStudyData }) {
+  return (
+    <section className="bg-white py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+            Results
+          </span>
+          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+            The Numbers Speak for Themselves
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {study.results.map((result) => (
+            <div
+              key={result.label}
+              className="rounded-2xl border border-border bg-white p-6 sm:p-8 text-center shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
+            >
+              <p className="font-heading text-3xl sm:text-4xl font-bold text-primary">
+                {result.value}
+              </p>
+              <p className="mt-2 text-sm font-semibold text-dark">{result.label}</p>
+              {result.description && (
+                <p className="mt-1 text-xs text-gray">{result.description}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
