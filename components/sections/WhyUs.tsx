@@ -53,7 +53,7 @@ const features = [
     icon: <ClockIcon />,
     title: "No Monthly Commitment",
     description:
-      "One-time builds at honest prices. Monthly retainers only if you want ongoing marketing.",
+      "One-time builds at honest prices. Monthly retainers only if you want ongoing marketing and web development updates.",
   },
   {
     icon: <GlobeIcon />,

@@ -174,19 +174,19 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-2xl border border-icon-service-border bg-icon-service-bg p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div>
+        <div className="mt-12 rounded-2xl border border-icon-service-border bg-icon-service-bg p-6 text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4">
             <p className="font-heading font-semibold text-dark">
               Optional: Hosting and Maintenance
             </p>
-            <p className="text-sm text-gray mt-1">
-              We handle updates, security, backups, and uptime monitoring so you
-              never have to think about it.
-            </p>
+            <span className="shrink-0 font-heading text-lg font-bold text-[#0D9488]">
+              $100/mo
+            </span>
           </div>
-          <span className="shrink-0 font-heading text-lg font-bold text-primary">
-            $100/mo
-          </span>
+          <p className="text-sm text-gray mt-1">
+            We handle updates, security, backups, and uptime monitoring so you
+            never have to think about it.
+          </p>
         </div>
       </div>
     </section>
