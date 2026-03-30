@@ -49,8 +49,30 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   const industries = getAllIndustries();
 
+  const industriesSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Industries We Serve San Antonio",
+    description:
+      "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses.",
+    url: "https://pearlstreetdigital.com/industries",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: industries.map((industry, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `https://pearlstreetdigital.com/industries/${industry.slug}`,
+        name: industry.title,
+      })),
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(industriesSchema) }}
+      />
       <Header />
       <main>
         {/* Hero */}

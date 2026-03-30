@@ -17,13 +17,13 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AI-Powered Marketing San Antonio | Pearl Street Digital",
+  title: "San Antonio Web Design & Digital Marketing | Pearl Street Digital",
   description:
-    "Pearl Street Digital helps San Antonio small businesses grow with AI-powered websites, SEO, Google Ads, and digital marketing. Fast builds, real results, no long-term contracts.",
+    "Pearl Street Digital builds affordable websites and runs local SEO, Google Ads, and digital marketing for San Antonio small businesses. Sites from $250. No contracts.",
   openGraph: {
-    title: "AI-Powered Marketing San Antonio | Pearl Street Digital",
+    title: "San Antonio Web Design & Digital Marketing | Pearl Street Digital",
     description:
-      "San Antonio small business marketing: custom websites, local SEO, Google Ads, and AI-powered digital marketing. No contracts, fast builds.",
+      "Affordable web design and digital marketing for San Antonio small businesses. Custom sites from $250, local SEO, Google Ads. No contracts.",
     url: "https://pearlstreetdigital.com",
     siteName: "Pearl Street Digital",
     locale: "en_US",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI-Powered Marketing San Antonio | Pearl Street Digital",
+    title: "San Antonio Web Design & Digital Marketing | Pearl Street Digital",
     description:
-      "San Antonio small business marketing: custom websites, local SEO, Google Ads, and AI-powered digital marketing.",
+      "Affordable web design and digital marketing for San Antonio small businesses. Custom sites from $250, local SEO, Google Ads. No contracts.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://pearlstreetdigital.com" },
@@ -55,8 +55,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": "ProfessionalService",
               name: "Pearl Street Digital",
+              alternateName: "JSL Innovations LLC",
               description:
                 "AI-powered digital marketing agency serving San Antonio small businesses with web design, SEO, Google Ads, and social media marketing.",
               url: "https://pearlstreetdigital.com",
@@ -73,7 +74,9 @@ export default function RootLayout({
                 name: "San Antonio",
                 sameAs: "https://en.wikipedia.org/wiki/San_Antonio",
               },
-              priceRange: "$250-$1000",
+              priceRange: "$250-$1,000",
+              openingHours: "Mo-Fr 09:00-17:00",
+              sameAs: [],
             }),
           }}
         />

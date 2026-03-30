@@ -28,9 +28,31 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://pearlstreetdigital.com/services" },
 };
 
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Digital Marketing Services San Antonio",
+  description:
+    "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
+  url: "https://pearlstreetdigital.com/services",
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: services.map((service, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://pearlstreetdigital.com/services/${service.slug}`,
+      name: service.title,
+    })),
+  },
+};
+
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       <Header />
       <main>
         {/* Hero */}
