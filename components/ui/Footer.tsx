@@ -10,11 +10,11 @@ const serviceLinks = [
 ];
 
 const industryLinks = [
-  { label: "Home Services", href: "#industries" },
-  { label: "Healthcare", href: "#industries" },
-  { label: "Legal", href: "#industries" },
-  { label: "Real Estate", href: "#industries" },
-  { label: "Restaurants", href: "#industries" },
+  { label: "Restaurants", href: "/industries/restaurants" },
+  { label: "Beauty & Barbers", href: "/industries/beauty" },
+  { label: "Auto Repair", href: "/industries/auto" },
+  { label: "Home Services", href: "/industries" },
+  { label: "Healthcare", href: "/industries" },
 ];
 
 const companyLinks = [

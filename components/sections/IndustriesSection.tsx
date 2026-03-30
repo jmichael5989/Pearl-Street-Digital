@@ -48,28 +48,28 @@ const industries = [
     title: "Home Services",
     description:
       "HVAC, plumbing, roofing, landscaping — we help SA trade businesses show up when homeowners search for help.",
-    href: "#industries",
+    href: "/industries",
   },
   {
     icon: <UtensilsIcon />,
     title: "Restaurants & Hospitality",
     description:
       "From Riverwalk spots to neighborhood taquerias, we drive foot traffic and online orders for SA's food scene.",
-    href: "#industries",
+    href: "/industries/restaurants",
   },
   {
     icon: <BriefcaseIcon />,
     title: "Professional Services",
     description:
       "Law firms, accountants, consultants — build authority and generate qualified leads in the San Antonio market.",
-    href: "#industries",
+    href: "/industries",
   },
   {
     icon: <HeartIcon />,
     title: "Healthcare & Wellness",
     description:
       "Dentists, chiropractors, med spas — HIPAA-aware marketing that brings new patients through your door.",
-    href: "#industries",
+    href: "/industries",
   },
 ];
 
