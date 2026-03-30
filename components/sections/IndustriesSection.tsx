@@ -111,6 +111,7 @@ export default function IndustriesSection() {
                 href={industry.href}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary-dark"
               >
+                <span className="sr-only">about {industry.title}</span>
                 Learn more
                 <ArrowRightIcon />
               </a>

@@ -22,7 +22,6 @@ const companyLinks = [
   { label: "Pricing", href: "/#pricing" },
   { label: "Contact", href: "/contact" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Blog", href: "#" },
 ];
 
 export default function Footer() {
@@ -139,21 +138,21 @@ export default function Footer() {
           {/* Legal Links */}
           <div className="flex items-center justify-center gap-4 mt-6 text-xs text-[rgba(148,163,184,0.5)]">
             <Link
-              href="#"
+              href="/privacy"
               className="transition-colors duration-300 hover:text-primary"
             >
               Privacy Policy
             </Link>
             <span>|</span>
             <Link
-              href="#"
+              href="/terms"
               className="transition-colors duration-300 hover:text-primary"
             >
               Terms of Service
             </Link>
             <span>|</span>
             <Link
-              href="#"
+              href="/sitemap.xml"
               className="transition-colors duration-300 hover:text-primary"
             >
               Sitemap

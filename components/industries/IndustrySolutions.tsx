@@ -56,6 +56,7 @@ export default function IndustrySolutions({
                 href={`/services/${solution.serviceSlug}`}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary-dark"
               >
+                <span className="sr-only">about {solution.title}</span>
                 Learn more
                 <ArrowRightIcon />
               </Link>
