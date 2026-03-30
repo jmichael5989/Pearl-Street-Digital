@@ -14,7 +14,7 @@ export default function ServiceHero({ service }: { service: ServiceData }) {
             </div>
           )}
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-dark">
-            {service.title} for San Antonio Businesses
+            {service.title} for Local Businesses
           </h1>
           <p className="mt-5 text-lg text-gray leading-relaxed">
             {service.tagline}

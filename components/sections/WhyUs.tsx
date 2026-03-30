@@ -59,7 +59,7 @@ const features = [
     icon: <GlobeIcon />,
     title: "Bilingual Campaigns",
     description:
-      "English and Spanish content that connects with San Antonio's diverse community.",
+      "English and Spanish content that connects with your community's diverse audience.",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function WhyUs() {
               Why Pearl Street Digital
             </span>
             <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
-              Built Different. Built for San Antonio.
+              Built Different. Built for Small Business.
             </h2>
             <p className="mt-5 text-gray leading-relaxed">
               Most agencies sell packages designed for national brands. We build

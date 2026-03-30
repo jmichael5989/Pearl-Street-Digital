@@ -7,12 +7,11 @@ export default function AboutHero() {
             About Us
           </p>
           <h1 className="mt-3 font-heading text-4xl font-bold text-white sm:text-5xl">
-            San Antonio Roots. Modern Tools. Honest Work.
+            Texas Roots. Modern Tools. Honest Work.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-[#94A3B8]">
             Pearl Street Digital is a founder-led digital marketing agency built
-            for San Antonio small businesses. No contracts. No fluff. Just
-            results.
+            for local small businesses. No contracts. No fluff. Just results.
           </p>
         </div>
       </div>

@@ -14,11 +14,11 @@ export default function About() {
             About Us
           </span>
           <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
-            San Antonio Roots. Modern Tools. Honest Work.
+            Texas Roots. Modern Tools. Honest Work.
           </h2>
           <p className="mt-6 text-gray leading-relaxed">
-            Pearl Street Digital is the marketing arm of JSL Innovations LLC,
-            founded in San Antonio with one goal: give local small businesses
+            Pearl Street Digital is a digital marketing agency founded in San
+            Antonio with one goal: give local small businesses
             access to the same caliber of digital marketing that big companies
             take for granted. We use AI-powered tools and modern web technology
             to deliver faster, leaner, and more effective results -- without the

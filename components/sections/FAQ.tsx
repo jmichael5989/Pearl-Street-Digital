@@ -37,9 +37,9 @@ const faqs = [
       "Yes, 100 percent. You own all code, content, images, and domain credentials. We hand everything over at launch. No lock-in, no hostage domains, no surprise invoices.",
   },
   {
-    question: "Do you only work with businesses in San Antonio?",
+    question: "Where are you based, and do you work with businesses outside your area?",
     answer:
-      "We are based in San Antonio and specialize in serving local businesses here, but we work with clients across Texas and beyond. If you are looking for a team that understands small business marketing, we are a good fit regardless of location.",
+      "We are based in San Antonio, TX but we work with small businesses across Texas and beyond. If you are looking for a team that understands local marketing, we are a good fit regardless of location.",
   },
   {
     question: "What platform or CMS do you build on?",
@@ -49,12 +49,12 @@ const faqs = [
   {
     question: "How long before I see SEO results?",
     answer:
-      "On-page SEO improvements can start showing traction in four to eight weeks. Competitive keywords in a market like San Antonio may take three to six months to rank well. We set realistic expectations and focus on steady, measurable gains.",
+      "On-page SEO improvements can start showing traction in four to eight weeks. Competitive keywords in your local market may take three to six months to rank well. We set realistic expectations and focus on steady, measurable gains.",
   },
   {
     question: "Do you offer bilingual marketing?",
     answer:
-      "Yes. Over 60 percent of San Antonio's population is Hispanic, and we build with that in mind. We offer bilingual website content, ad copy, and social media in both English and Spanish so you can reach the full local market.",
+      "Yes. We offer bilingual website content, ad copy, and social media in both English and Spanish so you can reach a broader local audience.",
   },
   {
     question: "What if I need changes after launch?",
@@ -94,8 +94,8 @@ export default function FAQ() {
             Common Questions, Straight Answers
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
-            No jargon, no runaround. Here is what San Antonio business owners
-            ask us most.
+            No jargon, no runaround. Here is what business owners ask us
+            most.
           </p>
         </div>
 

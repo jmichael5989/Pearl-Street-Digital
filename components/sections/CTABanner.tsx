@@ -7,7 +7,7 @@ export default function CTABanner() {
             Get Started
           </span>
           <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-white">
-            Ready to Grow Your San Antonio Business?
+            Ready to Grow Your Business?
           </h2>
           <p className="mt-4 text-[#94A3B8] max-w-lg mx-auto">
             Get a professional website built in two to three weeks -- no

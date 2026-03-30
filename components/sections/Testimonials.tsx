@@ -39,8 +39,7 @@ export default function Testimonials() {
             What Our Clients Say
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
-            Real feedback from San Antonio business owners who chose Pearl
-            Street Digital.
+            Real feedback from business owners who chose Pearl Street Digital.
           </p>
         </div>
 

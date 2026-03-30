@@ -36,8 +36,8 @@ export default function IndustrySolutions({
             Solutions Built for {industry.title}
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
-            Every service is tailored to how {industry.title.toLowerCase()} in
-            San Antonio actually find and win customers.
+            Every service is tailored to how {industry.title.toLowerCase()}{" "}
+            actually find and win customers.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">

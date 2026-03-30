@@ -33,7 +33,7 @@ export default function AboutTeam() {
             </h3>
             <p className="mt-1 text-sm font-medium text-primary">Founder</p>
             <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-gray">
-              San Antonio native with a passion for helping local businesses grow
+              Texas native with a passion for helping local businesses grow
               online. Combines hands-on marketing expertise with AI-powered tools
               to deliver results that actually move the needle for small
               businesses.

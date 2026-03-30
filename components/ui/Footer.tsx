@@ -51,7 +51,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm leading-relaxed max-w-[280px]">
-              AI-powered digital marketing for San Antonio small businesses.
+              AI-powered digital marketing for local small businesses.
               Websites, SEO, and ads that actually drive results.
             </p>
           </div>

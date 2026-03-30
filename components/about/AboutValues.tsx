@@ -80,7 +80,7 @@ const values = [
   {
     title: "Local Focus",
     description:
-      "We live and work in San Antonio. We know the neighborhoods, the competition, and what local customers search for. That context makes our strategies sharper.",
+      "We know local markets inside and out -- the neighborhoods, the competition, and what customers actually search for. That context makes our strategies sharper.",
     icon: (
       <svg
         width={20}

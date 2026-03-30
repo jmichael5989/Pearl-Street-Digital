@@ -61,7 +61,7 @@ const industries = [
     icon: <BriefcaseIcon />,
     title: "Professional Services",
     description:
-      "Law firms, accountants, consultants — build authority and generate qualified leads in the San Antonio market.",
+      "Law firms, accountants, consultants — build authority and generate qualified leads in your local market.",
     href: "/industries",
   },
   {

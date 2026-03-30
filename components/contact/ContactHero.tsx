@@ -9,8 +9,8 @@ export default function ContactHero() {
           Let&apos;s Build Something Great Together
         </h1>
         <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
-          Free consultations for San Antonio small businesses. We respond to
-          every inquiry within one business day.
+          Free consultations for small businesses. We respond to every inquiry
+          within one business day.
         </p>
       </div>
     </section>

@@ -248,7 +248,7 @@ export default function Hero() {
                 style={{ animation: "badgePulse 2s ease-in-out infinite" }}
               />
               <span className="text-[0.8125rem] font-medium uppercase tracking-[0.04em] text-primary">
-                San Antonio Digital Marketing
+                AI-Powered Digital Marketing
               </span>
             </div>
 
@@ -283,9 +283,9 @@ export default function Hero() {
                 animation: "fadeUp 1s ease-out 0.75s both",
               }}
             >
-              We build fast, bilingual websites and run local SEO campaigns for
-              San Antonio small businesses. No long-term contracts. No fluff.
-              Just more calls and foot traffic.
+              We build high-performance websites and run local SEO campaigns
+              for local small businesses. No long-term contracts. No
+              fluff. Just more calls and foot traffic.
             </p>
 
             {/* CTA Buttons */}
@@ -331,7 +331,7 @@ export default function Hero() {
                 <CheckIcon /> No contracts
               </span>
               <span className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
-                <CheckIcon /> English and Spanish
+                <CheckIcon /> Sites from $250
               </span>
               <span className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
                 <CheckIcon /> Results in 30 days

@@ -36,7 +36,7 @@ export default function IndustryPainPoints({
             Sound Familiar?
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
-            These are the problems we hear from {industry.title.toLowerCase()} in San Antonio every week.
+            These are the problems we hear from {industry.title.toLowerCase()} every week.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">

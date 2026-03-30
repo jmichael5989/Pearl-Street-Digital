@@ -63,7 +63,7 @@ const services = [
     title: "Website Design",
     slug: "website-design",
     description:
-      "High-performance websites built for speed, SEO, and conversions. Designed to represent your San Antonio business the way it deserves.",
+      "High-performance websites built for speed, SEO, and conversions. Designed to represent your business the way it deserves.",
   },
   {
     icon: <SearchIcon />,
@@ -84,7 +84,7 @@ const services = [
     title: "PPC / Google Ads",
     slug: "ppc-google-ads",
     description:
-      "Targeted ad campaigns that put your business in front of customers actively searching for your services in San Antonio.",
+      "Targeted ad campaigns that put your business in front of customers actively searching for your services in your area.",
   },
   {
     icon: <SparkleIcon />,
@@ -98,7 +98,7 @@ const services = [
     title: "Reputation Management",
     slug: "reputation-management",
     description:
-      "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your San Antonio business has earned.",
+      "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your business has earned.",
   },
 ];
 
