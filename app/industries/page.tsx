@@ -27,11 +27,11 @@ function ArrowRightIcon({ className }: { className?: string }) {
 export const metadata: Metadata = {
   title: "Industries We Serve San Antonio | Pearl Street Digital",
   description:
-    "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses. Industry-specific strategies that drive real results.",
+    "Digital marketing and website design for San Antonio restaurants, salons, auto repair, HVAC, dental, and real estate businesses. Industry-specific strategies that drive real results.",
   openGraph: {
     title: "Industries We Serve San Antonio | Pearl Street Digital",
     description:
-      "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses. Industry-specific strategies that drive real results.",
+      "Digital marketing and website design for San Antonio restaurants, salons, auto repair, HVAC, dental, and real estate businesses. Industry-specific strategies that drive real results.",
     url: "https://pearlstreetdigital.com/industries",
     siteName: "Pearl Street Digital",
     locale: "en_US",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Industries We Serve San Antonio | Pearl Street Digital",
     description:
-      "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses.",
+      "Digital marketing and website design for San Antonio restaurants, salons, auto repair, HVAC, dental, and real estate businesses.",
   },
   alternates: { canonical: "https://pearlstreetdigital.com/industries" },
 };

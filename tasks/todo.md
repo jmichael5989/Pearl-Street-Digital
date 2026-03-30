@@ -100,6 +100,68 @@ Hero, StatsBar, Services, WhyUs, Industries, Testimonials, Pricing, Process, Abo
 
 ---
 
-## Task 4: TBD [NOT STARTED]
+## Task 4: Sprint 5 -- SEO Infrastructure, Legal Pages, Blog, Industry Expansion, Analytics [COMPLETED]
+
+### What was done
+
+**Phase 1: SEO Infrastructure**
+- Created `app/sitemap.ts` -- dynamic sitemap.xml generation covering all 20+ pages (static, services, industries, blog)
+- Created `app/robots.ts` -- robots.txt with allow/disallow rules and sitemap reference
+- Updated footer legal links from `#` placeholders to real `/privacy`, `/terms`, `/sitemap.xml` routes
+
+**Phase 2: Legal Pages**
+- Created `app/privacy/page.tsx` -- full Privacy Policy with sections for data collection, cookies, security, rights, GDPR-aware language
+- Created `app/terms/page.tsx` -- full Terms of Service covering pricing, IP ownership, client responsibilities, Texas governing law
+
+**Phase 3: Blog Infrastructure**
+- Created `lib/blog-data.ts` -- typed blog post data model with paragraph, heading, and list content sections
+- Created 2 initial blog posts:
+  - "Why Every San Antonio Business Needs a Website in 2026" (Web Design category)
+  - "The Complete Google Business Profile Setup Guide for San Antonio Businesses" (Local SEO category)
+- Created `app/blog/page.tsx` -- blog hub with category badges, date/read-time metadata, card grid
+- Created `app/blog/[slug]/page.tsx` -- dynamic blog post pages with BlogPosting JSON-LD schema, back navigation, inline CTA
+
+**Phase 4: 3 New Industry Pages**
+- Added HVAC & Plumbing, Dental Practices, and Real Estate Agents data to `lib/industries-data.ts`
+- Created `app/industries/hvac/page.tsx` with full metadata, Service + FAQPage JSON-LD schema
+- Created `app/industries/dental/page.tsx` with full metadata, Service + FAQPage JSON-LD schema
+- Created `app/industries/real-estate/page.tsx` with full metadata, Service + FAQPage JSON-LD schema
+- Updated industries hub metadata to include new industries
+- Updated footer industry links to reference all 6 industries (removed placeholder "Home Services" / "Healthcare")
+
+**Phase 5: Google Analytics 4 + GTM Integration**
+- Created `components/analytics/GoogleAnalytics.tsx` with GA4 (`gtag.js`), GTM script injection, and GTM noscript fallback
+- All gated behind `NEXT_PUBLIC_GA_MEASUREMENT_ID` and `NEXT_PUBLIC_GTM_ID` env vars (zero impact when not set)
+- Integrated into `app/layout.tsx` via `<head>` for GA4/GTM and `<body>` for GTM noscript
+
+### Files created
+- `app/sitemap.ts`
+- `app/robots.ts`
+- `app/privacy/page.tsx`
+- `app/terms/page.tsx`
+- `lib/blog-data.ts`
+- `app/blog/page.tsx`
+- `app/blog/[slug]/page.tsx`
+- `app/industries/hvac/page.tsx`
+- `app/industries/dental/page.tsx`
+- `app/industries/real-estate/page.tsx`
+- `components/analytics/GoogleAnalytics.tsx`
+
+### Files modified
+- `lib/industries-data.ts` (added 3 new industries)
+- `components/ui/Footer.tsx` (updated industry links, blog link, legal links)
+- `app/industries/page.tsx` (updated metadata descriptions)
+- `app/layout.tsx` (added GA4/GTM integration)
+
+### Site totals after Sprint 5
+- **24 pages** (was 17): homepage, about, contact, 6 services, services hub, 6 industries, industries hub, case studies hub, 1 case study, blog hub, 2 blog posts, privacy, terms
+- **44 components** (was 41): added GoogleAnalytics module
+- **6 industries** (was 3): added HVAC, Dental, Real Estate
+- **2 blog posts** (new)
+- **SEO**: sitemap.xml, robots.txt, BlogPosting schema, all new pages have full metadata
+
+---
+
+## Task 5: TBD [NOT STARTED]
 
 _(Next task TBD)_
