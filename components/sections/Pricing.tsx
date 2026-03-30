@@ -104,7 +104,7 @@ function PricingCard({ plan }: { plan: Plan }) {
           ))}
         </ul>
         <a
-          href="#contact"
+          href="/contact"
           className="block w-full rounded-xl py-3 text-center text-sm font-semibold text-white transition-all hover:opacity-90"
           style={{
             background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
@@ -142,7 +142,7 @@ function PricingCard({ plan }: { plan: Plan }) {
         ))}
       </ul>
       <a
-        href="#contact"
+        href="/contact"
         className="block w-full rounded-xl bg-dark py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#1E293B]"
       >
         Get Started

@@ -15,7 +15,7 @@ export default function CTABanner() {
             free.
           </p>
           <a
-            href="#contact"
+            href="/contact"
             className="mt-8 inline-block rounded-xl px-8 py-4 text-center font-semibold text-white transition-all hover:opacity-90"
             style={{
               background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",

@@ -46,6 +46,60 @@ Hero, StatsBar, Services, WhyUs, Industries, Testimonials, Pricing, Process, Abo
 
 ---
 
-## Task 3: TBD [NOT STARTED]
+## Task 3: Contact Page + About Page + CTA Link Fix [COMPLETED]
+
+### What was done
+
+**Phase 1: Extracted reusable components**
+- Created `components/forms/ContactForm.tsx` -- standalone client component with React Hook Form, validation, success state
+- Created `components/icons/ContactIcons.tsx` -- PhoneIcon, MailIcon, MapPinIcon, ClockIcon SVGs
+- Refactored `components/sections/Contact.tsx` to import ContactForm + ContactIcons (no more inline form/icons)
+
+**Phase 2: Contact page (`/contact`)**
+- Created `app/contact/page.tsx` with full metadata and ContactPage JSON-LD schema
+- Created `components/contact/ContactHero.tsx` -- dark bg hero with H1 "Let's Build Something Great Together"
+- Created `components/contact/ContactContent.tsx` -- two-column layout: contact info + hours + Google Maps embed (left), ContactForm (right)
+
+**Phase 3: About page (`/about`)**
+- Created `app/about/page.tsx` with full metadata and AboutPage + Organization JSON-LD schema
+- Created `components/about/AboutHero.tsx` -- dark bg hero with H1 "San Antonio Roots. Modern Tools. Honest Work."
+- Created `components/about/AboutStory.tsx` -- founding story with decorative quote card
+- Created `components/about/AboutValues.tsx` -- 6 value cards (Transparency, Ownership, AI Tools, Speed, Local Focus, No Contracts)
+- Created `components/about/AboutTeam.tsx` -- founder card for Jon
+- Created `components/about/AboutStats.tsx` -- 4 stats on dark background
+
+**Phase 4: Fixed all CTA links site-wide**
+- Changed `#contact` to `/contact` in: Header, Hero, CTABanner, Pricing, ServiceHero, IndustryHero, IndustryPricing
+- Changed `#about` to `/about` and `#pricing` to `/#pricing` in Footer
+- Changed `#pricing` to `/#pricing` in Header nav
+- All CTAs now work correctly from every page
+
+### Files created
+- `components/forms/ContactForm.tsx`
+- `components/icons/ContactIcons.tsx`
+- `components/contact/ContactHero.tsx`
+- `components/contact/ContactContent.tsx`
+- `app/contact/page.tsx`
+- `components/about/AboutHero.tsx`
+- `components/about/AboutStory.tsx`
+- `components/about/AboutValues.tsx`
+- `components/about/AboutTeam.tsx`
+- `components/about/AboutStats.tsx`
+- `app/about/page.tsx`
+
+### Files modified
+- `components/sections/Contact.tsx` (refactored to use extracted components)
+- `components/ui/Header.tsx` (nav links + CTA buttons)
+- `components/ui/Footer.tsx` (company links)
+- `components/sections/Hero.tsx` (CTA links)
+- `components/sections/CTABanner.tsx` (CTA link)
+- `components/sections/Pricing.tsx` (Get Started buttons)
+- `components/services/ServiceHero.tsx` (CTA link)
+- `components/industries/IndustryHero.tsx` (CTA link)
+- `components/industries/IndustryPricing.tsx` (CTA link)
+
+---
+
+## Task 4: TBD [NOT STARTED]
 
 _(Next task TBD)_

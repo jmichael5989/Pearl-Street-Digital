@@ -146,14 +146,14 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-4 mb-12 max-[900px]:justify-center">
             <Link
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-br from-primary to-primary-dark px-7 py-3.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)] transition-all duration-300 hover:shadow-[0_6px_20px_rgba(20,184,166,0.5)] hover:-translate-y-0.5"
             >
               Get Your Free Audit
               <ArrowRightIcon />
             </Link>
             <Link
-              href="#pricing"
+              href="/#pricing"
               className="inline-flex items-center rounded-lg border border-[rgba(148,163,184,0.25)] bg-dark px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[rgba(255,255,255,0.05)] hover:border-[rgba(148,163,184,0.4)]"
             >
               View Pricing

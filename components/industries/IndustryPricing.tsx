@@ -38,7 +38,7 @@ export default function IndustryPricing({
                 {industry.pricingTier.description}
               </p>
               <a
-                href="#contact"
+                href="/contact"
                 className="mt-8 inline-flex items-center justify-center rounded-xl px-8 py-3.5 font-heading font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 w-full"
                 style={{
                   background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",

@@ -7,8 +7,8 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Industries", href: "/industries" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function PhoneIcon({ className }: { className?: string }) {
@@ -159,7 +159,7 @@ export default function Header() {
               (210) 555-1234
             </a>
             <Link
-              href="#contact"
+              href="/contact"
               className="inline-flex items-center rounded-lg bg-gradient-to-br from-accent to-accent-dark px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(139,92,246,0.35)] transition-all duration-300 hover:shadow-[0_6px_20px_rgba(139,92,246,0.5)] hover:-translate-y-0.5"
             >
               Free Website Audit
@@ -206,7 +206,7 @@ export default function Header() {
               (210) 555-1234
             </a>
             <Link
-              href="#contact"
+              href="/contact"
               onClick={() => setMobileOpen(false)}
               className="block mx-4 text-center rounded-lg bg-gradient-to-br from-accent to-accent-dark px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(139,92,246,0.35)]"
             >
