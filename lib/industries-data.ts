@@ -306,6 +306,282 @@ export const industries: IndustryData[] = [
       },
     ],
   },
+  {
+    slug: "hvac",
+    title: "HVAC & Plumbing",
+    metaTitle:
+      "HVAC & Plumbing Website Design San Antonio | Pearl Street Digital",
+    metaDescription:
+      "Website design and digital marketing for San Antonio HVAC companies, plumbers, and home service businesses. Get found when customers need you most.",
+    heroHeading:
+      "HVAC and Plumbing Website Design in San Antonio",
+    heroSubtitle:
+      "When a furnace dies in February or a pipe bursts at midnight, the homeowner searches their phone for help. If your company does not show up in those emergency searches, the job goes to a competitor.",
+    painPoints: [
+      {
+        title: "Losing Emergency Calls to Competitors",
+        description:
+          "Emergency HVAC and plumbing searches go to whoever shows up first. Without strong local SEO, you miss the highest-value calls -- the ones where customers need help right now and are not shopping on price.",
+      },
+      {
+        title: "No Online Booking or Quote Requests",
+        description:
+          "Homeowners expect to request service online. If your only option is a phone call during business hours, you lose after-hours leads to companies with online scheduling forms.",
+      },
+      {
+        title: "Competing Against National Franchises",
+        description:
+          "Companies like Service Experts and Roto-Rooter pour money into digital ads. Independent HVAC and plumbing businesses need a focused local strategy to compete in the same search results.",
+      },
+      {
+        title: "Reviews Scattered Across Platforms",
+        description:
+          "Your best customers leave reviews on Yelp, Google, Facebook, and Nextdoor. Without a review management strategy, that social proof is fragmented and underutilized.",
+      },
+    ],
+    solutions: [
+      {
+        title: "Emergency-Ready Website",
+        description:
+          "A fast, mobile-first website with click-to-call buttons, online service request forms, and clear service area pages. Built to convert panicked homeowners into booked appointments.",
+        serviceSlug: "website-design",
+      },
+      {
+        title: "Local SEO for Service Areas",
+        description:
+          "We optimize your Google Business Profile and build location-specific content so you rank for searches like \"AC repair near me\" and \"emergency plumber San Antonio\" across your entire service area.",
+        serviceSlug: "local-seo",
+      },
+      {
+        title: "Review Generation System",
+        description:
+          "Automated follow-ups after every service call that make it easy for satisfied customers to leave Google reviews. More five-star reviews means higher rankings and more trust.",
+        serviceSlug: "reputation-management",
+      },
+      {
+        title: "Google Ads for Emergency Searches",
+        description:
+          "Targeted PPC campaigns for high-intent searches like \"AC not working\" and \"pipe burst San Antonio.\" We put your phone number at the top of Google when customers need you most.",
+        serviceSlug: "ppc-google-ads",
+      },
+    ],
+    pricingTier: {
+      name: "Business",
+      price: "$500",
+      description:
+        "Most HVAC and plumbing companies start with our Business tier -- a professional website with service request forms, Google Business Profile setup, and local SEO foundations. One-time build, no contracts.",
+    },
+    faqs: [
+      {
+        question:
+          "How quickly can you build a website for my HVAC company?",
+        answer:
+          "Most HVAC and plumbing websites are completed in two to three weeks. We prioritize getting your online service request forms and click-to-call functionality live as quickly as possible so you start capturing leads immediately.",
+      },
+      {
+        question:
+          "Can you help me rank for emergency service searches?",
+        answer:
+          "Yes. Emergency searches like \"AC repair near me\" and \"emergency plumber San Antonio\" are our primary targets. We combine Google Business Profile optimization, local SEO, and optional Google Ads to get your business visible for these high-value searches.",
+      },
+      {
+        question:
+          "Do you work with both HVAC and plumbing businesses?",
+        answer:
+          "Absolutely. We work with HVAC companies, plumbers, electricians, and general home service businesses. Each website and marketing strategy is tailored to your specific services and service area coverage.",
+      },
+      {
+        question:
+          "How do I compete with big franchise HVAC companies online?",
+        answer:
+          "Local SEO is your biggest advantage. Google prioritizes businesses with strong local signals -- real customer reviews, accurate service area information, and locally relevant content. We build all of that for independent operators.",
+      },
+    ],
+  },
+  {
+    slug: "dental",
+    title: "Dental Practices",
+    metaTitle:
+      "Dentist Website Design San Antonio | Pearl Street Digital",
+    metaDescription:
+      "Website design and digital marketing for San Antonio dental practices. Attract new patients, fill your schedule, and build a reputation that grows your practice.",
+    heroHeading:
+      "Dental Practice Website Design and Marketing in San Antonio",
+    heroSubtitle:
+      "San Antonio has over 1,500 dental practices. When a new resident searches \"dentist near me,\" your practice needs to stand out with a professional website, strong reviews, and top-tier local search visibility.",
+    painPoints: [
+      {
+        title: "New Patients Choosing Competitors",
+        description:
+          "New residents and patients switching dentists search online first. If your website looks outdated or your Google reviews are thin, they book with the practice that looks more professional and trustworthy.",
+      },
+      {
+        title: "No Online Appointment Booking",
+        description:
+          "Patients want to request appointments at any hour. If your practice only accepts phone calls during office hours, you lose potential patients who find a competitor offering online booking.",
+      },
+      {
+        title: "Weak Google Presence",
+        description:
+          "Your Google Business Profile has limited photos, few reviews, and generic descriptions. Meanwhile, corporate dental chains invest heavily in their online presence and dominate local search results.",
+      },
+      {
+        title: "Marketing Budget Going to Waste",
+        description:
+          "Direct mail and print ads are expensive and hard to measure. Digital marketing lets you target patients actively searching for a dentist in your area and track every lead to its source.",
+      },
+    ],
+    solutions: [
+      {
+        title: "Patient-Focused Website",
+        description:
+          "A clean, trustworthy website with service descriptions, doctor bios, insurance information, and online appointment request forms. Designed to convert browsers into booked patients.",
+        serviceSlug: "website-design",
+      },
+      {
+        title: "Local SEO for Dental Searches",
+        description:
+          "We optimize your Google Business Profile and website for searches like \"dentist near me,\" \"family dentist San Antonio,\" and \"emergency dental San Antonio\" so new patients find you first.",
+        serviceSlug: "local-seo",
+      },
+      {
+        title: "Patient Review Management",
+        description:
+          "Automated review requests sent after each appointment make it easy for happy patients to leave Google reviews. We also monitor and respond to reviews to maintain your professional reputation.",
+        serviceSlug: "reputation-management",
+      },
+      {
+        title: "Targeted Google Ads",
+        description:
+          "PPC campaigns targeting high-value searches like \"cosmetic dentist San Antonio\" and \"same-day dental crowns.\" We focus your ad spend on the procedures that matter most to your bottom line.",
+        serviceSlug: "ppc-google-ads",
+      },
+    ],
+    pricingTier: {
+      name: "Business",
+      price: "$500",
+      description:
+        "Our Business tier is ideal for dental practices -- a professional website with appointment request forms, service pages, and Google Business Profile optimization. One-time build, no contracts.",
+    },
+    faqs: [
+      {
+        question:
+          "How do you help dental practices get more patients?",
+        answer:
+          "We combine a professional website, Google Business Profile optimization, review management, and optional Google Ads to make sure your practice appears when San Antonio residents search for a dentist. Every element is designed to convert searchers into booked appointments.",
+      },
+      {
+        question:
+          "Can you integrate with my practice management software?",
+        answer:
+          "We build websites that work with popular dental practice management systems. Online appointment request forms send leads directly to your front desk, and we can integrate with platforms like Dentrix, Eaglesoft, or Open Dental for scheduling workflows.",
+      },
+      {
+        question:
+          "How important are Google reviews for dental practices?",
+        answer:
+          "Extremely important. Reviews are the number one factor patients consider when choosing a new dentist. Practices with 50 or more Google reviews and a 4.5-plus rating consistently outperform competitors in both trust and local search rankings.",
+      },
+      {
+        question:
+          "Do you handle HIPAA compliance for dental websites?",
+        answer:
+          "We build websites with HIPAA-aware contact forms that do not store protected health information on the web server. For practices that need full HIPAA-compliant patient portals, we recommend integrating with a certified platform and can help set that up.",
+      },
+    ],
+  },
+  {
+    slug: "real-estate",
+    title: "Real Estate Agents",
+    metaTitle:
+      "Real Estate Agent Website Design San Antonio | Pearl Street Digital",
+    metaDescription:
+      "Website design and digital marketing for San Antonio real estate agents and brokerages. Generate leads, build your brand, and close more deals.",
+    heroHeading:
+      "Real Estate Agent Website Design and Marketing in San Antonio",
+    heroSubtitle:
+      "San Antonio is one of the fastest-growing metros in the country. With thousands of agents competing for the same buyers and sellers, your online presence is what separates you from the pack.",
+    painPoints: [
+      {
+        title: "Drowning in a Sea of Agents",
+        description:
+          "The San Antonio Board of Realtors has thousands of members. Buyers and sellers default to agents they find online first. Without a strong digital presence, you are invisible to most potential clients.",
+      },
+      {
+        title: "Relying Solely on Zillow and Realtor.com",
+        description:
+          "Portal leads are expensive and shared with multiple agents. Your own website and SEO strategy generate exclusive leads that come directly to you, not to you and three competitors simultaneously.",
+      },
+      {
+        title: "Generic Brokerage Website",
+        description:
+          "Cookie-cutter pages on your brokerage website do not differentiate you. A personal brand website with neighborhood expertise, testimonials, and your unique value proposition builds trust before the first phone call.",
+      },
+      {
+        title: "No System for Past Client Follow-Up",
+        description:
+          "Most real estate business comes from referrals and repeat clients. Without an online presence that keeps you top of mind, past clients forget your name when their friend asks for an agent recommendation.",
+      },
+    ],
+    solutions: [
+      {
+        title: "Personal Brand Website",
+        description:
+          "A polished, professional website that showcases your listings, neighborhood guides, client testimonials, and market expertise. Built to convert visitors into consultation requests.",
+        serviceSlug: "website-design",
+      },
+      {
+        title: "Local SEO for Real Estate",
+        description:
+          "We optimize your online presence for searches like \"homes for sale in [neighborhood]\" and \"San Antonio real estate agent.\" Neighborhood-focused content establishes you as the local expert.",
+        serviceSlug: "local-seo",
+      },
+      {
+        title: "Social Media for Agents",
+        description:
+          "Consistent social media content featuring market updates, new listings, sold properties, and neighborhood highlights. We keep your name in front of your sphere without you spending hours creating content.",
+        serviceSlug: "social-media",
+      },
+      {
+        title: "Google Ads for Buyer and Seller Leads",
+        description:
+          "Targeted PPC campaigns for high-intent searches like \"homes for sale Stone Oak\" and \"sell my house San Antonio.\" Exclusive leads delivered directly to you, not shared with other agents.",
+        serviceSlug: "ppc-google-ads",
+      },
+    ],
+    pricingTier: {
+      name: "Business",
+      price: "$500",
+      description:
+        "Our Business tier gives agents a professional personal brand website with listing integration, a lead capture system, and Google Business Profile optimization. One-time build, no contracts.",
+    },
+    faqs: [
+      {
+        question:
+          "Why do I need my own website as a real estate agent?",
+        answer:
+          "Your brokerage website does not differentiate you from other agents. A personal website lets you control your brand, showcase your expertise in specific neighborhoods, and capture leads that come exclusively to you instead of being distributed to the whole office.",
+      },
+      {
+        question:
+          "Can you add IDX listing search to my website?",
+        answer:
+          "Yes. We can integrate IDX search functionality so visitors can browse active listings directly on your website. This keeps potential buyers on your site longer and captures their contact information when they save searches or request showings.",
+      },
+      {
+        question:
+          "How do real estate agents benefit from local SEO?",
+        answer:
+          "Real estate is hyperlocal. When someone searches \"homes for sale in Alamo Heights\" or \"best real estate agent Stone Oak,\" local SEO puts your name and website at the top of those results. Neighborhood-focused content is your biggest competitive advantage online.",
+      },
+      {
+        question:
+          "Do you work with teams and brokerages or just individual agents?",
+        answer:
+          "We work with individual agents, teams, and small brokerages. Whether you need a single agent website or a team site with multiple agent profiles and shared listings, we tailor the project to your structure.",
+      },
+    ],
+  },
 ];
 
 export function getIndustry(slug: string): IndustryData {

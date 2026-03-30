@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import { Outfit, DM_Sans } from "next/font/google";
+import {
+  GoogleAnalytics,
+  GoogleTagManager,
+  GoogleTagManagerNoscript,
+} from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -49,7 +54,12 @@ export default function RootLayout({
       lang="en"
       className={`${outfit.variable} ${dmSans.variable} h-full antialiased`}
     >
+      <head>
+        <GoogleAnalytics />
+        <GoogleTagManager />
+      </head>
       <body className="min-h-full flex flex-col">
+        <GoogleTagManagerNoscript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
