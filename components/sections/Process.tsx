@@ -48,7 +48,7 @@ export default function Process() {
             className="absolute left-7 top-7 bottom-7 w-0.5 hidden sm:block"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(20,184,166,0.2), rgba(139,92,246,0.2))",
+                "linear-gradient(to bottom, rgba(20,184,166,0.2), rgba(37,99,235,0.2))",
             }}
           />
 

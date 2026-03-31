@@ -3,8 +3,8 @@
 @theme inline {
   --color-primary: #14B8A6;
   --color-primary-dark: #0D9488;
-  --color-accent: #8B5CF6;
-  --color-accent-dark: #7C3AED;
+  --color-accent: #2563EB;
+  --color-accent-dark: #1D4ED8;
   --color-dark: #0F172A;
   --color-light: #F0FDFA;
   --color-gray: #6B7280;
@@ -13,8 +13,8 @@
   --color-border: #E5E7EB;
   --color-icon-service-bg: #F0FDFA;
   --color-icon-service-border: #CCFBF1;
-  --color-icon-industry-bg: #F5F3FF;
-  --color-icon-industry-border: #EDE9FE;
+  --color-icon-industry-bg: #EFF6FF;
+  --color-icon-industry-border: #DBEAFE;
   --font-heading: var(--font-outfit);
   --font-body: var(--font-dm-sans);
 }

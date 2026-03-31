@@ -94,7 +94,7 @@ export default function Hero() {
         color:
           Math.random() < 0.7
             ? "rgba(20,184,166,0.4)"
-            : "rgba(139,92,246,0.4)",
+            : "rgba(37,99,235,0.4)",
       });
     }
     setParticles(generated);
@@ -158,7 +158,7 @@ export default function Hero() {
               style={{
                 backgroundImage: [
                   "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(20,184,166,0.25), transparent 60%)",
-                  "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(139,92,246,0.2), transparent 55%)",
+                  "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(37,99,235,0.2), transparent 55%)",
                   "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(15,23,42,0.5), transparent 80%)",
                 ].join(", "),
                 backgroundSize: "200% 200%, 200% 200%, 200% 200%",
@@ -225,7 +225,7 @@ export default function Hero() {
                 className="bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    "linear-gradient(135deg, #14B8A6 0%, #5EEAD4 50%, #8B5CF6 100%)",
+                    "linear-gradient(135deg, #14B8A6 0%, #5EEAD4 50%, #2563EB 100%)",
                 }}
               >
                 actually bring you customers
@@ -337,7 +337,7 @@ export default function Hero() {
         <div
           className="hero-accent-line absolute bottom-0 left-0 right-0 z-[5] h-[3px]"
           style={{
-            background: "linear-gradient(90deg, #14B8A6, #8B5CF6, #14B8A6)",
+            background: "linear-gradient(90deg, #14B8A6, #2563EB, #14B8A6)",
             backgroundSize: "200% 100%",
             animation: "accentLine 6s ease-in-out infinite",
           }}

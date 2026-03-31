@@ -9,7 +9,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudyData }) {
             className={`inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] ${
               study.industryColor === "teal"
                 ? "bg-[rgba(20,184,166,0.12)] text-primary"
-                : "bg-[rgba(139,92,246,0.12)] text-accent"
+                : "bg-[rgba(37,99,235,0.12)] text-accent"
             }`}
           >
             {study.industry}
@@ -24,7 +24,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudyData }) {
             {study.serviceSlugs.map((slug) => (
               <span
                 key={slug}
-                className="rounded-lg border border-[rgba(139,92,246,0.3)] px-3 py-1 text-xs font-medium text-[#C4B5FD] uppercase tracking-wider"
+                className="rounded-lg border border-[rgba(37,99,235,0.3)] px-3 py-1 text-xs font-medium text-[#93C5FD] uppercase tracking-wider"
               >
                 {slug.replace(/-/g, " ")}
               </span>

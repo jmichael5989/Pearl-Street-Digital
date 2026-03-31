@@ -72,11 +72,11 @@ const plans: Plan[] = [
 function PricingCard({ plan }: { plan: Plan }) {
   if (plan.featured) {
     return (
-      <div className="relative rounded-2xl border-2 border-accent bg-dark p-8 pt-12 shadow-[0_20px_50px_rgba(139,92,246,0.15)] transition-all duration-300 hover:-translate-y-1">
+      <div className="relative rounded-2xl border-2 border-accent bg-dark p-8 pt-12 shadow-[0_20px_50px_rgba(37,99,235,0.15)] transition-all duration-300 hover:-translate-y-1">
         <span
           className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white whitespace-nowrap"
           style={{
-            background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
+            background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
           }}
         >
           Most Popular
@@ -107,8 +107,8 @@ function PricingCard({ plan }: { plan: Plan }) {
           href="/contact"
           className="block w-full rounded-xl py-3 text-center text-sm font-semibold text-white transition-all hover:opacity-90"
           style={{
-            background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-            boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
+            background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+            boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
           }}
         >
           Get Started
@@ -175,14 +175,12 @@ export default function Pricing() {
         </div>
 
         <div className="mt-12 rounded-2xl border border-icon-service-border bg-icon-service-bg p-6 text-center sm:text-left">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4">
-            <p className="font-heading font-semibold text-dark">
-              Optional: Hosting and Maintenance
-            </p>
-            <span className="shrink-0 font-heading text-lg font-bold text-[#0D9488]">
-              $100/mo
+          <p className="font-heading font-semibold text-dark">
+            Optional: Hosting and Maintenance{" "}
+            <span className="font-heading text-lg font-bold text-[#0D9488]">
+              -- $100/mo
             </span>
-          </div>
+          </p>
           <p className="text-sm text-gray mt-1">
             We handle updates, security, backups, and uptime monitoring so you
             never have to think about it.

@@ -160,7 +160,7 @@ export default function Header() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-lg bg-gradient-to-br from-accent to-accent-dark px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(139,92,246,0.35)] transition-all duration-300 hover:shadow-[0_6px_20px_rgba(139,92,246,0.5)] hover:-translate-y-0.5"
+              className="inline-flex items-center rounded-lg bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)] transition-all duration-300 hover:shadow-[0_6px_20px_rgba(37,99,235,0.5)] hover:-translate-y-0.5"
             >
               Free Website Audit
             </Link>
@@ -208,7 +208,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="block mx-4 text-center rounded-lg bg-gradient-to-br from-accent to-accent-dark px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(139,92,246,0.35)]"
+              className="block mx-4 text-center rounded-lg bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
             >
               Free Website Audit
             </Link>
