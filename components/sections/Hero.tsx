@@ -99,64 +99,6 @@ export default function Hero() {
 
   return (
     <>
-      <style>{`
-        @keyframes kenBurns {
-          0% { transform: scale(1) translate(0, 0); }
-          100% { transform: scale(1.08) translate(-1%, -0.5%); }
-        }
-        @keyframes gradientMesh {
-          0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
-          100% { background-position: 30% 70%, 70% 30%, 60% 40%; }
-        }
-        @keyframes floatUp {
-          0% { transform: translateY(100vh); opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { transform: translateY(-10vh); opacity: 0; }
-        }
-        @keyframes shimmer {
-          0% { transform: translateX(-100%) rotate(-15deg); }
-          100% { transform: translateX(200%) rotate(-15deg); }
-        }
-        @keyframes accentLine {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        @keyframes scrollDot {
-          0%, 100% { transform: translateY(0); opacity: 1; }
-          50% { transform: translateY(8px); opacity: 0.3; }
-        }
-        @keyframes badgePulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(0.7); opacity: 0.5; }
-        }
-        @keyframes fadeUp {
-          0% { transform: translateY(30px); opacity: 0; }
-          100% { transform: translateY(0); opacity: 1; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .hero-ken-burns,
-          .hero-gradient-mesh,
-          .hero-particle,
-          .hero-shimmer,
-          .hero-accent-line,
-          .hero-scroll-dot,
-          .hero-badge-pulse,
-          .hero-fade-up {
-            animation: none !important;
-          }
-          .hero-fade-up {
-            opacity: 1 !important;
-            transform: none !important;
-          }
-        }
-        @media (max-width: 639px) {
-          .hero-ken-burns { animation: none !important; }
-          .hero-gradient-mesh { animation: none !important; }
-        }
-      `}</style>
-
       <section className="relative min-h-screen flex items-center overflow-hidden bg-dark">
         {/* Layer 1: Ken Burns Photo */}
         <div className="absolute inset-0 z-[1]">
