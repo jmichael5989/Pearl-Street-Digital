@@ -25,25 +25,25 @@ function ArrowRightIcon({ className }: { className?: string }) {
 }
 
 export const metadata: Metadata = {
-  title: "Industries We Serve San Antonio | Pearl Street Digital",
+  title: "Industries We Serve San Antonio | Rank Point Media",
   description:
     "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses. Industry-specific strategies that drive real results.",
   openGraph: {
-    title: "Industries We Serve San Antonio | Pearl Street Digital",
+    title: "Industries We Serve San Antonio | Rank Point Media",
     description:
       "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses. Industry-specific strategies that drive real results.",
-    url: "https://pearlstreetdigital.com/industries",
-    siteName: "Pearl Street Digital",
+    url: "https://rankpointmedia.com/industries",
+    siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Industries We Serve San Antonio | Pearl Street Digital",
+    title: "Industries We Serve San Antonio | Rank Point Media",
     description:
       "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses.",
   },
-  alternates: { canonical: "https://pearlstreetdigital.com/industries" },
+  alternates: { canonical: "https://rankpointmedia.com/industries" },
 };
 
 export default function IndustriesPage() {
@@ -55,13 +55,13 @@ export default function IndustriesPage() {
     name: "Industries We Serve San Antonio",
     description:
       "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses.",
-    url: "https://pearlstreetdigital.com/industries",
+    url: "https://rankpointmedia.com/industries",
     mainEntity: {
       "@type": "ItemList",
       itemListElement: industries.map((industry, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `https://pearlstreetdigital.com/industries/${industry.slug}`,
+        url: `https://rankpointmedia.com/industries/${industry.slug}`,
         name: industry.title,
       })),
     },

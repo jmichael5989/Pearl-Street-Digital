@@ -9,39 +9,39 @@ import AboutStats from "@/components/about/AboutStats";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "About Us San Antonio | Pearl Street Digital",
+  title: "About Us San Antonio | Rank Point Media",
   description:
-    "Pearl Street Digital is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
+    "Rank Point Media is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
   openGraph: {
-    title: "About Us San Antonio | Pearl Street Digital",
+    title: "About Us San Antonio | Rank Point Media",
     description:
-      "Pearl Street Digital is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
-    url: "https://pearlstreetdigital.com/about",
-    siteName: "Pearl Street Digital",
+      "Rank Point Media is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
+    url: "https://rankpointmedia.com/about",
+    siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us San Antonio | Pearl Street Digital",
+    title: "About Us San Antonio | Rank Point Media",
     description:
-      "Pearl Street Digital is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
+      "Rank Point Media is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
   },
   alternates: {
-    canonical: "https://pearlstreetdigital.com/about",
+    canonical: "https://rankpointmedia.com/about",
   },
 };
 
 const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  name: "About Pearl Street Digital",
-  url: "https://pearlstreetdigital.com/about",
+  name: "About Rank Point Media",
+  url: "https://rankpointmedia.com/about",
   mainEntity: {
     "@type": "Organization",
-    name: "Pearl Street Digital",
+    name: "Rank Point Media",
     foundingDate: "2026",
-    url: "https://pearlstreetdigital.com",
+    url: "https://rankpointmedia.com",
     address: {
       "@type": "PostalAddress",
       addressLocality: "San Antonio",

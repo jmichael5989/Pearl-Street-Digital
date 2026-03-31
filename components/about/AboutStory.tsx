@@ -11,14 +11,14 @@ export default function AboutStory() {
               Built for Businesses Like Yours
             </h2>
             <p className="mt-4 leading-relaxed text-gray">
-              Pearl Street Digital started with a simple observation: local small
+              Rank Point Media started with a simple observation: local small
               businesses deserve the same caliber of digital marketing that big
               brands get, without the big-brand price tag. We saw too many shops
               paying for cookie-cutter websites and SEO packages that never moved
               the needle.
             </p>
             <p className="mt-4 leading-relaxed text-gray">
-              As a DBA of JSL Innovations LLC, Pearl Street Digital was founded
+              As a DBA of JSL Innovations LLC, Rank Point Media was founded
               in 2026 with a clear mission -- use modern AI tools and proven
               marketing strategies to help local businesses compete and win
               online. Every website we build, every SEO campaign we run, and
@@ -40,7 +40,7 @@ export default function AboutStory() {
                 We treat every client&apos;s budget like it&apos;s our own money.
                 If a tactic won&apos;t move the needle, we won&apos;t sell it.
               </p>
-              <p className="mt-4 text-sm text-gray">-- Pearl Street Digital</p>
+              <p className="mt-4 text-sm text-gray">-- Rank Point Media</p>
             </div>
           </div>
         </div>

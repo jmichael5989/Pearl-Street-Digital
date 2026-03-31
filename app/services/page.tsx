@@ -7,25 +7,25 @@ import { services } from "@/lib/services-data";
 import { serviceIconMap, ArrowRightIcon } from "@/components/icons/ServiceIcons";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Services San Antonio | Pearl Street Digital",
+  title: "Digital Marketing Services San Antonio | Rank Point Media",
   description:
     "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
   openGraph: {
-    title: "Digital Marketing Services San Antonio | Pearl Street Digital",
+    title: "Digital Marketing Services San Antonio | Rank Point Media",
     description:
       "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
-    url: "https://pearlstreetdigital.com/services",
-    siteName: "Pearl Street Digital",
+    url: "https://rankpointmedia.com/services",
+    siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing Services San Antonio | Pearl Street Digital",
+    title: "Digital Marketing Services San Antonio | Rank Point Media",
     description:
       "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
   },
-  alternates: { canonical: "https://pearlstreetdigital.com/services" },
+  alternates: { canonical: "https://rankpointmedia.com/services" },
 };
 
 const servicesSchema = {
@@ -34,13 +34,13 @@ const servicesSchema = {
   name: "Digital Marketing Services San Antonio",
   description:
     "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
-  url: "https://pearlstreetdigital.com/services",
+  url: "https://rankpointmedia.com/services",
   mainEntity: {
     "@type": "ItemList",
     itemListElement: services.map((service, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `https://pearlstreetdigital.com/services/${service.slug}`,
+      url: `https://rankpointmedia.com/services/${service.slug}`,
       name: service.title,
     })),
   },

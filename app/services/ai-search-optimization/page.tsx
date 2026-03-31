@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: service.metaTitle,
     description: service.metaDescription,
-    url: `https://pearlstreetdigital.com/services/${service.slug}`,
-    siteName: "Pearl Street Digital",
+    url: `https://rankpointmedia.com/services/${service.slug}`,
+    siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: service.metaDescription,
   },
   alternates: {
-    canonical: `https://pearlstreetdigital.com/services/${service.slug}`,
+    canonical: `https://rankpointmedia.com/services/${service.slug}`,
   },
 };
 
@@ -46,11 +46,11 @@ export default function AiSearchOptimizationPage() {
             description: service.metaDescription,
             provider: {
               "@type": "LocalBusiness",
-              name: "Pearl Street Digital",
-              url: "https://pearlstreetdigital.com",
+              name: "Rank Point Media",
+              url: "https://rankpointmedia.com",
             },
             areaServed: { "@type": "City", name: "San Antonio" },
-            url: `https://pearlstreetdigital.com/services/${service.slug}`,
+            url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}
       />

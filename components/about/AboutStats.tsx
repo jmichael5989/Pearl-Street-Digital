@@ -14,7 +14,7 @@ export default function AboutStats() {
             By the Numbers
           </p>
           <h2 className="mt-3 font-heading text-3xl font-bold text-white sm:text-4xl">
-            Pearl Street Digital at a Glance
+            Rank Point Media at a Glance
           </h2>
         </div>
         <div className="mt-12 grid grid-cols-2 gap-6 lg:grid-cols-4">

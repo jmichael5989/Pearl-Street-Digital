@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: industry.metaTitle,
     description: industry.metaDescription,
-    url: `https://pearlstreetdigital.com/industries/${industry.slug}`,
-    siteName: "Pearl Street Digital",
+    url: `https://rankpointmedia.com/industries/${industry.slug}`,
+    siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: industry.metaDescription,
   },
   alternates: {
-    canonical: `https://pearlstreetdigital.com/industries/${industry.slug}`,
+    canonical: `https://rankpointmedia.com/industries/${industry.slug}`,
   },
 };
 
@@ -46,11 +46,11 @@ export default function AutoPage() {
               description: industry.metaDescription,
               provider: {
                 "@type": "LocalBusiness",
-                name: "Pearl Street Digital",
-                url: "https://pearlstreetdigital.com",
+                name: "Rank Point Media",
+                url: "https://rankpointmedia.com",
               },
               areaServed: { "@type": "City", name: "San Antonio" },
-              url: `https://pearlstreetdigital.com/industries/${industry.slug}`,
+              url: `https://rankpointmedia.com/industries/${industry.slug}`,
             },
             {
               "@context": "https://schema.org",

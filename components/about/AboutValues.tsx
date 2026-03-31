@@ -130,7 +130,7 @@ export default function AboutValues() {
             What Sets Us Apart
           </h2>
           <p className="mt-4 leading-relaxed text-gray">
-            We built Pearl Street Digital around the principles we wish every
+            We built Rank Point Media around the principles we wish every
             agency followed. Here is what you can expect when you work with us.
           </p>
         </div>

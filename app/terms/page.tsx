@@ -3,9 +3,9 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Pearl Street Digital",
-  description: "Terms of Service for Pearl Street Digital. Review our terms and conditions for using our website and services.",
-  alternates: { canonical: "https://pearlstreetdigital.com/terms" },
+  title: "Terms of Service | Rank Point Media",
+  description: "Terms of Service for Rank Point Media. Review our terms and conditions for using our website and services.",
+  alternates: { canonical: "https://rankpointmedia.com/terms" },
 };
 
 export default function TermsPage() {
@@ -24,17 +24,17 @@ export default function TermsPage() {
             <div className="space-y-8 text-gray leading-relaxed text-sm">
               <div>
                 <h2 className="font-heading text-xl font-bold text-dark mb-3">Agreement to Terms</h2>
-                <p>By accessing or using the Pearl Street Digital website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
+                <p>By accessing or using the Rank Point Media website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our website.</p>
               </div>
 
               <div>
                 <h2 className="font-heading text-xl font-bold text-dark mb-3">Services</h2>
-                <p>Pearl Street Digital provides web design, development, SEO, digital marketing, and related services. Specific service terms, deliverables, timelines, and pricing are outlined in individual project agreements between Pearl Street Digital and each client.</p>
+                <p>Rank Point Media provides web design, development, SEO, digital marketing, and related services. Specific service terms, deliverables, timelines, and pricing are outlined in individual project agreements between Rank Point Media and each client.</p>
               </div>
 
               <div>
                 <h2 className="font-heading text-xl font-bold text-dark mb-3">Intellectual Property</h2>
-                <p>Upon full payment, clients own all website code, content, images, and domain credentials created as part of their project. Pearl Street Digital retains the right to display completed work in our portfolio and case studies unless otherwise agreed in writing.</p>
+                <p>Upon full payment, clients own all website code, content, images, and domain credentials created as part of their project. Rank Point Media retains the right to display completed work in our portfolio and case studies unless otherwise agreed in writing.</p>
               </div>
 
               <div>
@@ -49,7 +49,7 @@ export default function TermsPage() {
 
               <div>
                 <h2 className="font-heading text-xl font-bold text-dark mb-3">Limitation of Liability</h2>
-                <p>Pearl Street Digital is not liable for any indirect, incidental, or consequential damages arising from the use of our website or services. Our total liability shall not exceed the amount paid for the specific service in question.</p>
+                <p>Rank Point Media is not liable for any indirect, incidental, or consequential damages arising from the use of our website or services. Our total liability shall not exceed the amount paid for the specific service in question.</p>
               </div>
 
               <div>
@@ -76,8 +76,8 @@ export default function TermsPage() {
                 <h2 className="font-heading text-xl font-bold text-dark mb-3">Contact Us</h2>
                 <p>Questions about these terms? Contact us at:</p>
                 <p className="mt-2">
-                  Pearl Street Digital<br />
-                  Email: hello@pearlstreetdigital.com<br />
+                  Rank Point Media<br />
+                  Email: hello@rankpointmedia.com<br />
                   Phone: (210) 555-1234
                 </p>
               </div>

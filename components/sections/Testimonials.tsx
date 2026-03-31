@@ -9,7 +9,7 @@ function StarIcon() {
 const testimonials = [
   {
     quote:
-      "Pearl Street Digital completely transformed our online presence. We went from zero leads to getting 3-4 calls a week from Google alone. Best investment we made all year.",
+      "Rank Point Media completely transformed our online presence. We went from zero leads to getting 3-4 calls a week from Google alone. Best investment we made all year.",
     name: "Maria Gonzalez",
     business: "Gonzalez Plumbing, San Antonio",
   },
@@ -39,7 +39,7 @@ export default function Testimonials() {
             What Our Clients Say
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
-            Real feedback from business owners who chose Pearl Street Digital.
+            Real feedback from business owners who chose Rank Point Media.
           </p>
         </div>
 

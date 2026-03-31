@@ -16,8 +16,8 @@ const contactItems = [
   {
     icon: MailIcon,
     label: "Email",
-    value: "hello@pearlstreetdigital.com",
-    href: "mailto:hello@pearlstreetdigital.com",
+    value: "hello@rankpointmedia.com",
+    href: "mailto:hello@rankpointmedia.com",
   },
   {
     icon: MapPinIcon,
@@ -111,7 +111,7 @@ export default function ContactContent() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Pearl Street Digital office location in San Antonio, TX"
+                title="Rank Point Media office location in San Antonio, TX"
               />
             </div>
           </div>

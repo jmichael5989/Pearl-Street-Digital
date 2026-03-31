@@ -37,15 +37,15 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent shadow-md">
                 <span className="font-heading text-lg font-bold text-white leading-none">
-                  P
+                  R
                 </span>
               </div>
               <div className="flex flex-col leading-tight">
                 <span className="font-heading text-[15px] font-bold tracking-tight text-white">
-                  Pearl Street
+                  Rank Point
                 </span>
                 <span className="font-heading text-[15px] font-bold tracking-tight text-primary">
-                  Digital
+                  Media
                 </span>
               </div>
             </Link>
@@ -117,7 +117,7 @@ export default function Footer() {
         <div className="border-t border-[rgba(148,163,184,0.1)] pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[rgba(148,163,184,0.5)]">
-              {currentYear} Pearl Street Digital. All rights reserved.
+              {currentYear} Rank Point Media. All rights reserved.
             </p>
             <div className="flex items-center gap-1.5 text-xs">
               <span className="uppercase tracking-[0.18em] text-[#475569]">
@@ -130,7 +130,7 @@ export default function Footer() {
                     "linear-gradient(90deg, #94A3B8, #14B8A6)",
                 }}
               >
-                Pearl Street Digital
+                Rank Point Media
               </span>
             </div>
           </div>

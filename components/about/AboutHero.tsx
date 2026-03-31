@@ -10,7 +10,7 @@ export default function AboutHero() {
             Texas Roots. Modern Tools. Honest Work.
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-[#94A3B8]">
-            Pearl Street Digital is a founder-led digital marketing agency built
+            Rank Point Media is a founder-led digital marketing agency built
             for local small businesses. No contracts. No fluff. Just results.
           </p>
         </div>

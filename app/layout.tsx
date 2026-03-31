@@ -17,26 +17,26 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "San Antonio Web Design & Digital Marketing | Pearl Street Digital",
+  title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
   description:
-    "Pearl Street Digital builds affordable websites and runs local SEO, Google Ads, and digital marketing for San Antonio small businesses. Sites from $250. No contracts.",
+    "Rank Point Media builds affordable websites and runs local SEO, Google Ads, and digital marketing for San Antonio small businesses. Sites from $250. No contracts.",
   openGraph: {
-    title: "San Antonio Web Design & Digital Marketing | Pearl Street Digital",
+    title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
       "Affordable web design and digital marketing for San Antonio small businesses. Custom sites from $250, local SEO, Google Ads. No contracts.",
-    url: "https://pearlstreetdigital.com",
-    siteName: "Pearl Street Digital",
+    url: "https://rankpointmedia.com",
+    siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "San Antonio Web Design & Digital Marketing | Pearl Street Digital",
+    title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
       "Affordable web design and digital marketing for San Antonio small businesses. Custom sites from $250, local SEO, Google Ads. No contracts.",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://pearlstreetdigital.com" },
+  alternates: { canonical: "https://rankpointmedia.com" },
 };
 
 export default function RootLayout({
@@ -57,13 +57,13 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              name: "Pearl Street Digital",
+              name: "Rank Point Media",
               alternateName: "JSL Innovations LLC",
               description:
                 "AI-powered digital marketing agency serving San Antonio small businesses with web design, SEO, Google Ads, and social media marketing.",
-              url: "https://pearlstreetdigital.com",
+              url: "https://rankpointmedia.com",
               telephone: "+1-210-555-1234",
-              email: "hello@pearlstreetdigital.com",
+              email: "hello@rankpointmedia.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "San Antonio",

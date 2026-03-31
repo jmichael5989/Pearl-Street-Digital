@@ -6,25 +6,25 @@ import CaseStudyCard from "@/components/ui/CaseStudyCard";
 import { getAllCaseStudies } from "@/lib/case-studies-data";
 
 export const metadata: Metadata = {
-  title: "Case Studies San Antonio | Pearl Street Digital",
+  title: "Case Studies San Antonio | Rank Point Media",
   description:
-    "Real results for real San Antonio businesses. See how Pearl Street Digital delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
+    "Real results for real San Antonio businesses. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
   openGraph: {
-    title: "Case Studies San Antonio | Pearl Street Digital",
+    title: "Case Studies San Antonio | Rank Point Media",
     description:
-      "Real results for real San Antonio businesses. See how Pearl Street Digital delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
-    url: "https://pearlstreetdigital.com/case-studies",
-    siteName: "Pearl Street Digital",
+      "Real results for real San Antonio businesses. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
+    url: "https://rankpointmedia.com/case-studies",
+    siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Case Studies San Antonio | Pearl Street Digital",
+    title: "Case Studies San Antonio | Rank Point Media",
     description:
-      "Real results for real San Antonio businesses. See how Pearl Street Digital delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
+      "Real results for real San Antonio businesses. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
   },
-  alternates: { canonical: "https://pearlstreetdigital.com/case-studies" },
+  alternates: { canonical: "https://rankpointmedia.com/case-studies" },
 };
 
 export default function CaseStudiesPage() {
@@ -38,14 +38,14 @@ export default function CaseStudiesPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            name: "Case Studies - Pearl Street Digital",
+            name: "Case Studies - Rank Point Media",
             description:
               "Real results for real San Antonio businesses. Portfolio of digital marketing and web design projects.",
-            url: "https://pearlstreetdigital.com/case-studies",
+            url: "https://rankpointmedia.com/case-studies",
             provider: {
               "@type": "LocalBusiness",
-              name: "Pearl Street Digital",
-              url: "https://pearlstreetdigital.com",
+              name: "Rank Point Media",
+              url: "https://rankpointmedia.com",
             },
           }),
         }}

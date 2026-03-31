@@ -107,7 +107,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent shadow-md">
               <span className="font-heading text-lg font-bold text-white leading-none">
-                P
+                R
               </span>
             </div>
             <div className="flex flex-col leading-tight">
@@ -116,14 +116,14 @@ export default function Header() {
                   scrolled ? "text-dark" : "text-white"
                 }`}
               >
-                Pearl Street
+                Rank Point
               </span>
               <span
                 className={`font-heading text-[15px] font-bold tracking-tight transition-colors duration-300 ${
                   scrolled ? "text-primary" : "text-primary"
                 }`}
               >
-                Digital
+                Media
               </span>
             </div>
           </Link>

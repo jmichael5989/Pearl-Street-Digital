@@ -36,7 +36,7 @@ export const industries: IndustryData[] = [
     slug: "restaurants",
     title: "Restaurants & Food Trucks",
     metaTitle:
-      "Restaurant Website Design San Antonio | Pearl Street Digital",
+      "Restaurant Website Design San Antonio | Rank Point Media",
     metaDescription:
       "Website design and digital marketing for San Antonio restaurants, food trucks, and catering businesses. Get found on Google Maps, drive online orders, and fill more seats.",
     heroHeading:
@@ -127,7 +127,7 @@ export const industries: IndustryData[] = [
     slug: "beauty",
     title: "Beauty Salons & Barber Shops",
     metaTitle:
-      "Salon & Barber Shop Website Design San Antonio | Pearl Street Digital",
+      "Salon & Barber Shop Website Design San Antonio | Rank Point Media",
     metaDescription:
       "Website design and marketing for San Antonio salons, barber shops, and beauty businesses. Get found online, fill your appointment book, and grow your client base.",
     heroHeading:
@@ -218,7 +218,7 @@ export const industries: IndustryData[] = [
     slug: "auto",
     title: "Auto Repair & Detailing",
     metaTitle:
-      "Auto Repair Website Design San Antonio | Pearl Street Digital",
+      "Auto Repair Website Design San Antonio | Rank Point Media",
     metaDescription:
       "Website design and digital marketing for San Antonio auto repair shops, mechanics, and detailing businesses. Get found online and bring more cars through your bay doors.",
     heroHeading:

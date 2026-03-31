@@ -71,7 +71,7 @@ export default function WhyUs() {
           {/* Left Column */}
           <div>
             <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
-              Why Pearl Street Digital
+              Why Rank Point Media
             </span>
             <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
               Built Different. Built for Small Business.
