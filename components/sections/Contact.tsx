@@ -31,14 +31,14 @@ export default function Contact() {
               </a>
 
               <a
-                href="mailto:hello@pearlstreetdigital.com"
+                href="mailto:hello@rankpointmedia.com"
                 className="flex items-center gap-4 text-text hover:text-primary transition-colors"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
                   <MailIcon />
                 </div>
                 <span className="text-sm font-medium">
-                  hello@pearlstreetdigital.com
+                  hello@rankpointmedia.com
                 </span>
               </a>
 

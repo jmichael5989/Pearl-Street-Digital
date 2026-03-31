@@ -38,14 +38,14 @@ export const services: ServiceData[] = [
     title: "Website Design",
     tagline:
       "Custom websites built for speed, SEO, and conversions -- designed to represent your San Antonio business the way it deserves.",
-    metaTitle: "Website Design San Antonio | Custom Sites from $250 | Pearl Street Digital",
+    metaTitle: "Website Design San Antonio | Custom Sites from $250 | Rank Point Media",
     metaDescription:
       "Professional website design for San Antonio small businesses. Fast builds, mobile-first, Lighthouse 95+. One-time pricing from $250. No contracts.",
     iconName: "globe",
     overview: {
       heading: "A Website That Works as Hard as You Do",
       paragraphs: [
-        "Your website is the first thing most customers see. If it loads slowly, looks outdated, or does not work on a phone, you are losing business every single day. Pearl Street Digital builds fast, modern websites that are designed to convert visitors into calls, bookings, and sales.",
+        "Your website is the first thing most customers see. If it loads slowly, looks outdated, or does not work on a phone, you are losing business every single day. Rank Point Media builds fast, modern websites that are designed to convert visitors into calls, bookings, and sales.",
         "We use Next.js and modern web standards to deliver sites that score 95+ on Google Lighthouse, load in under two seconds, and look sharp on every device. Every project is founder-led -- you work directly with the person writing your code, not a rotating cast of account managers.",
       ],
       highlights: [
@@ -147,7 +147,7 @@ export const services: ServiceData[] = [
     title: "Local SEO",
     tagline:
       "Rank higher on Google Maps and local search results so San Antonio customers find you first -- not your competitors.",
-    metaTitle: "Local SEO San Antonio | Get Found on Google | Pearl Street Digital",
+    metaTitle: "Local SEO San Antonio | Get Found on Google | Rank Point Media",
     metaDescription:
       "Local SEO services for San Antonio businesses. Google Maps optimization, citation building, and on-page SEO to drive more local customers to your door.",
     iconName: "search",
@@ -256,7 +256,7 @@ export const services: ServiceData[] = [
     title: "Social Media",
     tagline:
       "Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement in the San Antonio market.",
-    metaTitle: "Social Media Management San Antonio | Pearl Street Digital",
+    metaTitle: "Social Media Management San Antonio | Rank Point Media",
     metaDescription:
       "Social media marketing for San Antonio businesses. Content creation, scheduling, community management, and analytics across Instagram, Facebook, and LinkedIn.",
     iconName: "share",
@@ -365,7 +365,7 @@ export const services: ServiceData[] = [
     title: "PPC / Google Ads",
     tagline:
       "Targeted ad campaigns that put your San Antonio business in front of customers actively searching for your services right now.",
-    metaTitle: "Google Ads Management San Antonio | PPC Agency | Pearl Street Digital",
+    metaTitle: "Google Ads Management San Antonio | PPC Agency | Rank Point Media",
     metaDescription:
       "Google Ads and PPC management for San Antonio businesses. Targeted campaigns, keyword research, and conversion tracking. Pay only for results.",
     iconName: "target",
@@ -474,7 +474,7 @@ export const services: ServiceData[] = [
     title: "AI Search Optimization",
     tagline:
       "Get your business recommended by ChatGPT, Google AI Overviews, and voice assistants. The next frontier of local visibility.",
-    metaTitle: "AI Search Optimization San Antonio | GEO Services | Pearl Street Digital",
+    metaTitle: "AI Search Optimization San Antonio | GEO Services | Rank Point Media",
     metaDescription:
       "AI search optimization (GEO) for San Antonio businesses. Get recommended by ChatGPT, Google AI Overviews, Siri, and Alexa. Future-proof your online presence.",
     iconName: "sparkle",
@@ -583,7 +583,7 @@ export const services: ServiceData[] = [
     title: "Reputation Management",
     tagline:
       "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your San Antonio business has earned.",
-    metaTitle: "Reputation Management San Antonio | Online Reviews | Pearl Street Digital",
+    metaTitle: "Reputation Management San Antonio | Online Reviews | Rank Point Media",
     metaDescription:
       "Online reputation management for San Antonio businesses. Review monitoring, response management, and review generation to build trust and drive more customers.",
     iconName: "shield",

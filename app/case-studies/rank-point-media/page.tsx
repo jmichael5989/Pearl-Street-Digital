@@ -9,7 +9,7 @@ import CaseStudyTestimonial from "@/components/case-studies/CaseStudyTestimonial
 import CTABanner from "@/components/sections/CTABanner";
 import { getCaseStudy } from "@/lib/case-studies-data";
 
-const study = getCaseStudy("pearl-street-digital");
+const study = getCaseStudy("rank-point-media");
 
 export const metadata: Metadata = {
   title: study.metaTitle,
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: study.metaTitle,
     description: study.metaDescription,
-    url: `https://pearlstreetdigital.com/case-studies/${study.slug}`,
-    siteName: "Pearl Street Digital",
+    url: `https://rankpointmedia.com/case-studies/${study.slug}`,
+    siteName: "Rank Point Media",
     locale: "en_US",
     type: "article",
   },
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     description: study.metaDescription,
   },
   alternates: {
-    canonical: `https://pearlstreetdigital.com/case-studies/${study.slug}`,
+    canonical: `https://rankpointmedia.com/case-studies/${study.slug}`,
   },
 };
 
-export default function PearlStreetDigitalCaseStudy() {
+export default function RankPointMediaCaseStudy() {
   return (
     <>
       <script
@@ -45,10 +45,10 @@ export default function PearlStreetDigitalCaseStudy() {
             description: study.metaDescription,
             publisher: {
               "@type": "LocalBusiness",
-              name: "Pearl Street Digital",
-              url: "https://pearlstreetdigital.com",
+              name: "Rank Point Media",
+              url: "https://rankpointmedia.com",
             },
-            url: `https://pearlstreetdigital.com/case-studies/${study.slug}`,
+            url: `https://rankpointmedia.com/case-studies/${study.slug}`,
           }),
         }}
       />

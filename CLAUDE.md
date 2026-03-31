@@ -1,8 +1,8 @@
 @AGENTS.md
 
-# Pearl Street Digital -- Claude Code Configuration
+# Rank Point Media -- Claude Code Configuration
 
-You are building the website for Pearl Street Digital, an AI-powered digital marketing agency in San Antonio, TX. Follow every rule in this file on every task. No exceptions.
+You are building the website for Rank Point Media, an AI-powered digital marketing agency in San Antonio, TX. Follow every rule in this file on every task. No exceptions.
 
 ---
 
@@ -65,12 +65,12 @@ You are building the website for Pearl Street Digital, an AI-powered digital mar
 
 ---
 
-## Pearl Street Digital -- Brand Rules (ALWAYS ENFORCE)
+## Rank Point Media -- Brand Rules (ALWAYS ENFORCE)
 
 ### Identity
-- **Brand Name**: Pearl Street Digital (DBA for JSL Innovations LLC)
+- **Brand Name**: Rank Point Media (DBA for JSL Innovations LLC)
 - **Location**: San Antonio, TX (Leon Springs area)
-- **Tagline**: "AI-Powered Marketing for San Antonio Businesses"
+- **Tagline**: "Higher rankings. More customers."
 
 ### Colors (FINAL -- never deviate)
 - Primary Teal: #14B8A6
@@ -106,7 +106,7 @@ You are building the website for Pearl Street Digital, an AI-powered digital mar
 - H1 text-shadow: 0 2px 20px rgba(15,23,42,0.8), 0 0 40px rgba(15,23,42,0.5)
 
 ### Footer Badge
-- CSS gradient text: "DESIGN BY:" in #475569, "PEARL STREET DIGITAL" in linear-gradient(90deg, #94A3B8, #14B8A6)
+- CSS gradient text: "DESIGN BY:" in #475569, "RANK POINT MEDIA" in linear-gradient(90deg, #94A3B8, #14B8A6)
 - All caps, letter-spacing 0.18em
 - Must appear on every page footer
 
@@ -125,7 +125,7 @@ You are building the website for Pearl Street Digital, an AI-powered digital mar
 - Business tier gets dark #0F172A card, violet border, "MOST POPULAR" badge
 
 ### SEO Rules
-- Every page title: "[Service/Page] San Antonio | Pearl Street Digital"
+- Every page title: "[Service/Page] San Antonio | Rank Point Media"
 - Single H1 per page
 - LocalBusiness JSON-LD schema on every page
 - Service schema on service pages

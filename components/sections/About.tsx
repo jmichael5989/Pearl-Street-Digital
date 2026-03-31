@@ -17,7 +17,7 @@ export default function About() {
             Texas Roots. Modern Tools. Honest Work.
           </h2>
           <p className="mt-6 text-gray leading-relaxed">
-            Pearl Street Digital is a digital marketing agency founded in San
+            Rank Point Media is a digital marketing agency founded in San
             Antonio with one goal: give local small businesses
             access to the same caliber of digital marketing that big companies
             take for granted. We use AI-powered tools and modern web technology

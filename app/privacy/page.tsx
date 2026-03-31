@@ -3,9 +3,9 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Pearl Street Digital",
-  description: "Privacy Policy for Pearl Street Digital. Learn how we collect, use, and protect your personal information.",
-  alternates: { canonical: "https://pearlstreetdigital.com/privacy" },
+  title: "Privacy Policy | Rank Point Media",
+  description: "Privacy Policy for Rank Point Media. Learn how we collect, use, and protect your personal information.",
+  alternates: { canonical: "https://rankpointmedia.com/privacy" },
 };
 
 export default function PrivacyPage() {
@@ -63,12 +63,12 @@ export default function PrivacyPage() {
 
               <div>
                 <h2 className="font-heading text-xl font-bold text-dark mb-3">Your Rights</h2>
-                <p>You have the right to request access to, correction of, or deletion of your personal information. To make such a request, contact us at hello@pearlstreetdigital.com.</p>
+                <p>You have the right to request access to, correction of, or deletion of your personal information. To make such a request, contact us at hello@rankpointmedia.com.</p>
               </div>
 
               <div>
                 <h2 className="font-heading text-xl font-bold text-dark mb-3">Text Message Consent</h2>
-                <p>If you opt in to receive text messages from Pearl Street Digital, standard message and data rates may apply. You may opt out at any time by replying STOP. Consent to receive text messages is not a condition of purchasing any services.</p>
+                <p>If you opt in to receive text messages from Rank Point Media, standard message and data rates may apply. You may opt out at any time by replying STOP. Consent to receive text messages is not a condition of purchasing any services.</p>
               </div>
 
               <div>
@@ -80,8 +80,8 @@ export default function PrivacyPage() {
                 <h2 className="font-heading text-xl font-bold text-dark mb-3">Contact Us</h2>
                 <p>If you have questions about this Privacy Policy, contact us at:</p>
                 <p className="mt-2">
-                  Pearl Street Digital<br />
-                  Email: hello@pearlstreetdigital.com<br />
+                  Rank Point Media<br />
+                  Email: hello@rankpointmedia.com<br />
                   Phone: (210) 555-1234
                 </p>
               </div>

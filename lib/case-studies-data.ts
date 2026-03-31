@@ -33,15 +33,15 @@ export interface CaseStudyData {
 
 export const caseStudies: CaseStudyData[] = [
   {
-    slug: "pearl-street-digital",
-    clientName: "Pearl Street Digital",
+    slug: "rank-point-media",
+    clientName: "Rank Point Media",
     industry: "Digital Marketing",
     industryColor: "teal",
     serviceSlugs: ["website-design", "local-seo"],
     metaTitle:
-      "Pearl Street Digital Case Study | Agency Website Built in 5 Days | Pearl Street Digital",
+      "Rank Point Media Case Study | Agency Website Built in 5 Days | Rank Point Media",
     metaDescription:
-      "How Pearl Street Digital built a high-performance agency website in 5 days with Lighthouse 98+ scores, saving 85% compared to traditional agency builds.",
+      "How Rank Point Media built a high-performance agency website in 5 days with Lighthouse 98+ scores, saving 85% compared to traditional agency builds.",
     heroTagline:
       "A high-performance agency website built in days, not months -- at a fraction of the traditional cost.",
     challenge: {
@@ -54,7 +54,7 @@ export const caseStudies: CaseStudyData[] = [
     solution: {
       heading: "The Solution",
       paragraphs: [
-        "Pearl Street Digital built its own agency website using Next.js, Tailwind CSS, and an AI-augmented development workflow. Every page was designed mobile-first, tested at five breakpoints, and optimized for Core Web Vitals from the start.",
+        "Rank Point Media built its own agency website using Next.js, Tailwind CSS, and an AI-augmented development workflow. Every page was designed mobile-first, tested at five breakpoints, and optimized for Core Web Vitals from the start.",
         "The site was deployed on Vercel with automatic builds, preview deployments, and edge caching. Structured data was implemented on every page -- LocalBusiness schema, Service schema, and FAQ schema -- giving search engines rich context from day one.",
       ],
       tactics: [
