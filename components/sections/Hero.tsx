@@ -66,6 +66,9 @@ interface Particle {
   color: string;
 }
 
+// Set to true when you have video files at /public/videos/hero.webm and hero.mp4
+const USE_VIDEO_HERO = false;
+
 export default function Hero() {
   const [particles, setParticles] = useState<Particle[]>([]);
   const particlesRef = useRef(false);
@@ -100,54 +103,85 @@ export default function Hero() {
   return (
     <>
       <section className="relative min-h-screen flex items-center overflow-hidden bg-dark">
-        {/* Layer 1: Ken Burns Photo */}
-        <div className="absolute inset-0 z-[1]">
-          <div
-            className="hero-ken-burns absolute inset-0 will-change-transform"
-            style={{
-              animation: "kenBurns 25s ease-in-out infinite alternate",
-            }}
-          >
-            <Image
-              src="/images/hero/Tower.WEBP"
-              alt="Tower of the Americas in San Antonio, Texas"
-              fill
-              className="object-cover object-center"
-              priority
-              quality={60}
-              sizes="100vw"
-            />
+        {/* Layer 1: Background (Photo with Ken Burns OR Self-hosted Video) */}
+        {USE_VIDEO_HERO ? (
+          <div className="absolute inset-0 z-[1]">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/hero/Tower.WEBP"
+              className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+            >
+              <source src="/videos/hero.webm" type="video/webm" />
+              <source src="/videos/hero.mp4" type="video/mp4" />
+            </video>
+            {/* Static image fallback for mobile (saves data) */}
+            <div className="absolute inset-0 sm:hidden">
+              <Image
+                src="/images/hero/Tower.WEBP"
+                alt="Tower of the Americas in San Antonio, Texas"
+                fill
+                className="object-cover object-center"
+                priority
+                quality={60}
+                sizes="100vw"
+              />
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            <div className="absolute inset-0 z-[1]">
+              <div
+                className="hero-ken-burns absolute inset-0 will-change-transform"
+                style={{
+                  animation: "kenBurns 25s ease-in-out infinite alternate",
+                }}
+              >
+                <Image
+                  src="/images/hero/Tower.WEBP"
+                  alt="Tower of the Americas in San Antonio, Texas"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                  quality={60}
+                  sizes="100vw"
+                />
+              </div>
+            </div>
 
-        {/* Layer 1b: Gradient Mesh */}
-        <div
-          className="hero-gradient-mesh absolute inset-0 z-[1]"
-          style={{
-            backgroundImage: [
-              "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(20,184,166,0.25), transparent 60%)",
-              "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(139,92,246,0.2), transparent 55%)",
-              "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(15,23,42,0.5), transparent 80%)",
-            ].join(", "),
-            backgroundSize: "200% 200%, 200% 200%, 200% 200%",
-            animation: "gradientMesh 12s ease-in-out infinite alternate",
-          }}
-        />
+            {/* Gradient Mesh */}
+            <div
+              className="hero-gradient-mesh absolute inset-0 z-[1]"
+              style={{
+                backgroundImage: [
+                  "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(20,184,166,0.25), transparent 60%)",
+                  "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(139,92,246,0.2), transparent 55%)",
+                  "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(15,23,42,0.5), transparent 80%)",
+                ].join(", "),
+                backgroundSize: "200% 200%, 200% 200%, 200% 200%",
+                animation: "gradientMesh 12s ease-in-out infinite alternate",
+              }}
+            />
 
-        {/* Layer 1c: Floating Particles */}
-        {particles.map((p) => (
-          <div
-            key={p.id}
-            className="hero-particle absolute z-[1] rounded-full pointer-events-none"
-            style={{
-              left: `${p.left}%`,
-              width: p.size,
-              height: p.size,
-              backgroundColor: p.color,
-              animation: `floatUp ${p.duration}s linear ${p.delay}s infinite`,
-            }}
-          />
-        ))}
+            {/* Floating Particles */}
+            {particles.map((p) => (
+              <div
+                key={p.id}
+                className="hero-particle absolute z-[1] rounded-full pointer-events-none"
+                style={{
+                  left: `${p.left}%`,
+                  width: p.size,
+                  height: p.size,
+                  backgroundColor: p.color,
+                  animation: `floatUp ${p.duration}s linear ${p.delay}s infinite`,
+                }}
+              />
+            ))}
+          </>
+        )}
 
         {/* Layer 2: Dark Overlay */}
         <div
@@ -157,23 +191,6 @@ export default function Hero() {
               "linear-gradient(180deg, rgba(15,23,42,0.5) 0%, rgba(15,23,42,0.7) 50%, rgba(15,23,42,0.85) 100%)",
           }}
         />
-
-        {/* Video-ready structure (activate when SA footage is sourced):
-        <div className="absolute inset-0 z-[1]">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            poster="/images/hero/Tower.WEBP"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/hero-san-antonio.webm" type="video/webm" />
-            <source src="/videos/hero-san-antonio.mp4" type="video/mp4" />
-          </video>
-        </div>
-        To swap: remove the Ken Burns photo div (Layer 1) and uncomment this block. */}
 
         {/* Layer 3: Content */}
         <div className="relative z-[3] mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
