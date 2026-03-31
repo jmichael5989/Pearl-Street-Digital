@@ -8,6 +8,7 @@ import Testimonials from "@/components/sections/Testimonials";
 import Pricing from "@/components/sections/Pricing";
 import Process from "@/components/sections/Process";
 import About from "@/components/sections/About";
+import QuoteEstimator from "@/components/sections/QuoteEstimator";
 import FAQ from "@/components/sections/FAQ";
 import CTABanner from "@/components/sections/CTABanner";
 import Contact from "@/components/sections/Contact";
@@ -27,6 +28,7 @@ export default function Home() {
         <Pricing />
         <Process />
         <About />
+        <QuoteEstimator />
         <FAQ />
         <CTABanner />
         <Contact />
