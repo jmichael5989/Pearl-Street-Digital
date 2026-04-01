@@ -8,27 +8,28 @@ export default function AboutStory() {
               Our Story
             </p>
             <h2 className="mt-3 font-heading text-3xl font-bold text-dark sm:text-4xl">
-              Built for Businesses Like Yours
+              Why We Started Rank Point Media
             </h2>
             <p className="mt-4 leading-relaxed text-gray">
-              Rank Point Media started with a simple observation: local small
-              businesses deserve the same caliber of digital marketing that big
-              brands get, without the big-brand price tag. We saw too many shops
-              paying for cookie-cutter websites and SEO packages that never moved
-              the needle.
+              We saw too many San Antonio small businesses getting burned by big
+              agencies that overpromised and underdelivered -- or worse, locked
+              into long-term contracts with nothing to show for it. We started
+              Rank Point Media because we believe local businesses deserve
+              better.
             </p>
             <p className="mt-4 leading-relaxed text-gray">
-              As a DBA of JSL Innovations LLC, Rank Point Media was founded
-              in 2026 with a clear mission -- use modern AI tools and proven
-              marketing strategies to help local businesses compete and win
-              online. Every website we build, every SEO campaign we run, and
-              every ad dollar we manage is backed by data and built for results.
+              As a husband-and-wife team, our reputation is literally our family
+              name. Every website we build, every campaign we run, every result
+              we report -- it all comes back to us personally. That
+              accountability is what makes working with a boutique agency
+              different.
             </p>
             <p className="mt-4 leading-relaxed text-gray">
-              We are based in San Antonio, TX and work with small businesses
-              across Texas and beyond. When you work with us, you work directly
-              with the founder. No account managers. No runaround. Just honest,
-              transparent work from someone who knows your market.
+              No account managers, no runaround. Just two people who care about
+              your business almost as much as you do. Based in San Antonio and
+              operating as a DBA of JSL Innovations LLC, we combine modern AI
+              tools with proven marketing strategies to help local businesses
+              compete and win online.
             </p>
           </div>
           <div className="lg:col-span-2">

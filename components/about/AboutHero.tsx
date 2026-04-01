@@ -7,11 +7,13 @@ export default function AboutHero() {
             About Us
           </p>
           <h1 className="mt-3 font-heading text-4xl font-bold text-white sm:text-5xl">
-            Texas Roots. Modern Tools. Honest Work.
+            Meet the Team Behind Rank Point Media
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-[#94A3B8]">
-            Rank Point Media is a founder-led digital marketing agency built
-            for local small businesses. No contracts. No fluff. Just results.
+            We&apos;re Jon and Stacie -- a husband-and-wife team helping San
+            Antonio small businesses grow with websites that actually work and
+            marketing that drives real results. When you work with us, you work
+            directly with the people who built this agency.
           </p>
         </div>
       </div>
