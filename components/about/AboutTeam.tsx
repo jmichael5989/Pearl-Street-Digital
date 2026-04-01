@@ -1,3 +1,20 @@
+const teamMembers = [
+  {
+    name: "Jon Michael",
+    role: "Founder & Lead Web Developer",
+    initials: "JM",
+    accentClass: "bg-primary",
+    bio: "Jon is the founder of Rank Point Media and the lead developer behind every website we build. With a background in technology and a passion for clean, fast-loading web design, he specializes in building high-performance sites that rank well on Google and convert visitors into customers. Jon handles all web development, technical SEO implementation, and performance optimization -- ensuring every site we deliver hits Lighthouse 95+ scores and loads in under 2 seconds. When he's not coding, you'll find him exploring San Antonio's food scene or tinkering with the latest AI tools to find better ways to serve our clients.",
+  },
+  {
+    name: "Stacie Michael",
+    role: "Marketing Lead & Social Media Manager",
+    initials: "SM",
+    accentClass: "bg-accent",
+    bio: "Stacie leads all marketing strategy and social media management at Rank Point Media. She brings a sharp eye for brand storytelling and a deep understanding of what makes local audiences engage. From crafting scroll-stopping social content to managing Google Business Profiles and building review generation campaigns, Stacie ensures our clients stay visible and top-of-mind in their communities. She's the voice behind the strategy calls and the one making sure every marketing dollar our clients spend is working hard. A proud San Antonian, Stacie knows the local market inside and out.",
+  },
+];
+
 export default function AboutTeam() {
   return (
     <section className="bg-white py-24 lg:py-28">
@@ -10,35 +27,32 @@ export default function AboutTeam() {
             Who Is Behind the Work
           </h2>
         </div>
-        <div className="mx-auto mt-12 max-w-lg">
-          <div className="rounded-2xl border border-border bg-white p-8 text-center shadow-sm">
-            <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border-2 border-icon-service-border bg-light">
-              <svg
-                width={40}
-                height={40}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-primary"
+        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+          {teamMembers.map((member) => (
+            <div
+              key={member.name}
+              className="group rounded-2xl border border-border bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/40"
+            >
+              <div
+                className={`mx-auto flex h-48 w-48 items-center justify-center rounded-full ${member.accentClass}`}
+                role="img"
+                aria-label={`${member.name} headshot placeholder`}
               >
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                <circle cx={12} cy={7} r={4} />
-              </svg>
+                <span className="font-heading text-4xl font-bold text-white">
+                  {member.initials}
+                </span>
+              </div>
+              <h3 className="mt-6 font-heading text-xl font-bold text-dark">
+                {member.name}
+              </h3>
+              <p className="mt-1 text-sm font-medium text-primary">
+                {member.role}
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-gray">
+                {member.bio}
+              </p>
             </div>
-            <h3 className="mt-4 font-heading text-xl font-bold text-dark">
-              Jon
-            </h3>
-            <p className="mt-1 text-sm font-medium text-primary">Founder</p>
-            <p className="mx-auto mt-4 max-w-sm text-sm leading-relaxed text-gray">
-              Texas native with a passion for helping local businesses grow
-              online. Combines hands-on marketing expertise with AI-powered tools
-              to deliver results that actually move the needle for small
-              businesses.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

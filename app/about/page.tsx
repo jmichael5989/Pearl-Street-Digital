@@ -9,13 +9,13 @@ import AboutStats from "@/components/about/AboutStats";
 import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
-  title: "About Us San Antonio | Rank Point Media",
+  title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
   description:
-    "Rank Point Media is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
+    "Meet Jon and Stacie, the husband-and-wife team behind Rank Point Media. We build fast, high-performing websites and run results-driven marketing campaigns for San Antonio small businesses.",
   openGraph: {
-    title: "About Us San Antonio | Rank Point Media",
+    title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
     description:
-      "Rank Point Media is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
+      "Meet Jon and Stacie, the husband-and-wife team behind Rank Point Media. We build fast, high-performing websites and run results-driven marketing campaigns for San Antonio small businesses.",
     url: "https://rankpointmedia.com/about",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Us San Antonio | Rank Point Media",
+    title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
     description:
-      "Rank Point Media is a founder-led digital marketing agency in San Antonio, TX. AI-powered web design, SEO, and marketing for local small businesses. No contracts.",
+      "Meet Jon and Stacie, the husband-and-wife team behind Rank Point Media. We build fast, high-performing websites and run results-driven marketing campaigns for San Antonio small businesses.",
   },
   alternates: {
     canonical: "https://rankpointmedia.com/about",
@@ -52,6 +52,26 @@ const aboutSchema = {
       "@type": "City",
       name: "San Antonio",
     },
+    member: [
+      {
+        "@type": "Person",
+        name: "Jon Michael",
+        jobTitle: "Founder & Lead Web Developer",
+        worksFor: {
+          "@type": "Organization",
+          name: "Rank Point Media",
+        },
+      },
+      {
+        "@type": "Person",
+        name: "Stacie Michael",
+        jobTitle: "Marketing Lead & Social Media Manager",
+        worksFor: {
+          "@type": "Organization",
+          name: "Rank Point Media",
+        },
+      },
+    ],
   },
 };
 
