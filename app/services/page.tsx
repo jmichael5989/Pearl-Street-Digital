@@ -1,10 +1,20 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import CTABanner from "@/components/sections/CTABanner";
 import { services } from "@/lib/services-data";
 import { serviceIconMap, ArrowRightIcon } from "@/components/icons/ServiceIcons";
+
+const serviceImages: Record<string, string> = {
+  "website-design": "/images/services/website-design.jpg",
+  "local-seo": "/images/services/local-seo.jpg",
+  "social-media": "/images/services/social-media.jpg",
+  "ppc-google-ads": "/images/services/ppc-google-ads.jpg",
+  "ai-search-optimization": "/images/services/ai-search.jpg",
+  "reputation-management": "/images/services/reputation.jpg",
+};
 
 export const metadata: Metadata = {
   title: "Digital Marketing Services San Antonio | Rank Point Media",
@@ -83,27 +93,53 @@ export default function ServicesPage() {
                 const firstSentence =
                   service.tagline.split(/(?<=[.!?])\s/)[0] || service.tagline;
 
+                const image = serviceImages[service.slug];
+
                 return (
                   <Link
                     key={service.slug}
                     href={`/services/${service.slug}`}
-                    className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
+                    className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
                   >
-                    {Icon && (
-                      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488]">
-                        <Icon className="h-6 w-6" />
+                    {/* Image strip */}
+                    {image && (
+                      <div className="relative h-36 overflow-hidden">
+                        <Image
+                          src={image}
+                          alt=""
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          loading="lazy"
+                        />
+                        <div
+                          className="absolute inset-0"
+                          style={{
+                            background:
+                              "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
+                          }}
+                        />
                       </div>
                     )}
-                    <h3 className="font-heading text-lg font-semibold text-dark mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-gray mb-4">
-                      {firstSentence}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary">
-                      Learn more
-                      <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
+
+                    {/* Content */}
+                    <div className="p-8 pt-5">
+                      {Icon && (
+                        <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488] ${image ? "-mt-12 relative z-10 shadow-sm" : "mb-5"}`}>
+                          <Icon className="h-6 w-6" />
+                        </div>
+                      )}
+                      <h3 className="font-heading text-lg font-semibold text-dark mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-gray mb-4">
+                        {firstSentence}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary">
+                        Learn more
+                        <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
+                    </div>
                   </Link>
                 );
               })}
