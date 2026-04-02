@@ -135,21 +135,28 @@ export default function ServicesSection() {
               href={`/services/${service.slug}`}
               className="group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
             >
-              {/* Background image */}
-              <div className="absolute inset-0 z-0">
+              {/* Image strip at top */}
+              <div className="relative h-36 overflow-hidden">
                 <Image
                   src={service.image}
                   alt=""
                   fill
-                  className="object-cover opacity-[0.15] transition-opacity duration-300 group-hover:opacity-[0.25]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   loading="lazy"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
+                  }}
                 />
               </div>
 
               {/* Content */}
-              <div className="relative z-10 p-8">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488]">
+              <div className="p-8 pt-5">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488] -mt-12 relative z-10 shadow-sm">
                   {service.icon}
                 </div>
                 <h3 className="font-heading text-lg font-semibold text-dark mb-2">
