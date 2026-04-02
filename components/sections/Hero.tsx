@@ -197,7 +197,7 @@ export default function Hero() {
           <div className="max-w-[660px] mx-auto text-center">
             {/* Badge */}
             <div
-              className="hero-fade-up inline-flex items-center gap-2.5 rounded-full border border-[rgba(37,99,235,0.3)] bg-[rgba(37,99,235,0.08)] px-4 py-2 mb-6"
+              className="hero-fade-up inline-flex items-center gap-2.5 rounded-full border border-[rgba(20,184,166,0.3)] bg-[rgba(20,184,166,0.08)] px-4 py-2 mb-6"
               style={{
                 animation: "fadeUp 1s ease-out 0.5s both",
               }}
@@ -206,7 +206,7 @@ export default function Hero() {
                 className="hero-badge-pulse block h-1.5 w-1.5 rounded-full bg-green-400"
                 style={{ animation: "badgePulse 2s ease-in-out infinite" }}
               />
-              <span className="text-[0.8125rem] font-medium uppercase tracking-[0.04em] text-primary">
+              <span className="text-[0.8125rem] font-medium uppercase tracking-[0.04em] text-[#14B8A6]">
                 AI-Powered Digital Marketing
               </span>
             </div>
