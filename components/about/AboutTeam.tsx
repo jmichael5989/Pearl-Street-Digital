@@ -49,7 +49,7 @@ export default function AboutTeam() {
                     alt={`${member.name} headshot`}
                     width={192}
                     height={192}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
               ) : (
