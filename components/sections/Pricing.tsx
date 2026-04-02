@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 function CheckIcon() {
   return (
     <svg
@@ -19,15 +23,20 @@ function CheckIcon() {
 interface Plan {
   name: string;
   price: string;
+  hostedPrice: string;
+  hostingAddon: string;
   pages: string;
   featured: boolean;
   features: string[];
+  hostedFeatures: string[];
 }
 
 const plans: Plan[] = [
   {
     name: "Starter",
     price: "$250",
+    hostedPrice: "$300",
+    hostingAddon: "$50/mo",
     pages: "Up to 3 pages",
     featured: false,
     features: [
@@ -37,10 +46,21 @@ const plans: Plan[] = [
       "2 revision rounds",
       "30-day post-launch support",
     ],
+    hostedFeatures: [
+      "Custom-designed responsive website",
+      "Basic on-page SEO setup",
+      "Contact form integration",
+      "2 revision rounds",
+      "30-day post-launch support",
+      "Managed hosting and SSL",
+      "Monthly backups and security updates",
+    ],
   },
   {
     name: "Business",
     price: "$500",
+    hostedPrice: "$575",
+    hostingAddon: "$75/mo",
     pages: "Up to 6 pages",
     featured: true,
     features: [
@@ -51,10 +71,23 @@ const plans: Plan[] = [
       "3 revision rounds",
       "60-day post-launch support",
     ],
+    hostedFeatures: [
+      "Custom-designed responsive website",
+      "Basic on-page SEO setup",
+      "Contact form integration",
+      "Google Analytics installation",
+      "3 revision rounds",
+      "60-day post-launch support",
+      "Managed hosting and SSL",
+      "Monthly backups and security updates",
+      "Uptime monitoring",
+    ],
   },
   {
     name: "Growth",
     price: "$1,000",
+    hostedPrice: "$1,100",
+    hostingAddon: "$100/mo",
     pages: "Up to 10 pages",
     featured: false,
     features: [
@@ -66,10 +99,26 @@ const plans: Plan[] = [
       "4 revision rounds",
       "90-day post-launch support",
     ],
+    hostedFeatures: [
+      "Custom-designed responsive website",
+      "Full on-page SEO with schema markup",
+      "Contact form integration",
+      "Google Analytics installation",
+      "Social media integrations",
+      "4 revision rounds",
+      "90-day post-launch support",
+      "Managed hosting and SSL",
+      "Monthly backups and security updates",
+      "Uptime monitoring and priority support",
+    ],
   },
 ];
 
-function PricingCard({ plan }: { plan: Plan }) {
+function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
+  const displayPrice = hosted ? plan.hostedPrice : plan.price;
+  const displayFeatures = hosted ? plan.hostedFeatures : plan.features;
+  const priceLabel = hosted ? "one-time + hosting" : "one-time";
+
   if (plan.featured) {
     return (
       <div className="relative rounded-2xl border-2 border-accent bg-dark p-8 pt-12 shadow-[0_20px_50px_rgba(37,99,235,0.15)] transition-all duration-300 hover:-translate-y-1">
@@ -87,14 +136,20 @@ function PricingCard({ plan }: { plan: Plan }) {
           </h3>
           <p className="text-sm text-[#64748B] mt-1">{plan.pages}</p>
         </div>
-        <div className="mb-8">
+        <div className="mb-2">
           <span className="font-heading text-4xl font-extrabold text-white">
-            {plan.price}
+            {displayPrice}
           </span>
-          <span className="text-sm text-[#64748B] ml-2">one-time</span>
+          <span className="text-sm text-[#64748B] ml-2">{priceLabel}</span>
         </div>
+        {hosted && (
+          <p className="text-xs text-primary mb-6">
+            + {plan.hostingAddon} hosting
+          </p>
+        )}
+        {!hosted && <div className="mb-6" />}
         <ul className="space-y-3 mb-8">
-          {plan.features.map((f) => (
+          {displayFeatures.map((f) => (
             <li key={f} className="flex items-start gap-2.5">
               <span className="mt-0.5">
                 <CheckIcon />
@@ -125,14 +180,20 @@ function PricingCard({ plan }: { plan: Plan }) {
         </h3>
         <p className="text-sm text-gray mt-1">{plan.pages}</p>
       </div>
-      <div className="mb-8">
+      <div className="mb-2">
         <span className="font-heading text-4xl font-extrabold text-dark">
-          {plan.price}
+          {displayPrice}
         </span>
-        <span className="text-sm text-gray ml-2">one-time</span>
+        <span className="text-sm text-gray ml-2">{priceLabel}</span>
       </div>
+      {hosted && (
+        <p className="text-xs text-primary mb-6">
+          + {plan.hostingAddon} hosting
+        </p>
+      )}
+      {!hosted && <div className="mb-6" />}
       <ul className="space-y-3 mb-8">
-        {plan.features.map((f) => (
+        {displayFeatures.map((f) => (
           <li key={f} className="flex items-start gap-2.5">
             <span className="mt-0.5">
               <CheckIcon />
@@ -152,10 +213,12 @@ function PricingCard({ plan }: { plan: Plan }) {
 }
 
 export default function Pricing() {
+  const [hosted, setHosted] = useState(false);
+
   return (
     <section id="pricing" className="bg-white py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Transparent Pricing
           </span>
@@ -166,25 +229,38 @@ export default function Pricing() {
             One-time payment. No contracts, no monthly fees, no hidden costs.
             You own everything we build.
           </p>
+
+          {/* Toggle */}
+          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-gray-bg p-1.5">
+            <button
+              type="button"
+              onClick={() => setHosted(false)}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
+                !hosted
+                  ? "bg-white text-dark shadow-sm"
+                  : "text-gray hover:text-dark"
+              }`}
+            >
+              Build Only
+            </button>
+            <button
+              type="button"
+              onClick={() => setHosted(true)}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
+                hosted
+                  ? "bg-white text-dark shadow-sm"
+                  : "text-gray hover:text-dark"
+              }`}
+            >
+              Build + Hosting
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 items-start">
           {plans.map((plan) => (
-            <PricingCard key={plan.name} plan={plan} />
+            <PricingCard key={plan.name} plan={plan} hosted={hosted} />
           ))}
-        </div>
-
-        <div className="mt-12 rounded-2xl border border-icon-service-border bg-icon-service-bg p-6 text-center sm:text-left">
-          <p className="font-heading font-semibold text-dark">
-            Optional: Hosting and Maintenance{" "}
-            <span className="font-heading text-lg font-bold text-[#0D9488]">
-              -- $100/mo
-            </span>
-          </p>
-          <p className="text-sm text-gray mt-1">
-            We handle updates, security, backups, and uptime monitoring so you
-            never have to think about it.
-          </p>
         </div>
       </div>
     </section>
