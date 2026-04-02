@@ -69,17 +69,7 @@ function CloseIcon({ className }: { className?: string }) {
 }
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 40);
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -95,11 +85,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[rgba(255,255,255,0.97)] backdrop-blur-[16px] border-b border-border shadow-sm"
-          : "bg-transparent border-b border-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[rgba(255,255,255,0.97)] backdrop-blur-[16px] border-b border-border shadow-sm"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-[72px] items-center justify-between">
@@ -112,16 +98,12 @@ export default function Header() {
             </div>
             <div className="flex flex-col leading-tight">
               <span
-                className={`font-heading text-[15px] font-bold tracking-tight transition-colors duration-300 ${
-                  scrolled ? "text-dark" : "text-white"
-                }`}
+                className="font-heading text-[15px] font-bold tracking-tight text-dark"
               >
                 Rank Point
               </span>
               <span
-                className={`font-heading text-[15px] font-bold tracking-tight transition-colors duration-300 ${
-                  scrolled ? "text-primary" : "text-primary"
-                }`}
+                className="font-heading text-[15px] font-bold tracking-tight text-primary"
               >
                 Media
               </span>
@@ -134,11 +116,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                  scrolled
-                    ? "text-gray"
-                    : "text-[rgba(240,253,250,0.75)]"
-                }`}
+                className="text-sm font-medium text-gray transition-colors duration-300 hover:text-primary"
               >
                 {link.label}
               </Link>
@@ -149,11 +127,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-4">
             <a
               href="tel:+12105551234"
-              className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                scrolled
-                  ? "text-gray"
-                  : "text-[rgba(240,253,250,0.75)]"
-              }`}
+              className="flex items-center gap-1.5 text-sm font-medium text-gray transition-colors duration-300 hover:text-primary"
             >
               <PhoneIcon className="w-4 h-4" />
               (210) 555-1234
@@ -170,9 +144,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              scrolled ? "text-dark" : "text-white"
-            }`}
+            className="md:hidden p-2 rounded-lg text-dark"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <CloseIcon /> : <MenuIcon />}
