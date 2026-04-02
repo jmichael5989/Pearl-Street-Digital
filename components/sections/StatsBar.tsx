@@ -3,10 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "53K+", label: "Small Businesses in Bexar County" },
-  { value: "36.8M", label: "Annual SA Visitors" },
-  { value: "64%", label: "Hispanic Population" },
-  { value: "<2s", label: "Page Load Times" },
+  { value: "$1.5M+", label: "Ad Spend Managed" },
+  { value: "100%", label: "You Own Everything We Build" },
+  { value: "0", label: "Long-Term Contracts" },
+  { value: "2-3 Weeks", label: "Average Launch Time" },
 ];
 
 export default function StatsBar() {
