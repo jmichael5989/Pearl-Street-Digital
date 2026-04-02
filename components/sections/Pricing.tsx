@@ -35,7 +35,7 @@ const plans: Plan[] = [
   {
     name: "Starter",
     price: "$250",
-    hostedPrice: "$300",
+    hostedPrice: "$250",
     hostingAddon: "$50/mo",
     pages: "Up to 3 pages",
     featured: false,
@@ -59,7 +59,7 @@ const plans: Plan[] = [
   {
     name: "Business",
     price: "$500",
-    hostedPrice: "$575",
+    hostedPrice: "$500",
     hostingAddon: "$75/mo",
     pages: "Up to 6 pages",
     featured: true,
@@ -86,7 +86,7 @@ const plans: Plan[] = [
   {
     name: "Growth",
     price: "$1,000",
-    hostedPrice: "$1,100",
+    hostedPrice: "$1,000",
     hostingAddon: "$100/mo",
     pages: "Up to 10 pages",
     featured: false,
