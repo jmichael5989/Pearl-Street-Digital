@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 function GlobeIcon() {
   return (
@@ -62,6 +63,7 @@ const services = [
     icon: <GlobeIcon />,
     title: "Website Design",
     slug: "website-design",
+    image: "/images/services/website-design.jpg",
     description:
       "High-performance websites built for speed, SEO, and conversions. Designed to represent your business the way it deserves.",
   },
@@ -69,20 +71,23 @@ const services = [
     icon: <SearchIcon />,
     title: "Local SEO",
     slug: "local-seo",
+    image: "/images/services/local-seo.jpg",
     description:
-      "Rank higher on Google Maps and local search results. We optimize your presence so SA customers find you first.",
+      "Rank higher on Google Maps and local search results. We optimize your presence so customers find you first.",
   },
   {
     icon: <ShareIcon />,
     title: "Social Media",
     slug: "social-media",
+    image: "/images/services/social-media.jpg",
     description:
-      "Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement in the SA market.",
+      "Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement.",
   },
   {
     icon: <TargetIcon />,
     title: "PPC / Google Ads",
     slug: "ppc-google-ads",
+    image: "/images/services/ppc-google-ads.jpg",
     description:
       "Targeted ad campaigns that put your business in front of customers actively searching for your services in your area.",
   },
@@ -90,6 +95,7 @@ const services = [
     icon: <SparkleIcon />,
     title: "AI Search Optimization",
     slug: "ai-search-optimization",
+    image: "/images/services/ai-search.jpg",
     description:
       "Get your business recommended by AI assistants and voice search. The next frontier of local visibility is here.",
   },
@@ -97,6 +103,7 @@ const services = [
     icon: <ShieldIcon />,
     title: "Reputation Management",
     slug: "reputation-management",
+    image: "/images/services/reputation.jpg",
     description:
       "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your business has earned.",
   },
@@ -126,17 +133,32 @@ export default function ServicesSection() {
             <Link
               key={service.title}
               href={`/services/${service.slug}`}
-              className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488]">
-                {service.icon}
+              {/* Background image */}
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src={service.image}
+                  alt=""
+                  fill
+                  className="object-cover opacity-[0.06] transition-opacity duration-300 group-hover:opacity-[0.12]"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="font-heading text-lg font-semibold text-dark mb-2">
-                {service.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-gray">
-                {service.description}
-              </p>
+
+              {/* Content */}
+              <div className="relative z-10 p-8">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488]">
+                  {service.icon}
+                </div>
+                <h3 className="font-heading text-lg font-semibold text-dark mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray">
+                  {service.description}
+                </p>
+              </div>
             </Link>
           ))}
         </div>
