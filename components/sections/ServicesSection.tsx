@@ -141,7 +141,7 @@ export default function ServicesSection() {
                   src={service.image}
                   alt=""
                   fill
-                  className="object-cover opacity-[0.06] transition-opacity duration-300 group-hover:opacity-[0.12]"
+                  className="object-cover opacity-[0.15] transition-opacity duration-300 group-hover:opacity-[0.25]"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   loading="lazy"
                 />
