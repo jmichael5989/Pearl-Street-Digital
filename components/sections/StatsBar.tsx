@@ -48,7 +48,7 @@ export default function StatsBar() {
                   : "translateY(24px)",
               }}
             >
-              <div className="font-heading text-[2.5rem] font-extrabold text-[#0D9488] leading-none">
+              <div className="font-heading text-[2.5rem] font-extrabold text-[#1D4ED8] leading-none">
                 {stat.value}
               </div>
               <div className="mt-2 text-[0.8rem] font-medium uppercase tracking-[0.04em] text-gray">

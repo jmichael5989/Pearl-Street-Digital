@@ -9,7 +9,7 @@ export default function ServiceHero({ service }: { service: ServiceData }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           {Icon && (
-            <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-icon-service-bg border border-icon-service-border text-[#0D9488]">
+            <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-icon-service-bg border border-icon-service-border text-[#1D4ED8]">
               <Icon className="h-8 w-8" />
             </div>
           )}

@@ -29,7 +29,7 @@ function CheckIcon() {
       height="14"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#14B8A6"
+      stroke="#2563EB"
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -93,7 +93,7 @@ export default function Hero() {
         delay: Math.random() * 8,
         color:
           Math.random() < 0.7
-            ? "rgba(20,184,166,0.4)"
+            ? "rgba(37,99,235,0.4)"
             : "rgba(37,99,235,0.4)",
       });
     }
@@ -157,7 +157,7 @@ export default function Hero() {
               className="hero-gradient-mesh absolute inset-0 z-[1]"
               style={{
                 backgroundImage: [
-                  "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(20,184,166,0.25), transparent 60%)",
+                  "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(37,99,235,0.25), transparent 60%)",
                   "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(37,99,235,0.2), transparent 55%)",
                   "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(15,23,42,0.5), transparent 80%)",
                 ].join(", "),
@@ -197,7 +197,7 @@ export default function Hero() {
           <div className="max-w-[660px] mx-auto text-center">
             {/* Badge */}
             <div
-              className="hero-fade-up inline-flex items-center gap-2.5 rounded-full border border-[rgba(20,184,166,0.3)] bg-[rgba(20,184,166,0.08)] px-4 py-2 mb-6"
+              className="hero-fade-up inline-flex items-center gap-2.5 rounded-full border border-[rgba(37,99,235,0.3)] bg-[rgba(37,99,235,0.08)] px-4 py-2 mb-6"
               style={{
                 animation: "fadeUp 1s ease-out 0.5s both",
               }}
@@ -225,7 +225,7 @@ export default function Hero() {
                 className="bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    "linear-gradient(135deg, #14B8A6 0%, #5EEAD4 50%, #2563EB 100%)",
+                    "linear-gradient(135deg, #2563EB 0%, #60A5FA 50%, #2563EB 100%)",
                 }}
               >
                 actually bring you customers
@@ -254,7 +254,7 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="relative inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-dark overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(20,184,166,0.5)]"
+                className="relative inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(37,99,235,0.5)]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Get Your Free Site Audit
@@ -337,7 +337,7 @@ export default function Hero() {
         <div
           className="hero-accent-line absolute bottom-0 left-0 right-0 z-[5] h-[3px]"
           style={{
-            background: "linear-gradient(90deg, #14B8A6, #2563EB, #14B8A6)",
+            background: "linear-gradient(90deg, #2563EB, #2563EB, #2563EB)",
             backgroundSize: "200% 100%",
             animation: "accentLine 6s ease-in-out infinite",
           }}

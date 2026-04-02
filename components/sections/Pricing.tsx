@@ -131,7 +131,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
           Most Popular
         </span>
         <div className="mb-6">
-          <h3 className="font-heading text-xl font-bold text-[#F0FDFA]">
+          <h3 className="font-heading text-xl font-bold text-[#EFF6FF]">
             {plan.name}
           </h3>
           <p className="text-sm text-[#64748B] mt-1">{plan.pages}</p>
@@ -173,7 +173,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]">
+    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]">
       <div className="mb-6">
         <h3 className="font-heading text-xl font-bold text-dark">
           {plan.name}

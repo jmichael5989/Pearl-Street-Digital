@@ -27,7 +27,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
   return (
     <Link
       href={`/case-studies/${study.slug}`}
-      className="group rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)] overflow-hidden"
+      className="group rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)] overflow-hidden"
     >
       {/* Top color bar */}
       <div className="h-1.5 bg-gradient-to-r from-primary to-accent" />
@@ -37,7 +37,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
         <span
           className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] ${
             study.industryColor === "teal"
-              ? "bg-[rgba(20,184,166,0.08)] text-primary"
+              ? "bg-[rgba(37,99,235,0.08)] text-primary"
               : "bg-[rgba(37,99,235,0.08)] text-accent"
           }`}
         >

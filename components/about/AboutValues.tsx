@@ -138,7 +138,7 @@ export default function AboutValues() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
+              className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-icon-service-border bg-icon-service-bg text-primary">
                 {value.icon}

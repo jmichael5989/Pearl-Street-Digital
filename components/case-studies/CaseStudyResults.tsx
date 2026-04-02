@@ -16,7 +16,7 @@ export default function CaseStudyResults({ study }: { study: CaseStudyData }) {
           {study.results.map((result) => (
             <div
               key={result.label}
-              className="rounded-2xl border border-border bg-white p-6 sm:p-8 text-center shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
+              className="rounded-2xl border border-border bg-white p-6 sm:p-8 text-center shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
             >
               <p className="font-heading text-3xl sm:text-4xl font-bold text-primary">
                 {result.value}

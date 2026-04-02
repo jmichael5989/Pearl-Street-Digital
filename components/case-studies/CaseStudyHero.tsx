@@ -8,7 +8,7 @@ export default function CaseStudyHero({ study }: { study: CaseStudyData }) {
           <span
             className={`inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] ${
               study.industryColor === "teal"
-                ? "bg-[rgba(20,184,166,0.12)] text-primary"
+                ? "bg-[rgba(37,99,235,0.12)] text-primary"
                 : "bg-[rgba(37,99,235,0.12)] text-accent"
             }`}
           >
