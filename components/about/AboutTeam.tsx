@@ -1,9 +1,12 @@
+import Image from "next/image";
+
 const teamMembers = [
   {
     name: "Jon Michael",
     role: "Founder & Lead Web Developer",
     initials: "JM",
     accentClass: "bg-primary",
+    photo: "/images/team/jon.png",
     bio: "Jon is the founder of Rank Point Media and the lead developer behind every website we build. With a background in technology and a passion for clean, fast-loading web design, he specializes in building high-performance sites that rank well on Google and convert visitors into customers. Jon handles all web development, technical SEO implementation, and performance optimization -- ensuring every site we deliver hits Lighthouse 95+ scores and loads in under 2 seconds. When he's not coding, you'll find him exploring San Antonio's food scene or tinkering with the latest AI tools to find better ways to serve our clients.",
   },
   {
@@ -11,6 +14,7 @@ const teamMembers = [
     role: "Marketing Lead & Social Media Manager",
     initials: "SM",
     accentClass: "bg-accent",
+    photo: null,
     bio: "Stacie leads all marketing strategy and social media management at Rank Point Media. She brings a sharp eye for brand storytelling and a deep understanding of what makes local audiences engage. From crafting scroll-stopping social content to managing Google Business Profiles and building review generation campaigns, Stacie ensures our clients stay visible and top-of-mind in their communities. She's the voice behind the strategy calls and the one making sure every marketing dollar our clients spend is working hard. A proud San Antonian, Stacie knows the local market inside and out.",
   },
 ];
@@ -38,15 +42,27 @@ export default function AboutTeam() {
               key={member.name}
               className="group rounded-2xl border border-border bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-primary/40"
             >
-              <div
-                className={`mx-auto flex h-48 w-48 items-center justify-center rounded-full ${member.accentClass}`}
-                role="img"
-                aria-label={`${member.name} headshot placeholder`}
-              >
-                <span className="font-heading text-4xl font-bold text-white">
-                  {member.initials}
-                </span>
-              </div>
+              {member.photo ? (
+                <div className="mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-icon-service-border">
+                  <Image
+                    src={member.photo}
+                    alt={`${member.name} headshot`}
+                    width={192}
+                    height={192}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div
+                  className={`mx-auto flex h-48 w-48 items-center justify-center rounded-full ${member.accentClass}`}
+                  role="img"
+                  aria-label={`${member.name} headshot placeholder`}
+                >
+                  <span className="font-heading text-4xl font-bold text-white">
+                    {member.initials}
+                  </span>
+                </div>
+              )}
               <h3 className="mt-6 font-heading text-xl font-bold text-dark">
                 {member.name}
               </h3>
