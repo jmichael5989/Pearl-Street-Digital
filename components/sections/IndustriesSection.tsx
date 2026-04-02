@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function WrenchIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -46,6 +48,7 @@ const industries = [
   {
     icon: <WrenchIcon />,
     title: "Home Services",
+    image: "/images/industries/home-services.jpg",
     description:
       "HVAC, plumbing, roofing, landscaping — we help SA trade businesses show up when homeowners search for help.",
     href: "/industries",
@@ -53,6 +56,7 @@ const industries = [
   {
     icon: <UtensilsIcon />,
     title: "Restaurants & Hospitality",
+    image: "/images/industries/restaurants.jpg",
     description:
       "From Riverwalk spots to neighborhood taquerias, we drive foot traffic and online orders for SA's food scene.",
     href: "/industries/restaurants",
@@ -60,6 +64,7 @@ const industries = [
   {
     icon: <BriefcaseIcon />,
     title: "Professional Services",
+    image: "/images/industries/professional.jpg",
     description:
       "Law firms, accountants, consultants — build authority and generate qualified leads in your local market.",
     href: "/industries",
@@ -67,6 +72,7 @@ const industries = [
   {
     icon: <HeartIcon />,
     title: "Healthcare & Wellness",
+    image: "/images/industries/healthcare.jpg",
     description:
       "Dentists, chiropractors, med spas — HIPAA-aware marketing that brings new patients through your door.",
     href: "/industries",
@@ -96,25 +102,47 @@ export default function IndustriesSection() {
           {industries.map((industry) => (
             <div
               key={industry.title}
-              className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
+              className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-industry-bg border border-icon-industry-border text-accent">
-                {industry.icon}
+              {/* Image strip */}
+              <div className="relative h-32 overflow-hidden">
+                <Image
+                  src={industry.image}
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
+                  }}
+                />
               </div>
-              <h3 className="font-heading text-lg font-semibold text-dark mb-2">
-                {industry.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-gray mb-4">
-                {industry.description}
-              </p>
-              <a
-                href={industry.href}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary-dark"
-              >
-                <span className="sr-only">about {industry.title}</span>
-                Learn more
-                <ArrowRightIcon />
-              </a>
+
+              {/* Content */}
+              <div className="p-8 pt-5">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-industry-bg border border-icon-industry-border text-accent -mt-12 relative z-10 shadow-sm">
+                  {industry.icon}
+                </div>
+                <h3 className="font-heading text-lg font-semibold text-dark mb-2">
+                  {industry.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-gray mb-4">
+                  {industry.description}
+                </p>
+                <a
+                  href={industry.href}
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary-dark"
+                >
+                  <span className="sr-only">about {industry.title}</span>
+                  Learn more
+                  <ArrowRightIcon />
+                </a>
+              </div>
             </div>
           ))}
         </div>
