@@ -26,6 +26,11 @@ export default function AboutTeam() {
           <h2 className="mt-3 font-heading text-3xl font-bold text-dark sm:text-4xl">
             Who Is Behind the Work
           </h2>
+          <p className="mt-4 text-gray max-w-lg mx-auto">
+            A husband-and-wife team that treats your business like our own.
+            No account managers. No runaround. Just two people who care about
+            getting you results.
+          </p>
         </div>
         <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
           {teamMembers.map((member) => (
