@@ -67,7 +67,7 @@ interface Particle {
 }
 
 // Set to true when you have video files at /public/videos/hero.webm and hero.mp4
-const USE_VIDEO_HERO = false;
+const USE_VIDEO_HERO = true;
 
 export default function Hero() {
   const [particles, setParticles] = useState<Particle[]>([]);
