@@ -225,7 +225,7 @@ export default function Hero() {
                 className="bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    "linear-gradient(135deg, #2563EB 0%, #60A5FA 50%, #2563EB 100%)",
+                    "linear-gradient(135deg, #14B8A6 0%, #5EEAD4 50%, #14B8A6 100%)",
                 }}
               >
                 actually bring you customers
