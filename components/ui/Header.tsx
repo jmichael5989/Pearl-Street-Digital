@@ -91,7 +91,7 @@ export default function Header() {
         <div className="flex h-[72px] items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent shadow-md">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#14B8A6] to-[#8B5CF6] shadow-md">
               <span className="font-heading text-lg font-bold text-white leading-none">
                 R
               </span>
