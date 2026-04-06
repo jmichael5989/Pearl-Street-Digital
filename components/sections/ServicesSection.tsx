@@ -133,7 +133,7 @@ export default function ServicesSection() {
             <Link
               key={service.title}
               href={`/services/${service.slug}`}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
             >
               {/* Image strip at top */}
               <div className="relative h-36 overflow-hidden">
@@ -156,7 +156,7 @@ export default function ServicesSection() {
 
               {/* Content */}
               <div className="p-8 pt-5">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#1D4ED8] -mt-12 relative z-10 shadow-sm">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488] -mt-12 relative z-10 shadow-sm">
                   {service.icon}
                 </div>
                 <h3 className="font-heading text-lg font-semibold text-dark mb-2">

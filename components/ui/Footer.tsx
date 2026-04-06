@@ -127,7 +127,7 @@ export default function Footer() {
                 className="uppercase tracking-[0.18em] font-semibold bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    "linear-gradient(90deg, #94A3B8, #2563EB)",
+                    "linear-gradient(90deg, #94A3B8, #14B8A6)",
                 }}
               >
                 Rank Point Media

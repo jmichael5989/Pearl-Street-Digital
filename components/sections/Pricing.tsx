@@ -121,17 +121,17 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
 
   if (plan.featured) {
     return (
-      <div className="relative rounded-2xl border-2 border-accent bg-dark p-8 pt-12 shadow-[0_20px_50px_rgba(37,99,235,0.15)] transition-all duration-300 hover:-translate-y-1">
+      <div className="relative rounded-2xl border-2 border-accent bg-dark p-8 pt-12 shadow-[0_20px_50px_rgba(20,184,166,0.15)] transition-all duration-300 hover:-translate-y-1">
         <span
           className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white whitespace-nowrap"
           style={{
-            background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+            background: "#14B8A6",
           }}
         >
           Most Popular
         </span>
         <div className="mb-6">
-          <h3 className="font-heading text-xl font-bold text-[#EFF6FF]">
+          <h3 className="font-heading text-xl font-bold text-[#F0FDFA]">
             {plan.name}
           </h3>
           <p className="text-sm text-[#64748B] mt-1">{plan.pages}</p>
@@ -162,8 +162,8 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
           href="/contact"
           className="block w-full rounded-xl py-3 text-center text-sm font-semibold text-white transition-all hover:opacity-90"
           style={{
-            background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-            boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
+            background: "#14B8A6",
+            boxShadow: "0 4px 14px rgba(20,184,166,0.35)",
           }}
         >
           Get Started
@@ -173,7 +173,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]">
+    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]">
       <div className="mb-6">
         <h3 className="font-heading text-xl font-bold text-dark">
           {plan.name}

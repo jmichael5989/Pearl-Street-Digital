@@ -23,7 +23,7 @@ export default function IndustryPricing({
 
         <div className="mt-12 mx-auto max-w-lg">
           <div className="rounded-2xl border-2 border-accent bg-dark p-8 sm:p-10 text-center shadow-lg relative overflow-hidden">
-            <span className="absolute top-0 left-0 right-0 bg-gradient-to-r from-accent to-[#1D4ED8] py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+            <span className="absolute top-0 left-0 right-0 bg-[#14B8A6] py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
               Most Popular
             </span>
             <div className="mt-4">
@@ -41,8 +41,8 @@ export default function IndustryPricing({
                 href="/contact"
                 className="mt-8 inline-flex items-center justify-center rounded-xl px-8 py-3.5 font-heading font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 w-full"
                 style={{
-                  background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-                  boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
+                  background: "#14B8A6",
+                  boxShadow: "0 4px 14px rgba(20,184,166,0.35)",
                 }}
               >
                 Get Started

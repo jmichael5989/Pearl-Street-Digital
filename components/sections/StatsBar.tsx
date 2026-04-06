@@ -32,7 +32,7 @@ export default function StatsBar() {
   }, []);
 
   return (
-    <section ref={ref} className="border-b border-[#F3F4F6] bg-white">
+    <section ref={ref} className="bg-gray-bg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
@@ -48,7 +48,7 @@ export default function StatsBar() {
                   : "translateY(24px)",
               }}
             >
-              <div className="font-heading text-[3rem] font-extrabold text-[#1D4ED8] leading-none">
+              <div className="font-heading text-[3rem] font-extrabold text-primary leading-none">
                 {stat.value}
               </div>
               <div className="mt-2 text-[0.78rem] font-medium uppercase tracking-[0.04em] text-gray">

@@ -102,7 +102,7 @@ export default function IndustriesSection() {
           {industries.map((industry) => (
             <div
               key={industry.title}
-              className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
+              className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
             >
               {/* Image strip */}
               <div className="relative h-32 overflow-hidden">

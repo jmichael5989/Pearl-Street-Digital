@@ -216,8 +216,8 @@ export default function ContactForm() {
         disabled={isSubmitting}
         className="w-full rounded-xl py-3.5 text-center font-semibold text-white transition-all hover:opacity-90 disabled:opacity-60"
         style={{
-          background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-          boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
+          background: "#14B8A6",
+          boxShadow: "0 4px 14px rgba(20,184,166,0.35)",
         }}
       >
         {isSubmitting ? "Sending..." : "Send Message"}

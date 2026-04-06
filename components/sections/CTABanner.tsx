@@ -18,8 +18,8 @@ export default function CTABanner() {
             href="/contact"
             className="mt-8 inline-block rounded-xl px-8 py-4 text-center font-semibold text-white transition-all hover:opacity-90"
             style={{
-              background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-              boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
+              background: "#14B8A6",
+              boxShadow: "0 4px 14px rgba(20,184,166,0.35)",
             }}
           >
             Get Your Free Audit
