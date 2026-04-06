@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "$1.5M+", label: "Ad Spend Managed" },
+  { value: "2026", label: "Founded" },
   { value: "100%", label: "You Own Everything We Build" },
   { value: "0", label: "Long-Term Contracts" },
   { value: "2-3 Weeks", label: "Average Launch Time" },
@@ -48,7 +48,7 @@ export default function StatsBar() {
                   : "translateY(24px)",
               }}
             >
-              <div className="font-heading text-[2.5rem] font-extrabold text-[#1D4ED8] leading-none">
+              <div className="font-heading text-[3rem] font-extrabold text-[#1D4ED8] leading-none">
                 {stat.value}
               </div>
               <div className="mt-2 text-[0.8rem] font-medium uppercase tracking-[0.04em] text-gray">

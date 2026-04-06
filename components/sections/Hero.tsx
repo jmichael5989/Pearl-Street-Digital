@@ -39,24 +39,6 @@ function CheckIcon() {
   );
 }
 
-function PlayIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
 interface Particle {
   id: number;
   left: number;
@@ -193,8 +175,8 @@ export default function Hero() {
         />
 
         {/* Layer 3: Content */}
-        <div className="relative z-[3] mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
-          <div className="max-w-[660px] mx-auto text-center">
+        <div className="relative z-[3] mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
+          <div className="max-w-[660px]">
             {/* Badge */}
             <div
               className="hero-fade-up inline-flex items-center gap-2.5 rounded-full border border-[rgba(20,184,166,0.3)] bg-[rgba(20,184,166,0.08)] px-4 py-2 mb-6"
@@ -213,14 +195,15 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className="hero-fade-up font-heading text-4xl sm:text-5xl lg:text-[56px] font-extrabold leading-[1.08] tracking-tight text-white mb-6"
+              className="hero-fade-up font-heading font-extrabold leading-[1.08] tracking-tight text-white mb-6"
               style={{
+                fontSize: "clamp(2.5rem, 5vw, 4rem)",
                 textShadow:
                   "0 2px 20px rgba(15,23,42,0.8), 0 0 40px rgba(15,23,42,0.5)",
                 animation: "fadeUp 1s ease-out 0.6s both",
               }}
             >
-              Websites and marketing that{" "}
+              Websites and Marketing That{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{
@@ -228,13 +211,13 @@ export default function Hero() {
                     "linear-gradient(135deg, #14B8A6 0%, #5EEAD4 50%, #14B8A6 100%)",
                 }}
               >
-                actually bring you customers
+                Actually Bring You Customers
               </span>
             </h1>
 
             {/* Subtitle */}
             <p
-              className="hero-fade-up text-lg sm:text-xl leading-relaxed mb-8 max-w-[600px] mx-auto"
+              className="hero-fade-up text-lg leading-relaxed mb-8 max-w-[540px]"
               style={{
                 color: "rgba(255,255,255,0.7)",
                 textShadow:
@@ -242,19 +225,19 @@ export default function Hero() {
                 animation: "fadeUp 1s ease-out 0.75s both",
               }}
             >
-              We build high-performance websites and run local SEO campaigns
-              for local small businesses. No long-term contracts. No
-              fluff. Just more calls and foot traffic.
+              Stop losing customers to competitors with better websites.
+              We build fast, SEO-optimized sites and run campaigns that
+              drive real calls and foot traffic.
             </p>
 
-            {/* CTA Buttons */}
+            {/* CTA Button */}
             <div
-              className="hero-fade-up flex flex-col sm:flex-row flex-wrap gap-4 justify-center mb-0"
+              className="hero-fade-up mb-0"
               style={{ animation: "fadeUp 1s ease-out 0.9s both" }}
             >
               <Link
                 href="/contact"
-                className="relative inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(37,99,235,0.5)]"
+                className="relative inline-flex items-center justify-center gap-2 rounded-lg bg-[#14B8A6] px-8 py-4 text-base font-semibold text-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0D9488] hover:shadow-[0_6px_20px_rgba(20,184,166,0.5)]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Get Your Free Site Audit
@@ -269,33 +252,37 @@ export default function Hero() {
                   }}
                 />
               </Link>
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-[rgba(255,255,255,0.25)] bg-transparent px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.4)] hover:shadow-[0_4px_14px_rgba(255,255,255,0.1)]"
-              >
-                <PlayIcon />
-                See Our Work
-              </Link>
             </div>
 
             {/* Trust Signals */}
             <div
-              className="hero-fade-up flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-12 pt-8"
+              className="hero-fade-up flex flex-wrap items-center gap-x-6 gap-y-3 mt-8"
               style={{
-                borderTop: "1px solid rgba(255,255,255,0.1)",
                 animation: "fadeUp 1s ease-out 1.1s both",
               }}
             >
-              <span className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
+              <span className="flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1" style={{ color: "rgba(255,255,255,0.6)" }}>
                 <CheckIcon /> No contracts
               </span>
-              <span className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
+              <span className="flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1" style={{ color: "rgba(255,255,255,0.6)" }}>
                 <CheckIcon /> Sites from $250
               </span>
-              <span className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
+              <span className="flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1" style={{ color: "rgba(255,255,255,0.6)" }}>
                 <CheckIcon /> Results in 30 days
               </span>
             </div>
+
+            {/* Phone */}
+            <a
+              href="tel:+12105551234"
+              className="hero-fade-up inline-flex items-center gap-2 mt-6 text-sm font-medium text-[rgba(255,255,255,0.5)] hover:text-[#14B8A6] transition-colors"
+              style={{ animation: "fadeUp 1s ease-out 1.2s both" }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              (210) 555-1234
+            </a>
           </div>
         </div>
 
