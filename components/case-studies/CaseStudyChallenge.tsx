@@ -8,7 +8,7 @@ export default function CaseStudyChallenge({ study }: { study: CaseStudyData }) 
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             The Challenge
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             {study.challenge.heading}
           </h2>
           <div className="mt-6 space-y-4">

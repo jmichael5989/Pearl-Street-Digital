@@ -30,10 +30,10 @@ export default function Process() {
     <section id="process" className="bg-light py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Our Process
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             From Audit to Launch in Four Steps
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -64,7 +64,7 @@ export default function Process() {
                   <h3 className="font-heading text-lg font-semibold text-dark">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm text-gray leading-relaxed">
+                  <p className="mt-2 text-base text-gray leading-relaxed">
                     {step.description}
                   </p>
                 </div>

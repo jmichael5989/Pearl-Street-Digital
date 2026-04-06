@@ -85,10 +85,10 @@ export default function IndustriesSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Industries We Serve
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Marketing That Understands Your Industry
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -125,13 +125,13 @@ export default function IndustriesSection() {
 
               {/* Content */}
               <div className="p-8 pt-5">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-industry-bg border border-icon-industry-border text-accent -mt-12 relative z-10 shadow-sm">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-industry-bg border border-icon-industry-border text-primary -mt-12 relative z-10 shadow-sm">
                   {industry.icon}
                 </div>
                 <h3 className="font-heading text-lg font-semibold text-dark mb-2">
                   {industry.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-gray mb-4">
+                <p className="text-base leading-relaxed text-gray mb-4">
                   {industry.description}
                 </p>
                 <a

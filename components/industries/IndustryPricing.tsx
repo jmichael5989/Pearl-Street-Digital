@@ -12,7 +12,7 @@ export default function IndustryPricing({
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Pricing
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Transparent, One-Time Pricing
           </h2>
           <p className="mt-4 text-gray">

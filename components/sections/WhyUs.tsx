@@ -70,13 +70,13 @@ export default function WhyUs() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column */}
           <div>
-            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
               Why Rank Point Media
             </span>
-            <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               Built Different. Built for Small Business.
             </h2>
-            <p className="mt-5 text-gray leading-relaxed">
+            <p className="mt-4 text-gray leading-relaxed">
               Most agencies sell packages designed for national brands. We build
               strategies for the plumber in Helotes, the restaurant on the
               Riverwalk, and the law firm downtown. Your marketing should work as
@@ -88,14 +88,14 @@ export default function WhyUs() {
           <div className="space-y-6">
             {features.map((feature) => (
               <div key={feature.title} className="flex gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-white text-accent">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-white text-primary">
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="font-heading text-base font-semibold text-dark">
+                  <h3 className="font-heading text-lg font-semibold text-dark">
                     {feature.title}
                   </h3>
-                  <p className="mt-1 text-sm text-gray leading-relaxed">
+                  <p className="mt-1 text-base text-gray leading-relaxed">
                     {feature.description}
                   </p>
                 </div>

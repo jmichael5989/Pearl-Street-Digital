@@ -32,10 +32,10 @@ export default function Testimonials() {
     <section id="testimonials" className="bg-gray-bg py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Testimonials
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             What Our Clients Say
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -56,7 +56,7 @@ export default function Testimonials() {
                 <StarIcon />
                 <StarIcon />
               </div>
-              <p className="italic text-sm text-[#4B5563] leading-relaxed">
+              <p className="italic text-base text-gray leading-relaxed">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <div className="mt-6">

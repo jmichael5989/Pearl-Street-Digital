@@ -19,6 +19,18 @@
   --font-body: var(--font-dm-sans);
 }
 
+/* ── Typography tokens ─────────────────────────────────── */
+:root {
+  --text-h1: clamp(2rem, 5vw, 3.5rem);       /* 32px → 56px */
+  --text-h2: clamp(1.5rem, 4vw, 2.5rem);     /* 24px → 40px */
+  --text-h3: clamp(1.25rem, 3vw, 1.5rem);    /* 20px → 24px */
+  --text-h4: 1.125rem;                        /* 18px */
+  --text-eyebrow: 0.78rem;                    /* 12.5px */
+  --text-body: 1rem;                          /* 16px */
+  --text-body-lg: 1.125rem;                   /* 18px */
+  --text-body-sm: 0.875rem;                   /* 14px */
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -28,6 +40,8 @@ body {
   background: #ffffff;
   color: #1F2937;
   font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 ::selection {

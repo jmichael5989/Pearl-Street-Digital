@@ -31,7 +31,7 @@ export default function IndustryFAQ({ industry }: { industry: IndustryData }) {
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             FAQ
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Questions from {industry.title}
           </h2>
         </div>
@@ -64,7 +64,7 @@ export default function IndustryFAQ({ industry }: { industry: IndustryData }) {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="px-6 pb-5 text-sm leading-relaxed text-gray">
+                <p className="px-6 pb-5 text-base leading-relaxed text-gray">
                   {faq.answer}
                 </p>
               </div>

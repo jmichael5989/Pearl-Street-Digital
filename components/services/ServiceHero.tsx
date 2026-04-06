@@ -13,7 +13,7 @@ export default function ServiceHero({ service }: { service: ServiceData }) {
               <Icon className="h-8 w-8" />
             </div>
           )}
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-dark">
+          <h1 className="font-heading font-bold text-dark" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
             {service.title} for Local Businesses
           </h1>
           <p className="mt-5 text-lg text-gray leading-relaxed">

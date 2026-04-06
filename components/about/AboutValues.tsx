@@ -126,7 +126,7 @@ export default function AboutValues() {
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Our Approach
           </p>
-          <h2 className="mt-3 font-heading text-3xl font-bold text-dark sm:text-4xl">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             What Sets Us Apart
           </h2>
           <p className="mt-4 leading-relaxed text-gray">

@@ -4,10 +4,10 @@ export default function AboutStory() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-5 lg:gap-16">
           <div className="lg:col-span-3">
-            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+            <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
               Our Story
             </p>
-            <h2 className="mt-3 font-heading text-3xl font-bold text-dark sm:text-4xl">
+            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               Why We Started Rank Point Media
             </h2>
             <p className="mt-4 leading-relaxed text-gray">

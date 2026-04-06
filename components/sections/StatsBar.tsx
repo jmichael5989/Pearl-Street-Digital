@@ -51,7 +51,7 @@ export default function StatsBar() {
               <div className="font-heading text-[3rem] font-extrabold text-[#1D4ED8] leading-none">
                 {stat.value}
               </div>
-              <div className="mt-2 text-[0.8rem] font-medium uppercase tracking-[0.04em] text-gray">
+              <div className="mt-2 text-[0.78rem] font-medium uppercase tracking-[0.04em] text-gray">
                 {stat.label}
               </div>
             </div>

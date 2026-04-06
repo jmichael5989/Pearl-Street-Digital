@@ -197,7 +197,7 @@ export default function Hero() {
             <h1
               className="hero-fade-up font-heading font-extrabold leading-[1.08] tracking-tight text-white mb-6"
               style={{
-                fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                fontSize: "var(--text-h1)",
                 textShadow:
                   "0 2px 20px rgba(15,23,42,0.8), 0 0 40px rgba(15,23,42,0.5)",
                 animation: "fadeUp 1s ease-out 0.6s both",

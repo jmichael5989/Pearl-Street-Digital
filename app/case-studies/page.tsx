@@ -59,7 +59,7 @@ export default function CaseStudiesPage() {
               <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
                 Our Work
               </span>
-              <h1 className="mt-3 font-heading text-4xl sm:text-5xl font-bold text-dark">
+              <h1 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
                 Real Results for Real Businesses
               </h1>
               <p className="mt-5 text-lg text-gray leading-relaxed">

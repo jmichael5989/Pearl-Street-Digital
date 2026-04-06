@@ -6,10 +6,10 @@ export default function ServiceFeatures({ service }: { service: ServiceData }) {
     <section className="bg-light py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             What&apos;s Included
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Everything You Get with {service.title}
           </h2>
         </div>
@@ -24,7 +24,7 @@ export default function ServiceFeatures({ service }: { service: ServiceData }) {
               <h3 className="font-heading font-semibold text-dark mb-2">
                 {feature.title}
               </h3>
-              <p className="text-sm text-gray leading-relaxed">
+              <p className="text-base text-gray leading-relaxed">
                 {feature.description}
               </p>
             </div>

@@ -9,12 +9,12 @@ export default function CaseStudyHero({ study }: { study: CaseStudyData }) {
             className={`inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] ${
               study.industryColor === "teal"
                 ? "bg-[rgba(37,99,235,0.12)] text-primary"
-                : "bg-[rgba(37,99,235,0.12)] text-accent"
+                : "bg-[rgba(37,99,235,0.12)] text-primary"
             }`}
           >
             {study.industry}
           </span>
-          <h1 className="mt-6 font-heading text-4xl sm:text-5xl font-bold text-white">
+          <h1 className="mt-6 font-heading font-bold text-white" style={{ fontSize: "var(--text-h1)", lineHeight: 1.2 }}>
             {study.clientName}
           </h1>
           <p className="mt-5 text-lg text-[#94A3B8] leading-relaxed">

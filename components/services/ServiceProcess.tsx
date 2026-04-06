@@ -8,7 +8,7 @@ export default function ServiceProcess({ service }: { service: ServiceData }) {
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             How It Works
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Our {service.title} Process
           </h2>
         </div>
@@ -35,7 +35,7 @@ export default function ServiceProcess({ service }: { service: ServiceData }) {
                   <h3 className="font-heading text-lg font-semibold text-dark">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm text-gray leading-relaxed">
+                  <p className="mt-2 text-base text-gray leading-relaxed">
                     {step.description}
                   </p>
                 </div>

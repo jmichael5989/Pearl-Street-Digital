@@ -38,7 +38,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
           className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] ${
             study.industryColor === "teal"
               ? "bg-[rgba(37,99,235,0.08)] text-primary"
-              : "bg-[rgba(37,99,235,0.08)] text-accent"
+              : "bg-[rgba(37,99,235,0.08)] text-primary"
           }`}
         >
           {study.industry}
@@ -79,7 +79,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
           {study.serviceSlugs.map((slug) => (
             <span
               key={slug}
-              className="rounded-md border border-[rgba(37,99,235,0.2)] px-2.5 py-0.5 text-xs font-medium text-accent capitalize"
+              className="rounded-md border border-[rgba(37,99,235,0.2)] px-2.5 py-0.5 text-xs font-medium text-primary capitalize"
             >
               {slug.replace(/-/g, " ")}
             </span>

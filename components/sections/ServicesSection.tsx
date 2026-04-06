@@ -118,7 +118,7 @@ export default function ServicesSection() {
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             What We Do
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Everything Your Business Needs to Win Online
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -162,7 +162,7 @@ export default function ServicesSection() {
                 <h3 className="font-heading text-lg font-semibold text-dark mb-2">
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-gray">
+                <p className="text-base leading-relaxed text-gray">
                   {service.description}
                 </p>
               </div>

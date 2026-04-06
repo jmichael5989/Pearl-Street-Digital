@@ -29,10 +29,10 @@ export default function IndustryPainPoints({
     <section className="bg-white py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Common Challenges
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Sound Familiar?
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -45,13 +45,13 @@ export default function IndustryPainPoints({
               key={point.title}
               className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-icon-industry-bg border border-icon-industry-border text-accent">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-icon-industry-bg border border-icon-industry-border text-primary">
                 <AlertIcon className="h-5 w-5" />
               </div>
               <h3 className="font-heading text-lg font-semibold text-dark mb-2">
                 {point.title}
               </h3>
-              <p className="text-sm leading-relaxed text-gray">
+              <p className="text-base leading-relaxed text-gray">
                 {point.description}
               </p>
             </div>

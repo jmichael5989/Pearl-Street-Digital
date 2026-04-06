@@ -218,11 +218,11 @@ export default function Pricing() {
   return (
     <section id="pricing" className="bg-white py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Transparent Pricing
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Simple Pricing. No Surprises.
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">

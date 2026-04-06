@@ -5,7 +5,7 @@ export default function ContactHero() {
         <p className="text-primary text-[0.78rem] font-semibold uppercase tracking-[0.12em] mb-4">
           Contact Us
         </p>
-        <h1 className="text-4xl sm:text-5xl font-bold text-white font-heading mb-6">
+        <h1 className="font-heading font-bold text-white mb-6" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
           Let&apos;s Build Something Great Together
         </h1>
         <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">

@@ -13,7 +13,7 @@ export default function About() {
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             About Us
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Texas Roots. Modern Tools. Honest Work.
           </h2>
           <p className="mt-6 text-gray leading-relaxed">
@@ -38,7 +38,7 @@ export default function About() {
                 <div className="font-heading font-bold text-dark text-lg">
                   {stat.value}
                 </div>
-                <div className="text-xs text-gray uppercase tracking-[0.08em] mt-1">
+                <div className="text-[0.78rem] text-gray uppercase tracking-[0.08em] mt-1">
                   {stat.label}
                 </div>
               </div>

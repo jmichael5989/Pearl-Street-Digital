@@ -32,7 +32,7 @@ export default function IndustrySolutions({
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             How We Help
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Solutions Built for {industry.title}
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -49,7 +49,7 @@ export default function IndustrySolutions({
               <h3 className="font-heading text-lg font-semibold text-dark mb-2">
                 {solution.title}
               </h3>
-              <p className="text-sm leading-relaxed text-gray mb-4">
+              <p className="text-base leading-relaxed text-gray mb-4">
                 {solution.description}
               </p>
               <Link

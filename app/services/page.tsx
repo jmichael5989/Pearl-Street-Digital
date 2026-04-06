@@ -72,7 +72,7 @@ export default function ServicesPage() {
               <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
                 Our Services
               </span>
-              <h1 className="mt-3 font-heading text-4xl sm:text-5xl font-bold text-dark">
+              <h1 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
                 Digital Marketing Services for San Antonio Businesses
               </h1>
               <p className="mt-5 text-lg text-gray leading-relaxed">
@@ -132,7 +132,7 @@ export default function ServicesPage() {
                       <h3 className="font-heading text-lg font-semibold text-dark mb-2">
                         {service.title}
                       </h3>
-                      <p className="text-sm leading-relaxed text-gray mb-4">
+                      <p className="text-base leading-relaxed text-gray mb-4">
                         {firstSentence}
                       </p>
                       <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary">

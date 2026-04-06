@@ -87,10 +87,10 @@ export default function FAQ() {
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
+          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             FAQ
           </span>
-          <h2 className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-dark">
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Common Questions, Straight Answers
           </h2>
           <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -122,7 +122,7 @@ export default function FAQ() {
                   }}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-5 text-sm text-gray leading-relaxed">
+                    <p className="pb-5 text-base text-gray leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>

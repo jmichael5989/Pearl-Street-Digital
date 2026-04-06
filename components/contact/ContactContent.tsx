@@ -40,7 +40,7 @@ export default function ContactContent() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Contact Info */}
           <div>
-            <h2 className="font-heading text-2xl font-bold text-dark mb-4">
+            <h2 className="font-heading font-bold text-dark mb-4" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               Get in Touch
             </h2>
             <p className="text-gray mb-8">

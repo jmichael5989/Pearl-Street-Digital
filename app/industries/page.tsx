@@ -89,7 +89,7 @@ export default function IndustriesPage() {
               <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
                 Industries We Serve
               </span>
-              <h1 className="mt-3 font-heading text-4xl sm:text-5xl font-bold text-dark">
+              <h1 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
                 Marketing That Understands Your Industry
               </h1>
               <p className="mt-5 text-lg text-gray leading-relaxed">
@@ -137,7 +137,7 @@ export default function IndustriesPage() {
                       <h3 className="font-heading text-xl font-bold text-dark mb-2">
                         {industry.title}
                       </h3>
-                      <p className="text-sm leading-relaxed text-gray mb-4">
+                      <p className="text-base leading-relaxed text-gray mb-4">
                         {industry.heroSubtitle.split(".")[0]}.
                       </p>
                       <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors group-hover:text-accent">

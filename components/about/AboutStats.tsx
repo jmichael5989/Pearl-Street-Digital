@@ -13,7 +13,7 @@ export default function AboutStats() {
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             By the Numbers
           </p>
-          <h2 className="mt-3 font-heading text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Rank Point Media at a Glance
           </h2>
         </div>
