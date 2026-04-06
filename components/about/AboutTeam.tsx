@@ -14,7 +14,7 @@ const teamMembers = [
     role: "Marketing Lead & Social Media Manager",
     initials: "SM",
     accentClass: "bg-accent",
-    photo: null,
+    photo: "/images/team/stacie.jpg",
     bio: "Stacie leads all marketing strategy and social media management at Rank Point Media. She brings a sharp eye for brand storytelling and a deep understanding of what makes local audiences engage. From crafting scroll-stopping social content to managing Google Business Profiles and building review generation campaigns, Stacie ensures our clients stay visible and top-of-mind in their communities. She's the voice behind the strategy calls and the one making sure every marketing dollar our clients spend is working hard. A proud San Antonian, Stacie knows the local market inside and out.",
   },
 ];
