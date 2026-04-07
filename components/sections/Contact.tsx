@@ -1,5 +1,5 @@
 import { PhoneIcon, MailIcon, MapPinIcon } from "@/components/icons/ContactIcons";
-import ContactForm from "@/components/forms/ContactForm";
+import HomeContactForm from "@/components/forms/HomeContactForm";
 
 export default function Contact() {
   return (
@@ -55,7 +55,7 @@ export default function Contact() {
 
           {/* Right column -- form */}
           <div>
-            <ContactForm />
+            <HomeContactForm />
           </div>
         </div>
       </div>

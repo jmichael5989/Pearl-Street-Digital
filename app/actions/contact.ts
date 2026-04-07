@@ -10,8 +10,8 @@ interface ContactFormData {
 
 export async function submitContactForm(data: ContactFormData) {
   // Validate required fields server-side
-  if (!data.name || !data.email || !data.message) {
-    return { success: false, error: "Please fill in all required fields." };
+  if (!data.email) {
+    return { success: false, error: "Please provide an email address." };
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

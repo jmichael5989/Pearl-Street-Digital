@@ -7,8 +7,6 @@ import { submitContactForm } from "@/app/actions/contact";
 interface FormValues {
   name: string;
   email: string;
-  phone: string;
-  service: string;
   message: string;
 }
 
@@ -39,7 +37,7 @@ function SpinnerIcon() {
   );
 }
 
-export default function ContactForm() {
+export default function HomeContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
 
@@ -51,7 +49,11 @@ export default function ContactForm() {
 
   async function onSubmit(data: FormValues) {
     setServerError("");
-    const result = await submitContactForm(data);
+    const result = await submitContactForm({
+      ...data,
+      phone: "",
+      service: "",
+    });
     if (result.success) {
       setSubmitted(true);
     } else {
@@ -97,13 +99,13 @@ export default function ContactForm() {
     >
       <div>
         <label
-          htmlFor="name"
+          htmlFor="home-name"
           className="mb-1.5 block text-sm font-medium text-dark"
         >
           Name <span className="text-red-500">*</span>
         </label>
         <input
-          id="name"
+          id="home-name"
           type="text"
           placeholder="Your full name"
           className={inputClasses}
@@ -111,105 +113,52 @@ export default function ContactForm() {
           {...register("name", { required: "Name is required" })}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-red-500">
-            {errors.name.message}
-          </p>
+          <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
         )}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div>
-          <label
-            htmlFor="email"
-            className="mb-1.5 block text-sm font-medium text-dark"
-          >
-            Email <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="you@example.com"
-            className={inputClasses}
-            autoComplete="email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Enter a valid email address",
-              },
-            })}
-          />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-500">
-              {errors.email.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label
-            htmlFor="phone"
-            className="mb-1.5 block text-sm font-medium text-dark"
-          >
-            Phone
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            placeholder="(210) 555-0000"
-            className={inputClasses}
-            autoComplete="tel"
-            {...register("phone")}
-          />
-        </div>
-      </div>
-
       <div>
         <label
-          htmlFor="service"
+          htmlFor="home-email"
           className="mb-1.5 block text-sm font-medium text-dark"
         >
-          Service Interest
+          Email <span className="text-red-500">*</span>
         </label>
-        <select
-          id="service"
+        <input
+          id="home-email"
+          type="email"
+          placeholder="you@example.com"
           className={inputClasses}
-          {...register("service")}
-          defaultValue=""
-        >
-          <option value="" disabled>
-            Select a service
-          </option>
-          <option value="web-design">Web Design and Development</option>
-          <option value="local-seo">Local SEO</option>
-          <option value="social-media">Social Media Marketing</option>
-          <option value="ppc">PPC / Google Ads</option>
-          <option value="ai-search">AI Search Optimization</option>
-          <option value="reputation">Reputation Management</option>
-          <option value="other">Other / Not Sure</option>
-        </select>
+          autoComplete="email"
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: "Enter a valid email address",
+            },
+          })}
+        />
+        {errors.email && (
+          <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+        )}
       </div>
 
       <div>
         <label
-          htmlFor="message"
+          htmlFor="home-message"
           className="mb-1.5 block text-sm font-medium text-dark"
         >
           Message <span className="text-red-500">*</span>
         </label>
         <textarea
-          id="message"
+          id="home-message"
           rows={4}
-          placeholder="Tell us about your project or what you need help with"
+          placeholder="Tell us about your project"
           className={`${inputClasses} resize-none`}
-          {...register("message", {
-            required: "Message is required",
-          })}
+          {...register("message", { required: "Message is required" })}
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-red-500">
-            {errors.message.message}
-          </p>
+          <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
         )}
       </div>
 

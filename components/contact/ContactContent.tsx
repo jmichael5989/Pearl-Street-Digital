@@ -2,123 +2,117 @@ import {
   PhoneIcon,
   MailIcon,
   MapPinIcon,
-  ClockIcon,
 } from "@/components/icons/ContactIcons";
 import ContactForm from "@/components/forms/ContactForm";
 
-const contactItems = [
+const steps = [
   {
-    icon: PhoneIcon,
-    label: "Phone",
-    value: "(210) 555-1234",
-    href: "tel:+12105551234",
+    number: "1",
+    text: "We review your goals within 24 hours",
   },
   {
-    icon: MailIcon,
-    label: "Email",
-    value: "hello@rankpointmedia.com",
-    href: "mailto:hello@rankpointmedia.com",
+    number: "2",
+    text: "A strategist calls with tailored recommendations",
   },
   {
-    icon: MapPinIcon,
-    label: "Location",
-    value: "San Antonio, TX (Leon Springs area)",
-    href: null,
+    number: "3",
+    text: "You only move forward if it's the right fit",
   },
-];
-
-const businessHours = [
-  { day: "Monday - Friday", hours: "9:00 AM - 5:00 PM" },
-  { day: "Saturday", hours: "By appointment" },
-  { day: "Sunday", hours: "Closed" },
 ];
 
 export default function ContactContent() {
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Column - Contact Info */}
-          <div>
-            <h2 className="font-heading font-bold text-dark mb-4" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-              Get in Touch
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Left Column — What Happens Next (45%) */}
+          <div className="lg:col-span-5">
+            <h2
+              className="font-heading font-bold text-dark"
+              style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}
+            >
+              What Happens Next
             </h2>
-            <p className="text-gray mb-8">
-              Whether you need a new website, want to improve your search
-              rankings, or are ready to grow your business with AI-powered
-              marketing, we&apos;re here to help. Reach out and let&apos;s start
-              a conversation.
-            </p>
-
-            <div className="space-y-6">
-              {contactItems.map((item) => {
-                const Icon = item.icon;
-                const content = (
-                  <>
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
-                      <Icon />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray">
-                        {item.label}
-                      </p>
-                      <p className="text-text font-medium">{item.value}</p>
-                    </div>
-                  </>
-                );
-
-                return item.href ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="flex items-center gap-4 group"
-                  >
-                    {content}
-                  </a>
-                ) : (
-                  <div key={item.label} className="flex items-center gap-4">
-                    {content}
+            <div className="mt-8 space-y-6">
+              {steps.map((step) => (
+                <div key={step.number} className="flex gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-light border border-icon-service-border">
+                    <span className="font-heading text-lg font-bold text-primary">
+                      {step.number}
+                    </span>
                   </div>
-                );
-              })}
+                  <p className="pt-2 text-text leading-relaxed">{step.text}</p>
+                </div>
+              ))}
             </div>
 
-            {/* Business Hours */}
-            <h3 className="font-heading text-lg font-semibold text-dark mt-10 mb-4">
-              Business Hours
-            </h3>
-            <div className="flex items-start gap-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
-                <ClockIcon />
+            {/* Contact Info */}
+            <div className="mt-10 space-y-4">
+              <a
+                href="tel:+12105551234"
+                className="flex items-center gap-4 text-text hover:text-primary transition-colors"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
+                  <PhoneIcon />
+                </div>
+                <span className="text-sm font-medium">(210) 555-1234</span>
+              </a>
+              <a
+                href="mailto:hello@rankpointmedia.com"
+                className="flex items-center gap-4 text-text hover:text-primary transition-colors"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
+                  <MailIcon />
+                </div>
+                <span className="text-sm font-medium">
+                  hello@rankpointmedia.com
+                </span>
+              </a>
+              <div className="flex items-center gap-4 text-text">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
+                  <MapPinIcon />
+                </div>
+                <span className="text-sm font-medium">
+                  San Antonio, TX (Leon Springs area)
+                </span>
               </div>
-              <dl className="space-y-1">
-                {businessHours.map((entry) => (
-                  <div key={entry.day} className="flex gap-2 text-sm">
-                    <dt className="font-medium text-text w-36">{entry.day}</dt>
-                    <dd className="text-gray">{entry.hours}</dd>
-                  </div>
-                ))}
-              </dl>
             </div>
 
-            {/* Google Maps Embed */}
-            <div className="mt-8 rounded-xl overflow-hidden border border-border">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111254.46454384806!2d-98.67059229453716!3d29.571236443498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c58af04d00eaf%3A0x856e13b10a016bc!2sSan%20Antonio%2C%20TX!5e0!3m2!1sen!2sus!4v1"
-                width="100%"
-                height="280"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Rank Point Media office location in San Antonio, TX"
-              />
+            {/* Trust element */}
+            <div className="mt-8 flex items-center gap-3 rounded-xl border border-border bg-gray-bg px-5 py-4">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="shrink-0 text-primary"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <p className="text-sm text-gray">
+                We respond to every inquiry within one business day.
+              </p>
             </div>
           </div>
 
-          {/* Right Column - Contact Form */}
-          <div>
-            <ContactForm />
+          {/* Right Column — Form (55%) */}
+          <div className="lg:col-span-7">
+            <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-sm">
+              <ContactForm />
+            </div>
+
+            {/* Trust signal below form */}
+            <div className="mt-6 rounded-xl border border-border bg-gray-bg px-5 py-4">
+              <p className="text-sm text-gray text-center">
+                100% of our clients own everything we build. No lock-in, no
+                hostage domains.
+              </p>
+            </div>
           </div>
         </div>
       </div>
