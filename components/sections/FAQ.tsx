@@ -111,7 +111,7 @@ export default function FAQ() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 py-6 text-left"
                   aria-expanded={isOpen}
                 >
                   <span className="font-heading font-semibold text-dark">
@@ -126,7 +126,7 @@ export default function FAQ() {
                   }}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-5 text-base text-gray leading-relaxed">
+                    <p className="pb-6 text-base text-gray leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>

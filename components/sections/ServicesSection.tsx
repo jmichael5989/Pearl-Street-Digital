@@ -130,50 +130,51 @@ export default function ServicesSection() {
           </div>
         </ScrollReveal>
 
-        {/* Cards Grid */}
-        <ScrollReveal delay={200}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <Link
-              key={service.title}
-              href={`/services/${service.slug}`}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
-            >
-              {/* Image strip at top */}
-              <div className="relative h-36 overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt=""
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  loading="lazy"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
-                  }}
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-8 pt-5">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488] -mt-12 relative z-10 shadow-sm">
-                  {service.icon}
+        {/* Staggered 2-column grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+          {services.map((service, i) => (
+            <ScrollReveal key={service.title} delay={i * 100}>
+              <Link
+                href={`/services/${service.slug}`}
+                className={`group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)] block ${
+                  i % 2 === 1 ? "lg:mt-12" : ""
+                }`}
+              >
+                {/* Image strip at top */}
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={`${service.title} for San Antonio businesses`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    loading="lazy"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
+                    }}
+                  />
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-dark mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-base leading-relaxed text-gray">
-                  {service.description}
-                </p>
-              </div>
-            </Link>
+
+                {/* Content */}
+                <div className="p-8 pt-5">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488] -mt-12 relative z-10 shadow-sm">
+                    {service.icon}
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-dark mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-gray">
+                    {service.description}
+                  </p>
+                </div>
+              </Link>
+            </ScrollReveal>
           ))}
         </div>
-        </ScrollReveal>
       </div>
     </section>
   );

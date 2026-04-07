@@ -105,7 +105,7 @@ export default function ServicesPage() {
                       <div className="relative h-36 overflow-hidden">
                         <Image
                           src={image}
-                          alt=""
+                          alt={`${service.title} for San Antonio businesses`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
