@@ -16,7 +16,7 @@ export default function IndustryHero({ industry }: { industry: IndustryData }) {
           </p>
           <a
             href="/contact"
-            className="mt-8 inline-flex items-center justify-center rounded-xl px-8 py-3.5 font-heading font-semibold text-white transition-all duration-300 hover:-translate-y-0.5"
+            className="btn-primary mt-8 inline-flex items-center justify-center rounded-xl px-8 py-3.5 font-heading font-semibold text-white"
             style={{
               background: "#14B8A6",
               boxShadow: "0 4px 14px rgba(20,184,166,0.35)",

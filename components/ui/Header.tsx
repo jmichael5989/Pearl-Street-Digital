@@ -135,7 +135,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-primary ${transparent ? "text-[rgba(255,255,255,0.8)]" : "text-gray"}`}
+                className={`nav-link text-sm font-medium transition-colors duration-300 hover:text-primary ${transparent ? "text-[rgba(255,255,255,0.8)]" : "text-gray"}`}
               >
                 {link.label}
               </Link>
@@ -153,7 +153,7 @@ export default function Header() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-lg bg-[#14B8A6] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)] transition-all duration-300 hover:shadow-[0_6px_20px_rgba(20,184,166,0.5)] hover:-translate-y-0.5"
+              className="btn-primary inline-flex items-center rounded-lg bg-[#14B8A6] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)]"
             >
               Free Website Audit
             </Link>
@@ -199,7 +199,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="block mx-4 text-center rounded-lg bg-[#14B8A6] px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)]"
+              className="btn-primary block mx-4 text-center rounded-lg bg-[#14B8A6] px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)]"
             >
               Free Website Audit
             </Link>

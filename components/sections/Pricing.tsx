@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 function CheckIcon() {
   return (
@@ -160,7 +161,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
         </ul>
         <a
           href="/contact"
-          className="block w-full rounded-xl py-3 text-center text-sm font-semibold text-white transition-all hover:opacity-90"
+          className="btn-primary block w-full rounded-xl py-3 text-center text-sm font-semibold text-white"
           style={{
             background: "#14B8A6",
             boxShadow: "0 4px 14px rgba(20,184,166,0.35)",
@@ -204,7 +205,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
       </ul>
       <a
         href="/contact"
-        className="block w-full rounded-xl bg-dark py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#1E293B]"
+        className="btn-dark block w-full rounded-xl bg-dark py-3 text-center text-sm font-semibold text-white"
       >
         Get Started
       </a>
@@ -218,50 +219,54 @@ export default function Pricing() {
   return (
     <section id="pricing" className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
-            Transparent Pricing
-          </span>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            Simple Pricing. No Surprises.
-          </h2>
-          <p className="mt-4 text-gray max-w-2xl mx-auto">
-            One-time payment. No contracts, no monthly fees, no hidden costs.
-            You own everything we build.
-          </p>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+              Transparent Pricing
+            </span>
+            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+              Simple Pricing. No Surprises.
+            </h2>
+            <p className="mt-4 text-gray max-w-2xl mx-auto">
+              One-time payment. No contracts, no monthly fees, no hidden costs.
+              You own everything we build.
+            </p>
 
-          {/* Toggle */}
-          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-gray-bg p-1.5">
-            <button
-              type="button"
-              onClick={() => setHosted(false)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
-                !hosted
-                  ? "bg-white text-dark shadow-sm"
-                  : "text-gray hover:text-dark"
-              }`}
-            >
-              Build Only
-            </button>
-            <button
-              type="button"
-              onClick={() => setHosted(true)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
-                hosted
-                  ? "bg-white text-dark shadow-sm"
-                  : "text-gray hover:text-dark"
-              }`}
-            >
-              Build + Hosting
-            </button>
+            {/* Toggle */}
+            <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-gray-bg p-1.5">
+              <button
+                type="button"
+                onClick={() => setHosted(false)}
+                className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
+                  !hosted
+                    ? "bg-white text-dark shadow-sm"
+                    : "text-gray hover:text-dark"
+                }`}
+              >
+                Build Only
+              </button>
+              <button
+                type="button"
+                onClick={() => setHosted(true)}
+                className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
+                  hosted
+                    ? "bg-white text-dark shadow-sm"
+                    : "text-gray hover:text-dark"
+                }`}
+              >
+                Build + Hosting
+              </button>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={200}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 items-start">
           {plans.map((plan) => (
             <PricingCard key={plan.name} plan={plan} hosted={hosted} />
           ))}
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

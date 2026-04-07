@@ -14,7 +14,7 @@ interface FormValues {
 }
 
 const inputClasses =
-  "w-full rounded-xl border border-border bg-white px-4 py-3.5 text-base text-text placeholder:text-gray focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors font-body";
+  "input-glow w-full rounded-xl border border-border bg-white px-4 py-3.5 text-base text-text placeholder:text-gray focus:outline-none transition-colors font-body";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -217,7 +217,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-xl py-4 text-center font-semibold text-white transition-all hover:opacity-90 disabled:opacity-60"
+        className="btn-primary w-full rounded-xl py-4 text-center font-semibold text-white disabled:opacity-60"
         style={{
           background: "#14B8A6",
           boxShadow: "0 4px 14px rgba(20,184,166,0.35)",

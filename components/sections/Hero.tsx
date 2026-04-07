@@ -237,7 +237,7 @@ export default function Hero() {
             >
               <Link
                 href="/contact"
-                className="relative inline-flex items-center justify-center gap-2 rounded-lg bg-[#14B8A6] px-8 py-4 text-base font-semibold text-white overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0D9488] hover:shadow-[0_6px_20px_rgba(20,184,166,0.5)]"
+                className="btn-primary relative inline-flex items-center justify-center gap-2 rounded-lg bg-[#14B8A6] px-8 py-4 text-base font-semibold text-white overflow-hidden active:scale-[0.98]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Get Your Free Site Audit

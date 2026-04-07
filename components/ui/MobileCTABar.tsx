@@ -24,14 +24,14 @@ export default function MobileCTABar() {
     <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-border bg-white shadow-lg md:hidden">
       <a
         href="tel:+12105551234"
-        className="flex flex-1 items-center justify-center gap-2 bg-dark text-sm font-semibold text-white"
+        className="btn-dark flex flex-1 items-center justify-center gap-2 bg-dark text-sm font-semibold text-white"
       >
         <PhoneIcon />
         Call Now
       </a>
       <Link
         href="/contact"
-        className="flex flex-1 items-center justify-center gap-2 bg-[#14B8A6] text-sm font-semibold text-white"
+        className="btn-primary flex flex-1 items-center justify-center gap-2 bg-[#14B8A6] text-sm font-semibold text-white"
       >
         Free Audit
       </Link>

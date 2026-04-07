@@ -1,7 +1,10 @@
+import ScrollReveal from "@/components/ui/ScrollReveal";
+
 export default function CTABanner() {
   return (
     <section className="bg-dark py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <ScrollReveal>
         <div className="max-w-[700px] mx-auto text-center">
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Get Started
@@ -16,7 +19,7 @@ export default function CTABanner() {
           </p>
           <a
             href="/contact"
-            className="mt-8 inline-block rounded-xl px-8 py-4 text-center font-semibold text-white transition-all hover:opacity-90"
+            className="btn-primary mt-8 inline-block rounded-xl px-8 py-4 text-center font-semibold text-white"
             style={{
               background: "#14B8A6",
               boxShadow: "0 4px 14px rgba(20,184,166,0.35)",
@@ -25,6 +28,7 @@ export default function CTABanner() {
             Get Your Free Audit
           </a>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );
