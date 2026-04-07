@@ -1,34 +1,104 @@
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
+/* ── SVG Icons ─────────────────────────────────────────── */
+function ShieldIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    </svg>
+  );
+}
+
+function FileCheckIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <path d="m9 15 2 2 4-4" />
+    </svg>
+  );
+}
+
+function DollarSignIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
+      <line x1="12" y1="1" x2="12" y2="23" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </svg>
+  );
+}
+
+/* ── Commitment cards (MODE A — pre-launch) ────────────── */
+const commitments = [
+  {
+    icon: <FileCheckIcon />,
+    title: "You Own Everything",
+    description:
+      "Every line of code, every design file, every credential. Full handover on launch day. No hostage domains, no proprietary lock-in.",
+  },
+  {
+    icon: <ShieldIcon />,
+    title: "No Long-Term Contracts",
+    description:
+      "Month-to-month if you want ongoing support. One-time builds with no strings attached. Walk away whenever you want.",
+  },
+  {
+    icon: <DollarSignIcon />,
+    title: "Transparent Pricing",
+    description:
+      "What you see on our pricing page is what you pay. No hidden fees, no surprise invoices, no scope-creep charges.",
+  },
+];
+
+/* ── MODE B — Reusable testimonial card for future use ─── */
+export interface TestimonialData {
+  quote: string;
+  name: string;
+  business: string;
+  photo?: string;
+  rating?: number;
+  websiteUrl?: string;
+}
+
 function StarIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24" stroke="none">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FBBF24" stroke="none">
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26" />
     </svg>
   );
 }
 
-const testimonials = [
-  {
-    quote:
-      "Rank Point Media completely transformed our online presence. We went from zero leads to getting 3-4 calls a week from Google alone. Best investment we made all year.",
-    name: "Maria Gonzalez",
-    business: "Gonzalez Plumbing, San Antonio",
-  },
-  {
-    quote:
-      "They built our website in two weeks and it actually looks like us -- not some cookie-cutter template. Our regulars keep telling us how professional it looks.",
-    name: "James Chen",
-    business: "Golden Wok Kitchen, Stone Oak",
-  },
-  {
-    quote:
-      "What sold me was the honesty. No pushy upsells, no confusing jargon. Just a clean website that works and a team that answers the phone when I call.",
-    name: "Carlos Rivera",
-    business: "Rivera Family Dental, Helotes",
-  },
-];
+export function TestimonialCard({ testimonial }: { testimonial: TestimonialData }) {
+  return (
+    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]">
+      {testimonial.rating && (
+        <div className="flex gap-0.5 mb-4">
+          {Array.from({ length: testimonial.rating }, (_, i) => (
+            <StarIcon key={i} />
+          ))}
+        </div>
+      )}
+      <p className="italic text-base text-gray leading-relaxed">
+        &ldquo;{testimonial.quote}&rdquo;
+      </p>
+      <div className="mt-6 flex items-center gap-3">
+        {testimonial.photo && (
+          <img
+            src={testimonial.photo}
+            alt={testimonial.name}
+            className="h-12 w-12 rounded-full object-cover"
+          />
+        )}
+        <div>
+          <p className="font-heading font-bold text-dark">{testimonial.name}</p>
+          <p className="text-sm text-[#9CA3AF] mt-0.5">{testimonial.business}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
+/* ── Main section — MODE A (What We Stand For) ─────────── */
 export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-gray-bg py-16 lg:py-24">
@@ -36,41 +106,35 @@ export default function Testimonials() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
-              Testimonials
+              Our Commitments
             </span>
             <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-              What Our Clients Say
+              What We Stand For
             </h2>
             <p className="mt-4 text-gray max-w-2xl mx-auto">
-              Real feedback from business owners who chose Rank Point Media.
+              We built this agency on promises we actually keep. Here is what
+              every client can expect.
             </p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <div
-              key={t.name}
-              className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
-            >
-              <div className="flex gap-0.5 mb-4">
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
-                <StarIcon />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {commitments.map((c) => (
+              <div
+                key={c.title}
+                className="rounded-2xl border border-border bg-white p-8 shadow-sm border-l-4 border-l-primary"
+              >
+                <div className="mb-4">{c.icon}</div>
+                <h3 className="font-heading text-lg font-semibold text-dark">
+                  {c.title}
+                </h3>
+                <p className="mt-3 text-base text-gray leading-relaxed">
+                  {c.description}
+                </p>
               </div>
-              <p className="italic text-base text-gray leading-relaxed">
-                &ldquo;{t.quote}&rdquo;
-              </p>
-              <div className="mt-6">
-                <p className="font-heading font-bold text-dark">{t.name}</p>
-                <p className="text-sm text-[#9CA3AF] mt-0.5">{t.business}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </ScrollReveal>
       </div>
     </section>

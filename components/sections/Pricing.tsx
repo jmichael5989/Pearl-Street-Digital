@@ -267,6 +267,10 @@ export default function Pricing() {
           ))}
         </div>
         </ScrollReveal>
+
+        <p className="mt-10 text-center text-sm text-gray">
+          No hidden fees. No surprise invoices. You own everything we build.
+        </p>
       </div>
     </section>
   );

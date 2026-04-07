@@ -99,8 +99,23 @@ export default function Header() {
   const transparent = isHome && !scrolled;
 
   return (
+    <>
+      {/* Persistent top bar — desktop only, hides on scroll */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 hidden md:block bg-dark text-center transition-all duration-300 ${
+          scrolled ? "h-0 opacity-0 overflow-hidden" : "h-8 opacity-100"
+        }`}
+      >
+        <p className="text-[13px] leading-8 text-[rgba(255,255,255,0.7)] font-medium">
+          San Antonio&apos;s AI-Powered Marketing Agency
+          <span className="text-[rgba(255,255,255,0.3)] mx-2">|</span>
+          No Contracts
+        </p>
+      </div>
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "top-0" : "md:top-8 top-0"
+      } ${
         transparent
           ? "bg-transparent border-b border-transparent"
           : "bg-[rgba(255,255,255,0.97)] backdrop-blur-[16px] border-b border-border shadow-sm"
@@ -207,5 +222,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   );
 }
