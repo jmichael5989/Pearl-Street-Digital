@@ -22,7 +22,7 @@ export default function CaseStudyTestimonial({
   if (!study.testimonial) return null;
 
   return (
-    <section className="bg-gray-bg py-24 lg:py-28">
+    <section className="bg-gray-bg py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <QuoteIcon className="mx-auto mb-6 text-primary/20" />

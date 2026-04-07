@@ -60,12 +60,12 @@ export default function Footer() {
             <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white mb-4">
               Services
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors duration-300 hover:text-primary"
+                    className="block py-2 text-sm transition-colors duration-300 hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -79,12 +79,12 @@ export default function Footer() {
             <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white mb-4">
               Industries
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0">
               {industryLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors duration-300 hover:text-primary"
+                    className="block py-2 text-sm transition-colors duration-300 hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -98,12 +98,12 @@ export default function Footer() {
             <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white mb-4">
               Company
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-0">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors duration-300 hover:text-primary"
+                    className="block py-2 text-sm transition-colors duration-300 hover:text-primary"
                   >
                     {link.label}
                   </Link>
@@ -136,24 +136,24 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="flex items-center justify-center gap-4 mt-6 text-xs text-[rgba(148,163,184,0.5)]">
+          <div className="flex items-center justify-center gap-6 mt-6 text-xs text-[rgba(148,163,184,0.5)]">
             <Link
               href="/privacy"
-              className="transition-colors duration-300 hover:text-primary"
+              className="py-2 transition-colors duration-300 hover:text-primary"
             >
               Privacy Policy
             </Link>
             <span>|</span>
             <Link
               href="/terms"
-              className="transition-colors duration-300 hover:text-primary"
+              className="py-2 transition-colors duration-300 hover:text-primary"
             >
               Terms of Service
             </Link>
             <span>|</span>
             <Link
               href="/sitemap.xml"
-              className="transition-colors duration-300 hover:text-primary"
+              className="py-2 transition-colors duration-300 hover:text-primary"
             >
               Sitemap
             </Link>

@@ -163,7 +163,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden p-2 rounded-lg ${transparent ? "text-white" : "text-dark"}`}
+            className={`md:hidden p-3 rounded-lg ${transparent ? "text-white" : "text-dark"}`}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <CloseIcon /> : <MenuIcon />}
@@ -183,7 +183,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-4 py-3 text-sm font-medium text-gray transition-colors hover:bg-light hover:text-primary"
+              className="block rounded-lg px-4 py-4 text-sm font-medium text-gray transition-colors hover:bg-light hover:text-primary"
             >
               {link.label}
             </Link>
@@ -191,7 +191,7 @@ export default function Header() {
           <div className="pt-4 space-y-3 border-t border-border mt-4">
             <a
               href="tel:+12105551234"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray hover:text-primary transition-colors"
+              className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-gray hover:text-primary transition-colors"
             >
               <PhoneIcon className="w-4 h-4" />
               (210) 555-1234

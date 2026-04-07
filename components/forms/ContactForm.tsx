@@ -14,7 +14,7 @@ interface FormValues {
 }
 
 const inputClasses =
-  "w-full rounded-xl border border-border bg-white px-4 py-3 text-sm text-text placeholder:text-gray focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors font-body";
+  "w-full rounded-xl border border-border bg-white px-4 py-3.5 text-base text-text placeholder:text-gray focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors font-body";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -85,6 +85,7 @@ export default function ContactForm() {
           type="text"
           placeholder="Your full name"
           className={inputClasses}
+          autoComplete="name"
           {...register("name", { required: "Name is required" })}
         />
         {errors.name && (
@@ -107,6 +108,7 @@ export default function ContactForm() {
             type="email"
             placeholder="you@example.com"
             className={inputClasses}
+            autoComplete="email"
             {...register("email", {
               required: "Email is required",
               pattern: {
@@ -134,6 +136,7 @@ export default function ContactForm() {
             type="tel"
             placeholder="(210) 555-0000"
             className={inputClasses}
+            autoComplete="tel"
             {...register("phone")}
           />
         </div>
@@ -199,8 +202,8 @@ export default function ContactForm() {
           htmlFor="smsConsent"
           className="text-xs text-gray leading-relaxed"
         >
-          I agree to receive occasional text messages from Pearl
-          Street Digital at the phone number provided. Message and
+          I agree to receive occasional text messages from Rank
+          Point Media at the phone number provided. Message and
           data rates may apply. Reply STOP to opt out at any time.
           Consent is not a condition of purchase. See our Privacy
           Policy for details.
@@ -214,7 +217,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-xl py-3.5 text-center font-semibold text-white transition-all hover:opacity-90 disabled:opacity-60"
+        className="w-full rounded-xl py-4 text-center font-semibold text-white transition-all hover:opacity-90 disabled:opacity-60"
         style={{
           background: "#14B8A6",
           boxShadow: "0 4px 14px rgba(20,184,166,0.35)",

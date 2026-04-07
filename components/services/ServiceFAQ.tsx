@@ -38,7 +38,7 @@ export default function ServiceFAQ({ service }: { service: ServiceData }) {
   };
 
   return (
-    <section className="bg-gray-bg py-24 lg:py-28">
+    <section className="bg-gray-bg py-16 lg:py-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

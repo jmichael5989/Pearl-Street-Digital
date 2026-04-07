@@ -6,7 +6,7 @@ export default function IndustryPricing({
   industry: IndustryData;
 }) {
   return (
-    <section className="bg-white py-24 lg:py-28">
+    <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">

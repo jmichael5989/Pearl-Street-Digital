@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, DM_Sans } from "next/font/google";
 import "./globals.css";
+import MobileCTABar from "@/components/ui/MobileCTABar";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -52,7 +53,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${outfit.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -84,6 +85,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <MobileCTABar />
       </body>
     </html>
   );

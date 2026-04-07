@@ -25,7 +25,7 @@ export default function IndustryFAQ({ industry }: { industry: IndustryData }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-gray-bg py-24 lg:py-28">
+    <section className="bg-gray-bg py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">

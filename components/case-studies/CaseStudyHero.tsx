@@ -2,7 +2,7 @@ import type { CaseStudyData } from "@/lib/case-studies-data";
 
 export default function CaseStudyHero({ study }: { study: CaseStudyData }) {
   return (
-    <section className="bg-dark py-24 lg:py-28">
+    <section className="bg-dark py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <span

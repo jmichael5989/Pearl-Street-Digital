@@ -1,6 +1,6 @@
 export default function ContactHero() {
   return (
-    <section className="bg-dark pt-32 pb-24 lg:pb-28">
+    <section className="bg-dark pt-32 pb-16 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-primary text-[0.78rem] font-semibold uppercase tracking-[0.12em] mb-4">
           Contact Us
