@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import FooterMiniForm from "@/components/forms/FooterMiniForm";
 
 /* ── Link data ─────────────────────────────────────────── */
 const serviceLinks = [
@@ -122,36 +121,30 @@ function PreFooterCTA() {
     <section className="bg-[#14B8A6]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
         <ScrollReveal>
-          <div className="text-center lg:text-left">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-              <div className="max-w-lg">
-                <h2 className="font-heading text-[2rem] font-bold text-white leading-tight">
-                  Ready to Grow Your Business?
-                </h2>
-                <p className="mt-3 text-[rgba(255,255,255,0.85)] leading-relaxed">
-                  Get a professional website built in 2-3 weeks — no contracts,
-                  no surprises.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center rounded-xl bg-white px-8 py-3.5 font-semibold text-[#14B8A6] transition-all duration-200 hover:bg-[#0F172A] hover:text-white hover:shadow-lg"
-                >
-                  Get Your Free Audit
-                </Link>
-                <a
-                  href="tel:+12105551234"
-                  className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white transition-all duration-200 hover:bg-white hover:text-[#14B8A6]"
-                >
-                  <PhoneIcon />
-                  (210) 555-1234
-                </a>
-              </div>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            <div className="max-w-lg">
+              <h2 className="font-heading text-[2rem] font-bold text-white leading-tight">
+                Ready to Grow Your Business?
+              </h2>
+              <p className="mt-3 text-[rgba(255,255,255,0.85)] leading-relaxed">
+                Get a professional website built in 2-3 weeks — no contracts,
+                no surprises.
+              </p>
             </div>
-            {/* Mini-form */}
-            <div className="mt-8 pt-8 border-t border-[rgba(255,255,255,0.2)]">
-              <FooterMiniForm />
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center rounded-xl bg-white px-8 py-3.5 font-semibold text-[#14B8A6] transition-all duration-200 hover:bg-[#0F172A] hover:text-white hover:shadow-lg"
+              >
+                Get Your Free Audit
+              </Link>
+              <a
+                href="tel:+12105551234"
+                className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white transition-all duration-200 hover:bg-white hover:text-[#14B8A6]"
+              >
+                <PhoneIcon />
+                (210) 555-1234
+              </a>
             </div>
           </div>
         </ScrollReveal>
