@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
-import CTABanner from "@/components/sections/CTABanner";
 import CaseStudyCard from "@/components/ui/CaseStudyCard";
 import { getAllCaseStudies } from "@/lib/case-studies-data";
 
@@ -82,7 +81,6 @@ export default function CaseStudiesPage() {
           </div>
         </section>
 
-        <CTABanner />
       </main>
       <Footer />
     </>

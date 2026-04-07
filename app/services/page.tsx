@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
-import CTABanner from "@/components/sections/CTABanner";
 import { services } from "@/lib/services-data";
 import { serviceIconMap, ArrowRightIcon } from "@/components/icons/ServiceIcons";
 
@@ -147,7 +146,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <CTABanner />
       </main>
       <Footer />
     </>

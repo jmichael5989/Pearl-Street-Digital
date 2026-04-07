@@ -6,7 +6,6 @@ import IndustryPainPoints from "@/components/industries/IndustryPainPoints";
 import IndustrySolutions from "@/components/industries/IndustrySolutions";
 import IndustryPricing from "@/components/industries/IndustryPricing";
 import IndustryFAQ from "@/components/industries/IndustryFAQ";
-import CTABanner from "@/components/sections/CTABanner";
 import { getIndustry } from "@/lib/industries-data";
 
 const industry = getIndustry("restaurants");
@@ -74,7 +73,6 @@ export default function RestaurantsPage() {
         <IndustrySolutions industry={industry} />
         <IndustryPricing industry={industry} />
         <IndustryFAQ industry={industry} />
-        <CTABanner />
       </main>
       <Footer />
     </>

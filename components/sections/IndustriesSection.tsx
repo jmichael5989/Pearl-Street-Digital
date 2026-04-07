@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 function WrenchIcon() {
   return (
@@ -84,20 +85,23 @@ export default function IndustriesSection() {
     <section id="industries" className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
-            Industries We Serve
-          </span>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            Marketing That Understands Your Industry
-          </h2>
-          <p className="mt-4 text-gray max-w-2xl mx-auto">
-            Every industry has different customers, different search patterns,
-            and different conversion triggers. We build strategies that match.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+              Industries We Serve
+            </span>
+            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+              Marketing That Understands Your Industry
+            </h2>
+            <p className="mt-4 text-gray max-w-2xl mx-auto">
+              Every industry has different customers, different search patterns,
+              and different conversion triggers. We build strategies that match.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Cards Grid */}
+        <ScrollReveal delay={200}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((industry) => (
             <div
@@ -146,6 +150,7 @@ export default function IndustriesSection() {
             </div>
           ))}
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

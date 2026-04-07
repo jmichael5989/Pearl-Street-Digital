@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
-import CTABanner from "@/components/sections/CTABanner";
 import { getAllIndustries } from "@/lib/industries-data";
 
 const industryImages: Record<string, string> = {
@@ -152,7 +151,6 @@ export default function IndustriesPage() {
           </div>
         </section>
 
-        <CTABanner />
       </main>
       <Footer />
     </>

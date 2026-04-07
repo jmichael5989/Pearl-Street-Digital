@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 const steps = [
   {
     number: "01",
@@ -26,6 +30,32 @@ const steps = [
 ];
 
 export default function Process() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="process" className="bg-light py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -42,19 +72,28 @@ export default function Process() {
           </p>
         </div>
 
-        <div className="relative max-w-2xl mx-auto">
-          {/* Gradient timeline line */}
+        <div ref={ref} className="relative max-w-2xl mx-auto">
+          {/* Timeline line with draw-in effect */}
           <div
-            className="absolute left-7 top-7 bottom-7 w-0.5 hidden sm:block"
+            className="absolute left-7 top-7 bottom-7 w-0.5 hidden sm:block origin-top"
             style={{
-              background:
-                "linear-gradient(to bottom, rgba(20,184,166,0.2), rgba(20,184,166,0.2))",
+              background: "rgba(20,184,166,0.2)",
+              transform: visible ? "scaleY(1)" : "scaleY(0)",
+              transition: "transform 1.2s cubic-bezier(.22,1,.36,1) 200ms",
             }}
           />
 
           <div className="space-y-10">
-            {steps.map((step) => (
-              <div key={step.number} className="relative flex gap-6">
+            {steps.map((step, i) => (
+              <div
+                key={step.number}
+                className="relative flex gap-6"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0)" : "translateY(30px)",
+                  transition: `opacity 600ms ease-out ${i * 150}ms, transform 600ms ease-out ${i * 150}ms`,
+                }}
+              >
                 <div className="shrink-0 flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#CCFBF1] bg-white">
                   <span className="font-heading text-xl font-bold text-primary">
                     {step.number}

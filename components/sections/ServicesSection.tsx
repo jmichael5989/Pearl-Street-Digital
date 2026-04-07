@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 function GlobeIcon() {
   return (
@@ -114,20 +115,23 @@ export default function ServicesSection() {
     <section id="services" className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
-            What We Do
-          </span>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            Everything Your Business Needs to Win Online
-          </h2>
-          <p className="mt-4 text-gray max-w-2xl mx-auto">
-            From design to ads to AI-powered search, we handle the digital
-            marketing so you can focus on running your business.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+              What We Do
+            </span>
+            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+              Everything Your Business Needs to Win Online
+            </h2>
+            <p className="mt-4 text-gray max-w-2xl mx-auto">
+              From design to ads to AI-powered search, we handle the digital
+              marketing so you can focus on running your business.
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Cards Grid */}
+        <ScrollReveal delay={200}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <Link
@@ -169,6 +173,7 @@ export default function ServicesSection() {
             </Link>
           ))}
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

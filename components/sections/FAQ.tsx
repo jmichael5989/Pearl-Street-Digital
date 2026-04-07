@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 function ChevronIcon({ open }: { open: boolean }) {
   return (
@@ -86,19 +87,22 @@ export default function FAQ() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
-            FAQ
-          </span>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            Common Questions, Straight Answers
-          </h2>
-          <p className="mt-4 text-gray max-w-2xl mx-auto">
-            No jargon, no runaround. Here is what business owners ask us
-            most.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+              FAQ
+            </span>
+            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+              Common Questions, Straight Answers
+            </h2>
+            <p className="mt-4 text-gray max-w-2xl mx-auto">
+              No jargon, no runaround. Here is what business owners ask us
+              most.
+            </p>
+          </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={200}>
         <div className="max-w-3xl mx-auto divide-y divide-border">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
@@ -131,6 +135,7 @@ export default function FAQ() {
             );
           })}
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

@@ -10,7 +10,6 @@ import Pricing from "@/components/sections/Pricing";
 import Process from "@/components/sections/Process";
 import About from "@/components/sections/About";
 import FAQ from "@/components/sections/FAQ";
-import CTABanner from "@/components/sections/CTABanner";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/ui/Footer";
 
@@ -30,7 +29,6 @@ export default function Home() {
         <Process />
         <About />
         <FAQ />
-        <CTABanner />
         <Contact />
       </main>
       <Footer />

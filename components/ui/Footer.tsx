@@ -1,165 +1,332 @@
-import Link from "next/link";
+"use client";
 
+import { useState } from "react";
+import Link from "next/link";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+
+/* ── Link data ─────────────────────────────────────────── */
 const serviceLinks = [
   { label: "Web Design", href: "/services/website-design" },
   { label: "Local SEO", href: "/services/local-seo" },
   { label: "Google Ads (PPC)", href: "/services/ppc-google-ads" },
   { label: "Social Media", href: "/services/social-media" },
-  { label: "AI Search", href: "/services/ai-search-optimization" },
-  { label: "Reputation", href: "/services/reputation-management" },
-];
-
-const industryLinks = [
-  { label: "Restaurants", href: "/industries/restaurants" },
-  { label: "Beauty & Barbers", href: "/industries/beauty" },
-  { label: "Auto Repair", href: "/industries/auto" },
-  { label: "Home Services", href: "/industries" },
-  { label: "Healthcare", href: "/industries" },
+  { label: "AI Search Optimization", href: "/services/ai-search-optimization" },
+  { label: "Reputation Management", href: "/services/reputation-management" },
 ];
 
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Pricing", href: "/#pricing" },
-  { label: "Contact", href: "/contact" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+  { label: "Industries", href: "/industries" },
 ];
 
+/* ── SVG Social Icons ──────────────────────────────────── */
+function LinkedInIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+    </svg>
+  );
+}
+
+function ChevronDownIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+    </svg>
+  );
+}
+
+/* ── Accordion for mobile ──────────────────────────────── */
+function FooterAccordion({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="border-b border-[rgba(148,163,184,0.1)] lg:border-0">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between py-4 lg:hidden"
+        aria-expanded={open}
+      >
+        <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white">
+          {title}
+        </h3>
+        <ChevronDownIcon
+          className={`text-[#94A3B8] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {/* Desktop: always visible heading */}
+      <h3 className="hidden lg:block font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white mb-4">
+        {title}
+      </h3>
+      {/* Content: collapsible on mobile, always open on desktop */}
+      <div
+        className={`overflow-hidden transition-all duration-300 lg:max-h-none lg:opacity-100 lg:pb-0 ${
+          open ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0 lg:max-h-none lg:opacity-100"
+        }`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/* ── Pre-Footer CTA Bar ────────────────────────────────── */
+function PreFooterCTA() {
+  return (
+    <section className="bg-[#14B8A6]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+        <ScrollReveal>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+            <div className="max-w-lg">
+              <h2 className="font-heading text-[2rem] font-bold text-white leading-tight">
+                Ready to Grow Your Business?
+              </h2>
+              <p className="mt-3 text-[rgba(255,255,255,0.85)] leading-relaxed">
+                Get a professional website built in 2-3 weeks — no contracts, no
+                surprises.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center rounded-xl bg-white px-8 py-3.5 font-semibold text-[#14B8A6] transition-all duration-200 hover:bg-[#0F172A] hover:text-white hover:shadow-lg"
+              >
+                Get Your Free Audit
+              </Link>
+              <a
+                href="tel:+12105551234"
+                className="inline-flex items-center gap-2 rounded-xl border-2 border-white px-6 py-3 font-semibold text-white transition-all duration-200 hover:bg-white hover:text-[#14B8A6]"
+              >
+                <PhoneIcon />
+                (210) 555-1234
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+  );
+}
+
+/* ── Main Footer ───────────────────────────────────────── */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark text-[rgba(148,163,184,0.8)]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Brand Column */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent shadow-md">
-                <span className="font-heading text-lg font-bold text-white leading-none">
-                  R
-                </span>
+    <>
+      <PreFooterCTA />
+      <footer className="bg-dark text-[#94A3B8]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-8 lg:pt-16">
+          {/* Main Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-10 mb-10">
+            {/* Column 1 — Brand */}
+            <div className="pb-6 lg:pb-0">
+              <Link href="/" className="flex items-center gap-2.5 mb-4">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-accent shadow-md">
+                  <span className="font-heading text-lg font-bold text-white leading-none">
+                    R
+                  </span>
+                </div>
+                <div className="flex flex-col leading-tight">
+                  <span className="font-heading text-[15px] font-bold tracking-tight text-white">
+                    Rank Point
+                  </span>
+                  <span className="font-heading text-[15px] font-bold tracking-tight text-primary">
+                    Media
+                  </span>
+                </div>
+              </Link>
+              <p className="text-sm leading-relaxed max-w-[280px]">
+                AI-powered digital marketing for San Antonio small businesses.
+              </p>
+              {/* Social Icons */}
+              <div className="flex items-center gap-3 mt-5">
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgba(148,163,184,0.1)] text-[#94A3B8] transition-all duration-200 hover:bg-primary hover:text-white"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedInIcon />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgba(148,163,184,0.1)] text-[#94A3B8] transition-all duration-200 hover:bg-primary hover:text-white"
+                  aria-label="Facebook"
+                >
+                  <FacebookIcon />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgba(148,163,184,0.1)] text-[#94A3B8] transition-all duration-200 hover:bg-primary hover:text-white"
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon />
+                </a>
               </div>
-              <div className="flex flex-col leading-tight">
-                <span className="font-heading text-[15px] font-bold tracking-tight text-white">
-                  Rank Point
-                </span>
-                <span className="font-heading text-[15px] font-bold tracking-tight text-primary">
-                  Media
-                </span>
-              </div>
-            </Link>
-            <p className="text-sm leading-relaxed max-w-[280px]">
-              AI-powered digital marketing for local small businesses.
-              Websites, SEO, and ads that actually drive results.
-            </p>
-          </div>
+            </div>
 
-          {/* Services Column */}
-          <div>
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white mb-4">
-              Services
-            </h3>
-            <ul className="space-y-0">
-              {serviceLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="block py-2 text-sm transition-colors duration-300 hover:text-primary"
+            {/* Column 2 — Services (accordion on mobile) */}
+            <FooterAccordion title="Services">
+              <ul className="space-y-0">
+                {serviceLinks.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="block py-2 text-sm transition-colors duration-300 hover:text-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </FooterAccordion>
+
+            {/* Column 3 — Company (accordion on mobile) */}
+            <FooterAccordion title="Company">
+              <ul className="space-y-0">
+                {companyLinks.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="block py-2 text-sm transition-colors duration-300 hover:text-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </FooterAccordion>
+
+            {/* Column 4 — Contact Info (always visible) */}
+            <div className="pt-4 lg:pt-0">
+              <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white mb-4">
+                Contact
+              </h3>
+              <address className="not-italic space-y-3 text-sm">
+                <p className="font-medium text-white">Rank Point Media</p>
+                <p>San Antonio, TX (Leon Springs area)</p>
+                <p>
+                  <a
+                    href="tel:+12105551234"
+                    className="transition-colors duration-300 hover:text-primary"
                   >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Industries Column */}
-          <div>
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white mb-4">
-              Industries
-            </h3>
-            <ul className="space-y-0">
-              {industryLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="block py-2 text-sm transition-colors duration-300 hover:text-primary"
+                    (210) 555-1234
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href="mailto:hello@rankpointmedia.com"
+                    className="transition-colors duration-300 hover:text-primary"
                   >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Column */}
-          <div>
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-[0.12em] text-white mb-4">
-              Company
-            </h3>
-            <ul className="space-y-0">
-              {companyLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="block py-2 text-sm transition-colors duration-300 hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-[rgba(148,163,184,0.1)] pt-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-[rgba(148,163,184,0.5)]">
-              {currentYear} Rank Point Media. All rights reserved.
-            </p>
-            <div className="flex items-center gap-1.5 text-xs">
-              <span className="uppercase tracking-[0.18em] text-[#475569]">
-                Design by:
-              </span>
-              <span
-                className="uppercase tracking-[0.18em] font-semibold bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(90deg, #94A3B8, #14B8A6)",
-                }}
-              >
-                Rank Point Media
-              </span>
+                    hello@rankpointmedia.com
+                  </a>
+                </p>
+                <p className="text-xs text-[rgba(148,163,184,0.6)]">
+                  Mon-Fri 9am-5pm CST
+                </p>
+              </address>
             </div>
           </div>
 
-          {/* Legal Links */}
-          <div className="flex items-center justify-center gap-6 mt-6 text-xs text-[rgba(148,163,184,0.5)]">
-            <Link
-              href="/privacy"
-              className="py-2 transition-colors duration-300 hover:text-primary"
-            >
-              Privacy Policy
-            </Link>
-            <span>|</span>
-            <Link
-              href="/terms"
-              className="py-2 transition-colors duration-300 hover:text-primary"
-            >
-              Terms of Service
-            </Link>
-            <span>|</span>
-            <Link
-              href="/sitemap.xml"
-              className="py-2 transition-colors duration-300 hover:text-primary"
-            >
-              Sitemap
-            </Link>
+          {/* Bottom Bar */}
+          <div className="border-t border-[rgba(148,163,184,0.1)] pt-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-xs text-[rgba(148,163,184,0.5)]">
+                {currentYear} Rank Point Media. All rights reserved.
+              </p>
+              <div className="flex items-center gap-1.5 text-xs">
+                <span className="uppercase tracking-[0.18em] text-[#475569]">
+                  Design by:
+                </span>
+                <span
+                  className="uppercase tracking-[0.18em] font-semibold bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(90deg, #94A3B8, #14B8A6)",
+                  }}
+                >
+                  Rank Point Media
+                </span>
+              </div>
+            </div>
+
+            {/* Legal Links */}
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-xs text-[rgba(148,163,184,0.5)]">
+              <Link
+                href="/privacy"
+                className="py-2 transition-colors duration-300 hover:text-primary"
+              >
+                Privacy Policy
+              </Link>
+              <span className="hidden sm:inline">|</span>
+              <Link
+                href="/terms"
+                className="py-2 transition-colors duration-300 hover:text-primary"
+              >
+                Terms of Service
+              </Link>
+              <span className="hidden sm:inline">|</span>
+              <Link
+                href="/sitemap.xml"
+                className="py-2 transition-colors duration-300 hover:text-primary"
+              >
+                Sitemap
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }

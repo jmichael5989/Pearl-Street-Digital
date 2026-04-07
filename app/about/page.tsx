@@ -6,7 +6,6 @@ import AboutStory from "@/components/about/AboutStory";
 import AboutValues from "@/components/about/AboutValues";
 import AboutTeam from "@/components/about/AboutTeam";
 import AboutStats from "@/components/about/AboutStats";
-import CTABanner from "@/components/sections/CTABanner";
 
 export const metadata: Metadata = {
   title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
@@ -89,7 +88,6 @@ export default function AboutPage() {
         <AboutValues />
         <AboutTeam />
         <AboutStats />
-        <CTABanner />
       </main>
       <Footer />
     </>

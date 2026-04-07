@@ -7,7 +7,6 @@ import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
 import ServiceRelated from "@/components/services/ServiceRelated";
-import CTABanner from "@/components/sections/CTABanner";
 import { getService, getRelatedServices } from "@/lib/services-data";
 
 const service = getService("website-design");
@@ -61,7 +60,6 @@ export default function WebsiteDesignPage() {
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />
         <ServiceFAQ service={service} />
-        <CTABanner />
         <ServiceRelated services={getRelatedServices(service.relatedSlugs)} />
       </main>
       <Footer />

@@ -59,7 +59,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "ProfessionalService",
+              "@type": "MarketingAgency",
               name: "Rank Point Media",
               alternateName: "JSL Innovations LLC",
               description:
@@ -71,15 +71,29 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 addressLocality: "San Antonio",
                 addressRegion: "TX",
+                postalCode: "78257",
                 addressCountry: "US",
               },
-              areaServed: {
-                "@type": "City",
-                name: "San Antonio",
-                sameAs: "https://en.wikipedia.org/wiki/San_Antonio",
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: 29.4241,
+                longitude: -98.4936,
               },
-              priceRange: "$250-$1,000",
-              openingHours: "Mo-Fr 09:00-17:00",
+              areaServed: [
+                { "@type": "City", name: "San Antonio", sameAs: "https://en.wikipedia.org/wiki/San_Antonio" },
+                { "@type": "City", name: "Leon Springs" },
+                { "@type": "City", name: "Boerne" },
+                { "@type": "City", name: "Helotes" },
+                { "@type": "City", name: "Fair Oaks Ranch" },
+                { "@type": "City", name: "New Braunfels" },
+              ],
+              priceRange: "$$",
+              openingHoursSpecification: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "09:00",
+                closes: "17:00",
+              },
               sameAs: [],
             }),
           }}

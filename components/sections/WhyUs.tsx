@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ui/ScrollReveal";
+
 function ZapIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -69,22 +71,25 @@ export default function WhyUs() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column */}
-          <div>
-            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
-              Why Rank Point Media
-            </span>
-            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-              Built Different. Built for Small Business.
-            </h2>
-            <p className="mt-4 text-gray leading-relaxed">
-              Most agencies sell packages designed for national brands. We build
-              strategies for the plumber in Helotes, the restaurant on the
-              Riverwalk, and the law firm downtown. Your marketing should work as
-              hard as you do — and it should actually make sense for SA.
-            </p>
-          </div>
+          <ScrollReveal>
+            <div>
+              <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+                Why Rank Point Media
+              </span>
+              <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+                Built Different. Built for Small Business.
+              </h2>
+              <p className="mt-4 text-gray leading-relaxed">
+                Most agencies sell packages designed for national brands. We build
+                strategies for the plumber in Helotes, the restaurant on the
+                Riverwalk, and the law firm downtown. Your marketing should work as
+                hard as you do — and it should actually make sense for SA.
+              </p>
+            </div>
+          </ScrollReveal>
 
           {/* Right Column - Features */}
+          <ScrollReveal delay={200}>
           <div className="space-y-6">
             {features.map((feature) => (
               <div key={feature.title} className="flex gap-4">
@@ -102,6 +107,7 @@ export default function WhyUs() {
               </div>
             ))}
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

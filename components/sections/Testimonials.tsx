@@ -1,3 +1,5 @@
+import ScrollReveal from "@/components/ui/ScrollReveal";
+
 function StarIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="#FBBF24" stroke="none">
@@ -31,18 +33,21 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-gray-bg py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
-            Testimonials
-          </span>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            What Our Clients Say
-          </h2>
-          <p className="mt-4 text-gray max-w-2xl mx-auto">
-            Real feedback from business owners who chose Rank Point Media.
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+              Testimonials
+            </span>
+            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+              What Our Clients Say
+            </h2>
+            <p className="mt-4 text-gray max-w-2xl mx-auto">
+              Real feedback from business owners who chose Rank Point Media.
+            </p>
+          </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={200}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t) => (
             <div
@@ -66,6 +71,7 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );

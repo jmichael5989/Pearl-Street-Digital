@@ -6,7 +6,6 @@ import CaseStudyChallenge from "@/components/case-studies/CaseStudyChallenge";
 import CaseStudySolution from "@/components/case-studies/CaseStudySolution";
 import CaseStudyResults from "@/components/case-studies/CaseStudyResults";
 import CaseStudyTestimonial from "@/components/case-studies/CaseStudyTestimonial";
-import CTABanner from "@/components/sections/CTABanner";
 import { getCaseStudy } from "@/lib/case-studies-data";
 
 const study = getCaseStudy("rank-point-media");
@@ -59,7 +58,6 @@ export default function RankPointMediaCaseStudy() {
         <CaseStudySolution study={study} />
         <CaseStudyResults study={study} />
         <CaseStudyTestimonial study={study} />
-        <CTABanner />
       </main>
       <Footer />
     </>
