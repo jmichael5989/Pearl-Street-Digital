@@ -7,7 +7,6 @@ import Testimonials from "@/components/sections/Testimonials";
 import Pricing from "@/components/sections/Pricing";
 import WhyUs from "@/components/sections/WhyUs";
 import FAQ from "@/components/sections/FAQ";
-import CTABanner from "@/components/sections/CTABanner";
 import Footer from "@/components/ui/Footer";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
         <Pricing />
         <WhyUs />
         <FAQ />
-        <CTABanner />
       </main>
       <Footer />
     </>
