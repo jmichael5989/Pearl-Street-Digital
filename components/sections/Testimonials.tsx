@@ -31,19 +31,16 @@ function DollarSignIcon() {
 /* ── Commitment cards (MODE A — pre-launch) ────────────── */
 const commitments = [
   {
-    icon: <FileCheckIcon />,
     title: "You Own Everything",
     description:
       "Every line of code, every design file, every credential. Full handover on launch day. No hostage domains, no proprietary lock-in.",
   },
   {
-    icon: <ShieldIcon />,
     title: "No Long-Term Contracts",
     description:
       "Month-to-month if you want ongoing support. One-time builds with no strings attached. Walk away whenever you want.",
   },
   {
-    icon: <DollarSignIcon />,
     title: "Transparent Pricing",
     description:
       "What you see on our pricing page is what you pay. No hidden fees, no surprise invoices, no scope-creep charges.",
@@ -125,7 +122,6 @@ export default function Testimonials() {
                 key={c.title}
                 className="rounded-2xl border border-border bg-white p-8 shadow-sm border-l-4 border-l-primary"
               >
-                <div className="mb-4">{c.icon}</div>
                 <h3 className="font-heading text-lg font-semibold text-dark">
                   {c.title}
                 </h3>
