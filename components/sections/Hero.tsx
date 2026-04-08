@@ -53,6 +53,7 @@ const USE_VIDEO_HERO = true;
 
 export default function Hero() {
   const [particles, setParticles] = useState<Particle[]>([]);
+  const [videoReady, setVideoReady] = useState(false);
   const particlesRef = useRef(false);
 
   useEffect(() => {
@@ -94,8 +95,8 @@ export default function Hero() {
               loop
               playsInline
               preload="auto"
-              poster="/images/hero/Tower.WEBP"
-              className="absolute inset-0 w-full h-full object-cover hidden sm:block"
+              onPlaying={() => setVideoReady(true)}
+              className={`absolute inset-0 w-full h-full object-cover hidden sm:block transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
             >
               <source src="/videos/hero.webm" type="video/webm" />
               <source src="/videos/hero.mp4" type="video/mp4" />
