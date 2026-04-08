@@ -29,10 +29,10 @@ export default function ServiceRelated({
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)]"
+                className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]"
               >
                 {Icon && (
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#7C3AED]">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#1D4ED8]">
                     <Icon className="h-6 w-6" />
                   </div>
                 )}

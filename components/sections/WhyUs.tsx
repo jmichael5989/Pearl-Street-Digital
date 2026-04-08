@@ -141,7 +141,7 @@ export default function WhyUs() {
                   key={feature.title}
                   className="flex gap-4 rounded-lg bg-dark-surface p-4"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgba(139,92,246,0.1)] text-primary">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgba(37,99,235,0.1)] text-primary">
                     {feature.icon}
                   </div>
                   <div>

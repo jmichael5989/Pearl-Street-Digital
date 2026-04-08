@@ -122,11 +122,11 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
 
   if (plan.featured) {
     return (
-      <div className="relative rounded-2xl border-2 border-primary bg-dark p-8 pt-12 shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300 hover:-translate-y-1">
+      <div className="relative rounded-2xl border-2 border-primary bg-dark p-8 pt-12 shadow-[0_4px_20px_rgba(37,99,235,0.15)] transition-all duration-300 hover:-translate-y-1">
         <span
           className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white whitespace-nowrap"
           style={{
-            background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
+            background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
           }}
         >
           Most Popular
@@ -163,8 +163,8 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
           href="/contact"
           className="btn-primary block w-full rounded-xl py-3 text-center text-sm font-semibold text-white"
           style={{
-            background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-            boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
+            background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+            boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
           }}
         >
           Get Started
@@ -174,7 +174,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)]">
+    <div className="rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]">
       <div className="mb-6">
         <h3 className="font-heading text-xl font-bold text-text">
           {plan.name}

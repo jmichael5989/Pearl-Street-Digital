@@ -125,7 +125,7 @@ export default function Header() {
         <div className="flex h-[72px] items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] shadow-md">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] shadow-md">
               <span className="font-heading text-lg font-bold text-white leading-none">
                 R
               </span>
@@ -168,8 +168,8 @@ export default function Header() {
             </a>
             <Link
               href="/contact"
-              className="btn-primary inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(139,92,246,0.35)]"
-              style={{ background: "linear-gradient(135deg, #8B5CF6, #7C3AED)" }}
+              className="btn-primary inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
+              style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
             >
               Free Website Audit
             </Link>
@@ -215,8 +215,8 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="btn-primary block mx-4 text-center rounded-lg px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(139,92,246,0.35)]"
-              style={{ background: "linear-gradient(135deg, #8B5CF6, #7C3AED)" }}
+              className="btn-primary block mx-4 text-center rounded-lg px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
+              style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
             >
               Free Website Audit
             </Link>

@@ -21,8 +21,8 @@ export default function CTABanner() {
             href="/contact"
             className="btn-primary mt-8 inline-block rounded-xl px-8 py-4 text-center font-semibold text-white"
             style={{
-              background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-              boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
+              background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+              boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
             }}
           >
             Get Your Free Audit

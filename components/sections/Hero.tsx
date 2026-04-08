@@ -29,7 +29,7 @@ function CheckIcon() {
       height="14"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#8B5CF6"
+      stroke="#2563EB"
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -83,8 +83,8 @@ export default function Hero() {
         delay: Math.random() * 8,
         color:
           Math.random() < 0.7
-            ? "rgba(139,92,246,0.4)"
-            : "rgba(139,92,246,0.4)",
+            ? "rgba(37,99,235,0.4)"
+            : "rgba(37,99,235,0.4)",
       });
     }
     setParticles(generated);
@@ -149,8 +149,8 @@ export default function Hero() {
               className="hero-gradient-mesh absolute inset-0 z-[1]"
               style={{
                 backgroundImage: [
-                  "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(139,92,246,0.25), transparent 60%)",
-                  "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(139,92,246,0.2), transparent 55%)",
+                  "radial-gradient(ellipse 80% 60% at 20% 80%, rgba(37,99,235,0.25), transparent 60%)",
+                  "radial-gradient(ellipse 60% 50% at 80% 20%, rgba(37,99,235,0.2), transparent 55%)",
                   "radial-gradient(ellipse 70% 70% at 50% 50%, rgba(15,23,42,0.5), transparent 80%)",
                 ].join(", "),
                 backgroundSize: "200% 200%, 200% 200%, 200% 200%",
@@ -189,16 +189,16 @@ export default function Hero() {
           <div className="max-w-[660px]">
             {/* Badge */}
             <div
-              className="hero-fade-up inline-flex items-center gap-2.5 rounded-full border border-[rgba(139,92,246,0.3)] bg-[rgba(139,92,246,0.08)] px-4 py-2 mb-6"
+              className="hero-fade-up inline-flex items-center gap-2.5 rounded-full border border-[rgba(37,99,235,0.3)] bg-[rgba(37,99,235,0.08)] px-4 py-2 mb-6"
               style={{
                 animation: "fadeUp 1s ease-out 0.5s both",
               }}
             >
               <span
-                className="hero-badge-pulse block h-1.5 w-1.5 rounded-full bg-violet-400"
+                className="hero-badge-pulse block h-1.5 w-1.5 rounded-full bg-blue-400"
                 style={{ animation: "badgePulse 2s ease-in-out infinite" }}
               />
-              <span className="text-[0.8125rem] font-medium uppercase tracking-[0.04em] text-[#8B5CF6]">
+              <span className="text-[0.8125rem] font-medium uppercase tracking-[0.04em] text-[#2563EB]">
                 AI-Powered Digital Marketing
               </span>
             </div>
@@ -218,7 +218,7 @@ export default function Hero() {
                 className="bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    "linear-gradient(135deg, #8B5CF6 0%, #C4B5FD 50%, #8B5CF6 100%)",
+                    "linear-gradient(135deg, #2563EB 0%, #93C5FD 50%, #2563EB 100%)",
                 }}
               >
                 Actually Bring You Customers
@@ -249,7 +249,7 @@ export default function Hero() {
                 href="/contact"
                 className="btn-primary relative inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 text-base font-semibold text-white overflow-hidden active:scale-[0.98]"
                 style={{
-                  background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
+                  background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
                 }}
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -288,7 +288,7 @@ export default function Hero() {
             {/* Phone */}
             <a
               href="tel:+12105551234"
-              className="hero-fade-up inline-flex items-center gap-2 mt-6 text-sm font-medium text-[rgba(255,255,255,0.5)] hover:text-[#8B5CF6] transition-colors"
+              className="hero-fade-up inline-flex items-center gap-2 mt-6 text-sm font-medium text-[rgba(255,255,255,0.5)] hover:text-[#2563EB] transition-colors"
               style={{ animation: "fadeUp 1s ease-out 1.2s both" }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -337,7 +337,7 @@ export default function Hero() {
         <div
           className="hero-accent-line absolute bottom-0 left-0 right-0 z-[5] h-[3px]"
           style={{
-            background: "linear-gradient(90deg, #8B5CF6, #7C3AED, #8B5CF6)",
+            background: "linear-gradient(90deg, #2563EB, #1D4ED8, #2563EB)",
             backgroundSize: "200% 100%",
             animation: "accentLine 6s ease-in-out infinite",
           }}
