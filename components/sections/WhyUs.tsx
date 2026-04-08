@@ -105,7 +105,7 @@ export default function WhyUs() {
                         alt="Jon, Founder and Web Developer"
                         width={64}
                         height={64}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-top"
                       />
                     </div>
                     <div>
