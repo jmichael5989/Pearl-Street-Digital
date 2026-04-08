@@ -54,7 +54,14 @@ const USE_VIDEO_HERO = true;
 export default function Hero() {
   const [particles, setParticles] = useState<Particle[]>([]);
   const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const particlesRef = useRef(false);
+
+  // Fallback: show video after 2s regardless of event
+  useEffect(() => {
+    const timer = setTimeout(() => setVideoReady(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (particlesRef.current) return;
@@ -95,6 +102,8 @@ export default function Hero() {
               loop
               playsInline
               preload="auto"
+              ref={videoRef}
+              onCanPlayThrough={() => setVideoReady(true)}
               onPlaying={() => setVideoReady(true)}
               className={`absolute inset-0 w-full h-full object-cover hidden sm:block transition-opacity duration-700 ${videoReady ? "opacity-100" : "opacity-0"}`}
             >
