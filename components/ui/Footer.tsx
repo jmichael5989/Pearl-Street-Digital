@@ -154,12 +154,12 @@ function PreFooterCTA() {
 }
 
 /* ── Main Footer ───────────────────────────────────────── */
-export default function Footer() {
+export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?: boolean } = {}) {
   const currentYear = new Date().getFullYear();
 
   return (
     <>
-      <PreFooterCTA />
+      {!hidePreFooterCTA && <PreFooterCTA />}
       <footer className="bg-dark text-[#94A3B8]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-8 lg:pt-16">
           {/* Main Grid */}

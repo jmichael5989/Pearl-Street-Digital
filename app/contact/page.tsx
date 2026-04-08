@@ -63,7 +63,7 @@ export default function ContactPage() {
         <ContactHero />
         <ContactContent />
       </main>
-      <Footer />
+      <Footer hidePreFooterCTA />
     </>
   );
 }
