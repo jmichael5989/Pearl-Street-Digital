@@ -120,7 +120,7 @@ export default function ServicesSection() {
             <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
               What We Do
             </span>
-            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+            <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               Everything Your Business Needs to Win Online
             </h2>
             <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -136,7 +136,7 @@ export default function ServicesSection() {
             <ScrollReveal key={service.title} delay={i * 100}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)] block h-full"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] block h-full"
               >
                 {/* Image strip at top */}
                 <div className="relative h-40 overflow-hidden">
@@ -152,17 +152,17 @@ export default function ServicesSection() {
                     className="absolute inset-0"
                     style={{
                       background:
-                        "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
+                        "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(248,250,252,0.4) 60%, #F8FAFC 100%)",
                     }}
                   />
                 </div>
 
                 {/* Content */}
                 <div className="p-8 pt-5">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488] -mt-12 relative z-10 shadow-sm">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-dark-surface border border-border-dark text-primary -mt-12 relative z-10 shadow-sm">
                     {service.icon}
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-dark mb-2">
+                  <h3 className="font-heading text-lg font-semibold text-text mb-2">
                     {service.title}
                   </h3>
                   <p className="text-base leading-relaxed text-gray">

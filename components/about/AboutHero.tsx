@@ -9,7 +9,7 @@ export default function AboutHero() {
           <h1 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
             Meet the Team Behind Rank Point Media
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-[#94A3B8]">
+          <p className="mt-4 text-lg leading-relaxed text-text-on-dark-muted">
             We&apos;re Jon and Stacie -- a husband-and-wife team helping San
             Antonio small businesses grow with websites that actually work and
             marketing that drives real results. When you work with us, you work

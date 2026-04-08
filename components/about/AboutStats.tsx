@@ -23,7 +23,7 @@ export default function AboutStats() {
               <p className="font-heading text-3xl font-bold text-primary sm:text-4xl">
                 {stat.value}
               </p>
-              <p className="mt-2 text-sm text-[#94A3B8]">{stat.label}</p>
+              <p className="mt-2 text-sm text-text-on-dark-muted">{stat.label}</p>
             </div>
           ))}
         </div>

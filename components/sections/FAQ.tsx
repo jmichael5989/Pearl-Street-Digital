@@ -81,7 +81,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-gray-bg py-16 lg:py-24">
+    <section id="faq" className="bg-white py-16 lg:py-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -92,7 +92,7 @@ export default function FAQ() {
             <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
               FAQ
             </span>
-            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+            <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               Common Questions, Straight Answers
             </h2>
             <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -114,7 +114,7 @@ export default function FAQ() {
                   className="flex w-full items-center justify-between gap-4 py-6 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading font-semibold text-dark">
+                  <span className="font-heading font-semibold text-text">
                     {faq.question}
                   </span>
                   <ChevronIcon open={isOpen} />

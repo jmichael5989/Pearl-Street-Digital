@@ -15,7 +15,7 @@ export default function ContactHero() {
         >
           Let&apos;s Grow Your Business
         </h1>
-        <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
+        <p className="text-lg text-text-on-dark-muted max-w-2xl mx-auto">
           Tell us about your project and we&apos;ll show you exactly how we can
           help.
         </p>

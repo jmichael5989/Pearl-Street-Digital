@@ -38,7 +38,7 @@ export default function ServiceFAQ({ service }: { service: ServiceData }) {
   };
 
   return (
-    <section className="bg-gray-bg py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -48,7 +48,7 @@ export default function ServiceFAQ({ service }: { service: ServiceData }) {
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             FAQ
           </span>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+          <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Common Questions About {service.title}
           </h2>
         </div>
@@ -64,7 +64,7 @@ export default function ServiceFAQ({ service }: { service: ServiceData }) {
                   className="flex w-full items-center justify-between gap-4 py-5 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading font-semibold text-dark">
+                  <span className="font-heading font-semibold text-text">
                     {faq.question}
                   </span>
                   <ChevronIcon open={isOpen} />

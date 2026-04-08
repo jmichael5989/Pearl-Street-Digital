@@ -12,7 +12,7 @@ export default function CTABanner() {
           <h2 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Ready to Grow Your Business?
           </h2>
-          <p className="mt-4 text-[#94A3B8] max-w-lg mx-auto">
+          <p className="mt-4 text-text-on-dark-muted max-w-lg mx-auto">
             Get a professional website built in two to three weeks -- no
             contracts, no surprises, no lock-in. Your first consultation is
             free.
@@ -21,8 +21,8 @@ export default function CTABanner() {
             href="/contact"
             className="btn-primary mt-8 inline-block rounded-xl px-8 py-4 text-center font-semibold text-white"
             style={{
-              background: "#14B8A6",
-              boxShadow: "0 4px 14px rgba(20,184,166,0.35)",
+              background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
+              boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
             }}
           >
             Get Your Free Audit

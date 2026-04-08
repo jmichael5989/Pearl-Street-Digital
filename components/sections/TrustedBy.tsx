@@ -8,9 +8,9 @@ const companies = [
 
 export default function TrustedBy() {
   return (
-    <section className="bg-[#F8FAFC] py-10 overflow-hidden">
+    <section className="bg-dark py-10 overflow-hidden border-b border-border-dark">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-medium uppercase tracking-[0.12em] text-[#94A3B8] mb-6">
+        <p className="text-center text-xs font-medium uppercase tracking-[0.12em] text-text-on-dark-muted mb-6">
           Trusted by local businesses
         </p>
 
@@ -19,7 +19,7 @@ export default function TrustedBy() {
           {companies.map((name) => (
             <span
               key={name}
-              className="font-heading text-sm font-semibold text-[#CBD5E1] select-none"
+              className="font-heading text-sm font-semibold text-[#475569] select-none"
             >
               {name}
             </span>
@@ -32,7 +32,7 @@ export default function TrustedBy() {
             {[...companies, ...companies].map((name, i) => (
               <span
                 key={`${name}-${i}`}
-                className="font-heading text-sm font-semibold text-[#CBD5E1] select-none"
+                className="font-heading text-sm font-semibold text-[#475569] select-none"
               >
                 {name}
               </span>

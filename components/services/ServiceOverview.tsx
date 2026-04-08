@@ -12,7 +12,7 @@ export default function ServiceOverview({ service }: { service: ServiceData }) {
             <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
               Overview
             </span>
-            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+            <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               {overview.heading}
             </h2>
             {overview.paragraphs.map((paragraph, i) => (

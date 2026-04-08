@@ -14,7 +14,7 @@ export default function ServiceRelated({
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Related Services
           </span>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+          <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Explore More Services
           </h2>
         </div>
@@ -29,14 +29,14 @@ export default function ServiceRelated({
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
+                className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)]"
               >
                 {Icon && (
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#0D9488]">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-[#7C3AED]">
                     <Icon className="h-6 w-6" />
                   </div>
                 )}
-                <h3 className="font-heading text-lg font-semibold text-dark mb-2">
+                <h3 className="font-heading text-lg font-semibold text-text mb-2">
                   {service.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-gray mb-4">

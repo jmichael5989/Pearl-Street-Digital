@@ -120,7 +120,7 @@ const values = [
 
 export default function AboutValues() {
   return (
-    <section className="bg-gray-bg py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
@@ -138,7 +138,7 @@ export default function AboutValues() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
+              className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_12px_32px_rgba(139,92,246,0.1)]"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-icon-service-border bg-icon-service-bg text-primary">
                 {value.icon}

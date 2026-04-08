@@ -27,25 +27,25 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
   return (
     <Link
       href={`/case-studies/${study.slug}`}
-      className="group rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)] overflow-hidden"
+      className="group rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)] overflow-hidden"
     >
       {/* Top color bar */}
-      <div className="h-1.5 bg-gradient-to-r from-primary to-accent" />
+      <div className="h-1.5 bg-gradient-to-r from-primary to-primary-dark" />
 
       <div className="p-8">
         {/* Industry tag */}
         <span
           className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] ${
             study.industryColor === "teal"
-              ? "bg-[rgba(20,184,166,0.08)] text-primary"
-              : "bg-[rgba(20,184,166,0.08)] text-primary"
+              ? "bg-[rgba(139,92,246,0.08)] text-primary"
+              : "bg-[rgba(139,92,246,0.08)] text-primary"
           }`}
         >
           {study.industry}
         </span>
 
         {/* Client name */}
-        <h3 className="mt-4 font-heading text-xl font-bold text-dark">
+        <h3 className="mt-4 font-heading text-xl font-bold text-text">
           {study.clientName}
         </h3>
 
@@ -79,7 +79,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
           {study.serviceSlugs.map((slug) => (
             <span
               key={slug}
-              className="rounded-md border border-[rgba(20,184,166,0.2)] px-2.5 py-0.5 text-xs font-medium text-primary capitalize"
+              className="rounded-md border border-[rgba(139,92,246,0.2)] px-2.5 py-0.5 text-xs font-medium text-primary capitalize"
             >
               {slug.replace(/-/g, " ")}
             </span>

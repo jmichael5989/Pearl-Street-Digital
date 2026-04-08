@@ -36,7 +36,7 @@ export default function ContactContent() {
             <div className="mt-8 space-y-6">
               {steps.map((step) => (
                 <div key={step.number} className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-light border border-icon-service-border">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-light-surface border border-icon-service-border">
                     <span className="font-heading text-lg font-bold text-primary">
                       {step.number}
                     </span>
@@ -79,7 +79,7 @@ export default function ContactContent() {
             </div>
 
             {/* Trust element */}
-            <div className="mt-8 flex items-center gap-3 rounded-xl border border-border bg-gray-bg px-5 py-4">
+            <div className="mt-8 flex items-center gap-3 rounded-xl border border-border bg-light-surface px-5 py-4">
               <svg
                 width="20"
                 height="20"
@@ -107,7 +107,7 @@ export default function ContactContent() {
             </div>
 
             {/* Trust signal below form */}
-            <div className="mt-6 rounded-xl border border-border bg-gray-bg px-5 py-4">
+            <div className="mt-6 rounded-xl border border-border bg-light-surface px-5 py-4">
               <p className="text-sm text-gray text-center">
                 100% of our clients own everything we build. No lock-in, no
                 hostage domains.

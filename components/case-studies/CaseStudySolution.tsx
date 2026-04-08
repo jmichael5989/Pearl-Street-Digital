@@ -20,7 +20,7 @@ function CheckIcon({ className }: { className?: string }) {
 
 export default function CaseStudySolution({ study }: { study: CaseStudyData }) {
   return (
-    <section className="bg-light py-16 lg:py-24">
+    <section className="bg-light-surface py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">

@@ -33,7 +33,7 @@ export default function AboutStory() {
             </p>
           </div>
           <div className="lg:col-span-2">
-            <div className="rounded-2xl border border-icon-service-border bg-light p-8">
+            <div className="rounded-2xl border border-icon-service-border bg-light-surface p-8">
               <div className="text-6xl font-heading leading-none text-primary/20">
                 {"\u201C"}
               </div>

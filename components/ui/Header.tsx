@@ -125,7 +125,7 @@ export default function Header() {
         <div className="flex h-[72px] items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#14B8A6] to-[#8B5CF6] shadow-md">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] shadow-md">
               <span className="font-heading text-lg font-bold text-white leading-none">
                 R
               </span>
@@ -168,7 +168,8 @@ export default function Header() {
             </a>
             <Link
               href="/contact"
-              className="btn-primary inline-flex items-center rounded-lg bg-[#14B8A6] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)]"
+              className="btn-primary inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(139,92,246,0.35)]"
+              style={{ background: "linear-gradient(135deg, #8B5CF6, #7C3AED)" }}
             >
               Free Website Audit
             </Link>
@@ -198,7 +199,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-4 py-4 text-sm font-medium text-gray transition-colors hover:bg-light hover:text-primary"
+              className="block rounded-lg px-4 py-4 text-sm font-medium text-gray transition-colors hover:bg-light-surface hover:text-primary"
             >
               {link.label}
             </Link>
@@ -214,7 +215,8 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="btn-primary block mx-4 text-center rounded-lg bg-[#14B8A6] px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)]"
+              className="btn-primary block mx-4 text-center rounded-lg px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(139,92,246,0.35)]"
+              style={{ background: "linear-gradient(135deg, #8B5CF6, #7C3AED)" }}
             >
               Free Website Audit
             </Link>

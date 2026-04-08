@@ -16,7 +16,7 @@ export default function TermsPage() {
         <section className="bg-dark pt-32 pb-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h1 className="font-heading font-bold text-white" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>Terms of Service</h1>
-            <p className="mt-3 text-[#94A3B8]">Last updated: March 30, 2026</p>
+            <p className="mt-3 text-text-on-dark-muted">Last updated: March 30, 2026</p>
           </div>
         </section>
         <section className="bg-white py-16 lg:py-20">

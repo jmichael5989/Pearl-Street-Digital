@@ -1,34 +1,5 @@
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-/* ── SVG Icons ─────────────────────────────────────────── */
-function ShieldIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  );
-}
-
-function FileCheckIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <polyline points="14 2 14 8 20 8" />
-      <path d="m9 15 2 2 4-4" />
-    </svg>
-  );
-}
-
-function DollarSignIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-      <line x1="12" y1="1" x2="12" y2="23" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-    </svg>
-  );
-}
-
-/* ── Commitment cards (MODE A — pre-launch) ────────────── */
 const commitments = [
   {
     title: "You Own Everything",
@@ -67,7 +38,7 @@ function StarIcon() {
 
 export function TestimonialCard({ testimonial }: { testimonial: TestimonialData }) {
   return (
-    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]">
+    <div className="rounded-2xl border border-border-dark bg-dark-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)]">
       {testimonial.rating && (
         <div className="flex gap-0.5 mb-4">
           {Array.from({ length: testimonial.rating }, (_, i) => (
@@ -75,7 +46,7 @@ export function TestimonialCard({ testimonial }: { testimonial: TestimonialData 
           ))}
         </div>
       )}
-      <p className="italic text-base text-gray leading-relaxed">
+      <p className="italic text-base text-text-on-dark-muted leading-relaxed">
         &ldquo;{testimonial.quote}&rdquo;
       </p>
       <div className="mt-6 flex items-center gap-3">
@@ -87,8 +58,8 @@ export function TestimonialCard({ testimonial }: { testimonial: TestimonialData 
           />
         )}
         <div>
-          <p className="font-heading font-bold text-dark">{testimonial.name}</p>
-          <p className="text-sm text-[#9CA3AF] mt-0.5">{testimonial.business}</p>
+          <p className="font-heading font-bold text-text-on-dark">{testimonial.name}</p>
+          <p className="text-sm text-text-on-dark-muted mt-0.5">{testimonial.business}</p>
         </div>
       </div>
     </div>
@@ -98,17 +69,17 @@ export function TestimonialCard({ testimonial }: { testimonial: TestimonialData 
 /* ── Main section — MODE A (What We Stand For) ─────────── */
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-gray-bg py-16 lg:py-24">
+    <section id="testimonials" className="bg-dark py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
             <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
               Our Commitments
             </span>
-            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+            <h2 className="mt-3 font-heading font-bold text-text-on-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               What We Stand For
             </h2>
-            <p className="mt-4 text-gray max-w-2xl mx-auto">
+            <p className="mt-4 text-text-on-dark-muted max-w-2xl mx-auto">
               We built this agency on promises we actually keep. Here is what
               every client can expect.
             </p>
@@ -120,12 +91,12 @@ export default function Testimonials() {
             {commitments.map((c) => (
               <div
                 key={c.title}
-                className="rounded-2xl border border-border bg-white p-8 shadow-sm border-l-4 border-l-primary"
+                className="rounded-2xl border border-border-dark bg-dark-surface p-8 shadow-sm border-l-4 border-l-primary"
               >
-                <h3 className="font-heading text-lg font-semibold text-dark">
+                <h3 className="font-heading text-lg font-semibold text-text-on-dark">
                   {c.title}
                 </h3>
-                <p className="mt-3 text-base text-gray leading-relaxed">
+                <p className="mt-3 text-base text-text-on-dark-muted leading-relaxed">
                   {c.description}
                 </p>
               </div>

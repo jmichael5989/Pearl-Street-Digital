@@ -122,26 +122,26 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
 
   if (plan.featured) {
     return (
-      <div className="relative rounded-2xl border-2 border-accent bg-dark p-8 pt-12 shadow-[0_20px_50px_rgba(20,184,166,0.15)] transition-all duration-300 hover:-translate-y-1">
+      <div className="relative rounded-2xl border-2 border-primary bg-dark p-8 pt-12 shadow-[0_4px_20px_rgba(139,92,246,0.15)] transition-all duration-300 hover:-translate-y-1">
         <span
           className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white whitespace-nowrap"
           style={{
-            background: "#14B8A6",
+            background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
           }}
         >
           Most Popular
         </span>
         <div className="mb-6">
-          <h3 className="font-heading text-xl font-bold text-[#F0FDFA]">
+          <h3 className="font-heading text-xl font-bold text-text-on-dark">
             {plan.name}
           </h3>
-          <p className="text-sm text-[#64748B] mt-1">{plan.pages}</p>
+          <p className="text-sm text-text-on-dark-muted mt-1">{plan.pages}</p>
         </div>
         <div className="mb-2">
           <span className="font-heading text-4xl font-extrabold text-white">
             {displayPrice}
           </span>
-          <span className="text-sm text-[#64748B] ml-2">{priceLabel}</span>
+          <span className="text-sm text-text-on-dark-muted ml-2">{priceLabel}</span>
         </div>
         {hosted && (
           <p className="text-xs text-primary mb-6">
@@ -163,8 +163,8 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
           href="/contact"
           className="btn-primary block w-full rounded-xl py-3 text-center text-sm font-semibold text-white"
           style={{
-            background: "#14B8A6",
-            boxShadow: "0 4px 14px rgba(20,184,166,0.35)",
+            background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
+            boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
           }}
         >
           Get Started
@@ -174,15 +174,15 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]">
+    <div className="rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(139,92,246,0.15)]">
       <div className="mb-6">
-        <h3 className="font-heading text-xl font-bold text-dark">
+        <h3 className="font-heading text-xl font-bold text-text">
           {plan.name}
         </h3>
         <p className="text-sm text-gray mt-1">{plan.pages}</p>
       </div>
       <div className="mb-2">
-        <span className="font-heading text-4xl font-extrabold text-dark">
+        <span className="font-heading text-4xl font-extrabold text-text">
           {displayPrice}
         </span>
         <span className="text-sm text-gray ml-2">{priceLabel}</span>
@@ -224,7 +224,7 @@ export default function Pricing() {
             <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
               Transparent Pricing
             </span>
-            <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+            <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               Simple Pricing. No Surprises.
             </h2>
             <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -233,14 +233,14 @@ export default function Pricing() {
             </p>
 
             {/* Toggle */}
-            <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-gray-bg p-1.5">
+            <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-light-surface p-1.5">
               <button
                 type="button"
                 onClick={() => setHosted(false)}
                 className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
                   !hosted
-                    ? "bg-white text-dark shadow-sm"
-                    : "text-gray hover:text-dark"
+                    ? "bg-white text-text shadow-sm"
+                    : "text-gray hover:text-text"
                 }`}
               >
                 Build Only
@@ -250,8 +250,8 @@ export default function Pricing() {
                 onClick={() => setHosted(true)}
                 className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
                   hosted
-                    ? "bg-white text-dark shadow-sm"
-                    : "text-gray hover:text-dark"
+                    ? "bg-white text-text shadow-sm"
+                    : "text-gray hover:text-text"
                 }`}
               >
                 Build + Hosting

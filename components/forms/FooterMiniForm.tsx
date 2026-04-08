@@ -6,7 +6,7 @@ import { submitContactForm } from "@/app/actions/contact";
 function SpinnerIcon() {
   return (
     <svg
-      className="animate-spin h-5 w-5 text-[#14B8A6] inline-block"
+      className="animate-spin h-5 w-5 text-primary inline-block"
       viewBox="0 0 24 24"
       fill="none"
     >
@@ -90,7 +90,8 @@ export default function FooterMiniForm() {
         <button
           type="submit"
           disabled={sending}
-          className="shrink-0 rounded-lg bg-white px-6 py-3 font-semibold text-[#14B8A6] transition-all duration-200 hover:bg-[#0F172A] hover:text-white disabled:opacity-60"
+          className="btn-primary shrink-0 rounded-lg px-6 py-3 font-semibold text-white transition-all duration-200 disabled:opacity-60"
+          style={{ background: "linear-gradient(135deg, #8B5CF6, #7C3AED)" }}
         >
           {sending ? <SpinnerIcon /> : "Send"}
         </button>
