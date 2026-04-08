@@ -130,15 +130,13 @@ export default function ServicesSection() {
           </div>
         </ScrollReveal>
 
-        {/* Staggered 2-column grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+        {/* 3-column grid: 2 rows of 3 */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 100}>
               <Link
                 href={`/services/${service.slug}`}
-                className={`group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)] block ${
-                  i % 2 === 1 ? "lg:mt-12" : ""
-                }`}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)] block h-full"
               >
                 {/* Image strip at top */}
                 <div className="relative h-40 overflow-hidden">
@@ -147,7 +145,7 @@ export default function ServicesSection() {
                     alt={`${service.title} for San Antonio businesses`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, 50vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="lazy"
                   />
                   <div
