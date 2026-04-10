@@ -301,43 +301,42 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-[rgba(148,163,184,0.1)] pt-8">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-xs text-[rgba(148,163,184,0.5)]">
-                {currentYear} Rank Point Media. All rights reserved.
-              </p>
-              <div className="flex items-center gap-1.5 text-xs">
-                <span className="uppercase tracking-[0.18em] text-[#475569]">
-                  Design by:
-                </span>
-                <span
-                  className="uppercase tracking-[0.18em] font-semibold bg-clip-text text-transparent"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(90deg, #94A3B8, #2563EB)",
-                  }}
-                >
-                  Rank Point Media
-                </span>
-              </div>
+          <div className="border-t border-[rgba(148,163,184,0.1)] pt-8 text-center">
+            <div className="flex items-center justify-center gap-1.5 text-xs">
+              <span className="uppercase tracking-[0.18em] text-[#475569]">
+                Design by:
+              </span>
+              <span
+                className="uppercase tracking-[0.18em] font-semibold bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, #94A3B8, #2563EB)",
+                }}
+              >
+                Rank Point Media
+              </span>
             </div>
 
+            <p className="mt-4 text-xs text-[rgba(148,163,184,0.5)]">
+              {currentYear} Rank Point Media. All rights reserved.
+            </p>
+
             {/* Legal Links */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6 text-xs text-[rgba(148,163,184,0.5)]">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4 text-xs text-[rgba(148,163,184,0.5)]">
               <Link
                 href="/privacy"
                 className="py-2 transition-colors duration-300 hover:text-primary"
               >
                 Privacy Policy
               </Link>
-              <span className="hidden sm:inline">|</span>
+              <span>|</span>
               <Link
                 href="/terms"
                 className="py-2 transition-colors duration-300 hover:text-primary"
               >
                 Terms of Service
               </Link>
-              <span className="hidden sm:inline">|</span>
+              <span>|</span>
               <Link
                 href="/sitemap.xml"
                 className="py-2 transition-colors duration-300 hover:text-primary"
