@@ -71,7 +71,7 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section className="bg-dark py-16 lg:py-24">
+    <section className="bg-[#F8FAFC] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column */}
@@ -81,10 +81,10 @@ export default function WhyUs() {
                 <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
                   Why Rank Point Media
                 </span>
-                <h2 className="mt-3 font-heading font-bold text-text-on-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+                <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
                   Agency Results. Small Business Prices.
                 </h2>
-                <p className="mt-4 text-text-on-dark-muted leading-relaxed">
+                <p className="mt-4 text-gray leading-relaxed">
                   Most agencies price out the businesses that need them most. We
                   build strategies for the plumber in Helotes, the restaurant on the
                   Riverwalk, and the law firm downtown -- at prices that actually
@@ -93,13 +93,13 @@ export default function WhyUs() {
               </div>
 
               {/* Founder Profiles */}
-              <div className="mt-10 border-t border-border-dark pt-8 pl-6">
+              <div className="mt-10 border-t border-border pt-8 pl-6">
                 <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
                   Meet Your Team
                 </span>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-dark-surface overflow-hidden flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-white overflow-hidden flex-shrink-0">
                       <Image
                         src="/images/team/jon.png"
                         alt="Jon, Founder and Web Developer"
@@ -109,12 +109,12 @@ export default function WhyUs() {
                       />
                     </div>
                     <div>
-                      <p className="font-heading font-semibold text-text-on-dark">Jon</p>
-                      <p className="text-sm text-text-on-dark-muted">Founder and Web Developer</p>
+                      <p className="font-heading font-semibold text-dark">Jon</p>
+                      <p className="text-sm text-gray">Founder and Web Developer</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-dark-surface overflow-hidden flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-white overflow-hidden flex-shrink-0">
                       <Image
                         src="/images/team/stacie.jpg"
                         alt="Stacie, Marketing Lead"
@@ -124,8 +124,8 @@ export default function WhyUs() {
                       />
                     </div>
                     <div>
-                      <p className="font-heading font-semibold text-text-on-dark">Stacie</p>
-                      <p className="text-sm text-text-on-dark-muted">Marketing Lead</p>
+                      <p className="font-heading font-semibold text-dark">Stacie</p>
+                      <p className="text-sm text-gray">Marketing Lead</p>
                     </div>
                   </div>
                 </div>
@@ -139,22 +139,22 @@ export default function WhyUs() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex gap-4 rounded-lg bg-dark-surface p-4"
+                  className="flex gap-4 rounded-lg bg-white border border-border p-4 shadow-sm"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgba(37,99,235,0.1)] text-primary">
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="font-heading text-lg font-semibold text-text-on-dark">
+                    <h3 className="font-heading text-lg font-semibold text-dark">
                       {feature.title}
                     </h3>
-                    <p className="mt-1 text-base text-text-on-dark-muted leading-relaxed">
+                    <p className="mt-1 text-base text-gray leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
                 </div>
               ))}
-              <p className="mt-4 text-sm text-text-on-dark-muted pl-1">
+              <p className="mt-4 text-sm text-gray pl-1">
                 Every site we build scores 95+ on Google Lighthouse and loads in
                 under 2 seconds.
               </p>
