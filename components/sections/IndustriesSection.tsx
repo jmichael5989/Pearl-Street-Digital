@@ -128,10 +128,7 @@ export default function IndustriesSection() {
               </div>
 
               {/* Content */}
-              <div className="p-8 pt-5">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-industry-bg border border-icon-industry-border text-primary -mt-12 relative z-10 shadow-sm">
-                  {industry.icon}
-                </div>
+              <div className="p-8">
                 <h3 className="font-heading text-lg font-semibold text-dark mb-2">
                   {industry.title}
                 </h3>

@@ -1,18 +1,10 @@
-import { serviceIconMap } from "@/components/icons/ServiceIcons";
 import type { ServiceData } from "@/lib/services-data";
 
 export default function ServiceHero({ service }: { service: ServiceData }) {
-  const Icon = serviceIconMap[service.iconName];
-
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          {Icon && (
-            <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-icon-service-bg border border-icon-service-border text-[#1D4ED8]">
-              <Icon className="h-8 w-8" />
-            </div>
-          )}
           <h1 className="font-heading font-bold text-text" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
             {service.title} for Local Businesses
           </h1>
