@@ -5,6 +5,7 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import { services } from "@/lib/services-data";
 import { serviceIconMap, ArrowRightIcon } from "@/components/icons/ServiceIcons";
+import FAQ from "@/components/sections/FAQ";
 
 const serviceImages: Record<string, string> = {
   "website-design": "/images/services/website-design.jpg",
@@ -146,6 +147,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
+        <FAQ />
       </main>
       <Footer />
     </>
