@@ -4,7 +4,7 @@ import Image from "next/image";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import { services } from "@/lib/services-data";
-import { serviceIconMap, ArrowRightIcon } from "@/components/icons/ServiceIcons";
+import { ArrowRightIcon } from "@/components/icons/ServiceIcons";
 import FAQ from "@/components/sections/FAQ";
 
 const serviceImages: Record<string, string> = {
@@ -89,7 +89,6 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service) => {
-                const Icon = serviceIconMap[service.iconName];
                 const firstSentence =
                   service.tagline.split(/(?<=[.!?])\s/)[0] || service.tagline;
 
@@ -123,12 +122,7 @@ export default function ServicesPage() {
                     )}
 
                     {/* Content */}
-                    <div className="p-8 pt-5">
-                      {Icon && (
-                        <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-icon-service-bg border border-icon-service-border text-primary ${image ? "-mt-12 relative z-10 shadow-sm" : "mb-5"}`}>
-                          <Icon className="h-6 w-6" />
-                        </div>
-                      )}
+                    <div className="p-8">
                       <h3 className="font-heading text-lg font-semibold text-dark mb-2">
                         {service.title}
                       </h3>
