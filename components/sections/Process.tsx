@@ -57,16 +57,16 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" className="bg-dark py-16 lg:py-24">
+    <section id="process" className="bg-[#F8FAFC] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Our Process
           </span>
-          <h2 className="mt-3 font-heading font-bold text-text-on-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             From Audit to Launch in Four Steps
           </h2>
-          <p className="mt-4 text-text-on-dark-muted max-w-2xl mx-auto">
+          <p className="mt-4 text-gray max-w-2xl mx-auto">
             No mystery. No runaround. Here is exactly how we work with every
             client.
           </p>
@@ -94,16 +94,16 @@ export default function Process() {
                   transition: `opacity 600ms ease-out ${i * 150}ms, transform 600ms ease-out ${i * 150}ms`,
                 }}
               >
-                <div className="shrink-0 flex h-14 w-14 items-center justify-center rounded-full border-2 border-border-dark bg-dark-surface">
+                <div className="shrink-0 flex h-14 w-14 items-center justify-center rounded-full border-2 border-border bg-white">
                   <span className="font-heading text-xl font-bold text-primary">
                     {step.number}
                   </span>
                 </div>
                 <div className="pt-2">
-                  <h3 className="font-heading text-lg font-semibold text-text-on-dark">
+                  <h3 className="font-heading text-lg font-semibold text-dark">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-base text-text-on-dark-muted leading-relaxed">
+                  <p className="mt-2 text-base text-gray leading-relaxed">
                     {step.description}
                   </p>
                 </div>

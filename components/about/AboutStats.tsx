@@ -7,13 +7,13 @@ const stats = [
 
 export default function AboutStats() {
   return (
-    <section className="bg-dark py-16 lg:py-24">
+    <section className="bg-[#F8FAFC] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             By the Numbers
           </p>
-          <h2 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             Rank Point Media at a Glance
           </h2>
         </div>
@@ -23,7 +23,7 @@ export default function AboutStats() {
               <p className="font-heading text-3xl font-bold text-primary sm:text-4xl">
                 {stat.value}
               </p>
-              <p className="mt-2 text-sm text-text-on-dark-muted">{stat.label}</p>
+              <p className="mt-2 text-sm text-gray">{stat.label}</p>
             </div>
           ))}
         </div>
