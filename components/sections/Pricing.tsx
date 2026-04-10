@@ -122,7 +122,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
 
   if (plan.featured) {
     return (
-      <div className="relative rounded-2xl border-2 border-primary bg-dark p-8 pt-12 shadow-[0_4px_20px_rgba(37,99,235,0.15)] transition-all duration-300 hover:-translate-y-1">
+      <div className="relative flex h-full flex-col rounded-2xl border-2 border-primary bg-dark p-8 pt-12 shadow-[0_4px_20px_rgba(37,99,235,0.15)] transition-all duration-300 hover:-translate-y-1">
         <span
           className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white whitespace-nowrap"
           style={{
@@ -149,7 +149,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
           </p>
         )}
         {!hosted && <div className="mb-6" />}
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-3 mb-8 flex-1">
           {displayFeatures.map((f) => (
             <li key={f} className="flex items-start gap-2.5">
               <span className="mt-0.5">
@@ -174,7 +174,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]">
+    <div className="flex h-full flex-col rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]">
       <div className="mb-6">
         <h3 className="font-heading text-xl font-bold text-text">
           {plan.name}
@@ -193,7 +193,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
         </p>
       )}
       {!hosted && <div className="mb-6" />}
-      <ul className="space-y-3 mb-8">
+      <ul className="space-y-3 mb-8 flex-1">
         {displayFeatures.map((f) => (
           <li key={f} className="flex items-start gap-2.5">
             <span className="mt-0.5">
@@ -261,7 +261,7 @@ export default function Pricing() {
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-4 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-4 items-stretch">
           {plans.map((plan) => (
             <PricingCard key={plan.name} plan={plan} hosted={hosted} />
           ))}
