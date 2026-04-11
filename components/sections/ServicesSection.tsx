@@ -33,16 +33,6 @@ function ShareIcon() {
   );
 }
 
-function TargetIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
-    </svg>
-  );
-}
-
 function SparkleIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -85,14 +75,6 @@ const services = [
       "Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement.",
   },
   {
-    icon: <TargetIcon />,
-    title: "PPC / Google Ads",
-    slug: "ppc-google-ads",
-    image: "/images/services/ppc-google-ads.jpg",
-    description:
-      "Targeted ad campaigns that put your business in front of customers actively searching for your services in your area.",
-  },
-  {
     icon: <SparkleIcon />,
     title: "AI Search Optimization",
     slug: "ai-search-optimization",
@@ -113,7 +95,7 @@ const services = [
 export default function ServicesSection() {
   return (
     <section id="services" className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -129,8 +111,8 @@ export default function ServicesSection() {
           </div>
         </ScrollReveal>
 
-        {/* 3-column grid: 2 rows of 3 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* 5-column grid on desktop, all on one line */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 100}>
               <Link
@@ -138,13 +120,13 @@ export default function ServicesSection() {
                 className="group relative overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] block h-full"
               >
                 {/* Image strip at top */}
-                <div className="relative h-40 overflow-hidden">
+                <div className="relative h-32 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={`${service.title} for San Antonio businesses`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
                     loading="lazy"
                   />
                   <div
@@ -157,11 +139,11 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 md:p-8">
-                  <h3 className="font-heading text-lg font-semibold text-text mb-2">
+                <div className="p-5">
+                  <h3 className="font-heading text-base font-semibold text-text mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-gray">
+                  <p className="text-sm leading-relaxed text-gray">
                     {service.description}
                   </p>
                 </div>
