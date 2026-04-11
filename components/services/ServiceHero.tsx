@@ -2,7 +2,7 @@ import type { ServiceData } from "@/lib/services-data";
 
 export default function ServiceHero({ service }: { service: ServiceData }) {
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="bg-white pt-32 pb-16 lg:pt-40 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="font-heading font-bold text-text" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
