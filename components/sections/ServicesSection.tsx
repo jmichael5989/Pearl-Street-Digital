@@ -123,9 +123,8 @@ export default function ServicesSection() {
             <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               Everything Your Business Needs to Win Online
             </h2>
-            <p className="mt-4 text-gray max-w-2xl mx-auto">
-              From design to ads to AI-powered search, we handle the digital
-              marketing so you can focus on running your business.
+            <p className="mt-4 text-gray max-w-2xl lg:max-w-none mx-auto">
+              From design to ads to AI-powered search, we handle the digital marketing so you can focus on running your business.
             </p>
           </div>
         </ScrollReveal>
