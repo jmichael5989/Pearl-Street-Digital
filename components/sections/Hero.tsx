@@ -63,6 +63,31 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Seamless video loop: restart 0.15s before end to hide the gap
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleTimeUpdate = () => {
+      if (video.duration && video.currentTime >= video.duration - 0.15) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      }
+    };
+
+    const handleEnded = () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    };
+
+    video.addEventListener("timeupdate", handleTimeUpdate);
+    video.addEventListener("ended", handleEnded);
+    return () => {
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+      video.removeEventListener("ended", handleEnded);
+    };
+  }, []);
+
   useEffect(() => {
     if (particlesRef.current) return;
     particlesRef.current = true;
