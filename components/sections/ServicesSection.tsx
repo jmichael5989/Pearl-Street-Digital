@@ -104,13 +104,13 @@ export default function ServicesSection() {
                 className="group relative overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] block h-full"
               >
                 {/* Image strip at top */}
-                <div className="relative h-32 overflow-hidden">
+                <div className="relative h-40 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={`${service.title} for San Antonio businesses`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     loading="lazy"
                   />
                   <div
@@ -123,11 +123,11 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Content */}
-                <div className="p-5">
-                  <h3 className="font-heading text-base font-semibold text-text mb-2">
+                <div className="p-6 md:p-8">
+                  <h3 className="font-heading text-lg font-semibold text-text mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray">
+                  <p className="text-base leading-relaxed text-gray">
                     {service.description}
                   </p>
                 </div>
