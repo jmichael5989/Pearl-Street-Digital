@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -127,10 +128,15 @@ export default function Header() {
           <div className="flex h-[72px] items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setMenuOpen(false)}>
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] shadow-md">
-                <span className="font-heading text-lg font-bold text-white leading-none">
-                  R
-                </span>
+              <div className="relative h-11 w-11 overflow-hidden rounded-lg shadow-md">
+                <Image
+                  src="/images/brand/logo-r.png"
+                  alt="Rank Point Media logo"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="44px"
+                />
               </div>
               <div className="flex flex-col leading-tight">
                 <span
