@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
@@ -34,8 +35,8 @@ function MenuIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="24"
-      height="24"
+      width="28"
+      height="28"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -54,8 +55,8 @@ function CloseIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="24"
-      height="24"
+      width="32"
+      height="32"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -71,7 +72,7 @@ function CloseIcon({ className }: { className?: string }) {
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isHome, setIsHome] = useState(false);
 
   useEffect(() => {
@@ -84,9 +85,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll when menu is open
   useEffect(() => {
-    if (mobileOpen) {
+    if (menuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -94,16 +95,16 @@ export default function Header() {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [mobileOpen]);
+  }, [menuOpen]);
 
-  const transparent = isHome && !scrolled;
+  const transparent = isHome && !scrolled && !menuOpen;
 
   return (
     <>
       {/* Persistent top bar — desktop only, hides on scroll */}
       <div
-        className={`fixed top-0 left-0 right-0 z-50 hidden md:block bg-dark text-center transition-all duration-300 ${
-          scrolled ? "h-0 opacity-0 overflow-hidden" : "h-8 opacity-100"
+        className={`fixed top-0 left-0 right-0 z-40 hidden md:block bg-dark text-center transition-all duration-300 ${
+          scrolled || menuOpen ? "h-0 opacity-0 overflow-hidden" : "h-8 opacity-100"
         }`}
       >
         <p className="text-[13px] leading-8 text-[rgba(255,255,255,0.7)] font-medium">
@@ -112,110 +113,115 @@ export default function Header() {
           No Contracts
         </p>
       </div>
-    <header
-      className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "top-0" : "md:top-8 top-0"
-      } ${
-        transparent
-          ? "bg-transparent border-b border-transparent"
-          : "bg-[rgba(255,255,255,0.97)] backdrop-blur-[16px] border-b border-border shadow-sm"
-      }`}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-[72px] items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] shadow-md">
-              <span className="font-heading text-lg font-bold text-white leading-none">
-                R
-              </span>
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span
-                className={`font-heading text-[15px] font-bold tracking-tight transition-colors duration-300 ${transparent ? "text-white" : "text-dark"}`}
-              >
-                Rank Point
-              </span>
-              <span
-                className="font-heading text-[15px] font-bold tracking-tight text-primary"
-              >
-                Media
-              </span>
-            </div>
-          </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-7">
-            {navLinks.map((link) => (
+      <header
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled || menuOpen ? "top-0" : "md:top-8 top-0"
+        } ${
+          transparent
+            ? "bg-transparent border-b border-transparent"
+            : "bg-[rgba(255,255,255,0.97)] backdrop-blur-[16px] border-b border-border shadow-sm"
+        }`}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-[72px] items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setMenuOpen(false)}>
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] shadow-md">
+                <span className="font-heading text-lg font-bold text-white leading-none">
+                  R
+                </span>
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span
+                  className={`font-heading text-[15px] font-bold tracking-tight transition-colors duration-300 ${transparent ? "text-white" : "text-dark"}`}
+                >
+                  Rank Point
+                </span>
+                <span className="font-heading text-[15px] font-bold tracking-tight text-primary">
+                  Media
+                </span>
+              </div>
+            </Link>
+
+            {/* Right side: Phone + CTA + Hamburger */}
+            <div className="flex items-center gap-4">
+              <a
+                href="tel:+12105551234"
+                className={`hidden sm:flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 hover:text-primary ${transparent ? "text-[rgba(255,255,255,0.8)]" : "text-gray"}`}
+              >
+                <PhoneIcon className="w-4 h-4" />
+                (210) 555-1234
+              </a>
+              <Link
+                href="/contact"
+                className="btn-primary hidden sm:inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
+                style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
+              >
+                Free Website Audit
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMenuOpen(!menuOpen)}
+                className={`p-2 rounded-lg transition-colors ${transparent ? "text-white" : "text-dark"}`}
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={menuOpen}
+              >
+                {menuOpen ? <CloseIcon /> : <MenuIcon />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Full-screen overlay menu */}
+      <div
+        className={`fixed inset-0 z-40 bg-dark transition-all duration-500 ease-in-out ${
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        <div className="h-full flex flex-col items-center justify-center px-4">
+          <nav className="flex flex-col items-center gap-6 sm:gap-8">
+            {navLinks.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`nav-link text-sm font-medium transition-colors duration-300 hover:text-primary ${transparent ? "text-[rgba(255,255,255,0.8)]" : "text-gray"}`}
+                onClick={() => setMenuOpen(false)}
+                className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wide text-white transition-all duration-300 hover:text-primary"
+                style={{
+                  opacity: menuOpen ? 1 : 0,
+                  transform: menuOpen ? "translateY(0)" : "translateY(20px)",
+                  transition: `opacity 500ms ease ${i * 60 + 200}ms, transform 500ms ease ${i * 60 + 200}ms, color 300ms ease`,
+                }}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Desktop Right */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="tel:+12105551234"
-              className={`flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 hover:text-primary ${transparent ? "text-[rgba(255,255,255,0.8)]" : "text-gray"}`}
-            >
-              <PhoneIcon className="w-4 h-4" />
-              (210) 555-1234
-            </a>
-            <Link
-              href="/contact"
-              className="btn-primary inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
-              style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
-            >
-              Free Website Audit
-            </Link>
-          </div>
-
-          {/* Mobile Hamburger */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden p-3 rounded-lg ${transparent ? "text-white" : "text-dark"}`}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          {/* Contact info at bottom of overlay */}
+          <div
+            className="mt-12 sm:mt-16 flex flex-col items-center gap-4"
+            style={{
+              opacity: menuOpen ? 1 : 0,
+              transform: menuOpen ? "translateY(0)" : "translateY(20px)",
+              transition: `opacity 500ms ease ${navLinks.length * 60 + 300}ms, transform 500ms ease ${navLinks.length * 60 + 300}ms`,
+            }}
           >
-            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu Panel */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="bg-white border-t border-border px-4 py-6 space-y-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="block rounded-lg px-4 py-4 text-sm font-medium text-gray transition-colors hover:bg-light-surface hover:text-primary"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div className="pt-4 space-y-3 border-t border-border mt-4">
             <a
               href="tel:+12105551234"
-              className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-gray hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-base font-medium text-[rgba(255,255,255,0.7)] hover:text-primary transition-colors"
             >
-              <PhoneIcon className="w-4 h-4" />
+              <PhoneIcon className="w-5 h-5" />
               (210) 555-1234
             </a>
             <Link
               href="/contact"
-              onClick={() => setMobileOpen(false)}
-              className="btn-primary block mx-4 text-center rounded-lg px-5 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
+              onClick={() => setMenuOpen(false)}
+              className="btn-primary inline-flex items-center rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
               style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
             >
               Free Website Audit
@@ -223,7 +229,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </header>
     </>
   );
 }
