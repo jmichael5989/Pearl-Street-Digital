@@ -299,14 +299,41 @@ export default function Hero() {
                 animation: "fadeUp 1s ease-out 1.1s both",
               }}
             >
-              <span className="flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1" style={{ color: "rgba(255,255,255,0.6)" }}>
-                <CheckIcon /> No contracts
+              <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1 overflow-hidden" style={{ color: "rgba(255,255,255,0.6)" }}>
+                <span className="relative z-10 flex items-center gap-2">
+                  <CheckIcon /> No contracts
+                </span>
+                <span
+                  className="hero-shimmer absolute inset-0 z-0"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                    animation: "shimmer 3s ease-in-out infinite",
+                  }}
+                />
               </span>
-              <span className="flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1" style={{ color: "rgba(255,255,255,0.6)" }}>
-                <CheckIcon /> Sites from $250
+              <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1 overflow-hidden" style={{ color: "rgba(255,255,255,0.6)" }}>
+                <span className="relative z-10 flex items-center gap-2">
+                  <CheckIcon /> Sites from $250
+                </span>
+                <span
+                  className="hero-shimmer absolute inset-0 z-0"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                    animation: "shimmer 3s ease-in-out infinite 0.5s",
+                  }}
+                />
               </span>
-              <span className="flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1" style={{ color: "rgba(255,255,255,0.6)" }}>
-                <CheckIcon /> Results in 30 days
+              <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1 overflow-hidden" style={{ color: "rgba(255,255,255,0.6)" }}>
+                <span className="relative z-10 flex items-center gap-2">
+                  <CheckIcon /> Results in 30 days
+                </span>
+                <span
+                  className="hero-shimmer absolute inset-0 z-0"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                    animation: "shimmer 3s ease-in-out infinite 1s",
+                  }}
+                />
               </span>
             </div>
 
