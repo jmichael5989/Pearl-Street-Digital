@@ -224,14 +224,6 @@ export default function Header() {
               <PhoneIcon className="w-5 h-5" />
               (210) 555-1234
             </a>
-            <Link
-              href="/contact"
-              onClick={() => setMenuOpen(false)}
-              className="btn-primary inline-flex items-center rounded-lg px-6 py-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
-              style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
-            >
-              Free Website Audit
-            </Link>
           </div>
         </div>
       </div>
