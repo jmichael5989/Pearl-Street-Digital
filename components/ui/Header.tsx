@@ -138,7 +138,7 @@ export default function Header() {
                   sizes="88px"
                 />
               </div>
-              <div className="hidden sm:flex flex-col leading-tight">
+              <div className="flex flex-col leading-tight">
                 <span
                   className={`font-heading text-xl font-bold tracking-tight transition-colors duration-300 ${transparent ? "text-white" : "text-dark"}`}
                 >
@@ -149,7 +149,7 @@ export default function Header() {
                 </span>
               </div>
               <span
-                className={`hidden md:block font-body italic text-base leading-snug max-w-[160px] pl-4 border-l transition-colors duration-300 ${transparent ? "text-[rgba(255,255,255,0.85)] border-[rgba(255,255,255,0.2)]" : "text-gray border-border"}`}
+                className={`hidden lg:block font-body italic text-base leading-snug max-w-[160px] pl-4 border-l transition-colors duration-300 ${transparent ? "text-[rgba(255,255,255,0.85)] border-[rgba(255,255,255,0.2)]" : "text-gray border-border"}`}
               >
                 a full-service
                 <br />
