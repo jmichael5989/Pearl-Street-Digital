@@ -35,8 +35,8 @@ function MenuIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="28"
-      height="28"
+      width="40"
+      height="40"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -55,8 +55,8 @@ function CloseIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="32"
-      height="32"
+      width="40"
+      height="40"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -153,13 +153,6 @@ export default function Header() {
                 <PhoneIcon className="w-4 h-4" />
                 (210) 555-1234
               </a>
-              <Link
-                href="/contact"
-                className="btn-primary hidden sm:inline-flex items-center rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
-                style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
-              >
-                Free Website Audit
-              </Link>
               <button
                 type="button"
                 onClick={() => setMenuOpen(!menuOpen)}
