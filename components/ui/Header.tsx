@@ -125,29 +125,26 @@ export default function Header() {
         }`}
       >
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[72px] items-center justify-between">
+          <div className="flex h-[100px] items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setMenuOpen(false)}>
-              <div className="relative h-11 w-11 overflow-hidden rounded-lg shadow-md">
+            <Link href="/" className="flex items-center gap-4 group" onClick={() => setMenuOpen(false)}>
+              <div className="relative h-[88px] w-[88px] overflow-hidden rounded-xl shadow-md shrink-0">
                 <Image
                   src="/images/brand/logo-r.png"
                   alt="Rank Point Media logo"
                   fill
                   className="object-cover"
                   priority
-                  sizes="44px"
+                  sizes="88px"
                 />
               </div>
-              <div className="flex flex-col leading-tight">
-                <span
-                  className={`font-heading text-[15px] font-bold tracking-tight transition-colors duration-300 ${transparent ? "text-white" : "text-dark"}`}
-                >
-                  Rank Point
-                </span>
-                <span className="font-heading text-[15px] font-bold tracking-tight text-primary">
-                  Media
-                </span>
-              </div>
+              <span
+                className={`hidden sm:block font-body italic text-base md:text-lg leading-snug max-w-[180px] transition-colors duration-300 ${transparent ? "text-[rgba(255,255,255,0.85)]" : "text-gray"}`}
+              >
+                a full-service
+                <br />
+                digital agency
+              </span>
             </Link>
 
             {/* Right side: Phone + CTA + Hamburger */}
