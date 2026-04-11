@@ -130,7 +130,7 @@ export default function Header() {
             <Link href="/" className="flex items-center gap-4 group" onClick={() => setMenuOpen(false)}>
               <div className="relative h-[88px] w-[88px] overflow-hidden rounded-xl shadow-md shrink-0">
                 <Image
-                  src="/images/brand/logo-r.png"
+                  src="/images/brand/logo-r.jpg"
                   alt="Rank Point Media logo"
                   fill
                   className="object-cover"
