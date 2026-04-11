@@ -17,8 +17,8 @@ function PhoneIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="16"
-      height="16"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -35,8 +35,8 @@ function MenuIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="40"
-      height="40"
+      width="52"
+      height="52"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -55,8 +55,8 @@ function CloseIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="40"
-      height="40"
+      width="52"
+      height="52"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -108,7 +108,7 @@ export default function Header() {
         }`}
       >
         <p className="text-[13px] leading-8 text-[rgba(255,255,255,0.7)] font-medium">
-          San Antonio&apos;s AI-Powered Marketing Agency
+          San Antonio&apos;s Premiere AI-Powered Digital Agency
           <span className="text-[rgba(255,255,255,0.3)] mx-2">|</span>
           No Contracts
         </p>
@@ -148,9 +148,9 @@ export default function Header() {
             <div className="flex items-center gap-4">
               <a
                 href="tel:+12105551234"
-                className={`hidden sm:flex items-center gap-1.5 text-sm font-medium transition-colors duration-300 hover:text-primary ${transparent ? "text-[rgba(255,255,255,0.8)]" : "text-gray"}`}
+                className={`hidden sm:flex items-center gap-2 text-base font-semibold transition-colors duration-300 hover:text-primary ${transparent ? "text-[rgba(255,255,255,0.9)]" : "text-dark"}`}
               >
-                <PhoneIcon className="w-4 h-4" />
+                <PhoneIcon className="w-5 h-5" />
                 (210) 555-1234
               </a>
               <button
