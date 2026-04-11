@@ -271,14 +271,14 @@ export default function Hero() {
               style={{ animation: "fadeUp 1s ease-out 0.9s both" }}
             >
               <Link
-                href="/contact"
+                href="/about"
                 className="btn-primary relative inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 text-base font-semibold text-white overflow-hidden active:scale-[0.98]"
                 style={{
                   background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
                 }}
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Get Your Free Site Audit
+                  Why Choose Us
                   <ArrowRightIcon />
                 </span>
                 <span
