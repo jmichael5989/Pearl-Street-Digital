@@ -95,8 +95,8 @@ export default function ServicesSection() {
           </div>
         </ScrollReveal>
 
-        {/* 5-column grid on desktop, all on one line */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {/* 4-column grid on desktop, all on one line */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 100}>
               <Link
