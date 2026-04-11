@@ -138,8 +138,18 @@ export default function Header() {
                   sizes="88px"
                 />
               </div>
+              <div className="hidden sm:flex flex-col leading-tight">
+                <span
+                  className={`font-heading text-xl font-bold tracking-tight transition-colors duration-300 ${transparent ? "text-white" : "text-dark"}`}
+                >
+                  Rank Point
+                </span>
+                <span className="font-heading text-xl font-bold tracking-tight text-primary">
+                  Media
+                </span>
+              </div>
               <span
-                className={`hidden sm:block font-body italic text-base md:text-lg leading-snug max-w-[180px] transition-colors duration-300 ${transparent ? "text-[rgba(255,255,255,0.85)]" : "text-gray"}`}
+                className={`hidden md:block font-body italic text-base leading-snug max-w-[160px] pl-4 border-l transition-colors duration-300 ${transparent ? "text-[rgba(255,255,255,0.85)] border-[rgba(255,255,255,0.2)]" : "text-gray border-border"}`}
               >
                 a full-service
                 <br />
