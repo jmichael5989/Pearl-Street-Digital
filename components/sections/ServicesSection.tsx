@@ -33,14 +33,6 @@ function ShareIcon() {
   );
 }
 
-function SparkleIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z" />
-    </svg>
-  );
-}
-
 function ShieldIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -73,14 +65,6 @@ const services = [
     image: "/images/services/social-media.jpg",
     description:
       "Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement.",
-  },
-  {
-    icon: <SparkleIcon />,
-    title: "AI Search Optimization",
-    slug: "ai-search-optimization",
-    image: "/images/services/ai-search.jpg",
-    description:
-      "Get your business recommended by AI assistants and voice search. The next frontier of local visibility is here.",
   },
   {
     icon: <ShieldIcon />,
