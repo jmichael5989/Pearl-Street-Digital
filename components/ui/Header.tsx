@@ -151,9 +151,7 @@ export default function Header() {
               <span
                 className={`hidden lg:block font-body italic text-base leading-snug max-w-[160px] pl-4 border-l transition-colors duration-300 ${transparent ? "text-[rgba(255,255,255,0.85)] border-[rgba(255,255,255,0.2)]" : "text-gray border-border"}`}
               >
-                a full-service
-                <br />
-                digital agency
+                a digital agency
               </span>
             </Link>
 
