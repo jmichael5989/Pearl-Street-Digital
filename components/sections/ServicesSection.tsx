@@ -111,38 +111,53 @@ export default function ServicesSection() {
           </div>
         </ScrollReveal>
 
-        {/* 2x2 grid on desktop */}
+        {/* Service cards grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 100}>
-              <Link
-                href={`/services/${service.slug}`}
-                className="group relative block aspect-square overflow-hidden rounded-2xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
-              >
-                {/* Full background image */}
-                <Image
-                  src={service.image}
-                  alt={`${service.title} for San Antonio businesses`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 50vw, 25vw"
-                  loading="lazy"
-                />
-                {/* Dark gradient overlay from bottom */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 40%, transparent 100%)",
-                  }}
-                />
-                {/* Text at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="font-heading text-sm md:text-base font-semibold text-white leading-tight">
-                    {service.title}
-                  </h3>
+              <div className="group aspect-square [perspective:1000px]">
+                <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  {/* Front face */}
+                  <div className="absolute inset-0 [backface-visibility:hidden] rounded-2xl overflow-hidden shadow-sm">
+                    <Image
+                      src={service.image}
+                      alt={`${service.title} for San Antonio businesses`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 50vw, 33vw"
+                      loading="lazy"
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 40%, transparent 100%)",
+                      }}
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <h3 className="font-heading text-sm md:text-base font-semibold text-white leading-tight">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Back face */}
+                  <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-dark flex flex-col items-center justify-center p-6 text-center">
+                    <h3 className="font-heading text-lg md:text-xl font-bold text-white mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-[rgba(255,255,255,0.7)] leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
                 </div>
-              </Link>
+              </div>
             </ScrollReveal>
           ))}
         </div>
