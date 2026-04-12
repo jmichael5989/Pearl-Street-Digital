@@ -222,7 +222,7 @@ export default function Hero() {
                 animation: "fadeUp 1s ease-out 0.6s both",
               }}
             >
-              Websites and Marketing That{" "}
+              Custom Websites and Marketing That{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{
