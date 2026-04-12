@@ -36,8 +36,8 @@ const plans: Plan[] = [
   {
     name: "Starter",
     price: "$250",
-    hostedPrice: "$250",
-    hostingAddon: "$50/mo",
+    hostedPrice: "$99",
+    hostingAddon: "12-month term",
     pages: "Up to 3 pages",
     featured: false,
     features: [
@@ -52,7 +52,6 @@ const plans: Plan[] = [
       "Basic on-page SEO setup",
       "Contact form integration",
       "2 revision rounds",
-      "30-day post-launch support",
       "Managed hosting and SSL",
       "Monthly backups and security updates",
       "Ongoing maintenance",
@@ -61,8 +60,8 @@ const plans: Plan[] = [
   {
     name: "Business",
     price: "$500",
-    hostedPrice: "$500",
-    hostingAddon: "$75/mo",
+    hostedPrice: "$179",
+    hostingAddon: "12-month term",
     pages: "Up to 6 pages",
     featured: true,
     features: [
@@ -79,7 +78,6 @@ const plans: Plan[] = [
       "Contact form integration",
       "Google Analytics installation",
       "3 revision rounds",
-      "60-day post-launch support",
       "Managed hosting and SSL",
       "Monthly backups and security updates",
       "Uptime monitoring",
@@ -89,8 +87,8 @@ const plans: Plan[] = [
   {
     name: "Growth",
     price: "$1,000",
-    hostedPrice: "$1,000",
-    hostingAddon: "$100/mo",
+    hostedPrice: "$249",
+    hostingAddon: "12-month term",
     pages: "Up to 10 pages",
     featured: false,
     features: [
@@ -109,7 +107,6 @@ const plans: Plan[] = [
       "Google Analytics installation",
       "Social media integrations",
       "4 revision rounds",
-      "90-day post-launch support",
       "Managed hosting and SSL",
       "Monthly backups and security updates",
       "Uptime monitoring and priority support",
@@ -121,7 +118,7 @@ const plans: Plan[] = [
 function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   const displayPrice = hosted ? plan.hostedPrice : plan.price;
   const displayFeatures = hosted ? plan.hostedFeatures : plan.features;
-  const priceLabel = hosted ? "one-time + hosting" : "one-time";
+  const priceLabel = hosted ? "/month" : "one-time";
 
   if (plan.featured) {
     return (
@@ -148,7 +145,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
         </div>
         {hosted && (
           <p className="text-base font-semibold text-primary mb-6">
-            + {plan.hostingAddon} hosting
+            {plan.hostingAddon}
           </p>
         )}
         {!hosted && <div className="mb-6" />}
@@ -192,7 +189,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
       </div>
       {hosted && (
         <p className="text-base font-semibold text-primary mb-6">
-          + {plan.hostingAddon} hosting
+          {plan.hostingAddon}
         </p>
       )}
       {!hosted && <div className="mb-6" />}
@@ -217,7 +214,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
 }
 
 export default function Pricing() {
-  const [hosted, setHosted] = useState(false);
+  const [hosted, setHosted] = useState(true);
 
   return (
     <section id="pricing" className="bg-white py-16 lg:py-24">
@@ -231,7 +228,7 @@ export default function Pricing() {
               Simple Pricing. No Surprises.
             </h2>
             <p className="mt-4 text-gray max-w-2xl mx-auto">
-              One-time payment. No contracts, no monthly fees, no hidden costs.
+              Flexible plans that fit your budget. No hidden costs, no surprise invoices.
               You own everything we build.
             </p>
 
