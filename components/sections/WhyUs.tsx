@@ -8,9 +8,9 @@ const features = [
       "Every line of code, every design file, every credential. Full handover on launch day. No hostage domains, no proprietary lock-in.",
   },
   {
-    title: "No Long-Term Contracts",
+    title: "Flexible Terms",
     description:
-      "Month-to-month if you want ongoing support. One-time builds with no strings attached. Walk away whenever you want.",
+      "Choose what works for you -- a one-time build with no strings, or a monthly plan with everything included. Either way, you know exactly what you're paying.",
   },
   {
     title: "Transparent Pricing",
