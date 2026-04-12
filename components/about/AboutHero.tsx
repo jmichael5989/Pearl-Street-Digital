@@ -21,7 +21,7 @@ function ArrowLeftIcon() {
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
