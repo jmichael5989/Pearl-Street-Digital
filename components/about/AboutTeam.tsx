@@ -25,7 +25,7 @@ const teamMembers = [
     initials: "G",
     accentClass: "bg-primary",
     photo: "/images/team/george.jpg",
-    photoPosition: "object-[center_30%]",
+    photoPosition: "object-[65%_25%]",
     bio: "George is the four-legged brains behind the operation. When he's not supervising deadlines from his corner of the office, he's reminding us that every great agency needs frequent walk breaks and unconditional loyalty to the team. His contributions to client satisfaction are immeasurable -- mostly because he gets paid in treats, not billable hours. Fluent in barks, fetch, and belly rubs.",
   },
 ];
