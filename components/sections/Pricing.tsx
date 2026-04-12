@@ -60,9 +60,9 @@ const plans: Plan[] = [
   {
     name: "Business",
     price: "$1,000",
-    hostedPrice: "$179",
+    hostedPrice: "$149",
     hostingAddon: "12-month term",
-    pages: "Up to 3 pages",
+    pages: "Up to 5 pages",
     featured: true,
     features: [
       "Custom-designed responsive website",
@@ -77,7 +77,7 @@ const plans: Plan[] = [
       "Full on-page SEO setup",
       "Contact form integration",
       "Google Analytics installation",
-      "3 revision rounds",
+      "Unlimited edits",
       "Managed hosting and SSL",
       "Monthly backups and security updates",
       "Uptime monitoring",
