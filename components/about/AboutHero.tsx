@@ -1,20 +1,83 @@
+import Image from "next/image";
+import Link from "next/link";
+
+function ArrowDownIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <polyline points="19 12 12 19 5 12" />
+    </svg>
+  );
+}
+
+function ArrowLeftIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12" />
+      <polyline points="12 19 5 12 12 5" />
+    </svg>
+  );
+}
+
 export default function AboutHero() {
   return (
-    <section className="bg-dark py-16 pt-32 lg:py-24 lg:pt-36">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/about/hero-bg.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+          quality={70}
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(15,23,42,0.7) 0%, rgba(15,23,42,0.8) 50%, rgba(15,23,42,0.85) 100%)",
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24 w-full">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             About Us
           </p>
-          <h1 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+          <h1
+            className="mt-3 font-heading font-bold text-white"
+            style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
+          >
             Meet the Team Behind Rank Point Media
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-text-on-dark-muted">
-            We&apos;re Jon and Stacie -- a husband-and-wife team helping San
-            Antonio small businesses grow with websites that actually work and
-            marketing that drives real results. When you work with us, you work
-            directly with the people who built this agency.
+          <p className="mt-5 text-lg leading-relaxed text-[rgba(255,255,255,0.7)] max-w-2xl mx-auto">
+            We&apos;re Jon and Stacie -- a husband-and-wife team helping small
+            businesses grow with websites that actually work and marketing that
+            drives real results. When you work with us, you work directly with
+            the people who built this agency.
           </p>
+
+          {/* Navigation buttons */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#approach"
+              className="inline-flex items-center gap-2 rounded-lg border border-[rgba(255,255,255,0.25)] bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.5)] hover:shadow-[0_4px_14px_rgba(255,255,255,0.1)]"
+            >
+              View Our Approach
+              <ArrowDownIcon />
+            </a>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-lg border border-[rgba(255,255,255,0.25)] bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.5)] hover:shadow-[0_4px_14px_rgba(255,255,255,0.1)]"
+            >
+              <ArrowLeftIcon />
+              Back to Home Page
+            </Link>
+          </div>
         </div>
       </div>
     </section>
