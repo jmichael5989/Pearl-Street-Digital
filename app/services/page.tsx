@@ -73,7 +73,7 @@ export default function ServicesPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-white py-16 lg:py-24">
+        <section className="bg-white pt-32 pb-8 lg:pt-40 lg:pb-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
@@ -90,7 +90,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className="bg-light py-16 lg:py-24">
+        <section className="bg-light pt-8 pb-16 lg:pt-10 lg:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service) => (
