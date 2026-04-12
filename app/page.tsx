@@ -3,7 +3,6 @@ import Hero from "@/components/sections/Hero";
 import TrustedBy from "@/components/sections/TrustedBy";
 import StatsBar from "@/components/sections/StatsBar";
 import ServicesSection from "@/components/sections/ServicesSection";
-import Testimonials from "@/components/sections/Testimonials";
 import Pricing from "@/components/sections/Pricing";
 import WhyUs from "@/components/sections/WhyUs";
 import Footer from "@/components/ui/Footer";
@@ -19,7 +18,6 @@ export default function Home() {
         <ServicesSection />
         <WhyUs />
         <Pricing />
-        <Testimonials />
       </main>
       <Footer />
     </>

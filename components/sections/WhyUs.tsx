@@ -3,24 +3,19 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const features = [
   {
-    title: "Bilingual Campaigns",
+    title: "You Own Everything",
     description:
-      "English and Spanish content that connects with San Antonio's diverse community -- something most agencies can't offer.",
+      "Every line of code, every design file, every credential. Full handover on launch day. No hostage domains, no proprietary lock-in.",
   },
   {
-    title: "Websites in 2-3 Weeks",
+    title: "No Long-Term Contracts",
     description:
-      "No 6-month timelines. We move fast because your business can't wait.",
+      "Month-to-month if you want ongoing support. One-time builds with no strings attached. Walk away whenever you want.",
   },
   {
-    title: "Founder-Led Service",
+    title: "Transparent Pricing",
     description:
-      "You work directly with the people building your site -- no account managers in between.",
-  },
-  {
-    title: "Flexible, No-Contract Plans",
-    description:
-      "One-time builds at honest prices. Monthly retainers only if you want ongoing marketing and development.",
+      "What you see on our pricing page is what you pay. No hidden fees, no surprise invoices, no scope-creep charges.",
   },
 ];
 
