@@ -1,10 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import { services } from "@/lib/services-data";
-import { ArrowRightIcon } from "@/components/icons/ServiceIcons";
+import ServiceCard from "@/components/services/ServiceCard";
 import FAQ from "@/components/sections/FAQ";
 
 const serviceImages: Record<string, string> = {
@@ -14,6 +12,15 @@ const serviceImages: Record<string, string> = {
   "ppc-google-ads": "/images/services/ppc-google-ads.jpg",
   "ai-search-optimization": "/images/services/ai-search.jpg",
   "reputation-management": "/images/services/reputation.jpg",
+};
+
+const serviceVideos: Record<string, string> = {
+  "website-design": "/videos/services/website-design.mp4",
+  "local-seo": "/videos/services/local-seo.mp4",
+  "social-media": "/videos/services/social-media.mp4",
+  "ppc-google-ads": "/videos/services/ppc-google-ads.mp4",
+  "ai-search-optimization": "/videos/services/ai-search.mp4",
+  "reputation-management": "/videos/services/reputation.mp4",
 };
 
 export const metadata: Metadata = {
@@ -86,55 +93,16 @@ export default function ServicesPage() {
         <section className="bg-light py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((service) => {
-                const firstSentence =
-                  service.tagline.split(/(?<=[.!?])\s/)[0] || service.tagline;
-
-                const image = serviceImages[service.slug];
-
-                return (
-                  <Link
-                    key={service.slug}
-                    href={`/services/${service.slug}`}
-                    className="group overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]"
-                  >
-                    {/* Image strip */}
-                    {image && (
-                      <div className="relative h-36 overflow-hidden">
-                        <Image
-                          src={image}
-                          alt={`${service.title} for San Antonio businesses`}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          loading="lazy"
-                        />
-                        <div
-                          className="absolute inset-0"
-                          style={{
-                            background:
-                              "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
-                          }}
-                        />
-                      </div>
-                    )}
-
-                    {/* Content */}
-                    <div className="p-8">
-                      <h3 className="font-heading text-lg font-semibold text-dark mb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-base leading-relaxed text-gray mb-4">
-                        {firstSentence}
-                      </p>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary">
-                        Learn more
-                        <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })}
+              {services.map((service) => (
+                <ServiceCard
+                  key={service.slug}
+                  slug={service.slug}
+                  title={service.title}
+                  tagline={service.tagline}
+                  image={serviceImages[service.slug]}
+                  video={serviceVideos[service.slug]}
+                />
+              ))}
             </div>
           </div>
         </section>
