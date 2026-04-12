@@ -255,14 +255,14 @@ export default function Hero() {
               style={{ animation: "fadeUp 1s ease-out 0.9s both" }}
             >
               <Link
-                href="/about"
+                href="/case-studies"
                 className="btn-primary relative inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 text-base font-semibold text-white overflow-hidden active:scale-[0.98]"
                 style={{
                   background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
                 }}
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Why Choose Us
+                  View Our Work
                   <ArrowRightIcon />
                 </span>
                 <span
@@ -292,18 +292,6 @@ export default function Hero() {
                   style={{
                     background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
                     animation: "shimmer 3s ease-in-out infinite",
-                  }}
-                />
-              </span>
-              <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1 overflow-hidden" style={{ color: "rgba(255,255,255,0.6)" }}>
-                <span className="relative z-10 flex items-center gap-2">
-                  <CheckIcon /> Sites from $250
-                </span>
-                <span
-                  className="hero-shimmer absolute inset-0 z-0"
-                  style={{
-                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
-                    animation: "shimmer 3s ease-in-out infinite 0.5s",
                   }}
                 />
               </span>
