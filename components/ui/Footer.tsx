@@ -127,7 +127,7 @@ function PreFooterCTA() {
                 Ready to Grow Your Business?
               </h2>
               <p className="mt-3 text-text-on-dark-muted leading-relaxed whitespace-nowrap">
-                Get a professional website built in 2-3 weeks — no contracts, no surprises.
+                Get a professional website built in 2-3 weeks — flexible terms, no surprises.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-4">

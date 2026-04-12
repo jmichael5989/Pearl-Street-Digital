@@ -22,11 +22,11 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
   description:
-    "Rank Point Media builds affordable websites and runs local SEO, Google Ads, and digital marketing for San Antonio small businesses. Sites from $250. No contracts.",
+    "Rank Point Media builds affordable websites and runs local SEO, Google Ads, and digital marketing for San Antonio small businesses. Sites from $250. Flexible plans.",
   openGraph: {
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "Affordable web design and digital marketing for San Antonio small businesses. Custom sites from $250, local SEO, Google Ads. No contracts.",
+      "Affordable web design and digital marketing for San Antonio small businesses. Custom sites from $250, local SEO, Google Ads. Flexible plans.",
     url: "https://rankpointmedia.com",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "Affordable web design and digital marketing for San Antonio small businesses. Custom sites from $250, local SEO, Google Ads. No contracts.",
+      "Affordable web design and digital marketing for San Antonio small businesses. Custom sites from $250, local SEO, Google Ads. Flexible plans.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://rankpointmedia.com" },

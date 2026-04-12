@@ -301,7 +301,7 @@ export default function Hero() {
             >
               <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1 overflow-hidden" style={{ color: "rgba(255,255,255,0.6)" }}>
                 <span className="relative z-10 flex items-center gap-2">
-                  <CheckIcon /> No contracts
+                  <CheckIcon /> Flexible terms
                 </span>
                 <span
                   className="hero-shimmer absolute inset-0 z-0"

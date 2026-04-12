@@ -111,7 +111,7 @@ export default function Header() {
         <p className="text-[13px] leading-8 text-[rgba(255,255,255,0.7)] font-medium">
           San Antonio&apos;s Premiere AI-Powered Digital Agency
           <span className="text-[rgba(255,255,255,0.3)] mx-2">|</span>
-          No Contracts
+          Flexible Terms
         </p>
       </div>
 
