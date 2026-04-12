@@ -51,7 +51,7 @@ export default function WhyUs() {
                 <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
                   Agency Results. Small Business Prices.
                 </h2>
-                <p className="mt-4 text-gray leading-relaxed">
+                <p className="mt-4 text-dark leading-relaxed">
                   Most agencies price out the businesses that need them most. We
                   build strategies for the plumber in Helotes, the restaurant on the
                   Riverwalk, and the law firm downtown -- at prices that actually
@@ -77,7 +77,7 @@ export default function WhyUs() {
                     </div>
                     <div>
                       <p className="font-heading text-lg font-semibold text-dark">Jon</p>
-                      <p className="text-base text-gray">Founder and Web Developer</p>
+                      <p className="text-base text-dark">Founder and Web Developer</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-5">
@@ -92,7 +92,7 @@ export default function WhyUs() {
                     </div>
                     <div>
                       <p className="font-heading text-lg font-semibold text-dark">Stacie</p>
-                      <p className="text-base text-gray">Marketing Lead</p>
+                      <p className="text-base text-dark">Marketing Lead</p>
                     </div>
                   </div>
                 </div>
@@ -111,12 +111,12 @@ export default function WhyUs() {
                   <h3 className="font-heading text-lg font-semibold text-dark">
                     {feature.title}
                   </h3>
-                  <p className="mt-1 text-base text-gray leading-relaxed">
+                  <p className="mt-1 text-base text-dark leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
               ))}
-              <p className="mt-4 text-sm text-gray pl-1">
+              <p className="mt-4 text-sm text-dark pl-1">
                 Every site we build scores 95+ on Google Lighthouse and loads in
                 under 2 seconds.
               </p>
