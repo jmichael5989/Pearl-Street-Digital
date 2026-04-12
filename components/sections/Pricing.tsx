@@ -42,14 +42,14 @@ const plans: Plan[] = [
     featured: false,
     features: [
       "Custom-designed responsive website",
-      "Basic on-page SEO setup",
+      "Full on-page SEO setup",
       "Contact form integration",
       "2 revision rounds",
       "30-day post-launch support",
     ],
     hostedFeatures: [
       "Custom-designed responsive website",
-      "Basic on-page SEO setup",
+      "Full on-page SEO setup",
       "Contact form integration",
       "2 revision rounds",
       "Managed hosting and SSL",
@@ -66,7 +66,7 @@ const plans: Plan[] = [
     featured: true,
     features: [
       "Custom-designed responsive website",
-      "Basic on-page SEO setup",
+      "Full on-page SEO setup",
       "Contact form integration",
       "Google Analytics installation",
       "3 revision rounds",
@@ -74,7 +74,7 @@ const plans: Plan[] = [
     ],
     hostedFeatures: [
       "Custom-designed responsive website",
-      "Basic on-page SEO setup",
+      "Full on-page SEO setup",
       "Contact form integration",
       "Google Analytics installation",
       "3 revision rounds",
