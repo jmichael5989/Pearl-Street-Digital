@@ -7,6 +7,7 @@ const teamMembers = [
     initials: "JM",
     accentClass: "bg-primary",
     photo: "/images/team/jon.png",
+    photoPosition: "object-top",
     bio: "Jon is the founder of Rank Point Media and the lead developer behind every website we build. With a background in technology and a passion for clean, fast-loading web design, he specializes in building high-performance sites that rank well on Google and convert visitors into customers. Jon handles all web development, technical SEO implementation, and performance optimization -- ensuring every site we deliver hits Lighthouse 95+ scores and loads in under 2 seconds. When he's not coding, you'll find him exploring San Antonio's food scene or tinkering with the latest AI tools to find better ways to serve our clients.",
   },
   {
@@ -15,6 +16,7 @@ const teamMembers = [
     initials: "SM",
     accentClass: "bg-accent",
     photo: "/images/team/stacie.jpg",
+    photoPosition: "object-top",
     bio: "Stacie leads all marketing strategy and social media management at Rank Point Media. She brings a sharp eye for brand storytelling and a deep understanding of what makes local audiences engage. From crafting scroll-stopping social content to managing Google Business Profiles and building review generation campaigns, Stacie ensures our clients stay visible and top-of-mind in their communities. She's the voice behind the strategy calls and the one making sure every marketing dollar our clients spend is working hard. A proud San Antonian, Stacie knows the local market inside and out.",
   },
   {
@@ -23,6 +25,7 @@ const teamMembers = [
     initials: "G",
     accentClass: "bg-primary",
     photo: "/images/team/george.jpg",
+    photoPosition: "object-[center_30%]",
     bio: "George is the four-legged brains behind the operation. When he's not supervising deadlines from his corner of the office, he's reminding us that every great agency needs frequent walk breaks and unconditional loyalty to the team. His contributions to client satisfaction are immeasurable -- mostly because he gets paid in treats, not billable hours. Fluent in barks, fetch, and belly rubs.",
   },
 ];
@@ -57,7 +60,7 @@ export default function AboutTeam() {
                     alt={`${member.name} headshot`}
                     width={192}
                     height={192}
-                    className="h-full w-full object-cover object-top"
+                    className={`h-full w-full object-cover ${member.photoPosition}`}
                   />
                 </div>
               ) : (
