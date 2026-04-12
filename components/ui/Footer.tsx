@@ -121,14 +121,13 @@ function PreFooterCTA() {
     <section className="bg-dark-surface border-t border-border-dark">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
         <ScrollReveal>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
-            <div className="max-w-lg">
+          <div className="flex flex-col items-center text-center gap-8">
+            <div>
               <h2 className="font-heading text-[2rem] font-bold text-white leading-tight">
                 Ready to Grow Your Business?
               </h2>
-              <p className="mt-3 text-text-on-dark-muted leading-relaxed">
-                Get a professional website built in 2-3 weeks — no contracts,
-                no surprises.
+              <p className="mt-3 text-text-on-dark-muted leading-relaxed whitespace-nowrap">
+                Get a professional website built in 2-3 weeks — no contracts, no surprises.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-4">
