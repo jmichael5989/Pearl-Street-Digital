@@ -89,7 +89,7 @@ const plans: Plan[] = [
     price: "$1,500",
     hostedPrice: "$249",
     hostingAddon: "12-month term",
-    pages: "Up to 6 pages",
+    pages: "Up to 10 pages",
     featured: false,
     features: [
       "Custom-designed responsive website",
@@ -106,7 +106,7 @@ const plans: Plan[] = [
       "Contact form integration",
       "Google Analytics installation",
       "Social media integrations",
-      "4 revision rounds",
+      "Unlimited edits",
       "Managed hosting and SSL",
       "Monthly backups and security updates",
       "Uptime monitoring and priority support",
