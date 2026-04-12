@@ -34,11 +34,11 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    name: "Starter",
-    price: "$250",
+    name: "Landing Page",
+    price: "$500",
     hostedPrice: "$99",
     hostingAddon: "12-month term",
-    pages: "Up to 3 pages",
+    pages: "1 page",
     featured: false,
     features: [
       "Custom-designed responsive website",
@@ -59,10 +59,10 @@ const plans: Plan[] = [
   },
   {
     name: "Business",
-    price: "$500",
+    price: "$1,000",
     hostedPrice: "$179",
     hostingAddon: "12-month term",
-    pages: "Up to 6 pages",
+    pages: "Up to 3 pages",
     featured: true,
     features: [
       "Custom-designed responsive website",
@@ -86,10 +86,10 @@ const plans: Plan[] = [
   },
   {
     name: "Growth",
-    price: "$1,000",
+    price: "$1,500",
     hostedPrice: "$249",
     hostingAddon: "12-month term",
-    pages: "Up to 10 pages",
+    pages: "Up to 6 pages",
     featured: false,
     features: [
       "Custom-designed responsive website",
@@ -267,10 +267,6 @@ export default function Pricing() {
           ))}
         </div>
         </ScrollReveal>
-
-        <p className="mt-10 text-center text-sm text-gray">
-          No hidden fees. No surprise invoices. You own everything we build.
-        </p>
       </div>
     </section>
   );
