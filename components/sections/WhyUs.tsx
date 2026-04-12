@@ -28,7 +28,7 @@ export default function WhyUs() {
   return (
     <section className="bg-[#F8FAFC] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column */}
           <ScrollReveal>
             <div className="flex flex-col justify-center h-full">
@@ -49,38 +49,38 @@ export default function WhyUs() {
 
               {/* Founder Profiles */}
               <div className="mt-10 border-t border-border pt-8 pl-6">
-                <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-4 block">
+                <span className="text-sm font-semibold uppercase tracking-widest text-primary mb-6 block">
                   Meet Your Team
                 </span>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-white overflow-hidden flex-shrink-0">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-5">
+                    <div className="w-24 h-24 rounded-full bg-white overflow-hidden flex-shrink-0 border-2 border-border">
                       <Image
                         src="/images/team/jon.png"
                         alt="Jon, Founder and Web Developer"
-                        width={64}
-                        height={64}
+                        width={96}
+                        height={96}
                         className="w-full h-full object-cover object-top"
                       />
                     </div>
                     <div>
-                      <p className="font-heading font-semibold text-dark">Jon</p>
-                      <p className="text-sm text-gray">Founder and Web Developer</p>
+                      <p className="font-heading text-lg font-semibold text-dark">Jon</p>
+                      <p className="text-base text-gray">Founder and Web Developer</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 rounded-full bg-white overflow-hidden flex-shrink-0">
+                  <div className="flex items-center gap-5">
+                    <div className="w-24 h-24 rounded-full bg-white overflow-hidden flex-shrink-0 border-2 border-border">
                       <Image
                         src="/images/team/stacie.jpg"
                         alt="Stacie, Marketing Lead"
-                        width={64}
-                        height={64}
+                        width={96}
+                        height={96}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div>
-                      <p className="font-heading font-semibold text-dark">Stacie</p>
-                      <p className="text-sm text-gray">Marketing Lead</p>
+                      <p className="font-heading text-lg font-semibold text-dark">Stacie</p>
+                      <p className="text-base text-gray">Marketing Lead</p>
                     </div>
                   </div>
                 </div>
