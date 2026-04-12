@@ -45,7 +45,7 @@ export default function AboutHero() {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24 w-full">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+          <p className="text-lg font-bold uppercase tracking-[0.12em] text-primary">
             About Us
           </p>
           <h1
@@ -61,18 +61,19 @@ export default function AboutHero() {
             the people who built this agency.
           </p>
 
-          {/* Navigation buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Navigation links */}
+          <div className="mt-10 flex items-center justify-center gap-6">
             <a
               href="#approach"
-              className="inline-flex items-center gap-2 rounded-lg border border-[rgba(255,255,255,0.25)] bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.5)] hover:shadow-[0_4px_14px_rgba(255,255,255,0.1)]"
+              className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
             >
               View Our Approach
               <ArrowDownIcon />
             </a>
+            <span className="h-5 w-px bg-[rgba(255,255,255,0.3)]" />
             <Link
               href="/"
-              className="inline-flex items-center gap-2 rounded-lg border border-[rgba(255,255,255,0.25)] bg-transparent px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(255,255,255,0.5)] hover:shadow-[0_4px_14px_rgba(255,255,255,0.1)]"
+              className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
             >
               <ArrowLeftIcon />
               Back to Home Page
