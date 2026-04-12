@@ -1,6 +1,5 @@
 import Header from "@/components/ui/Header";
 import Hero from "@/components/sections/Hero";
-import TrustedBy from "@/components/sections/TrustedBy";
 import StatsBar from "@/components/sections/StatsBar";
 import ServicesSection from "@/components/sections/ServicesSection";
 import Pricing from "@/components/sections/Pricing";
@@ -14,7 +13,6 @@ export default function Home() {
       <main>
         <Hero />
         <StatsBar />
-        <TrustedBy />
         <ServicesSection />
         <WhyUs />
         <Pricing />
