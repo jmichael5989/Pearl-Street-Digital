@@ -72,6 +72,9 @@ export default function ServicesPage() {
       />
       <Header />
       <main>
+        {/* Gradient border */}
+        <div className="h-1" style={{ background: "linear-gradient(90deg, #0F172A, #2563EB, #14B8A6)" }} />
+
         {/* Hero */}
         <section className="bg-white pt-32 pb-8 lg:pt-40 lg:pb-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
