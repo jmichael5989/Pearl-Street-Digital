@@ -79,7 +79,7 @@ const services = [
 export default function ServicesSection() {
   return (
     <section id="services" className="bg-white py-16 lg:py-24">
-      <div className="px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -96,40 +96,35 @@ export default function ServicesSection() {
         </ScrollReveal>
 
         {/* 2x2 grid on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 100}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] block h-full"
+                className="group relative block aspect-square overflow-hidden rounded-2xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
               >
-                {/* Image strip at top */}
-                <div className="relative h-32 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={`${service.title} for San Antonio businesses`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    loading="lazy"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(248,250,252,0.4) 60%, #F8FAFC 100%)",
-                    }}
-                  />
-                </div>
-
-                {/* Content */}
-                <div className="p-5 md:p-6">
-                  <h3 className="font-heading text-base font-semibold text-text mb-2">
+                {/* Full background image */}
+                <Image
+                  src={service.image}
+                  alt={`${service.title} for San Antonio businesses`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 640px) 50vw, 25vw"
+                  loading="lazy"
+                />
+                {/* Dark gradient overlay from bottom */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 40%, transparent 100%)",
+                  }}
+                />
+                {/* Text at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="font-heading text-sm md:text-base font-semibold text-white leading-tight">
                     {service.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-gray">
-                    {service.description}
-                  </p>
                 </div>
               </Link>
             </ScrollReveal>
