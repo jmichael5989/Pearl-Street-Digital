@@ -26,8 +26,20 @@ const features = [
 
 export default function WhyUs() {
   return (
-    <section className="bg-[#F8FAFC] py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/whyus-bg.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-[0.06]"
+          sizes="100vw"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-[#F8FAFC]/90" />
+      </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column */}
           <ScrollReveal>
