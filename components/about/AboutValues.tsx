@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const values = [
   {
     title: "Transparency First",
@@ -59,26 +57,9 @@ export default function AboutValues() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
+              className="rounded-2xl bg-[#F1F5F9] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
             >
-              <div className="relative h-36 overflow-hidden">
-                <Image
-                  src={value.image}
-                  alt=""
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  loading="lazy"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
-                  }}
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-8">
+              <div>
                 <h3 className="font-heading text-lg font-semibold text-dark">
                   {value.title}
                 </h3>
