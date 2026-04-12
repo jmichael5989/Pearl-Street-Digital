@@ -1,25 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-
-function ChevronIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={`shrink-0 text-gray transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-}
 
 const faqs = [
   {
@@ -78,64 +59,79 @@ const faqSchema = {
 };
 
 export default function FAQ() {
+  const [sectionOpen, setSectionOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-white py-16 lg:py-24">
+    <section id="faq" className="bg-white py-12 lg:py-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="text-center mb-16">
-            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        {/* Single accordion trigger */}
+        <button
+          type="button"
+          onClick={() => {
+            setSectionOpen(!sectionOpen);
+            if (sectionOpen) setOpenIndex(null);
+          }}
+          className="flex w-full items-center justify-between py-4 text-left"
+          aria-expanded={sectionOpen}
+        >
+          <div>
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary block">
               FAQ
             </span>
-            <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+            <span className="mt-1 font-heading text-xl md:text-2xl font-bold text-dark block">
               Common Questions, Straight Answers
-            </h2>
-            <p className="mt-4 text-gray max-w-2xl mx-auto">
-              No jargon, no runaround. Here is what business owners ask us
-              most.
-            </p>
+            </span>
           </div>
-        </ScrollReveal>
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-dark text-xl font-light">
+            {sectionOpen ? "\u2212" : "+"}
+          </span>
+        </button>
 
-        <ScrollReveal delay={200}>
-        <div className="max-w-3xl mx-auto divide-y divide-border">
-          {faqs.map((faq, i) => {
-            const isOpen = openIndex === i;
-            return (
-              <div key={i}>
-                <button
-                  type="button"
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-4 py-6 text-left"
-                  aria-expanded={isOpen}
-                >
-                  <span className="font-heading font-semibold text-text">
-                    {faq.question}
-                  </span>
-                  <ChevronIcon open={isOpen} />
-                </button>
-                <div
-                  className="grid transition-[grid-template-rows] duration-300 ease-in-out"
-                  style={{
-                    gridTemplateRows: isOpen ? "1fr" : "0fr",
-                  }}
-                >
-                  <div className="overflow-hidden">
-                    <p className="pb-6 text-base text-gray leading-relaxed">
-                      {faq.answer}
-                    </p>
+        {/* Collapsible Q&A list */}
+        <div
+          className="grid transition-[grid-template-rows] duration-500 ease-in-out"
+          style={{ gridTemplateRows: sectionOpen ? "1fr" : "0fr" }}
+        >
+          <div className="overflow-hidden">
+            <div className="divide-y divide-border pt-4">
+              {faqs.map((faq, i) => {
+                const isOpen = openIndex === i;
+                return (
+                  <div key={i}>
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(isOpen ? null : i)}
+                      className="flex w-full items-center justify-between gap-4 py-4 text-left"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="font-heading text-sm md:text-base font-semibold text-dark">
+                        {faq.question}
+                      </span>
+                      <span className="shrink-0 text-gray text-lg font-light">
+                        {isOpen ? "\u2212" : "+"}
+                      </span>
+                    </button>
+                    <div
+                      className="grid transition-[grid-template-rows] duration-300 ease-in-out"
+                      style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="pb-4 text-sm text-gray leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
-        </ScrollReveal>
       </div>
     </section>
   );
