@@ -8,7 +8,7 @@ const teamMembers = [
     accentClass: "bg-primary",
     photo: "/images/team/jon.png",
     photoPosition: "center top",
-    bio: "Jon is the founder of Rank Point Media and the lead developer behind every website we build. With a background in technology and a passion for clean, fast-loading web design, he specializes in building high-performance sites that rank well on Google and convert visitors into customers. Jon handles all web development, technical SEO implementation, and performance optimization -- ensuring every site we deliver hits Lighthouse 95+ scores and loads in under 2 seconds. When he's not coding, you'll find him exploring San Antonio's food scene or tinkering with the latest AI tools to find better ways to serve our clients.",
+    bio: "Jon is the founder of Rank Point Media and the lead developer behind every site we build. Before launching the agency, he spent years in product and technology roles at multiple Fortune 150 companies, giving him a deep technical foundation that most web designers simply don't have. He's passionate about AI and applies the latest tools to every project -- from smarter SEO strategies to faster development workflows. Jon personally handles all web development, technical SEO, and performance optimization, ensuring every site we deliver exceeds customer expectations. When he's not building, you'll find him exploring San Antonio's food scene or testing the newest AI tools to find better ways to serve our clients.",
   },
   {
     name: "Stacie Michael",
