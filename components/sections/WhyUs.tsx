@@ -45,7 +45,7 @@ export default function WhyUs() {
           <ScrollReveal>
             <div className="flex flex-col justify-center h-full">
               <div className="border-l-[3px] border-primary pl-6">
-                <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+                <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
                   Why Rank Point Media
                 </span>
                 <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
@@ -61,7 +61,7 @@ export default function WhyUs() {
 
               {/* Founder Profiles */}
               <div className="mt-10 border-t border-border pt-8 pl-6">
-                <span className="text-sm font-semibold uppercase tracking-widest text-primary mb-6 block">
+                <span className="text-base font-bold uppercase tracking-widest text-primary mb-6 block">
                   Meet Your Team
                 </span>
                 <div className="space-y-6">
