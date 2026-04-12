@@ -106,9 +106,9 @@ export default function WhyUs() {
               {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="rounded-lg bg-white border border-border p-4 shadow-sm w-full"
+                  className="rounded-lg bg-white border border-border border-l-4 border-l-primary p-5 shadow-md w-full"
                 >
-                  <h3 className="font-heading text-lg font-semibold text-dark">
+                  <h3 className="font-heading text-lg font-bold text-primary">
                     {feature.title}
                   </h3>
                   <p className="mt-1 text-base text-dark leading-relaxed">
