@@ -34,11 +34,11 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    name: "Landing Page",
+    name: "Starter",
     price: "$500",
     hostedPrice: "$99",
     hostingAddon: "12-month term",
-    pages: "1 page",
+    pages: "Up to 3 pages",
     featured: false,
     features: [
       "Custom-designed responsive website",
@@ -51,7 +51,7 @@ const plans: Plan[] = [
       "Custom-designed responsive website",
       "Full on-page SEO setup",
       "Contact form integration",
-      "2 revision rounds",
+      "Unlimited edits",
       "Managed hosting and SSL",
       "Monthly backups and security updates",
       "Ongoing maintenance",
