@@ -68,6 +68,22 @@ const services = [
   },
   {
     icon: <ShieldIcon />,
+    title: "Ad Campaigns",
+    slug: "ppc-google-ads",
+    image: "/images/services/ppc-google-ads.jpg",
+    description:
+      "Targeted ad campaigns that put your business in front of customers actively searching for your services.",
+  },
+  {
+    icon: <ShieldIcon />,
+    title: "AI Search Optimization",
+    slug: "ai-search-optimization",
+    image: "/images/services/ai-search.jpg",
+    description:
+      "Get your business recommended by AI assistants and voice search. The next frontier of local visibility.",
+  },
+  {
+    icon: <ShieldIcon />,
     title: "Brand Management",
     slug: "reputation-management",
     image: "/images/services/reputation.jpg",
@@ -96,7 +112,7 @@ export default function ServicesSection() {
         </ScrollReveal>
 
         {/* 2x2 grid on desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 100}>
               <Link
