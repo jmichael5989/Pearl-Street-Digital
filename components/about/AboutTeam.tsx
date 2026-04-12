@@ -17,6 +17,14 @@ const teamMembers = [
     photo: "/images/team/stacie.jpg",
     bio: "Stacie leads all marketing strategy and social media management at Rank Point Media. She brings a sharp eye for brand storytelling and a deep understanding of what makes local audiences engage. From crafting scroll-stopping social content to managing Google Business Profiles and building review generation campaigns, Stacie ensures our clients stay visible and top-of-mind in their communities. She's the voice behind the strategy calls and the one making sure every marketing dollar our clients spend is working hard. A proud San Antonian, Stacie knows the local market inside and out.",
   },
+  {
+    name: "George",
+    role: "Chief Brand Officer & Morale Manager",
+    initials: "G",
+    accentClass: "bg-primary",
+    photo: "/images/team/george.jpg",
+    bio: "George is the four-legged brains behind the operation. When he's not supervising deadlines from his corner of the office, he's reminding us that every great agency needs frequent walk breaks and unconditional loyalty to the team. His contributions to client satisfaction are immeasurable -- mostly because he gets paid in treats, not billable hours. Fluent in barks, fetch, and belly rubs.",
+  },
 ];
 
 export default function AboutTeam() {
@@ -36,7 +44,7 @@ export default function AboutTeam() {
             getting you results.
           </p>
         </div>
-        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member) => (
             <div
               key={member.name}
