@@ -106,7 +106,7 @@ export default function ServicesSection() {
               Everything Your Business Needs to Win Online
             </h2>
             <p className="mt-4 text-gray max-w-2xl lg:max-w-none mx-auto">
-              From design to ads to AI-powered search, we handle the digital marketing so you can focus on running your business.
+              Running a business is a full-time job -- so is growing one online. We handle the design, ads, and AI-powered search, so you never have to choose between the two.
             </p>
           </div>
         </ScrollReveal>
