@@ -52,7 +52,7 @@ const services = [
   },
   {
     icon: <SearchIcon />,
-    title: "Local SEO",
+    title: "SEO",
     slug: "local-seo",
     image: "/images/services/local-seo.jpg",
     description:
@@ -68,7 +68,7 @@ const services = [
   },
   {
     icon: <ShieldIcon />,
-    title: "Reputation Management",
+    title: "Brand Management",
     slug: "reputation-management",
     image: "/images/services/reputation.jpg",
     description:

@@ -7,11 +7,11 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 /* ── Link data ─────────────────────────────────────────── */
 const serviceLinks = [
   { label: "Web Design", href: "/services/website-design" },
-  { label: "Local SEO", href: "/services/local-seo" },
+  { label: "SEO", href: "/services/local-seo" },
   { label: "Google Ads (PPC)", href: "/services/ppc-google-ads" },
   { label: "Social Media", href: "/services/social-media" },
   { label: "AI Search Optimization", href: "/services/ai-search-optimization" },
-  { label: "Reputation Management", href: "/services/reputation-management" },
+  { label: "Brand Management", href: "/services/reputation-management" },
 ];
 
 const companyLinks = [

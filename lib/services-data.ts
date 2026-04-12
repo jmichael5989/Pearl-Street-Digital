@@ -144,7 +144,7 @@ export const services: ServiceData[] = [
   },
   {
     slug: "local-seo",
-    title: "Local SEO",
+    title: "SEO",
     tagline:
       "Rank higher on Google Maps and local search results so San Antonio customers find you first -- not your competitors.",
     metaTitle: "Local SEO San Antonio | Get Found on Google | Rank Point Media",
@@ -362,7 +362,7 @@ export const services: ServiceData[] = [
   },
   {
     slug: "ppc-google-ads",
-    title: "PPC / Google Ads",
+    title: "Ad Campaigns",
     tagline:
       "Targeted ad campaigns that put your San Antonio business in front of customers actively searching for your services right now.",
     metaTitle: "Google Ads Management San Antonio | PPC Agency | Rank Point Media",
@@ -580,7 +580,7 @@ export const services: ServiceData[] = [
   },
   {
     slug: "reputation-management",
-    title: "Reputation Management",
+    title: "Brand Management",
     tagline:
       "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your San Antonio business has earned.",
     metaTitle: "Reputation Management San Antonio | Online Reviews | Rank Point Media",
