@@ -96,7 +96,7 @@ export default function ServicesSection() {
         </ScrollReveal>
 
         {/* 2x2 grid on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 100}>
               <Link
@@ -104,7 +104,7 @@ export default function ServicesSection() {
                 className="group relative overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] block h-full"
               >
                 {/* Image strip at top */}
-                <div className="relative h-40 overflow-hidden">
+                <div className="relative h-32 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={`${service.title} for San Antonio businesses`}
@@ -123,11 +123,11 @@ export default function ServicesSection() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 md:p-8">
-                  <h3 className="font-heading text-lg font-semibold text-text mb-2">
+                <div className="p-5 md:p-6">
+                  <h3 className="font-heading text-base font-semibold text-text mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-gray">
+                  <p className="text-sm leading-relaxed text-gray">
                     {service.description}
                   </p>
                 </div>
