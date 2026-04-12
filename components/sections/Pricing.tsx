@@ -63,7 +63,7 @@ const plans: Plan[] = [
     hostedPrice: "$179",
     hostingAddon: "12-month term",
     pages: "Up to 3 pages",
-    featured: false,
+    featured: true,
     features: [
       "Custom-designed responsive website",
       "Full on-page SEO setup",
@@ -120,7 +120,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   const displayFeatures = hosted ? plan.hostedFeatures : plan.features;
   const priceLabel = hosted ? "/month" : "one-time";
 
-  if (plan.featured) {
+  if (plan.featured && hosted) {
     return (
       <div className="relative flex h-full flex-col rounded-2xl border-2 border-primary bg-dark p-8 pt-12 shadow-[0_4px_20px_rgba(37,99,235,0.15)] transition-all duration-300 hover:-translate-y-1">
         <span
