@@ -140,7 +140,7 @@ function PreFooterCTA() {
                   boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
                 }}
               >
-                Get Your Free Audit
+                Contact Us
               </Link>
               <a
                 href="tel:+12105551234"

@@ -25,7 +25,7 @@ export default function CTABanner() {
               boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
             }}
           >
-            Get Your Free Audit
+            Contact Us
           </a>
         </div>
         </ScrollReveal>

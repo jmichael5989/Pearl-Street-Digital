@@ -19,7 +19,7 @@ export default function ServiceHero({ service }: { service: ServiceData }) {
               boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
             }}
           >
-            Get a Free Consultation
+            Contact Us
           </a>
         </div>
       </div>
