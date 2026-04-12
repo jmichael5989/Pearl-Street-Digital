@@ -17,6 +17,11 @@ const features = [
     description:
       "What you see on our pricing page is what you pay. No hidden fees, no surprise invoices, no scope-creep charges.",
   },
+  {
+    title: "2-3 Week Lead Time",
+    description:
+      "2-3 week turnaround times for web development. No lengthy 6-month build outs. Your business cannot afford to wait.",
+  },
 ];
 
 export default function WhyUs() {
