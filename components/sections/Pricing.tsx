@@ -63,7 +63,7 @@ const plans: Plan[] = [
     hostedPrice: "$179",
     hostingAddon: "12-month term",
     pages: "Up to 3 pages",
-    featured: true,
+    featured: false,
     features: [
       "Custom-designed responsive website",
       "Full on-page SEO setup",
