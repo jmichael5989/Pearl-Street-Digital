@@ -56,7 +56,7 @@ export default function ServiceCard({ slug, title, tagline, image, video }: Serv
             muted
             loop
             playsInline
-            preload="none"
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           >
             <source src={video} type="video/mp4" />
