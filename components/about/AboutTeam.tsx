@@ -26,7 +26,7 @@ const teamMembers = [
     accentClass: "bg-primary",
     photo: "/images/team/george.jpg",
     photoPosition: "center center",
-    bio: "George is the four-legged brains behind the operation. When he's not supervising deadlines from his corner of the office, he's reminding us that every great agency needs frequent walk breaks and unconditional loyalty to the team. His contributions to client satisfaction are immeasurable -- mostly because he gets paid in treats, not billable hours. Fluent in barks, fetch, and belly rubs.",
+    bio: "George is the four-legged brains behind the operation. When she's not supervising deadlines from her corner of the office, she's reminding us that every great agency needs frequent walk breaks and unconditional loyalty to the team. Her contributions to client satisfaction are immeasurable -- mostly because she gets paid in treats, not billable hours. Fluent in barks, fetch, and belly rubs.",
   },
 ];
 
