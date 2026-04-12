@@ -55,6 +55,7 @@ const plans: Plan[] = [
       "30-day post-launch support",
       "Managed hosting and SSL",
       "Monthly backups and security updates",
+      "Ongoing maintenance",
     ],
   },
   {
@@ -82,6 +83,7 @@ const plans: Plan[] = [
       "Managed hosting and SSL",
       "Monthly backups and security updates",
       "Uptime monitoring",
+      "Ongoing maintenance",
     ],
   },
   {
@@ -111,6 +113,7 @@ const plans: Plan[] = [
       "Managed hosting and SSL",
       "Monthly backups and security updates",
       "Uptime monitoring and priority support",
+      "Ongoing maintenance",
     ],
   },
 ];
@@ -144,7 +147,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
           <span className="text-sm text-text-on-dark-muted ml-2">{priceLabel}</span>
         </div>
         {hosted && (
-          <p className="text-xs text-primary mb-6">
+          <p className="text-base font-semibold text-primary mb-6">
             + {plan.hostingAddon} hosting
           </p>
         )}
@@ -188,7 +191,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
         <span className="text-sm text-gray ml-2">{priceLabel}</span>
       </div>
       {hosted && (
-        <p className="text-xs text-primary mb-6">
+        <p className="text-base font-semibold text-primary mb-6">
           + {plan.hostingAddon} hosting
         </p>
       )}
