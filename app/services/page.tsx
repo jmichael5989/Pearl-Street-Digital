@@ -80,10 +80,10 @@ export default function ServicesPage() {
                 Our Services
               </span>
               <h1 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-                Digital Marketing Services for San Antonio Businesses
+                Digital Marketing Services for Local Businesses
               </h1>
               <p className="mt-5 text-lg text-gray leading-relaxed max-w-2xl lg:max-w-none mx-auto">
-                From custom websites to local SEO, paid ads, and AI-powered search optimization -- everything your business needs to win online. Managed by a single team that knows San Antonio.
+                From custom websites to SEO, ad campaigns, and AI-powered search optimization -- everything your business needs to win online. Managed by a team that knows your market.
               </p>
             </div>
           </div>
