@@ -23,10 +23,12 @@ function CheckIcon() {
 
 interface Plan {
   name: string;
+  buildOnlyName?: string;
   price: string;
   hostedPrice: string;
   hostingAddon: string;
   pages: string;
+  buildOnlyPages?: string;
   featured: boolean;
   features: string[];
   hostedFeatures: string[];
@@ -35,17 +37,18 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: "Starter",
+    buildOnlyName: "Landing Page",
     price: "$500",
     hostedPrice: "$99",
     hostingAddon: "12-month term",
     pages: "Up to 3 pages",
+    buildOnlyPages: "1 page",
     featured: false,
     features: [
       "Custom-designed responsive website",
       "Full on-page SEO setup",
       "Contact form integration",
       "2 revision rounds",
-      "30-day post-launch support",
     ],
     hostedFeatures: [
       "Custom-designed responsive website",
@@ -63,6 +66,7 @@ const plans: Plan[] = [
     hostedPrice: "$149",
     hostingAddon: "12-month term",
     pages: "Up to 5 pages",
+    buildOnlyPages: "Up to 3 pages",
     featured: true,
     features: [
       "Custom-designed responsive website",
@@ -70,7 +74,6 @@ const plans: Plan[] = [
       "Contact form integration",
       "Google Analytics installation",
       "3 revision rounds",
-      "60-day post-launch support",
     ],
     hostedFeatures: [
       "Custom-designed responsive website",
@@ -90,6 +93,7 @@ const plans: Plan[] = [
     hostedPrice: "$249",
     hostingAddon: "12-month term",
     pages: "Up to 10 pages",
+    buildOnlyPages: "Up to 6 pages",
     featured: false,
     features: [
       "Custom-designed responsive website",
@@ -98,7 +102,6 @@ const plans: Plan[] = [
       "Google Analytics installation",
       "Social media integrations",
       "4 revision rounds",
-      "90-day post-launch support",
     ],
     hostedFeatures: [
       "Custom-designed responsive website",
@@ -118,6 +121,8 @@ const plans: Plan[] = [
 function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   const displayPrice = hosted ? plan.hostedPrice : plan.price;
   const displayFeatures = hosted ? plan.hostedFeatures : plan.features;
+  const displayName = hosted ? plan.name : (plan.buildOnlyName || plan.name);
+  const displayPages = hosted ? plan.pages : (plan.buildOnlyPages || plan.pages);
   const priceLabel = hosted ? "/month" : "one-time";
 
   if (plan.featured && hosted) {
@@ -133,9 +138,9 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
         </span>
         <div className="mb-6">
           <h3 className="font-heading text-xl font-bold text-text-on-dark">
-            {plan.name}
+            {displayName}
           </h3>
-          <p className="text-sm text-text-on-dark-muted mt-1">{plan.pages}</p>
+          <p className="text-sm text-text-on-dark-muted mt-1">{displayPages}</p>
         </div>
         <div className="mb-2">
           <span className="font-heading text-4xl font-extrabold text-white">
@@ -177,9 +182,9 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
     <div className="flex h-full flex-col rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]">
       <div className="mb-6">
         <h3 className="font-heading text-xl font-bold text-text">
-          {plan.name}
+          {displayName}
         </h3>
-        <p className="text-sm text-gray mt-1">{plan.pages}</p>
+        <p className="text-sm text-gray mt-1">{displayPages}</p>
       </div>
       <div className="mb-2">
         <span className="font-heading text-4xl font-extrabold text-text">
