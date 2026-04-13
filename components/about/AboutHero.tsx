@@ -21,38 +21,45 @@ function ArrowLeftIcon() {
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Dark base background */}
-      <div className="absolute inset-0 bg-[#0F172A]" />
-
-      {/* Background image -- left half, fading to right */}
-      <div className="absolute inset-0 w-1/2 left-0">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-dark">
+      {/* Layer 1: Image positioned left (42% width) */}
+      <div className="absolute inset-0 z-[1]" style={{ width: "42%" }}>
         <Image
           src="/images/about/team-bg.jpg"
-          alt=""
+          alt="Tower of the Americas in San Antonio"
           fill
           className="object-cover object-top"
           priority
           quality={70}
-          sizes="50vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.4) 50%, rgba(15,23,42,0.5) 100%)",
-          }}
+          sizes="42vw"
         />
       </div>
-      {/* Fade image to dark on the right */}
+
+      {/* Layer 2: Three gradient overlays matching home hero */}
+      {/* Right fade */}
       <div
-        className="absolute inset-0 z-[1]"
+        className="absolute inset-0 z-[2]"
         style={{
-          background: "linear-gradient(to right, transparent 0%, transparent 20%, #0F172A 50%)",
+          background: "linear-gradient(to right, transparent 0%, transparent 15%, #0F172A 42%)",
+        }}
+      />
+      {/* Bottom fade */}
+      <div
+        className="absolute inset-0 z-[2]"
+        style={{
+          background: "linear-gradient(to top, #0F172A 0%, transparent 40%)",
+        }}
+      />
+      {/* Top fade */}
+      <div
+        className="absolute inset-0 z-[2]"
+        style={{
+          background: "linear-gradient(to bottom, rgba(15,23,42,0.6) 0%, transparent 30%)",
         }}
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24 w-full">
+      <div className="relative z-[3] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24 w-full">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-lg font-bold uppercase tracking-[0.12em] text-primary">
             About Us
