@@ -96,7 +96,7 @@ export default function AboutValues() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="rounded-2xl bg-[#0F172A]/70 backdrop-blur-md border border-white/15 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[#0F172A]/80 hover:shadow-[0_12px_32px_rgba(37,99,235,0.2)]"
+              className="rounded-2xl bg-[#0F172A]/60 backdrop-blur-md border border-white/15 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[#0F172A]/70 hover:shadow-[0_12px_32px_rgba(37,99,235,0.2)]"
             >
               <div>
                 <h3 className="font-heading text-lg font-semibold text-white">
