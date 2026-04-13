@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 const values = [
   {
     title: "Transparency First",
@@ -38,17 +42,56 @@ const values = [
 ];
 
 export default function AboutValues() {
+  const [videoReady, setVideoReady] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVideoReady(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const onTime = () => {
+      if (video.duration && video.currentTime >= video.duration - 0.15) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      }
+    };
+    const onEnd = () => { video.currentTime = 0; video.play().catch(() => {}); };
+    video.addEventListener("timeupdate", onTime);
+    video.addEventListener("ended", onEnd);
+    return () => { video.removeEventListener("timeupdate", onTime); video.removeEventListener("ended", onEnd); };
+  }, []);
+
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
+      {/* Background video */}
+      <div className="absolute inset-0 z-0 bg-[#0F172A]">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          ref={videoRef}
+          onCanPlayThrough={() => setVideoReady(true)}
+          onPlaying={() => setVideoReady(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-40" : "opacity-0"}`}
+        >
+          <source src="/videos/whyus-bg.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+          <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-[#93C5FD]">
             Our Approach
           </p>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+          <h2 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             What Sets Us Apart
           </h2>
-          <p className="mt-4 leading-relaxed text-gray">
+          <p className="mt-4 leading-relaxed text-white/70">
             We built Rank Point Media around the principles we wish every
             agency followed. Here is what you can expect when you work with us.
           </p>
@@ -57,13 +100,13 @@ export default function AboutValues() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="rounded-2xl bg-[#F1F5F9] p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
+              className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 hover:shadow-[0_12px_32px_rgba(37,99,235,0.2)]"
             >
               <div>
-                <h3 className="font-heading text-lg font-semibold text-dark">
+                <h3 className="font-heading text-lg font-semibold text-white">
                   {value.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray">
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
                   {value.description}
                 </p>
               </div>
