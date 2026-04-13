@@ -30,7 +30,7 @@
   --text-h3: clamp(1.25rem, 3vw, 1.5rem);    /* 20px → 24px */
   --text-h4: 1.125rem;                        /* 18px */
   --text-eyebrow: 0.78rem;                    /* 12.5px */
-  --text-body: 1rem;                          /* 16px */
+  --text-body: 1.125rem;                       /* 18px */
   --text-body-lg: 1.125rem;                   /* 18px */
   --text-body-sm: 0.875rem;                   /* 14px */
 }
@@ -44,7 +44,7 @@ body {
   background: #ffffff;
   color: #0F172A;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.6;
 }
 
