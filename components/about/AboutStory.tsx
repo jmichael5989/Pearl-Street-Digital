@@ -9,25 +9,30 @@ export default function AboutStory() {
           Why We Started Rank Point Media
         </h2>
         <p className="mt-4 leading-relaxed text-gray">
-          We saw too many San Antonio small businesses getting burned by big
-          agencies that overpromised and underdelivered -- or worse, locked
-          into long-term contracts with nothing to show for it. We started
-          Rank Point Media because we believe local businesses deserve
-          better.
+          Too many San Antonio small businesses have been burned by agencies
+          that promised the world and delivered a PDF. Or worse, locked into
+          12-month contracts with nothing to show for it but a lighter bank
+          account. That is exactly why Rank Point Media exists.
         </p>
         <p className="mt-4 leading-relaxed text-gray">
-          As a husband-and-wife team, our reputation is literally our family
-          name. Every website we build, every campaign we run, every result
-          we report -- it all comes back to us personally. That
-          accountability is what makes working with a boutique agency
-          different.
+          We are Jon and Stacie, a husband-and-wife team that built this
+          agency on a simple idea: local businesses deserve a marketing
+          partner who actually shows up. No layers of account managers. No
+          templated strategies recycled from the last client. When you call
+          us, you get us.
         </p>
         <p className="mt-4 leading-relaxed text-gray">
-          No account managers, no runaround. Just two people who care about
-          your business almost as much as you do. Based in San Antonio and
-          operating as a DBA of JSL Innovations LLC, we combine modern AI
-          tools with proven marketing strategies to help local businesses
-          compete and win online.
+          Our reputation is personal. Every website we launch, every campaign
+          we run, and every dollar we manage ties directly back to our name.
+          That is the difference between a boutique agency and a big shop
+          where your account is just another line item.
+        </p>
+        <p className="mt-4 leading-relaxed text-gray">
+          We pair modern AI tools with proven local marketing strategies so
+          small businesses in San Antonio can compete online without
+          overpaying for it. Based right here in San Antonio, we work with
+          businesses who want real results from people who are personally
+          invested in delivering them.
         </p>
       </div>
     </section>
