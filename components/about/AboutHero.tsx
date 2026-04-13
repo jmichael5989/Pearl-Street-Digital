@@ -28,7 +28,7 @@ export default function AboutHero() {
           src="/images/about/team-bg.jpg"
           alt=""
           fill
-          className="object-cover"
+          className="object-cover object-bottom"
           priority
           quality={70}
           sizes="100vw"
