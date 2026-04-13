@@ -34,24 +34,8 @@ const teamMembers = [
 
 export default function AboutTeam() {
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden">
-      {/* Background photo with left-to-right fade */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/about/team-bg.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to right, transparent 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.95) 70%, #ffffff 100%)",
-          }}
-        />
-      </div>
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
             Leadership

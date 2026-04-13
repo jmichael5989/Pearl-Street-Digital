@@ -25,7 +25,7 @@ export default function AboutHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/about/hero-bg.jpg"
+          src="/images/about/team-bg.jpg"
           alt=""
           fill
           className="object-cover"
