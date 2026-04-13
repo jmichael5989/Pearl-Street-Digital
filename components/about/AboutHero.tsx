@@ -22,8 +22,11 @@ function ArrowLeftIcon() {
 export default function AboutHero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0">
+      {/* Dark base background */}
+      <div className="absolute inset-0 bg-[#0F172A]" />
+
+      {/* Background image -- left half, fading to right */}
+      <div className="absolute inset-0 w-1/2 left-0">
         <Image
           src="/images/about/team-bg.jpg"
           alt=""
@@ -31,16 +34,22 @@ export default function AboutHero() {
           className="object-cover object-top"
           priority
           quality={70}
-          sizes="100vw"
+          sizes="50vw"
         />
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "linear-gradient(180deg, rgba(15,23,42,0.7) 0%, rgba(15,23,42,0.8) 50%, rgba(15,23,42,0.85) 100%)",
+            background: "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.4) 50%, rgba(15,23,42,0.5) 100%)",
           }}
         />
       </div>
+      {/* Fade image to dark on the right */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{
+          background: "linear-gradient(to right, transparent 0%, transparent 20%, #0F172A 50%)",
+        }}
+      />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24 w-full">
