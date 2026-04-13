@@ -84,10 +84,10 @@ export default function AboutValues() {
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-[#93C5FD]">
             Our Approach
           </p>
-          <h2 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+          <h2 className="mt-3 font-heading font-bold text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.4)]" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             What Sets Us Apart
           </h2>
-          <p className="mt-4 leading-relaxed text-white/70">
+          <p className="mt-4 leading-relaxed text-white/85 [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]">
             We built Rank Point Media around the principles we wish every
             agency followed. Here is what you can expect when you work with us.
           </p>
@@ -102,7 +102,7 @@ export default function AboutValues() {
                 <h3 className="font-heading text-lg font-semibold text-white">
                   {value.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                <p className="mt-2 text-sm leading-relaxed text-white/85">
                   {value.description}
                 </p>
               </div>
