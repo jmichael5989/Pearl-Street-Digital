@@ -60,7 +60,7 @@ export default function AboutHero() {
 
       {/* Content */}
       <div className="relative z-[3] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24 w-full">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="ml-auto max-w-3xl text-left lg:pl-8">
           <p className="text-lg font-bold uppercase tracking-[0.12em] text-primary">
             About Us
           </p>
@@ -70,7 +70,7 @@ export default function AboutHero() {
           >
             Meet the Team Behind Rank Point Media
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-[rgba(255,255,255,0.7)] max-w-2xl mx-auto">
+          <p className="mt-5 text-lg leading-relaxed text-[rgba(255,255,255,0.7)] max-w-2xl">
             We&apos;re Jon and Stacie -- a husband-and-wife team helping small
             businesses grow with websites that actually work and marketing that
             drives real results. When you work with us, you work directly with
@@ -78,7 +78,7 @@ export default function AboutHero() {
           </p>
 
           {/* Navigation links */}
-          <div className="mt-10 flex items-center justify-center gap-6">
+          <div className="mt-10 flex items-center justify-start gap-6">
             <a
               href="#approach"
               className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
