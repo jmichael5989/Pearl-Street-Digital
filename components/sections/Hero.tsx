@@ -205,7 +205,7 @@ export default function Hero() {
           className="absolute inset-0 z-[2]"
           style={{
             background:
-              "linear-gradient(180deg, rgba(15,23,42,0.35) 0%, rgba(15,23,42,0.35) 50%, rgba(15,23,42,0.35) 100%)",
+              "linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.3) 50%, rgba(15,23,42,0.3) 100%)",
           }}
         />
 
