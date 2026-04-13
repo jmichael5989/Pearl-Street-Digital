@@ -222,15 +222,15 @@ export default function Hero() {
                 animation: "fadeUp 1s ease-out 0.6s both",
               }}
             >
-              Custom Websites and Marketing That{" "}
+              Custom Websites and{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{
                   backgroundImage:
-                    "linear-gradient(135deg, #2563EB 0%, #93C5FD 50%, #2563EB 100%)",
+                    "linear-gradient(135deg, #14B8A6, #8B5CF6)",
                 }}
               >
-                Actually Bring You Customers
+                Marketing That Actually Brings You Customers
               </span>
             </h1>
 
