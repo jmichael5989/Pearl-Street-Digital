@@ -68,7 +68,13 @@ export default function AboutHero() {
             className="mt-3 font-heading font-bold text-white"
             style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
           >
-            Meet the Team Behind Rank Point Media
+            Meet the Team Behind{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: "linear-gradient(135deg, #14B8A6, #8B5CF6)" }}
+              >
+                Rank Point Media
+              </span>
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-[rgba(255,255,255,0.7)] max-w-2xl">
             We&apos;re Jon and Stacie -- a husband-and-wife team helping small
