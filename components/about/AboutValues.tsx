@@ -81,7 +81,7 @@ export default function AboutValues() {
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-[#93C5FD]">
+          <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]">
             Our Approach
           </p>
           <h2 className="mt-3 font-heading font-bold text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.4)]" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
