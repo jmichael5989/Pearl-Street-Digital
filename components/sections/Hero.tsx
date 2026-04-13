@@ -230,8 +230,9 @@ export default function Hero() {
                     "linear-gradient(135deg, #14B8A6, #8B5CF6)",
                 }}
               >
-                Marketing That Actually Brings You Customers
-              </span>
+                Marketing That Actually
+              </span>{" "}
+              Brings You Customers
             </h1>
 
             {/* Subtitle */}
