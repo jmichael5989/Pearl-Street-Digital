@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const values = [
   {
@@ -42,13 +42,7 @@ const values = [
 ];
 
 export default function AboutValues() {
-  const [videoReady, setVideoReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setVideoReady(true), 2000);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -67,8 +61,11 @@ export default function AboutValues() {
 
   return (
     <section className="relative py-16 lg:py-24 overflow-hidden">
-      {/* Background video */}
-      <div className="absolute inset-0 z-0 bg-[#0F172A]">
+      {/* Background video with poster fallback */}
+      <div
+        className="absolute inset-0 z-0 bg-[#0F172A] bg-cover bg-center"
+        style={{ backgroundImage: "url(/videos/whyus-bg-poster.jpg)" }}
+      >
         <video
           autoPlay
           muted
@@ -76,9 +73,8 @@ export default function AboutValues() {
           playsInline
           preload="auto"
           ref={videoRef}
-          onCanPlayThrough={() => setVideoReady(true)}
-          onPlaying={() => setVideoReady(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? "opacity-40" : "opacity-0"}`}
+          poster="/videos/whyus-bg-poster.jpg"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
         >
           <source src="/videos/whyus-bg.mp4" type="video/mp4" />
         </video>
