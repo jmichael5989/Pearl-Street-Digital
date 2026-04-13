@@ -74,18 +74,11 @@ export default function AboutValues() {
           preload="auto"
           ref={videoRef}
           poster="/videos/whyus-bg-poster.jpg"
-          className="absolute inset-0 w-full h-full object-cover opacity-25"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
         >
           <source src="/videos/whyus-bg.mp4" type="video/mp4" />
         </video>
       </div>
-      {/* Dark overlay for text readability */}
-      <div
-        className="absolute inset-0 z-[1]"
-        style={{
-          background: "linear-gradient(180deg, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.4) 50%, rgba(15,23,42,0.6) 100%)",
-        }}
-      />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-[#93C5FD]">
@@ -94,7 +87,7 @@ export default function AboutValues() {
           <h2 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
             What Sets Us Apart
           </h2>
-          <p className="mt-4 leading-relaxed text-white/85">
+          <p className="mt-4 leading-relaxed text-white/70">
             We built Rank Point Media around the principles we wish every
             agency followed. Here is what you can expect when you work with us.
           </p>
@@ -103,13 +96,13 @@ export default function AboutValues() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="rounded-2xl bg-[#0F172A]/70 backdrop-blur-md border border-white/15 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[#0F172A]/80 hover:shadow-[0_12px_32px_rgba(37,99,235,0.25)]"
+              className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/10 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-white/15 hover:shadow-[0_12px_32px_rgba(37,99,235,0.2)]"
             >
               <div>
                 <h3 className="font-heading text-lg font-semibold text-white">
                   {value.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/85">
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
                   {value.description}
                 </p>
               </div>
