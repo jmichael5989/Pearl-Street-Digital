@@ -77,7 +77,8 @@ export default function Header() {
   const [isHome, setIsHome] = useState(false);
 
   useEffect(() => {
-    setIsHome(window.location.pathname === "/");
+    const darkHeroPages = ["/", "/about"];
+    setIsHome(darkHeroPages.includes(window.location.pathname));
     function onScroll() {
       setScrolled(window.scrollY > 40);
     }
