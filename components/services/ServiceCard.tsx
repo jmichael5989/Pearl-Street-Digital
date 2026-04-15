@@ -39,7 +39,7 @@ export default function ServiceCard({ slug, title, tagline, image, video }: Serv
       onMouseLeave={handleMouseLeave}
     >
       {/* Image/Video strip */}
-      <div className="relative h-36 overflow-hidden">
+      <div className="relative h-56 overflow-hidden">
         {image && (
           <Image
             src={image}
@@ -72,14 +72,14 @@ export default function ServiceCard({ slug, title, tagline, image, video }: Serv
       </div>
 
       {/* Content */}
-      <div className="p-8">
-        <h3 className="font-heading text-lg font-semibold text-dark mb-2">
+      <div className="p-10">
+        <h3 className="font-heading text-xl font-semibold text-dark mb-3">
           {title}
         </h3>
-        <p className="text-base leading-relaxed text-gray mb-4">
+        <p className="text-base leading-relaxed text-gray mb-5">
           {firstSentence}
         </p>
-        <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary">
+        <span className="inline-flex items-center gap-1.5 text-base font-semibold text-primary transition-colors group-hover:text-primary">
           Learn more
           <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </span>
