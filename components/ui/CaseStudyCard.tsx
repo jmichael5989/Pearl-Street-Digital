@@ -34,14 +34,14 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
           ? {
               backgroundImage: "url(/images/brand/logo-r.jpg)",
               backgroundRepeat: "no-repeat",
-              backgroundPosition: "right -40px bottom -40px",
-              backgroundSize: "280px",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
             }
           : undefined
       }
     >
       {isRankPointMedia && (
-        <div className="absolute inset-0 bg-light-surface/90 pointer-events-none" />
+        <div className="absolute inset-0 bg-light-surface/75 pointer-events-none" />
       )}
       {/* Top color bar */}
       <div className="relative h-1.5 bg-gradient-to-r from-primary to-primary-dark" />
