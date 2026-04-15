@@ -72,8 +72,8 @@ export default function ServicesPage() {
       />
       <Header />
       <main>
-        {/* Cobalt blue top border */}
-        <div className="h-1" style={{ background: "#0047AB" }} />
+        {/* Blue top border */}
+        <div className="h-1.5" style={{ background: "#2563EB" }} />
 
         {/* Hero */}
         <section className="bg-white pt-32 pb-8 lg:pt-40 lg:pb-10">
