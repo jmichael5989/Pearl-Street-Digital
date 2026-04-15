@@ -349,7 +349,7 @@ function CustomServiceCard({ service }: { service: CustomService }) {
         <h4 className="font-heading text-xl font-bold text-text">
           {service.title}
         </h4>
-        <p className="text-sm text-gray mt-3 leading-relaxed">
+        <p className="text-base text-text/80 mt-3 leading-relaxed">
           {service.description}
         </p>
       </div>
@@ -367,7 +367,7 @@ function CustomServiceCard({ service }: { service: CustomService }) {
             <span className="mt-0.5">
               <CheckIcon />
             </span>
-            <span className="text-sm text-gray">{f}</span>
+            <span className="text-base text-text/85">{f}</span>
           </li>
         ))}
       </ul>
