@@ -70,16 +70,15 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
       />
-      {/* Blue top border — fixed above the header */}
-      <div
-        className="fixed top-0 left-0 right-0 z-[60] h-1.5"
-        style={{ background: "#2563EB" }}
-      />
       <Header />
       <main>
+        {/* Blue accent strip between header and hero */}
+        <div className="pt-[100px] md:pt-[132px]">
+          <div className="h-2" style={{ background: "#2563EB" }} />
+        </div>
 
         {/* Hero */}
-        <section className="bg-white pt-32 pb-8 lg:pt-40 lg:pb-10">
+        <section className="bg-white pt-12 pb-8 lg:pt-16 lg:pb-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
