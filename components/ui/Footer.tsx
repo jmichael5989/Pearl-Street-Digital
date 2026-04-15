@@ -20,7 +20,6 @@ const companyLinks = [
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  { label: "Industries", href: "/industries" },
 ];
 
 /* ── SVG Social Icons ──────────────────────────────────── */

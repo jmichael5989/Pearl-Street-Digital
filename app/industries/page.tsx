@@ -75,6 +75,7 @@ export const metadata: Metadata = {
       "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses.",
   },
   alternates: { canonical: "https://rankpointmedia.com/industries" },
+  robots: { index: false, follow: false },
 };
 
 export default function IndustriesPage() {
