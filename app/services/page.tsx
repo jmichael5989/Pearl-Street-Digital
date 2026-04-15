@@ -72,23 +72,32 @@ export default function ServicesPage() {
       />
       <Header />
       <main>
-        {/* Blue accent strip between header and hero */}
-        <div className="pt-[100px] md:pt-[132px]">
-          <div className="h-2" style={{ background: "#2563EB" }} />
-        </div>
-
-        {/* Hero */}
-        <section className="bg-white pt-12 pb-8 lg:pt-16 lg:pb-10">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Blue hero banner containing eyebrow + H1 */}
+        <section className="pt-[100px] md:pt-[132px]" style={{ background: "#2563EB" }}>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16 pb-10 lg:pb-14">
             <div className="mx-auto max-w-3xl text-center">
-              <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+              <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-white/80">
                 Our Services
               </span>
-              <h1 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+              <h1 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
                 Digital Marketing Services for Local Businesses
               </h1>
-              <p className="mt-5 text-lg text-gray leading-relaxed max-w-2xl lg:max-w-none mx-auto">
-                From custom websites to SEO, ad campaigns, and AI-powered search optimization -- everything your business needs to win online. Managed by a team that knows your market.
+            </div>
+          </div>
+        </section>
+
+        {/* Description body copy */}
+        <section className="bg-white pt-12 pb-8 lg:pt-16 lg:pb-10">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl">
+              <p className="text-lg text-gray leading-relaxed">
+                We build the kind of digital presence that actually moves a business forward. Every engagement starts with a custom-coded website built for speed, clarity, and conversion -- no templates, no shortcuts, no recycled layouts.
+              </p>
+              <p className="mt-4 text-lg text-gray leading-relaxed">
+                From there, we layer in the marketing strategy that fits your market. Local SEO that puts you on the map where customers are searching. Paid ads that generate real phone calls, not vanity clicks. Social media content that reinforces your brand. Reputation management that turns happy customers into your best marketing channel. And AI-powered search optimization so you show up in the answers that Google, ChatGPT, and Perplexity surface next.
+              </p>
+              <p className="mt-4 text-lg text-gray leading-relaxed">
+                No contracts. No account managers shuffling you between specialists. Just one team -- the same team that built your site -- running every campaign and owning every result.
               </p>
             </div>
           </div>
