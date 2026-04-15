@@ -20,19 +20,24 @@ function ArrowRightIcon({ className }: { className?: string }) {
   );
 }
 
+const cardBackgrounds: Record<string, string> = {
+  "rank-point-media": "/images/brand/logo-r.jpg",
+  "modern-day-pest-control": "/images/brand/modern-day-pest-control-logo.jpg",
+};
+
 export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
   const primaryResult = study.results[0];
   const secondaryResult = study.results[2];
-  const isRankPointMedia = study.slug === "rank-point-media";
+  const backgroundImage = cardBackgrounds[study.slug];
 
   return (
     <Link
       href={`/case-studies/${study.slug}`}
       className="group relative rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] overflow-hidden"
       style={
-        isRankPointMedia
+        backgroundImage
           ? {
-              backgroundImage: "url(/images/brand/logo-r.jpg)",
+              backgroundImage: `url(${backgroundImage})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               backgroundSize: "cover",
@@ -40,7 +45,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
           : undefined
       }
     >
-      {isRankPointMedia && (
+      {backgroundImage && (
         <div className="absolute inset-0 bg-light-surface/75 pointer-events-none" />
       )}
       <div className="relative p-8">
