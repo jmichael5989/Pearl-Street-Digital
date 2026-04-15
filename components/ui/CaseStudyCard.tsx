@@ -23,16 +23,30 @@ function ArrowRightIcon({ className }: { className?: string }) {
 export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
   const primaryResult = study.results[0];
   const secondaryResult = study.results[2];
+  const isRankPointMedia = study.slug === "rank-point-media";
 
   return (
     <Link
       href={`/case-studies/${study.slug}`}
-      className="group rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] overflow-hidden"
+      className="group relative rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)] overflow-hidden"
+      style={
+        isRankPointMedia
+          ? {
+              backgroundImage: "url(/images/brand/logo-r.jpg)",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "right -40px bottom -40px",
+              backgroundSize: "280px",
+            }
+          : undefined
+      }
     >
+      {isRankPointMedia && (
+        <div className="absolute inset-0 bg-light-surface/90 pointer-events-none" />
+      )}
       {/* Top color bar */}
-      <div className="h-1.5 bg-gradient-to-r from-primary to-primary-dark" />
+      <div className="relative h-1.5 bg-gradient-to-r from-primary to-primary-dark" />
 
-      <div className="p-8">
+      <div className="relative p-8">
         {/* Industry tag */}
         <span
           className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] ${
