@@ -33,6 +33,50 @@ export interface CaseStudyData {
 
 export const caseStudies: CaseStudyData[] = [
   {
+    slug: "modern-day-pest-control",
+    clientName: "Modern Day Pest Control",
+    industry: "Home Services",
+    industryColor: "teal",
+    serviceSlugs: ["website-design", "local-seo"],
+    metaTitle:
+      "Modern Day Pest Control Case Study | San Antonio Pest Control Website | Rank Point Media",
+    metaDescription:
+      "How Modern Day Pest Control got a fast, mobile-first website and local SEO foundation built to capture San Antonio homeowners searching for pest control services.",
+    heroTagline:
+      "A fast, mobile-first pest control website built to convert homeowners searching for help right now.",
+    challenge: {
+      heading: "The Challenge",
+      paragraphs: [
+        "Modern Day Pest Control is a San Antonio pest control business competing in a crowded market dominated by national brands like Orkin and Terminix. When a homeowner sees a roach or a wasp nest, they grab their phone and search -- and whoever shows up first gets the call.",
+        "The business needed a professional online presence that could compete with the national chains, load instantly on mobile devices, and make it easy for new customers to request service without waiting on hold. Every minute of delay was another customer going to a competitor.",
+      ],
+    },
+    solution: {
+      heading: "The Solution",
+      paragraphs: [
+        "We built Modern Day Pest Control a custom mobile-first website designed around the way homeowners actually shop for pest control -- quick access to service offerings, clear pricing expectations, and a prominent call-to-action on every screen.",
+        "The site was built on modern web technology with performance as the top priority. Every service page was optimized for local San Antonio searches, and a LocalBusiness schema was implemented to help Google understand exactly what the business does and where it serves.",
+      ],
+      tactics: [
+        "Custom mobile-first design optimized for homeowners on their phones",
+        "Clear service pages for residential, commercial, and specialty pest control",
+        "Click-to-call and quote request forms prominently featured site-wide",
+        "LocalBusiness and Service JSON-LD schema for rich search results",
+        "Local SEO targeting \"pest control San Antonio\" and service-area searches",
+        "Fast load times under two seconds to beat slower competitor sites",
+      ],
+    },
+    results: [
+      { label: "Lighthouse Performance", value: "95+", description: "Google Lighthouse score" },
+      { label: "Mobile Optimized", value: "100%", description: "Mobile-first responsive" },
+      { label: "Build Time", value: "2 Weeks", description: "From concept to live" },
+      { label: "Page Load", value: "<2s", description: "Time to interactive" },
+      { label: "Service Areas", value: "SA Metro", description: "Full local SEO coverage" },
+      { label: "Call-to-Action", value: "Every Page", description: "Quote + click-to-call" },
+    ],
+    techStack: ["Next.js", "Tailwind CSS", "Vercel", "React", "TypeScript"],
+  },
+  {
     slug: "rank-point-media",
     clientName: "Rank Point Media",
     industry: "Digital Marketing",
