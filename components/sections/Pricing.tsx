@@ -272,7 +272,111 @@ export default function Pricing() {
           ))}
         </div>
         </ScrollReveal>
+
+        {/* Custom Services — Call for Pricing */}
+        <ScrollReveal delay={300}>
+          <div className="mt-20 text-center">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+              Custom Services
+            </span>
+            <h3 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h3)", lineHeight: 1.2 }}>
+              Scoped to Your Business. Priced to Match.
+            </h3>
+            <p className="mt-4 text-gray max-w-2xl mx-auto">
+              Some projects move beyond a standard website build. For these, we scope the work together and price based on the specific requirements.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={350}>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            {customServices.map((svc) => (
+              <CustomServiceCard key={svc.title} service={svc} />
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
+  );
+}
+
+interface CustomService {
+  title: string;
+  description: string;
+  features: string[];
+}
+
+const customServices: CustomService[] = [
+  {
+    title: "Social Media Advertising",
+    description:
+      "Paid campaigns across Facebook, Instagram, and TikTok that put your business in front of the right audience at the right moment.",
+    features: [
+      "Campaign strategy and audience targeting",
+      "Creative development and copywriting",
+      "Ongoing optimization and reporting",
+      "Budget recommendations tailored to your goals",
+    ],
+  },
+  {
+    title: "Graphic Design Services",
+    description:
+      "Logos, brand identity, print collateral, and digital assets designed to make your business look as credible as it is.",
+    features: [
+      "Logo and brand identity design",
+      "Print collateral and signage",
+      "Social media graphics and templates",
+      "Brand guidelines and asset libraries",
+    ],
+  },
+  {
+    title: "Custom Web Apps with AI",
+    description:
+      "Purpose-built web applications with AI integrations that automate workflows, answer customer questions, and unlock new revenue streams.",
+    features: [
+      "Custom application development",
+      "AI chat, search, and workflow integrations",
+      "API and third-party system connections",
+      "Ongoing support and feature roadmap",
+    ],
+  },
+];
+
+function CustomServiceCard({ service }: { service: CustomService }) {
+  return (
+    <div className="flex h-full flex-col rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]">
+      <div className="mb-6">
+        <h4 className="font-heading text-xl font-bold text-text">
+          {service.title}
+        </h4>
+        <p className="text-sm text-gray mt-3 leading-relaxed">
+          {service.description}
+        </p>
+      </div>
+      <div className="mb-2">
+        <span className="font-heading text-3xl font-extrabold text-text">
+          Call for Pricing
+        </span>
+      </div>
+      <p className="text-base font-semibold text-primary mb-6">
+        Scoped to your project
+      </p>
+      <ul className="space-y-3 mb-8 flex-1">
+        {service.features.map((f) => (
+          <li key={f} className="flex items-start gap-2.5">
+            <span className="mt-0.5">
+              <CheckIcon />
+            </span>
+            <span className="text-sm text-gray">{f}</span>
+          </li>
+        ))}
+      </ul>
+      <a
+        href="/contact"
+        className="btn-dark block w-full rounded-xl bg-dark py-3 text-center text-sm font-semibold text-white"
+      >
+        Contact Us
+      </a>
+    </div>
   );
 }
