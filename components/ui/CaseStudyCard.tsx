@@ -46,27 +46,23 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
       }
     >
       {backgroundImage && (
-        <div className="absolute inset-0 bg-light-surface/75 pointer-events-none" />
+        <div className="absolute inset-0 bg-white/92 backdrop-blur-sm pointer-events-none" />
       )}
       <div className="relative p-8">
         {/* Industry tag */}
         <span
-          className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] ${
-            study.industryColor === "teal"
-              ? "bg-[rgba(37,99,235,0.08)] text-primary"
-              : "bg-[rgba(37,99,235,0.08)] text-primary"
-          }`}
+          className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-primary"
         >
           {study.industry}
         </span>
 
         {/* Client name */}
-        <h3 className="mt-4 font-heading text-xl font-bold text-text">
+        <h3 className="mt-4 font-heading text-2xl font-bold text-text">
           {study.clientName}
         </h3>
 
         {/* Tagline */}
-        <p className="mt-2 text-sm text-gray leading-relaxed line-clamp-2">
+        <p className="mt-3 text-base text-text/80 leading-relaxed line-clamp-2">
           {study.heroTagline}
         </p>
 
@@ -74,18 +70,18 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
         <div className="mt-6 flex items-center gap-6">
           {primaryResult && (
             <div>
-              <p className="font-heading text-2xl font-bold text-primary">
+              <p className="font-heading text-3xl font-extrabold text-primary">
                 {primaryResult.value}
               </p>
-              <p className="text-xs text-gray">{primaryResult.label}</p>
+              <p className="text-sm font-medium text-text/70 mt-1">{primaryResult.label}</p>
             </div>
           )}
           {secondaryResult && (
             <div className="border-l border-border pl-6">
-              <p className="font-heading text-2xl font-bold text-primary">
+              <p className="font-heading text-3xl font-extrabold text-primary">
                 {secondaryResult.value}
               </p>
-              <p className="text-xs text-gray">{secondaryResult.label}</p>
+              <p className="text-sm font-medium text-text/70 mt-1">{secondaryResult.label}</p>
             </div>
           )}
         </div>
@@ -95,7 +91,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
           {study.serviceSlugs.map((slug) => (
             <span
               key={slug}
-              className="rounded-md border border-[rgba(37,99,235,0.2)] px-2.5 py-0.5 text-xs font-medium text-primary capitalize"
+              className="rounded-md border border-primary/30 bg-white px-2.5 py-1 text-sm font-semibold text-primary capitalize"
             >
               {slug.replace(/-/g, " ")}
             </span>
@@ -103,7 +99,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
         </div>
 
         {/* CTA */}
-        <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors group-hover:text-primary">
+        <span className="mt-6 inline-flex items-center gap-1.5 text-base font-bold text-primary transition-colors group-hover:text-primary">
           View case study
           <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </span>
