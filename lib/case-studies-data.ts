@@ -69,7 +69,7 @@ export const caseStudies: CaseStudyData[] = [
     results: [
       { label: "Lighthouse Performance", value: "95+", description: "Google Lighthouse score" },
       { label: "Mobile Optimized", value: "100%", description: "Mobile-first responsive" },
-      { label: "Build Time", value: "2 Weeks", description: "From concept to live" },
+      { label: "Build Time", value: "5 Days", description: "From concept to live" },
       { label: "Page Load", value: "<2s", description: "Time to interactive" },
       { label: "Service Areas", value: "SA Metro", description: "Full local SEO coverage" },
       { label: "Call-to-Action", value: "Every Page", description: "Quote + click-to-call" },
