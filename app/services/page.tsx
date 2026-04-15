@@ -70,10 +70,13 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
       />
+      {/* Blue top border — fixed above the header */}
+      <div
+        className="fixed top-0 left-0 right-0 z-[60] h-1.5"
+        style={{ background: "#2563EB" }}
+      />
       <Header />
       <main>
-        {/* Blue top border */}
-        <div className="h-1.5" style={{ background: "#2563EB" }} />
 
         {/* Hero */}
         <section className="bg-white pt-32 pb-8 lg:pt-40 lg:pb-10">
