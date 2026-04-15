@@ -43,9 +43,6 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
       {isRankPointMedia && (
         <div className="absolute inset-0 bg-light-surface/75 pointer-events-none" />
       )}
-      {/* Top color bar */}
-      <div className="relative h-1.5 bg-gradient-to-r from-primary to-primary-dark" />
-
       <div className="relative p-8">
         {/* Industry tag */}
         <span
