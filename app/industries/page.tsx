@@ -1,15 +1,40 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
-import { getAllIndustries } from "@/lib/industries-data";
 
-const industryImages: Record<string, string> = {
-  restaurants: "/images/industries/restaurants.jpg",
-  beauty: "/images/industries/beauty.jpg",
-  auto: "/images/industries/auto.jpg",
-};
+const industriesList = [
+  {
+    title: "Medical & Dental Practices",
+    description:
+      "A single new patient is worth $3,000+ to your practice. We build the digital presence that keeps your schedule full and your reputation strong.",
+  },
+  {
+    title: "Legal & Financial Services",
+    description:
+      "Your next client is searching \"attorney near me\" right now. We make sure your firm is the first result they see -- and the one they call.",
+  },
+  {
+    title: "Home Services",
+    description:
+      "HVAC, plumbing, electrical, roofing. In a Texas summer, the homeowner who finds you first gets the job. We make sure that's you.",
+  },
+  {
+    title: "Med Spas & Aesthetics",
+    description:
+      "Your clients research treatments online before they ever book. We position your brand as the premium choice in San Antonio's fastest-growing market.",
+  },
+  {
+    title: "Real Estate & Property Management",
+    description:
+      "San Antonio added 24,000 new residents last year. We help agents, brokerages, and property managers capture demand in a market that won't slow down.",
+  },
+  {
+    title: "Restaurants & Hospitality",
+    description:
+      "36.8 million visitors come to San Antonio every year. We help established restaurants and hospitality brands own the searches that drive reservations and bookings.",
+  },
+];
 
 function ArrowRightIcon({ className }: { className?: string }) {
   return (
@@ -53,21 +78,18 @@ export const metadata: Metadata = {
 };
 
 export default function IndustriesPage() {
-  const industries = getAllIndustries();
-
   const industriesSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Industries We Serve San Antonio",
     description:
-      "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses.",
+      "Digital marketing and website design for San Antonio medical, legal, home services, med spa, real estate, and hospitality businesses.",
     url: "https://rankpointmedia.com/industries",
     mainEntity: {
       "@type": "ItemList",
-      itemListElement: industries.map((industry, i) => ({
+      itemListElement: industriesList.map((industry, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `https://rankpointmedia.com/industries/${industry.slug}`,
         name: industry.title,
       })),
     },
@@ -104,49 +126,25 @@ export default function IndustriesPage() {
         {/* Industries Grid */}
         <section className="bg-light py-16 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {industries.map((industry) => {
-                const image = industryImages[industry.slug];
-                return (
-                  <Link
-                    key={industry.slug}
-                    href={`/industries/${industry.slug}`}
-                    className="group overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]"
-                  >
-                    {image && (
-                      <div className="relative h-36 overflow-hidden">
-                        <Image
-                          src={image}
-                          alt=""
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          loading="lazy"
-                        />
-                        <div
-                          className="absolute inset-0"
-                          style={{
-                            background:
-                              "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
-                          }}
-                        />
-                      </div>
-                    )}
-                    <div className="p-8 pt-5">
-                      <h3 className="font-heading text-xl font-bold text-dark mb-2">
-                        {industry.title}
-                      </h3>
-                      <p className="text-base leading-relaxed text-gray mb-4">
-                        {industry.heroSubtitle.split(".")[0]}.
-                      </p>
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors group-hover:text-accent">
-                        View solutions
-                        <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </span>
-                    </div>
-                  </Link>
-                );
-              })}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {industriesList.map((industry) => (
+                <Link
+                  key={industry.title}
+                  href="/contact"
+                  className="group rounded-2xl border border-border bg-light-surface shadow-sm p-10 transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]"
+                >
+                  <h3 className="font-heading text-xl font-bold text-dark mb-3">
+                    {industry.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-gray mb-5">
+                    {industry.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-base font-semibold text-accent transition-colors group-hover:text-accent">
+                    Get a custom strategy
+                    <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
