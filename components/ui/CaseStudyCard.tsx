@@ -22,7 +22,7 @@ function ArrowRightIcon({ className }: { className?: string }) {
 
 const cardBackgrounds: Record<string, string> = {
   "rank-point-media": "/images/brand/logo-r.jpg",
-  "modern-day-pest-control": "/images/brand/modern-day-pest-control-logo.jpg",
+  "modern-day-pest-control": "/images/brand/modern-day-pest-control-logo-v2.jpg",
 };
 
 export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
