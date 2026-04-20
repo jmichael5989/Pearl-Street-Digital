@@ -203,6 +203,9 @@ export default function HeroMediaCycle() {
 
   const textSlide = allFailed ? firstSlide : currentSlide;
   const motionDisabled = !mounted || reducedMotion || isMobile;
+  const isLightTheme = textSlide.theme === "light";
+  const headlineColorClass = isLightTheme ? "text-[#0F172A]" : "text-white";
+  const subheadColorClass = isLightTheme ? "text-gray-700" : "text-gray-200";
 
   const headlineMotion = motionDisabled
     ? {}
@@ -249,7 +252,11 @@ export default function HeroMediaCycle() {
       )}
 
       {!allFailed && (
-        <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
+        <div
+          className="absolute inset-0 bg-black/50 transition-opacity duration-1000"
+          style={{ opacity: isLightTheme ? 0 : 1 }}
+          aria-hidden="true"
+        />
       )}
 
       <div
@@ -264,10 +271,10 @@ export default function HeroMediaCycle() {
       <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
         {motionDisabled ? (
           <>
-            <h1 className="font-heading font-bold text-4xl md:text-6xl text-white mb-4">
+            <h1 className={`font-heading font-bold text-4xl md:text-6xl mb-4 ${headlineColorClass}`}>
               {textSlide.headline}
             </h1>
-            <p className="font-body text-lg md:text-xl text-gray-200 mb-8">
+            <p className={`font-body text-lg md:text-xl mb-8 ${subheadColorClass}`}>
               {textSlide.subhead}
             </p>
           </>
@@ -276,13 +283,13 @@ export default function HeroMediaCycle() {
             <div key={textSlide.id}>
               <motion.h1
                 {...headlineMotion}
-                className="font-heading font-bold text-4xl md:text-6xl text-white mb-4"
+                className={`font-heading font-bold text-4xl md:text-6xl mb-4 ${headlineColorClass}`}
               >
                 {textSlide.headline}
               </motion.h1>
               <motion.p
                 {...subheadMotion}
-                className="font-body text-lg md:text-xl text-gray-200 mb-8"
+                className={`font-body text-lg md:text-xl mb-8 ${subheadColorClass}`}
               >
                 {textSlide.subhead}
               </motion.p>

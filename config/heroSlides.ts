@@ -6,6 +6,7 @@ export type HeroSlide = {
   duration: number;
   headline: string;
   subhead: string;
+  theme?: "dark" | "light";
 };
 
 export const heroSlides: HeroSlide[] = [
@@ -35,6 +36,7 @@ export const heroSlides: HeroSlide[] = [
     duration: 5000,
     headline: "Dominate local search results",
     subhead: "Local SEO that puts you on the map -- literally.",
+    theme: "light",
   },
   {
     id: "happy-customer",
@@ -53,5 +55,6 @@ export const heroSlides: HeroSlide[] = [
     duration: 5000,
     headline: "Rank Point Media",
     subhead: "Higher rankings. More customers.",
+    theme: "light",
   },
 ];
