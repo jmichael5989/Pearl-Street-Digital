@@ -1,5 +1,5 @@
 import Header from "@/components/ui/Header";
-import Hero from "@/components/sections/Hero";
+import HeroMediaCycle from "@/components/sections/HeroMediaCycle";
 import StatsBar from "@/components/sections/StatsBar";
 import ServicesSection from "@/components/sections/ServicesSection";
 import Pricing from "@/components/sections/Pricing";
@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Header />
       <main>
-        <Hero />
+        <HeroMediaCycle />
         <StatsBar />
         <ServicesSection />
         <WhyUs />
