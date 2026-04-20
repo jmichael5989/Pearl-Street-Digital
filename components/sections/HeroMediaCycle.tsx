@@ -9,6 +9,46 @@ import { heroSlides, type HeroSlide } from "@/config/heroSlides";
 const MOBILE_QUERY = "(max-width: 768px)";
 const CROSSFADE_MS = 1000;
 
+function ArrowDownIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <polyline points="19 12 12 19 5 12" />
+    </svg>
+  );
+}
+
+function ArrowRightIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  );
+}
+
+function HeroNavLinks() {
+  return (
+    <div className="flex items-center justify-center gap-6">
+      <a
+        href="#services"
+        className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
+      >
+        What We Do
+        <ArrowDownIcon />
+      </a>
+      <span className="h-5 w-px bg-[rgba(255,255,255,0.3)]" />
+      <Link
+        href="/case-studies"
+        className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
+      >
+        View Our Work
+        <ArrowRightIcon />
+      </Link>
+    </div>
+  );
+}
+
 type MediaLayerProps = {
   slide: HeroSlide;
   index: number;
@@ -291,20 +331,10 @@ export default function HeroMediaCycle() {
         )}
 
         {motionDisabled ? (
-          <Link
-            href="/contact"
-            className="inline-block bg-[#14B8A6] hover:bg-[#0D9488] text-white font-semibold px-8 py-4 rounded-lg transition-colors"
-          >
-            Get Your Free Audit
-          </Link>
+          <HeroNavLinks />
         ) : (
           <motion.div {...ctaMotion}>
-            <Link
-              href="/contact"
-              className="inline-block bg-[#14B8A6] hover:bg-[#0D9488] text-white font-semibold px-8 py-4 rounded-lg transition-colors"
-            >
-              Get Your Free Audit
-            </Link>
+            <HeroNavLinks />
           </motion.div>
         )}
       </div>
