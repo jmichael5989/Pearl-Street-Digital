@@ -1,7 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
+
+function ArrowDownIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <polyline points="19 12 12 19 5 12" />
+    </svg>
+  );
+}
+
+function ArrowRightIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  );
+}
 
 function CheckIcon() {
   return (
@@ -230,6 +249,28 @@ export default function Hero() {
               We build fast, SEO-optimized sites and run campaigns that
               drive real calls and foot traffic.
             </p>
+
+            {/* Navigation links */}
+            <div
+              className="hero-fade-up flex items-center gap-6"
+              style={{ animation: "fadeUp 1s ease-out 0.9s both" }}
+            >
+              <a
+                href="#services"
+                className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
+              >
+                What We Do
+                <ArrowDownIcon />
+              </a>
+              <span className="h-5 w-px bg-[rgba(255,255,255,0.3)]" />
+              <Link
+                href="/case-studies"
+                className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
+              >
+                View Our Work
+                <ArrowRightIcon />
+              </Link>
+            </div>
 
             {/* Trust Signals */}
             <div
