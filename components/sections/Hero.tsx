@@ -29,7 +29,7 @@ function CheckIcon() {
       height="14"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="#2563EB"
+      stroke="#FFFFFF"
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -279,26 +279,26 @@ export default function Hero() {
                 animation: "fadeUp 1s ease-out 1.1s both",
               }}
             >
-              <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1 overflow-hidden" style={{ color: "rgba(255,255,255,0.6)" }}>
+              <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.2)] px-3 py-1 overflow-hidden text-white" style={{ background: "#2563EB" }}>
                 <span className="relative z-10 flex items-center gap-2">
                   <CheckIcon /> Flexible terms
                 </span>
                 <span
                   className="hero-shimmer absolute inset-0 z-0"
                   style={{
-                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)",
                     animation: "shimmer 3s ease-in-out infinite",
                   }}
                 />
               </span>
-              <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.15)] px-3 py-1 overflow-hidden" style={{ color: "rgba(255,255,255,0.6)" }}>
+              <span className="relative flex items-center gap-2 text-sm rounded-full border border-[rgba(255,255,255,0.2)] px-3 py-1 overflow-hidden text-white" style={{ background: "#2563EB" }}>
                 <span className="relative z-10 flex items-center gap-2">
                   <CheckIcon /> Results in 30 days
                 </span>
                 <span
                   className="hero-shimmer absolute inset-0 z-0"
                   style={{
-                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                    background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)",
                     animation: "shimmer 3s ease-in-out infinite 1s",
                   }}
                 />
