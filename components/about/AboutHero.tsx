@@ -10,11 +10,11 @@ function ArrowDownIcon() {
   );
 }
 
-function ArrowLeftIcon() {
+function ArrowRightIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="19" y1="12" x2="5" y2="12" />
-      <polyline points="12 19 5 12 12 5" />
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
     </svg>
   );
 }
@@ -85,20 +85,20 @@ export default function AboutHero() {
 
           {/* Navigation links */}
           <div className="mt-10 flex items-center justify-start gap-6">
-            <a
-              href="#approach"
+            <Link
+              href="/#services"
               className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
             >
-              View Our Approach
+              What We Do
               <ArrowDownIcon />
-            </a>
+            </Link>
             <span className="h-5 w-px bg-[rgba(255,255,255,0.3)]" />
             <Link
-              href="/"
+              href="/case-studies"
               className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
             >
-              <ArrowLeftIcon />
-              Back to Home Page
+              View Our Work
+              <ArrowRightIcon />
             </Link>
           </div>
         </div>

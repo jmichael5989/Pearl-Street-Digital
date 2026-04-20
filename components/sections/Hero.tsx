@@ -1,26 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
-
-function ArrowRightIcon() {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
-  );
-}
 
 function CheckIcon() {
   return (
@@ -249,33 +230,6 @@ export default function Hero() {
               We build fast, SEO-optimized sites and run campaigns that
               drive real calls and foot traffic.
             </p>
-
-            {/* CTA Button */}
-            <div
-              className="hero-fade-up mb-0"
-              style={{ animation: "fadeUp 1s ease-out 0.9s both" }}
-            >
-              <Link
-                href="/case-studies"
-                className="btn-primary relative inline-flex items-center justify-center gap-2 rounded-lg px-8 py-4 text-base font-semibold text-white overflow-hidden active:scale-[0.98]"
-                style={{
-                  background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-                }}
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  View Our Work
-                  <ArrowRightIcon />
-                </span>
-                <span
-                  className="hero-shimmer absolute inset-0 z-0"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-                    animation: "shimmer 3s ease-in-out infinite",
-                  }}
-                />
-              </Link>
-            </div>
 
             {/* Trust Signals */}
             <div
