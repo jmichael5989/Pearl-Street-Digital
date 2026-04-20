@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 /* ── Link data ─────────────────────────────────────────── */
@@ -169,11 +170,14 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
             {/* Column 1 — Brand */}
             <div className="pb-6 lg:pb-0">
               <Link href="/" className="flex items-center gap-2.5 mb-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-dark shadow-md">
-                  <span className="font-heading text-lg font-bold text-white leading-none">
-                    R
-                  </span>
-                </div>
+                <Image
+                  src="/images/brand/logo-icon.png"
+                  alt="Rank Point Media"
+                  width={36}
+                  height={36}
+                  className="h-9 w-9 rounded-lg"
+                  priority={false}
+                />
                 <div className="flex flex-col leading-tight">
                   <span className="font-heading text-[15px] font-bold tracking-tight text-white">
                     Rank Point
