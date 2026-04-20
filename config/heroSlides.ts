@@ -46,9 +46,10 @@ export const heroSlides: HeroSlide[] = [
     subhead: "Watch your customer pipeline fill up.",
   },
   {
-    id: "logo-bookend",
-    type: "image",
-    src: "/images/logo.webp",
+    id: "business-growth",
+    type: "video",
+    src: "/videos/business-growth.mp4",
+    poster: "/images/business-growth-poster.webp",
     duration: 4000,
     headline: "Rank Point Media",
     subhead: "Higher rankings. More customers.",
