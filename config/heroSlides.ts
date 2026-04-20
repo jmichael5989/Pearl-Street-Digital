@@ -46,9 +46,8 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: "logo-bookend",
-    type: "video",
-    src: "/videos/logo-animation.mp4",
-    poster: "/images/logo-poster.webp",
+    type: "image",
+    src: "/images/logo.webp",
     duration: 4000,
     headline: "Rank Point Media",
     subhead: "Higher rankings. More customers.",
