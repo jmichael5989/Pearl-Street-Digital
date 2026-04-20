@@ -21,7 +21,7 @@ function ArrowRightIcon() {
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-dark">
+    <section className="relative min-h-[50vh] md:min-h-[55vh] flex items-center overflow-hidden bg-dark">
       {/* Layer 1: Image positioned left (42% width) */}
       <div className="absolute inset-0 z-[1]" style={{ width: "42%" }}>
         <Image
@@ -59,7 +59,7 @@ export default function AboutHero() {
       />
 
       {/* Content */}
-      <div className="relative z-[3] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-40 lg:pb-24 w-full">
+      <div className="relative z-[3] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-10 lg:pt-32 lg:pb-12 w-full">
         <div className="ml-auto max-w-3xl text-left lg:pl-8">
           <p className="text-lg font-bold uppercase tracking-[0.12em] text-primary">
             About Us
@@ -85,13 +85,13 @@ export default function AboutHero() {
 
           {/* Navigation links */}
           <div className="mt-10 flex items-center justify-start gap-6">
-            <Link
-              href="/#services"
+            <a
+              href="#approach"
               className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
             >
               What We Do
               <ArrowDownIcon />
-            </Link>
+            </a>
             <span className="h-5 w-px bg-[rgba(255,255,255,0.3)]" />
             <Link
               href="/case-studies"

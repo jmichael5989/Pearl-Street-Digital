@@ -60,7 +60,7 @@ export default function AboutValues() {
   }, []);
 
   return (
-    <section className="relative py-16 lg:py-24 overflow-hidden">
+    <section id="approach" className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background video with poster fallback */}
       <div
         className="absolute inset-0 z-0 bg-[#0F172A] bg-cover bg-center"
