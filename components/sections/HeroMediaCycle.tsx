@@ -252,6 +252,15 @@ export default function HeroMediaCycle() {
         <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
       )}
 
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(248,250,252,0) 0%, #F8FAFC 100%)",
+        }}
+      />
+
       <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
         {motionDisabled ? (
           <>
