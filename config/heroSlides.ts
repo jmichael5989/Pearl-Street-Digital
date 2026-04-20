@@ -29,8 +29,9 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     id: "search-results",
-    type: "image",
-    src: "/images/search-results.webp",
+    type: "video",
+    src: "/videos/search-results.mp4",
+    poster: "/images/search-results.webp",
     duration: 5000,
     headline: "Dominate local search results",
     subhead: "Local SEO that puts you on the map -- literally.",
