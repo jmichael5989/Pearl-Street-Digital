@@ -29,16 +29,6 @@ export const heroSlides: HeroSlide[] = [
     subhead: "Fast, conversion-focused sites built to rank.",
   },
   {
-    id: "search-results",
-    type: "video",
-    src: "/videos/search-results.mp4",
-    poster: "/images/search-results.webp",
-    duration: 5000,
-    headline: "Dominate local search results",
-    subhead: "Local SEO that puts you on the map -- literally.",
-    theme: "light",
-  },
-  {
     id: "happy-customer",
     type: "video",
     src: "/videos/happy-customer.mp4",
