@@ -59,7 +59,7 @@ const faqSchema = {
 };
 
 export default function FAQ() {
-  const [sectionOpen, setSectionOpen] = useState(false);
+  const [sectionOpen, setSectionOpen] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -87,7 +87,7 @@ export default function FAQ() {
               Common Questions, Straight Answers
             </span>
           </div>
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border text-dark text-xl font-light">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white text-2xl font-semibold shadow-[0_4px_12px_rgba(37,99,235,0.35)] transition-transform duration-200 hover:scale-105">
             {sectionOpen ? "\u2212" : "+"}
           </span>
         </button>
