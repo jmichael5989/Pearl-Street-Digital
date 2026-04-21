@@ -13,7 +13,7 @@ export default function WhyUs() {
               Why Rank Point Media
             </h2>
             <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-primary" />
-            <div className="mt-6 space-y-4 text-left text-base leading-relaxed text-dark">
+            <div className="mx-auto mt-8 max-w-4xl space-y-5 text-left text-lg leading-relaxed text-dark">
               <p>
                 Rank Point Media is a full-service digital marketing agency
                 delivering solutions that match the caliber of the clients we
