@@ -5,17 +5,15 @@ export default function WhyUs() {
     <section className="py-10 lg:py-12 bg-[#F0FDFA]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            <div className="lg:col-span-4">
-              <h2
-                className="font-heading font-bold text-dark"
-                style={{ fontSize: "var(--text-h2)", lineHeight: 1.15 }}
-              >
-                Why Rank Point Media
-              </h2>
-              <div className="mt-4 h-1 w-16 rounded-full bg-primary" />
-            </div>
-            <div className="lg:col-span-8 space-y-4 text-base leading-relaxed text-dark">
+          <div className="text-center">
+            <h2
+              className="font-heading font-bold text-dark"
+              style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}
+            >
+              Why Rank Point Media
+            </h2>
+            <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-primary" />
+            <div className="mt-6 space-y-4 text-left text-base leading-relaxed text-dark">
               <p>
                 Rank Point Media is a full-service digital marketing agency
                 delivering solutions that match the caliber of the clients we
