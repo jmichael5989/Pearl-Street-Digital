@@ -277,10 +277,10 @@ export default function HeroMediaCycle() {
       <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
         {motionDisabled ? (
           <>
-            <h1 className={`font-heading font-bold text-4xl md:text-6xl mb-4 ${headlineColorClass}`}>
+            <h1 className={`font-heading font-bold text-5xl md:text-7xl mb-4 ${headlineColorClass}`}>
               {headlineContent}
             </h1>
-            <p className={`font-body text-lg md:text-xl mb-8 ${subheadColorClass}`}>
+            <p className={`font-body text-xl md:text-2xl mb-8 ${subheadColorClass}`}>
               {textSlide.subhead}
             </p>
           </>
@@ -289,13 +289,13 @@ export default function HeroMediaCycle() {
             <div key={textSlide.id}>
               <motion.h1
                 {...headlineMotion}
-                className={`font-heading font-bold text-4xl md:text-6xl mb-4 ${headlineColorClass}`}
+                className={`font-heading font-bold text-5xl md:text-7xl mb-4 ${headlineColorClass}`}
               >
                 {headlineContent}
               </motion.h1>
               <motion.p
                 {...subheadMotion}
-                className={`font-body text-lg md:text-xl mb-8 ${subheadColorClass}`}
+                className={`font-body text-xl md:text-2xl mb-8 ${subheadColorClass}`}
               >
                 {textSlide.subhead}
               </motion.p>
