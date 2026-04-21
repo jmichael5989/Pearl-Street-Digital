@@ -21,13 +21,14 @@ export const heroSlides: HeroSlide[] = [
     src: "/videos/sa-skyline.mp4",
     poster: "/images/sa-skyline-poster.webp",
     duration: 9300,
-    headline: "Built for San Antonio businesses",
+    headline: "Outrank. Outperform. Outlast.",
     headlineParts: {
-      before: "Built for ",
-      highlight: "San Antonio",
-      after: " businesses",
+      before: "",
+      highlight: "Outrank.",
+      after: " Outperform. Outlast.",
     },
-    subhead: "Local expertise. Real results. No fluff.",
+    subhead:
+      "Websites, SEO, and AI solutions at a fraction of what the big agencies charge.",
   },
   {
     id: "local-business",
@@ -35,12 +36,14 @@ export const heroSlides: HeroSlide[] = [
     src: "/videos/local-business.mp4",
     poster: "/images/local-business-poster.webp",
     duration: 5000,
-    headline: "Websites that bring in customers",
+    headline: "Outrank. Outperform. Outlast.",
     headlineParts: {
-      before: "Websites that ",
-      highlight: "bring in customers",
+      before: "",
+      highlight: "Outrank.",
+      after: " Outperform. Outlast.",
     },
-    subhead: "Fast, conversion-focused sites built to rank.",
+    subhead:
+      "Websites, SEO, and AI solutions at a fraction of what the big agencies charge.",
   },
   {
     id: "happy-customer",
@@ -48,12 +51,13 @@ export const heroSlides: HeroSlide[] = [
     src: "/videos/happy-customer.mp4",
     poster: "/images/happy-customer-poster.webp",
     duration: 5000,
-    headline: "Real growth. Real results.",
+    headline: "Outrank. Outperform. Outlast.",
     headlineParts: {
       before: "",
-      highlight: "Real growth.",
-      after: " Real results.",
+      highlight: "Outrank.",
+      after: " Outperform. Outlast.",
     },
-    subhead: "Watch your customer pipeline fill up.",
+    subhead:
+      "Websites, SEO, and AI solutions at a fraction of what the big agencies charge.",
   },
 ];
