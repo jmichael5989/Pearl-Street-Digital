@@ -687,6 +687,224 @@ export const services: ServiceData[] = [
     ],
     relatedSlugs: ["local-seo", "social-media", "website-design"],
   },
+  {
+    slug: "email-marketing",
+    title: "Email Marketing",
+    tagline:
+      "Turn one-time visitors into repeat San Antonio customers with email campaigns that actually get opened, read, and clicked.",
+    metaTitle: "Email Marketing San Antonio | Campaigns & Automation | Rank Point Media",
+    metaDescription:
+      "Email marketing for San Antonio businesses. Campaign strategy, list building, template design, and automated flows that drive repeat sales and customer loyalty.",
+    iconName: "mail",
+    overview: {
+      heading: "The Highest ROI Channel You're Probably Ignoring",
+      paragraphs: [
+        "For every dollar spent on email marketing, businesses earn an average of $36 back. It outperforms social media, ads, and SEO on pure return -- yet most San Antonio small businesses either never use it or send the wrong kind of emails. We fix both.",
+        "We build campaigns that feel personal, not promotional. Segmented lists, clean templates, and automated flows that turn one-time customers into loyal repeat buyers. Everything is written in your voice, bilingual when it makes sense, and designed to drive measurable action.",
+      ],
+      highlights: [
+        { label: "Avg ROI", value: "36:1" },
+        { label: "Campaigns", value: "2-4/mo" },
+        { label: "Setup", value: "2 Weeks" },
+        { label: "Reporting", value: "Monthly" },
+      ],
+    },
+    features: [
+      {
+        title: "Campaign Strategy",
+        description:
+          "A monthly calendar of promotions, announcements, and nurture emails tailored to your San Antonio audience and business goals.",
+      },
+      {
+        title: "List Building and Segmentation",
+        description:
+          "We grow your subscriber list through website opt-ins and segment it so the right customers get the right messages.",
+      },
+      {
+        title: "Template Design",
+        description:
+          "Branded, mobile-optimized email templates that look sharp in every inbox -- Gmail, Outlook, Apple Mail, and everywhere else.",
+      },
+      {
+        title: "Automated Flows",
+        description:
+          "Welcome sequences, abandoned cart recovery, post-purchase follow-ups, and re-engagement campaigns that run 24/7.",
+      },
+      {
+        title: "A/B Testing",
+        description:
+          "We test subject lines, send times, and content to continuously improve open rates and click-through performance.",
+      },
+      {
+        title: "Deliverability Management",
+        description:
+          "Authentication setup (SPF, DKIM, DMARC) and list hygiene practices that keep your emails out of spam folders.",
+      },
+    ],
+    process: [
+      {
+        number: "01",
+        title: "Audit and Setup",
+        description:
+          "We audit your current email setup (or set up a new ESP), configure authentication, and migrate any existing lists.",
+      },
+      {
+        number: "02",
+        title: "Strategy and Segmentation",
+        description:
+          "We map out a 90-day campaign plan, build segmentation logic, and design your core templates.",
+      },
+      {
+        number: "03",
+        title: "Send and Automate",
+        description:
+          "Campaigns go out on schedule. Automated flows trigger on customer actions. Every send is tracked end to end.",
+      },
+      {
+        number: "04",
+        title: "Report and Refine",
+        description:
+          "Monthly reports on open rates, clicks, revenue, and list growth. We refine subject lines, timing, and content each cycle.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Which email platform do you use?",
+        answer:
+          "We work with Mailchimp, Klaviyo, ConvertKit, and most major ESPs. We recommend the platform that fits your list size, budget, and e-commerce setup.",
+      },
+      {
+        question: "How often will you send emails to my list?",
+        answer:
+          "Typically 2-4 campaigns per month plus automated flows. Too few and subscribers forget you. Too many and they unsubscribe. We find the right cadence for your audience.",
+      },
+      {
+        question: "What if I do not have an email list yet?",
+        answer:
+          "We set up website opt-ins, lead magnets, and at-checkout signups to start growing your list from zero. Most clients see steady growth within the first 60 days.",
+      },
+      {
+        question: "Can you write the emails for me?",
+        answer:
+          "Yes. Copywriting is included. We write in your voice, often using AI drafts refined by a human, so your emails sound authentic and drive action.",
+      },
+      {
+        question: "Do you send bilingual campaigns?",
+        answer:
+          "Absolutely. With San Antonio's Hispanic market, bilingual email campaigns often outperform English-only sends. We can segment Spanish-preferred subscribers and send native-language versions.",
+      },
+    ],
+    relatedSlugs: ["social-media", "website-design", "custom-ai-solutions"],
+  },
+  {
+    slug: "custom-ai-solutions",
+    title: "Custom AI Solutions",
+    tagline:
+      "Custom artificial intelligence tools built for your business -- automated follow-ups, intelligent lead qualification, and workflow automation that gives you an unfair advantage.",
+    metaTitle: "Custom AI Solutions San Antonio | Automation & Agents | Rank Point Media",
+    metaDescription:
+      "Custom AI solutions for San Antonio businesses. Automated customer follow-ups, lead qualification, chatbots, and workflow automation tailored to your specific operation.",
+    iconName: "cpu",
+    overview: {
+      heading: "AI That Actually Works for Your Business",
+      paragraphs: [
+        "Most agencies talk about AI. We build it. Our team creates custom artificial intelligence solutions tailored to your specific San Antonio business -- automated customer follow-ups, intelligent lead qualification, 24/7 chatbots that sound like you, and workflow automation that frees up hours every week.",
+        "This is not generic ChatGPT wrappers. We integrate directly with your CRM, email, scheduling, and operations tools. The result: a system that works while you sleep, qualifies leads while you handle the ones that matter, and scales without hiring.",
+      ],
+      highlights: [
+        { label: "Approach", value: "Custom-Built" },
+        { label: "Integrations", value: "Unlimited" },
+        { label: "Availability", value: "24/7" },
+        { label: "Training", value: "Included" },
+      ],
+    },
+    features: [
+      {
+        title: "Automated Customer Follow-Ups",
+        description:
+          "AI that reaches out to leads and past customers via email or SMS with personalized messages -- without ever feeling like spam.",
+      },
+      {
+        title: "Lead Qualification Agents",
+        description:
+          "Conversational AI that asks the right questions, scores leads, and routes the qualified ones straight to your phone or calendar.",
+      },
+      {
+        title: "Custom Chatbots",
+        description:
+          "Website and messaging chatbots trained on your business, services, and FAQs -- answering customers in your voice, 24 hours a day.",
+      },
+      {
+        title: "Workflow Automation",
+        description:
+          "AI-powered automation across your CRM, email, scheduling, and operations tools. Cut repetitive tasks and save hours every week.",
+      },
+      {
+        title: "Voice AI and Transcription",
+        description:
+          "Voicemail-to-text with summaries, AI call answering for after hours, and automatic note-taking for sales and consult calls.",
+      },
+      {
+        title: "Training and Support",
+        description:
+          "We train your team on the tools we build and provide ongoing support as your needs evolve and the technology improves.",
+      },
+    ],
+    process: [
+      {
+        number: "01",
+        title: "Discovery and Audit",
+        description:
+          "We learn your business, map your repetitive tasks, and identify the highest-ROI opportunities for AI automation.",
+      },
+      {
+        number: "02",
+        title: "Solution Design",
+        description:
+          "We design a custom AI system that fits your workflow -- not a generic tool you have to bend your business around.",
+      },
+      {
+        number: "03",
+        title: "Build and Integrate",
+        description:
+          "We build, test, and integrate the solution with your existing tools. Everything is configured and validated before launch.",
+      },
+      {
+        number: "04",
+        title: "Deploy and Iterate",
+        description:
+          "Your AI goes live. We monitor performance, train your team, and continuously refine the system as your business grows.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What kinds of AI solutions do you build?",
+        answer:
+          "Automated follow-up systems, lead qualification bots, custom chatbots, workflow automation, voice AI, and bespoke integrations. If a task is repetitive and rule-based, AI can likely handle it.",
+      },
+      {
+        question: "Do I need a technical team to use this?",
+        answer:
+          "No. We design solutions that run in the background. Your team interacts with tools they already know -- CRM, email, scheduling. The AI works underneath.",
+      },
+      {
+        question: "Is my customer data safe?",
+        answer:
+          "Yes. We use enterprise-grade providers (OpenAI, Anthropic, Google) with data privacy controls, and we never train public models on your data. All integrations follow industry security best practices.",
+      },
+      {
+        question: "How much does a custom AI solution cost?",
+        answer:
+          "It depends on complexity. Simple automations start around $500 one-time. Full-scale custom agents and integrations range from $2,000-$10,000+. We scope and quote every project upfront.",
+      },
+      {
+        question: "Can you integrate with my existing CRM or tools?",
+        answer:
+          "Yes. We work with HubSpot, Salesforce, Go High Level, Zoho, Pipedrive, and most major platforms. For niche or legacy tools, we build custom API integrations.",
+      },
+    ],
+    relatedSlugs: ["ai-search-optimization", "website-design", "email-marketing"],
+  },
 ];
 
 export function getService(slug: string): ServiceData {

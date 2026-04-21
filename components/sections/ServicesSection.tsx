@@ -41,6 +41,25 @@ function ShieldIcon() {
   );
 }
 
+function MailIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m22 7-10 5L2 7" />
+    </svg>
+  );
+}
+
+function CpuIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <rect x="9" y="9" width="6" height="6" />
+      <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
+    </svg>
+  );
+}
+
 const services = [
   {
     icon: <GlobeIcon />,
@@ -90,12 +109,28 @@ const services = [
     description:
       "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your business has earned.",
   },
+  {
+    icon: <MailIcon />,
+    title: "Email Marketing",
+    slug: "email-marketing",
+    image: "/images/services/email-marketing.jpg",
+    description:
+      "Email campaigns and automated flows that turn one-time customers into repeat buyers. The highest ROI channel in marketing.",
+  },
+  {
+    icon: <CpuIcon />,
+    title: "Custom AI Solutions",
+    slug: "custom-ai-solutions",
+    image: "/images/services/custom-ai.jpg",
+    description:
+      "Automated follow-ups, lead qualification, chatbots, and workflow automation. Custom AI built for your specific business.",
+  },
 ];
 
 export default function ServicesSection() {
   return (
     <section id="services" className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1360px] px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>
           <div className="text-center mb-16">
@@ -112,7 +147,7 @@ export default function ServicesSection() {
         </ScrollReveal>
 
         {/* Service cards grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((service, i) => (
             <ScrollReveal key={service.title} delay={i * 100}>
               <div className="group aspect-square [perspective:1000px]">
