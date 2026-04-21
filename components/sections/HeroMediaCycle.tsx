@@ -205,7 +205,9 @@ export default function HeroMediaCycle() {
   const motionDisabled = !mounted || reducedMotion || isMobile;
   const isLightTheme = textSlide.theme === "light";
   const headlineColorClass = isLightTheme ? "text-[#0F172A]" : "text-white";
-  const subheadColorClass = isLightTheme ? "text-gray-700" : "text-gray-200";
+  const subheadColorClass = isLightTheme
+    ? "text-gray-700"
+    : "text-cobalt-shine font-semibold";
 
   const headlineContent = textSlide.headlineParts ? (
     <>
@@ -274,7 +276,7 @@ export default function HeroMediaCycle() {
         />
       )}
 
-      <div className="relative z-10 mx-auto w-full max-w-4xl px-6 text-center">
+      <div className="relative z-10 mx-auto w-full max-w-4xl lg:max-w-5xl px-6 text-center">
         {motionDisabled ? (
           <>
             <h1
@@ -282,7 +284,7 @@ export default function HeroMediaCycle() {
             >
               {headlineContent}
             </h1>
-            <p className={`font-body text-base sm:text-lg md:text-2xl mb-8 ${subheadColorClass}`}>
+            <p className={`font-body text-base sm:text-lg lg:text-xl mb-8 lg:whitespace-nowrap ${subheadColorClass}`}>
               {textSlide.subhead}
             </p>
           </>
@@ -297,7 +299,7 @@ export default function HeroMediaCycle() {
               </motion.h1>
               <motion.p
                 {...subheadMotion}
-                className={`font-body text-base sm:text-lg md:text-2xl mb-8 ${subheadColorClass}`}
+                className={`font-body text-base sm:text-lg lg:text-xl mb-8 lg:whitespace-nowrap ${subheadColorClass}`}
               >
                 {textSlide.subhead}
               </motion.p>
