@@ -206,9 +206,6 @@ export default function HeroMediaCycle() {
   const isLightTheme = textSlide.theme === "light";
   const headlineColorClass = isLightTheme ? "text-[#0F172A]" : "text-white";
   const subheadColorClass = isLightTheme ? "text-gray-700" : "text-gray-200";
-  const headlineTextShadow = isLightTheme
-    ? undefined
-    : "0 2px 20px rgba(15,23,42,0.85), 0 0 40px rgba(15,23,42,0.6)";
 
   const headlineContent = textSlide.headlineParts ? (
     <>
@@ -282,7 +279,6 @@ export default function HeroMediaCycle() {
           <>
             <h1
               className={`font-heading font-bold text-4xl sm:text-5xl md:text-7xl mb-4 ${headlineColorClass}`}
-              style={{ textShadow: headlineTextShadow }}
             >
               {headlineContent}
             </h1>
@@ -296,7 +292,6 @@ export default function HeroMediaCycle() {
               <motion.h1
                 {...headlineMotion}
                 className={`font-heading font-bold text-4xl sm:text-5xl md:text-7xl mb-4 ${headlineColorClass}`}
-                style={{ textShadow: headlineTextShadow }}
               >
                 {headlineContent}
               </motion.h1>
