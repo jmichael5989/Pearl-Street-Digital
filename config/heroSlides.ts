@@ -47,14 +47,4 @@ export const heroSlides: HeroSlide[] = [
     headline: "Real growth. Real results.",
     subhead: "Watch your customer pipeline fill up.",
   },
-  {
-    id: "business-growth",
-    type: "video",
-    src: "/videos/business-growth.mp4",
-    poster: "/images/business-growth-poster.webp",
-    duration: 5000,
-    headline: "Rank Point Media",
-    subhead: "Higher rankings. More customers.",
-    theme: "light",
-  },
 ];
