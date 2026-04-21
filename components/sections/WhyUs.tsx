@@ -2,8 +2,8 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function WhyUs() {
   return (
-    <section className="min-h-screen flex items-center py-16 lg:py-24 bg-[#F0FDFA]">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="py-16 lg:py-24 bg-[#F0FDFA]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center">
             <h2
