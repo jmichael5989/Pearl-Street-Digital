@@ -39,16 +39,16 @@ export default function WhyUs() {
                 account in a crowded portfolio. You&rsquo;re our priority.
               </p>
             </div>
-            <aside className="relative rounded-2xl border border-[#E5E7EB] bg-white px-8 py-10 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.18)] hover:border-primary lg:sticky lg:top-24">
+            <aside className="relative px-8 py-6 text-center lg:border-l-2 lg:border-primary lg:pl-10 lg:sticky lg:top-24">
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
-                className="absolute -top-4 left-1/2 h-10 w-10 -translate-x-1/2 text-primary"
+                className="mx-auto h-10 w-10 text-primary"
                 fill="currentColor"
               >
                 <path d="M7.17 6A5.17 5.17 0 0 0 2 11.17V18h6v-6H5.5a1.67 1.67 0 0 1 1.67-1.67V6zm10 0A5.17 5.17 0 0 0 12 11.17V18h6v-6h-2.5a1.67 1.67 0 0 1 1.67-1.67V6z" />
               </svg>
-              <p className="mt-2 font-heading text-2xl italic leading-snug text-dark">
+              <p className="mt-4 font-heading text-2xl italic leading-snug text-dark">
                 &ldquo;Great brands don&rsquo;t grow by accident. They grow with
                 the right team behind them.&rdquo;
               </p>
