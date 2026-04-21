@@ -21,11 +21,11 @@ export const heroSlides: HeroSlide[] = [
     src: "/videos/sa-skyline.mp4",
     poster: "/images/sa-skyline-poster.webp",
     duration: 9300,
-    headline: "Outrank. Outperform. Outlast.",
+    headline: "Rank higher. Sell more. Pay less.",
     headlineParts: {
       before: "",
-      highlight: "Outrank.",
-      after: " Outperform. Outlast.",
+      highlight: "Rank higher.",
+      after: " Sell more. Pay less.",
     },
     subhead:
       "Websites, SEO, and AI solutions at a fraction of what the big agencies charge.",
