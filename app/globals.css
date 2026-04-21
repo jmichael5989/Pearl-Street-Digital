@@ -96,17 +96,16 @@ body {
 }
 @keyframes textShine {
   0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
 .text-white-shine {
   background-image: linear-gradient(
-    90deg,
+    100deg,
     #FFFFFF 0%,
+    rgba(255,255,255,0.55) 20%,
     #FFFFFF 40%,
-    rgba(255,255,255,0.6) 48%,
-    #FFFFFF 50%,
-    rgba(255,255,255,0.6) 52%,
     #FFFFFF 60%,
+    rgba(255,255,255,0.55) 80%,
     #FFFFFF 100%
   );
   background-size: 200% auto;
@@ -114,7 +113,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: textShine 5s linear infinite;
+  animation: textShine 3s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-ken-burns,

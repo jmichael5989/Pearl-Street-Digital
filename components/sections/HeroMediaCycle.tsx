@@ -204,10 +204,8 @@ export default function HeroMediaCycle() {
   const textSlide = allFailed ? firstSlide : currentSlide;
   const motionDisabled = !mounted || reducedMotion || isMobile;
   const isLightTheme = textSlide.theme === "light";
-  const headlineColorClass = isLightTheme ? "text-[#0F172A]" : "text-white";
-  const subheadColorClass = isLightTheme
-    ? "text-gray-700"
-    : "text-white-shine font-bold";
+  const headlineColorClass = isLightTheme ? "text-[#0F172A]" : "text-white-shine";
+  const subheadColorClass = isLightTheme ? "text-gray-700" : "text-white font-bold";
 
   const headlineContent = textSlide.headlineParts ? (
     <>
