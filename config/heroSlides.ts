@@ -15,7 +15,7 @@ export const heroSlides: HeroSlide[] = [
     type: "video",
     src: "/videos/sa-skyline.mp4",
     poster: "/images/sa-skyline-poster.webp",
-    duration: 7000,
+    duration: 9300,
     headline: "Built for San Antonio businesses",
     subhead: "Local expertise. Real results. No fluff.",
   },
