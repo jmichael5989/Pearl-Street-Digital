@@ -207,6 +207,21 @@ export default function HeroMediaCycle() {
   const headlineColorClass = isLightTheme ? "text-[#0F172A]" : "text-white";
   const subheadColorClass = isLightTheme ? "text-gray-700" : "text-gray-200";
 
+  const headlineContent = textSlide.headlineParts ? (
+    <>
+      {textSlide.headlineParts.before}
+      <span
+        className="bg-clip-text text-transparent"
+        style={{ backgroundImage: "linear-gradient(135deg, #14B8A6, #8B5CF6)" }}
+      >
+        {textSlide.headlineParts.highlight}
+      </span>
+      {textSlide.headlineParts.after ?? ""}
+    </>
+  ) : (
+    textSlide.headline
+  );
+
   const headlineMotion = motionDisabled
     ? {}
     : {
@@ -263,7 +278,7 @@ export default function HeroMediaCycle() {
         {motionDisabled ? (
           <>
             <h1 className={`font-heading font-bold text-4xl md:text-6xl mb-4 ${headlineColorClass}`}>
-              {textSlide.headline}
+              {headlineContent}
             </h1>
             <p className={`font-body text-lg md:text-xl mb-8 ${subheadColorClass}`}>
               {textSlide.subhead}
@@ -276,7 +291,7 @@ export default function HeroMediaCycle() {
                 {...headlineMotion}
                 className={`font-heading font-bold text-4xl md:text-6xl mb-4 ${headlineColorClass}`}
               >
-                {textSlide.headline}
+                {headlineContent}
               </motion.h1>
               <motion.p
                 {...subheadMotion}

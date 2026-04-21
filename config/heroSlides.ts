@@ -5,6 +5,11 @@ export type HeroSlide = {
   poster?: string;
   duration: number;
   headline: string;
+  headlineParts?: {
+    before: string;
+    highlight: string;
+    after?: string;
+  };
   subhead: string;
   theme?: "dark" | "light";
 };
@@ -17,6 +22,11 @@ export const heroSlides: HeroSlide[] = [
     poster: "/images/sa-skyline-poster.webp",
     duration: 9300,
     headline: "Built for San Antonio businesses",
+    headlineParts: {
+      before: "Built for ",
+      highlight: "San Antonio",
+      after: " businesses",
+    },
     subhead: "Local expertise. Real results. No fluff.",
   },
   {
@@ -26,6 +36,10 @@ export const heroSlides: HeroSlide[] = [
     poster: "/images/local-business-poster.webp",
     duration: 5000,
     headline: "Websites that bring in customers",
+    headlineParts: {
+      before: "Websites that ",
+      highlight: "bring in customers",
+    },
     subhead: "Fast, conversion-focused sites built to rank.",
   },
   {
@@ -35,6 +49,11 @@ export const heroSlides: HeroSlide[] = [
     poster: "/images/happy-customer-poster.webp",
     duration: 5000,
     headline: "Real growth. Real results.",
+    headlineParts: {
+      before: "",
+      highlight: "Real growth.",
+      after: " Real results.",
+    },
     subhead: "Watch your customer pipeline fill up.",
   },
 ];
