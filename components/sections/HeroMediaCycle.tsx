@@ -207,7 +207,7 @@ export default function HeroMediaCycle() {
   const headlineColorClass = isLightTheme ? "text-[#0F172A]" : "text-white";
   const subheadColorClass = isLightTheme
     ? "text-gray-700"
-    : "text-cobalt-shine font-semibold";
+    : "text-white-shine font-bold";
 
   const headlineContent = textSlide.headlineParts ? (
     <>

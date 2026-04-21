@@ -98,16 +98,16 @@ body {
   0% { background-position: 0% center; }
   100% { background-position: 200% center; }
 }
-.text-cobalt-shine {
+.text-white-shine {
   background-image: linear-gradient(
     90deg,
-    #1E40AF 0%,
-    #1E40AF 35%,
-    #93C5FD 47%,
+    #FFFFFF 0%,
+    #FFFFFF 40%,
+    rgba(255,255,255,0.6) 48%,
     #FFFFFF 50%,
-    #93C5FD 53%,
-    #1E40AF 65%,
-    #1E40AF 100%
+    rgba(255,255,255,0.6) 52%,
+    #FFFFFF 60%,
+    #FFFFFF 100%
   );
   background-size: 200% auto;
   background-clip: text;
@@ -125,7 +125,7 @@ body {
   .hero-scroll-dot,
   .hero-badge-pulse,
   .hero-fade-up,
-  .text-cobalt-shine {
+  .text-white-shine {
     animation: none !important;
   }
   .hero-fade-up {
