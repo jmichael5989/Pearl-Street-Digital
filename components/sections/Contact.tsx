@@ -8,7 +8,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left column -- contact info */}
           <div>
-            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+            <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
               Contact Us
             </span>
             <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>

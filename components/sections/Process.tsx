@@ -60,7 +60,7 @@ export default function Process() {
     <section id="process" className="bg-[#F8FAFC] py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+          <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
             Our Process
           </span>
           <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>

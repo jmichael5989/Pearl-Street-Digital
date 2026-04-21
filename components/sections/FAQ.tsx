@@ -80,7 +80,7 @@ export default function FAQ() {
           aria-expanded={sectionOpen}
         >
           <div>
-            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary block">
+            <span className="text-base font-bold uppercase tracking-[0.12em] text-primary block">
               FAQ
             </span>
             <span className="mt-1 font-heading text-xl md:text-2xl font-bold text-dark block">

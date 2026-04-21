@@ -2,7 +2,7 @@ export default function AboutStory() {
   return (
     <section id="story" className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+        <p className="text-base font-bold uppercase tracking-[0.12em] text-primary">
           Our Story
         </p>
         <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>

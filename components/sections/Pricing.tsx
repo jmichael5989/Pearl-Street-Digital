@@ -226,7 +226,7 @@ export default function Pricing() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+            <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
               Transparent Pricing
             </span>
             <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
@@ -276,7 +276,7 @@ export default function Pricing() {
         {/* Custom Services — Call for Pricing */}
         <ScrollReveal delay={300}>
           <div className="mt-20 text-center">
-            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+            <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
               Custom Services
             </span>
             <h3 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h3)", lineHeight: 1.2 }}>

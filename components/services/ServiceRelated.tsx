@@ -11,7 +11,7 @@ export default function ServiceRelated({
     <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+          <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
             Related Services
           </span>
           <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>

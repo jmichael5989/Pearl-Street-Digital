@@ -9,7 +9,7 @@ export default function ServiceOverview({ service }: { service: ServiceData }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left column */}
           <div>
-            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-primary">
+            <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
               Overview
             </span>
             <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
