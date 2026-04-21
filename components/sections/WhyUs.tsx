@@ -7,7 +7,7 @@ export default function WhyUs() {
         <ScrollReveal>
           <div className="text-center">
             <h2
-              className="font-heading font-bold text-dark"
+              className="font-heading font-bold text-primary"
               style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}
             >
               Why Rank Point Media
