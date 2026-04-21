@@ -2,7 +2,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function WhyUs() {
   return (
-    <section className="py-16 lg:py-24 bg-[#F0FDFA]">
+    <section className="py-10 lg:py-14 bg-[#F0FDFA]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center">
@@ -12,10 +12,11 @@ export default function WhyUs() {
             >
               Why Rank Point Media
             </h2>
-            <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-primary" />
-            <div className="mx-auto mt-8 max-w-4xl space-y-5 text-left text-lg leading-relaxed text-dark">
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-primary" />
+            <div className="mx-auto mt-6 max-w-4xl space-y-5 text-left text-lg leading-relaxed text-dark">
               <p>
-                Rank Point Media is a full-service digital marketing agency
+                <span className="font-heading text-4xl font-bold text-primary leading-none align-[-0.15em] mr-0.5">R</span>
+                ank Point Media is a full-service digital marketing agency
                 delivering solutions that match the caliber of the clients we
                 serve. Founder-led and AI-powered, we provide agency-quality
                 websites, local SEO, and digital marketing strategies at a
