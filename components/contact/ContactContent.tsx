@@ -52,7 +52,7 @@ export default function ContactContent() {
                 href="tel:+12105551234"
                 className="flex items-center gap-4 text-text hover:text-primary transition-colors"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-light-surface border border-border">
                   <PhoneIcon />
                 </div>
                 <span className="text-sm font-medium">(210) 555-1234</span>
@@ -61,7 +61,7 @@ export default function ContactContent() {
                 href="mailto:hello@rankpointmedia.com"
                 className="flex items-center gap-4 text-text hover:text-primary transition-colors"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-light-surface border border-border">
                   <MailIcon />
                 </div>
                 <span className="text-sm font-medium">
@@ -69,7 +69,7 @@ export default function ContactContent() {
                 </span>
               </a>
               <div className="flex items-center gap-4 text-text">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-light-surface border border-border">
                   <MapPinIcon />
                 </div>
                 <span className="text-sm font-medium">
@@ -102,16 +102,8 @@ export default function ContactContent() {
 
           {/* Right Column — Form (55%) */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-sm">
+            <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
               <ContactForm />
-            </div>
-
-            {/* Trust signal below form */}
-            <div className="mt-6 rounded-xl border border-border bg-light-surface px-5 py-4">
-              <p className="text-sm text-gray text-center">
-                100% of our clients own everything we build. No lock-in, no
-                hostage domains.
-              </p>
             </div>
           </div>
         </div>
