@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function WhyUs() {
@@ -15,7 +16,13 @@ export default function WhyUs() {
             <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-primary" />
             <div className="mx-auto mt-6 max-w-4xl space-y-5 text-left text-lg leading-relaxed text-dark">
               <p>
-                <span className="font-heading text-4xl font-bold text-primary leading-none align-[-0.15em] mr-0.5">R</span>
+                <Image
+                  src="/images/brand/logo-r.jpg"
+                  alt="R"
+                  width={56}
+                  height={56}
+                  className="float-left mr-3 mt-1 rounded-md"
+                />
                 ank Point Media is a full-service digital marketing agency
                 delivering solutions that match the caliber of the clients we
                 serve. Founder-led and AI-powered, we provide agency-quality
