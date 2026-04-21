@@ -3,7 +3,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function WhyUs() {
   return (
-    <section className="py-10 lg:py-14 bg-[#EFF6FF]">
+    <section className="py-8 lg:py-10 bg-[#EFF6FF]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center">
@@ -13,12 +13,12 @@ export default function WhyUs() {
             >
               Why Rank Point Media
             </h2>
-            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-primary" />
+            <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-primary" />
           </div>
-          <div className="mx-auto mt-6 grid max-w-7xl gap-8 lg:grid-cols-[minmax(0,1fr)_520px] lg:items-start">
-            <div className="space-y-5 text-left text-lg leading-relaxed text-dark">
+          <div className="mx-auto mt-5 grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1fr)_480px] lg:items-center">
+            <div className="space-y-3 text-left text-base leading-relaxed text-dark">
               <p>
-                <span className="font-heading text-4xl font-bold text-primary leading-none align-[-0.15em] mr-0.5">R</span>
+                <span className="font-heading text-3xl font-bold text-primary leading-none align-[-0.15em] mr-0.5">R</span>
                 ank Point Media is a full-service digital marketing agency
                 delivering solutions that match the caliber of the clients we
                 serve. Founder-led and AI-powered, we provide agency-quality
@@ -39,31 +39,31 @@ export default function WhyUs() {
                 account in a crowded portfolio. You&rsquo;re our priority.
               </p>
             </div>
-            <aside className="relative px-8 py-6 text-center lg:border-l-2 lg:border-primary lg:pl-10 lg:sticky lg:top-24">
+            <aside className="relative px-6 py-4 text-center lg:border-l-2 lg:border-primary lg:pl-8">
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
-                className="mx-auto h-10 w-10 text-primary"
+                className="mx-auto h-8 w-8 text-primary"
                 fill="currentColor"
               >
                 <path d="M7.17 6A5.17 5.17 0 0 0 2 11.17V18h6v-6H5.5a1.67 1.67 0 0 1 1.67-1.67V6zm10 0A5.17 5.17 0 0 0 12 11.17V18h6v-6h-2.5a1.67 1.67 0 0 1 1.67-1.67V6z" />
               </svg>
-              <p className="mt-4 font-heading text-2xl italic leading-snug text-dark">
+              <p className="mt-3 font-heading text-xl italic leading-snug text-dark">
                 &ldquo;Great brands don&rsquo;t grow by accident. They grow with
                 the right team behind them.&rdquo;
               </p>
-              <div className="mt-8 flex justify-center">
+              <div className="mt-4 flex justify-center">
                 <Image
                   src="/images/team/jon.png"
                   alt="Jon, Owner and Designer at Rank Point Media"
-                  width={128}
-                  height={128}
-                  className="h-32 w-32 rounded-full object-cover object-top ring-4 ring-primary/30"
+                  width={96}
+                  height={96}
+                  className="h-24 w-24 rounded-full object-cover object-top ring-4 ring-primary/30"
                 />
               </div>
-              <div className="mt-5">
+              <div className="mt-3">
                 <p className="font-heading text-base font-semibold text-dark">Jon</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.12em] text-gray-500">
+                <p className="mt-0.5 text-xs uppercase tracking-[0.12em] text-gray-500">
                   Owner / Designer
                 </p>
               </div>
