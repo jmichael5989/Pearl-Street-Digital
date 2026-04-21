@@ -2,27 +2,9 @@ import { Metadata } from "next";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import { services } from "@/lib/services-data";
-import ServiceCard from "@/components/services/ServiceCard";
+import ServicesShowcase from "@/components/services/ServicesShowcase";
 import FAQ from "@/components/sections/FAQ";
 import CustomDevelopmentCallout from "@/components/sections/CustomDevelopmentCallout";
-
-const serviceImages: Record<string, string> = {
-  "website-design": "/images/services/website-design.jpg",
-  "local-seo": "/images/services/local-seo.jpg",
-  "social-media": "/images/services/social-media.jpg",
-  "ppc-google-ads": "/images/services/ppc-google-ads.jpg",
-  "ai-search-optimization": "/images/services/ai-search.jpg",
-  "reputation-management": "/images/services/reputation.jpg",
-};
-
-const serviceVideos: Record<string, string> = {
-  "website-design": "/videos/services/website-design.mp4",
-  "local-seo": "/videos/services/local-seo.mp4",
-  "social-media": "/videos/services/social-media.mp4",
-  "ppc-google-ads": "/videos/services/ppc-google-ads.mp4",
-  "ai-search-optimization": "/videos/services/ai-search.mp4",
-  "reputation-management": "/videos/services/reputation.mp4",
-};
 
 export const metadata: Metadata = {
   title: "Digital Marketing Services San Antonio | Rank Point Media",
@@ -104,23 +86,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="bg-light pt-8 pb-16 lg:pt-10 lg:pb-24">
-          <div className="mx-auto max-w-[1360px] px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
-              {services.map((service) => (
-                <ServiceCard
-                  key={service.slug}
-                  slug={service.slug}
-                  title={service.title}
-                  tagline={service.tagline}
-                  image={serviceImages[service.slug]}
-                  video={serviceVideos[service.slug]}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+        <ServicesShowcase />
 
         <CustomDevelopmentCallout />
 
