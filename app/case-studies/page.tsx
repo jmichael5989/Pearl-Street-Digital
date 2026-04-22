@@ -63,7 +63,7 @@ export default function CaseStudiesPage() {
         {/* Page header */}
         <section className="pt-36 md:pt-44 pb-16 lg:pb-20 px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-sm font-semibold tracking-widest uppercase text-teal-600 mb-4">
+            <p className="text-xl md:text-2xl font-extrabold tracking-widest uppercase text-teal-600 mb-4">
               Our Work
             </p>
             <h1 className="font-heading font-bold text-4xl md:text-6xl text-slate-900 mb-6 leading-tight tracking-tight">
