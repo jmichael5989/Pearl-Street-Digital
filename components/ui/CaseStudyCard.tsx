@@ -46,7 +46,7 @@ export default function CaseStudyCard({ study }: { study: CaseStudyData }) {
       }
     >
       {backgroundImage && (
-        <div className="absolute inset-0 bg-white/92 backdrop-blur-sm pointer-events-none" />
+        <div className="absolute inset-0 bg-white/70 pointer-events-none" />
       )}
       <div className="relative p-8">
         {/* Industry tag */}
