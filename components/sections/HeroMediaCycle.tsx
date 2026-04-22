@@ -246,7 +246,7 @@ export default function HeroMediaCycle() {
   return (
     <section
       aria-label="Rank Point Media hero showcase"
-      className="relative min-h-[600px] md:min-h-[700px] overflow-hidden bg-[#0F172A] flex items-center"
+      className="relative min-h-[600px] md:min-h-[700px] overflow-hidden bg-[#0F172A] flex items-start pt-32 md:pt-40"
     >
       {allFailed ? (
         <GradientFallback />
