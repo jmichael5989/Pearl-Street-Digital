@@ -14,16 +14,22 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function GlassHeader() {
-  const [scrolled, setScrolled] = useState(false);
+export default function GlassHeader({
+  forceScrolled = false,
+}: {
+  forceScrolled?: boolean;
+}) {
+  const [scrolledState, setScrolledState] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const scrolled = forceScrolled || scrolledState;
 
   useEffect(() => {
+    if (forceScrolled) return;
     let ticking = false;
     const onScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          setScrolled(window.scrollY >= 80);
+          setScrolledState(window.scrollY >= 80);
           ticking = false;
         });
         ticking = true;
@@ -32,7 +38,7 @@ export default function GlassHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [forceScrolled]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
