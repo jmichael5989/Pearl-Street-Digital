@@ -1,5 +1,5 @@
 import Footer from "@/components/ui/Footer";
-import ServicesHeader from "@/components/services/ServicesHeader";
+import Header from "@/components/ui/Header";
 
 export default function ServicesLayout({
   children,
@@ -8,7 +8,7 @@ export default function ServicesLayout({
 }) {
   return (
     <div className="services-scope min-h-screen flex flex-col">
-      <ServicesHeader />
+      <Header />
       <div className="flex-1">{children}</div>
       <Footer />
     </div>
