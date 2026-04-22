@@ -37,12 +37,12 @@ function LighthouseRing({ value, label }: { value: number; label: string }) {
 export default function HeroMockups() {
   return (
     <div className="relative h-[520px] w-full">
-      {/* Card 1 — Lighthouse (back, -8deg) */}
+      {/* Card 1 — Lighthouse (bottom-left, -8deg) */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-        className="absolute top-8 left-0 w-80 p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10"
+        className="absolute bottom-20 -left-8 w-72 p-5 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10"
         style={{
           transform: "rotate(-8deg)",
           boxShadow: "0 25px 50px -12px rgba(20,184,166,0.25)",
@@ -83,12 +83,12 @@ export default function HeroMockups() {
         />
       </motion.div>
 
-      {/* Card 3 — Toast (front, -3deg, bottom) */}
+      {/* Card 3 — Toast (front, -3deg, bottom-right) */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
-        className="absolute bottom-8 left-16 bg-white rounded-2xl shadow-2xl p-4 pr-5 flex items-center gap-3"
+        className="absolute bottom-0 right-4 bg-white rounded-2xl shadow-2xl p-4 pr-5 flex items-center gap-3"
         style={{ transform: "rotate(-3deg)" }}
       >
         <div className="w-9 h-9 rounded-full bg-brand-teal/15 flex items-center justify-center">

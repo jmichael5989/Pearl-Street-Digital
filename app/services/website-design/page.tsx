@@ -129,7 +129,7 @@ export default function WebsiteDesignPage() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute left-1/2 bottom-8 -translate-x-1/2 flex flex-col items-center">
+          <div className="absolute left-1/2 bottom-8 -translate-x-1/2 z-20 flex flex-col items-center">
             <ScrollIndicator />
           </div>
         </section>
