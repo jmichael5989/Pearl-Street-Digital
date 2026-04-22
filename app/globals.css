@@ -22,6 +22,7 @@
   --font-heading: var(--font-outfit);
   --font-body: var(--font-dm-sans);
   --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-geist-mono);
 
   /* Services-scoped tokens (additive, do not remove) */
   --font-display-services: var(--font-fraunces);
@@ -245,14 +246,14 @@ body {
   100% { --border-angle: 360deg; }
 }
 
-/* ── Services-scoped utilities (only active under .services-scope) ── */
-.services-scope .text-balance {
+/* ── Sitewide utilities (also usable under .services-scope) ── */
+.text-balance {
   text-wrap: balance;
 }
-.services-scope .grain {
+.grain {
   position: relative;
 }
-.services-scope .grain::after {
+.grain::after {
   content: "";
   position: absolute;
   inset: 0;
