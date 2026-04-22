@@ -38,9 +38,9 @@ export const services: ServiceData[] = [
     title: "Website Design",
     tagline:
       "Custom websites built for speed, SEO, and conversions -- designed to represent your San Antonio business the way it deserves.",
-    metaTitle: "Website Design San Antonio | Custom Sites from $250 | Rank Point Media",
+    metaTitle: "Website Design San Antonio | Plans from $99/mo | Rank Point Media",
     metaDescription:
-      "Professional website design for San Antonio small businesses. Fast builds, mobile-first, Lighthouse 95+. One-time pricing from $250. No contracts.",
+      "Custom Next.js websites for San Antonio small businesses. Lighthouse 95+, launched in 2-3 weeks, plans from $99/month with hosting included.",
     iconName: "globe",
     overview: {
       heading: "A Website That Works as Hard as You Do",
@@ -50,7 +50,7 @@ export const services: ServiceData[] = [
       ],
       highlights: [
         { label: "Timeline", value: "2-3 Weeks" },
-        { label: "Starting At", value: "$250" },
+        { label: "Starter Plan", value: "$99/mo" },
         { label: "Lighthouse", value: "95+" },
         { label: "Revisions", value: "2-4 Rounds" },
       ],
