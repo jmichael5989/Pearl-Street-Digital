@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
 
 function LighthouseRing({ value, label }: { value: number; label: string }) {
   const c = 2 * Math.PI * 20;
@@ -90,24 +89,6 @@ export default function HeroMockups() {
         </div>
       </motion.div>
 
-      {/* Card 3 — Toast (front, -3deg, bottom-right) */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}
-        className="absolute bottom-0 right-4 bg-white rounded-2xl shadow-2xl p-4 pr-5 flex items-center gap-3"
-        style={{ transform: "rotate(-3deg)" }}
-      >
-        <div className="w-9 h-9 rounded-full bg-brand-teal/15 flex items-center justify-center">
-          <Check className="w-5 h-5 text-brand-teal" strokeWidth={2.5} />
-        </div>
-        <div>
-          <p className="text-sm font-semibold text-brand-text">Form submitted</p>
-          <p className="text-xs text-brand-gray">
-            We&apos;ll be in touch within 24 hours.
-          </p>
-        </div>
-      </motion.div>
     </div>
   );
 }
