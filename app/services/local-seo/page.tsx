@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/Footer";
 import ServiceHero from "@/components/services/ServiceHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
@@ -53,7 +51,6 @@ export default function LocalSeoPage() {
           }),
         }}
       />
-      <Header />
       <main>
         <ServiceHero service={service} />
         <ServiceOverview service={service} />
@@ -62,7 +59,6 @@ export default function LocalSeoPage() {
         <ServiceFAQ service={service} />
         <ServiceRelated services={getRelatedServices(service.relatedSlugs)} />
       </main>
-      <Footer />
     </>
   );
 }

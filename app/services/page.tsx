@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import Header from "@/components/ui/Header";
-import Footer from "@/components/ui/Footer";
 import { services } from "@/lib/services-data";
 import ServicesShowcase from "@/components/services/ServicesShowcase";
 import FAQ from "@/components/sections/FAQ";
@@ -53,7 +51,6 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
       />
-      <Header />
       <main>
         {/* Blue hero banner containing eyebrow + H1 */}
         <section className="pt-[100px] md:pt-[132px]" style={{ background: "#2563EB" }}>
@@ -92,7 +89,6 @@ export default function ServicesPage() {
 
         <FAQ />
       </main>
-      <Footer />
     </>
   );
 }
