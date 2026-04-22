@@ -43,7 +43,7 @@ const services: Service[] = [
       "Custom-coded -- no templates, no bloat",
       "Built for Google rankings from day one",
     ],
-    startingAt: "$500 one-time",
+    startingAt: "$99 / month",
     icon: Globe,
     href: "/services/website-design",
   },

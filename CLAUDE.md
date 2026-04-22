@@ -119,10 +119,9 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - **Accessibility** -- WCAG 2.1 AA, keyboard navigation, proper alt text
 
 ### Pricing (LAUNCH CONFIG)
-- Show ONE-TIME BUILDS only: Starter $250, Business $500 (featured/dark card), Growth $1,000
-- Monthly retainers ($497/$997/$1,997) exist in code but are HIDDEN at launch
-- Hosting add-on: $100/mo
-- Business tier gets dark #0F172A card, violet border, "MOST POPULAR" badge
+- Toggle on /pricing defaults to Build + Hosting (monthly): Starter $99/mo, Business $149/mo (featured/dark card), Growth $249/mo -- 12-month term, hosting + security + backups + ongoing updates included
+- Build Only (one-time) option available via toggle: Starter $500, Business $1,000, Growth $1,500 -- no hosting, client owns and hosts after delivery
+- Business tier gets dark #0F172A card, primary border, "MOST POPULAR" badge (only shown under Build + Hosting toggle)
 
 ### SEO Rules
 - Every page title: "[Service/Page] San Antonio | Rank Point Media"
