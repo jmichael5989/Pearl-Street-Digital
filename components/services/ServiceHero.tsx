@@ -21,6 +21,28 @@ export default function ServiceHero({ service }: { service: ServiceData }) {
           >
             Contact Us
           </a>
+          <div className="mt-4">
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 font-heading text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="19" y1="12" x2="5" y2="12" />
+                <polyline points="12 19 5 12 12 5" />
+              </svg>
+              Return to Home
+            </a>
+          </div>
         </div>
       </div>
     </section>
