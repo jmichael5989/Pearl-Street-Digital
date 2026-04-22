@@ -2,24 +2,7 @@
 
 import { useState } from "react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-
-function CheckIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="shrink-0 text-primary"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
+import FeatureIndicator from "@/components/icons/FeatureIndicator";
 
 interface PlanFeature {
   text: string;
@@ -162,8 +145,8 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
         <ul className="space-y-3 mb-8 flex-1">
           {displayFeatures.map((f) => (
             <li key={f.text} className="flex items-start gap-2.5">
-              <span className="mt-0.5">
-                <CheckIcon />
+              <span className="mt-0.5 text-primary">
+                <FeatureIndicator />
               </span>
               <span className={`text-sm text-[#CBD5E1] ${f.emphasized ? "font-semibold" : ""}`}>{f.text}</span>
             </li>
@@ -206,8 +189,8 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
       <ul className="space-y-3 mb-8 flex-1">
         {displayFeatures.map((f) => (
           <li key={f.text} className="flex items-start gap-2.5">
-            <span className="mt-0.5">
-              <CheckIcon />
+            <span className="mt-0.5 text-primary">
+              <FeatureIndicator />
             </span>
             <span className={`text-sm text-gray ${f.emphasized ? "font-semibold" : ""}`}>{f.text}</span>
           </li>
@@ -369,8 +352,8 @@ function CustomServiceCard({ service }: { service: CustomService }) {
       <ul className="space-y-3 mb-8 flex-1">
         {service.features.map((f) => (
           <li key={f} className="flex items-start gap-2.5">
-            <span className="mt-0.5">
-              <CheckIcon />
+            <span className="mt-0.5 text-primary">
+              <FeatureIndicator />
             </span>
             <span className="text-base text-text/85">{f}</span>
           </li>
