@@ -21,6 +21,11 @@ function CheckIcon() {
   );
 }
 
+interface PlanFeature {
+  text: string;
+  emphasized?: boolean;
+}
+
 interface Plan {
   name: string;
   buildOnlyName?: string;
@@ -30,8 +35,8 @@ interface Plan {
   pages: string;
   buildOnlyPages?: string;
   featured: boolean;
-  features: string[];
-  hostedFeatures: string[];
+  features: PlanFeature[];
+  hostedFeatures: PlanFeature[];
 }
 
 const plans: Plan[] = [
@@ -45,19 +50,19 @@ const plans: Plan[] = [
     buildOnlyPages: "1 page",
     featured: false,
     features: [
-      "Custom-designed responsive website",
-      "Full on-page SEO setup",
-      "Contact form integration",
-      "2 revision rounds",
+      { text: "Custom-designed responsive website" },
+      { text: "Full on-page SEO setup", emphasized: true },
+      { text: "Contact form integration" },
+      { text: "2 revision rounds" },
     ],
     hostedFeatures: [
-      "Custom-designed responsive website",
-      "Full on-page SEO setup",
-      "Contact form integration",
-      "Unlimited edits",
-      "Managed hosting and SSL",
-      "Monthly backups and security updates",
-      "Ongoing maintenance",
+      { text: "Custom-designed responsive website" },
+      { text: "Full on-page SEO setup", emphasized: true },
+      { text: "Contact form integration" },
+      { text: "Unlimited edits" },
+      { text: "Managed hosting and SSL", emphasized: true },
+      { text: "Monthly backups and security updates" },
+      { text: "Ongoing maintenance" },
     ],
   },
   {
@@ -69,22 +74,22 @@ const plans: Plan[] = [
     buildOnlyPages: "Up to 3 pages",
     featured: true,
     features: [
-      "Custom-designed responsive website",
-      "Full on-page SEO setup",
-      "Contact form integration",
-      "Google Analytics installation",
-      "3 revision rounds",
+      { text: "Custom-designed responsive website" },
+      { text: "Full on-page SEO setup" },
+      { text: "Contact form integration" },
+      { text: "Google Analytics installation", emphasized: true },
+      { text: "3 revision rounds" },
     ],
     hostedFeatures: [
-      "Custom-designed responsive website",
-      "Full on-page SEO setup",
-      "Contact form integration",
-      "Google Analytics installation",
-      "Unlimited edits",
-      "Managed hosting and SSL",
-      "Monthly backups and security updates",
-      "Uptime monitoring",
-      "Ongoing maintenance",
+      { text: "Custom-designed responsive website" },
+      { text: "Full on-page SEO setup" },
+      { text: "Contact form integration" },
+      { text: "Google Analytics installation", emphasized: true },
+      { text: "Unlimited edits" },
+      { text: "Managed hosting and SSL" },
+      { text: "Monthly backups and security updates" },
+      { text: "Uptime monitoring", emphasized: true },
+      { text: "Ongoing maintenance" },
     ],
   },
   {
@@ -96,24 +101,24 @@ const plans: Plan[] = [
     buildOnlyPages: "Up to 6 pages",
     featured: false,
     features: [
-      "Custom-designed responsive website",
-      "Full on-page SEO with schema markup",
-      "Contact form integration",
-      "Google Analytics installation",
-      "Social media integrations",
-      "4 revision rounds",
+      { text: "Custom-designed responsive website" },
+      { text: "Full on-page SEO with schema markup", emphasized: true },
+      { text: "Contact form integration" },
+      { text: "Google Analytics installation" },
+      { text: "Social media integrations", emphasized: true },
+      { text: "4 revision rounds" },
     ],
     hostedFeatures: [
-      "Custom-designed responsive website",
-      "Full on-page SEO with schema markup",
-      "Contact form integration",
-      "Google Analytics installation",
-      "Social media integrations",
-      "Unlimited edits",
-      "Managed hosting and SSL",
-      "Monthly backups and security updates",
-      "Uptime monitoring and priority support",
-      "Ongoing maintenance",
+      { text: "Custom-designed responsive website" },
+      { text: "Full on-page SEO with schema markup", emphasized: true },
+      { text: "Contact form integration" },
+      { text: "Google Analytics installation" },
+      { text: "Social media integrations", emphasized: true },
+      { text: "Unlimited edits" },
+      { text: "Managed hosting and SSL" },
+      { text: "Monthly backups and security updates" },
+      { text: "Uptime monitoring and priority support", emphasized: true },
+      { text: "Ongoing maintenance" },
     ],
   },
 ];
@@ -156,11 +161,11 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
         {!hosted && <div className="mb-6" />}
         <ul className="space-y-3 mb-8 flex-1">
           {displayFeatures.map((f) => (
-            <li key={f} className="flex items-start gap-2.5">
+            <li key={f.text} className="flex items-start gap-2.5">
               <span className="mt-0.5">
                 <CheckIcon />
               </span>
-              <span className="text-sm text-[#CBD5E1]">{f}</span>
+              <span className={`text-sm text-[#CBD5E1] ${f.emphasized ? "font-semibold" : ""}`}>{f.text}</span>
             </li>
           ))}
         </ul>
@@ -200,11 +205,11 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
       {!hosted && <div className="mb-6" />}
       <ul className="space-y-3 mb-8 flex-1">
         {displayFeatures.map((f) => (
-          <li key={f} className="flex items-start gap-2.5">
+          <li key={f.text} className="flex items-start gap-2.5">
             <span className="mt-0.5">
               <CheckIcon />
             </span>
-            <span className="text-sm text-gray">{f}</span>
+            <span className={`text-sm text-gray ${f.emphasized ? "font-semibold" : ""}`}>{f.text}</span>
           </li>
         ))}
       </ul>
