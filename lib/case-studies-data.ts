@@ -57,11 +57,11 @@ export const caseStudies: CaseStudy[] = [
       { value: "5 Days", label: "Build Time" },
     ],
     thumbnailUrl:
-      "/images/case-studies/modern-day-pest-control-thumb.jpg",
+      "/images/case-studies/modern-day-pest-control-thumb.webp",
     thumbnailAlt:
       "Modern Day Pest Control website on a laptop screen",
     heroImageUrl:
-      "/images/case-studies/modern-day-pest-control-hero.jpg",
+      "/images/case-studies/modern-day-pest-control-hero.webp",
     heroImageAlt:
       "Modern Day Pest Control website homepage preview",
     featured: true,
