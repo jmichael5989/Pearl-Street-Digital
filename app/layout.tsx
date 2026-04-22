@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, DM_Sans, Space_Grotesk, Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import HeaderRouter from "@/components/ui/HeaderRouter";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 
 const outfit = Outfit({
@@ -137,6 +138,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <HeaderRouter />
         {children}
         <MobileCTABar />
       </body>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
@@ -11,7 +10,6 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <Header />
       <main>
         <section className="bg-dark pt-32 pb-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

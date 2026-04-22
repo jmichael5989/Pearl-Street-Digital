@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactContent from "@/components/contact/ContactContent";
@@ -58,7 +57,6 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
-      <Header />
       <main>
         <ContactHero />
         <ContactContent />

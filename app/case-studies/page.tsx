@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import FeaturedCaseStudy from "@/components/case-studies/FeaturedCaseStudy";
 import CaseStudyGrid from "@/components/case-studies/CaseStudyGrid";
@@ -58,7 +57,6 @@ export default function CaseStudiesPage() {
           }),
         }}
       />
-      <Header />
       <main>
         {/* Page header */}
         <section className="pt-36 md:pt-44 pb-16 lg:pb-20 px-6">

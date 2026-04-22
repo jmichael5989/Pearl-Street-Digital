@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import CaseStudyDetailTemplate from "@/components/case-studies/CaseStudyDetailTemplate";
 import {
@@ -56,7 +55,6 @@ export default async function CaseStudyDetailPage({
 
   return (
     <>
-      <Header />
       <main>
         <CaseStudyDetailTemplate caseStudy={caseStudy} />
       </main>

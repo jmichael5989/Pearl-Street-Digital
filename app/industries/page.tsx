@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 
 const industriesList = [
@@ -102,7 +101,6 @@ export default function IndustriesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(industriesSchema) }}
       />
-      <Header />
       <main>
         {/* Hero */}
         <section className="bg-white py-16 lg:py-24">

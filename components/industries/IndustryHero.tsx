@@ -2,7 +2,7 @@ import type { IndustryData } from "@/lib/industries-data";
 
 export default function IndustryHero({ industry }: { industry: IndustryData }) {
   return (
-    <section className="bg-dark py-16 lg:py-24">
+    <section className="bg-dark pt-32 pb-16 lg:pt-40 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">

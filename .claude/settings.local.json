@@ -3,7 +3,14 @@
     "allow": [
       "mcp__claude_ai_Notion__notion-search",
       "mcp__claude_ai_Notion__notion-fetch",
-      "mcp__claude_ai_Notion__notion-update-page"
+      "mcp__claude_ai_Notion__notion-update-page",
+      "Bash(npx next:*)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(sed -i 's/bg-gray-bg/bg-white/g' components/services/ServiceFAQ.tsx components/industries/IndustryFAQ.tsx components/about/AboutValues.tsx components/case-studies/CaseStudyTestimonial.tsx)",
+      "Bash(sed -i 's/bg-gray-bg/bg-light-surface/g' components/contact/ContactContent.tsx)",
+      "Bash(git push:*)",
+      "Bash(ls -la /c/code/Jon/Pearl-Street-Digital/*.config.*)"
     ]
   }
 }

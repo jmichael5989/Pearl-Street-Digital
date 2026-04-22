@@ -14,7 +14,7 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function Header() {
+export default function GlassHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 

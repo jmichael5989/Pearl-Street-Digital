@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import Pricing from "@/components/sections/Pricing";
 
@@ -30,7 +29,6 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <Header />
       <main className="pt-[100px] md:pt-[132px]">
         <Pricing />
       </main>

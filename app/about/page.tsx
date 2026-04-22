@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import AboutHero from "@/components/about/AboutHero";
 import AboutStory from "@/components/about/AboutStory";
@@ -81,7 +80,6 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
       />
-      <Header />
       <main>
         <AboutHero />
         <AboutStory />

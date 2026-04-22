@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import IndustryHero from "@/components/industries/IndustryHero";
 import IndustryPainPoints from "@/components/industries/IndustryPainPoints";
@@ -66,7 +65,6 @@ export default function BeautyPage() {
           ]),
         }}
       />
-      <Header />
       <main>
         <IndustryHero industry={industry} />
         <IndustryPainPoints industry={industry} />
