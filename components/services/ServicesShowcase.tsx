@@ -210,6 +210,7 @@ export default function ServicesShowcase() {
                   aria-controls="services-showcase-panel"
                   onClick={() => setActiveId(service.id)}
                   onMouseEnter={() => setActiveId(service.id)}
+                  onPointerEnter={() => setActiveId(service.id)}
                   onFocus={() => setActiveId(service.id)}
                   className={`group flex-shrink-0 lg:flex-shrink lg:w-full flex items-center gap-3 text-left p-4 rounded-lg border transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 ${
                     isActive
