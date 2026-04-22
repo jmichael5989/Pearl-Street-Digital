@@ -72,7 +72,7 @@ export default function ServicesPage() {
         {/* Description body copy */}
         <section className="bg-white pt-12 pb-8 lg:pt-16 lg:pb-10">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl">
+            <div className="mx-auto max-w-5xl">
               <p className="text-lg text-gray leading-relaxed">
                 We build the kind of digital presence that actually moves a business forward. Every engagement starts with a custom-coded website built for speed, clarity, and conversion -- no templates, no shortcuts, no recycled layouts.
               </p>
