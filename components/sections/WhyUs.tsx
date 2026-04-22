@@ -40,15 +40,7 @@ export default function WhyUs() {
               </p>
             </div>
             <aside className="relative px-6 py-4 text-center lg:border-l-2 lg:border-primary lg:pl-8">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="mx-auto h-8 w-8 text-primary"
-                fill="currentColor"
-              >
-                <path d="M7.17 6A5.17 5.17 0 0 0 2 11.17V18h6v-6H5.5a1.67 1.67 0 0 1 1.67-1.67V6zm10 0A5.17 5.17 0 0 0 12 11.17V18h6v-6h-2.5a1.67 1.67 0 0 1 1.67-1.67V6z" />
-              </svg>
-              <p className="mt-3 font-heading text-xl italic leading-snug text-dark">
+              <p className="font-heading text-xl italic leading-snug text-dark">
                 &ldquo;Great brands don&rsquo;t grow by accident. They grow with
                 the right team behind them.&rdquo;
               </p>
