@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
@@ -74,13 +75,19 @@ export default function HeroMockups() {
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
           <div className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-[11px] text-white/60 font-mono-services">
-            alamoplumbing.com
+            moderndaypestcontrolsa.com
           </div>
         </div>
-        <div
-          className="h-40"
-          style={{ background: "linear-gradient(135deg, #14B8A6 0%, #8B5CF6 100%)" }}
-        />
+        <div className="relative h-48 bg-white">
+          <Image
+            src="/images/mockups/moderndaypestcontrol.webp"
+            alt="Modern Day Pest Control San Antonio — website designed by Rank Point Media"
+            fill
+            sizes="384px"
+            className="object-cover object-top"
+            priority
+          />
+        </div>
       </motion.div>
 
       {/* Card 3 — Toast (front, -3deg, bottom-right) */}
