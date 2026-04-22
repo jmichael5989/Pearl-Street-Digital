@@ -22,6 +22,21 @@
   --font-heading: var(--font-outfit);
   --font-body: var(--font-dm-sans);
   --font-display: var(--font-space-grotesk);
+
+  /* Services-scoped tokens (additive, do not remove) */
+  --font-display-services: var(--font-fraunces);
+  --font-body-services: var(--font-geist);
+  --font-mono-services: var(--font-geist-mono);
+  --color-brand-teal: #14B8A6;
+  --color-brand-violet: #8B5CF6;
+  --color-brand-dark: #0F172A;
+  --color-brand-light: #F0FDFA;
+  --color-brand-gray: #6B7280;
+  --color-brand-text: #1F2937;
+  --color-surface-dark: #0F172A;
+  --color-surface-darker: #020617;
+  --color-surface-light: #FAFAF9;
+  --color-surface-tint: #F0FDFA;
 }
 
 /* ── Typography tokens ─────────────────────────────────── */
@@ -228,4 +243,22 @@ body {
 @keyframes borderTrace {
   0% { --border-angle: 0deg; }
   100% { --border-angle: 360deg; }
+}
+
+/* ── Services-scoped utilities (only active under .services-scope) ── */
+.services-scope .text-balance {
+  text-wrap: balance;
+}
+.services-scope .grain {
+  position: relative;
+}
+.services-scope .grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
+  opacity: 0.03;
+  mix-blend-mode: overlay;
+  z-index: 1;
 }

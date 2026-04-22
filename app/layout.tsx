@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Sans, Space_Grotesk } from "next/font/google";
+import { Outfit, DM_Sans, Space_Grotesk, Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 
@@ -25,6 +25,29 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
   display: "swap",
   fallback: ["system-ui", "sans-serif"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["SOFT", "WONK", "opsz"],
+  style: ["normal", "italic"],
+  display: "swap",
+  fallback: ["Georgia", "serif"],
+});
+
+const geistSans = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["ui-monospace", "monospace"],
 });
 
 export const metadata: Metadata = {
@@ -67,7 +90,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${outfit.variable} ${dmSans.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${outfit.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${fraunces.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script
