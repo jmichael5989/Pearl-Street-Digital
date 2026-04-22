@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Sans } from "next/font/google";
+import { Outfit, DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 
@@ -13,6 +13,14 @@ const outfit = Outfit({
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -59,7 +67,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${outfit.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${outfit.variable} ${dmSans.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script

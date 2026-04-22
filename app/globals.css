@@ -21,6 +21,7 @@
   --color-icon-industry-border: #334155;
   --font-heading: var(--font-outfit);
   --font-body: var(--font-dm-sans);
+  --font-display: var(--font-space-grotesk);
 }
 
 /* ── Typography tokens ─────────────────────────────────── */

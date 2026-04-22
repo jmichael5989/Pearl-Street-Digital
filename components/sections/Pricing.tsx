@@ -147,13 +147,13 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
           Most Popular
         </span>
         <div className="mb-6">
-          <h3 className="font-heading text-xl font-bold text-text-on-dark">
+          <h3 className="font-display text-xl font-bold text-text-on-dark">
             {displayName}
           </h3>
           <p className="text-sm text-text-on-dark-muted mt-1">{displayPages}</p>
         </div>
         <div className="mb-2">
-          <span className="font-heading text-4xl font-extrabold text-white">
+          <span className="font-display text-4xl font-extrabold text-white">
             {displayPrice}
           </span>
           <span className="text-sm text-text-on-dark-muted ml-2">{priceLabel}</span>
@@ -191,13 +191,13 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   return (
     <div className="flex h-full flex-col rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]">
       <div className="mb-6">
-        <h3 className="font-heading text-xl font-bold text-text">
+        <h3 className="font-display text-xl font-bold text-text">
           {displayName}
         </h3>
         <p className="text-sm text-gray mt-1">{displayPages}</p>
       </div>
       <div className="mb-2">
-        <span className="font-heading text-4xl font-extrabold text-text">
+        <span className="font-display text-4xl font-extrabold text-text">
           {displayPrice}
         </span>
         <span className="text-sm text-gray ml-2">{priceLabel}</span>
@@ -239,7 +239,7 @@ export default function Pricing() {
             <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
               Transparent Pricing
             </span>
-            <h2 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
+            <h2 className="mt-3 font-display font-bold text-text" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
               Simple Pricing. No Surprises.
             </h2>
             <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -312,7 +312,7 @@ export default function Pricing() {
             <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
               Custom Services
             </span>
-            <h3 className="mt-3 font-heading font-bold text-text" style={{ fontSize: "var(--text-h3)", lineHeight: 1.2 }}>
+            <h3 className="mt-3 font-display font-bold text-text" style={{ fontSize: "var(--text-h3)", lineHeight: 1.2 }}>
               Scoped to Your Business. Priced to Match.
             </h3>
             <p className="mt-4 text-gray max-w-2xl mx-auto">
@@ -389,7 +389,7 @@ function CustomServiceCard({ service }: { service: CustomService }) {
         aria-hidden="true"
       />
       <div className="mb-6">
-        <h4 className="font-heading text-xl font-bold text-text">
+        <h4 className="font-display text-xl font-bold text-text">
           {service.title}
         </h4>
         <p className="text-base text-text/80 mt-3 leading-relaxed">
