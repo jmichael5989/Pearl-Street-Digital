@@ -244,7 +244,7 @@ export default function Pricing() {
                 onClick={() => setHosted(true)}
                 className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
                   hosted
-                    ? "bg-white text-text shadow-sm"
+                    ? "bg-primary text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
                     : "text-gray hover:text-text"
                 }`}
               >
@@ -255,7 +255,7 @@ export default function Pricing() {
                 onClick={() => setHosted(false)}
                 className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
                   !hosted
-                    ? "bg-white text-text shadow-sm"
+                    ? "bg-primary text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
                     : "text-gray hover:text-text"
                 }`}
               >
