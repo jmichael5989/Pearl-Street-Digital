@@ -4,6 +4,27 @@ import { useState } from "react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import FeatureIndicator from "@/components/icons/FeatureIndicator";
 
+function InfoIcon() {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="opacity-70"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+  );
+}
+
 interface PlanFeature {
   text: string;
   emphasized?: boolean;
@@ -226,29 +247,52 @@ export default function Pricing() {
             </p>
 
             {/* Toggle */}
-            <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-light-surface p-1.5">
-              <button
-                type="button"
-                onClick={() => setHosted(true)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
-                  hosted
-                    ? "bg-primary text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
-                    : "text-gray hover:text-text"
-                }`}
-              >
-                Build + Hosting
-              </button>
-              <button
-                type="button"
-                onClick={() => setHosted(false)}
-                className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 ${
-                  !hosted
-                    ? "bg-primary text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
-                    : "text-gray hover:text-text"
-                }`}
-              >
-                Build Only
-              </button>
+            <div className="mt-8 inline-flex flex-col items-center">
+              <span className="mb-3 text-xs font-medium uppercase tracking-[0.15em] text-gray">
+                Choose Your Model
+              </span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-light-surface p-1.5">
+                <button
+                  type="button"
+                  onClick={() => setHosted(true)}
+                  className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer md:px-8 md:py-3 md:text-base ${
+                    hosted
+                      ? "bg-primary text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
+                      : "text-text/75 hover:bg-white/60 hover:text-text"
+                  }`}
+                >
+                  Build + Hosting
+                  <span className="group/info relative inline-flex cursor-help">
+                    <InfoIcon />
+                    <span
+                      role="tooltip"
+                      className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-56 -translate-x-1/2 rounded-lg bg-dark px-3 py-2 text-xs font-normal leading-relaxed tracking-normal text-white opacity-0 shadow-lg transition-opacity duration-150 group-hover/info:opacity-100 group-focus-within/info:opacity-100 normal-case"
+                    >
+                      Monthly subscription. We handle hosting, security, backups, and ongoing updates.
+                    </span>
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHosted(false)}
+                  className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer md:px-8 md:py-3 md:text-base ${
+                    !hosted
+                      ? "bg-primary text-white shadow-[0_4px_14px_rgba(37,99,235,0.35)]"
+                      : "text-text/75 hover:bg-white/60 hover:text-text"
+                  }`}
+                >
+                  Build Only
+                  <span className="group/info relative inline-flex cursor-help">
+                    <InfoIcon />
+                    <span
+                      role="tooltip"
+                      className="pointer-events-none absolute left-1/2 top-full z-20 mt-2 w-56 -translate-x-1/2 rounded-lg bg-dark px-3 py-2 text-xs font-normal leading-relaxed tracking-normal text-white opacity-0 shadow-lg transition-opacity duration-150 group-hover/info:opacity-100 group-focus-within/info:opacity-100 normal-case"
+                    >
+                      One-time project. You own and host the site yourself after delivery.
+                    </span>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </ScrollReveal>
