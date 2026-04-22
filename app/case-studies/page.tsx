@@ -1,8 +1,14 @@
 import { Metadata } from "next";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
-import CaseStudyCard from "@/components/ui/CaseStudyCard";
-import { getAllCaseStudies } from "@/lib/case-studies-data";
+import FeaturedCaseStudy from "@/components/case-studies/FeaturedCaseStudy";
+import CaseStudyGrid from "@/components/case-studies/CaseStudyGrid";
+import FoundingClientCTA from "@/components/case-studies/FoundingClientCTA";
+import {
+  caseStudies,
+  getFeaturedCaseStudy,
+  getGridCaseStudies,
+} from "@/lib/case-studies-data";
 
 export const metadata: Metadata = {
   title: "Case Studies San Antonio | Rank Point Media",
@@ -27,7 +33,10 @@ export const metadata: Metadata = {
 };
 
 export default function CaseStudiesPage() {
-  const studies = getAllCaseStudies();
+  const featured = getFeaturedCaseStudy();
+  const gridItems = getGridCaseStudies();
+  const totalCount = caseStudies.length;
+  const showCTAProminent = totalCount < 4;
 
   return (
     <>
@@ -51,36 +60,34 @@ export default function CaseStudiesPage() {
       />
       <Header />
       <main>
-        {/* Hero */}
-        <section className="bg-white pt-32 pb-16 lg:pb-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
-                Our Work
-              </span>
-              <h1 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-                Real Results for Real Businesses
-              </h1>
-              <p className="mt-5 text-lg text-gray leading-relaxed">
-                Every project starts with a real problem and ends with
-                measurable results. Here is what we have delivered for
-                businesses in San Antonio and beyond.
-              </p>
-            </div>
+        {/* Page header */}
+        <section className="pt-36 md:pt-44 pb-16 lg:pb-20 px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-sm font-semibold tracking-widest uppercase text-teal-600 mb-4">
+              Our Work
+            </p>
+            <h1 className="font-heading font-bold text-4xl md:text-6xl text-slate-900 mb-6 leading-tight tracking-tight">
+              Real Results for Real Businesses
+            </h1>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Every project starts with a real problem and ends with
+              measurable results. Here is what we have delivered for
+              businesses in San Antonio and beyond.
+            </p>
           </div>
         </section>
 
-        {/* Case Studies Grid */}
-        <section className="bg-light py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {studies.map((study) => (
-                <CaseStudyCard key={study.slug} study={study} />
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Zone 1: Featured hero */}
+        {featured && <FeaturedCaseStudy caseStudy={featured} />}
 
+        {/* Zone 3a: Prominent Founding Client CTA (count < 4) */}
+        {showCTAProminent && <FoundingClientCTA variant="prominent" />}
+
+        {/* Zone 2: Grid (count >= 2) */}
+        {gridItems.length > 0 && <CaseStudyGrid caseStudies={gridItems} />}
+
+        {/* Zone 3b: Compact CTA at bottom (count >= 4) */}
+        {!showCTAProminent && <FoundingClientCTA variant="compact" />}
       </main>
       <Footer />
     </>

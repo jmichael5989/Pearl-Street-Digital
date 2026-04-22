@@ -1,133 +1,127 @@
-export interface CaseStudyResult {
-  label: string;
+export interface CaseStudyMetric {
   value: string;
-  description?: string;
+  label: string;
 }
 
-export interface CaseStudyData {
+export interface CaseStudyOutcome {
+  title: string;
+  description: string;
+}
+
+export interface CaseStudy {
+  id: string;
   slug: string;
-  clientName: string;
+  client: string;
   industry: string;
-  industryColor: "teal" | "violet";
-  serviceSlugs: string[];
-  metaTitle: string;
-  metaDescription: string;
-  heroTagline: string;
-  challenge: {
-    heading: string;
-    paragraphs: string[];
-  };
-  solution: {
-    heading: string;
-    paragraphs: string[];
-    tactics: string[];
-  };
-  results: CaseStudyResult[];
-  testimonial?: {
-    quote: string;
-    name: string;
+  industrySlug: string;
+  services: string[];
+  outcomeHeadline: string;
+  summary: string;
+  heroMetrics: CaseStudyMetric[];
+  cardMetrics: CaseStudyMetric[];
+  pullQuote?: {
+    text: string;
+    author: string;
     title: string;
   };
-  techStack?: string[];
+  thumbnailUrl: string;
+  thumbnailAlt: string;
+  heroImageUrl: string;
+  heroImageAlt: string;
+  featured: boolean;
+  publishedAt: string;
+  challenge: string;
+  approach: string;
+  outcomes: CaseStudyOutcome[];
 }
 
-export const caseStudies: CaseStudyData[] = [
+export const caseStudies: CaseStudy[] = [
   {
+    id: "modern-day-pest-control",
     slug: "modern-day-pest-control",
-    clientName: "Modern Day Pest Control",
+    client: "Modern Day Pest Control",
     industry: "Home Services",
-    industryColor: "teal",
-    serviceSlugs: ["website-design", "local-seo"],
-    metaTitle:
-      "Modern Day Pest Control Case Study | San Antonio Pest Control Website | Rank Point Media",
-    metaDescription:
-      "How Modern Day Pest Control got a fast, mobile-first website and local SEO foundation built to capture San Antonio homeowners searching for pest control services.",
-    heroTagline:
-      "A fast, mobile-first pest control website built to convert homeowners searching for help right now.",
-    challenge: {
-      heading: "The Challenge",
-      paragraphs: [
-        "Modern Day Pest Control is a San Antonio pest control business competing in a crowded market dominated by national brands like Orkin and Terminix. When a homeowner sees a roach or a wasp nest, they grab their phone and search -- and whoever shows up first gets the call.",
-        "The business needed a professional online presence that could compete with the national chains, load instantly on mobile devices, and make it easy for new customers to request service without waiting on hold. Every minute of delay was another customer going to a competitor.",
-      ],
-    },
-    solution: {
-      heading: "The Solution",
-      paragraphs: [
-        "We built Modern Day Pest Control a custom mobile-first website designed around the way homeowners actually shop for pest control -- quick access to service offerings, clear pricing expectations, and a prominent call-to-action on every screen.",
-        "The site was built on modern web technology with performance as the top priority. Every service page was optimized for local San Antonio searches, and a LocalBusiness schema was implemented to help Google understand exactly what the business does and where it serves.",
-      ],
-      tactics: [
-        "Custom mobile-first design optimized for homeowners on their phones",
-        "Clear service pages for residential, commercial, and specialty pest control",
-        "Click-to-call and quote request forms prominently featured site-wide",
-        "LocalBusiness and Service JSON-LD schema for rich search results",
-        "Local SEO targeting \"pest control San Antonio\" and service-area searches",
-        "Fast load times under two seconds to beat slower competitor sites",
-      ],
-    },
-    results: [
-      { label: "Lighthouse Performance", value: "95+", description: "Google Lighthouse score" },
-      { label: "Mobile Optimized", value: "100%", description: "Mobile-first responsive" },
-      { label: "Build Time", value: "5 Days", description: "From concept to live" },
-      { label: "Page Load", value: "<2s", description: "Time to interactive" },
-      { label: "Service Areas", value: "SA Metro", description: "Full local SEO coverage" },
-      { label: "Call-to-Action", value: "Every Page", description: "Quote + click-to-call" },
+    industrySlug: "home-services",
+    services: ["Website Design", "Local SEO"],
+    outcomeHeadline:
+      "Pest Control Website Built in 5 Days, Scoring 95+ on Lighthouse",
+    summary:
+      "A fast, mobile-first pest control website built to convert homeowners searching for help right now. Delivered in 5 business days with a Lighthouse performance score of 95+ and full local SEO foundation on day one.",
+    heroMetrics: [
+      { value: "95+", label: "Lighthouse Performance" },
+      { value: "5 Days", label: "Build Time" },
+      { value: "<2s", label: "Page Load" },
     ],
-    techStack: ["Next.js", "Tailwind CSS", "Vercel", "React", "TypeScript"],
-  },
-  {
-    slug: "rank-point-media",
-    clientName: "Rank Point Media",
-    industry: "Digital Marketing",
-    industryColor: "teal",
-    serviceSlugs: ["website-design", "local-seo"],
-    metaTitle:
-      "Rank Point Media Case Study | Agency Website Built in 5 Days | Rank Point Media",
-    metaDescription:
-      "How Rank Point Media built a high-performance agency website in 5 days with Lighthouse 98+ scores, saving 85% compared to traditional agency builds.",
-    heroTagline:
-      "A high-performance agency website built in days, not months -- at a fraction of the traditional cost.",
-    challenge: {
-      heading: "The Challenge",
-      paragraphs: [
-        "A new digital marketing agency in San Antonio needed a website that could compete with established firms charging $5,500 to $11,000 for custom sites. The site had to load fast, rank well in search, and demonstrate the exact quality of work the agency would deliver to its own clients.",
-        "Traditional agency timelines of 8 to 12 weeks were not an option. The site needed to be live within days, not months, while still hitting Lighthouse 95+ scores across all categories and meeting WCAG 2.1 AA accessibility standards.",
-      ],
-    },
-    solution: {
-      heading: "The Solution",
-      paragraphs: [
-        "Rank Point Media built its own agency website using Next.js, Tailwind CSS, and an AI-augmented development workflow. Every page was designed mobile-first, tested at five breakpoints, and optimized for Core Web Vitals from the start.",
-        "The site was deployed on Vercel with automatic builds, preview deployments, and edge caching. Structured data was implemented on every page -- LocalBusiness schema, Service schema, and FAQ schema -- giving search engines rich context from day one.",
-      ],
-      tactics: [
-        "Next.js App Router with static generation for sub-second page loads",
-        "Tailwind CSS design system with brand tokens for consistent styling",
-        "Mobile-first responsive design tested at 320px through 1440px",
-        "LocalBusiness and Service JSON-LD schema on every page",
-        "WebP images with lazy loading and proper alt text throughout",
-        "AI-augmented development workflow for faster iteration cycles",
-      ],
-    },
-    results: [
-      { label: "Lighthouse Performance", value: "98", description: "Google Lighthouse score" },
-      { label: "Lighthouse SEO", value: "100", description: "Perfect SEO score" },
-      { label: "Build Time", value: "5 Days", description: "From concept to deploy" },
-      { label: "Page Load", value: "1.2s", description: "Time to interactive" },
-      { label: "Cost Savings", value: "85%", description: "vs. traditional agency" },
-      { label: "Pages Built", value: "19+", description: "Fully optimized pages" },
+    cardMetrics: [
+      { value: "95+", label: "Lighthouse" },
+      { value: "5 Days", label: "Build Time" },
     ],
-    techStack: ["Next.js", "Tailwind CSS", "Vercel", "React", "TypeScript"],
+    thumbnailUrl:
+      "/images/case-studies/modern-day-pest-control-thumb.jpg",
+    thumbnailAlt:
+      "Modern Day Pest Control website on a laptop screen",
+    heroImageUrl:
+      "/images/case-studies/modern-day-pest-control-hero.jpg",
+    heroImageAlt:
+      "Modern Day Pest Control website homepage preview",
+    featured: true,
+    publishedAt: "2026-03-15",
+    challenge:
+      "Modern Day Pest Control is a San Antonio pest control business competing in a crowded market dominated by national brands like Orkin and Terminix. When a homeowner spots a roach or a wasp nest, they grab their phone and search -- whoever shows up first gets the call. The business needed a professional online presence that could compete with the national chains, load instantly on mobile, and make it trivial for new customers to request service without waiting on hold.",
+    approach:
+      "We built Modern Day Pest Control a custom mobile-first website designed around the way homeowners actually shop for pest control -- quick access to service offerings, clear pricing expectations, and a prominent call-to-action on every screen. The site was built on Next.js and Tailwind CSS with performance as the top priority. Every service page was optimized for local San Antonio searches, and LocalBusiness + Service JSON-LD schema was implemented on day one so Google understood exactly what the business does and where it serves.",
+    outcomes: [
+      {
+        title: "Lighthouse 95+ performance score",
+        description:
+          "Fast sites convert better and rank better. A 95+ score means ads spend less per conversion and organic SEO lifts faster.",
+      },
+      {
+        title: "Site launched in 5 business days",
+        description:
+          "An AI-augmented development workflow compressed a typical 6-to-10 week agency timeline into a single business week.",
+      },
+      {
+        title: "Schema markup + Google Business Profile optimized on day one",
+        description:
+          "LocalBusiness and Service schema gave Google rich context immediately, shortening the runway to first page for local searches.",
+      },
+      {
+        title: "Mobile-first design for 70%+ mobile traffic",
+        description:
+          "Click-to-call and quote-request forms were prioritized above the fold so homeowners in a hurry never had to scroll to ask for help.",
+      },
+    ],
   },
 ];
 
-export function getCaseStudy(slug: string): CaseStudyData {
-  const study = caseStudies.find((s) => s.slug === slug);
-  if (!study) throw new Error(`Case study not found: ${slug}`);
-  return study;
+export function getFeaturedCaseStudy(): CaseStudy | null {
+  const featured = caseStudies.filter((cs) => cs.featured);
+  if (featured.length === 0) {
+    const sorted = [...caseStudies].sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    );
+    return sorted[0] ?? null;
+  }
+  const sortedFeatured = [...featured].sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  );
+  return sortedFeatured[0];
 }
 
-export function getAllCaseStudies(): CaseStudyData[] {
-  return caseStudies;
+export function getGridCaseStudies(): CaseStudy[] {
+  const featured = getFeaturedCaseStudy();
+  if (!featured) return [];
+  return caseStudies
+    .filter((cs) => cs.id !== featured.id)
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    );
+}
+
+export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
+  return caseStudies.find((cs) => cs.slug === slug);
 }
