@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Megaphone, Palette, Code2, type LucideIcon } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import FeatureIndicator from "@/components/icons/FeatureIndicator";
 
@@ -336,11 +337,13 @@ interface CustomService {
   title: string;
   description: string;
   features: string[];
+  icon: LucideIcon;
 }
 
 const customServices: CustomService[] = [
   {
     title: "Social Media Advertising",
+    icon: Megaphone,
     description:
       "Paid campaigns across Facebook, Instagram, and TikTok that put your business in front of the right audience at the right moment.",
     features: [
@@ -352,6 +355,7 @@ const customServices: CustomService[] = [
   },
   {
     title: "Graphic Design Services",
+    icon: Palette,
     description:
       "Logos, brand identity, print collateral, and digital assets designed to make your business look as credible as it is.",
     features: [
@@ -363,6 +367,7 @@ const customServices: CustomService[] = [
   },
   {
     title: "Custom Web Apps with AI",
+    icon: Code2,
     description:
       "Purpose-built web applications with AI integrations that automate workflows, answer customer questions, and unlock new revenue streams.",
     features: [
@@ -375,8 +380,14 @@ const customServices: CustomService[] = [
 ];
 
 function CustomServiceCard({ service }: { service: CustomService }) {
+  const Icon = service.icon;
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]">
+    <div className="flex h-full flex-col rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-200 hover:border-primary hover:-translate-y-1 hover:shadow-lg">
+      <Icon
+        className="w-8 h-8 text-primary mb-4"
+        strokeWidth={1.5}
+        aria-hidden="true"
+      />
       <div className="mb-6">
         <h4 className="font-heading text-xl font-bold text-text">
           {service.title}
@@ -385,12 +396,12 @@ function CustomServiceCard({ service }: { service: CustomService }) {
           {service.description}
         </p>
       </div>
-      <div className="mb-2">
-        <span className="font-heading text-3xl font-extrabold text-text">
+      <div className="mb-1">
+        <span className="text-base font-semibold text-text">
           Call for Pricing
         </span>
       </div>
-      <p className="text-base font-semibold text-primary mb-6">
+      <p className="text-sm font-medium text-gray mb-6">
         Scoped to your project
       </p>
       <ul className="space-y-3 mb-8 flex-1">
