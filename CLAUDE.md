@@ -83,10 +83,11 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - Hero primary CTA: Teal gradient (135deg, #14B8A6 to #0D9488)
 - Secondary buttons: #0F172A dark with white text
 
-### Typography (FINAL -- never deviate)
-- Headings/Display: Outfit (Google Fonts), weights 600-800
-- Body text: DM Sans (Google Fonts), weights 400-600
-- NEVER use Inter, Roboto, Arial, or system fonts
+### Typography (SUPERSEDED -- see .impeccable.md dial calibration)
+> **The former "FINAL -- never deviate" lock on Outfit + DM Sans is SUPERSEDED by the design brief at `.impeccable.md` (approved 2026-04-23). A new type pairing will be chosen through the three-option dial-calibration process documented in `.impeccable.md` Resolved Decisions §1. Until that outcome is final, Outfit + DM Sans remain in place as a holdover. Do NOT silently substitute a different pairing without going through the dial-calibration presentation.**
+- Headings/Display (holdover, pending dial calibration): Outfit (Google Fonts), weights 600-800
+- Body text (holdover, pending dial calibration): DM Sans (Google Fonts), weights 400-600
+- NEVER use Inter, Geist, Roboto, Arial, or system fonts
 - Section labels: 0.78rem, weight 600, letter-spacing 0.12em, uppercase
 
 ### Design System
@@ -122,6 +123,8 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - Toggle on /pricing defaults to Build + Hosting (monthly): Starter $99/mo, Business $149/mo (featured/dark card), Growth $249/mo -- 12-month term, hosting + security + backups + ongoing updates included
 - Build Only (one-time) option available via toggle: Starter $500, Business $1,000, Growth $1,500 -- no hosting, client owns and hosts after delivery
 - Business tier gets dark #0F172A card, primary border, "MOST POPULAR" badge (only shown under Build + Hosting toggle)
+- **Phase disclosure handled per `.impeccable.md` Early-stage Disclosure Posture (Position 2: Disclosed, not sold).** No founding-client badges, no scarcity mechanics, no slot counts, no "limited time" framing. A single plainspoken paragraph on the About page and one line on the pricing page carry the phase acknowledgement; the homepage does not.
+- **Pricing transparency is a design principle**, per `.impeccable.md`. No "starting at" hooks that conceal typical engagements. No "contact us for pricing" on the Services page. No budget-qualifying form fields before a prospect sees any number. No tiers where the top one is replaced with "Let's talk."
 
 ### SEO Rules
 - Every page title: "[Service/Page] San Antonio | Rank Point Media"
@@ -129,7 +132,7 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - LocalBusiness JSON-LD schema on every page
 - Service schema on service pages
 - FAQ schema on pages with FAQ sections
-- Proper hreflang tags for English/Spanish page pairs
+- **English-only at launch.** No `hreflang` tags for Spanish pairs. Spanish-language capability is a roadmap item per `.impeccable.md` Resolved Decisions §2 — it ships only when deliverable at native quality, and SEO hreflang/alternate-language tagging is added at that time, not before.
 
 ### Tech Stack
 - Framework: Next.js 14+ (App Router)
