@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ServiceHero from "@/components/services/ServiceHero";
+import DarkHero from "@/components/heroes/DarkHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -52,7 +52,21 @@ export default function ReputationManagementPage() {
         }}
       />
       <main>
-        <ServiceHero service={service} />
+        <DarkHero
+          kicker="— BRAND MANAGEMENT"
+          headline="Five stars, earned and protected."
+          headlineAccent="earned"
+          subheadline="Monitor, respond to, and grow your online reviews across Google, Yelp, and Facebook. Build the reputation that makes customers choose you."
+          primaryCta={{ label: "Get Reputation Audit", href: "/contact" }}
+          secondaryCta={{ label: "See Pricing", href: "/pricing" }}
+          metrics={[
+            { value: "93%", label: "Read Reviews First" },
+            { value: "24hr", label: "Response Time" },
+            { value: "5★", label: "Target Rating" },
+            { value: "All", label: "Review Platforms" },
+          ]}
+          mockupVariant="reputation"
+        />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />

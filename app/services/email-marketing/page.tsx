@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ServiceHero from "@/components/services/ServiceHero";
+import DarkHero from "@/components/heroes/DarkHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -52,7 +52,21 @@ export default function EmailMarketingPage() {
         }}
       />
       <main>
-        <ServiceHero service={service} />
+        <DarkHero
+          kicker="— EMAIL MARKETING"
+          headline="Visitors today, repeat customers tomorrow."
+          headlineAccent="repeat"
+          subheadline="Email campaigns and automations that turn one-time San Antonio visitors into loyal customers. Opens, clicks, and revenue — not just another newsletter nobody reads."
+          primaryCta={{ label: "Get Free Email Audit", href: "/contact" }}
+          secondaryCta={{ label: "See Pricing", href: "/pricing" }}
+          metrics={[
+            { value: "$36", label: "ROI Per $1 Spent" },
+            { value: "4x", label: "More Engagement" },
+            { value: "24/7", label: "Automations Running" },
+            { value: "Owned", label: "Your List, Your Asset" },
+          ]}
+          mockupVariant="generic"
+        />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />

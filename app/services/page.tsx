@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { services } from "@/lib/services-data";
+import DarkHero from "@/components/heroes/DarkHero";
 import ServicesShowcase from "@/components/services/ServicesShowcase";
 import FAQ from "@/components/sections/FAQ";
 import CustomDevelopmentCallout from "@/components/sections/CustomDevelopmentCallout";
@@ -52,19 +53,21 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
       />
       <main>
-        {/* Blue hero banner containing eyebrow + H1 */}
-        <section className="pt-[100px] md:pt-[132px]" style={{ background: "#2563EB" }}>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 lg:pt-16 pb-10 lg:pb-14">
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-white/80">
-                Our Services
-              </span>
-              <h1 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-                Digital Marketing Services for Local Businesses
-              </h1>
-            </div>
-          </div>
-        </section>
+        <DarkHero
+          kicker="— OUR SERVICES"
+          headline="Six ways to grow your business online."
+          headlineAccent="grow"
+          subheadline="From custom websites to AI search optimization, we give San Antonio small businesses the digital marketing toolkit of a much larger agency — at prices built for local owners."
+          primaryCta={{ label: "Book Free Consultation", href: "/contact" }}
+          secondaryCta={{ label: "See Pricing", href: "/pricing" }}
+          metrics={[
+            { value: "6", label: "Core Services" },
+            { value: "100%", label: "Built In-House" },
+            { value: "SA", label: "Local Agency" },
+            { value: "$99", label: "Starting Monthly" },
+          ]}
+          mockupVariant="generic"
+        />
 
         {/* Description body copy */}
         <section className="bg-white pt-12 pb-8 lg:pt-16 lg:pb-10">

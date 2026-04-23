@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Footer from "@/components/ui/Footer";
-import ContactHero from "@/components/contact/ContactHero";
+import DarkHero from "@/components/heroes/DarkHero";
 import ContactContent from "@/components/contact/ContactContent";
 
 export const metadata: Metadata = {
@@ -58,7 +58,15 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
       <main>
-        <ContactHero />
+        <DarkHero
+          kicker="— LET'S TALK"
+          headline="Tell us about your business."
+          headlineAccent="your business"
+          subheadline="Free 30-minute consultation. We'll listen first, then show you exactly how Rank Point Media can help you grow."
+          primaryCta={{ label: "Call (210) 555-1234", href: "tel:+12105551234" }}
+          secondaryCta={{ label: "Email Us", href: "mailto:hello@rankpointmedia.com" }}
+          showMockups={false}
+        />
         <ContactContent />
       </main>
       <Footer hidePreFooterCTA />

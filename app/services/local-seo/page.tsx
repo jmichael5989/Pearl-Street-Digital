@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ServiceHero from "@/components/services/ServiceHero";
+import DarkHero from "@/components/heroes/DarkHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -52,7 +52,21 @@ export default function LocalSeoPage() {
         }}
       />
       <main>
-        <ServiceHero service={service} />
+        <DarkHero
+          kicker="— LOCAL SEO"
+          headline="Rank higher in San Antonio."
+          headlineAccent="higher"
+          subheadline="Get found on Google Maps and local search before your competitors do. Dominate the 3-pack for your neighborhood, your service, your customer."
+          primaryCta={{ label: "Get Free SEO Audit", href: "/contact" }}
+          secondaryCta={{ label: "See Pricing", href: "/pricing" }}
+          metrics={[
+            { value: "46%", label: "Local Intent Searches" },
+            { value: "88%", label: "Result in Visits" },
+            { value: "3-6", label: "Months to Results" },
+            { value: "24/7", label: "Always Working" },
+          ]}
+          mockupVariant="seo"
+        />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />

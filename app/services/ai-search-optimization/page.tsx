@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ServiceHero from "@/components/services/ServiceHero";
+import DarkHero from "@/components/heroes/DarkHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -52,7 +52,21 @@ export default function AiSearchOptimizationPage() {
         }}
       />
       <main>
-        <ServiceHero service={service} />
+        <DarkHero
+          kicker="— AI SEARCH"
+          headline="Get found on ChatGPT and Perplexity."
+          headlineAccent="ChatGPT"
+          subheadline="AI assistants are the new search engines. We optimize your business for ChatGPT, Perplexity, Google AI Overviews, and Claude so customers find you in the answer, not in the 10th link."
+          primaryCta={{ label: "Check Your AI Visibility", href: "/contact" }}
+          secondaryCta={{ label: "See Pricing", href: "/pricing" }}
+          metrics={[
+            { value: "800M+", label: "AI Searches Weekly" },
+            { value: "4", label: "AI Engines Optimized" },
+            { value: "First", label: "Mover Advantage" },
+            { value: "2026", label: "Built for Now" },
+          ]}
+          mockupVariant="ai"
+        />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />

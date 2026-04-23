@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ServiceHero from "@/components/services/ServiceHero";
+import DarkHero from "@/components/heroes/DarkHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -52,7 +52,21 @@ export default function SocialMediaPage() {
         }}
       />
       <main>
-        <ServiceHero service={service} />
+        <DarkHero
+          kicker="— SOCIAL MEDIA"
+          headline="Content that actually builds a following."
+          headlineAccent="actually"
+          subheadline="Consistent, on-brand social content for San Antonio businesses. Post strategy, creative production, and community management — done for you, done right."
+          primaryCta={{ label: "Get Started", href: "/contact" }}
+          secondaryCta={{ label: "See Pricing", href: "/pricing" }}
+          metrics={[
+            { value: "3-5x", label: "Posts Per Week" },
+            { value: "4", label: "Platforms Managed" },
+            { value: "24hr", label: "Response Time" },
+            { value: "Monthly", label: "Performance Reports" },
+          ]}
+          mockupVariant="social"
+        />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Footer from "@/components/ui/Footer";
+import DarkHero from "@/components/heroes/DarkHero";
 import FeaturedCaseStudy from "@/components/case-studies/FeaturedCaseStudy";
 import CaseStudyGrid from "@/components/case-studies/CaseStudyGrid";
 import FoundingClientCTA from "@/components/case-studies/FoundingClientCTA";
@@ -58,22 +59,15 @@ export default function CaseStudiesPage() {
         }}
       />
       <main>
-        {/* Page header */}
-        <section className="pt-36 md:pt-44 pb-16 lg:pb-20 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-xl md:text-2xl font-extrabold tracking-widest uppercase text-teal-600 mb-4">
-              Our Work
-            </p>
-            <h1 className="font-heading font-bold text-4xl md:text-6xl text-slate-900 mb-6 leading-tight tracking-tight">
-              Real Results for Real Businesses
-            </h1>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Every project starts with a real problem and ends with
-              measurable results. Here is what we have delivered for
-              businesses in San Antonio and beyond.
-            </p>
-          </div>
-        </section>
+        <DarkHero
+          kicker="— CASE STUDIES"
+          headline="Real results for real San Antonio businesses."
+          headlineAccent="Real results"
+          subheadline="From HVAC to restaurants to law firms, see how local businesses use Rank Point Media to grow traffic, leads, and revenue."
+          primaryCta={{ label: "Start Your Project", href: "/contact" }}
+          secondaryCta={{ label: "See Services", href: "/services" }}
+          showMockups={false}
+        />
 
         {/* Zone 1: Featured hero */}
         {featured && <FeaturedCaseStudy caseStudy={featured} />}

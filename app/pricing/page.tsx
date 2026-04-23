@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Footer from "@/components/ui/Footer";
+import DarkHero from "@/components/heroes/DarkHero";
 import Pricing from "@/components/sections/Pricing";
 
 export const metadata: Metadata = {
@@ -29,7 +30,22 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <main className="pt-[100px] md:pt-[132px]">
+      <main>
+        <DarkHero
+          kicker="— TRANSPARENT PRICING"
+          headline="Simple pricing. No surprises."
+          headlineAccent="Simple"
+          subheadline="Flexible monthly plans that fit your budget. No hidden costs, no surprise invoices. You own everything we build."
+          primaryCta={{ label: "Get Custom Quote", href: "/contact" }}
+          secondaryCta={{ label: "See Services", href: "/services" }}
+          showMockups={false}
+          metrics={[
+            { value: "$99", label: "Starter" },
+            { value: "$149", label: "Business" },
+            { value: "$249", label: "Growth" },
+            { value: "Custom", label: "Enterprise" },
+          ]}
+        />
         <Pricing />
       </main>
       <Footer />
