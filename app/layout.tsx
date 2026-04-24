@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
-import { Outfit, DM_Sans, Space_Grotesk, Fraunces, Geist, Geist_Mono } from "next/font/google";
+import { Source_Serif_4, Source_Sans_3, Space_Grotesk, Fraunces, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import HeaderRouter from "@/components/ui/HeaderRouter";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+// Primary display face. Locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
+// Loaded as a variable font (weight axis 200-900) with italic — omitting `weight`
+// gives us the full variable axis in a single file per style.
+const sourceSerif4 = Source_Serif_4({
+  variable: "--font-source-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  style: ["normal", "italic"],
   display: "swap",
-  fallback: ["system-ui", "sans-serif"],
+  fallback: ["Georgia", "Iowan Old Style", "serif"],
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+// Primary body face. Locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
+// `display: 'optional'` avoids FOUT on long-read body; fallback is Arial so CLS
+// stays near zero when the font is not yet cached.
+const sourceSans3 = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  fallback: ["system-ui", "sans-serif"],
+  style: ["normal", "italic"],
+  display: "optional",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -91,7 +97,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${outfit.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${fraunces.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${sourceSerif4.variable} ${sourceSans3.variable} ${spaceGrotesk.variable} ${fraunces.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script

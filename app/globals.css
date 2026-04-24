@@ -19,8 +19,9 @@
   --color-icon-service-border: #334155;
   --color-icon-industry-bg: #1E293B;
   --color-icon-industry-border: #334155;
-  --font-heading: var(--font-outfit);
-  --font-body: var(--font-dm-sans);
+  /* Primary pair — locked 2026-04-24 per .impeccable.md Resolved Decisions §1 */
+  --font-heading: var(--font-source-serif);
+  --font-body: var(--font-source-sans);
   --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
 
