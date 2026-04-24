@@ -21,7 +21,7 @@ export default function CaseStudyDetailTemplate({
             All case studies
           </Link>
 
-          <p className="text-sm font-semibold tracking-widest uppercase bg-gradient-to-r from-teal-400 to-violet-400 bg-clip-text text-transparent mb-4">
+          <p className="text-sm font-semibold tracking-widest uppercase text-[#14B8A6] mb-4">
             {caseStudy.industry}
           </p>
           <h1 className="font-heading font-bold text-4xl md:text-6xl text-white mb-4 leading-tight tracking-tight">
@@ -34,7 +34,7 @@ export default function CaseStudyDetailTemplate({
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-700">
             {caseStudy.heroMetrics.map((m) => (
               <div key={m.label}>
-                <div className="font-heading font-bold text-3xl md:text-4xl bg-gradient-to-r from-teal-400 to-violet-400 bg-clip-text text-transparent">
+                <div className="font-heading font-bold text-3xl md:text-4xl text-[#14B8A6]">
                   {m.value}
                 </div>
                 <div className="text-xs text-slate-400 uppercase tracking-wider mt-1">

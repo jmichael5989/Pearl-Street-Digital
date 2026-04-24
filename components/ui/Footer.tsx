@@ -309,11 +309,8 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                 Design by:
               </span>
               <span
-                className="uppercase tracking-[0.18em] font-semibold bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(90deg, #94A3B8, #2563EB)",
-                }}
+                className="uppercase tracking-[0.18em] font-semibold"
+                style={{ color: "#14B8A6" }}
               >
                 Rank Point Media
               </span>

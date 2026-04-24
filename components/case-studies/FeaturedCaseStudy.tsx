@@ -47,7 +47,7 @@ export default function FeaturedCaseStudy({
             <div className="grid grid-cols-3 gap-6 mb-8 pb-8 border-b border-slate-200">
               {caseStudy.heroMetrics.map((m) => (
                 <div key={m.label}>
-                  <div className="font-heading font-bold text-3xl bg-gradient-to-r from-teal-500 to-violet-500 bg-clip-text text-transparent">
+                  <div className="font-heading font-bold text-3xl text-[#14B8A6]">
                     {m.value}
                   </div>
                   <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">

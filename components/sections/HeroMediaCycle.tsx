@@ -210,10 +210,7 @@ export default function HeroMediaCycle() {
   const headlineContent = textSlide.headlineParts ? (
     <>
       {textSlide.headlineParts.before}
-      <span
-        className="bg-clip-text text-transparent"
-        style={{ backgroundImage: "linear-gradient(135deg, #14B8A6, #8B5CF6)" }}
-      >
+      <span style={{ color: "#14B8A6" }}>
         {textSlide.headlineParts.highlight}
       </span>
       {textSlide.headlineParts.after ?? ""}

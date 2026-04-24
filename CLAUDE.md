@@ -108,7 +108,9 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - H1 text-shadow: 0 2px 20px rgba(15,23,42,0.8), 0 0 40px rgba(15,23,42,0.5)
 
 ### Footer Badge
-- CSS gradient text: "DESIGN BY:" in #475569, "RANK POINT MEDIA" in linear-gradient(90deg, #94A3B8, #14B8A6)
+- **Solid colors only per `.impeccable.md` absolute ban on gradient text (background-clip: text + any gradient = forbidden site-wide).**
+  - "DESIGN BY:" in #475569
+  - "RANK POINT MEDIA" in brand teal #14B8A6
 - All caps, letter-spacing 0.18em
 - Must appear on every page footer
 

@@ -69,10 +69,7 @@ export default function AboutHero() {
             style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
           >
             Meet the Team Behind{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(135deg, #14B8A6, #8B5CF6)" }}
-              >
+              <span style={{ color: "#14B8A6" }}>
                 Rank Point Media
               </span>
           </h1>
