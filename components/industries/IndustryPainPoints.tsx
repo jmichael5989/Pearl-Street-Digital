@@ -23,7 +23,7 @@ export default function IndustryPainPoints({
           {industry.painPoints.map((point) => (
             <div
               key={point.title}
-              className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
+              className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
             >
               <h3 className="font-heading text-lg font-semibold text-dark mb-2">
                 {point.title}

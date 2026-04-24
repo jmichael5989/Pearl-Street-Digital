@@ -91,7 +91,7 @@ export default function FooterMiniForm() {
           type="submit"
           disabled={sending}
           className="btn-primary shrink-0 rounded-lg px-6 py-3 font-semibold text-white transition-all duration-200 disabled:opacity-60"
-          style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
+          style={{ background: "linear-gradient(135deg, #8B5CF6, #7C3AED)" }}
         >
           {sending ? <SpinnerIcon /> : "Send"}
         </button>

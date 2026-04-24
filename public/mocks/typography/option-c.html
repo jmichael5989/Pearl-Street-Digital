@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Option C — Untitled Serif + Untitled Sans (wildcard, dry)</title>
+  <!--
+    TYPOGRAPHY CALIBRATION MOCK — OPTION C
+    Target fonts (license required):
+      - Untitled Serif (Klim Type Foundry) — for display H1, plainer than Tiempos on purpose
+      - Untitled Sans (Klim) — for subhead + body + CTA + labels + captions
+    Approximation in this mock:
+      - Literata (Google Fonts) — stand-in for Untitled Serif
+      - Public Sans (Google Fonts) — stand-in for Untitled Sans
+    The wildcard column leans hardest on the "a little dry" adjective.
+    The display face is deliberately quieter than Option A's Tiempos; the sans is flatter and more uninflected than Option A or B.
+    This pairing assumes the Gentlewoman-coded numbered layout, Stacie's photography, and plainspoken copy are carrying 70% of the design work.
+    To render with true letterforms: obtain trial web-fonts from Klim for Untitled Serif + Untitled Sans
+    and replace the Google Fonts @import below.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0F172A;
+      --fg: #EDEFF2;
+      --fg-dim: #B7BFCA;
+      --fg-faint: #7A8494;
+      --fg-rule: rgba(237, 239, 242, 0.18);
+
+      --font-display: "Literata", "Iowan Old Style", Georgia, serif;
+      --font-body: "Public Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+      --page-max: 1320px;
+      --edge: clamp(28px, 6vw, 96px);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-feature-settings: "kern" 1, "liga" 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      min-height: 100vh;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: clamp(24px, 5vh, 56px) var(--edge);
+      gap: clamp(40px, 7vh, 88px);
+      max-width: var(--page-max);
+      margin: 0 auto;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 24px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--fg-rule);
+      padding-top: 16px;
+    }
+    .micro-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+    }
+    .caption {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      letter-spacing: 0.01em;
+      color: var(--fg-dim);
+      font-weight: 400;
+    }
+
+    .hero-center {
+      display: grid;
+      gap: clamp(24px, 3.5vh, 32px);
+      align-content: center;
+      max-width: 50rem;
+    }
+    /* Display serif held at a quieter size than Option A. Dry wants less volume. */
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.1rem, 5.4vw, 4.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.012em;
+      margin: 0;
+      color: #F6F5F1;
+      text-wrap: balance;
+      font-variation-settings: "opsz" 48;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      font-weight: 400;
+    }
+    .hero-subhead {
+      font-family: var(--font-body);
+      font-size: clamp(1.0625rem, 1.8vw, 1.3125rem);
+      font-weight: 400;
+      line-height: 1.48;
+      color: #D6DBE3;
+      max-width: 38rem;
+      margin: 0;
+    }
+    .hero-body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--fg-dim);
+      max-width: 34rem;
+      margin: 0;
+      font-weight: 400;
+    }
+    .hero-cta {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.005em;
+      color: #F6F5F1;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(246, 245, 241, 0.38);
+      padding: 0 0 3px 0;
+      align-self: start;
+      transition: border-color 180ms ease-out;
+    }
+    .hero-cta:hover { border-bottom-color: rgba(246, 245, 241, 1); }
+
+    .hero-bottom {
+      display: grid;
+      gap: 14px;
+      max-width: 48rem;
+    }
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      background:
+        repeating-linear-gradient(135deg,
+          rgba(245, 245, 244, 0.03) 0,
+          rgba(245, 245, 244, 0.03) 2px,
+          transparent 2px,
+          transparent 12px),
+        linear-gradient(135deg, #1B2636 0%, #2A3648 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-faint);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid var(--fg-rule);
+    }
+    .photo-caption {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      line-height: 1.55;
+      color: var(--fg-dim);
+      font-style: italic;
+      margin: 0;
+      max-width: 42rem;
+    }
+
+    .approx-banner {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      padding: 10px 14px;
+      background: rgba(245, 245, 244, 0.06);
+      border: 1px solid rgba(245, 245, 244, 0.16);
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245, 245, 244, 0.55);
+      max-width: 24rem;
+      line-height: 1.55;
+    }
+    .approx-banner strong { color: rgba(245, 245, 244, 0.85); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <header class="hero-top">
+      <div class="micro-label">01 &thinsp;/&thinsp; Introducing</div>
+      <div class="caption">Rank Point Media &nbsp;·&nbsp; Leon Springs, San Antonio</div>
+    </header>
+
+    <section class="hero-center">
+      <h1 class="hero-h1">Nobody is ever <em>&ldquo;looped in.&rdquo;</em></h1>
+      <p class="hero-subhead">Two people who build small-business websites, in front of the work, not behind a layer of account managers.</p>
+      <p class="hero-body">Jon, a Fortune 150 product manager, and Stacie, a designer. That&rsquo;s the whole company. When the site launches, you talk to the person who wrote the CSS. When a campaign misfires, you talk to the person who set it up.</p>
+      <a href="#" class="hero-cta">Read how we work</a>
+    </section>
+
+    <footer class="hero-bottom">
+      <div class="photo-placeholder">Photograph &mdash; Jon &amp; Stacie at the kitchen table</div>
+      <p class="photo-caption">Jon and Stacie, at the kitchen table where most of it actually happens. San Antonio, 2026.</p>
+    </footer>
+  </main>
+
+  <aside class="approx-banner">
+    <strong>Option C &nbsp;·&nbsp; Untitled Serif + Untitled Sans.</strong><br>
+    Shown with Literata + Public Sans as approximation. True letterforms require Klim trial web-fonts.
+  </aside>
+</body>
+</html>

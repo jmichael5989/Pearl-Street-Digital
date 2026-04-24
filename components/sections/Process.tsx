@@ -77,7 +77,7 @@ export default function Process() {
           <div
             className="absolute left-7 top-7 bottom-7 w-0.5 hidden sm:block origin-top"
             style={{
-              background: "rgba(37,99,235,0.2)",
+              background: "rgba(20,184,166,0.2)",
               transform: visible ? "scaleY(1)" : "scaleY(0)",
               transition: "transform 1.2s cubic-bezier(.22,1,.36,1) 200ms",
             }}

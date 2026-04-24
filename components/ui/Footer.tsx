@@ -135,8 +135,8 @@ function PreFooterCTA() {
                 href="/contact"
                 className="btn-primary inline-flex items-center rounded-xl px-8 py-3.5 font-semibold text-white transition-all duration-200"
                 style={{
-                  background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-                  boxShadow: "0 4px 14px rgba(37,99,235,0.35)",
+                  background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
+                  boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
                 }}
               >
                 Contact Us

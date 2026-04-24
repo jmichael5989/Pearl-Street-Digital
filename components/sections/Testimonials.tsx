@@ -38,7 +38,7 @@ function StarIcon() {
 
 export function TestimonialCard({ testimonial }: { testimonial: TestimonialData }) {
   return (
-    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]">
+    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(20,184,166,0.15)]">
       {testimonial.rating && (
         <div className="flex gap-0.5 mb-4">
           {Array.from({ length: testimonial.rating }, (_, i) => (

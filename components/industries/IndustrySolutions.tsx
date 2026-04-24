@@ -44,7 +44,7 @@ export default function IndustrySolutions({
           {industry.solutions.map((solution) => (
             <div
               key={solution.title}
-              className="rounded-2xl border border-[#334155] bg-[#1E293B] p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(37,99,235,0.1)]"
+              className="rounded-2xl border border-[#334155] bg-[#1E293B] p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(20,184,166,0.1)]"
             >
               <h3 className="font-heading text-lg font-semibold text-white mb-2">
                 {solution.title}

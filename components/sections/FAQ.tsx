@@ -82,7 +82,7 @@ export default function FAQ() {
               Common Questions, Straight Answers
             </span>
           </div>
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white text-2xl font-semibold shadow-[0_4px_12px_rgba(37,99,235,0.35)] transition-transform duration-200 hover:scale-105">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white text-2xl font-semibold shadow-[0_4px_12px_rgba(20,184,166,0.35)] transition-transform duration-200 hover:scale-105">
             {sectionOpen ? "\u2212" : "+"}
           </span>
         </button>

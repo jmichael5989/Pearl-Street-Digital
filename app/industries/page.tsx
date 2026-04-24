@@ -130,7 +130,7 @@ export default function IndustriesPage() {
                 <Link
                   key={industry.title}
                   href="/contact"
-                  className="group rounded-2xl border border-border bg-light-surface shadow-sm p-10 transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(37,99,235,0.15)]"
+                  className="group rounded-2xl border border-border bg-light-surface shadow-sm p-10 transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(20,184,166,0.15)]"
                 >
                   <h3 className="font-heading text-xl font-bold text-dark mb-3">
                     {industry.title}

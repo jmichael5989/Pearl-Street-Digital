@@ -55,7 +55,7 @@ export default function AboutTeam() {
               key={member.name}
               className="group relative rounded-2xl p-[2px] text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md overflow-hidden"
               style={{
-                background: "linear-gradient(var(--border-angle, 0deg), #2563EB, transparent 40%, transparent 60%, #2563EB)",
+                background: "linear-gradient(var(--border-angle, 0deg), #14B8A6, transparent 40%, transparent 60%, #14B8A6)",
                 animation: "borderTrace 15s linear infinite",
               }}
             >
