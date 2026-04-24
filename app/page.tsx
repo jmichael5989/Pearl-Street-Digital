@@ -1,4 +1,4 @@
-import HeroMediaCycle from "@/components/sections/HeroMediaCycle";
+import Hero from "@/components/sections/Hero";
 import StatsBar from "@/components/sections/StatsBar";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhyUs from "@/components/sections/WhyUs";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <HeroMediaCycle />
+        <Hero />
         <StatsBar />
         <WhyUs />
         <ServicesSection />
