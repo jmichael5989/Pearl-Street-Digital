@@ -34,11 +34,6 @@ const faqs = [
       "On-page SEO improvements can start showing traction in four to eight weeks. Competitive keywords in your local market may take three to six months to rank well. We set realistic expectations and focus on steady, measurable gains.",
   },
   {
-    question: "Do you offer bilingual marketing?",
-    answer:
-      "Yes. We offer bilingual website content, ad copy, and social media in both English and Spanish so you can reach a broader local audience.",
-  },
-  {
     question: "What if I need changes after launch?",
     answer:
       "Every plan includes post-launch support (30, 60, or 90 days depending on your tier). During that window we handle edits, fixes, and adjustments at no extra charge. After that, we offer affordable maintenance or you can manage the site yourself.",

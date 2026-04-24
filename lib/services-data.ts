@@ -264,7 +264,7 @@ export const services: ServiceData[] = [
       heading: "Build a Local Following That Converts",
       paragraphs: [
         "Social media is where your San Antonio customers hang out, read reviews, and decide who to trust with their money. A dead or inconsistent social presence tells potential customers you are not serious. We keep your profiles active, professional, and engaging.",
-        "We handle content creation, scheduling, community management, and analytics so you can focus on running your business. Every post is crafted with your San Antonio audience in mind -- bilingual when it makes sense, always on-brand, and designed to drive real engagement.",
+        "We handle content creation, scheduling, community management, and analytics so you can focus on running your business. Every post is crafted with your San Antonio audience in mind -- always on-brand, and designed to drive real engagement.",
       ],
       highlights: [
         { label: "Platforms", value: "2-3" },
@@ -341,11 +341,6 @@ export const services: ServiceData[] = [
         question: "Do you create all the content?",
         answer:
           "Yes. We handle copywriting, graphic design, and scheduling. You approve the content calendar before anything goes live.",
-      },
-      {
-        question: "Can you post in English and Spanish?",
-        answer:
-          "Absolutely. With over 60% of San Antonio's population being Hispanic, bilingual content is a major advantage. We offer bilingual social at all tiers.",
       },
       {
         question: "How many posts per month do you publish?",
@@ -700,7 +695,7 @@ export const services: ServiceData[] = [
       heading: "The Highest ROI Channel You're Probably Ignoring",
       paragraphs: [
         "For every dollar spent on email marketing, businesses earn an average of $36 back. It outperforms social media, ads, and SEO on pure return -- yet most San Antonio small businesses either never use it or send the wrong kind of emails. We fix both.",
-        "We build campaigns that feel personal, not promotional. Segmented lists, clean templates, and automated flows that turn one-time customers into loyal repeat buyers. Everything is written in your voice, bilingual when it makes sense, and designed to drive measurable action.",
+        "We build campaigns that feel personal, not promotional. Segmented lists, clean templates, and automated flows that turn one-time customers into loyal repeat buyers. Everything is written in your voice and designed to drive measurable action.",
       ],
       highlights: [
         { label: "Avg ROI", value: "36:1" },
@@ -787,11 +782,6 @@ export const services: ServiceData[] = [
         question: "Can you write the emails for me?",
         answer:
           "Yes. Copywriting is included. We write in your voice, often using AI drafts refined by a human, so your emails sound authentic and drive action.",
-      },
-      {
-        question: "Do you send bilingual campaigns?",
-        answer:
-          "Absolutely. With San Antonio's Hispanic market, bilingual email campaigns often outperform English-only sends. We can segment Spanish-preferred subscribers and send native-language versions.",
       },
     ],
     relatedSlugs: ["social-media", "website-design", "custom-ai-solutions"],

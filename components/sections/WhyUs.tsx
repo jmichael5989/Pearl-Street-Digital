@@ -23,9 +23,8 @@ export default function WhyUs() {
                 delivering solutions that match the caliber of the clients we
                 serve. Founder-led and AI-powered, we provide agency-quality
                 websites, local SEO, and digital marketing strategies at a
-                fraction of traditional agency rates &mdash; complete with
-                bilingual capability and the flexibility of month-to-month
-                partnerships.
+                fraction of traditional agency rates &mdash; with the
+                flexibility of month-to-month partnerships.
               </p>
               <p>
                 We go beyond what traditional agencies offer. Our team builds
