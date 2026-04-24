@@ -19,16 +19,20 @@
   --color-icon-service-border: #334155;
   --color-icon-industry-bg: #1E293B;
   --color-icon-industry-border: #334155;
-  /* Primary pair — locked 2026-04-24 per .impeccable.md Resolved Decisions §1 */
+  /* Typography — locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
+     All typographic tokens resolve to the Adobe Source family (Source Serif 4,
+     Source Sans 3, Source Code Pro) under SIL OFL. Services-scoped tokens are
+     currently aliased to the primary tokens — the .services-scope architecture
+     is preserved as a no-op pending a future pass that decides whether to keep
+     or delete the distinction. */
   --font-heading: var(--font-source-serif);
   --font-body: var(--font-source-sans);
-  --font-display: var(--font-space-grotesk);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-source-serif);
+  --font-mono: var(--font-source-code);
 
-  /* Services-scoped tokens (additive, do not remove) */
-  --font-display-services: var(--font-fraunces);
-  --font-body-services: var(--font-geist);
-  --font-mono-services: var(--font-geist-mono);
+  --font-display-services: var(--font-source-serif);
+  --font-body-services: var(--font-source-sans);
+  --font-mono-services: var(--font-source-code);
   --color-brand-teal: #14B8A6;
   --color-brand-violet: #8B5CF6;
   --color-brand-dark: #0F172A;
