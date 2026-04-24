@@ -1,8 +1,14 @@
+// Plainspoken positioning facts, not performative guarantees.
+// "24hr Response Time" and "Unlimited Build Revisions" were removed 2026-04-24
+// per .impeccable.md anti-reference 1 (no aggressive urgency) and the general
+// "do not perform" principle. Replacements are claims Rank Point Media can
+// actually defend: ownership, a honest timeline, and the two-person-agency-is-
+// the-product positioning spine.
 const stats = [
   { value: "100%", label: "You Own Everything" },
-  { value: "2-3 Weeks", label: "Average Launch" },
-  { value: "24hr", label: "Response Time" },
-  { value: "Unlimited", label: "Build Revisions" },
+  { value: "4 Weeks", label: "Typical Build" },
+  { value: "2 People", label: "The Whole Company" },
+  { value: "Direct", label: "Founder Access" },
 ];
 
 export default function StatsBar() {

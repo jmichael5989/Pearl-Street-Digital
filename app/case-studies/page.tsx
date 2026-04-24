@@ -3,9 +3,7 @@ import Footer from "@/components/ui/Footer";
 import DarkHero from "@/components/heroes/DarkHero";
 import FeaturedCaseStudy from "@/components/case-studies/FeaturedCaseStudy";
 import CaseStudyGrid from "@/components/case-studies/CaseStudyGrid";
-import FoundingClientCTA from "@/components/case-studies/FoundingClientCTA";
 import {
-  caseStudies,
   getFeaturedCaseStudy,
   getGridCaseStudies,
 } from "@/lib/case-studies-data";
@@ -35,8 +33,6 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   const featured = getFeaturedCaseStudy();
   const gridItems = getGridCaseStudies();
-  const totalCount = caseStudies.length;
-  const showCTAProminent = totalCount < 4;
 
   return (
     <>
@@ -69,17 +65,9 @@ export default function CaseStudiesPage() {
           showMockups={false}
         />
 
-        {/* Zone 1: Featured hero */}
         {featured && <FeaturedCaseStudy caseStudy={featured} />}
 
-        {/* Zone 3a: Prominent Founding Client CTA (count < 4) */}
-        {showCTAProminent && <FoundingClientCTA variant="prominent" />}
-
-        {/* Zone 2: Grid (count >= 2) */}
         {gridItems.length > 0 && <CaseStudyGrid caseStudies={gridItems} />}
-
-        {/* Zone 3b: Compact CTA at bottom (count >= 4) */}
-        {!showCTAProminent && <FoundingClientCTA variant="compact" />}
       </main>
       <Footer />
     </>
