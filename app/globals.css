@@ -143,9 +143,6 @@ body {
   .nav-link:hover::after {
     opacity: 1;
   }
-  .animate-marquee {
-    animation: none !important;
-  }
 }
 /* ── Button micro-interactions ─────────────────────────── */
 .btn-primary {
@@ -201,15 +198,6 @@ body {
 .input-glow:focus {
   border-color: #14B8A6;
   box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
-}
-
-/* Trusted By marquee */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  animation: marquee 20s linear infinite;
 }
 
 /* ── Tracing border animation ────────────────────────── */
