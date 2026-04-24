@@ -89,7 +89,7 @@ export default function DarkHero({
   const phoneTel = phoneNumber ? `tel:+1${phoneNumber.replace(/[^\d]/g, "")}` : null;
 
   return (
-    <section className="services-scope relative min-h-[90vh] bg-brand-dark overflow-hidden">
+    <section className="relative min-h-[90vh] bg-brand-dark overflow-hidden">
       <HeroBackground />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-40 pb-16 lg:pt-48 lg:pb-20 flex flex-col min-h-[90vh]">
@@ -98,11 +98,11 @@ export default function DarkHero({
           <div
             className={`col-span-12 ${showMockups ? "lg:col-span-7" : "lg:col-span-9"} flex flex-col`}
           >
-            <span className="font-mono-services text-xs uppercase tracking-widest text-brand-teal">
+            <span className="font-mono text-xs uppercase tracking-widest text-brand-teal">
               {kicker}
             </span>
             <h1
-              className="font-display-services text-white mt-6 text-balance"
+              className="font-heading text-white mt-6 text-balance"
               style={{
                 fontSize: "clamp(3rem, 8vw, 7.5rem)",
                 lineHeight: 0.95,
@@ -111,7 +111,7 @@ export default function DarkHero({
             >
               <HeadlineWithAccent headline={headline} accent={headlineAccent} />
             </h1>
-            <p className="font-body-services text-lg text-white/70 max-w-xl mt-8">
+            <p className="font-body text-lg text-white/70 max-w-xl mt-8">
               {subheadline}
             </p>
             <div className="mt-12 flex flex-wrap items-center gap-4">

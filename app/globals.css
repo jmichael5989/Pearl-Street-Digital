@@ -33,18 +33,14 @@
   --color-icon-industry-border: oklch(0.30 0.016 188); /* was #334155 */
   /* Typography — locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
      All typographic tokens resolve to the Adobe Source family (Source Serif 4,
-     Source Sans 3, Source Code Pro) under SIL OFL. Services-scoped tokens are
-     currently aliased to the primary tokens — the .services-scope architecture
-     is preserved as a no-op pending a future pass that decides whether to keep
-     or delete the distinction. */
+     Source Sans 3, Source Code Pro) under SIL OFL. The former `.services-scope`
+     architecture and its three --font-*-services aliases were removed (they
+     had resolved to the same fonts as the primary tokens after typography lock,
+     so they were a no-op; removed for simplicity). */
   --font-heading: var(--font-source-serif);
   --font-body: var(--font-source-sans);
   --font-display: var(--font-source-serif);
   --font-mono: var(--font-source-code);
-
-  --font-display-services: var(--font-source-serif);
-  --font-body-services: var(--font-source-sans);
-  --font-mono-services: var(--font-source-code);
   /* Brand color aliases (locked per CLAUDE.md — do not tint) */
   --color-brand-teal: #14B8A6;
   --color-brand-violet: #8B5CF6;
@@ -227,7 +223,7 @@ body {
   100% { --border-angle: 360deg; }
 }
 
-/* ── Sitewide utilities (also usable under .services-scope) ── */
+/* ── Sitewide utilities ── */
 .text-balance {
   text-wrap: balance;
 }

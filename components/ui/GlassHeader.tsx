@@ -77,7 +77,7 @@ export default function GlassHeader({
                 />
               </div>
               <span
-                className={`font-display-services font-semibold text-xl transition-colors duration-300 ${
+                className={`font-heading font-semibold text-xl transition-colors duration-300 ${
                   scrolled ? "text-white/90" : "text-white"
                 }`}
               >
@@ -90,7 +90,7 @@ export default function GlassHeader({
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-body-services text-[13px] font-medium uppercase tracking-[0.08em] transition-all duration-200 hover:underline hover:underline-offset-4 decoration-brand-teal ${
+                  className={`font-body text-[13px] font-medium uppercase tracking-[0.08em] transition-all duration-200 hover:underline hover:underline-offset-4 decoration-brand-teal ${
                     scrolled ? "text-white/90" : "text-white"
                   }`}
                 >
@@ -153,7 +153,7 @@ export default function GlassHeader({
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="font-display-services text-3xl md:text-4xl font-semibold text-white transition-colors hover:text-brand-teal"
+              className="font-heading text-3xl md:text-4xl font-semibold text-white transition-colors hover:text-brand-teal"
             >
               {link.label}
             </Link>

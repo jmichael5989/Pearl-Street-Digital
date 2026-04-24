@@ -55,7 +55,7 @@ function CardWrap({
 
 function MonoLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="text-[11px] uppercase tracking-widest text-white/60 font-mono-services">
+    <span className="text-[11px] uppercase tracking-widest text-white/60 font-mono">
       {children}
     </span>
   );
@@ -85,7 +85,7 @@ function LighthouseRing({ value, label }: { value: number; label: string }) {
           {value}
         </span>
       </div>
-      <span className="mt-2 text-[10px] uppercase tracking-widest text-white/60 font-mono-services">
+      <span className="mt-2 text-[10px] uppercase tracking-widest text-white/60 font-mono">
         {label}
       </span>
     </div>
@@ -118,7 +118,7 @@ function WebsiteMockups() {
           <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
-          <div className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-[11px] text-white/60 font-mono-services">
+          <div className="ml-3 flex-1 bg-white/5 rounded-md px-3 py-1 text-[11px] text-white/60 font-mono">
             moderndaypestcontrolsa.com
           </div>
         </div>
@@ -160,7 +160,7 @@ function SeoMockups() {
           <MonoLabel>Google SERP</MonoLabel>
         </div>
         <div className="space-y-2">
-          <p className="text-[11px] text-brand-teal/80 font-mono-services">
+          <p className="text-[11px] text-brand-teal/80 font-mono">
             moderndaypestcontrolsa.com
           </p>
           <p className="text-white text-sm font-semibold leading-snug">
@@ -187,7 +187,7 @@ function SeoMockups() {
           ].map((biz, i) => (
             <div key={biz.name} className="flex items-center justify-between">
               <div className="flex items-center gap-2 min-w-0">
-                <span className="text-[11px] font-mono-services text-brand-teal w-3">
+                <span className="text-[11px] font-mono text-brand-teal w-3">
                   {i + 1}
                 </span>
                 <span className="text-white text-xs font-medium truncate">
@@ -206,7 +206,7 @@ function SeoMockups() {
           <TrendingUp className="w-3.5 h-3.5 text-brand-teal" />
           <MonoLabel>Organic traffic</MonoLabel>
         </div>
-        <p className="text-white text-2xl font-display-services font-semibold">
+        <p className="text-white text-2xl font-heading font-semibold">
           +127%
         </p>
         <p className="text-white/60 text-xs mt-1">past 6 months</p>
@@ -226,7 +226,7 @@ function PpcMockups() {
           </span>
           <MonoLabel>Google Ads</MonoLabel>
         </div>
-        <p className="text-[11px] text-brand-teal/80 font-mono-services mb-1">
+        <p className="text-[11px] text-brand-teal/80 font-mono mb-1">
           rankpointmedia.com/web-design
         </p>
         <p className="text-white text-sm font-semibold leading-snug">
@@ -243,7 +243,7 @@ function PpcMockups() {
           <MousePointerClick className="w-3.5 h-3.5 text-brand-teal" />
           <MonoLabel>Avg CPC</MonoLabel>
         </div>
-        <p className="text-white text-3xl font-display-services font-semibold">
+        <p className="text-white text-3xl font-heading font-semibold">
           $1.42
         </p>
         <p className="text-white/60 text-xs mt-1">vs $4.10 industry avg</p>
@@ -263,7 +263,7 @@ function PpcMockups() {
             <div key={row.label}>
               <div className="flex items-center justify-between text-[11px] mb-1">
                 <span className="text-white/70">{row.label}</span>
-                <span className="text-white font-mono-services">{row.value}</span>
+                <span className="text-white font-mono">{row.value}</span>
               </div>
               <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
                 <div
@@ -295,7 +295,7 @@ function SocialMockups() {
         <div className="px-4 py-3 flex items-center gap-3">
           <Heart className="w-4 h-4 text-white/80" />
           <MessageSquare className="w-4 h-4 text-white/80" />
-          <span className="ml-auto text-[11px] text-white/60 font-mono-services">
+          <span className="ml-auto text-[11px] text-white/60 font-mono">
             1,247 likes
           </span>
         </div>
@@ -307,7 +307,7 @@ function SocialMockups() {
           <TrendingUp className="w-3.5 h-3.5 text-brand-teal" />
           <MonoLabel>Reach</MonoLabel>
         </div>
-        <p className="text-white text-3xl font-display-services font-semibold">
+        <p className="text-white text-3xl font-heading font-semibold">
           +3.4K
         </p>
         <p className="text-white/60 text-xs mt-1">12% engagement rate</p>
@@ -323,7 +323,7 @@ function SocialMockups() {
           </div>
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
             <span className="text-[10px] text-white font-semibold">REEL</span>
-            <span className="text-[10px] text-white/70 font-mono-services">0:18</span>
+            <span className="text-[10px] text-white/70 font-mono">0:18</span>
           </div>
         </div>
       </CardWrap>
@@ -345,7 +345,7 @@ function AiMockups() {
           custom Next.js sites starting at $99/month with hosting and SEO included.
         </p>
         <div className="flex gap-1.5 mt-3">
-          <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/70 font-mono-services">
+          <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/70 font-mono">
             [1] rankpointmedia.com
           </span>
         </div>
@@ -363,7 +363,7 @@ function AiMockups() {
         </p>
         <div className="mt-3 flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-brand-teal" />
-          <span className="text-[11px] font-mono-services text-white/70">
+          <span className="text-[11px] font-mono text-white/70">
             rankpointmedia.com
           </span>
         </div>
@@ -375,7 +375,7 @@ function AiMockups() {
           <Code2 className="w-3.5 h-3.5 text-brand-teal" />
           <MonoLabel>Schema.org</MonoLabel>
         </div>
-        <pre className="text-[10px] font-mono-services text-white/70 leading-relaxed">
+        <pre className="text-[10px] font-mono text-white/70 leading-relaxed">
 {`{
   "@type": "Service",
   "name": "Web Design",
@@ -430,7 +430,7 @@ function ReputationMockups() {
           <Star className="w-3.5 h-3.5 text-brand-teal" />
           <MonoLabel>Avg rating</MonoLabel>
         </div>
-        <p className="text-white text-4xl font-display-services font-semibold">
+        <p className="text-white text-4xl font-heading font-semibold">
           4.9
         </p>
         <p className="text-white/60 text-xs mt-1">across 312 reviews</p>

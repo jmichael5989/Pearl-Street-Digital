@@ -15,7 +15,7 @@ export default function HeroBackground() {
         }}
       />
 
-      {/* Layer 2 — grain noise (uses .grain utility under .services-scope) */}
+      {/* Layer 2 — grain noise (uses .grain utility) */}
       <div
         aria-hidden="true"
         className="grain"
