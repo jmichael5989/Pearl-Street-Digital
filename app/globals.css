@@ -74,6 +74,26 @@
    that scale, not size.
 */
 :root {
+  /* ── Motion tokens ──────────────────────────────────────
+     Posture set 2026-04-24 per .impeccable.md "Unhurried" adjective.
+     Slower timings, fewer moments, higher intention per moment.
+     Easing is exponential (ease-out-quart) for natural deceleration —
+     real objects decelerate smoothly; bounce/elastic feels tacky.
+     Linear is reserved for ambient / continuous motion only.
+
+       - quick (180ms):  hovers, focus rings, immediate-feedback micro-interactions
+       - medium (300ms): accordion open, menu enter, single-element state changes
+       - slow (500ms):   page-level transitions, staggered editorial reveals
+
+     Do NOT animate layout properties (width, height, padding, margin). Use
+     transform and opacity only. Do NOT use bounce or elastic easing.
+  */
+  --motion-duration-quick: 180ms;
+  --motion-duration-medium: 300ms;
+  --motion-duration-slow: 500ms;
+  --motion-ease-out: cubic-bezier(0.33, 1, 0.68, 1);     /* ease-out-quart */
+  --motion-ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);  /* ease-in-out-quart */
+
   --text-h1: clamp(2.75rem, 5.5vw, 5rem);     /* 44px → 80px */
   --text-h2: clamp(2.25rem, 4vw, 3rem);       /* 36px → 48px */
   --text-h3: clamp(1.75rem, 2.75vw, 2.25rem); /* 28px → 36px */
@@ -112,10 +132,6 @@ body {
   0% { transform: scale(1) translate(0, 0); }
   100% { transform: scale(1.08) translate(-1%, -0.5%); }
 }
-@keyframes gradientMesh {
-  0% { background-position: 0% 0%, 100% 100%, 50% 50%; }
-  100% { background-position: 30% 70%, 70% 30%, 60% 40%; }
-}
 @keyframes floatUp {
   0% { transform: translateY(100vh); opacity: 0; }
   10% { opacity: 1; }
@@ -143,37 +159,14 @@ body {
   0% { transform: translateY(30px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
 }
-@keyframes textShine {
-  0% { background-position: 0% center; }
-  100% { background-position: -200% center; }
-}
-.text-white-shine {
-  background-image: linear-gradient(
-    100deg,
-    #FFFFFF 0%,
-    rgba(255,255,255,0.55) 20%,
-    #FFFFFF 40%,
-    #FFFFFF 60%,
-    rgba(255,255,255,0.55) 80%,
-    #FFFFFF 100%
-  );
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: textShine 3s linear infinite;
-}
 @media (prefers-reduced-motion: reduce) {
   .hero-ken-burns,
-  .hero-gradient-mesh,
   .hero-particle,
   .hero-shimmer,
   .hero-accent-line,
   .hero-scroll-dot,
   .hero-badge-pulse,
-  .hero-fade-up,
-  .text-white-shine {
+  .hero-fade-up {
     animation: none !important;
   }
   .hero-fade-up {
@@ -208,7 +201,9 @@ body {
 
 /* ── Button micro-interactions ─────────────────────────── */
 .btn-primary {
-  transition: transform 200ms ease-out, box-shadow 200ms ease-out, opacity 200ms ease-out;
+  transition-property: transform, box-shadow, opacity;
+  transition-duration: var(--motion-duration-quick);
+  transition-timing-function: var(--motion-ease-out);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
@@ -220,7 +215,9 @@ body {
 }
 
 .btn-dark {
-  transition: transform 200ms ease-out, box-shadow 200ms ease-out, background-color 200ms ease-out;
+  transition-property: transform, box-shadow, background-color;
+  transition-duration: var(--motion-duration-quick);
+  transition-timing-function: var(--motion-ease-out);
 }
 .btn-dark:hover {
   transform: translateY(-2px);
@@ -246,7 +243,7 @@ body {
   border-radius: 1px;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 250ms ease-out;
+  transition: transform var(--motion-duration-medium) var(--motion-ease-out);
 }
 .nav-link:hover::after {
   transform: scaleX(1);
