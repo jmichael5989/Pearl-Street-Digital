@@ -45,16 +45,30 @@
   --color-surface-tint: #F0FDFA;
 }
 
-/* ── Typography tokens ─────────────────────────────────── */
+/* ── Typography scale ───────────────────────────────────
+   Tuned 2026-04-24 for Source Serif 4 (display) + Source Sans 3 (body)
+   per .impeccable.md Resolved Decisions §1.
+
+   Scale is a modified perfect-fourth (~1.333x) at the lower end, expanding
+   to ~1.67x at the top for display punch. Display sizes are substantially
+   larger than the prior Outfit-tuned scale (h1 max 80px vs 56px) because
+   an editorial serif needs optical volume to read as a headline rather
+   than a body face scaled up. Reference class: Gentlewoman, Frank Chimero.
+
+   Ratios at max: h1/h2 = 1.67, h2/h3 = 1.33, h3/h4 = 1.5, h4/body = 1.33.
+   Fixed h4 (not fluid) because minor headings should not bloom past body
+   on wide viewports — hierarchy is a function of weight and placement at
+   that scale, not size.
+*/
 :root {
-  --text-h1: clamp(2rem, 5vw, 3.5rem);       /* 32px → 56px */
-  --text-h2: clamp(1.5rem, 4vw, 2.5rem);     /* 24px → 40px */
-  --text-h3: clamp(1.25rem, 3vw, 1.5rem);    /* 20px → 24px */
-  --text-h4: 1.125rem;                        /* 18px */
-  --text-eyebrow: 0.78rem;                    /* 12.5px */
-  --text-body: 1.125rem;                       /* 18px */
-  --text-body-lg: 1.125rem;                   /* 18px */
-  --text-body-sm: 0.875rem;                   /* 14px */
+  --text-h1: clamp(2.75rem, 5.5vw, 5rem);     /* 44px → 80px */
+  --text-h2: clamp(2.25rem, 4vw, 3rem);       /* 36px → 48px */
+  --text-h3: clamp(1.75rem, 2.75vw, 2.25rem); /* 28px → 36px */
+  --text-h4: 1.5rem;                          /* 24px */
+  --text-eyebrow: 0.78rem;                    /* 12.5px (per CLAUDE.md section-label spec) */
+  --text-body: 1.125rem;                      /* 18px */
+  --text-body-lg: 1.25rem;                    /* 20px — intro paragraphs, subheads */
+  --text-body-sm: 0.875rem;                   /* 14px — captions, meta */
 }
 
 html {
