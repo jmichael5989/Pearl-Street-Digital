@@ -83,12 +83,13 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - Hero primary CTA: Teal gradient (135deg, #14B8A6 to #0D9488)
 - Secondary buttons: #0F172A dark with white text
 
-### Typography (SUPERSEDED -- see .impeccable.md dial calibration)
-> **The former "FINAL -- never deviate" lock on Outfit + DM Sans is SUPERSEDED by the design brief at `.impeccable.md` (approved 2026-04-23). A new type pairing will be chosen through the three-option dial-calibration process documented in `.impeccable.md` Resolved Decisions §1. Until that outcome is final, Outfit + DM Sans remain in place as a holdover. Do NOT silently substitute a different pairing without going through the dial-calibration presentation.**
-- Headings/Display (holdover, pending dial calibration): Outfit (Google Fonts), weights 600-800
-- Body text (holdover, pending dial calibration): DM Sans (Google Fonts), weights 400-600
-- NEVER use Inter, Geist, Roboto, Arial, or system fonts
-- Section labels: 0.78rem, weight 600, letter-spacing 0.12em, uppercase
+### Typography (LOCKED 2026-04-24 -- see .impeccable.md Resolved Decisions §1)
+- Headings/Display: **Source Serif 4** (Google Fonts, variable — weight axis 200-900, optical-size axis 8-60, italic). Regular + Medium at launch. Optical-size 48 for display, 12 for body.
+- Body text: **Source Sans 3** (Google Fonts, variable — weight axis 200-900, italic). Regular + Medium at launch.
+- License: SIL Open Font License. Free, commercial use allowed, perpetual, no attribution required.
+- Load via `next/font/google` in `app/layout.tsx` with `display: 'swap'` for Source Serif 4 and `display: 'optional'` for Source Sans 3; tune `adjustFontFallback` against Georgia (serif) and Arial (sans) so CLS stays near zero.
+- NEVER use Inter, Geist, Roboto, Arial, Outfit, DM Sans, or system fonts as primary.
+- Section labels: 0.78rem, weight 600, letter-spacing 0.12em, uppercase (set in Source Sans 3).
 
 ### Design System
 - **Body background**: #FFFFFF white
@@ -156,5 +157,5 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - [ ] Phone number clickable (tel: link)
 - [ ] Page loads in < 2 seconds
 - [ ] Zero emojis in output
-- [ ] Outfit font for headings, DM Sans for body confirmed
+- [ ] Source Serif 4 for headings, Source Sans 3 for body confirmed
 - [ ] Footer badge present
