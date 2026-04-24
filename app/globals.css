@@ -1,24 +1,34 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* ── Brand colors (locked per CLAUDE.md — do not tint) ──
+     Legacy --color-primary is still the pre-brief blue (#2563EB); reconciling
+     that with the brand teal is flagged as a separate cleanup pass. */
   --color-primary: #2563EB;
   --color-primary-dark: #1D4ED8;
   --color-accent: #14B8A6;
   --color-accent-dark: #0D9488;
   --color-dark: #0F172A;
-  --color-dark-surface: #1E293B;
-  --color-light: #FFFFFF;
-  --color-light-surface: #F8FAFC;
-  --color-gray: #64748B;
-  --color-text: #0F172A;
-  --color-text-on-dark: #F1F5F9;
-  --color-text-on-dark-muted: #94A3B8;
-  --color-border: #E2E8F0;
-  --color-border-dark: #334155;
-  --color-icon-service-bg: #1E293B;
-  --color-icon-service-border: #334155;
-  --color-icon-industry-bg: #1E293B;
-  --color-icon-industry-border: #334155;
+
+  /* ── Neutrals — tinted 2026-04-24 ───────────────────────
+     Tinted toward brand teal hue (~188 in OKLCH) with chroma 0.004-0.020 for
+     subtle cohesion between UI surfaces and the primary brand color. Values
+     approximate the prior Tailwind-slate luminances to preserve WCAG AA
+     contrast. Per Impeccable color principles: no pure white, no pure black,
+     reduce chroma at extreme lightness to avoid garish tint. */
+  --color-dark-surface: oklch(0.22 0.014 188);         /* was #1E293B */
+  --color-light: oklch(0.99 0.004 188);                /* was #FFFFFF (pure white banned per Impeccable) */
+  --color-light-surface: oklch(0.97 0.008 188);        /* was #F8FAFC */
+  --color-gray: oklch(0.51 0.020 188);                 /* was #64748B */
+  --color-text: oklch(0.20 0.018 188);                 /* was #0F172A — softer than brand-dark for body text */
+  --color-text-on-dark: oklch(0.95 0.008 188);         /* was #F1F5F9 */
+  --color-text-on-dark-muted: oklch(0.70 0.020 188);   /* was #94A3B8 */
+  --color-border: oklch(0.90 0.010 188);               /* was #E2E8F0 */
+  --color-border-dark: oklch(0.30 0.016 188);          /* was #334155 */
+  --color-icon-service-bg: oklch(0.22 0.014 188);      /* was #1E293B */
+  --color-icon-service-border: oklch(0.30 0.016 188);  /* was #334155 */
+  --color-icon-industry-bg: oklch(0.22 0.014 188);     /* was #1E293B */
+  --color-icon-industry-border: oklch(0.30 0.016 188); /* was #334155 */
   /* Typography — locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
      All typographic tokens resolve to the Adobe Source family (Source Serif 4,
      Source Sans 3, Source Code Pro) under SIL OFL. Services-scoped tokens are
@@ -33,16 +43,19 @@
   --font-display-services: var(--font-source-serif);
   --font-body-services: var(--font-source-sans);
   --font-mono-services: var(--font-source-code);
+  /* Brand color aliases (locked per CLAUDE.md — do not tint) */
   --color-brand-teal: #14B8A6;
   --color-brand-violet: #8B5CF6;
   --color-brand-dark: #0F172A;
   --color-brand-light: #F0FDFA;
-  --color-brand-gray: #6B7280;
-  --color-brand-text: #1F2937;
   --color-surface-dark: #0F172A;
   --color-surface-darker: #020617;
-  --color-surface-light: #FAFAF9;
   --color-surface-tint: #F0FDFA;
+
+  /* Neutral derivatives of the brand palette — teal-tinted per above */
+  --color-brand-gray: oklch(0.52 0.018 188);           /* was #6B7280 */
+  --color-brand-text: oklch(0.32 0.020 188);           /* was #1F2937 */
+  --color-surface-light: oklch(0.985 0.006 188);       /* was #FAFAF9 */
 }
 
 /* ── Typography scale ───────────────────────────────────
