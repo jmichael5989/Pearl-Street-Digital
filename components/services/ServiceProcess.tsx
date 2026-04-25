@@ -14,19 +14,17 @@ export default function ServiceProcess({ service }: { service: ServiceData }) {
         </div>
 
         <div className="relative max-w-2xl mx-auto">
-          {/* Gradient timeline line */}
+          {/* Timeline line — navy at low alpha, behind step bubbles */}
           <div
             className="absolute left-7 top-7 bottom-7 w-0.5 hidden sm:block"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(20,33,61,0.2), rgba(20,33,61,0.2))",
-            }}
+            style={{ background: "rgba(20, 33, 61, 0.2)" }}
+            aria-hidden="true"
           />
 
           <div className="space-y-10">
             {service.process.map((step) => (
               <div key={step.number} className="relative flex gap-6">
-                <div className="shrink-0 flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#D9D2C3] bg-white">
+                <div className="shrink-0 flex h-14 w-14 items-center justify-center rounded-full border-2 border-border bg-light">
                   <span className="font-heading text-xl font-bold text-primary">
                     {step.number}
                   </span>
