@@ -141,7 +141,7 @@ export default function ServicesSection() {
               Everything Your Business Needs to Win Online
             </h2>
             <p className="mt-4 text-gray max-w-2xl lg:max-w-none mx-auto">
-              Running a business is a full-time job -- so is growing one online. We handle the design, ads, and AI-powered search, so you never have to choose between the two.
+              Running a business is a full-time job -- so is growing one online. We handle the design, the ads, and the AI search optimization, so you never have to choose between the two.
             </p>
           </div>
         </ScrollReveal>

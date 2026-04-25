@@ -184,7 +184,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                 </div>
               </Link>
               <p className="text-sm leading-relaxed max-w-[280px]">
-                AI-powered digital marketing for San Antonio small businesses.
+                Custom-coded websites and digital marketing for San Antonio small businesses.
               </p>
               {/* Social Icons */}
               <div className="flex items-center gap-3 mt-5">

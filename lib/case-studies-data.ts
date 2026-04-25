@@ -79,7 +79,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Site launched in 5 business days",
         description:
-          "An AI-augmented development workflow compressed a typical 6-to-10 week agency timeline into a single business week.",
+          "A lean, hand-coded build compressed a typical 6-to-10 week agency timeline into a single business week.",
       },
       {
         title: "Schema markup + Google Business Profile optimized on day one",

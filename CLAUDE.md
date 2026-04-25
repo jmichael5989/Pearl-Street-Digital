@@ -2,7 +2,7 @@
 
 # Rank Point Media -- Claude Code Configuration
 
-You are building the website for Rank Point Media, an AI-powered digital marketing agency in San Antonio, TX. Follow every rule in this file on every task. No exceptions.
+You are building the website for Rank Point Media, a two-person digital agency in Leon Springs, San Antonio. They build custom-coded websites and run local SEO, Google Ads, and digital marketing for small businesses across Texas. Follow every rule in this file on every task. No exceptions.
 
 ---
 
