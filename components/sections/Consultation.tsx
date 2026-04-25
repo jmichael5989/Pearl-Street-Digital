@@ -33,8 +33,8 @@ interface CalEmbedAPI {
  *   - Cal widget brand accent is brass (#A07B33) via cssVarsPerTheme so
  *     the booking UI matches the site brand.
  *
- * If the Cal.com event slug differs from `/30min`, update calLink below
- * (owner set up the 30-minute consultation event type 2026-04-23).
+ * If the Cal.com event slug changes, update calLink below. Current slug
+ * is `/consultation` (the 30-minute event type owner set up 2026-04-23).
  */
 export default function Consultation() {
   useEffect(() => {
@@ -88,7 +88,7 @@ export default function Consultation() {
     window.Cal!("init", "consultation", { origin: "https://cal.com" });
     window.Cal!.ns.consultation("inline", {
       elementOrSelector: "#cal-consultation-embed",
-      calLink: "rankpointmedia/30min",
+      calLink: "rankpointmedia/consultation",
       config: { layout: "month_view" },
     });
     window.Cal!.ns.consultation("ui", {
