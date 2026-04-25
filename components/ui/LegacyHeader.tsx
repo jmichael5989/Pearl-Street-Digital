@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -99,58 +98,38 @@ export default function LegacyHeader() {
 
   return (
     <>
-      {/* Persistent top bar — desktop only, hides on scroll */}
-      <div
-        className={`fixed top-0 left-0 right-0 z-40 hidden md:block bg-dark text-center transition-all duration-300 ${
-          scrolled || menuOpen ? "h-0 opacity-0 overflow-hidden" : "h-8 opacity-100"
-        }`}
-      >
-        <p className="text-[13px] leading-8 text-[rgba(255,255,255,0.7)] font-medium">
-          Rank Point Media | A Digital Agency
-        </p>
-      </div>
-
       <header
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || menuOpen ? "top-0" : "md:top-8 top-0"
-        } ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           transparent
             ? "bg-transparent border-b border-transparent"
-            : "bg-[rgba(255,255,255,0.97)] backdrop-blur-[16px] border-b border-border shadow-sm"
+            : "bg-[rgba(250,250,246,0.95)] backdrop-blur-[16px] border-b border-border shadow-sm"
         }`}
       >
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex h-[100px] items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-4 group" onClick={() => setMenuOpen(false)}>
-              <div className="relative h-[88px] w-[88px] overflow-hidden rounded-xl shadow-md shrink-0">
-                <Image
-                  src="/images/brand/logo-r.jpg"
-                  alt="Rank Point Media logo"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="88px"
-                />
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="font-heading text-xl font-bold tracking-tight text-dark">
-                  Rank Point
-                </span>
-                <span className="font-heading text-xl font-bold tracking-tight text-primary">
-                  Media
-                </span>
-              </div>
-              <span className="hidden lg:block font-body italic text-base leading-snug max-w-[160px] pl-4 border-l text-gray border-border">
-                a digital agency
-              </span>
+            {/* Wordmark — matches GlassHeader and Footer */}
+            <Link
+              href="/"
+              className="font-heading text-text"
+              style={{
+                fontSize: "1.125rem",
+                fontWeight: 400,
+                letterSpacing: "-0.005em",
+                lineHeight: 1,
+              }}
+              onClick={() => setMenuOpen(false)}
+              aria-label="Rank Point Media — home"
+            >
+              Rank{" "}
+              <em className="font-normal italic text-accent">Point</em>{" "}
+              Media
             </Link>
 
             {/* Right side: Phone + CTA + Hamburger */}
             <div className="flex items-center gap-4">
               <a
                 href="tel:+12105551234"
-                className="hidden sm:flex items-center gap-2 text-lg font-semibold text-dark transition-colors duration-300 hover:text-primary"
+                className="hidden sm:flex items-center gap-2 text-lg font-semibold text-text transition-colors duration-300 hover:text-accent"
               >
                 <PhoneIcon className="w-6 h-6" />
                 (210) 555-1234
@@ -158,7 +137,7 @@ export default function LegacyHeader() {
               <button
                 type="button"
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="p-2 rounded-lg text-dark transition-colors"
+                className="p-2 rounded-lg text-text transition-colors"
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
               >
@@ -171,7 +150,7 @@ export default function LegacyHeader() {
 
       {/* Full-screen overlay menu */}
       <div
-        className={`fixed inset-0 z-40 bg-dark transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-brand-dark transition-all duration-500 ease-in-out ${
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -185,7 +164,7 @@ export default function LegacyHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wide text-white transition-all duration-300 hover:text-primary"
+                className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-wide text-text-on-dark transition-all duration-300 hover:text-accent-dark"
                 style={{
                   opacity: menuOpen ? 1 : 0,
                   transform: menuOpen ? "translateY(0)" : "translateY(20px)",
@@ -208,7 +187,7 @@ export default function LegacyHeader() {
           >
             <a
               href="tel:+12105551234"
-              className="flex items-center gap-2 text-base font-medium text-[rgba(255,255,255,0.7)] hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-base font-medium text-[rgba(250,250,246,0.7)] hover:text-accent-dark transition-colors"
             >
               <PhoneIcon className="w-5 h-5" />
               (210) 555-1234
