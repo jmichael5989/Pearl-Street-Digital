@@ -97,7 +97,12 @@ export default function Consultation() {
       config: { layout: "month_view" },
     });
     window.Cal!.ns.consultation("ui", {
-      hideEventTypeDetails: false,
+      // Hide Cal's own event-details panel — it duplicates the editorial
+      // framing above the widget ("Thirty minutes with Jon...", duration,
+      // Google Meet) and pushes the calendar away from the section's left
+      // edge. With it hidden, the calendar becomes the leftmost element
+      // and aligns with the paragraph above.
+      hideEventTypeDetails: true,
       layout: "month_view",
       cssVarsPerTheme: {
         // Brass per Resolved Decisions §4 small-mark-accent rule.
