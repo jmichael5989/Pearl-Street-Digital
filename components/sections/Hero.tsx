@@ -58,7 +58,7 @@ export default function Hero() {
           </p>
           <Link
             href="/about"
-            className="font-body inline-flex items-center gap-2 self-start border-b border-white/40 pb-[3px] text-[0.9375rem] font-medium text-text-on-dark transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-white"
+            className="font-body inline-flex items-center gap-2 self-start border-b border-[#FAFAF6]/40 pb-[3px] text-[0.9375rem] font-medium text-text-on-dark transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-[#FAFAF6]"
           >
             Read how we work
           </Link>
