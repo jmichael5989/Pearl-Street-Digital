@@ -24,14 +24,19 @@ interface CalEmbedAPI {
  * without leaving the page.
  *
  * Composition follows Resolved Decisions §4 (palette) and §1 (typography):
- *   - Warm-white section background, navy heading, brass eyebrow with serif
- *     italic section number (option-b.html mock pattern).
- *   - Two-column on desktop (editorial framing left, widget right);
- *     stacks on mobile.
- *   - Hard-edged 1px-border container around the widget — no rounded
- *     corners per the new palette's editorial register.
- *   - Cal widget brand accent is brass (#A07B33) via cssVarsPerTheme so
- *     the booking UI matches the site brand.
+ *   - Parchment section background, eyebrow + serif H2 + body lede + caption
+ *     stacked as a single editorial header at the top of the section.
+ *   - Cal.com widget renders FULL WIDTH below the header. With horizontal
+ *     room, Cal.com's month_view lays calendar + time slots side-by-side
+ *     instead of stacking them vertically — reads as a real booking page,
+ *     not a sidebar widget. The prior two-column layout (editorial framing
+ *     left, widget right ~50% width) constrained Cal.com into its narrow-
+ *     container vertical fallback, which read as a kiosk strip.
+ *   - No card border around the widget — it brings its own light surface
+ *     and renders as a natural visual block on the parchment section.
+ *   - Cal widget brand accent is brass (#836021) via cssVarsPerTheme,
+ *     darkened from #A07B33 to clear WCAG AA against the widget's light
+ *     internal surface.
  *
  * If the Cal.com event slug changes, update calLink below. Current slug
  * is `/consultation` (the 30-minute event type owner set up 2026-04-23).
@@ -121,52 +126,53 @@ export default function Consultation() {
           </div>
         </header>
 
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)] lg:gap-16">
-          {/* Editorial framing column */}
-          <div className="flex flex-col gap-6">
-            <h2
-              className="font-heading text-text text-balance"
-              style={{
-                fontSize: "var(--text-h2)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.015em",
-                fontWeight: 400,
-              }}
-            >
-              Thirty minutes with Jon. Pick a time.
-            </h2>
-            <p
-              className="font-body max-w-md leading-[1.58]"
-              style={{
-                fontSize: "var(--text-body)",
-                color: "var(--color-brand-text)",
-              }}
-            >
-              No slides, no discovery-call script &mdash; just the
-              conversation. If we&rsquo;re not the right fit for what
-              you&rsquo;re building, we&rsquo;ll tell you that too.
-            </p>
-            <p
-              className="font-body max-w-md text-sm italic leading-[1.55] text-gray"
-              style={{
-                paddingTop: "16px",
-                borderTop: "1px solid var(--color-border)",
-              }}
-            >
-              The widget shows Jon Michael&rsquo;s live calendar. Pick any
-              open slot. You&rsquo;ll get a Google Calendar invite with a
-              Google Meet link &mdash; no separate scheduling email.
-            </p>
-          </div>
+        {/* Editorial framing — full-width header above the widget */}
+        <div className="mb-12 flex max-w-3xl flex-col gap-6 lg:mb-16">
+          <h2
+            className="font-heading text-text text-balance"
+            style={{
+              fontSize: "var(--text-h2)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.015em",
+              fontWeight: 400,
+            }}
+          >
+            Thirty minutes with Jon. Pick a time.
+          </h2>
+          <p
+            className="font-body leading-[1.58]"
+            style={{
+              fontSize: "var(--text-body)",
+              color: "var(--color-brand-text)",
+              maxWidth: "58ch",
+            }}
+          >
+            No slides, no discovery-call script &mdash; just the conversation.
+            If we&rsquo;re not the right fit for what you&rsquo;re building,
+            we&rsquo;ll tell you that too.
+          </p>
+          <p
+            className="font-body text-sm italic leading-[1.55] text-gray"
+            style={{
+              paddingTop: "16px",
+              borderTop: "1px solid var(--color-border)",
+              maxWidth: "58ch",
+            }}
+          >
+            The widget below shows Jon Michael&rsquo;s live calendar. Pick any
+            open slot. You&rsquo;ll get a Google Calendar invite with a Google
+            Meet link &mdash; no separate scheduling email.
+          </p>
+        </div>
 
-          {/* Live Cal.com inline embed */}
-          <div className="min-h-[44rem] border border-border bg-light">
-            <div
-              id="cal-consultation-embed"
-              className="h-full min-h-[44rem] w-full"
-              aria-label="Cal.com booking widget"
-            />
-          </div>
+        {/* Live Cal.com inline embed — full section width so calendar and
+            time slots lay out side-by-side instead of stacking vertically */}
+        <div className="min-h-[40rem] w-full">
+          <div
+            id="cal-consultation-embed"
+            className="h-full min-h-[40rem] w-full"
+            aria-label="Cal.com booking widget"
+          />
         </div>
       </div>
     </section>
