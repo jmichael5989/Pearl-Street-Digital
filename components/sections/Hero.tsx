@@ -39,7 +39,7 @@ export default function Hero() {
       className="bg-light"
       style={{
         paddingTop: "clamp(80px, 14vh, 160px)",
-        paddingBottom: "clamp(80px, 14vh, 160px)",
+        paddingBottom: "clamp(48px, 8vh, 96px)",
       }}
     >
       <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">

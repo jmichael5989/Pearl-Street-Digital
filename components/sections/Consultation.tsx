@@ -125,7 +125,7 @@ export default function Consultation() {
         style={{ paddingBlock: "clamp(72px, 12vh, 144px)" }}
       >
         {/* Editorial section header — italic serif section-num + brass label */}
-        <header className="mb-12 lg:mb-16">
+        <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             <span className="font-heading text-base font-normal italic mr-1">02</span>
             &nbsp;/&nbsp; Talk to us
