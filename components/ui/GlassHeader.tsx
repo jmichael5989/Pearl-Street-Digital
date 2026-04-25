@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -63,26 +62,19 @@ export default function GlassHeader({
           <div className="flex h-[100px] items-center justify-between">
             <Link
               href="/"
-              className="flex items-center gap-3"
+              className="font-heading text-text-on-dark"
+              style={{
+                fontSize: "1.125rem",
+                fontWeight: 400,
+                letterSpacing: "-0.005em",
+                lineHeight: 1,
+              }}
               onClick={() => setMenuOpen(false)}
+              aria-label="Rank Point Media — home"
             >
-              <div className="relative h-[72px] w-[72px] overflow-hidden rounded-xl shadow-md shrink-0">
-                <Image
-                  src="/images/brand/logo-r.jpg"
-                  alt="Rank Point Media"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="72px"
-                />
-              </div>
-              <span
-                className={`font-heading font-semibold text-xl transition-colors duration-300 ${
-                  scrolled ? "text-white/90" : "text-white"
-                }`}
-              >
-                Rank Point Media
-              </span>
+              Rank{" "}
+              <em className="font-normal italic text-accent-dark">Point</em>{" "}
+              Media
             </Link>
 
             <nav className="hidden lg:flex items-center gap-8">
@@ -102,10 +94,10 @@ export default function GlassHeader({
             <div className="flex items-center gap-3">
               <a
                 href="tel:+12105551234"
-                className={`hidden sm:inline-flex items-center gap-2 rounded-full px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 ${
+                className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-medium tracking-[0.01em] transition-[background-color,border-color,color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] ${
                   scrolled
-                    ? "bg-accent-dark text-brand-dark hover:brightness-110 hover:scale-[1.02]"
-                    : "border border-white/30 text-white hover:bg-white/10"
+                    ? "border border-light bg-light text-text hover:bg-accent hover:border-accent hover:text-light"
+                    : "border border-[#FAFAF6]/30 text-text-on-dark hover:bg-[#FAFAF6]/10"
                 }`}
               >
                 (210) 555-1234

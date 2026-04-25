@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 /* ── Link data ─────────────────────────────────────────── */
@@ -165,23 +164,20 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-10 mb-10">
             {/* Column 1 — Brand */}
             <div className="pb-6 lg:pb-0">
-              <Link href="/" className="flex items-center gap-2.5 mb-4">
-                <Image
-                  src="/images/brand/logo-icon.png"
-                  alt="Rank Point Media"
-                  width={36}
-                  height={36}
-                  className="h-9 w-9 rounded-lg"
-                  priority={false}
-                />
-                <div className="flex flex-col leading-tight">
-                  <span className="font-heading text-[15px] font-bold tracking-tight text-white">
-                    Rank Point
-                  </span>
-                  <span className="font-heading text-[15px] font-bold tracking-tight text-primary">
-                    Media
-                  </span>
-                </div>
+              <Link
+                href="/"
+                className="font-heading text-text-on-dark mb-4 inline-block"
+                style={{
+                  fontSize: "1.125rem",
+                  fontWeight: 400,
+                  letterSpacing: "-0.005em",
+                  lineHeight: 1,
+                }}
+                aria-label="Rank Point Media — home"
+              >
+                Rank{" "}
+                <em className="font-normal italic text-accent-dark">Point</em>{" "}
+                Media
               </Link>
               <p className="text-sm leading-relaxed max-w-[280px]">
                 Custom-coded websites and digital marketing for San Antonio small businesses.
