@@ -1,66 +1,154 @@
-import Image from "next/image";
-import ScrollReveal from "@/components/ui/ScrollReveal";
+/**
+ * Homepage WhyUs section. Editorial card-grid pattern matching the
+ * option-b.html mock locked at .impeccable.md Resolved Decisions §4.
+ *
+ * Composition:
+ *   - Warm-white section (alternates after Consultation's parchment).
+ *   - Edge hairline at the top to mark the section transition.
+ *   - Numbered eyebrow with italic-serif "03" in brass + sans label.
+ *   - Serif H2 in navy, weight 400, max-width 24ch, text-balance.
+ *   - Graphite lede paragraph, max-width 58ch.
+ *   - Three-card grid (stacks on mobile, 3-up at sm and above).
+ *   - Cards: 1px edge border, no shadow. Hover: border → navy +
+ *     subtle translate lift; no glow shadow per the new palette spec.
+ *   - Card numbers in italic-serif brass with an edge underline that
+ *     separates the number from the card title.
+ *
+ * Copy: H2, lede, and three card title/body pairs taken verbatim from
+ * the option-b.html mock. The owner wrote them when locking the palette;
+ * they are on-brief — plainspoken, dry, names the competition by
+ * behavior not by name ("template shops", "agencies that bill $450 a
+ * month for a four-hour intake call"), claims are concrete and
+ * defensible (i. names the people on calls, ii. names the page-load
+ * target, iii. names the handoff).
+ *
+ * Replaces the prior WhyUs (centered title with primary underline,
+ * drop-cap "R", marketing-speak two-paragraph copy: AI-powered /
+ * agency-quality / "match the caliber of the clients we serve" / "compete
+ * smarter and scale faster", a stock-y "Great brands don't grow by
+ * accident" pull-quote, Jon's portrait photo, and a pre-pivot light-blue
+ * #EFF6FF section background). All retired in favor of the editorial
+ * pattern. The portrait photo can return in a dedicated about/team
+ * context once real photography exists per the Pre-Launch Checklist.
+ */
+
+const whyCards = [
+  {
+    num: "i.",
+    title: "You speak to the builder.",
+    body: "No account managers. No project coordinators. Every call is Jon or Stacie — the people whose hands are on the code and the camera.",
+  },
+  {
+    num: "ii.",
+    title: "Custom-coded, not templated.",
+    body: "Your site is written for your business. The page loads under two seconds and the Lighthouse score is 95+ because we built it that way on purpose.",
+  },
+  {
+    num: "iii.",
+    title: "You keep the keys.",
+    body: "Your domain, your hosting, your analytics. If you decide in year three to take it somewhere else, the handoff is a Git repository and a coffee.",
+  },
+];
 
 export default function WhyUs() {
   return (
-    <section className="py-8 lg:py-10 bg-[#EFF6FF]">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ScrollReveal>
-          <div className="text-center">
-            <h2
-              className="font-heading font-bold text-primary"
-              style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}
+    <section
+      aria-labelledby="why-heading"
+      className="bg-light border-t border-border"
+      style={{
+        paddingTop: "clamp(72px, 12vh, 144px)",
+        paddingBottom: "clamp(72px, 12vh, 144px)",
+      }}
+    >
+      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+        {/* Eyebrow */}
+        <header className="mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span className="font-heading text-base font-normal italic mr-1">
+              03
+            </span>
+            &nbsp;/&nbsp; Why us
+          </div>
+        </header>
+
+        {/* H2 */}
+        <h2
+          id="why-heading"
+          className="font-heading text-text text-balance"
+          style={{
+            fontSize: "var(--text-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.015em",
+            fontWeight: 400,
+            maxWidth: "24ch",
+            margin: 0,
+          }}
+        >
+          Small enough to be accountable. Serious enough to do real work.
+        </h2>
+
+        {/* Lede */}
+        <p
+          className="mt-5 font-body"
+          style={{
+            fontSize: "1.0625rem",
+            lineHeight: 1.6,
+            color: "var(--color-brand-text)",
+            maxWidth: "58ch",
+            marginBottom: "clamp(48px, 6vh, 64px)",
+          }}
+        >
+          The San Antonio small-business agency market is saturated with
+          template shops on the cheap end and large agencies that bill $450
+          a month for a four-hour intake call. We built Rank Point Media to
+          fit the gap a specific kind of owner keeps describing to us.
+        </p>
+
+        {/* 3-card grid */}
+        <div className="grid gap-6 sm:grid-cols-3">
+          {whyCards.map((card) => (
+            <article
+              key={card.num}
+              className="flex flex-col gap-3.5 border border-border bg-light p-8 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-1"
             >
-              Why Rank Point Media
-            </h2>
-            <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-primary" />
-          </div>
-          <div className="mx-auto mt-5 grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1fr)_480px] lg:items-center">
-            <div className="space-y-3 text-left text-base leading-relaxed text-dark">
-              <p>
-                <span className="font-heading text-3xl font-bold text-primary leading-none align-[-0.15em] mr-0.5">R</span>
-                ank Point Media is a full-service digital marketing agency
-                delivering solutions that match the caliber of the clients we
-                serve. Founder-led and AI-powered, we provide agency-quality
-                websites, local SEO, and digital marketing strategies at a
-                fraction of traditional agency rates &mdash; with the
-                flexibility of month-to-month partnerships.
-              </p>
-              <p>
-                We go beyond what traditional agencies offer. Our team builds
-                custom artificial intelligence solutions tailored to your
-                specific business needs &mdash; from automated customer
-                follow-ups to intelligent lead qualification &mdash; giving you
-                the tools to compete smarter and scale faster.
-              </p>
-              <p className="font-semibold text-dark">
-                When you partner with Rank Point Media, you&rsquo;re not another
-                account in a crowded portfolio. You&rsquo;re our priority.
-              </p>
-            </div>
-            <aside className="relative px-6 py-4 text-center lg:border-l-2 lg:border-primary lg:pl-8">
-              <p className="font-heading text-xl italic leading-snug text-dark">
-                &ldquo;Great brands don&rsquo;t grow by accident. They grow with
-                the right team behind them.&rdquo;
-              </p>
-              <div className="mt-4 flex justify-center">
-                <Image
-                  src="/images/team/jon.png"
-                  alt="Jon, Owner and Designer at Rank Point Media"
-                  width={96}
-                  height={96}
-                  className="h-24 w-24 rounded-full object-cover object-top ring-4 ring-primary/30"
-                />
+              <div
+                className="font-heading italic text-accent"
+                style={{
+                  fontSize: "0.9375rem",
+                  fontWeight: 400,
+                  paddingBottom: "14px",
+                  marginBottom: "8px",
+                  borderBottom: "1px solid var(--color-border)",
+                }}
+              >
+                {card.num}
               </div>
-              <div className="mt-3">
-                <p className="font-heading text-base font-semibold text-dark">Jon</p>
-                <p className="mt-0.5 text-xs uppercase tracking-[0.12em] text-gray-500">
-                  Owner / Designer
-                </p>
-              </div>
-            </aside>
-          </div>
-        </ScrollReveal>
+              <h3
+                className="font-heading text-text"
+                style={{
+                  fontSize: "1.375rem",
+                  lineHeight: 1.25,
+                  letterSpacing: "-0.01em",
+                  fontWeight: 400,
+                  margin: 0,
+                }}
+              >
+                {card.title}
+              </h3>
+              <p
+                className="font-body"
+                style={{
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.58,
+                  color: "var(--color-brand-text)",
+                  margin: 0,
+                }}
+              >
+                {card.body}
+              </p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -36,7 +36,7 @@ export default function Hero() {
   return (
     <section
       aria-label="Introducing Rank Point Media"
-      className="bg-light border-b border-border"
+      className="bg-light"
       style={{
         paddingTop: "clamp(80px, 14vh, 160px)",
         paddingBottom: "clamp(80px, 14vh, 160px)",
