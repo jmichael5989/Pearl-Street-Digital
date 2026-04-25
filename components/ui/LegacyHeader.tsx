@@ -134,18 +134,14 @@ export default function LegacyHeader() {
                 />
               </div>
               <div className="flex flex-col leading-tight">
-                <span
-                  className={`font-heading text-xl font-bold tracking-tight transition-colors duration-300 ${transparent ? "text-white" : "text-dark"}`}
-                >
+                <span className="font-heading text-xl font-bold tracking-tight text-dark">
                   Rank Point
                 </span>
                 <span className="font-heading text-xl font-bold tracking-tight text-primary">
                   Media
                 </span>
               </div>
-              <span
-                className={`hidden lg:block font-body italic text-base leading-snug max-w-[160px] pl-4 border-l transition-colors duration-300 ${transparent ? "text-[rgba(255,255,255,0.85)] border-[rgba(255,255,255,0.2)]" : "text-gray border-border"}`}
-              >
+              <span className="hidden lg:block font-body italic text-base leading-snug max-w-[160px] pl-4 border-l text-gray border-border">
                 a digital agency
               </span>
             </Link>
@@ -154,7 +150,7 @@ export default function LegacyHeader() {
             <div className="flex items-center gap-4">
               <a
                 href="tel:+12105551234"
-                className={`hidden sm:flex items-center gap-2 text-lg font-semibold transition-colors duration-300 hover:text-primary ${transparent ? "text-[rgba(255,255,255,0.9)]" : "text-dark"}`}
+                className="hidden sm:flex items-center gap-2 text-lg font-semibold text-dark transition-colors duration-300 hover:text-primary"
               >
                 <PhoneIcon className="w-6 h-6" />
                 (210) 555-1234
@@ -162,7 +158,7 @@ export default function LegacyHeader() {
               <button
                 type="button"
                 onClick={() => setMenuOpen(!menuOpen)}
-                className={`p-2 rounded-lg transition-colors ${transparent ? "text-white" : "text-dark"}`}
+                className="p-2 rounded-lg text-dark transition-colors"
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
               >
