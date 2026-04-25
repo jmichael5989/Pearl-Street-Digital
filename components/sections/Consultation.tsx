@@ -96,7 +96,9 @@ export default function Consultation() {
       layout: "month_view",
       cssVarsPerTheme: {
         // Brass per Resolved Decisions §4 small-mark-accent rule.
-        light: { "cal-brand": "#A07B33" },
+        // Tuned 2026-04-25 from #A07B33 to clear WCAG AA on the widget's
+        // light surface — kept in sync with --color-accent in globals.css.
+        light: { "cal-brand": "#836021" },
       },
     });
   }, []);

@@ -106,11 +106,16 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - **Industry icon chips**: Same treatment as service chips. No separate violet-tinted variant.
 - **Navbar**: Transparent over the dark hero, transitions to warm white `rgba(250,250,246,0.95)` with `backdrop-blur(12px)` and a 1px edge `#D9D2C3` bottom border on scroll.
 
-### Hero Section
-- Tower of Americas photo on LEFT (42% width), absolute positioned
-- Three gradient overlays: right fade, bottom fade, top fade blending into navy `#14213D`
-- Text centered with text-shadow for readability over photo bleed
-- H1 text-shadow: `0 2px 20px rgba(20,33,61,0.8), 0 0 40px rgba(20,33,61,0.5)`
+### Hero Section (LOCKED 2026-04-25 — see [components/sections/Hero.tsx](components/sections/Hero.tsx))
+The homepage hero matches the option-b.html mock's editorial two-column composition; the dark Tower-of-Americas treatment that lived here previously is **retired on the homepage** and is not to be reintroduced. Dark sections on the homepage are now the footer only — `Hero`, `Consultation`, `WhyUs`, `ServicesSection`, `CustomDevelopmentCallout` are all on warm-white or parchment.
+- Section background: `bg-light` (warm white `#FAFAF6`), bottom hairline `border-border`.
+- Editorial section header (eyebrow): italic-serif section number "01" in `text-accent` (brass) + sans uppercase letter-spaced label "Rank Point Media" (`text-xs font-semibold uppercase tracking-[0.16em]`). Same pattern repeats on every homepage section's header — the numbering is a **structural motif** per `.impeccable.md` Reference 1 (The Gentlewoman).
+- Two-column grid on desktop (`lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]`); stacks on mobile.
+- **Left column**: H1 "Nobody is ever \"looped in.\"" with italic emphasis on the quoted phrase (the positioning-spine line from `.impeccable.md`). Subhead beneath: "Two people who build small-business websites in San Antonio. In front of the work, not behind a layer of account managers." CTA row: primary navy button "Book a consultation" anchoring to `#talk-to-us` (the Cal.com Consultation section); secondary outline button "See how we work" linking to `/about`.
+- **Right column (aside)**: pull-quote in italic Source Serif 4 with the rest of the positioning spine: "When the site launches, you talk to the person who wrote the CSS. When a campaign misfires, you talk to the person who set it up." Cited "Jon Michael · Rank Point Media" with a hairline divider above the citation. On desktop, aside has `lg:border-l lg:border-border lg:pl-8 xl:pl-12`.
+- **No photography in the hero.** Real photos of Jon, Stacie, and George are a Pre-Launch Checklist item (`.impeccable.md`); when those exist, they may be added as a dedicated section below the hero or composed into the aside slot. **Do not add photo placeholders.**
+- **No text-shadows.** The light editorial register makes them unnecessary, and they would read as "hero on photo bleed" performance — the brief's "do not perform" principle applies.
+- Inner-page heroes (About, Industry, Service, Case Study detail) may still use the dark navy treatment with the Tower-of-Americas photo and three gradient overlays blending into navy `#14213D` — that pattern is **inner-page-only** now, not homepage.
 
 ### Footer Badge
 - **Solid colors only per `.impeccable.md` absolute ban on gradient text (background-clip: text + any gradient = forbidden site-wide).**
