@@ -1,5 +1,5 @@
 import Hero from "@/components/sections/Hero";
-import StatsBar from "@/components/sections/StatsBar";
+import Consultation from "@/components/sections/Consultation";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhyUs from "@/components/sections/WhyUs";
 import CustomDevelopmentCallout from "@/components/sections/CustomDevelopmentCallout";
@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <main>
         <Hero />
-        <StatsBar />
+        <Consultation />
         <WhyUs />
         <ServicesSection />
         <CustomDevelopmentCallout />
