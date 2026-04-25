@@ -1,59 +1,59 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Brand colors (locked per CLAUDE.md — do not tint) ──
-     Reconciled 2026-04-24: --color-primary and --color-primary-dark now
-     resolve to brand teal (was legacy pre-brief blue #2563EB / #1D4ED8).
-     CTA button gradients remain violet per CLAUDE.md button spec; this
-     token set is the brand-primary accent, not the CTA color. */
-  --color-primary: #14B8A6;
-  --color-primary-dark: #0D9488;
-  --color-accent: #14B8A6;
-  --color-accent-dark: #0D9488;
-  --color-dark: #0F172A;
+  /* ── Brand palette (LOCKED 2026-04-24 per .impeccable.md Resolved Decisions §4) ──
+     Primary: navy. Accent: brass (small marks only — never on CTAs, never on
+     headings, never as a card/chip fill). The former teal+violet pair is fully
+     retired; see audit trail in .impeccable.md §4. Token names preserved (Approach
+     A from the migration plan) so `bg-primary` / `text-primary` cascades untouched
+     across ~20 components. Hue-named aliases (--color-brand-teal, --color-brand-violet,
+     --color-brand-light) are deleted; any call-site referencing them is rewritten. */
+  --color-primary: #14213D;           /* navy */
+  --color-primary-dark: #1F3057;      /* navy-soft — hover state */
+  --color-accent: #A07B33;            /* brass — small marks only */
+  --color-accent-dark: #B78F3E;       /* brass-soft — brass on dark backgrounds */
+  --color-dark: #14213D;              /* navy — dark sections */
 
-  /* ── Neutrals — tinted 2026-04-24 ───────────────────────
-     Tinted toward brand teal hue (~188 in OKLCH) with chroma 0.004-0.020 for
-     subtle cohesion between UI surfaces and the primary brand color. Values
-     approximate the prior Tailwind-slate luminances to preserve WCAG AA
-     contrast. Per Impeccable color principles: no pure white, no pure black,
-     reduce chroma at extreme lightness to avoid garish tint. */
-  --color-dark-surface: oklch(0.22 0.014 188);         /* was #1E293B */
-  --color-light: oklch(0.99 0.004 188);                /* was #FFFFFF (pure white banned per Impeccable) */
-  --color-light-surface: oklch(0.97 0.008 188);        /* was #F8FAFC */
-  --color-gray: oklch(0.51 0.020 188);                 /* was #64748B */
-  --color-text: oklch(0.20 0.018 188);                 /* was #0F172A — softer than brand-dark for body text */
-  --color-text-on-dark: oklch(0.95 0.008 188);         /* was #F1F5F9 */
-  --color-text-on-dark-muted: oklch(0.70 0.020 188);   /* was #94A3B8 */
-  --color-border: oklch(0.90 0.010 188);               /* was #E2E8F0 */
-  --color-border-dark: oklch(0.30 0.016 188);          /* was #334155 */
-  --color-icon-service-bg: oklch(0.22 0.014 188);      /* was #1E293B */
-  --color-icon-service-border: oklch(0.30 0.016 188);  /* was #334155 */
-  --color-icon-industry-bg: oklch(0.22 0.014 188);     /* was #1E293B */
-  --color-icon-industry-border: oklch(0.30 0.016 188); /* was #334155 */
-  /* Typography — locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
+  /* ── Surfaces ─────────────────────────────────── */
+  --color-light: #FAFAF6;             /* warm white — body background */
+  --color-light-surface: #F1EDE4;     /* parchment — alternating section background */
+  --color-dark-surface: #1F3057;      /* navy-soft — elevated dark surface */
+
+  /* ── Text ─────────────────────────────────────── */
+  --color-text: #14213D;              /* headings — navy */
+  --color-gray: #6A6E78;              /* mute — captions, micro-copy */
+  --color-text-on-dark: #FAFAF6;      /* warm white on dark sections */
+  --color-text-on-dark-muted: oklch(0.72 0.008 85);  /* warm muted light */
+
+  /* ── Borders ──────────────────────────────────── */
+  --color-border: #D9D2C3;            /* edge — card borders, dividers */
+  --color-border-dark: #3A3F4B;       /* graphite — borders on dark sections */
+
+  /* ── Icon chips (parchment + edge; uniform treatment per CLAUDE.md Design System) ── */
+  --color-icon-service-bg: #F1EDE4;
+  --color-icon-service-border: #D9D2C3;
+  --color-icon-industry-bg: #F1EDE4;
+  --color-icon-industry-border: #D9D2C3;
+
+  /* ── Typography (locked per .impeccable.md §1 — unchanged) ──
      All typographic tokens resolve to the Adobe Source family (Source Serif 4,
-     Source Sans 3, Source Code Pro) under SIL OFL. The former `.services-scope`
-     architecture and its three --font-*-services aliases were removed (they
-     had resolved to the same fonts as the primary tokens after typography lock,
-     so they were a no-op; removed for simplicity). */
+     Source Sans 3, Source Code Pro) under SIL OFL. */
   --font-heading: var(--font-source-serif);
   --font-body: var(--font-source-sans);
   --font-display: var(--font-source-serif);
   --font-mono: var(--font-source-code);
-  /* Brand color aliases (locked per CLAUDE.md — do not tint) */
-  --color-brand-teal: #14B8A6;
-  --color-brand-violet: #8B5CF6;
-  --color-brand-dark: #0F172A;
-  --color-brand-light: #F0FDFA;
-  --color-surface-dark: #0F172A;
-  --color-surface-darker: #020617;
-  --color-surface-tint: #F0FDFA;
 
-  /* Neutral derivatives of the brand palette — teal-tinted per above */
-  --color-brand-gray: oklch(0.52 0.018 188);           /* was #6B7280 */
-  --color-brand-text: oklch(0.32 0.020 188);           /* was #1F2937 */
-  --color-surface-light: oklch(0.985 0.006 188);       /* was #FAFAF9 */
+  /* ── Legacy semantic aliases (repointed to new palette for cascade stability) ──
+     These names persist from earlier migrations. Kept for now to avoid touching
+     every call-site; a future cleanup pass may rename. --color-brand-teal,
+     --color-brand-violet, and --color-brand-light (mint) are intentionally absent. */
+  --color-brand-dark: #14213D;         /* navy */
+  --color-brand-gray: #6A6E78;         /* mute */
+  --color-brand-text: #3A3F4B;         /* graphite — body paragraph text */
+  --color-surface-dark: #14213D;       /* navy */
+  --color-surface-darker: #0E1629;     /* deeper navy — rare very-dark sections */
+  --color-surface-tint: #F1EDE4;       /* parchment */
+  --color-surface-light: #FAFAF6;      /* warm white */
 }
 
 /* ── Typography scale ───────────────────────────────────
@@ -108,20 +108,20 @@ html {
 }
 
 body {
-  background: #ffffff;
-  color: #0F172A;
+  background: #FAFAF6;
+  color: #3A3F4B;
   font-family: var(--font-body);
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
 ::selection {
-  background: rgba(20, 184, 166, 0.2);
-  color: #0F172A;
+  background: rgba(160, 123, 51, 0.22);  /* brass with alpha */
+  color: #14213D;
 }
 
 :focus-visible {
-  outline: 2px solid #14B8A6;
+  outline: 2px solid #14213D;  /* navy */
   outline-offset: 2px;
 }
 
@@ -144,30 +144,33 @@ body {
     opacity: 1;
   }
 }
-/* ── Button micro-interactions ─────────────────────────── */
+/* ── Button micro-interactions ───────────────────────────
+   Palette lock 2026-04-24: no colored glow shadows. Transform-based lift is
+   preserved as a polish micro-motion; shadows are neutral navy seating only. */
 .btn-primary {
-  transition-property: transform, box-shadow, opacity;
+  transition-property: transform, background-color, box-shadow;
   transition-duration: var(--motion-duration-quick);
   transition-timing-function: var(--motion-ease-out);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 2px 6px rgba(20, 33, 61, 0.12);
 }
 .btn-primary:active {
   transform: scale(0.98) translateY(0);
-  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  box-shadow: none;
 }
 
 .btn-dark {
-  transition-property: transform, box-shadow, background-color;
+  transition-property: transform, background-color, box-shadow;
   transition-duration: var(--motion-duration-quick);
   transition-timing-function: var(--motion-ease-out);
 }
 .btn-dark:hover {
   transform: translateY(-2px);
-  background-color: #1E293B;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 2px 6px rgba(20, 33, 61, 0.12);
 }
 .btn-dark:active {
   transform: scale(0.98) translateY(0);
@@ -184,7 +187,7 @@ body {
   bottom: -4px;
   width: 100%;
   height: 2px;
-  background: #14B8A6;
+  background: #A07B33;  /* brass — on-brand for small accent marks */
   border-radius: 1px;
   transform: scaleX(0);
   transform-origin: left;
@@ -196,8 +199,8 @@ body {
 
 /* ── Form input focus glow ────────────────────────────── */
 .input-glow:focus {
-  border-color: #14B8A6;
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+  border-color: #14213D;  /* navy */
+  box-shadow: 0 0 0 3px rgba(20, 33, 61, 0.12);
 }
 
 /* ── Tracing border animation ────────────────────────── */

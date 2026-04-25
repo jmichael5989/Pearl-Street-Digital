@@ -38,7 +38,7 @@ function StarIcon() {
 
 export function TestimonialCard({ testimonial }: { testimonial: TestimonialData }) {
   return (
-    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(20,184,166,0.15)]">
+    <div className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1">
       {testimonial.rating && (
         <div className="flex gap-0.5 mb-4">
           {Array.from({ length: testimonial.rating }, (_, i) => (
@@ -69,7 +69,7 @@ export function TestimonialCard({ testimonial }: { testimonial: TestimonialData 
 /* ── Main section — MODE A (What We Stand For) ─────────── */
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-[#F8FAFC] py-16 lg:py-24">
+    <section id="testimonials" className="bg-light-surface py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">

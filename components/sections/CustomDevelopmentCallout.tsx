@@ -1,6 +1,6 @@
 export default function CustomDevelopmentCallout() {
   return (
-    <section className="bg-[#F8FAFC] py-16 lg:py-20">
+    <section className="bg-light-surface py-16 lg:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <p className="font-heading text-2xl md:text-3xl font-bold italic text-dark leading-snug">
           Every site we build is custom-coded from the ground up -- no WordPress

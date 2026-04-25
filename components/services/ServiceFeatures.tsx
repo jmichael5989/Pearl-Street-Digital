@@ -18,7 +18,7 @@ export default function ServiceFeatures({ service }: { service: ServiceData }) {
           {service.features.map((feature) => (
             <div
               key={feature.title}
-              className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(20,184,166,0.15)]"
+              className="rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1"
             >
               <CheckCircleIcon className="h-5 w-5 text-primary mb-4" />
               <h3 className="font-heading font-semibold text-text mb-2">

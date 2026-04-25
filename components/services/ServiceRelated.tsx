@@ -29,7 +29,7 @@ export default function ServiceRelated({
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(20,184,166,0.15)]"
+                className="group rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1"
               >
                 <h3 className="font-heading text-lg font-semibold text-text mb-2">
                   {service.title}

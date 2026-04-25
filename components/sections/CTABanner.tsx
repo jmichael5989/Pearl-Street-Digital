@@ -2,7 +2,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function CTABanner() {
   return (
-    <section className="bg-[#F8FAFC] py-16 lg:py-24">
+    <section className="bg-light-surface py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
         <div className="max-w-[700px] mx-auto text-center">
@@ -19,11 +19,7 @@ export default function CTABanner() {
           </p>
           <a
             href="/contact"
-            className="btn-primary mt-8 inline-block rounded-xl px-8 py-4 text-center font-semibold text-white"
-            style={{
-              background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-              boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
-            }}
+            className="btn-primary mt-8 inline-block rounded-xl bg-primary px-8 py-4 text-center font-semibold text-white"
           >
             Contact Us
           </a>

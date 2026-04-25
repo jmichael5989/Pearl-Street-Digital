@@ -72,16 +72,21 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - **Location**: San Antonio, TX (Leon Springs area)
 - **Tagline**: "Higher rankings. More customers."
 
-### Colors (FINAL -- never deviate)
-- Primary Teal: #14B8A6
-- Accent Violet: #8B5CF6
-- Dark: #0F172A
-- Light: #F0FDFA
-- Gray: #6B7280
-- Text: #1F2937
-- CTA buttons: Violet gradient (135deg, #8B5CF6 to #7C3AED) with box-shadow rgba(139,92,246,0.35)
-- Hero primary CTA: Teal gradient (135deg, #14B8A6 to #0D9488)
-- Secondary buttons: #0F172A dark with white text
+### Colors (LOCKED 2026-04-24 -- see .impeccable.md Resolved Decisions §4)
+- **Navy** `#14213D` -- primary. Body text, headings, CTA buttons, dark sections, footer.
+- **Navy-soft** `#1F3057` -- primary hover only.
+- **Warm white** `#FAFAF6` -- body background.
+- **Parchment** `#F1EDE4` -- alternating section background (replaces former mint).
+- **Graphite** `#3A3F4B` -- body paragraph text.
+- **Edge** `#D9D2C3` -- card borders, dividers.
+- **Mute** `#6A6E78` -- captions, micro-copy.
+- **Brass** `#A07B33` -- single accent. Links, selection highlight, section-number italics, underlines, footer brand wordmark **only**. Never on CTAs, never on headings, never as a card or chip fill.
+- **Brass-soft** `#B78F3E` -- brass on dark backgrounds only (raised for legibility against navy).
+- **CTA buttons (on light)**: Solid navy `#14213D` background, warm-white `#FAFAF6` text, 1px navy border. **No gradient.** Hover: navy-soft background.
+- **CTA buttons (on dark)**: Inverted -- warm-white background, navy text. Hover: brass background, warm-white text.
+- **Secondary buttons**: Transparent background, navy text, navy border. Hover inverts (navy bg, warm-white text).
+- **Retired hues (zero tolerance for reintroduction)**: Teal `#14B8A6`, Violet `#8B5CF6`, Mint `#F0FDFA`, Mint-border `#CCFBF1`, Violet-bg `#F5F3FF`, Violet-border `#EDE9FE`, Slate-dark `#0F172A`. If you see any of these in code, it is a bug to fix, not a pattern to follow.
+- Reference render: [public/mocks/colors/option-b.html](public/mocks/colors/option-b.html).
 
 ### Typography (LOCKED 2026-04-24 -- see .impeccable.md Resolved Decisions §1)
 - Headings/Display: **Source Serif 4** (Google Fonts, variable — weight axis 200-900, optical-size axis 8-60, italic). Regular + Medium at launch. Optical-size 48 for display, 12 for body.
@@ -92,25 +97,25 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - Section labels: 0.78rem, weight 600, letter-spacing 0.12em, uppercase (set in Source Sans 3).
 
 ### Design System
-- **Body background**: #FFFFFF white
-- **Alternating sections**: #F0FDFA (mint) for Why Us, Process; #F9FAFB (gray) for Testimonials, FAQ
-- **Dark sections**: #0F172A for Hero, CTA banner, Footer ONLY
-- **Card borders**: #E5E7EB, hover transitions to brand teal or violet
-- **Card hover**: translateY(-4px) + colored box-shadow glow
-- **Service icon backgrounds**: #F0FDFA with #CCFBF1 border
-- **Industry icon backgrounds**: #F5F3FF with #EDE9FE border
-- **Navbar**: Transparent over dark hero, transitions to white (rgba(255,255,255,0.97)) with backdrop-blur(16px) on scroll
+- **Body background**: Warm white `#FAFAF6`
+- **Alternating sections**: Parchment `#F1EDE4` (Why Us, Process, Services); optional warmer parchment `#E4DFD3` for Testimonials and FAQ if a second step is needed for hierarchy
+- **Dark sections**: Navy `#14213D` for Hero, CTA banner, Footer ONLY
+- **Card borders**: Edge `#D9D2C3`; hover transitions to navy `#14213D`. Never to brass.
+- **Card hover**: `translateY(-3px)` plus border-color transition. **No colored glow. No box-shadow beyond a subtle `0 1px 0 rgba(20,33,61,0.08)` for seating.**
+- **Service icon chips**: Parchment `#F1EDE4` background, edge `#D9D2C3` hairline border. Icon stroke color is brass `#A07B33` when a small amount of color is needed for hierarchy; otherwise navy.
+- **Industry icon chips**: Same treatment as service chips. No separate violet-tinted variant.
+- **Navbar**: Transparent over the dark hero, transitions to warm white `rgba(250,250,246,0.95)` with `backdrop-blur(12px)` and a 1px edge `#D9D2C3` bottom border on scroll.
 
 ### Hero Section
 - Tower of Americas photo on LEFT (42% width), absolute positioned
-- Three gradient overlays: right fade, bottom fade, top fade blending into #0F172A
+- Three gradient overlays: right fade, bottom fade, top fade blending into navy `#14213D`
 - Text centered with text-shadow for readability over photo bleed
-- H1 text-shadow: 0 2px 20px rgba(15,23,42,0.8), 0 0 40px rgba(15,23,42,0.5)
+- H1 text-shadow: `0 2px 20px rgba(20,33,61,0.8), 0 0 40px rgba(20,33,61,0.5)`
 
 ### Footer Badge
 - **Solid colors only per `.impeccable.md` absolute ban on gradient text (background-clip: text + any gradient = forbidden site-wide).**
-  - "DESIGN BY:" in #475569
-  - "RANK POINT MEDIA" in brand teal #14B8A6
+  - "DESIGN BY:" in `rgba(250, 250, 246, 0.5)` (muted warm-white on navy footer)
+  - "RANK POINT MEDIA" in brass-soft `#B78F3E`
 - All caps, letter-spacing 0.18em
 - Must appear on every page footer
 
@@ -125,7 +130,7 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 ### Pricing (LAUNCH CONFIG)
 - Toggle on /pricing defaults to Build + Hosting (monthly): Starter $99/mo, Business $149/mo (featured/dark card), Growth $249/mo -- 12-month term, hosting + security + backups + ongoing updates included
 - Build Only (one-time) option available via toggle: Starter $500, Business $1,000, Growth $1,500 -- no hosting, client owns and hosts after delivery
-- Business tier gets dark #0F172A card, primary border, "MOST POPULAR" badge (only shown under Build + Hosting toggle)
+- Business tier gets dark navy `#14213D` card, brass-soft `#B78F3E` 1px border, "MOST POPULAR" badge (only shown under Build + Hosting toggle)
 - **Phase disclosure handled per `.impeccable.md` Early-stage Disclosure Posture (Position 2: Disclosed, not sold).** No founding-client badges, no scarcity mechanics, no slot counts, no "limited time" framing. A single plainspoken paragraph on the About page and one line on the pricing page carry the phase acknowledgement; the homepage does not.
 - **Pricing transparency is a design principle**, per `.impeccable.md`. No "starting at" hooks that conceal typical engagements. No "contact us for pricing" on the Services page. No budget-qualifying form fields before a prospect sees any number. No tiers where the top one is replaced with "Let's talk."
 

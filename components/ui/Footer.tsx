@@ -85,7 +85,7 @@ function FooterAccordion({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-[rgba(148,163,184,0.1)] lg:border-0">
+    <div className="border-b border-white/10 lg:border-0">
       <button
         type="button"
         onClick={() => setOpen(!open)}
@@ -96,7 +96,7 @@ function FooterAccordion({
           {title}
         </h3>
         <ChevronDownIcon
-          className={`text-[#94A3B8] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`text-text-on-dark-muted transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         />
       </button>
       {/* Desktop: always visible heading */}
@@ -133,11 +133,7 @@ function PreFooterCTA() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/contact"
-                className="btn-primary inline-flex items-center rounded-xl px-8 py-3.5 font-semibold text-white transition-all duration-200"
-                style={{
-                  background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-                  boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
-                }}
+                className="btn-primary inline-flex items-center rounded-xl bg-primary px-8 py-3.5 font-semibold text-white transition-all duration-200"
               >
                 Contact Us
               </Link>
@@ -163,7 +159,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
   return (
     <>
       {!hidePreFooterCTA && <PreFooterCTA />}
-      <footer className="bg-dark text-[#94A3B8]">
+      <footer className="bg-dark text-text-on-dark-muted">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-8 lg:pt-16">
           {/* Main Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 lg:gap-10 mb-10">
@@ -196,7 +192,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgba(148,163,184,0.1)] text-[#94A3B8] transition-all duration-200 hover:bg-primary hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-all duration-200 hover:bg-primary hover:text-white"
                   aria-label="LinkedIn"
                 >
                   <LinkedInIcon />
@@ -205,7 +201,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgba(148,163,184,0.1)] text-[#94A3B8] transition-all duration-200 hover:bg-primary hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-all duration-200 hover:bg-primary hover:text-white"
                   aria-label="Facebook"
                 >
                   <FacebookIcon />
@@ -214,7 +210,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-[rgba(148,163,184,0.1)] text-[#94A3B8] transition-all duration-200 hover:bg-primary hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-all duration-200 hover:bg-primary hover:text-white"
                   aria-label="Instagram"
                 >
                   <InstagramIcon />
@@ -278,7 +274,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                     hello@rankpointmedia.com
                   </a>
                 </p>
-                <p className="text-xs text-[rgba(148,163,184,0.6)]">
+                <p className="text-xs text-text-on-dark-muted">
                   Mon-Fri 9am-5pm CST
                 </p>
               </address>
@@ -287,41 +283,41 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
 
           {/* Trust Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-            <div className="flex items-center gap-2 rounded-lg border border-[rgba(148,163,184,0.15)] px-4 py-2.5">
+            <div className="flex items-center gap-2 rounded-lg border border-white/15 px-4 py-2.5">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
               </svg>
-              <span className="text-xs font-medium text-[#94A3B8]">Google Partner</span>
+              <span className="text-xs font-medium text-text-on-dark-muted">Google Partner</span>
             </div>
-            <div className="flex items-center gap-2 rounded-lg border border-[rgba(148,163,184,0.15)] px-4 py-2.5">
+            <div className="flex items-center gap-2 rounded-lg border border-white/15 px-4 py-2.5">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
                 <path d="m9 12 2 2 4-4" />
               </svg>
-              <span className="text-xs font-medium text-[#94A3B8]">BBB Accredited</span>
+              <span className="text-xs font-medium text-text-on-dark-muted">BBB Accredited</span>
             </div>
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-[rgba(148,163,184,0.1)] pt-8 text-center">
+          <div className="border-t border-white/10 pt-8 text-center">
             <div className="flex items-center justify-center gap-1.5 text-xs">
-              <span className="uppercase tracking-[0.18em] text-[#475569]">
+              <span className="uppercase tracking-[0.18em] text-[rgba(250,250,246,0.5)]">
                 Design by:
               </span>
               <span
                 className="uppercase tracking-[0.18em] font-semibold"
-                style={{ color: "#14B8A6" }}
+                style={{ color: "#B78F3E" }}
               >
                 Rank Point Media
               </span>
             </div>
 
-            <p className="mt-4 text-xs text-[rgba(148,163,184,0.5)]">
+            <p className="mt-4 text-xs text-text-on-dark-muted/70">
               {currentYear} Rank Point Media. All rights reserved.
             </p>
 
             {/* Legal Links */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4 text-xs text-[rgba(148,163,184,0.5)]">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4 text-xs text-text-on-dark-muted/70">
               <Link
                 href="/privacy"
                 className="py-2 transition-colors duration-300 hover:text-primary"

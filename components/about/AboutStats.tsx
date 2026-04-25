@@ -7,7 +7,7 @@ const stats = [
 
 export default function AboutStats() {
   return (
-    <section className="bg-[#F8FAFC] py-16 lg:py-24">
+    <section className="bg-light-surface py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-base font-bold uppercase tracking-[0.12em] text-primary">

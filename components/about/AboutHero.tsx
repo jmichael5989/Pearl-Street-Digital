@@ -35,33 +35,33 @@ export default function AboutHero() {
         />
       </div>
 
-      {/* Layer 2: Three gradient overlays matching home hero */}
+      {/* Layer 2: Three gradient overlays matching home hero — blend target is navy #14213D per CLAUDE.md Hero Section */}
       {/* Right fade */}
       <div
         className="absolute inset-0 z-[2]"
         style={{
-          background: "linear-gradient(to right, transparent 0%, transparent 15%, #0F172A 42%)",
+          background: "linear-gradient(to right, transparent 0%, transparent 15%, #14213D 42%)",
         }}
       />
       {/* Bottom fade */}
       <div
         className="absolute inset-0 z-[2]"
         style={{
-          background: "linear-gradient(to top, #0F172A 0%, transparent 40%)",
+          background: "linear-gradient(to top, #14213D 0%, transparent 40%)",
         }}
       />
       {/* Top fade */}
       <div
         className="absolute inset-0 z-[2]"
         style={{
-          background: "linear-gradient(to bottom, rgba(15,23,42,0.6) 0%, transparent 30%)",
+          background: "linear-gradient(to bottom, rgba(20,33,61,0.6) 0%, transparent 30%)",
         }}
       />
 
       {/* Content */}
       <div className="relative z-[3] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-10 lg:pt-32 lg:pb-12 w-full">
         <div className="ml-auto max-w-3xl text-left lg:pl-8">
-          <p className="text-lg font-bold uppercase tracking-[0.12em] text-primary">
+          <p className="text-lg font-bold uppercase tracking-[0.12em] text-accent-dark">
             About Us
           </p>
           <h1
@@ -69,7 +69,7 @@ export default function AboutHero() {
             style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}
           >
             Meet the Team Behind{" "}
-              <span style={{ color: "#14B8A6" }}>
+              <span style={{ color: "#B78F3E" }}>
                 Rank Point Media
               </span>
           </h1>
@@ -84,7 +84,7 @@ export default function AboutHero() {
           <div className="mt-10 flex items-center justify-start gap-6">
             <a
               href="#approach"
-              className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
+              className="inline-flex items-center gap-2 text-base font-semibold text-accent-dark transition-all duration-300 hover:text-white"
             >
               What We Do
               <ArrowDownIcon />
@@ -92,7 +92,7 @@ export default function AboutHero() {
             <span className="h-5 w-px bg-[rgba(255,255,255,0.3)]" />
             <Link
               href="/case-studies"
-              className="inline-flex items-center gap-2 text-base font-semibold text-primary transition-all duration-300 hover:text-white"
+              className="inline-flex items-center gap-2 text-base font-semibold text-accent-dark transition-all duration-300 hover:text-white"
             >
               View Our Work
               <ArrowRightIcon />

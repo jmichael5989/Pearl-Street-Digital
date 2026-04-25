@@ -178,13 +178,13 @@ export default function ServicesShowcase() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center">
-          <span className="text-sm font-semibold tracking-widest uppercase mb-4 block text-teal-500">
+          <span className="text-sm font-semibold tracking-widest uppercase mb-4 block text-accent">
             What We Do
           </span>
-          <h2 className="font-heading font-bold text-4xl md:text-5xl text-slate-900 mb-6">
+          <h2 className="font-heading font-bold text-4xl md:text-5xl text-text mb-6">
             Everything Your Business Needs to Win Online
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
+          <p className="text-lg text-brand-text max-w-2xl mx-auto mb-16">
             One team. One monthly partnership. Every channel covered.
           </p>
         </div>
@@ -212,15 +212,15 @@ export default function ServicesShowcase() {
                   onMouseEnter={() => setActiveId(service.id)}
                   onPointerEnter={() => setActiveId(service.id)}
                   onFocus={() => setActiveId(service.id)}
-                  className={`group flex-shrink-0 lg:flex-shrink lg:w-full flex items-center gap-3 text-left p-4 rounded-lg border transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 ${
+                  className={`group flex-shrink-0 lg:flex-shrink lg:w-full flex items-center gap-3 text-left p-4 rounded-lg border transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                     isActive
-                      ? "bg-gradient-to-r from-teal-500 to-violet-500 text-white border-transparent shadow-lg"
-                      : "bg-white text-slate-700 border-slate-200 hover:border-teal-400 hover:bg-teal-50/30"
+                      ? "bg-primary text-white border-primary"
+                      : "bg-white text-brand-text border-border hover:border-primary hover:bg-light-surface"
                   }`}
                 >
                   <Icon
                     className={`w-6 h-6 flex-shrink-0 ${
-                      isActive ? "text-white" : "text-teal-500"
+                      isActive ? "text-white" : "text-accent"
                     }`}
                   />
                   <div className="flex-1 min-w-0">
@@ -229,7 +229,7 @@ export default function ServicesShowcase() {
                     </div>
                     <div
                       className={`hidden lg:block text-sm mt-1 ${
-                        isActive ? "text-teal-50" : "text-slate-500"
+                        isActive ? "text-text-on-dark-muted" : "text-gray"
                       }`}
                     >
                       {service.teaser}
@@ -237,7 +237,7 @@ export default function ServicesShowcase() {
                   </div>
                   <ChevronRight
                     className={`hidden lg:block w-4 h-4 flex-shrink-0 transition-transform duration-200 ${
-                      isActive ? "rotate-90 text-white" : "text-slate-400"
+                      isActive ? "rotate-90 text-white" : "text-gray"
                     }`}
                   />
                 </button>
@@ -251,43 +251,33 @@ export default function ServicesShowcase() {
             key={active.id}
             role="tabpanel"
             aria-labelledby={`tab-${active.id}`}
-            className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 md:p-10 lg:p-12 min-h-[480px] lg:min-h-[560px]"
+            className="relative overflow-hidden rounded-2xl bg-primary p-8 md:p-10 lg:p-12 min-h-[480px] lg:min-h-[560px]"
           >
-            {/* Decorative blobs */}
-            <div
-              aria-hidden="true"
-              className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-teal-500 opacity-20 blur-3xl"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-violet-500 opacity-20 blur-3xl"
-            />
-
             {/* Content */}
             <div className="relative z-10 flex flex-col h-full">
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-teal-500 to-violet-500 flex items-center justify-center mb-8">
-                <ActiveIcon className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 rounded-xl bg-white/5 border border-accent-dark/30 flex items-center justify-center mb-8">
+                <ActiveIcon className="w-8 h-8 text-accent-dark" />
               </div>
 
               <h3 className="font-heading font-bold text-3xl md:text-4xl text-white mb-4">
                 {active.headline}
               </h3>
-              <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+              <p className="text-lg text-text-on-dark-muted mb-8 leading-relaxed">
                 {active.description}
               </p>
 
               <ul className="space-y-3 mb-auto">
                 {active.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-teal-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-slate-200 text-base">{benefit}</span>
+                    <Check className="w-5 h-5 text-accent-dark flex-shrink-0 mt-0.5" />
+                    <span className="text-text-on-dark-muted text-base">{benefit}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="border-t border-slate-700 mt-8 pt-8 flex items-center justify-between gap-4 flex-wrap">
+              <div className="border-t border-border-dark mt-8 pt-8 flex items-center justify-between gap-4 flex-wrap">
                 <div>
-                  <div className="text-sm text-slate-400 uppercase tracking-wider">
+                  <div className="text-sm text-text-on-dark-muted uppercase tracking-wider">
                     Starting at
                   </div>
                   <div className="text-2xl font-bold text-white mt-1">
@@ -298,7 +288,7 @@ export default function ServicesShowcase() {
 
               <Link
                 href={active.href}
-                className="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-teal-50 transition-colors mt-6 self-start focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2"
+                className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-accent-dark hover:text-white transition-colors mt-6 self-start focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
               >
                 Learn More
                 <ArrowRight className="w-4 h-4" />

@@ -106,7 +106,7 @@ export default function IndustriesSection() {
           {industries.map((industry) => (
             <div
               key={industry.title}
-              className="group overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(20,184,166,0.15)]"
+              className="group overflow-hidden rounded-2xl border border-border bg-light-surface shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1"
             >
               {/* Image strip */}
               <div className="relative h-32 overflow-hidden">
@@ -122,7 +122,7 @@ export default function IndustriesSection() {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(to bottom, rgba(15,23,42,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
+                      "linear-gradient(to bottom, rgba(20,33,61,0.3) 0%, rgba(255,255,255,0.4) 60%, #ffffff 100%)",
                   }}
                 />
               </div>

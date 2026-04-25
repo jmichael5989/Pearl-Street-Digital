@@ -31,8 +31,7 @@ export default function MobileCTABar() {
       </a>
       <Link
         href="/contact"
-        className="btn-primary flex flex-1 items-center justify-center gap-2 text-sm font-semibold text-white"
-        style={{ background: "linear-gradient(135deg, #8B5CF6, #7C3AED)" }}
+        className="btn-primary flex flex-1 items-center justify-center gap-2 bg-primary text-sm font-semibold text-white"
       >
         Free Audit
       </Link>

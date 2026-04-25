@@ -57,7 +57,7 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" className="bg-[#F8FAFC] py-16 lg:py-24">
+    <section id="process" className="bg-light-surface py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
@@ -77,7 +77,7 @@ export default function Process() {
           <div
             className="absolute left-7 top-7 bottom-7 w-0.5 hidden sm:block origin-top"
             style={{
-              background: "rgba(20,184,166,0.2)",
+              background: "rgba(183,143,62,0.2)",
               transform: visible ? "scaleY(1)" : "scaleY(0)",
               transition: "transform 1.2s cubic-bezier(.22,1,.36,1) 200ms",
             }}

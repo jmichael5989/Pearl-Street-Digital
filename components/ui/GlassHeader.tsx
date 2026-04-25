@@ -52,7 +52,7 @@ export default function GlassHeader({
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
           scrolled
-            ? "bg-[rgba(15,23,42,0.72)] backdrop-blur-[20px] backdrop-saturate-[180%] border-b border-[rgba(20,184,166,0.15)] shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
+            ? "bg-[rgba(20,33,61,0.72)] backdrop-blur-[20px] backdrop-saturate-[180%] border-b border-[rgba(183,143,62,0.15)] shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
             : "bg-transparent"
         }`}
         style={{
@@ -90,7 +90,7 @@ export default function GlassHeader({
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-body text-[13px] font-medium uppercase tracking-[0.08em] transition-all duration-200 hover:underline hover:underline-offset-4 decoration-brand-teal ${
+                  className={`font-body text-[13px] font-medium uppercase tracking-[0.08em] transition-all duration-200 hover:underline hover:underline-offset-4 decoration-accent-dark ${
                     scrolled ? "text-white/90" : "text-white"
                   }`}
                 >
@@ -104,7 +104,7 @@ export default function GlassHeader({
                 href="tel:+12105551234"
                 className={`hidden sm:inline-flex items-center gap-2 rounded-full px-5 py-2 text-[13px] font-semibold uppercase tracking-[0.08em] transition-all duration-200 ${
                   scrolled
-                    ? "bg-brand-teal text-brand-dark hover:brightness-110 hover:scale-[1.02]"
+                    ? "bg-accent-dark text-brand-dark hover:brightness-110 hover:scale-[1.02]"
                     : "border border-white/30 text-white hover:bg-white/10"
                 }`}
               >
@@ -153,7 +153,7 @@ export default function GlassHeader({
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="font-heading text-3xl md:text-4xl font-semibold text-white transition-colors hover:text-brand-teal"
+              className="font-heading text-3xl md:text-4xl font-semibold text-white transition-colors hover:text-accent-dark"
             >
               {link.label}
             </Link>
@@ -161,7 +161,7 @@ export default function GlassHeader({
           <a
             href="tel:+12105551234"
             onClick={() => setMenuOpen(false)}
-            className="mt-4 inline-flex items-center rounded-full bg-brand-teal px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-brand-dark"
+            className="mt-4 inline-flex items-center rounded-full bg-accent-dark px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-brand-dark"
           >
             (210) 555-1234
           </a>

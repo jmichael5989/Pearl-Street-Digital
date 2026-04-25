@@ -9,12 +9,12 @@ export default function CaseStudyGrid({
   if (caseStudies.length === 0) return null;
 
   return (
-    <section className="px-6 py-16 bg-slate-50">
+    <section className="px-6 py-16 bg-light-surface">
       <div className="max-w-7xl mx-auto">
-        <p className="text-sm font-semibold tracking-widest uppercase text-teal-600 mb-3 text-center">
+        <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3 text-center">
           More Work
         </p>
-        <h2 className="font-heading font-bold text-3xl md:text-4xl text-slate-900 mb-12 text-center">
+        <h2 className="font-heading font-bold text-3xl md:text-4xl text-text mb-12 text-center">
           Every project. Every result.
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

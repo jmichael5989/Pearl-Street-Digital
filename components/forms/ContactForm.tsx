@@ -220,11 +220,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="btn-primary w-full rounded-xl py-4 text-center font-semibold text-white disabled:opacity-60"
-        style={{
-          background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-          boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
-        }}
+        className="btn-primary w-full rounded-xl bg-primary py-4 text-center font-semibold text-white disabled:opacity-60"
       >
         {isSubmitting ? (
           <>

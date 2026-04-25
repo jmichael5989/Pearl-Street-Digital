@@ -12,7 +12,7 @@ export default function HeroMetrics({ metrics }: { metrics: HeroMetric[] }) {
           className={`flex flex-col ${i === 0 ? "pr-6" : "px-6"} ${i > 0 ? "border-l border-white/10" : ""}`}
         >
           <span className="font-heading text-4xl text-white">{m.value}</span>
-          <span className="mt-1 font-mono text-xs uppercase tracking-widest text-brand-teal">
+          <span className="mt-1 font-mono text-xs uppercase tracking-widest text-accent-dark">
             {m.label}
           </span>
         </div>

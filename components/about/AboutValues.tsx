@@ -63,7 +63,7 @@ export default function AboutValues() {
     <section id="approach" className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background video with poster fallback */}
       <div
-        className="absolute inset-0 z-0 bg-[#0F172A] bg-cover bg-center"
+        className="absolute inset-0 z-0 bg-dark bg-cover bg-center"
         style={{ backgroundImage: "url(/videos/whyus-bg-poster.jpg)" }}
       >
         <video
@@ -81,7 +81,7 @@ export default function AboutValues() {
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-base font-bold uppercase tracking-[0.12em] text-primary [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]">
+          <p className="text-base font-bold uppercase tracking-[0.12em] text-accent-dark [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]">
             Our Approach
           </p>
           <h2 className="mt-3 font-heading font-bold text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.4)]" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
@@ -96,7 +96,7 @@ export default function AboutValues() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="rounded-2xl bg-[#0F172A]/50 backdrop-blur-md border border-white/15 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-[#0F172A]/60 hover:shadow-[0_12px_32px_rgba(20,184,166,0.2)]"
+              className="rounded-2xl bg-dark/50 backdrop-blur-md border border-white/15 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-dark/60 hover:border-accent-dark/40"
             >
               <div>
                 <h3 className="font-heading text-lg font-semibold text-white">

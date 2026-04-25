@@ -53,11 +53,7 @@ export default function AboutTeam() {
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="group relative rounded-2xl p-[2px] text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-md overflow-hidden"
-              style={{
-                background: "linear-gradient(var(--border-angle, 0deg), #14B8A6, transparent 40%, transparent 60%, #14B8A6)",
-                animation: "borderTrace 15s linear infinite",
-              }}
+              className="group relative rounded-2xl border border-border text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary overflow-hidden"
             >
             <div className="rounded-2xl bg-white p-8 h-full">
               {member.photo ? (

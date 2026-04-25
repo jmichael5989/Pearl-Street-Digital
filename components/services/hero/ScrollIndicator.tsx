@@ -9,7 +9,7 @@ export default function ScrollIndicator() {
       className="relative h-10 w-[2px] bg-white/20 overflow-hidden rounded-full"
     >
       <motion.span
-        className="absolute left-0 top-0 h-3 w-[2px] bg-brand-teal rounded-full"
+        className="absolute left-0 top-0 h-3 w-[2px] bg-accent-dark rounded-full"
         initial={{ y: -12 }}
         animate={{ y: 40 }}
         transition={{

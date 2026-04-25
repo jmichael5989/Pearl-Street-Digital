@@ -137,12 +137,9 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
 
   if (plan.featured && hosted) {
     return (
-      <div className="relative flex h-full flex-col rounded-2xl border-2 border-primary bg-dark p-8 pt-12 shadow-[0_4px_20px_rgba(20,184,166,0.15)] transition-all duration-300 hover:-translate-y-1">
+      <div className="relative flex h-full flex-col rounded-2xl border border-accent-dark bg-dark p-8 pt-12 transition-all duration-300 hover:-translate-y-1">
         <span
-          className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white whitespace-nowrap"
-          style={{
-            background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-          }}
+          className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-accent-dark px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white whitespace-nowrap"
         >
           Most Popular
         </span>
@@ -170,17 +167,13 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
               <span className="mt-0.5 text-primary">
                 <FeatureIndicator />
               </span>
-              <span className={`text-sm text-[#CBD5E1] ${f.emphasized ? "font-semibold" : ""}`}>{f.text}</span>
+              <span className={`text-sm text-text-on-dark-muted ${f.emphasized ? "font-semibold" : ""}`}>{f.text}</span>
             </li>
           ))}
         </ul>
         <a
           href="/contact"
-          className="btn-primary block w-full rounded-xl py-3 text-center text-sm font-semibold text-white"
-          style={{
-            background: "linear-gradient(135deg, #8B5CF6, #7C3AED)",
-            boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
-          }}
+          className="btn-primary block w-full rounded-xl bg-light py-3 text-center text-sm font-semibold text-primary hover:bg-accent-dark hover:text-white"
         >
           Get Started
         </a>
@@ -189,7 +182,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
   }
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(20,184,166,0.15)]">
+    <div className="flex h-full flex-col rounded-2xl border border-border bg-light-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1">
       <div className="mb-6">
         <h3 className="font-display text-xl font-bold text-text">
           {displayName}
@@ -258,7 +251,7 @@ export default function Pricing() {
                   onClick={() => setHosted(true)}
                   className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer md:px-8 md:py-3 md:text-base ${
                     hosted
-                      ? "bg-primary text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)]"
+                      ? "bg-primary text-white"
                       : "text-text/75 hover:bg-white/60 hover:text-text"
                   }`}
                 >
@@ -278,7 +271,7 @@ export default function Pricing() {
                   onClick={() => setHosted(false)}
                   className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer md:px-8 md:py-3 md:text-base ${
                     !hosted
-                      ? "bg-primary text-white shadow-[0_4px_14px_rgba(20,184,166,0.35)]"
+                      ? "bg-primary text-white"
                       : "text-text/75 hover:bg-white/60 hover:text-text"
                   }`}
                 >

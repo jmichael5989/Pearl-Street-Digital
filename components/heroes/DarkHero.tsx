@@ -33,7 +33,7 @@ function CtaButton({
 }) {
   const className =
     variant === "primary"
-      ? "inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-teal text-brand-dark font-semibold transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_12px_32px_rgba(20,184,166,0.35)]"
+      ? "inline-flex items-center gap-2 px-8 py-4 rounded-full bg-light text-primary font-semibold transition-all duration-200 hover:bg-accent-dark hover:text-white"
       : "inline-flex items-center px-8 py-4 rounded-full border border-white/20 text-white font-semibold transition-colors duration-200 hover:bg-white/5";
 
   if (isExternalHref(href)) {
@@ -66,7 +66,7 @@ function HeadlineWithAccent({
   return (
     <>
       {headline.slice(0, idx)}
-      <em className="italic text-brand-teal">{accent}</em>
+      <em className="italic text-accent-dark">{accent}</em>
       {headline.slice(idx + accent.length)}
     </>
   );
@@ -98,7 +98,7 @@ export default function DarkHero({
           <div
             className={`col-span-12 ${showMockups ? "lg:col-span-7" : "lg:col-span-9"} flex flex-col`}
           >
-            <span className="font-mono text-xs uppercase tracking-widest text-brand-teal">
+            <span className="font-mono text-xs uppercase tracking-widest text-accent-dark">
               {kicker}
             </span>
             <h1

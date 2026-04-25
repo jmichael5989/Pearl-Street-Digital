@@ -102,7 +102,7 @@ export default function ContactContent() {
 
           {/* Right Column — Form (55%) */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-[0_8px_24px_rgba(15,23,42,0.08)]">
+            <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-[0_8px_24px_rgba(20,33,61,0.08)]">
               <ContactForm />
             </div>
           </div>

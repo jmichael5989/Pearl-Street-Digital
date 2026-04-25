@@ -1,28 +1,14 @@
 export default function HeroBackground() {
   return (
     <>
-      {/* Layer 1 — gradient mesh (blurred) */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0"
-        style={{
-          filter: "blur(60px)",
-          backgroundImage: [
-            "radial-gradient(circle at 15% 20%, rgba(20,184,166,0.25), transparent 50%)",
-            "radial-gradient(circle at 85% 80%, rgba(139,92,246,0.20), transparent 55%)",
-            "radial-gradient(circle at 50% 50%, rgba(15,23,42,0), rgba(2,6,23,0.6) 100%)",
-          ].join(", "),
-        }}
-      />
-
-      {/* Layer 2 — grain noise (uses .grain utility) */}
+      {/* Grain noise (uses .grain utility) */}
       <div
         aria-hidden="true"
         className="grain"
         style={{ position: "absolute", inset: 0 }}
       />
 
-      {/* Layer 3 — 80px grid, faded at edges */}
+      {/* 80px grid, faded at edges */}
       <div
         aria-hidden="true"
         className="absolute inset-0"
