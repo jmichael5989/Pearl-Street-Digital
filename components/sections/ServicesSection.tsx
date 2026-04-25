@@ -188,7 +188,7 @@ export default function ServicesSection() {
                       href={`/services/${service.slug}`}
                       className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90"
                     >
-                      Learn More
+                      Explore {service.title}
                     </Link>
                   </div>
                 </div>

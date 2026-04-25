@@ -180,7 +180,7 @@ export default function LegacyHeader() {
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
-        aria-hidden={!menuOpen}
+        inert={!menuOpen ? true : undefined}
       >
         <div className="h-full flex flex-col items-center justify-center px-4">
           <nav className="flex flex-col items-center gap-6 sm:gap-8">

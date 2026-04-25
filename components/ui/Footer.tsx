@@ -312,12 +312,12 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
               </span>
             </div>
 
-            <p className="mt-4 text-xs text-text-on-dark-muted/70">
+            <p className="mt-4 text-xs text-text-on-dark-muted">
               {currentYear} Rank Point Media. All rights reserved.
             </p>
 
             {/* Legal Links */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4 text-xs text-text-on-dark-muted/70">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4 text-xs text-text-on-dark-muted">
               <Link
                 href="/privacy"
                 className="py-2 transition-colors duration-300 hover:text-primary"

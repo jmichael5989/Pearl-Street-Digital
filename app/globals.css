@@ -10,8 +10,8 @@
      --color-brand-light) are deleted; any call-site referencing them is rewritten. */
   --color-primary: #14213D;           /* navy */
   --color-primary-dark: #1F3057;      /* navy-soft — hover state */
-  --color-accent: #A07B33;            /* brass — small marks only */
-  --color-accent-dark: #B78F3E;       /* brass-soft — brass on dark backgrounds */
+  --color-accent: #836021;            /* brass — small marks only. Tuned 2026-04-25 from #A07B33 to clear WCAG AA on warm white (was 3.73:1) */
+  --color-accent-dark: #B78F3E;       /* brass-soft — brass on dark backgrounds (no AA tuning needed; navy bg already gives wide contrast) */
   --color-dark: #14213D;              /* navy — dark sections */
 
   /* ── Surfaces ─────────────────────────────────── */
@@ -21,7 +21,7 @@
 
   /* ── Text ─────────────────────────────────────── */
   --color-text: #14213D;              /* headings — navy */
-  --color-gray: #6A6E78;              /* mute — captions, micro-copy */
+  --color-gray: #5E626B;              /* mute — captions, micro-copy. Tuned 2026-04-25 to clear WCAG AA on parchment (was #6A6E78, 4.36:1 — failed) */
   --color-text-on-dark: #FAFAF6;      /* warm white on dark sections */
   --color-text-on-dark-muted: oklch(0.72 0.008 85);  /* warm muted light */
 
@@ -48,7 +48,7 @@
      every call-site; a future cleanup pass may rename. --color-brand-teal,
      --color-brand-violet, and --color-brand-light (mint) are intentionally absent. */
   --color-brand-dark: #14213D;         /* navy */
-  --color-brand-gray: #6A6E78;         /* mute */
+  --color-brand-gray: #5E626B;         /* mute (matches --color-gray; tuned for WCAG AA on parchment) */
   --color-brand-text: #3A3F4B;         /* graphite — body paragraph text */
   --color-surface-dark: #14213D;       /* navy */
   --color-surface-darker: #0E1629;     /* deeper navy — rare very-dark sections */

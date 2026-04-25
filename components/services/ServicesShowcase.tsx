@@ -288,6 +288,7 @@ export default function ServicesShowcase() {
 
               <Link
                 href={active.href}
+                aria-label={`Learn more about ${active.name}`}
                 className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-accent-dark hover:text-white transition-colors mt-6 self-start focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
               >
                 Learn More

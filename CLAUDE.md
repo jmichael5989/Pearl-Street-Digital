@@ -80,7 +80,7 @@ You are building the website for Rank Point Media, an AI-powered digital marketi
 - **Graphite** `#3A3F4B` -- body paragraph text.
 - **Edge** `#D9D2C3` -- card borders, dividers.
 - **Mute** `#6A6E78` -- captions, micro-copy.
-- **Brass** `#A07B33` -- single accent. Links, selection highlight, section-number italics, underlines, footer brand wordmark **only**. Never on CTAs, never on headings, never as a card or chip fill.
+- **Brass** `#836021` -- single accent. Links, selection highlight, section-number italics, underlines, footer brand wordmark **only**. Never on CTAs, never on headings, never as a card or chip fill. (Tuned 2026-04-25 from `#A07B33` to clear WCAG AA on warm-white at small text sizes.)
 - **Brass-soft** `#B78F3E` -- brass on dark backgrounds only (raised for legibility against navy).
 - **CTA buttons (on light)**: Solid navy `#14213D` background, warm-white `#FAFAF6` text, 1px navy border. **No gradient.** Hover: navy-soft background.
 - **CTA buttons (on dark)**: Inverted -- warm-white background, navy text. Hover: brass background, warm-white text.
