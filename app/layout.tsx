@@ -41,11 +41,11 @@ const sourceCodePro = Source_Code_Pro({
 export const metadata: Metadata = {
   title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
   description:
-    "Rank Point Media builds affordable websites and runs local SEO, Google Ads, and digital marketing for San Antonio small businesses. Sites starting at $99/month. Flexible plans.",
+    "A two-person agency in Leon Springs building custom-coded websites and digital marketing for small businesses in San Antonio. Transparent pricing from $99/mo.",
   openGraph: {
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "Affordable web design and digital marketing for San Antonio small businesses. Custom sites starting at $99/month, local SEO, Google Ads. Flexible plans.",
+      "A two-person agency in Leon Springs building custom-coded websites and digital marketing for small businesses in San Antonio. Transparent pricing from $99/mo.",
     url: "https://rankpointmedia.com",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "Affordable web design and digital marketing for San Antonio small businesses. Custom sites starting at $99/month, local SEO, Google Ads. Flexible plans.",
+      "A two-person agency in Leon Springs building custom-coded websites and digital marketing for small businesses in San Antonio. Transparent pricing from $99/mo.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://rankpointmedia.com" },
@@ -90,7 +90,7 @@ export default function RootLayout({
               name: "Rank Point Media",
               alternateName: "JSL Innovations LLC",
               description:
-                "AI-powered digital marketing agency serving San Antonio small businesses with web design, SEO, Google Ads, and social media marketing.",
+                "A two-person web agency in Leon Springs, San Antonio, building custom-coded websites and running local SEO, Google Ads, and digital marketing for small businesses across Texas.",
               url: "https://rankpointmedia.com",
               telephone: "+1-210-555-1234",
               email: "hello@rankpointmedia.com",

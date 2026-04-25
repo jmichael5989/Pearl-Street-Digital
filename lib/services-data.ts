@@ -614,7 +614,7 @@ export const services: ServiceData[] = [
       {
         title: "Sentiment Analysis",
         description:
-          "AI-powered analysis of review trends to identify what customers love and where your business can improve.",
+          "Automated analysis of review trends to identify what customers love and where your business can improve.",
       },
       {
         title: "Competitor Benchmarking",
@@ -827,7 +827,7 @@ export const services: ServiceData[] = [
       {
         title: "Workflow Automation",
         description:
-          "AI-powered automation across your CRM, email, scheduling, and operations tools. Cut repetitive tasks and save hours every week.",
+          "Workflow automation across your CRM, email, scheduling, and operations tools. Cut repetitive tasks and save hours every week.",
       },
       {
         title: "Voice AI and Transcription",

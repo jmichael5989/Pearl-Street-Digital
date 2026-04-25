@@ -23,9 +23,9 @@ export default function About() {
             Rank Point Media is a digital marketing agency founded in San
             Antonio with one goal: give local small businesses
             access to the same caliber of digital marketing that big companies
-            take for granted. We use AI-powered tools and modern web technology
-            to deliver faster, leaner, and more effective results -- without the
-            agency markup.
+            take for granted. We use hand-built code and modern web standards
+            to deliver faster, leaner, and more effective results &mdash; without
+            the agency markup.
           </p>
           <p className="mt-4 text-gray leading-relaxed">
             Every project is founder-led. You work directly with the person

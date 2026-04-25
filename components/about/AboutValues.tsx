@@ -16,10 +16,10 @@ const values = [
       "Your website, your content, your accounts. If you ever leave, everything goes with you. No hostage situations.",
   },
   {
-    title: "AI-Powered Tools",
+    title: "Direct to the Builder",
     image: "/images/values/ai-tools.jpg",
     description:
-      "We use artificial intelligence to write smarter ad copy, analyze competitors faster, and optimize campaigns in real time -- saving you money and getting better results.",
+      "Every call is Jon or Stacie. No account managers, no project coordinators. The people who write the code answer the email.",
   },
   {
     title: "Speed to Launch",
