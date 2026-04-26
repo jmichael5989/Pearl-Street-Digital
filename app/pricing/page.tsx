@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/ui/Footer";
 import DarkHero from "@/components/heroes/DarkHero";
 import Pricing from "@/components/sections/Pricing";
+import PricingAddons from "@/components/sections/PricingAddons";
 
 export const metadata: Metadata = {
   title: "Pricing San Antonio | Rank Point Media",
@@ -46,6 +47,7 @@ export default function PricingPage() {
           ]}
         />
         <Pricing />
+        <PricingAddons />
       </main>
       <Footer />
     </>
