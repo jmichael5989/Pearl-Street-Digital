@@ -1,0 +1,36 @@
+# Rank Point Media
+
+> A two-person digital agency in Leon Springs, San Antonio, TX. Rank Point Media (a DBA of JSL Innovations LLC) builds custom-coded websites and runs local SEO, Google Ads, and digital marketing for small businesses across Texas. The owners — Jon Michael (web development, technical SEO) and Stacie Michael (design, marketing, social) — are the only people clients ever talk to. There are no account managers and no offshore subcontractors.
+
+## Site
+
+- [Homepage](https://rankpointmedia.com/) — value proposition, services overview, pricing summary, consultation booking
+- [About](https://rankpointmedia.com/about) — Jon and Stacie's bios, how the agency operates, the husband-and-wife team
+- [Services](https://rankpointmedia.com/services) — full service list
+  - [Website Design](https://rankpointmedia.com/services/website-design) — custom-coded responsive websites
+  - [Local SEO](https://rankpointmedia.com/services/local-seo) — San Antonio local search rankings
+  - [Google Ads (PPC)](https://rankpointmedia.com/services/ppc-google-ads) — paid search management
+  - [Social Media](https://rankpointmedia.com/services/social-media) — content and community management
+  - [AI Search Optimization](https://rankpointmedia.com/services/ai-search-optimization) — citations in ChatGPT, Perplexity, Google AI Overviews
+  - [Brand Management](https://rankpointmedia.com/services/reputation-management) — review management and online reputation
+- [Pricing](https://rankpointmedia.com/pricing) — Build + Hosting (monthly, 12-month term): Starter $99/mo, Business $149/mo, Growth $249/mo. Build Only (one-time, client owns and hosts): Starter $500, Business $1,000, Growth $1,500.
+- [Industries](https://rankpointmedia.com/industries) — sectors served
+- [Case Studies](https://rankpointmedia.com/case-studies) — past work with metrics
+- [Blog](https://rankpointmedia.com/blog) — essays on web, SEO, and small-business marketing
+- [Contact](https://rankpointmedia.com/contact) — booking, phone, email
+
+## Key facts
+
+- Location: Leon Springs, San Antonio, TX
+- Phone: (210) 305-7372
+- Email: info@rankpointmedia.com
+- Service area: San Antonio, Leon Springs, Boerne, Helotes, Fair Oaks Ranch, New Braunfels, plus remote engagements across Texas
+- Tagline: "Higher rankings. More customers."
+- Ownership: DBA of JSL Innovations LLC; husband-and-wife team
+- Team size: two people, both client-facing on every engagement
+- Pricing posture: published rates, no "starting at" hooks, no "contact us for pricing"
+
+## Optional
+
+- [Privacy Policy](https://rankpointmedia.com/privacy)
+- [Terms of Service](https://rankpointmedia.com/terms)

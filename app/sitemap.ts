@@ -17,39 +17,45 @@ import { blogPosts } from "@/lib/blog-data";
 
 const baseUrl = "https://rankpointmedia.com";
 
+// Bump on meaningful content updates to static routes. Crawlers learn
+// to ignore lastModified when every URL is "today" at every build, so
+// keep this explicit. Per-item dates win where available — case studies
+// and blog posts already use their own publishedAt.
+const SITE_CONTENT_VERSION = new Date("2026-04-26");
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const v = SITE_CONTENT_VERSION;
 
   const staticRoutes: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${baseUrl}/services`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/industries`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/case-studies`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${baseUrl}/pricing`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: baseUrl, lastModified: v, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${baseUrl}/services`, lastModified: v, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/industries`, lastModified: v, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/case-studies`, lastModified: v, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/blog`, lastModified: v, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${baseUrl}/pricing`, lastModified: v, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/about`, lastModified: v, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/contact`, lastModified: v, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/privacy`, lastModified: v, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/terms`, lastModified: v, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
     url: `${baseUrl}/services/${s.slug}`,
-    lastModified: now,
+    lastModified: v,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
   const industryRoutes: MetadataRoute.Sitemap = industries.map((i) => ({
     url: `${baseUrl}/industries/${i.slug}`,
-    lastModified: now,
+    lastModified: v,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
   const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((c) => ({
     url: `${baseUrl}/case-studies/${c.slug}`,
-    lastModified: now,
+    lastModified: new Date(c.publishedAt),
     changeFrequency: "monthly",
     priority: 0.6,
   }));

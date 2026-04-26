@@ -1,4 +1,56 @@
+# Rank Point Media — robots.txt
+#
+# Default policy: allow all crawlers and AI agents.
+# AI search crawlers are explicitly welcomed because citations from
+# generative engines (ChatGPT, Claude, Perplexity, Google AI Overviews,
+# Bing Copilot) are a primary lead source for an agency in this niche.
+# To revoke any of these permissions, change the corresponding Allow
+# to Disallow.
+
 User-agent: *
+Allow: /
+
+# AI training and search crawlers — explicit allow
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Bytespider
 Allow: /
 
 Sitemap: https://rankpointmedia.com/sitemap.xml
