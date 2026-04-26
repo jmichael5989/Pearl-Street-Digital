@@ -77,7 +77,7 @@ export default function ServiceProcess({ service }: { service: ServiceData }) {
           {service.process.map((step, idx) => (
             <li
               key={step.title}
-              className="grid grid-cols-[3.5rem_1fr] gap-x-6 border-b border-border py-7 lg:py-9"
+              className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
             >
               <span
                 className="font-heading italic text-accent"

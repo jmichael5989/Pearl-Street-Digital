@@ -106,7 +106,7 @@ export default function GlassHeader({
               <button
                 type="button"
                 onClick={() => setMenuOpen((v) => !v)}
-                className="lg:hidden rounded-lg p-2 text-white"
+                className="lg:hidden rounded-lg p-2.5 text-white"
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
               >

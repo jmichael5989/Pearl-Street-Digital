@@ -125,7 +125,7 @@ export default function ContactContent() {
               {steps.map((step) => (
                 <li
                   key={step.num}
-                  className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-border py-5"
+                  className="grid grid-cols-1 gap-y-2 border-b border-border py-5 sm:grid-cols-[2.5rem_1fr] sm:gap-x-4 sm:gap-y-0"
                 >
                   <span
                     className="font-heading italic text-accent"
