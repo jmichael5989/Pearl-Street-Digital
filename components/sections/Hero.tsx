@@ -41,13 +41,42 @@ export default function Hero() {
   return (
     <section
       aria-label="Introducing Rank Point Media"
-      className="bg-light"
+      className="relative overflow-hidden bg-light"
       style={{
         paddingTop: "clamp(80px, 14vh, 160px)",
         paddingBottom: "clamp(48px, 8vh, 96px)",
       }}
     >
-      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+      {/* Decorative display numeral — fills the empty left viewport margin
+          on wide screens with a ghosted italic-serif "01". Brass at very
+          low opacity reads as a textural editorial flourish (magazine
+          spread cover register), not a focal point. Hidden below lg
+          where there is no margin to fill. Decorative only — aria-hidden,
+          pointer-events disabled, the eyebrow's literal "01 / Rank Point
+          Media" carries the actual section semantics. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-0 hidden lg:flex items-center select-none"
+        style={{
+          width: "max(0px, calc((100vw - 82rem) / 2 + 6rem))",
+          paddingLeft: "clamp(1rem, 3vw, 4rem)",
+        }}
+      >
+        <span
+          className="font-heading italic text-accent"
+          style={{
+            fontSize: "clamp(10rem, 20vw, 18rem)",
+            lineHeight: 1,
+            letterSpacing: "-0.04em",
+            fontWeight: 400,
+            opacity: 0.1,
+          }}
+        >
+          01
+        </span>
+      </div>
+
+      <div className="relative mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
         {/* Eyebrow — italic-serif "01" in brass + sans label */}
         <header className="mb-12 lg:mb-16">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
