@@ -99,9 +99,9 @@ export default function LegacyHeader() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
           transparent
-            ? "bg-transparent border-b border-transparent"
+            ? "bg-brand-dark border-b border-transparent"
             : "bg-[rgba(250,250,246,0.95)] backdrop-blur-[16px] border-b border-border shadow-sm"
         }`}
       >
@@ -110,7 +110,9 @@ export default function LegacyHeader() {
             {/* Wordmark — matches GlassHeader and Footer */}
             <Link
               href="/"
-              className="font-heading text-text"
+              className={`font-heading transition-colors duration-300 ${
+                transparent ? "text-text-on-dark" : "text-text"
+              }`}
               style={{
                 fontSize: "1.125rem",
                 fontWeight: 400,
@@ -121,7 +123,13 @@ export default function LegacyHeader() {
               aria-label="Rank Point Media — home"
             >
               Rank{" "}
-              <em className="font-normal italic text-accent">Point</em>{" "}
+              <em
+                className={`font-normal italic transition-colors duration-300 ${
+                  transparent ? "text-accent-dark" : "text-accent"
+                }`}
+              >
+                Point
+              </em>{" "}
               Media
             </Link>
 
@@ -129,7 +137,11 @@ export default function LegacyHeader() {
             <div className="flex items-center gap-4">
               <a
                 href="tel:+12105551234"
-                className="hidden sm:flex items-center gap-2 text-lg font-semibold text-text transition-colors duration-300 hover:text-accent"
+                className={`hidden sm:flex items-center gap-2 text-lg font-semibold transition-colors duration-300 ${
+                  transparent
+                    ? "text-text-on-dark hover:text-accent-dark"
+                    : "text-text hover:text-accent"
+                }`}
               >
                 <PhoneIcon className="w-6 h-6" />
                 (210) 555-1234
@@ -137,7 +149,9 @@ export default function LegacyHeader() {
               <button
                 type="button"
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="p-2 rounded-lg text-text transition-colors"
+                className={`p-2 rounded-lg transition-colors duration-300 ${
+                  transparent ? "text-text-on-dark" : "text-text"
+                }`}
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
               >
