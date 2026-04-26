@@ -77,16 +77,25 @@ export default function RootLayout({
       className={`${sourceSerif4.variable} ${sourceSans3.variable} ${sourceCodePro.variable} h-full antialiased`}
     >
       <head>
-        {/* Cal.com preconnect — opens TCP/TLS to the embed origins early so
-            the booking widget on the homepage doesn't pay cold-connection
-            latency when the embed script + iframe load. Both hosts are used:
-            app.cal.com serves embed.js, cal.com serves the iframe content. */}
+        {/* Cal.com resource hints — the booking widget on the homepage is
+            the highest-leverage interactive element on the site. Preconnect
+            opens TCP/TLS to the embed origins (app.cal.com serves embed.js,
+            cal.com serves the iframe content). Preload starts fetching the
+            ~50KB embed.js during HTML parse so it's already in the cache by
+            the time Consultation's useEffect appends the script tag — saves
+            ~200-500ms of "Loading the calendar..." on first visit. */}
         <link
           rel="preconnect"
           href="https://app.cal.com"
           crossOrigin="anonymous"
         />
         <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          href="https://app.cal.com/embed/embed.js"
+          as="script"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script
