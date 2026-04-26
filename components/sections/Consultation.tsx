@@ -172,11 +172,38 @@ export default function Consultation() {
         </div>
 
         {/* Live Cal.com inline embed — full section width so calendar and
-            time slots lay out side-by-side instead of stacking vertically */}
-        <div className="min-h-[40rem] w-full">
+            time slots lay out side-by-side instead of stacking vertically.
+            The fallback below sits behind the embed div; once Cal injects
+            its iframe, the iframe's opaque background covers the fallback.
+            If the embed script never loads (ad-blocker, network failure,
+            CSP block, Cal.com outage), the fallback stays visible and the
+            visitor still has a working direct booking link. */}
+        <div className="relative min-h-[40rem] w-full">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-center px-6"
+          >
+            <div className="max-w-md text-center">
+              <p
+                className="font-body text-sm italic text-gray"
+                style={{ marginBottom: "12px" }}
+              >
+                Loading the calendar&hellip;
+              </p>
+              <a
+                href="https://cal.com/rankpointmedia/consultation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body text-sm font-medium text-accent underline underline-offset-4 hover:text-text"
+              >
+                Trouble loading? Book directly on cal.com{" "}
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
           <div
             id="cal-consultation-embed"
-            className="h-full min-h-[40rem] w-full"
+            className="relative h-full min-h-[40rem] w-full"
             aria-label="Cal.com booking widget"
           />
         </div>

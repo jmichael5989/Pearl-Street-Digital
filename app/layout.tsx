@@ -80,6 +80,18 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${sourceSerif4.variable} ${sourceSans3.variable} ${sourceCodePro.variable} h-full antialiased`}
     >
+      <head>
+        {/* Cal.com preconnect — opens TCP/TLS to the embed origins early so
+            the booking widget on the homepage doesn't pay cold-connection
+            latency when the embed script + iframe load. Both hosts are used:
+            app.cal.com serves embed.js, cal.com serves the iframe content. */}
+        <link
+          rel="preconnect"
+          href="https://app.cal.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script
           type="application/ld+json"
