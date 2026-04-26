@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { CaseStudy } from "@/lib/case-studies-data";
 
@@ -107,6 +108,27 @@ export default function CaseStudiesTOC({
                 02.{romanNumerals[idx]}
               </span>
               <div>
+                {/* Thumbnail — visual anchor at top of the right column.
+                    Clickable; routes to the same detail page as the
+                    "Read the case study" link below. Aspect ratio matches
+                    the source screenshot crops (~2:1). */}
+                <Link
+                  href={`/case-studies/${cs.slug}`}
+                  className="group block mb-5"
+                  aria-label={`Read the ${cs.client} case study`}
+                  tabIndex={-1}
+                >
+                  <div className="relative aspect-[2/1] overflow-hidden border border-border bg-light-surface">
+                    <Image
+                      src={cs.thumbnailUrl}
+                      alt={cs.thumbnailAlt}
+                      fill
+                      sizes="(min-width: 1024px) 40vw, 100vw"
+                      className="object-cover transition-transform duration-[var(--motion-duration-medium)] ease-[var(--motion-ease-out)] group-hover:scale-[1.02]"
+                    />
+                  </div>
+                </Link>
+
                 {/* Client + industry tagline */}
                 <p
                   className="font-body text-xs font-semibold uppercase"
