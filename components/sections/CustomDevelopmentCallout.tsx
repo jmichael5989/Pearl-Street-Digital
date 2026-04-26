@@ -43,7 +43,11 @@ const features = [
   },
 ];
 
-export default function CustomDevelopmentCallout() {
+export default function CustomDevelopmentCallout({
+  numeral = "05",
+}: {
+  numeral?: string;
+} = {}) {
   return (
     <section
       aria-labelledby="custom-build-heading"
@@ -58,7 +62,7 @@ export default function CustomDevelopmentCallout() {
         <header className="mb-6 text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             <span className="font-heading text-base font-normal italic mr-1">
-              05
+              {numeral}
             </span>
             &nbsp;/&nbsp; How it&rsquo;s built
           </div>

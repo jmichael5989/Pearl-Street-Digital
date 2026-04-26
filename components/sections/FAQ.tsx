@@ -2,6 +2,27 @@
 
 import { useState } from "react";
 
+/**
+ * FAQ section. Editorial accordion list matching the locked editorial
+ * register; only used on /services so the rebuild is contained.
+ *
+ * Replaces the prior pre-pivot section (bg-white shell, max-w-3xl
+ * container outside the canonical site shell, retired text-primary
+ * eyebrow with font-bold, font-bold serif H2 with text-dark, navy-
+ * filled rounded-full circular +/− toggle drawing attention to the
+ * affordance instead of the answers, and a wrapper accordion that
+ * hid the entire FAQ behind a meta-toggle — counter to the read-and-
+ * decide use case for a /services-page FAQ).
+ *
+ * Now: parchment-alternate surface (sits after CustomDevelopmentCallout
+ * which is on warm-white), canonical site shell (max-w-[82rem]),
+ * numbered editorial eyebrow "05 / Questions", left-aligned serif H2
+ * weight 400, hairline-divided question rows with typographic +/−
+ * glyph at body weight (no fill, no circle), and no wrapper accordion
+ * — the questions are visible by default, individual rows accordion
+ * on click.
+ */
+
 const faqs = [
   {
     question: "How long does it take to build a website?",
@@ -26,7 +47,7 @@ const faqs = [
   {
     question: "What platform or CMS do you build on?",
     answer:
-      "We build with Next.js and modern web standards -- fast, secure, and fully customizable. If you need a traditional CMS like WordPress for easy self-editing, we can accommodate that too. We recommend the best tool for your situation.",
+      "We build with Next.js and modern web standards — fast, secure, and fully customizable. If you need a traditional CMS like WordPress for easy self-editing, we can accommodate that too. We recommend the best tool for your situation.",
   },
   {
     question: "How long before I see SEO results?",
@@ -54,78 +75,104 @@ const faqSchema = {
 };
 
 export default function FAQ() {
-  const [sectionOpen, setSectionOpen] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-white py-12 lg:py-16">
+    <section
+      id="faq"
+      aria-labelledby="faq-heading"
+      className="bg-light-surface border-t border-border"
+      style={{
+        paddingTop: "clamp(72px, 12vh, 144px)",
+        paddingBottom: "clamp(72px, 12vh, 144px)",
+      }}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        {/* Single accordion trigger */}
-        <button
-          type="button"
-          onClick={() => {
-            setSectionOpen(!sectionOpen);
-            if (sectionOpen) setOpenIndex(null);
-          }}
-          className="flex w-full items-center justify-between py-4 text-left"
-          aria-expanded={sectionOpen}
-        >
-          <div>
-            <span className="text-base font-bold uppercase tracking-[0.12em] text-primary block">
-              FAQ
+      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+        {/* Eyebrow */}
+        <header className="mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span className="font-heading text-base font-normal italic mr-1">
+              05
             </span>
-            <span className="mt-1 font-heading text-xl md:text-2xl font-bold text-dark block">
-              Common Questions, Straight Answers
-            </span>
+            &nbsp;/&nbsp; Questions
           </div>
-          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white text-2xl font-semibold transition-transform duration-200 hover:scale-105">
-            {sectionOpen ? "\u2212" : "+"}
-          </span>
-        </button>
+        </header>
 
-        {/* Collapsible Q&A list */}
-        <div
-          className="grid transition-[grid-template-rows] duration-500 ease-in-out"
-          style={{ gridTemplateRows: sectionOpen ? "1fr" : "0fr" }}
+        {/* H2 */}
+        <h2
+          id="faq-heading"
+          className="font-heading text-text text-balance"
+          style={{
+            fontSize: "var(--text-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.015em",
+            fontWeight: 400,
+            maxWidth: "24ch",
+            margin: 0,
+          }}
         >
-          <div className="overflow-hidden">
-            <div className="divide-y divide-border pt-4">
-              {faqs.map((faq, i) => {
-                const isOpen = openIndex === i;
-                return (
-                  <div key={i}>
-                    <button
-                      type="button"
-                      onClick={() => setOpenIndex(isOpen ? null : i)}
-                      className="flex w-full items-center justify-between gap-4 py-4 text-left"
-                      aria-expanded={isOpen}
+          Common questions, straight answers.
+        </h2>
+
+        {/* Q&A list — hairline-divided, individual accordion per row */}
+        <div
+          className="mt-12 max-w-3xl border-t border-border"
+          style={{ marginTop: "clamp(48px, 6vh, 64px)" }}
+        >
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div key={i} className="border-b border-border">
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="flex w-full items-baseline justify-between gap-6 py-5 text-left transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:text-accent"
+                  aria-expanded={isOpen}
+                >
+                  <span
+                    className="font-heading text-text"
+                    style={{
+                      fontSize: "1.125rem",
+                      lineHeight: 1.35,
+                      letterSpacing: "-0.005em",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {faq.question}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 font-body text-xl text-accent"
+                    style={{ lineHeight: 1, paddingTop: "0.15rem" }}
+                  >
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-out"
+                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                >
+                  <div className="overflow-hidden">
+                    <p
+                      className="pb-5 font-body"
+                      style={{
+                        fontSize: "0.9375rem",
+                        lineHeight: 1.6,
+                        color: "var(--color-brand-text)",
+                        maxWidth: "65ch",
+                      }}
                     >
-                      <span className="font-heading text-sm md:text-base font-semibold text-dark">
-                        {faq.question}
-                      </span>
-                      <span className="shrink-0 text-gray text-lg font-light">
-                        {isOpen ? "\u2212" : "+"}
-                      </span>
-                    </button>
-                    <div
-                      className="grid transition-[grid-template-rows] duration-300 ease-in-out"
-                      style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
-                    >
-                      <div className="overflow-hidden">
-                        <p className="pb-4 text-sm text-gray leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </div>
+                      {faq.answer}
+                    </p>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -69,18 +69,65 @@ export default function ServicesPage() {
           mockupVariant="generic"
         />
 
-        {/* Description body copy */}
-        <section className="bg-white pt-12 pb-8 lg:pt-16 lg:pb-10">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-5xl">
-              <p className="text-lg text-gray leading-relaxed">
-                We build the kind of digital presence that actually moves a business forward. Every engagement starts with a custom-coded website built for speed, clarity, and conversion -- no templates, no shortcuts, no recycled layouts.
+        {/* Editorial slab — section header + body copy */}
+        <section
+          aria-labelledby="services-intro-heading"
+          className="bg-light border-t border-border"
+          style={{
+            paddingTop: "clamp(72px, 12vh, 144px)",
+            paddingBottom: "clamp(72px, 12vh, 144px)",
+          }}
+        >
+          <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+            {/* Eyebrow */}
+            <header className="mb-6">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                <span className="font-heading text-base font-normal italic mr-1">
+                  02
+                </span>
+                &nbsp;/&nbsp; The work
+              </div>
+            </header>
+
+            {/* H2 */}
+            <h2
+              id="services-intro-heading"
+              className="font-heading text-text text-balance"
+              style={{
+                fontSize: "var(--text-h2)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.015em",
+                fontWeight: 400,
+                maxWidth: "24ch",
+                margin: 0,
+              }}
+            >
+              The presence small businesses actually need.
+            </h2>
+
+            {/* Body — graphite paragraphs at 65ch measure */}
+            <div
+              className="mt-8 flex flex-col gap-5 font-body"
+              style={{
+                fontSize: "1.0625rem",
+                lineHeight: 1.6,
+                color: "var(--color-brand-text)",
+                maxWidth: "65ch",
+              }}
+            >
+              <p>
+                Every engagement starts with a custom-coded website built
+                for speed, clarity, and conversion &mdash; no templates,
+                no shortcuts, no recycled layouts. From there we layer in
+                the marketing that fits your market: local SEO, paid ads
+                that generate real phone calls, social content, reputation
+                management.
               </p>
-              <p className="mt-4 text-lg text-gray leading-relaxed">
-                From there, we layer in the marketing strategy that fits your market. Local SEO that puts you on the map where customers are searching. Paid ads that generate real phone calls, not vanity clicks. Social media content that reinforces your brand. Reputation management that turns happy customers into your best marketing channel. And AI-powered search optimization so you show up in the answers that Google, ChatGPT, and Perplexity surface next.
-              </p>
-              <p className="mt-4 text-lg text-gray leading-relaxed">
-                No contracts. No account managers shuffling you between specialists. Just one team -- the same team that built your site -- running every campaign and owning every result.
+              <p>
+                No contracts. No account managers shuffling you between
+                specialists. One team &mdash; the same team that built
+                your site &mdash; running every campaign and owning every
+                result.
               </p>
             </div>
           </div>
@@ -88,7 +135,7 @@ export default function ServicesPage() {
 
         <ServicesShowcase />
 
-        <CustomDevelopmentCallout />
+        <CustomDevelopmentCallout numeral="04" />
 
         <FAQ />
       </main>
