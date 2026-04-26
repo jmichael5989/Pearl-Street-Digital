@@ -59,12 +59,11 @@ export default function ContactPage() {
       />
       <main>
         <DarkHero
-          kicker="— LET'S TALK"
+          kicker="CONTACT"
           headline="Tell us about your business."
-          headlineAccent="your business"
-          subheadline="Free 30-minute consultation. We'll listen first, then show you exactly how Rank Point Media can help you grow."
-          primaryCta={{ label: "Call (210) 555-1234", href: "tel:+12105551234" }}
-          secondaryCta={{ label: "Email Us", href: "mailto:info@rankpointmedia.com" }}
+          subheadline="A 30-minute conversation with Jon. We listen first, then tell you what we'd actually do — and whether we're the right fit."
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          secondaryCta={{ label: "Email us", href: "mailto:info@rankpointmedia.com" }}
           showMockups={false}
         />
         <ContactContent />

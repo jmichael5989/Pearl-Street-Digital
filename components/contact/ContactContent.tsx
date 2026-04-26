@@ -1,108 +1,213 @@
+import Link from "next/link";
 import {
   PhoneIcon,
   MailIcon,
   MapPinIcon,
+  ClockIcon,
 } from "@/components/icons/ContactIcons";
 import ContactForm from "@/components/forms/ContactForm";
 
+/**
+ * Contact page main content section. Editorial register matching the
+ * locked sitewide pattern.
+ *
+ * Replaces the prior pre-pivot section (bg-white shell, max-w-7xl
+ * container, no numbered editorial eyebrow, font-bold serif H2,
+ * rounded-full bordered chip avatars for the "What Happens Next"
+ * step numerals in retired text-primary, hover:text-primary on
+ * contact rows, and a rounded-2xl + drop-shadow form card that hit
+ * the banned card-chrome pattern from CLAUDE.md).
+ *
+ * Composition now:
+ *   - Numbered editorial eyebrow "02 / Get in touch", left-aligned
+ *     serif H2 weight 400, graphite lede that points to the homepage
+ *     Cal.com widget as the faster path (the form remains for those
+ *     who prefer to write).
+ *   - Two-column split at lg: left has "What happens next" with
+ *     italic-serif numerals (no avatar chips) + contact info rows +
+ *     trust callout. Right has the form on a hairline-bordered card
+ *     with seating shadow only (no rounded-2xl, no drop-shadow).
+ */
+
 const steps = [
   {
-    number: "1",
-    text: "We review your goals within 24 hours",
+    num: "i.",
+    text: "We review your message within one business day.",
   },
   {
-    number: "2",
-    text: "A strategist calls with tailored recommendations",
+    num: "ii.",
+    text: "Jon calls or emails back with a tailored read on what we'd do.",
   },
   {
-    number: "3",
-    text: "You only move forward if it's the right fit",
+    num: "iii.",
+    text: "You decide whether we're the right fit. No pressure either way.",
   },
 ];
 
 export default function ContactContent() {
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Left Column — What Happens Next (45%) */}
-          <div className="lg:col-span-5">
-            <h2
-              className="font-heading font-bold text-dark"
-              style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}
-            >
-              What Happens Next
-            </h2>
-            <div className="mt-8 space-y-6">
-              {steps.map((step) => (
-                <div key={step.number} className="flex gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-light-surface border border-icon-service-border">
-                    <span className="font-heading text-lg font-bold text-primary">
-                      {step.number}
-                    </span>
-                  </div>
-                  <p className="pt-2 text-text leading-relaxed">{step.text}</p>
-                </div>
-              ))}
-            </div>
+    <section
+      aria-labelledby="contact-heading"
+      className="bg-light border-t border-border"
+      style={{
+        paddingTop: "clamp(72px, 12vh, 144px)",
+        paddingBottom: "clamp(72px, 12vh, 144px)",
+      }}
+    >
+      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+        {/* Eyebrow */}
+        <header className="mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span className="font-heading text-base font-normal italic mr-1">
+              02
+            </span>
+            &nbsp;/&nbsp; Get in touch
+          </div>
+        </header>
 
-            {/* Contact Info */}
+        {/* H2 */}
+        <h2
+          id="contact-heading"
+          className="font-heading text-text text-balance"
+          style={{
+            fontSize: "var(--text-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.015em",
+            fontWeight: 400,
+            maxWidth: "24ch",
+            margin: 0,
+          }}
+        >
+          Two ways to reach us.
+        </h2>
+
+        {/* Lede with Cal.com light-touch reference */}
+        <p
+          className="mt-5 font-body"
+          style={{
+            fontSize: "1.0625rem",
+            lineHeight: 1.6,
+            color: "var(--color-brand-text)",
+            maxWidth: "58ch",
+            marginBottom: "clamp(48px, 6vh, 64px)",
+          }}
+        >
+          Want to skip the form?{" "}
+          <Link
+            href="/#talk-to-us"
+            className="font-medium text-accent underline underline-offset-4 hover:text-text"
+          >
+            Book thirty minutes directly
+          </Link>{" "}
+          on Jon&rsquo;s calendar &mdash; or fill in the message below if
+          you&rsquo;d rather write first.
+        </p>
+
+        {/* Two-column composition */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left column — What Happens Next + contact methods */}
+          <div className="lg:col-span-5">
+            <h3
+              className="font-heading text-text"
+              style={{
+                fontSize: "1.25rem",
+                lineHeight: 1.25,
+                letterSpacing: "-0.01em",
+                fontWeight: 400,
+                margin: 0,
+              }}
+            >
+              What happens next.
+            </h3>
+
+            {/* Editorial numbered steps — italic-serif numerals, no chips */}
+            <ol className="mt-6 border-t border-border">
+              {steps.map((step) => (
+                <li
+                  key={step.num}
+                  className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-border py-5"
+                >
+                  <span
+                    className="font-heading italic text-accent"
+                    style={{
+                      fontSize: "0.9375rem",
+                      fontWeight: 400,
+                      lineHeight: 1.3,
+                      paddingTop: "0.15rem",
+                    }}
+                  >
+                    {step.num}
+                  </span>
+                  <p
+                    className="font-body"
+                    style={{
+                      fontSize: "0.9375rem",
+                      lineHeight: 1.58,
+                      color: "var(--color-brand-text)",
+                      margin: 0,
+                    }}
+                  >
+                    {step.text}
+                  </p>
+                </li>
+              ))}
+            </ol>
+
+            {/* Contact info rows */}
             <div className="mt-10 space-y-4">
               <a
                 href="tel:+12105551234"
-                className="flex items-center gap-4 text-text hover:text-primary transition-colors"
+                className="flex items-center gap-4 text-text transition-colors hover:text-accent"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-light-surface border border-border">
+                <span className="flex h-10 w-10 items-center justify-center border border-border bg-light-surface">
                   <PhoneIcon />
-                </div>
+                </span>
                 <span className="text-sm font-medium">(210) 555-1234</span>
               </a>
               <a
                 href="mailto:info@rankpointmedia.com"
-                className="flex items-center gap-4 text-text hover:text-primary transition-colors"
+                className="flex items-center gap-4 text-text transition-colors hover:text-accent"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-light-surface border border-border">
+                <span className="flex h-10 w-10 items-center justify-center border border-border bg-light-surface">
                   <MailIcon />
-                </div>
+                </span>
                 <span className="text-sm font-medium">
                   info@rankpointmedia.com
                 </span>
               </a>
               <div className="flex items-center gap-4 text-text">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-light-surface border border-border">
+                <span className="flex h-10 w-10 items-center justify-center border border-border bg-light-surface">
                   <MapPinIcon />
-                </div>
+                </span>
                 <span className="text-sm font-medium">
                   San Antonio, TX (Leon Springs area)
                 </span>
               </div>
             </div>
 
-            {/* Trust element */}
-            <div className="mt-8 flex items-center gap-3 rounded-xl border border-border bg-light-surface px-5 py-4">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="shrink-0 text-primary"
+            {/* Trust callout — hairline border, no shadow */}
+            <div className="mt-10 flex items-center gap-3 border border-border bg-light-surface px-5 py-4">
+              <ClockIcon />
+              <p
+                className="font-body"
+                style={{
+                  fontSize: "0.875rem",
+                  lineHeight: 1.5,
+                  color: "var(--color-brand-text)",
+                  margin: 0,
+                }}
               >
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-              <p className="text-sm text-gray">
-                We respond to every inquiry within one business day.
+                We respond to every message within one business day.
               </p>
             </div>
           </div>
 
-          {/* Right Column — Form (55%) */}
+          {/* Right column — Form */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-[0_8px_24px_rgba(20,33,61,0.08)]">
+            <div
+              className="border border-border bg-light p-6 sm:p-8"
+              style={{ boxShadow: "0 1px 0 rgba(20, 33, 61, 0.08)" }}
+            >
               <ContactForm />
             </div>
           </div>

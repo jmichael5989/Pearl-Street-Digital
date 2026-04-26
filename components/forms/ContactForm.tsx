@@ -4,6 +4,28 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { submitContactForm } from "@/app/actions/contact";
 
+/**
+ * Contact form. Editorial register matching the locked sitewide
+ * pattern.
+ *
+ * Replaces the prior pre-pivot form (rounded-xl bg-white inputs with
+ * an `input-glow` utility on focus, font-bold text-dark labels,
+ * off-palette text-red-500 required-field markers, retired bg-primary
+ * submit button, and a "Get My Free Strategy Session" submit copy
+ * that's anti-reference register per .impeccable.md).
+ *
+ * Now: hairline-border bg-light inputs with a navy focus ring (no
+ * colored glow), text-text labels in sans medium, hardcoded muted
+ * dark red #8B2A2A for required-field markers (no defined error
+ * token in globals.css yet — flagged for follow-up), navy-fill submit
+ * button per CLAUDE.md CTA-on-light spec, "Send message" copy.
+ *
+ * Pricing-transparency compliance: form has no budget field, no
+ * timeline-as-qualifier, no "expected investment" select. The
+ * Service Interest dropdown is a routing field, not a qualifying
+ * gate. Per .impeccable.md Pricing Transparency principle.
+ */
+
 interface FormValues {
   name: string;
   email: string;
@@ -13,14 +35,22 @@ interface FormValues {
 }
 
 const inputClasses =
-  "input-glow w-full rounded-xl border border-border bg-white px-4 py-3.5 text-base text-text placeholder:text-gray focus:outline-none transition-colors font-body";
+  "w-full border border-border bg-light px-4 py-3 text-base text-text placeholder:text-gray transition-colors focus:outline-none focus:border-text font-body";
+
+const labelClasses =
+  "mb-2 block font-body text-sm font-medium text-text";
+
+// Hardcoded muted dark red. No defined --color-error token yet;
+// when one is added, swap this hex for the token.
+const requiredColor = { color: "#8B2A2A" };
 
 function SpinnerIcon() {
   return (
     <svg
-      className="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline-block"
+      className="-ml-1 mr-2 inline-block h-5 w-5 animate-spin text-light"
       viewBox="0 0 24 24"
       fill="none"
+      aria-hidden="true"
     >
       <circle
         className="opacity-25"
@@ -61,28 +91,45 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="flex h-full items-center justify-center rounded-2xl border border-icon-service-border bg-icon-service-bg p-12 text-center">
+      <div className="flex h-full items-center justify-center border border-border bg-light-surface p-12 text-center">
         <div>
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border">
             <svg
-              width="28"
-              height="28"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2.5"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-primary"
+              className="text-accent"
+              aria-hidden="true"
             >
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <h3 className="font-heading text-xl font-bold text-dark">
-            Thank You!
+          <h3
+            className="font-heading text-text"
+            style={{
+              fontSize: "1.25rem",
+              fontWeight: 400,
+              lineHeight: 1.25,
+              letterSpacing: "-0.01em",
+              margin: 0,
+            }}
+          >
+            Thank you.
           </h3>
-          <p className="mt-2 text-sm text-gray">
-            We&apos;ll be in touch within 24 hours.
+          <p
+            className="mt-2 font-body"
+            style={{
+              fontSize: "0.9375rem",
+              lineHeight: 1.6,
+              color: "var(--color-brand-text)",
+            }}
+          >
+            We&rsquo;ll be in touch within one business day.
           </p>
         </div>
       </div>
@@ -90,17 +137,10 @@ export default function ContactForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="space-y-5"
-      noValidate
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       <div>
-        <label
-          htmlFor="name"
-          className="mb-1.5 block text-sm font-medium text-dark"
-        >
-          Name <span className="text-red-500">*</span>
+        <label htmlFor="name" className={labelClasses}>
+          Name <span style={requiredColor}>*</span>
         </label>
         <input
           id="name"
@@ -111,19 +151,19 @@ export default function ContactForm() {
           {...register("name", { required: "Name is required" })}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-red-500">
+          <p
+            className="mt-1 font-body text-sm"
+            style={requiredColor}
+          >
             {errors.name.message}
           </p>
         )}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="email"
-            className="mb-1.5 block text-sm font-medium text-dark"
-          >
-            Email <span className="text-red-500">*</span>
+          <label htmlFor="email" className={labelClasses}>
+            Email <span style={requiredColor}>*</span>
           </label>
           <input
             id="email"
@@ -140,17 +180,14 @@ export default function ContactForm() {
             })}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-500">
+            <p className="mt-1 font-body text-sm" style={requiredColor}>
               {errors.email.message}
             </p>
           )}
         </div>
 
         <div>
-          <label
-            htmlFor="phone"
-            className="mb-1.5 block text-sm font-medium text-dark"
-          >
+          <label htmlFor="phone" className={labelClasses}>
             Phone
           </label>
           <input
@@ -165,11 +202,8 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label
-          htmlFor="service"
-          className="mb-1.5 block text-sm font-medium text-dark"
-        >
-          Service Interest
+        <label htmlFor="service" className={labelClasses}>
+          Service interest
         </label>
         <select
           id="service"
@@ -180,60 +214,64 @@ export default function ContactForm() {
           <option value="" disabled>
             Select a service
           </option>
-          <option value="web-design">Web Design and Development</option>
+          <option value="web-design">Website design and development</option>
           <option value="local-seo">Local SEO</option>
-          <option value="social-media">Social Media Marketing</option>
-          <option value="ppc">PPC / Google Ads</option>
-          <option value="ai-search">AI Search Optimization</option>
-          <option value="reputation">Reputation Management</option>
-          <option value="other">Other / Not Sure</option>
+          <option value="social-media">Social media marketing</option>
+          <option value="ppc">Google Ads</option>
+          <option value="ai-search">AI search optimization</option>
+          <option value="reputation">Brand management</option>
+          <option value="other">Other / not sure</option>
         </select>
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="mb-1.5 block text-sm font-medium text-dark"
-        >
-          Message <span className="text-red-500">*</span>
+        <label htmlFor="message" className={labelClasses}>
+          Message <span style={requiredColor}>*</span>
         </label>
         <textarea
           id="message"
-          rows={4}
-          placeholder="Tell us about your project or what you need help with"
+          rows={5}
+          placeholder="Tell us about your project or what you need help with."
           className={`${inputClasses} resize-none`}
-          {...register("message", {
-            required: "Message is required",
-          })}
+          {...register("message", { required: "Message is required" })}
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-red-500">
+          <p className="mt-1 font-body text-sm" style={requiredColor}>
             {errors.message.message}
           </p>
         )}
       </div>
 
       {serverError && (
-        <p className="text-sm text-red-500">{serverError}</p>
+        <p className="font-body text-sm" style={requiredColor}>
+          {serverError}
+        </p>
       )}
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="btn-primary w-full rounded-xl bg-primary py-4 text-center font-semibold text-white disabled:opacity-60"
+        className="block w-full border border-text bg-text py-3.5 text-center font-body text-sm font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark disabled:opacity-60"
       >
         {isSubmitting ? (
           <>
             <SpinnerIcon />
-            Sending...
+            Sending&hellip;
           </>
         ) : (
-          "Get My Free Strategy Session"
+          "Send message"
         )}
       </button>
 
-      <p className="text-xs text-gray text-center">
-        No spam, no obligation. Just a conversation about your business.
+      <p
+        className="text-center font-body"
+        style={{
+          fontSize: "0.75rem",
+          color: "var(--color-gray)",
+          marginTop: "0.75rem",
+        }}
+      >
+        We reply within one business day.
       </p>
     </form>
   );
