@@ -36,14 +36,13 @@ export default function PricingPage() {
           headline="Simple pricing. No surprises."
           headlineAccent="Simple"
           subheadline="Flexible monthly plans that fit your budget. No hidden costs, no surprise invoices. You own everything we build."
-          primaryCta={{ label: "Get Custom Quote", href: "/contact" }}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Services", href: "/services" }}
           showMockups={false}
           metrics={[
             { value: "$99", label: "Starter" },
             { value: "$149", label: "Business" },
             { value: "$249", label: "Growth" },
-            { value: "Custom", label: "Enterprise" },
           ]}
         />
         <Pricing />
