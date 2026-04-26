@@ -156,6 +156,68 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    // PLACEHOLDER IMAGES — same pattern as appeal-pro-ai above. Swap to
+    // real Lone Star Steak Critic screenshots before this case study is
+    // shown to prospects. Suggested captures: the homepage with the
+    // city/neighborhood browse, plus a steakhouse listing page showing
+    // the 100-point rating treatment.
+    id: "lone-star-steak-critic",
+    slug: "lone-star-steak-critic",
+    client: "Lone Star Steak Critic",
+    industry: "Editorial / Directory",
+    industrySlug: "editorial",
+    services: ["Website Design", "Local SEO"],
+    outcomeHeadline:
+      "Texas-Wide Steakhouse Directory, 385+ Listings on Day One",
+    summary:
+      "A custom-coded review and directory platform covering 385+ steakhouses across 13 Texas cities, with neighborhood-level filtering, an interactive map, a 100-point rating system, and an editorial layer that reads like a magazine on top of structured restaurant data.",
+    heroMetrics: [
+      { value: "385+", label: "Steakhouses Indexed" },
+      { value: "13", label: "Texas Cities Covered" },
+      { value: "75+", label: "Browseable Neighborhoods" },
+    ],
+    cardMetrics: [
+      { value: "385+", label: "Steakhouses" },
+      { value: "13 Cities", label: "Texas-Wide" },
+    ],
+    thumbnailUrl:
+      "/images/case-studies/modern-day-pest-control-thumb.webp",
+    thumbnailAlt:
+      "Lone Star Steak Critic homepage on a laptop screen",
+    heroImageUrl:
+      "/images/case-studies/modern-day-pest-control-hero.webp",
+    heroImageAlt:
+      "Lone Star Steak Critic city directory and review pages on desktop",
+    featured: false,
+    publishedAt: "2026-04-20",
+    challenge:
+      "Texas has hundreds of steakhouses and no definitive guide. Yelp and Google Maps are commodity directories — every restaurant looks the same in the listing, the reviews are noisy, and there's no curatorial voice telling diners which place is actually worth the drive across town. The Lone Star Steak Critic wanted a platform that combined the rigor of a directory (every steakhouse, every city, every neighborhood) with the authority of an editorial publication (a 100-point grading scale, neighborhood-level best-of lists, and informed commentary on the broader beef market). The challenge was building a site that could hold ~400 structured listings + editorial layers without devolving into a generic WordPress directory template.",
+    approach:
+      "We built Lone Star Steak Critic as a custom Next.js site from the ground up — no directory plugin, no WordPress theme. The data model handles 385+ steakhouses with rich metadata (price tier, dining style, neighborhood, 100-point rating), faceted city + neighborhood browsing across 13 cities and 75+ neighborhoods, an interactive map for spatial discovery, and an editorial CMS layer for the best-of lists and the beef-market data section. Restaurant + Review + AggregateRating JSON-LD ships on every listing so Google can render rich snippets in search, and the URL structure is engineered for the long-tail queries that actually drive discovery — \"best steakhouse in [neighborhood]\" pages, \"fine dining steakhouses in [city]\" pages, neighborhood guides, and so on. Affiliate-link infrastructure is built into the data layer so the revenue model is wired in cleanly rather than bolted on.",
+    outcomes: [
+      {
+        title: "Custom directory + editorial platform, no template",
+        description:
+          "Built on Next.js with a structured listing data layer plus an editorial CMS for best-of lists and market commentary. The owner controls the schema, the rating rubric, and the visual register — none of which is possible on a Yelp-style platform or a directory plugin.",
+      },
+      {
+        title: "SEO architecture for hundreds of long-tail queries",
+        description:
+          "City pages, neighborhood pages, and best-of-by-tier pages each target a real search pattern (\"best fine dining steakhouse in Austin downtown\", \"affordable steakhouses in Houston\"). Restaurant + Review + AggregateRating schema on every listing gives Google rich-snippet coverage from launch.",
+      },
+      {
+        title: "Interactive map for spatial discovery",
+        description:
+          "Most diners think geographically, not alphabetically. The map lets users browse steakhouses by neighborhood, narrow by price tier, and tap through to a full review without leaving the spatial view they started in.",
+      },
+      {
+        title: "Beef market data section as a category-defining angle",
+        description:
+          "No competitor combines steakhouse reviews with beef market commentary. Building the data section as part of the platform — rather than a blog afterthought — turns Lone Star Steak Critic into the publication of record for both diners and the industry itself.",
+      },
+    ],
+  },
 ];
 
 export function getFeaturedCaseStudy(): CaseStudy | null {
