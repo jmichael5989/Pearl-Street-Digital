@@ -57,9 +57,8 @@ export default function WebsiteDesignPage() {
           headline="Websites that convert."
           headlineAccent="convert"
           subheadline="Custom Next.js sites built for speed, SEO, and conversions. Designed for San Antonio businesses who are tired of agencies that overpromise and underdeliver."
-          primaryCta={{ label: "Book Free Audit", href: "/contact" }}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
-          phoneDisplay="Or call (210) 555-1234"
           metrics={[
             { value: "2-3", label: "Weeks Timeline" },
             { value: "$99", label: "Starter Plan" },

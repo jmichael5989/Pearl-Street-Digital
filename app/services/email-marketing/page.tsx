@@ -57,11 +57,9 @@ export default function EmailMarketingPage() {
           headline="Visitors today, repeat customers tomorrow."
           headlineAccent="repeat"
           subheadline="Email campaigns and automations that turn one-time San Antonio visitors into loyal customers. Opens, clicks, and revenue — not just another newsletter nobody reads."
-          primaryCta={{ label: "Get Free Email Audit", href: "/contact" }}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
-            { value: "$36", label: "ROI Per $1 Spent" },
-            { value: "4x", label: "More Engagement" },
             { value: "24/7", label: "Automations Running" },
             { value: "Owned", label: "Your List, Your Asset" },
           ]}

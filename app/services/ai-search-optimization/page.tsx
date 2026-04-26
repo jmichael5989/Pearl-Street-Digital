@@ -57,10 +57,9 @@ export default function AiSearchOptimizationPage() {
           headline="Get found on ChatGPT and Perplexity."
           headlineAccent="ChatGPT"
           subheadline="AI assistants are the new search engines. We optimize your business for ChatGPT, Perplexity, Google AI Overviews, and Claude so customers find you in the answer, not in the 10th link."
-          primaryCta={{ label: "Check Your AI Visibility", href: "/contact" }}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
-            { value: "800M+", label: "AI Searches Weekly" },
             { value: "4", label: "AI Engines Optimized" },
             { value: "First", label: "Mover Advantage" },
             { value: "2026", label: "Built for Now" },

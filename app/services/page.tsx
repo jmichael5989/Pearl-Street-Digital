@@ -58,7 +58,7 @@ export default function ServicesPage() {
           headline="Six ways to grow your business online."
           headlineAccent="grow"
           subheadline="From custom websites to AI search optimization, we give San Antonio small businesses the digital marketing toolkit of a much larger agency — at prices built for local owners."
-          primaryCta={{ label: "Book Free Consultation", href: "/contact" }}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
             { value: "6", label: "Core Services" },

@@ -57,11 +57,9 @@ export default function LocalSeoPage() {
           headline="Rank higher in San Antonio."
           headlineAccent="higher"
           subheadline="Get found on Google Maps and local search before your competitors do. Dominate the 3-pack for your neighborhood, your service, your customer."
-          primaryCta={{ label: "Get Free SEO Audit", href: "/contact" }}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
-            { value: "46%", label: "Local Intent Searches" },
-            { value: "88%", label: "Result in Visits" },
             { value: "3-6", label: "Months to Results" },
             { value: "24/7", label: "Always Working" },
           ]}

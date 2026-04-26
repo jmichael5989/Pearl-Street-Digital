@@ -57,7 +57,7 @@ export default function SocialMediaPage() {
           headline="Content that actually builds a following."
           headlineAccent="actually"
           subheadline="Consistent, on-brand social content for San Antonio businesses. Post strategy, creative production, and community management — done for you, done right."
-          primaryCta={{ label: "Get Started", href: "/contact" }}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
             { value: "3-5x", label: "Posts Per Week" },

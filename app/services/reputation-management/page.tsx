@@ -57,10 +57,9 @@ export default function ReputationManagementPage() {
           headline="Five stars, earned and protected."
           headlineAccent="earned"
           subheadline="Monitor, respond to, and grow your online reviews across Google, Yelp, and Facebook. Build the reputation that makes customers choose you."
-          primaryCta={{ label: "Get Reputation Audit", href: "/contact" }}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
-            { value: "93%", label: "Read Reviews First" },
             { value: "24hr", label: "Response Time" },
             { value: "5★", label: "Target Rating" },
             { value: "All", label: "Review Platforms" },
