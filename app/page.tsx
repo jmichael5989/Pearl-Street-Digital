@@ -15,7 +15,7 @@ export default function Home() {
         <ServicesSection />
         <CustomDevelopmentCallout />
       </main>
-      <Footer />
+      <Footer hidePreFooterCTA />
     </>
   );
 }
