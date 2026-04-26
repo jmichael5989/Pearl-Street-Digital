@@ -103,8 +103,18 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "MarketingAgency",
-              name: "Rank Point Media",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://rankpointmedia.com#website",
+                  url: "https://rankpointmedia.com",
+                  name: "Rank Point Media",
+                  publisher: { "@id": "https://rankpointmedia.com#org" },
+                },
+                {
+                  "@type": ["LocalBusiness", "MarketingAgency"],
+                  "@id": "https://rankpointmedia.com#org",
+                  name: "Rank Point Media",
               alternateName: "JSL Innovations LLC",
               description:
                 "A two-person web agency in Leon Springs, San Antonio, building custom-coded websites and running local SEO, Google Ads, and digital marketing for small businesses across Texas.",
@@ -139,6 +149,8 @@ export default function RootLayout({
                 closes: "17:00",
               },
               sameAs: [],
+                },
+              ],
             }),
           }}
         />

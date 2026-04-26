@@ -54,8 +54,34 @@ function formatDate(iso: string): string {
 export default function BlogIndexPage() {
   const posts = getSortedBlogPosts();
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "Rank Point Media Journal",
+    description:
+      "Long-form essays from the team at Rank Point Media — how we build websites, how we think about marketing for small San Antonio businesses, and what we've learned along the way.",
+    url: "https://rankpointmedia.com/blog",
+    publisher: {
+      "@type": "Organization",
+      name: "Rank Point Media",
+      url: "https://rankpointmedia.com",
+    },
+    blogPost: posts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      datePublished: post.publishedAt,
+      author: { "@type": "Person", name: post.author },
+      url: `https://rankpointmedia.com/blog/${post.slug}`,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       <main>
         {/* Hero — light editorial, not DarkHero */}
         <section
