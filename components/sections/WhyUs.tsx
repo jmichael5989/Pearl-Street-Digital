@@ -55,7 +55,7 @@ const whyCards = [
   {
     num: "iv.",
     title: "Less staff. Lower cost.",
-    body: "We use AI agents to help build and scale our solutions, so we don't need the big staff a traditional agency requires — and we don't pass the cost of one onto you.",
+    body: "We use AI agents to help build and scale our solutions, so we don't need the big staff a traditional agency requires — and we don't pass the cost onto you.",
   },
 ];
 
