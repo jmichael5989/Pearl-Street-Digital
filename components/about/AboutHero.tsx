@@ -1,24 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 
 /**
- * About-page hero. Inner-page DarkHero pattern (Tower-of-Americas image
- * left + three gradient overlays blending into navy) per CLAUDE.md Hero
- * Section — inner-page heroes may still use the dark navy treatment.
- *
- * Replaces the prior generic agency hero (centered "Meet the Team
- * Behind Rank Point Media" with brass span on the brand name —
- * violating CLAUDE.md Colors §4 "brass never on headings" — and a
- * pre-pivot eyebrow in `text-accent-dark` weight bold). Now carries the
- * positioning spine the brief requires on the About page: the
- * agency-as-fact H1 and a subhead that names Jon and Stacie as quiet
- * working roles (credentials live as quiet facts in the AboutTeam
- * bios per .impeccable.md Positioning §"Credentials are proof").
+ * About-page hero. Plain navy slab — no image, no gradients. Tower-
+ * of-Americas image was removed 2026-04-26 when the same image moved
+ * to the homepage hero as a small editorial inset; About hero now
+ * carries the agency-as-fact H1 and quiet-credentials subhead alone
+ * against bg-brand-dark.
  *
  * Eyebrow uses the locked numbered editorial pattern — italic-serif
  * "01" in brass-soft + sans uppercase "About" — same shape as the
- * homepage Hero ("01 / Rank Point Media"). About-page sections then
- * continue 02–04 (Story, Approach, Team).
+ * homepage Hero. About-page sections then continue 02–04 (Story,
+ * Approach, Team).
  */
 
 function ArrowDownIcon() {
@@ -42,42 +34,8 @@ function ArrowRightIcon() {
 export default function AboutHero() {
   return (
     <section className="relative min-h-[50vh] md:min-h-[55vh] flex items-center overflow-hidden bg-brand-dark">
-      {/* Layer 1: Image positioned left (42% width) */}
-      <div className="absolute inset-0 z-[1]" style={{ width: "42%" }}>
-        <Image
-          src="/images/about/team-bg.jpg"
-          alt="Tower of the Americas in San Antonio"
-          fill
-          className="object-cover object-top"
-          priority
-          quality={70}
-          sizes="42vw"
-        />
-      </div>
-
-      {/* Layer 2: Three gradient overlays — blend target navy #14213D per CLAUDE.md Hero spec */}
-      <div
-        className="absolute inset-0 z-[2]"
-        style={{
-          background: "linear-gradient(to right, transparent 0%, transparent 15%, #14213D 42%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 z-[2]"
-        style={{
-          background: "linear-gradient(to top, #14213D 0%, transparent 40%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 z-[2]"
-        style={{
-          background: "linear-gradient(to bottom, rgba(20,33,61,0.6) 0%, transparent 30%)",
-        }}
-      />
-
-      {/* Content */}
-      <div className="relative z-[3] mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24 pt-28 pb-12 lg:pt-32 lg:pb-16 w-full">
-        <div className="ml-auto max-w-3xl text-left lg:pl-8">
+      <div className="relative z-[1] mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24 pt-28 pb-12 lg:pt-32 lg:pb-16 w-full">
+        <div className="max-w-3xl text-left">
           {/* Editorial eyebrow — italic-serif "01" in brass-soft + sans label */}
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
             <span className="font-heading text-base font-normal italic mr-1">
