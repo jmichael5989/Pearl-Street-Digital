@@ -1,41 +1,106 @@
+/**
+ * About-page Story section. Editorial register matching the homepage
+ * Hero/WhyUs/Consultation pattern locked at .impeccable.md Resolved
+ * Decisions §4 (palette pivot).
+ *
+ * Replaces the prior pre-pivot block (bg-white shell, max-w-7xl
+ * container, centered-decorative eyebrow in retired text-primary,
+ * font-bold serif H2, four marketing-speak paragraphs ending with
+ * "modern AI tools with proven local marketing strategies"). Now uses
+ * the canonical numbered editorial pattern (eyebrow "02 / Our story",
+ * left-aligned serif H2 weight 400, graphite paragraphs at 65ch
+ * measure) and adds the early-stage disclosure paragraph that
+ * .impeccable.md commits the About page to carrying.
+ *
+ * Surface alternates with AboutHero (dark) → bg-light (warm-white).
+ */
 export default function AboutStory() {
   return (
-    <section id="story" className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="text-base font-bold uppercase tracking-[0.12em] text-primary">
-          Our Story
-        </p>
-        <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-          Why We Started Rank Point Media
+    <section
+      id="story"
+      aria-labelledby="story-heading"
+      className="bg-light border-t border-border"
+      style={{
+        paddingTop: "clamp(72px, 12vh, 144px)",
+        paddingBottom: "clamp(72px, 12vh, 144px)",
+      }}
+    >
+      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+        {/* Eyebrow */}
+        <header className="mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span className="font-heading text-base font-normal italic mr-1">
+              02
+            </span>
+            &nbsp;/&nbsp; Our story
+          </div>
+        </header>
+
+        {/* H2 */}
+        <h2
+          id="story-heading"
+          className="font-heading text-text text-balance"
+          style={{
+            fontSize: "var(--text-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.015em",
+            fontWeight: 400,
+            maxWidth: "24ch",
+            margin: 0,
+          }}
+        >
+          Why we started Rank Point Media.
         </h2>
-        <p className="mt-4 leading-relaxed text-gray">
-          Too many businesses have been burned by agencies that overpromised
-          and underdelivered -- or worse, locked into long-term contracts
-          with nothing to show for it. That is exactly why Rank Point Media
-          exists.
-        </p>
-        <p className="mt-4 leading-relaxed text-gray">
-          We are Jon and Stacie, a husband-and-wife team who built this
-          agency on a straightforward principle: local businesses deserve a
-          marketing partner who actually delivers. No layers of account
-          managers. No recycled strategies passed from one client to the
-          next. When you work with us, you work directly with the people
-          doing the work.
-        </p>
-        <p className="mt-4 leading-relaxed text-gray">
-          Our reputation is personal. Every website we build, every campaign
-          we launch, and every dollar of ad spend we manage is tied directly
-          to our name. That is the difference between a boutique agency and
-          a large firm where your account is just another number on a
-          spreadsheet.
-        </p>
-        <p className="mt-4 leading-relaxed text-gray">
-          We combine modern AI tools with proven local marketing strategies
-          so small businesses in San Antonio can compete online without
-          overspending to do it. Based in San Antonio, we partner with
-          business owners who want measurable results from people who are
-          personally invested in delivering them.
-        </p>
+
+        {/* Body — graphite paragraphs at 65ch measure */}
+        <div
+          className="mt-8 flex flex-col gap-5 font-body"
+          style={{
+            fontSize: "1.0625rem",
+            lineHeight: 1.6,
+            color: "var(--color-brand-text)",
+            maxWidth: "65ch",
+          }}
+        >
+          <p>
+            Too many small businesses have been burned &mdash; long
+            contracts, recycled strategies, account managers who can&rsquo;t
+            answer a question without escalating it. We started Rank Point
+            Media because that&rsquo;s not how the work should feel.
+          </p>
+          <p>
+            We&rsquo;re Jon and Stacie, a husband-and-wife team. Jon writes
+            the code and runs technical SEO. Stacie runs design, marketing,
+            and social. When the site launches, you talk to the person who
+            wrote the CSS. When a campaign misfires, you talk to the person
+            who set it up.
+          </p>
+          <p>
+            Our reputation is personal. Every site we build, every campaign
+            we run, every dollar of ad spend we manage is tied to our name
+            &mdash; not to an account manager who&rsquo;ll be reassigned to
+            someone else&rsquo;s account next quarter.
+          </p>
+        </div>
+
+        {/* Phase-disclosure paragraph — per .impeccable.md Early-stage Disclosure Posture */}
+        <div
+          className="mt-12 max-w-2xl"
+          style={{ paddingTop: "20px", borderTop: "1px solid var(--color-border)" }}
+        >
+          <p
+            className="font-body italic"
+            style={{
+              fontSize: "0.9375rem",
+              lineHeight: 1.6,
+              color: "var(--color-brand-text)",
+            }}
+          >
+            Rank Point Media started in 2026. The prices we publish are what
+            this work costs while we are small &mdash; two people, no
+            account-manager markup. Both will rise as we grow.
+          </p>
+        </div>
       </div>
     </section>
   );

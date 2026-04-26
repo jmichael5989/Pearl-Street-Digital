@@ -1,94 +1,182 @@
-"use client";
-
 import Image from "next/image";
 
-const teamMembers = [
+/**
+ * About-page Team section. Editorial register matching the locked
+ * homepage pattern, with rectangular portrait photos and typographic
+ * captions per .impeccable.md Photography Direction §"Captioned" — not
+ * the prior centered-circle-avatar SaaS team-page pattern.
+ *
+ * Replaces the prior section that violated multiple locks: bg-white
+ * (retired surface), max-w-7xl (wrong container), text-primary +
+ * hover:border-primary + bg-primary + bg-accent (retired tokens),
+ * font-bold serif H2 (locked weight is 400), centered text alignment
+ * (locked register is left-aligned), rounded-2xl + double-wrapped div
+ * card geometry (banned), border-4 rounded-full circular avatars (the
+ * 2018 SaaS team-page pattern the brief explicitly contrasts against
+ * The Gentlewoman / Cal.com register), and George's bio in the jokey
+ * register (.impeccable.md Brand Personality §"A little dry": "the
+ * site does not try to charm... the 404 is not a pun").
+ *
+ * Bios now lead with the working role and treat credentials as quiet
+ * facts per .impeccable.md Positioning §"Credentials are proof".
+ *
+ * Surface alternates with AboutValues (parchment) → bg-light
+ * (warm-white).
+ */
+
+interface TeamMember {
+  name: string;
+  role: string;
+  photo: string;
+  photoPosition: string;
+  caption: string;
+  bio: string;
+}
+
+const teamMembers: TeamMember[] = [
   {
     name: "Jon Michael",
-    role: "Founder & Lead Web Developer",
-    initials: "JM",
-    accentClass: "bg-primary",
+    role: "Web development & technical SEO",
     photo: "/images/team/jon.png",
     photoPosition: "center top",
-    bio: "Jon built Rank Point Media after years in product and technology roles at Fortune 150 companies. He handles all web development, technical SEO, and performance optimization -- and applies AI tools to every project for smarter strategies and faster results.",
+    caption: "Photograph by Stacie Michael, 2026.",
+    bio: "Jon writes the code, runs technical SEO, and tunes performance. Years as a product manager at Fortune 150 companies before this — the work here is custom-built, not configured from a template.",
   },
   {
-    name: "Stacie",
-    role: "Marketing Lead & Social Media Manager",
-    initials: "S",
-    accentClass: "bg-accent",
+    name: "Stacie Michael",
+    role: "Design, marketing & social",
     photo: "/images/team/stacie.jpg",
     photoPosition: "center top",
-    bio: "Stacie runs all marketing, design, and social media. With a background in web design and interior design, she brings a rare eye for aesthetics that actually converts. From social content to Google Business Profiles, she keeps every client visible and top-of-mind.",
+    caption: "Photograph by Jon Michael, 2026.",
+    bio: "Stacie runs design, marketing, and social media. Background in web and interior design. Every photograph on this site is hers.",
   },
   {
     name: "George",
-    role: "Chief Bark Officer & Morale Manager",
-    initials: "G",
-    accentClass: "bg-primary",
+    role: "Office presence",
     photo: "/images/team/george.jpg",
     photoPosition: "center center",
-    bio: "George is the four-legged brains behind the operation. When she's not supervising deadlines from her corner of the office, she's reminding us that every great agency needs frequent walk breaks and unconditional loyalty to the team. Her contributions to client satisfaction are immeasurable -- mostly because she gets paid in treats, not billable hours. Fluent in barks, fetch, and belly rubs.",
+    caption: "Photograph by Stacie Michael, 2026.",
+    bio: "George supervises from her corner of the office.",
   },
 ];
 
 export default function AboutTeam() {
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-base font-bold uppercase tracking-[0.12em] text-primary">
-            Leadership
-          </p>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            Who Is Behind the Work
-          </h2>
-          <p className="mt-4 text-gray max-w-lg mx-auto">
-            A husband-and-wife team that treats your business like our own.
-            No account managers. No runaround. Just two people who care about
-            getting you results.
-          </p>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <section
+      aria-labelledby="team-heading"
+      className="bg-light border-t border-border"
+      style={{
+        paddingTop: "clamp(72px, 12vh, 144px)",
+        paddingBottom: "clamp(72px, 12vh, 144px)",
+      }}
+    >
+      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+        {/* Eyebrow */}
+        <header className="mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span className="font-heading text-base font-normal italic mr-1">
+              04
+            </span>
+            &nbsp;/&nbsp; The team
+          </div>
+        </header>
+
+        {/* H2 */}
+        <h2
+          id="team-heading"
+          className="font-heading text-text text-balance"
+          style={{
+            fontSize: "var(--text-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.015em",
+            fontWeight: 400,
+            maxWidth: "24ch",
+            margin: 0,
+          }}
+        >
+          Who you actually talk to.
+        </h2>
+
+        {/* Lede */}
+        <p
+          className="mt-5 font-body"
+          style={{
+            fontSize: "1.0625rem",
+            lineHeight: 1.6,
+            color: "var(--color-brand-text)",
+            maxWidth: "58ch",
+            marginBottom: "clamp(48px, 6vh, 64px)",
+          }}
+        >
+          Two people, plus a dog. Every email, every call, every line of
+          code &mdash; one of us. No layers in between.
+        </p>
+
+        {/* 3-col grid of editorial portraits */}
+        <div className="grid gap-10 lg:grid-cols-3 lg:gap-8">
           {teamMembers.map((member) => (
-            <div
-              key={member.name}
-              className="group relative rounded-2xl border border-border text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary overflow-hidden"
-            >
-            <div className="rounded-2xl bg-white p-8 h-full">
-              {member.photo ? (
-                <div className="mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-icon-service-border">
-                  <Image
-                    src={member.photo}
-                    alt={`${member.name} headshot`}
-                    width={192}
-                    height={192}
-                    className="h-full w-full object-cover"
-                    style={{ objectPosition: member.photoPosition }}
-                  />
-                </div>
-              ) : (
-                <div
-                  className={`mx-auto flex h-48 w-48 items-center justify-center rounded-full ${member.accentClass}`}
-                  role="img"
-                  aria-label={`${member.name} headshot placeholder`}
-                >
-                  <span className="font-heading text-4xl font-bold text-white">
-                    {member.initials}
-                  </span>
-                </div>
-              )}
-              <h3 className="mt-6 font-heading text-xl font-bold text-dark">
+            <article key={member.name} className="flex flex-col">
+              {/* Rectangular portrait — aspect 4/5, no rounded, no border */}
+              <div className="relative w-full overflow-hidden bg-light-surface" style={{ aspectRatio: "4 / 5" }}>
+                <Image
+                  src={member.photo}
+                  alt={`${member.name} portrait`}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: member.photoPosition }}
+                  sizes="(min-width: 1024px) 26vw, (min-width: 640px) 80vw, 100vw"
+                />
+              </div>
+
+              {/* Photo caption — italic graphite, beneath photo */}
+              <p
+                className="mt-3 font-body italic"
+                style={{
+                  fontSize: "0.8125rem",
+                  lineHeight: 1.5,
+                  color: "var(--color-gray)",
+                }}
+              >
+                {member.caption}
+              </p>
+
+              {/* Name */}
+              <h3
+                className="mt-6 font-heading text-text"
+                style={{
+                  fontSize: "1.5rem",
+                  lineHeight: 1.2,
+                  letterSpacing: "-0.01em",
+                  fontWeight: 400,
+                  margin: 0,
+                }}
+              >
                 {member.name}
               </h3>
-              <p className="mt-1 text-sm font-medium text-primary">
+
+              {/* Role — sans uppercase letter-spaced caption */}
+              <p
+                className="mt-1 font-body text-xs font-semibold uppercase"
+                style={{
+                  letterSpacing: "0.12em",
+                  color: "var(--color-gray)",
+                }}
+              >
                 {member.role}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-gray">
+
+              {/* Bio */}
+              <p
+                className="mt-4 font-body"
+                style={{
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.58,
+                  color: "var(--color-brand-text)",
+                }}
+              >
                 {member.bio}
               </p>
-            </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

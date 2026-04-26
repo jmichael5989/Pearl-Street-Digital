@@ -1,112 +1,150 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+/**
+ * About-page Approach section. Rebuilt as the locked numbered editorial
+ * card grid pattern (matches WhyUs on the homepage), one entry per
+ * commitment.
+ *
+ * Replaces the prior section that violated .impeccable.md anti-references
+ * §2 (autoplay background video — "Auto-playing hero video of any kind,
+ * full stop") plus the locked card spec (rounded-2xl glassmorphism cards
+ * with backdrop-blur on a video bleed, text-shadows on light type, all
+ * banned by the brief). The autoplay video element, the dark-bleed
+ * surface, and the glass cards are all retired here in one move.
+ *
+ * Surface alternates with AboutStory (warm-white) → bg-light-surface
+ * (parchment). Six commitments laid out as a 3-col grid at lg, 2-col at
+ * sm, 1-col on mobile — each card uses italic-serif Roman numeral in
+ * brass with a hairline divider, then serif title weight 400, then
+ * graphite body.
+ */
 
 const values = [
   {
-    title: "Transparency First",
-    image: "/images/values/transparency.jpg",
-    description:
-      "No hidden fees, no confusing reports. You get a clear dashboard showing exactly where your money goes and what results it's driving.",
+    num: "i.",
+    title: "Transparency first.",
+    body: "No hidden fees. Clear dashboards showing where every dollar goes and what it&rsquo;s earning.",
   },
   {
-    title: "You Own Everything",
-    image: "/images/values/ownership.jpg",
-    description:
-      "Your website, your content, your accounts. If you ever leave, everything goes with you. No hostage situations.",
+    num: "ii.",
+    title: "You own everything.",
+    body: "Your site, your content, your ad accounts, your analytics. If you ever leave, the handoff is a Git repository and a coffee.",
   },
   {
-    title: "Direct to the Builder",
-    image: "/images/values/ai-tools.jpg",
-    description:
-      "Every call is Jon or Stacie. No account managers, no project coordinators. The people who write the code answer the email.",
+    num: "iii.",
+    title: "Direct to the builder.",
+    body: "Every call is Jon or Stacie. No account managers, no project coordinators. The people who write the code answer the email.",
   },
   {
-    title: "Speed to Launch",
-    image: "/images/values/speed.jpg",
-    description:
-      "Most agencies take months. We launch starter websites in under two weeks and full builds in four. Your business cannot afford to wait.",
+    num: "iv.",
+    title: "Speed to launch.",
+    body: "Most agencies take months. We launch starter sites in under two weeks and full builds in four.",
   },
   {
-    title: "Local Focus",
-    image: "/images/values/local-focus.jpg",
-    description:
-      "We know local markets inside and out -- the neighborhoods, the competition, and what customers actually search for. That context makes our strategies sharper.",
+    num: "v.",
+    title: "Local focus.",
+    body: "We know San Antonio &mdash; the neighborhoods, the competition, what customers actually search for. That context makes the work sharper.",
   },
   {
-    title: "No Long-Term Contracts",
-    image: "/images/values/no-contracts.jpg",
-    description:
-      "We earn your business every month. Our clients stay because the results speak for themselves, not because they are locked into a contract.",
+    num: "vi.",
+    title: "No long-term contracts.",
+    body: "We earn the work month to month. Our clients stay because the results show up, not because they&rsquo;re locked in.",
   },
 ];
 
 export default function AboutValues() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const onTime = () => {
-      if (video.duration && video.currentTime >= video.duration - 0.15) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      }
-    };
-    const onEnd = () => { video.currentTime = 0; video.play().catch(() => {}); };
-    video.addEventListener("timeupdate", onTime);
-    video.addEventListener("ended", onEnd);
-    return () => { video.removeEventListener("timeupdate", onTime); video.removeEventListener("ended", onEnd); };
-  }, []);
-
   return (
-    <section id="approach" className="relative py-16 lg:py-24 overflow-hidden">
-      {/* Background video with poster fallback */}
-      <div
-        className="absolute inset-0 z-0 bg-dark bg-cover bg-center"
-        style={{ backgroundImage: "url(/videos/whyus-bg-poster.jpg)" }}
-      >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          ref={videoRef}
-          poster="/videos/whyus-bg-poster.jpg"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+    <section
+      id="approach"
+      aria-labelledby="approach-heading"
+      className="bg-light-surface border-t border-border"
+      style={{
+        paddingTop: "clamp(72px, 12vh, 144px)",
+        paddingBottom: "clamp(72px, 12vh, 144px)",
+      }}
+    >
+      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+        {/* Eyebrow */}
+        <header className="mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span className="font-heading text-base font-normal italic mr-1">
+              03
+            </span>
+            &nbsp;/&nbsp; Our approach
+          </div>
+        </header>
+
+        {/* H2 */}
+        <h2
+          id="approach-heading"
+          className="font-heading text-text text-balance"
+          style={{
+            fontSize: "var(--text-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.015em",
+            fontWeight: 400,
+            maxWidth: "24ch",
+            margin: 0,
+          }}
         >
-          <source src="/videos/whyus-bg.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-base font-bold uppercase tracking-[0.12em] text-accent-dark [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]">
-            Our Approach
-          </p>
-          <h2 className="mt-3 font-heading font-bold text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.4)]" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            What Sets Us Apart
-          </h2>
-          <p className="mt-4 leading-relaxed text-white/85 [text-shadow:0_1px_8px_rgba(0,0,0,0.3)]">
-            We built Rank Point Media around the principles we wish every
-            agency followed. Here is what you can expect when you work with us.
-          </p>
-        </div>
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          How we work.
+        </h2>
+
+        {/* Lede */}
+        <p
+          className="mt-5 font-body"
+          style={{
+            fontSize: "1.0625rem",
+            lineHeight: 1.6,
+            color: "var(--color-brand-text)",
+            maxWidth: "58ch",
+            marginBottom: "clamp(48px, 6vh, 64px)",
+          }}
+        >
+          Six commitments that shape every project. None of them are
+          unusual on their own &mdash; the package is the rare part.
+        </p>
+
+        {/* 6-card grid — 1 col mobile, 2 sm, 3 lg */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {values.map((value) => (
-            <div
-              key={value.title}
-              className="rounded-2xl bg-dark/50 backdrop-blur-md border border-white/15 p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-dark/60 hover:border-accent-dark/40"
+            <article
+              key={value.num}
+              className="flex flex-col gap-3.5 border border-border bg-light p-8 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-[3px]"
             >
-              <div>
-                <h3 className="font-heading text-lg font-semibold text-white">
-                  {value.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/85">
-                  {value.description}
-                </p>
+              <div
+                className="font-heading italic text-accent"
+                style={{
+                  fontSize: "0.9375rem",
+                  fontWeight: 400,
+                  paddingBottom: "14px",
+                  marginBottom: "8px",
+                  borderBottom: "1px solid var(--color-border)",
+                }}
+              >
+                {value.num}
               </div>
-            </div>
+              <h3
+                className="font-heading text-text"
+                style={{
+                  fontSize: "1.25rem",
+                  lineHeight: 1.25,
+                  letterSpacing: "-0.01em",
+                  fontWeight: 400,
+                  margin: 0,
+                }}
+              >
+                {value.title}
+              </h3>
+              <p
+                className="font-body"
+                style={{
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.58,
+                  color: "var(--color-brand-text)",
+                  margin: 0,
+                }}
+                dangerouslySetInnerHTML={{ __html: value.body }}
+              />
+            </article>
           ))}
         </div>
       </div>
