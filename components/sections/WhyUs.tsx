@@ -109,7 +109,7 @@ export default function WhyUs() {
           {whyCards.map((card) => (
             <article
               key={card.num}
-              className="flex flex-col gap-3.5 border border-border bg-light p-8 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-1"
+              className="flex flex-col gap-3.5 border border-border bg-light p-8 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-[3px]"
             >
               <div
                 className="font-heading italic text-accent"

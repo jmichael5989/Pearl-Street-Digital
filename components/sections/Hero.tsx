@@ -53,7 +53,7 @@ export default function Hero() {
           </div>
         </header>
 
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start lg:gap-16">
           {/* Left column — H1 + sub + CTA row */}
           <div className="flex flex-col gap-8">
             <h1
