@@ -33,8 +33,8 @@ function CtaButton({
 }) {
   const className =
     variant === "primary"
-      ? "inline-flex items-center gap-2 px-8 py-4 rounded-full bg-light text-primary font-semibold transition-all duration-200 hover:bg-accent-dark hover:text-white"
-      : "inline-flex items-center px-8 py-4 rounded-full border border-white/20 text-white font-semibold transition-colors duration-200 hover:bg-white/5";
+      ? "inline-flex items-center gap-2 px-8 py-4 border border-light bg-light text-text font-medium transition-[background-color,border-color,color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark hover:border-accent-dark hover:text-light"
+      : "inline-flex items-center px-8 py-4 border border-white/30 text-text-on-dark font-medium transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-white/10 hover:border-white/60";
 
   if (isExternalHref(href)) {
     return (
@@ -98,7 +98,7 @@ export default function DarkHero({
           <div
             className={`col-span-12 ${showMockups ? "lg:col-span-7" : "lg:col-span-9"} flex flex-col`}
           >
-            <span className="font-mono text-xs uppercase tracking-widest text-accent-dark">
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
               {kicker}
             </span>
             <h1
