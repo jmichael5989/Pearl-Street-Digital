@@ -97,7 +97,7 @@ export default function ContactContent() {
             href="/#talk-to-us"
             className="font-medium text-accent underline underline-offset-4 hover:text-text"
           >
-            Book thirty minutes directly
+            Book an hour directly
           </Link>{" "}
           on Jon&rsquo;s calendar &mdash; or fill in the message below if
           you&rsquo;d rather write first.

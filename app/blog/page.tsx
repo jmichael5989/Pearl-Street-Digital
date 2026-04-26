@@ -187,7 +187,7 @@ export default function BlogIndexPage() {
                   href="/#talk-to-us"
                   className="not-italic font-medium text-accent underline underline-offset-4 hover:text-text"
                 >
-                  book thirty minutes
+                  book an hour
                 </Link>{" "}
                 in the meantime.
               </p>

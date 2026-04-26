@@ -46,7 +46,7 @@ export default function MobileCTABar() {
         href="/#talk-to-us"
         className="flex flex-1 items-center justify-center gap-2 bg-accent text-sm font-medium text-light transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark"
       >
-        Book thirty minutes
+        Book an hour
       </Link>
     </div>
   );

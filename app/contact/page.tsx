@@ -6,11 +6,11 @@ import ContactContent from "@/components/contact/ContactContent";
 export const metadata: Metadata = {
   title: "Contact Us San Antonio | Rank Point Media",
   description:
-    "Book a 30-minute consultation with Jon Michael at Rank Point Media. A two-person agency in Leon Springs serving small businesses in San Antonio.",
+    "Book a 60-minute consultation with Jon Michael at Rank Point Media. A two-person agency in Leon Springs serving small businesses in San Antonio.",
   openGraph: {
     title: "Contact Us San Antonio | Rank Point Media",
     description:
-      "Book a 30-minute consultation with Jon Michael at Rank Point Media. A two-person agency in Leon Springs serving small businesses in San Antonio.",
+      "Book a 60-minute consultation with Jon Michael at Rank Point Media. A two-person agency in Leon Springs serving small businesses in San Antonio.",
     url: "https://rankpointmedia.com/contact",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Us San Antonio | Rank Point Media",
     description:
-      "Book a 30-minute consultation with Jon Michael at Rank Point Media. A two-person agency in Leon Springs serving small businesses in San Antonio.",
+      "Book a 60-minute consultation with Jon Michael at Rank Point Media. A two-person agency in Leon Springs serving small businesses in San Antonio.",
   },
   alternates: {
     canonical: "https://rankpointmedia.com/contact",
@@ -61,7 +61,7 @@ export default function ContactPage() {
         <DarkHero
           kicker="CONTACT"
           headline="Tell us about your business."
-          subheadline="A 30-minute conversation with Jon. We listen first, then tell you what we'd actually do — and whether we're the right fit."
+          subheadline="A 60-minute conversation with Jon. We listen first, then tell you what we'd actually do — and whether we're the right fit."
           primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "Email us", href: "mailto:info@rankpointmedia.com" }}
           showMockups={false}

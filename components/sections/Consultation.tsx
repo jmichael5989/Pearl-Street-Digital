@@ -39,7 +39,9 @@ interface CalEmbedAPI {
  *     internal surface.
  *
  * If the Cal.com event slug changes, update calLink below. Current slug
- * is `/consultation` (the 30-minute event type owner set up 2026-04-23).
+ * is `/consultation` (now a 60-minute event; bumped from the original
+ * 30-minute setup 2026-04-26 because 30-min slots were surfacing too
+ * many availabilities and undersignaling the time commitment).
  */
 export default function Consultation() {
   // Track whether Cal injected its iframe (loaded) and whether we should
@@ -107,7 +109,7 @@ export default function Consultation() {
       config: { layout: "month_view" },
     });
     window.Cal!.ns.consultation("ui", {
-      // Show Cal's event-details panel (avatar, "30-minute consultation"
+      // Show Cal's event-details panel (avatar, "60-minute consultation"
       // title, description, duration, Google Meet, timezone). The owner
       // chose to keep this panel even though it pushes the calendar
       // further right than the editorial paragraph above — the description
@@ -159,7 +161,7 @@ export default function Consultation() {
   return (
     <section
       id="talk-to-us"
-      aria-label="Book a 30-minute consultation"
+      aria-label="Book a 60-minute consultation"
       className="bg-light border-t border-border"
     >
       <div
@@ -185,7 +187,7 @@ export default function Consultation() {
               fontWeight: 400,
             }}
           >
-            Thirty minutes with Jon. Pick a time.
+            An hour with Jon. Pick a time.
           </h2>
           <p
             className="font-body leading-[1.58]"
@@ -247,7 +249,7 @@ export default function Consultation() {
                     className="font-body text-sm text-gray"
                     style={{ margin: "0 0 24px 0" }}
                   >
-                    Book the same 30-minute consultation directly on cal.com
+                    Book the same 60-minute consultation directly on cal.com
                     &mdash; opens in a new tab.
                   </p>
                   <a

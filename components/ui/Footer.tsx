@@ -162,7 +162,7 @@ function PreFooterCTA() {
                 maxWidth: "52ch",
               }}
             >
-              Thirty minutes with Jon. No slides, no script &mdash; just the
+              An hour with Jon. No slides, no script &mdash; just the
               conversation. Pick any open time on the homepage calendar.
             </p>
           </div>
@@ -173,7 +173,7 @@ function PreFooterCTA() {
               href="/#talk-to-us"
               className="inline-flex items-center gap-2 text-base font-semibold text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:underline hover:underline-offset-4"
             >
-              Book thirty minutes
+              Book an hour
               <span aria-hidden="true">&rarr;</span>
             </Link>
             <a
