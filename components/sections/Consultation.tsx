@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 declare global {
   interface Window {
@@ -42,6 +42,16 @@ interface CalEmbedAPI {
  * is `/consultation` (the 30-minute event type owner set up 2026-04-23).
  */
 export default function Consultation() {
+  // Track whether Cal injected its iframe (loaded) and whether we should
+  // surface the prominent cal.com fallback CTA (slow). The slow flag
+  // flips after 3 seconds if the iframe hasn't appeared — at that point
+  // visitors get a real navy button to book directly on cal.com so a
+  // sluggish embed never costs a booking. Once the iframe is in the DOM
+  // the slow fallback is cleared in favor of the live widget.
+  const [calLoaded, setCalLoaded] = useState(false);
+  const [showSlowFallback, setShowSlowFallback] = useState(false);
+  const calLoadedRef = useRef(false);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.Cal?.loaded) return;
@@ -112,6 +122,38 @@ export default function Consultation() {
         light: { "cal-brand": "#836021" },
       },
     });
+
+    // Detect when Cal injects its iframe so we can clear the loading
+    // fallback. MutationObserver beats polling and fires the moment the
+    // node appears.
+    const target = document.getElementById("cal-consultation-embed");
+    const observer = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        for (const node of m.addedNodes) {
+          if (node.nodeName === "IFRAME") {
+            calLoadedRef.current = true;
+            setCalLoaded(true);
+            setShowSlowFallback(false);
+            observer.disconnect();
+            return;
+          }
+        }
+      }
+    });
+    if (target) observer.observe(target, { childList: true, subtree: true });
+
+    // Conversion safety net. If the iframe still isn't in the DOM after
+    // 3s — slow network, ad-blocker, CSP block, or Cal.com outage —
+    // promote the cal.com booking link from a quiet underline to a
+    // primary navy button so visitors never give up on the booking flow.
+    const slowTimer = window.setTimeout(() => {
+      if (!calLoadedRef.current) setShowSlowFallback(true);
+    }, 3000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(slowTimer);
+    };
   }, []);
 
   return (
@@ -177,30 +219,68 @@ export default function Consultation() {
             its iframe, the iframe's opaque background covers the fallback.
             If the embed script never loads (ad-blocker, network failure,
             CSP block, Cal.com outage), the fallback stays visible and the
-            visitor still has a working direct booking link. */}
+            visitor still has a working direct booking link. After 3s
+            without an iframe, the fallback escalates from quiet loading
+            text to a prominent navy CTA so a sluggish embed doesn't cost
+            a booking. */}
         <div className="relative min-h-[40rem] w-full">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 flex items-center justify-center px-6"
-          >
-            <div className="max-w-md text-center">
-              <p
-                className="font-body text-sm italic text-gray"
-                style={{ marginBottom: "12px" }}
-              >
-                Loading the calendar&hellip;
-              </p>
-              <a
-                href="https://cal.com/rankpointmedia/consultation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-body text-sm font-medium text-accent underline underline-offset-4 hover:text-text"
-              >
-                Trouble loading? Book directly on cal.com{" "}
-                <span aria-hidden="true">&rarr;</span>
-              </a>
+          {!calLoaded && (
+            <div
+              aria-hidden={showSlowFallback ? undefined : "true"}
+              className="absolute inset-0 flex items-center justify-center px-6"
+            >
+              {showSlowFallback ? (
+                <div className="max-w-md text-center">
+                  <p
+                    className="font-heading text-text"
+                    style={{
+                      fontSize: "clamp(1.25rem, 2.2vw, 1.625rem)",
+                      lineHeight: 1.25,
+                      letterSpacing: "-0.01em",
+                      fontWeight: 400,
+                      margin: "0 0 8px 0",
+                    }}
+                  >
+                    Cal.com is taking a moment.
+                  </p>
+                  <p
+                    className="font-body text-sm text-gray"
+                    style={{ margin: "0 0 24px 0" }}
+                  >
+                    Book the same 30-minute consultation directly on cal.com
+                    &mdash; opens in a new tab.
+                  </p>
+                  <a
+                    href="https://cal.com/rankpointmedia/consultation"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-body inline-flex items-center gap-2.5 border border-text bg-text px-6 py-3.5 text-[0.9375rem] font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark"
+                  >
+                    Book on cal.com
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              ) : (
+                <div className="max-w-md text-center">
+                  <p
+                    className="font-body text-sm italic text-gray"
+                    style={{ marginBottom: "12px" }}
+                  >
+                    Loading the calendar&hellip;
+                  </p>
+                  <a
+                    href="https://cal.com/rankpointmedia/consultation"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-body text-sm font-medium text-accent underline underline-offset-4 hover:text-text"
+                  >
+                    Trouble loading? Book directly on cal.com{" "}
+                    <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              )}
             </div>
-          </div>
+          )}
           <div
             id="cal-consultation-embed"
             className="relative h-full min-h-[40rem] w-full"
