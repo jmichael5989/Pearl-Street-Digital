@@ -41,7 +41,7 @@ function ArrowRightIcon() {
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-[50vh] md:min-h-[55vh] flex items-center overflow-hidden bg-dark">
+    <section className="relative min-h-[50vh] md:min-h-[55vh] flex items-center overflow-hidden bg-brand-dark">
       {/* Layer 1: Image positioned left (42% width) */}
       <div className="absolute inset-0 z-[1]" style={{ width: "42%" }}>
         <Image

@@ -223,7 +223,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-all duration-200 hover:bg-primary hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark hover:text-text-on-dark"
                   aria-label="LinkedIn"
                 >
                   <LinkedInIcon />
@@ -232,7 +232,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-all duration-200 hover:bg-primary hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark hover:text-text-on-dark"
                   aria-label="Facebook"
                 >
                   <FacebookIcon />
@@ -241,7 +241,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-all duration-200 hover:bg-primary hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark hover:text-text-on-dark"
                   aria-label="Instagram"
                 >
                   <InstagramIcon />
@@ -331,7 +331,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
 
           {/* Bottom Bar */}
           <div className="border-t border-white/10 pt-8 text-center">
-            <div className="flex items-center justify-center gap-1.5 text-xs">
+            <div className="flex items-center justify-center gap-2 text-xs">
               <span className="uppercase tracking-[0.18em] text-[rgba(250,250,246,0.5)]">
                 Design by:
               </span>
