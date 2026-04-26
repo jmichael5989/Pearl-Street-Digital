@@ -94,10 +94,11 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    // Hero image is real (appeal-pro-ai-hero.png, owner-provided
-     // 2026-04-26). Thumbnail still points at the pest-control asset
-     // until a real Appeal Pro thumbnail lands at
-     // public/images/case-studies/appeal-pro-ai-thumb.{webp,png}.
+    // Real owner-provided assets (2026-04-26). Both are PNGs (Windows
+    // saved as .png; do not re-extension to .webp without an actual
+    // re-encode). Thumbnail is currently a full-resolution copy of the
+    // hero — fine functionally, but worth re-cropping/downsizing later
+    // for grid performance since the case-studies index loads it small.
     id: "appeal-pro-ai",
     slug: "appeal-pro-ai",
     client: "Appeal Pro AI",
@@ -117,8 +118,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "AI-Powered", label: "Custom Build" },
       { value: "10 min", label: "User Workflow" },
     ],
-    thumbnailUrl:
-      "/images/case-studies/modern-day-pest-control-thumb.webp",
+    thumbnailUrl: "/images/case-studies/appeal-pro-ai-thumb.png",
     thumbnailAlt:
       "Appeal Pro AI homepage on a laptop screen",
     heroImageUrl: "/images/case-studies/appeal-pro-ai-hero.png",
