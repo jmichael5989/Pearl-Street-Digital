@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
@@ -67,26 +68,7 @@ export default function WebsiteDesignPage() {
           mockupVariant="website"
         />
 
-        {/* INLINE OVERVIEW — heading + paragraphs only (highlights moved to hero metrics) */}
-        <section className="bg-white py-16 lg:py-24">
-          <div className="mx-auto max-w-3xl px-6">
-            <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
-              Overview
-            </span>
-            <h2
-              className="mt-3 font-heading font-bold text-text"
-              style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}
-            >
-              {service.overview.heading}
-            </h2>
-            {service.overview.paragraphs.map((p, i) => (
-              <p key={i} className="mt-5 text-gray leading-relaxed">
-                {p}
-              </p>
-            ))}
-          </div>
-        </section>
-
+        <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />
         <ServiceFAQ service={service} />
