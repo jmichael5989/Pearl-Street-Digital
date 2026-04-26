@@ -107,31 +107,61 @@ export default function LegacyHeader() {
       >
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex h-[100px] items-center justify-between">
-            {/* Wordmark — matches GlassHeader and Footer */}
-            <Link
-              href="/"
-              className={`font-heading transition-colors duration-300 ${
-                transparent ? "text-text-on-dark" : "text-text"
-              }`}
-              style={{
-                fontSize: "1.125rem",
-                fontWeight: 400,
-                letterSpacing: "-0.005em",
-                lineHeight: 1,
-              }}
-              onClick={() => setMenuOpen(false)}
-              aria-label="Rank Point Media — home"
-            >
-              Rank{" "}
-              <em
-                className={`font-normal italic transition-colors duration-300 ${
-                  transparent ? "text-accent-dark" : "text-accent"
+            {/* Wordmark + descriptor slug */}
+            <div className="flex items-center gap-4">
+              <Link
+                href="/"
+                className={`font-heading transition-colors duration-300 ${
+                  transparent ? "text-text-on-dark" : "text-text"
                 }`}
+                style={{
+                  fontSize: "1.125rem",
+                  fontWeight: 400,
+                  letterSpacing: "-0.005em",
+                  lineHeight: 1,
+                }}
+                onClick={() => setMenuOpen(false)}
+                aria-label="Rank Point Media — home"
               >
-                Point
-              </em>{" "}
-              Media
-            </Link>
+                Rank{" "}
+                <em
+                  className={`font-normal italic transition-colors duration-300 ${
+                    transparent ? "text-accent-dark" : "text-accent"
+                  }`}
+                >
+                  Point
+                </em>{" "}
+                Media
+              </Link>
+
+              {/* Brass hairline + stacked descriptor — small-business
+                  category slug to the right of the wordmark. Hidden below
+                  sm to keep the mobile header uncluttered. */}
+              <div
+                className="hidden sm:flex items-center gap-3"
+                aria-hidden="true"
+              >
+                <div
+                  className={`h-9 w-px transition-colors duration-300 ${
+                    transparent ? "bg-accent-dark" : "bg-accent"
+                  }`}
+                />
+                <div
+                  className={`font-body flex flex-col uppercase font-semibold transition-colors duration-300 ${
+                    transparent ? "text-text-on-dark-muted" : "text-gray"
+                  }`}
+                  style={{
+                    fontSize: "0.5625rem",
+                    letterSpacing: "0.18em",
+                    lineHeight: 1.25,
+                  }}
+                >
+                  <span>Web</span>
+                  <span>Service</span>
+                  <span>Agency</span>
+                </div>
+              </div>
+            </div>
 
             {/* Right side: Phone + CTA + Hamburger */}
             <div className="flex items-center gap-4">
