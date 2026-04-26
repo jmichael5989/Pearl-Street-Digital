@@ -93,7 +93,7 @@ export default function RootLayout({
                 "A two-person web agency in Leon Springs, San Antonio, building custom-coded websites and running local SEO, Google Ads, and digital marketing for small businesses across Texas.",
               url: "https://rankpointmedia.com",
               telephone: "+1-210-555-1234",
-              email: "hello@rankpointmedia.com",
+              email: "info@rankpointmedia.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "San Antonio",

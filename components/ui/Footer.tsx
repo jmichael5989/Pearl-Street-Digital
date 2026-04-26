@@ -299,10 +299,10 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                 </p>
                 <p>
                   <a
-                    href="mailto:hello@rankpointmedia.com"
+                    href="mailto:info@rankpointmedia.com"
                     className="transition-colors duration-300 hover:text-primary"
                   >
-                    hello@rankpointmedia.com
+                    info@rankpointmedia.com
                   </a>
                 </p>
                 <p className="text-xs text-text-on-dark-muted">

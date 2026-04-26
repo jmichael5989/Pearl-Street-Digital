@@ -58,14 +58,14 @@ export default function ContactContent() {
                 <span className="text-sm font-medium">(210) 555-1234</span>
               </a>
               <a
-                href="mailto:hello@rankpointmedia.com"
+                href="mailto:info@rankpointmedia.com"
                 className="flex items-center gap-4 text-text hover:text-primary transition-colors"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-light-surface border border-border">
                   <MailIcon />
                 </div>
                 <span className="text-sm font-medium">
-                  hello@rankpointmedia.com
+                  info@rankpointmedia.com
                 </span>
               </a>
               <div className="flex items-center gap-4 text-text">

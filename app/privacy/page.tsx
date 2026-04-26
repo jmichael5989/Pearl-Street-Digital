@@ -61,7 +61,7 @@ export default function PrivacyPage() {
 
               <div>
                 <h2 className="font-heading font-bold text-dark mb-3" style={{ fontSize: "var(--text-h3)" }}>Your Rights</h2>
-                <p>You have the right to request access to, correction of, or deletion of your personal information. To make such a request, contact us at hello@rankpointmedia.com.</p>
+                <p>You have the right to request access to, correction of, or deletion of your personal information. To make such a request, contact us at info@rankpointmedia.com.</p>
               </div>
 
               <div>
@@ -79,7 +79,7 @@ export default function PrivacyPage() {
                 <p>If you have questions about this Privacy Policy, contact us at:</p>
                 <p className="mt-2">
                   Rank Point Media<br />
-                  Email: hello@rankpointmedia.com<br />
+                  Email: info@rankpointmedia.com<br />
                   Phone: (210) 555-1234
                 </p>
               </div>
