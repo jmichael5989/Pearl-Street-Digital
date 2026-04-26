@@ -75,7 +75,7 @@ export default function TermsPage() {
                 <p>Questions about these terms? Contact us at:</p>
                 <p className="mt-2">
                   Rank Point Media<br />
-                  Email: hello@rankpointmedia.com<br />
+                  Email: info@rankpointmedia.com<br />
                   Phone: (210) 555-1234
                 </p>
               </div>
