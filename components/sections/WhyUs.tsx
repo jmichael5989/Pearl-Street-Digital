@@ -74,7 +74,7 @@ export default function WhyUs() {
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             <span className="font-heading text-base font-normal italic mr-1">
-              03
+              02
             </span>
             &nbsp;/&nbsp; Why us
           </div>

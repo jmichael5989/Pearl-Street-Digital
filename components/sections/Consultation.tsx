@@ -127,7 +127,7 @@ export default function Consultation() {
         {/* Editorial section header — italic serif section-num + brass label */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">02</span>
+            <span className="font-heading text-base font-normal italic mr-1">05</span>
             &nbsp;/&nbsp; Talk to us
           </div>
         </header>

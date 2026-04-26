@@ -10,10 +10,10 @@ export default function Home() {
     <>
       <main>
         <Hero />
-        <Consultation />
         <WhyUs />
         <ServicesSection />
-        <CustomDevelopmentCallout />
+        <CustomDevelopmentCallout numeral="04" />
+        <Consultation />
       </main>
       <Footer hidePreFooterCTA />
     </>

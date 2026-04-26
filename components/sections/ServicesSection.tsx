@@ -25,7 +25,7 @@ import Link from "next/link";
  *   - Serif H2 in navy weight 400, left-aligned, max-width 24ch.
  *   - Graphite lede max-width 58ch.
  *   - <ol> of eight services as numbered editorial rows. Each row:
- *     italic-serif numeral (04.i–04.viii) in the left rail, serif title
+ *     italic-serif numeral (03.i–03.viii) in the left rail, serif title
  *     + graphite one-sentence body in the body column, sans-uppercase
  *     "Read more" link in brass beneath. Hairline border-b between
  *     rows. 2-column at lg, single-column on mobile.
@@ -103,7 +103,7 @@ export default function ServicesSection() {
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             <span className="font-heading text-base font-normal italic mr-1">
-              04
+              03
             </span>
             &nbsp;/&nbsp; Services
           </div>
@@ -156,7 +156,7 @@ export default function ServicesSection() {
                   paddingTop: "0.35rem",
                 }}
               >
-                04.{romanNumerals[idx]}
+                03.{romanNumerals[idx]}
               </span>
               <div>
                 <h3
