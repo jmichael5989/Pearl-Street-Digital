@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 /**
@@ -45,33 +46,44 @@ export default function Hero() {
         paddingBottom: "clamp(48px, 8vh, 96px)",
       }}
     >
-      {/* Decorative display numeral — fills the empty left viewport margin
-          on wide screens with a ghosted italic-serif "01". Brass at very
-          low opacity reads as a textural editorial flourish (magazine
-          spread cover register), not a focal point. Hidden below lg
-          where there is no margin to fill. Decorative only — aria-hidden,
-          pointer-events disabled, the eyebrow's literal "01 / Rank Point
+      {/* Decorative editorial photo — fills the empty left viewport margin
+          on wide screens with a small portrait of the Tower of the Americas.
+          Hairline border keeps it framed as an editorial object on the
+          warm-white surface (no gradient bleed — that pattern only works
+          when fading into navy). Hidden below lg where there is no margin
+          to fill. Decorative; the eyebrow's literal "01 / Rank Point
           Media" carries the actual section semantics. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 hidden lg:flex items-center select-none"
+        className="pointer-events-none absolute inset-y-0 left-0 hidden lg:block select-none overflow-hidden"
         style={{
-          width: "max(0px, calc((100vw - 82rem) / 2 + 6rem))",
-          paddingLeft: "clamp(1rem, 3vw, 4rem)",
+          width: "max(220px, calc((100vw - 82rem) / 2 + 12rem))",
+          maxWidth: "30vw",
         }}
       >
-        <span
-          className="font-heading italic text-accent"
-          style={{
-            fontSize: "clamp(10rem, 20vw, 18rem)",
-            lineHeight: 1,
-            letterSpacing: "-0.04em",
-            fontWeight: 400,
-            opacity: 0.1,
-          }}
-        >
-          01
-        </span>
+        <div className="relative h-full w-full">
+          <Image
+            src="/images/hero/emily-morgan.jpg"
+            alt=""
+            fill
+            priority
+            quality={75}
+            sizes="30vw"
+            className="object-cover"
+            style={{ objectPosition: "center top" }}
+          />
+          {/* Right-edge gradient — fades the image into the warm-white
+              section. Stronger fade: covers half the image width with
+              earlier opacity ramp so the right side dissolves into the
+              section rather than reading as a hard rectangle. */}
+          <div
+            className="absolute inset-y-0 right-0 w-1/2"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(250,250,246,0) 0%, rgba(250,250,246,0.6) 35%, rgba(250,250,246,0.95) 75%, rgba(250,250,246,1) 100%)",
+            }}
+          />
+        </div>
       </div>
 
       <div className="relative mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
