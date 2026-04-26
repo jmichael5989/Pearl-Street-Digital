@@ -118,7 +118,7 @@ export default function Consultation() {
     <section
       id="talk-to-us"
       aria-label="Book a 30-minute consultation"
-      className="bg-light-surface border-t border-border"
+      className="bg-light border-t border-border"
     >
       <div
         className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24"
