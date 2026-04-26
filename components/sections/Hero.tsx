@@ -63,7 +63,7 @@ export default function Hero() {
       >
         <div className="relative h-full w-full">
           <Image
-            src="/images/hero/emily-morgan.jpg"
+            src="/images/hero/Tower.WEBP"
             alt=""
             fill
             priority
