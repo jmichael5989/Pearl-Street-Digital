@@ -140,7 +140,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       <div>
         <label htmlFor="name" className={labelClasses}>
-          Name <span style={requiredColor}>*</span>
+          Name <span style={requiredColor} aria-hidden="true">*</span>
         </label>
         <input
           id="name"
@@ -148,10 +148,14 @@ export default function ContactForm() {
           placeholder="Your full name"
           className={inputClasses}
           autoComplete="name"
+          aria-required="true"
+          aria-invalid={errors.name ? "true" : "false"}
+          aria-describedby={errors.name ? "name-error" : undefined}
           {...register("name", { required: "Name is required" })}
         />
         {errors.name && (
           <p
+            id="name-error"
             className="mt-1 font-body text-sm"
             style={requiredColor}
           >
@@ -163,7 +167,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="email" className={labelClasses}>
-            Email <span style={requiredColor}>*</span>
+            Email <span style={requiredColor} aria-hidden="true">*</span>
           </label>
           <input
             id="email"
@@ -171,6 +175,9 @@ export default function ContactForm() {
             placeholder="you@example.com"
             className={inputClasses}
             autoComplete="email"
+            aria-required="true"
+            aria-invalid={errors.email ? "true" : "false"}
+            aria-describedby={errors.email ? "email-error" : undefined}
             {...register("email", {
               required: "Email is required",
               pattern: {
@@ -180,7 +187,7 @@ export default function ContactForm() {
             })}
           />
           {errors.email && (
-            <p className="mt-1 font-body text-sm" style={requiredColor}>
+            <p id="email-error" className="mt-1 font-body text-sm" style={requiredColor}>
               {errors.email.message}
             </p>
           )}
@@ -226,17 +233,20 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className={labelClasses}>
-          Message <span style={requiredColor}>*</span>
+          Message <span style={requiredColor} aria-hidden="true">*</span>
         </label>
         <textarea
           id="message"
           rows={5}
           placeholder="Tell us about your project or what you need help with."
           className={`${inputClasses} resize-none`}
+          aria-required="true"
+          aria-invalid={errors.message ? "true" : "false"}
+          aria-describedby={errors.message ? "message-error" : undefined}
           {...register("message", { required: "Message is required" })}
         />
         {errors.message && (
-          <p className="mt-1 font-body text-sm" style={requiredColor}>
+          <p id="message-error" className="mt-1 font-body text-sm" style={requiredColor}>
             {errors.message.message}
           </p>
         )}

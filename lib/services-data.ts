@@ -37,7 +37,7 @@ export const services: ServiceData[] = [
     slug: "website-design",
     title: "Website Design",
     tagline:
-      "Custom websites built for speed, SEO, and conversions -- designed to represent your San Antonio business the way it deserves.",
+      "Websites we hand-build, line by line. They load fast and they rank.",
     metaTitle: "Website Design San Antonio | Plans from $99/mo | Rank Point Media",
     metaDescription:
       "Custom Next.js websites for San Antonio small businesses. Lighthouse 95+, launched in 2-3 weeks, plans from $99/month with hosting included.",
