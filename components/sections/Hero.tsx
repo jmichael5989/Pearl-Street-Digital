@@ -14,12 +14,17 @@ import Link from "next/link";
  *   - Numbered eyebrow with italic-serif section number ("01") in brass +
  *     sans uppercase letter-spaced label, matching the option-b mock.
  *   - Two columns on desktop (1.2fr text / 0.8fr aside), stacks on mobile.
- *   - H1 ships the positioning-spine line verbatim per the
- *     .impeccable.md commitment that "Nobody is ever 'looped in.'" appears
- *     prominently on the homepage. Quoted phrase rendered in italic.
- *   - Pull-quote aside uses the adjacent sentences of the same positioning
- *     spine so the full spine is rendered across H1 + aside without
- *     repetition.
+ *   - H1 is the locked brand tagline ("Higher rankings. More customers.")
+ *     so a cold visitor reads the category and value within one second.
+ *     The "Nobody is ever 'looped in.'" positioning-spine line, previously
+ *     the H1, is preserved verbatim in the aside as the lead sentence of
+ *     the pull-quote — owner override of the prior .impeccable.md call to
+ *     keep that line in the H1 slot, taken 2026-04-25 after a homepage
+ *     review where the editorial H1 read as too cryptic for a service
+ *     business that needs to introduce itself in one screen.
+ *   - Subline names the disciplines (websites, SEO, Google Ads) plus the
+ *     positioning beat ("in front of the work") so the H1's commercial
+ *     promise lands with concrete services rather than abstract claims.
  *   - Two CTAs: primary is solid navy with hard-edged 1px border (per
  *     CLAUDE.md Colors §4 button spec); anchors to the Cal.com Consultation
  *     embed below. Secondary is transparent + navy border + navy text;
@@ -66,8 +71,8 @@ export default function Hero() {
                 margin: 0,
               }}
             >
-              Nobody is ever{" "}
-              <em className="font-normal italic">&ldquo;looped in.&rdquo;</em>
+              Higher rankings.{" "}
+              <em className="font-normal italic">More customers.</em>
             </h1>
 
             <p
@@ -79,8 +84,9 @@ export default function Hero() {
                 margin: 0,
               }}
             >
-              Two people who build small-business websites in San Antonio. In
-              front of the work, not behind a layer of account managers.
+              Websites, SEO, and Google Ads for San Antonio small businesses.
+              Two people in front of the work &mdash; not behind a layer of
+              account managers.
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5">
@@ -113,9 +119,9 @@ export default function Hero() {
                 margin: 0,
               }}
             >
-              &ldquo;When the site launches, you talk to the person who wrote
-              the CSS. When a campaign misfires, you talk to the person who
-              set it up.&rdquo;
+              &ldquo;Nobody is ever &lsquo;looped in.&rsquo; When the site
+              launches, you talk to the person who wrote the CSS. When a
+              campaign misfires, you talk to the person who set it up.&rdquo;
             </blockquote>
             <cite
               className="font-body text-sm not-italic text-gray"
