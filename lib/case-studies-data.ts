@@ -94,12 +94,10 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    // PLACEHOLDER IMAGES — both image fields below temporarily point at the
-    // pest-control case study assets so the page renders without breaking
-    // the next/image optimizer. Before this case study is presentable to
-    // prospects, drop real screenshots at the appeal-pro-ai-* paths and
-    // swap the URLs below. Suggested capture: appealproai.com home + a
-    // screenshot of the multi-step appeal-letter form.
+    // Hero image is real (appeal-pro-ai-hero.png, owner-provided
+     // 2026-04-26). Thumbnail still points at the pest-control asset
+     // until a real Appeal Pro thumbnail lands at
+     // public/images/case-studies/appeal-pro-ai-thumb.{webp,png}.
     id: "appeal-pro-ai",
     slug: "appeal-pro-ai",
     client: "Appeal Pro AI",
@@ -123,8 +121,7 @@ export const caseStudies: CaseStudy[] = [
       "/images/case-studies/modern-day-pest-control-thumb.webp",
     thumbnailAlt:
       "Appeal Pro AI homepage on a laptop screen",
-    heroImageUrl:
-      "/images/case-studies/modern-day-pest-control-hero.webp",
+    heroImageUrl: "/images/case-studies/appeal-pro-ai-hero.png",
     heroImageAlt:
       "Appeal Pro AI property tax appeal generator on desktop",
     featured: false,
