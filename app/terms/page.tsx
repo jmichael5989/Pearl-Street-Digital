@@ -76,7 +76,7 @@ export default function TermsPage() {
                 <p className="mt-2">
                   Rank Point Media<br />
                   Email: info@rankpointmedia.com<br />
-                  Phone: (210) 555-1234
+                  Phone: (210) 305-7372
                 </p>
               </div>
             </div>

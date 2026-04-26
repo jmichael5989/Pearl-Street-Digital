@@ -35,7 +35,7 @@ const contactSchema = {
   mainEntity: {
     "@type": "LocalBusiness",
     name: "Rank Point Media",
-    telephone: "+1-210-555-1234",
+    telephone: "+1-210-305-7372",
     email: "info@rankpointmedia.com",
     address: {
       "@type": "PostalAddress",

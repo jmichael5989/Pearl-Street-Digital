@@ -40,7 +40,7 @@ Hero, StatsBar, Services, WhyUs, Industries, Testimonials, Pricing, Process, Abo
 ### What's ready to build on
 - All homepage sections complete
 - Contact form ready for email service integration (Resend/SendGrid)
-- Phone number is placeholder (210) 555-1234 -- needs real number
+- Phone number wired throughout: (210) 305-7372 (registered 2026-04-26)
 - Schema markup in place for LocalBusiness + FAQ
 - Ready for service pages, contact page, blog, etc.
 

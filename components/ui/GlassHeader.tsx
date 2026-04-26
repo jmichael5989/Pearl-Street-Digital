@@ -93,14 +93,14 @@ export default function GlassHeader({
 
             <div className="flex items-center gap-3">
               <a
-                href="tel:+12105551234"
+                href="tel:+12103057372"
                 className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-medium tracking-[0.01em] transition-[background-color,border-color,color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] ${
                   scrolled
                     ? "border border-light bg-light text-text hover:bg-accent hover:border-accent hover:text-light"
                     : "border border-[#FAFAF6]/30 text-text-on-dark hover:bg-[#FAFAF6]/10"
                 }`}
               >
-                (210) 555-1234
+                (210) 305-7372
               </a>
               <button
                 type="button"
@@ -151,11 +151,11 @@ export default function GlassHeader({
             </Link>
           ))}
           <a
-            href="tel:+12105551234"
+            href="tel:+12103057372"
             onClick={() => setMenuOpen(false)}
             className="mt-4 inline-flex items-center rounded-full bg-accent-dark px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-brand-dark"
           >
-            (210) 555-1234
+            (210) 305-7372
           </a>
         </div>
       </div>

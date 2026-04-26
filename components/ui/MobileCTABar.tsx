@@ -23,7 +23,7 @@ export default function MobileCTABar() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-border bg-white shadow-lg md:hidden">
       <a
-        href="tel:+12105551234"
+        href="tel:+12103057372"
         className="btn-dark flex flex-1 items-center justify-center gap-2 bg-dark text-sm font-semibold text-white"
       >
         <PhoneIcon />

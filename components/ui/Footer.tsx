@@ -173,11 +173,11 @@ function PreFooterCTA() {
               <span aria-hidden="true">&rarr;</span>
             </Link>
             <a
-              href="tel:+12105551234"
+              href="tel:+12103057372"
               className="inline-flex items-center gap-2 text-sm font-medium text-text transition-colors hover:text-accent"
             >
               <PhoneIcon />
-              (210) 555-1234
+              (210) 305-7372
             </a>
           </div>
         </div>
@@ -291,10 +291,10 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                 <p>San Antonio, TX (Leon Springs area)</p>
                 <p>
                   <a
-                    href="tel:+12105551234"
+                    href="tel:+12103057372"
                     className="transition-colors duration-300 hover:text-primary"
                   >
-                    (210) 555-1234
+                    (210) 305-7372
                   </a>
                 </p>
                 <p>

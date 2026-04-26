@@ -21,13 +21,13 @@ export default function Contact() {
 
             <div className="mt-10 space-y-6">
               <a
-                href="tel:+12105551234"
+                href="tel:+12103057372"
                 className="flex items-center gap-4 text-text hover:text-primary transition-colors"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-icon-service-bg border border-icon-service-border">
                   <PhoneIcon />
                 </div>
-                <span className="text-sm font-medium">(210) 555-1234</span>
+                <span className="text-sm font-medium">(210) 305-7372</span>
               </a>
 
               <a

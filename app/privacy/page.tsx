@@ -134,7 +134,7 @@ const sections = [
             info@rankpointmedia.com
           </a>
           <br />
-          Phone: (210) 555-1234
+          Phone: (210) 305-7372
         </p>
       </>
     ),

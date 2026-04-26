@@ -50,14 +50,10 @@ export const metadata: Metadata = {
     siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "https://rankpointmedia.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Rank Point Media - San Antonio Web Design & Digital Marketing",
-      },
-    ],
+    // Image is provided by app/opengraph-image.tsx — Next.js auto-injects
+    // it into og:image and twitter:image at build time. Removing the
+    // static `/og-image.png` reference (which 404'd in production) lets
+    // the dynamic OG image take over.
   },
   twitter: {
     card: "summary_large_image",
@@ -104,7 +100,7 @@ export default function RootLayout({
               description:
                 "A two-person web agency in Leon Springs, San Antonio, building custom-coded websites and running local SEO, Google Ads, and digital marketing for small businesses across Texas.",
               url: "https://rankpointmedia.com",
-              telephone: "+1-210-555-1234",
+              telephone: "+1-210-305-7372",
               email: "info@rankpointmedia.com",
               address: {
                 "@type": "PostalAddress",

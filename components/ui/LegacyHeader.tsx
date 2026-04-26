@@ -166,7 +166,7 @@ export default function LegacyHeader() {
             {/* Right side: Phone + CTA + Hamburger */}
             <div className="flex items-center gap-4">
               <a
-                href="tel:+12105551234"
+                href="tel:+12103057372"
                 className={`hidden sm:flex items-center gap-2 text-lg font-semibold transition-colors duration-300 ${
                   transparent
                     ? "text-text-on-dark hover:text-accent-dark"
@@ -174,7 +174,7 @@ export default function LegacyHeader() {
                 }`}
               >
                 <PhoneIcon className="w-6 h-6" />
-                (210) 555-1234
+                (210) 305-7372
               </a>
               <button
                 type="button"
@@ -230,11 +230,11 @@ export default function LegacyHeader() {
             }}
           >
             <a
-              href="tel:+12105551234"
+              href="tel:+12103057372"
               className="flex items-center gap-2 text-base font-medium text-[rgba(250,250,246,0.7)] hover:text-accent-dark transition-colors"
             >
               <PhoneIcon className="w-5 h-5" />
-              (210) 555-1234
+              (210) 305-7372
             </a>
           </div>
         </div>
