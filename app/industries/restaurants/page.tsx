@@ -1,9 +1,8 @@
 import { Metadata } from "next";
 import Footer from "@/components/ui/Footer";
-import IndustryHero from "@/components/industries/IndustryHero";
+import DarkHero from "@/components/heroes/DarkHero";
 import IndustryPainPoints from "@/components/industries/IndustryPainPoints";
 import IndustrySolutions from "@/components/industries/IndustrySolutions";
-import IndustryPricing from "@/components/industries/IndustryPricing";
 import IndustryFAQ from "@/components/industries/IndustryFAQ";
 import { getIndustry } from "@/lib/industries-data";
 
@@ -66,10 +65,16 @@ export default function RestaurantsPage() {
         }}
       />
       <main>
-        <IndustryHero industry={industry} />
+        <DarkHero
+          kicker="RESTAURANTS"
+          headline={industry.heroHeading}
+          subheadline={industry.heroSubtitle}
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          secondaryCta={{ label: "See pricing", href: "/pricing" }}
+          showMockups={false}
+        />
         <IndustryPainPoints industry={industry} />
         <IndustrySolutions industry={industry} />
-        <IndustryPricing industry={industry} />
         <IndustryFAQ industry={industry} />
       </main>
       <Footer />

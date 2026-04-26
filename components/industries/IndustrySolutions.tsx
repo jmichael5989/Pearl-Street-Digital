@@ -1,24 +1,22 @@
 import Link from "next/link";
 import type { IndustryData } from "@/lib/industries-data";
 
-function ArrowRightIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
-  );
-}
+/**
+ * Industry detail page Solutions section. Numbered editorial card
+ * grid mirroring components/services/ServiceFeatures.tsx and
+ * components/services/ServiceRelated.tsx (per-card outbound link
+ * pattern), with Roman-numeral leaders prefixed by section index 03.
+ *
+ * Replaces the prior pre-pivot section (bg-dark island disrupting
+ * the page's surface alternation, retired text-primary eyebrow with
+ * font-bold, font-bold serif H2, rounded-2xl + shadow-sm cards with
+ * hover:border-primary, "Learn more" link in retired text-primary).
+ *
+ * Surface: warm-white to alternate against the parchment
+ * IndustryPainPoints above and the parchment IndustryFAQ below.
+ */
+
+const romanNumerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"];
 
 export default function IndustrySolutions({
   industry,
@@ -26,41 +24,108 @@ export default function IndustrySolutions({
   industry: IndustryData;
 }) {
   return (
-    <section className="bg-dark py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
-            How We Help
-          </span>
-          <h2 className="mt-3 font-heading font-bold text-white" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            Solutions Built for {industry.title}
-          </h2>
-          <p className="mt-4 text-text-on-dark-muted max-w-2xl mx-auto">
-            Every service is tailored to how {industry.title.toLowerCase()}{" "}
-            actually find and win customers.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {industry.solutions.map((solution) => (
-            <div
+    <section
+      aria-labelledby="industry-solutions-heading"
+      className="bg-light border-t border-border"
+      style={{
+        paddingTop: "clamp(72px, 12vh, 144px)",
+        paddingBottom: "clamp(72px, 12vh, 144px)",
+      }}
+    >
+      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+        {/* Eyebrow */}
+        <header className="mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span className="font-heading text-base font-normal italic mr-1">
+              03
+            </span>
+            &nbsp;/&nbsp; How we help
+          </div>
+        </header>
+
+        {/* H2 */}
+        <h2
+          id="industry-solutions-heading"
+          className="font-heading text-text text-balance"
+          style={{
+            fontSize: "var(--text-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.015em",
+            fontWeight: 400,
+            maxWidth: "28ch",
+            margin: 0,
+          }}
+        >
+          What we build for {industry.title}.
+        </h2>
+
+        {/* Lede */}
+        <p
+          className="mt-5 font-body"
+          style={{
+            fontSize: "1.0625rem",
+            lineHeight: 1.6,
+            color: "var(--color-brand-text)",
+            maxWidth: "58ch",
+            marginBottom: "clamp(48px, 6vh, 64px)",
+          }}
+        >
+          {industry.solutions.length} services tailored to how{" "}
+          {industry.title.toLowerCase()} actually find and win customers.
+          Each links to the full service page.
+        </p>
+
+        {/* Numbered editorial card grid with per-card outbound links */}
+        <div className="grid gap-6 sm:grid-cols-2">
+          {industry.solutions.map((solution, idx) => (
+            <article
               key={solution.title}
-              className="rounded-2xl border border-border-dark bg-dark-surface p-8 shadow-sm transition-all duration-300 hover:border-primary hover:-translate-y-1"
+              className="flex flex-col gap-3.5 border border-border bg-light-surface p-8 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-[3px]"
             >
-              <h3 className="font-heading text-lg font-semibold text-white mb-2">
+              <div
+                className="font-heading italic text-accent"
+                style={{
+                  fontSize: "0.9375rem",
+                  fontWeight: 400,
+                  paddingBottom: "14px",
+                  marginBottom: "8px",
+                  borderBottom: "1px solid var(--color-border)",
+                }}
+              >
+                03.{romanNumerals[idx]}
+              </div>
+              <h3
+                className="font-heading text-text"
+                style={{
+                  fontSize: "1.25rem",
+                  lineHeight: 1.25,
+                  letterSpacing: "-0.01em",
+                  fontWeight: 400,
+                  margin: 0,
+                }}
+              >
                 {solution.title}
               </h3>
-              <p className="text-base leading-relaxed text-text-on-dark-muted mb-4">
+              <p
+                className="font-body"
+                style={{
+                  fontSize: "0.9375rem",
+                  lineHeight: 1.58,
+                  color: "var(--color-brand-text)",
+                  margin: 0,
+                }}
+              >
                 {solution.description}
               </p>
               <Link
                 href={`/services/${solution.serviceSlug}`}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-primary-dark"
+                className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:underline hover:underline-offset-4"
+                aria-label={`Read more about ${solution.title}`}
               >
-                <span className="sr-only">about {solution.title}</span>
-                Learn more
-                <ArrowRightIcon />
+                Read more
+                <span aria-hidden="true">&rarr;</span>
               </Link>
-            </div>
+            </article>
           ))}
         </div>
       </div>

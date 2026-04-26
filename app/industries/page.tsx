@@ -1,67 +1,30 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/ui/Footer";
+import DarkHero from "@/components/heroes/DarkHero";
+import { industries } from "@/lib/industries-data";
 
-const industriesList = [
-  {
-    title: "Medical & Dental Practices",
-    description:
-      "A single new patient is worth $3,000+ to your practice. We build the digital presence that keeps your schedule full and your reputation strong.",
-  },
-  {
-    title: "Legal & Financial Services",
-    description:
-      "Your next client is searching \"attorney near me\" right now. We make sure your firm is the first result they see -- and the one they call.",
-  },
-  {
-    title: "Home Services",
-    description:
-      "HVAC, plumbing, electrical, roofing. In a Texas summer, the homeowner who finds you first gets the job. We make sure that's you.",
-  },
-  {
-    title: "Med Spas & Aesthetics",
-    description:
-      "Your clients research treatments online before they ever book. We position your brand as the premium choice in San Antonio's fastest-growing market.",
-  },
-  {
-    title: "Real Estate & Property Management",
-    description:
-      "San Antonio added 24,000 new residents last year. We help agents, brokerages, and property managers capture demand in a market that won't slow down.",
-  },
-  {
-    title: "Restaurants & Hospitality",
-    description:
-      "36.8 million visitors come to San Antonio every year. We help established restaurants and hospitality brands own the searches that drive reservations and bookings.",
-  },
-];
-
-function ArrowRightIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>
-  );
-}
+/**
+ * Industries index page. Inner-page DarkHero + numbered editorial TOC
+ * mirroring /services and /case-studies index patterns.
+ *
+ * Replaces the prior pre-pivot index that displayed six hardcoded
+ * industry cards (medical, legal, home services, med spas, real
+ * estate, restaurants/hospitality) — three of which had no detail
+ * page built and routed users to /contact instead. The honest TOC
+ * shows only the three industries with real detail pages
+ * (restaurants, beauty, auto) sourced from lib/industries-data.ts;
+ * the others can be added when their detail pages are built.
+ */
 
 export const metadata: Metadata = {
   title: "Industries We Serve San Antonio | Rank Point Media",
   description:
-    "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses. Industry-specific strategies that drive real results.",
+    "Website design and digital marketing for San Antonio restaurants, beauty businesses, and auto repair shops. Industry-specific strategies that drive real results.",
   openGraph: {
     title: "Industries We Serve San Antonio | Rank Point Media",
     description:
-      "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses. Industry-specific strategies that drive real results.",
+      "Website design and digital marketing for San Antonio restaurants, beauty businesses, and auto repair shops.",
     url: "https://rankpointmedia.com/industries",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -71,11 +34,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Industries We Serve San Antonio | Rank Point Media",
     description:
-      "Digital marketing and website design for San Antonio restaurants, salons, barber shops, and auto repair businesses.",
+      "Website design and digital marketing for San Antonio restaurants, beauty businesses, and auto repair shops.",
   },
   alternates: { canonical: "https://rankpointmedia.com/industries" },
-  robots: { index: false, follow: false },
 };
+
+const romanNumerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"];
 
 export default function IndustriesPage() {
   const industriesSchema = {
@@ -83,14 +47,15 @@ export default function IndustriesPage() {
     "@type": "CollectionPage",
     name: "Industries We Serve San Antonio",
     description:
-      "Digital marketing and website design for San Antonio medical, legal, home services, med spa, real estate, and hospitality businesses.",
+      "Website design and digital marketing for San Antonio restaurants, beauty businesses, and auto repair shops.",
     url: "https://rankpointmedia.com/industries",
     mainEntity: {
       "@type": "ItemList",
-      itemListElement: industriesList.map((industry, i) => ({
+      itemListElement: industries.map((industry, i) => ({
         "@type": "ListItem",
         position: i + 1,
         name: industry.title,
+        url: `https://rankpointmedia.com/industries/${industry.slug}`,
       })),
     },
   };
@@ -102,52 +67,130 @@ export default function IndustriesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(industriesSchema) }}
       />
       <main>
-        {/* Hero */}
-        <section className="bg-white py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-accent">
-                Industries We Serve
-              </span>
-              <h1 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h1)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-                Marketing That Understands Your Industry
-              </h1>
-              <p className="mt-5 text-lg text-gray leading-relaxed">
-                Every industry has different customers, different search
-                patterns, and different conversion triggers. We build strategies
-                that match how your customers actually find and choose
-                businesses like yours in San Antonio.
-              </p>
-            </div>
-          </div>
-        </section>
+        <DarkHero
+          kicker="INDUSTRIES"
+          headline="Marketing that fits how your customers actually search."
+          subheadline="Every industry has different customers, different search patterns, and different conversion triggers. We build the strategy around how the work actually moves in your category."
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          secondaryCta={{ label: "See services", href: "/services" }}
+          showMockups={false}
+        />
 
-        {/* Industries Grid */}
-        <section className="bg-light py-16 lg:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {industriesList.map((industry) => (
-                <Link
-                  key={industry.title}
-                  href="/contact"
-                  className="group rounded-2xl border border-border bg-light-surface shadow-sm p-10 transition-all duration-300 hover:border-primary hover:-translate-y-1"
+        {/* Industries TOC */}
+        <section
+          aria-labelledby="industries-toc-heading"
+          className="bg-light border-t border-border"
+          style={{
+            paddingTop: "clamp(72px, 12vh, 144px)",
+            paddingBottom: "clamp(72px, 12vh, 144px)",
+          }}
+        >
+          <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+            {/* Eyebrow */}
+            <header className="mb-6">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                <span className="font-heading text-base font-normal italic mr-1">
+                  02
+                </span>
+                &nbsp;/&nbsp; Industries we serve
+              </div>
+            </header>
+
+            {/* H2 */}
+            <h2
+              id="industries-toc-heading"
+              className="font-heading text-text text-balance"
+              style={{
+                fontSize: "var(--text-h2)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.015em",
+                fontWeight: 400,
+                maxWidth: "24ch",
+                margin: 0,
+              }}
+            >
+              Where we&rsquo;ve done the work.
+            </h2>
+
+            {/* Lede */}
+            <p
+              className="mt-5 font-body"
+              style={{
+                fontSize: "1.0625rem",
+                lineHeight: 1.6,
+                color: "var(--color-brand-text)",
+                maxWidth: "58ch",
+                marginBottom: "clamp(48px, 6vh, 64px)",
+              }}
+            >
+              Three categories with real detail pages today. We work with
+              other industries too &mdash; if yours isn&rsquo;t listed,{" "}
+              <Link
+                href="/#talk-to-us"
+                className="font-medium text-accent underline underline-offset-4 hover:text-text"
+              >
+                book a call
+              </Link>{" "}
+              and we&rsquo;ll talk.
+            </p>
+
+            {/* Numbered editorial TOC */}
+            <ol className="grid grid-cols-1 border-t border-border lg:grid-cols-2 lg:gap-x-12">
+              {industries.map((industry, idx) => (
+                <li
+                  key={industry.slug}
+                  className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
                 >
-                  <h3 className="font-heading text-xl font-bold text-dark mb-3">
-                    {industry.title}
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray mb-5">
-                    {industry.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 text-base font-semibold text-accent transition-colors group-hover:text-accent">
-                    Get a custom strategy
-                    <ArrowRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <span
+                    className="font-heading italic text-accent"
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: 400,
+                      lineHeight: 1.3,
+                      paddingTop: "0.35rem",
+                    }}
+                  >
+                    02.{romanNumerals[idx]}
                   </span>
-                </Link>
+                  <div>
+                    <h3
+                      className="font-heading text-text"
+                      style={{
+                        fontSize: "1.375rem",
+                        lineHeight: 1.25,
+                        letterSpacing: "-0.01em",
+                        fontWeight: 400,
+                        margin: 0,
+                      }}
+                    >
+                      {industry.title}
+                    </h3>
+                    <p
+                      className="mt-2 font-body"
+                      style={{
+                        fontSize: "0.9375rem",
+                        lineHeight: 1.58,
+                        color: "var(--color-brand-text)",
+                        maxWidth: "58ch",
+                        margin: "0.5rem 0 0 0",
+                      }}
+                    >
+                      {industry.heroSubtitle}
+                    </p>
+                    <Link
+                      href={`/industries/${industry.slug}`}
+                      className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:underline hover:underline-offset-4"
+                      aria-label={`Read more about ${industry.title}`}
+                    >
+                      Read more
+                      <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </section>
-
       </main>
       <Footer />
     </>

@@ -3,73 +3,115 @@
 import { useState } from "react";
 import type { IndustryData } from "@/lib/industries-data";
 
-function ChevronIcon({ open, className }: { open: boolean; className?: string }) {
-  return (
-    <svg
-      className={`${className} transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-}
-
+/**
+ * Industry detail page FAQ section. Mirrors the locked
+ * sections/FAQ.tsx and services/ServiceFAQ.tsx editorial accordion
+ * pattern, parameterized for industry.faqs.
+ *
+ * Replaces the prior pre-pivot section (bg-white shell, max-w-7xl
+ * container, retired text-primary eyebrow with font-bold, font-bold
+ * serif H2, ChevronIcon SVG component, rounded-2xl shadow-sm
+ * accordion items — same shape that sections/FAQ.tsx had before its
+ * rebuild).
+ *
+ * Surface: parchment to alternate against the warm-white
+ * IndustrySolutions above and the navy footer below.
+ */
 export default function IndustryFAQ({ industry }: { industry: IndustryData }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="text-base font-bold uppercase tracking-[0.12em] text-primary">
-            FAQ
-          </span>
-          <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            Questions from {industry.title}
-          </h2>
-        </div>
-        <div className="mx-auto max-w-3xl space-y-3">
-          {industry.faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="rounded-2xl border border-border bg-white shadow-sm overflow-hidden"
-            >
-              <button
-                type="button"
-                onClick={() =>
-                  setOpenIndex(openIndex === index ? null : index)
-                }
-                className="flex w-full items-center justify-between px-6 py-5 text-left"
-                aria-expanded={openIndex === index}
-              >
-                <span className="font-heading text-base font-semibold text-dark pr-4">
-                  {faq.question}
-                </span>
-                <ChevronIcon
-                  open={openIndex === index}
-                  className="shrink-0 text-gray"
-                />
-              </button>
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index
-                    ? "max-h-[500px] opacity-100"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                <p className="px-6 pb-5 text-base leading-relaxed text-gray">
-                  {faq.answer}
-                </p>
+    <section
+      id="industry-faq"
+      aria-labelledby="industry-faq-heading"
+      className="bg-light-surface border-t border-border"
+      style={{
+        paddingTop: "clamp(72px, 12vh, 144px)",
+        paddingBottom: "clamp(72px, 12vh, 144px)",
+      }}
+    >
+      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+        {/* Eyebrow */}
+        <header className="mb-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <span className="font-heading text-base font-normal italic mr-1">
+              04
+            </span>
+            &nbsp;/&nbsp; Questions
+          </div>
+        </header>
+
+        {/* H2 */}
+        <h2
+          id="industry-faq-heading"
+          className="font-heading text-text text-balance"
+          style={{
+            fontSize: "var(--text-h2)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.015em",
+            fontWeight: 400,
+            maxWidth: "28ch",
+            margin: 0,
+          }}
+        >
+          Common questions from {industry.title}.
+        </h2>
+
+        {/* Q&A list — hairline-divided, individual accordion per row */}
+        <div
+          className="max-w-3xl border-t border-border"
+          style={{ marginTop: "clamp(48px, 6vh, 64px)" }}
+        >
+          {industry.faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div key={i} className="border-b border-border">
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="flex w-full items-baseline justify-between gap-6 py-5 text-left transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:text-accent"
+                  aria-expanded={isOpen}
+                >
+                  <span
+                    className="font-heading text-text"
+                    style={{
+                      fontSize: "1.125rem",
+                      lineHeight: 1.35,
+                      letterSpacing: "-0.005em",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {faq.question}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 font-body text-xl text-accent"
+                    style={{ lineHeight: 1, paddingTop: "0.15rem" }}
+                  >
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
+                <div
+                  className="grid transition-[grid-template-rows] duration-300 ease-out"
+                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+                >
+                  <div className="overflow-hidden">
+                    <p
+                      className="pb-5 font-body"
+                      style={{
+                        fontSize: "0.9375rem",
+                        lineHeight: 1.6,
+                        color: "var(--color-brand-text)",
+                        maxWidth: "65ch",
+                      }}
+                    >
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
