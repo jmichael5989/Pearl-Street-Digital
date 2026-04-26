@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 
 /* ── Link data ─────────────────────────────────────────── */
 const serviceLinks = [
@@ -115,37 +114,73 @@ function FooterAccordion({
 }
 
 /* ── Pre-Footer CTA Bar ────────────────────────────────── */
+/* Editorial outro band shown on inner pages only (homepage hides it
+ * via Footer's hidePreFooterCTA prop, since the Consultation section
+ * is the actual booking artifact). Parchment surface for a clean
+ * handoff into the navy footer below. Two-column at lg: editorial
+ * pitch on the left, brass-arrow CTA + phone on the right. The CTA
+ * anchors back to the homepage's #talk-to-us Cal.com widget. */
 function PreFooterCTA() {
   return (
-    <section className="bg-dark-surface border-t border-border-dark">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
-        <ScrollReveal>
-          <div className="flex flex-col items-center text-center gap-8">
-            <div>
-              <h2 className="font-heading text-[2rem] font-bold text-white leading-tight">
-                Ready to Grow Your Business?
-              </h2>
-              <p className="mt-3 text-text-on-dark-muted leading-relaxed">
-                Get a professional website built in 2-3 weeks — flexible terms, no surprises.
-              </p>
+    <section
+      aria-label="Talk to us"
+      className="bg-light-surface border-t border-border"
+    >
+      <div
+        className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24"
+        style={{ paddingBlock: "clamp(56px, 9vh, 112px)" }}
+      >
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.6fr)] lg:items-end lg:gap-16">
+          {/* Left: editorial pitch */}
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              Talk to us
             </div>
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <Link
-                href="/contact"
-                className="btn-primary inline-flex items-center rounded-xl bg-primary px-8 py-3.5 font-semibold text-white transition-all duration-200"
-              >
-                Contact Us
-              </Link>
-              <a
-                href="tel:+12105551234"
-                className="inline-flex items-center gap-2 rounded-xl border-2 border-border-dark px-6 py-3 font-semibold text-text-on-dark-muted transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
-              >
-                <PhoneIcon />
-                (210) 555-1234
-              </a>
-            </div>
+            <h2
+              className="font-heading text-text text-balance"
+              style={{
+                fontSize: "var(--text-h2)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.015em",
+                fontWeight: 400,
+                maxWidth: "20ch",
+                margin: "1.25rem 0 0 0",
+              }}
+            >
+              When you&rsquo;re ready, we&rsquo;re here.
+            </h2>
+            <p
+              className="mt-5 font-body"
+              style={{
+                fontSize: "1.0625rem",
+                lineHeight: 1.6,
+                color: "var(--color-brand-text)",
+                maxWidth: "52ch",
+              }}
+            >
+              Thirty minutes with Jon. No slides, no script &mdash; just the
+              conversation. Pick any open time on the homepage calendar.
+            </p>
           </div>
-        </ScrollReveal>
+
+          {/* Right: actions */}
+          <div className="flex flex-col gap-4 lg:items-end">
+            <Link
+              href="/#talk-to-us"
+              className="inline-flex items-center gap-2 text-base font-semibold text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:underline hover:underline-offset-4"
+            >
+              Book thirty minutes
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+            <a
+              href="tel:+12105551234"
+              className="inline-flex items-center gap-2 text-sm font-medium text-text transition-colors hover:text-accent"
+            >
+              <PhoneIcon />
+              (210) 555-1234
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
