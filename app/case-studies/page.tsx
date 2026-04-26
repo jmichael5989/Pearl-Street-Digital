@@ -1,12 +1,8 @@
 import { Metadata } from "next";
 import Footer from "@/components/ui/Footer";
 import DarkHero from "@/components/heroes/DarkHero";
-import FeaturedCaseStudy from "@/components/case-studies/FeaturedCaseStudy";
-import CaseStudyGrid from "@/components/case-studies/CaseStudyGrid";
-import {
-  getFeaturedCaseStudy,
-  getGridCaseStudies,
-} from "@/lib/case-studies-data";
+import CaseStudiesTOC from "@/components/case-studies/CaseStudiesTOC";
+import { caseStudies } from "@/lib/case-studies-data";
 
 export const metadata: Metadata = {
   title: "Case Studies San Antonio | Rank Point Media",
@@ -31,8 +27,10 @@ export const metadata: Metadata = {
 };
 
 export default function CaseStudiesPage() {
-  const featured = getFeaturedCaseStudy();
-  const gridItems = getGridCaseStudies();
+  const sorted = [...caseStudies].sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  );
 
   return (
     <>
@@ -56,18 +54,16 @@ export default function CaseStudiesPage() {
       />
       <main>
         <DarkHero
-          kicker="— CASE STUDIES"
-          headline="Real results for real San Antonio businesses."
-          headlineAccent="Real results"
-          subheadline="From HVAC to restaurants to law firms, see how local businesses use Rank Point Media to grow traffic, leads, and revenue."
-          primaryCta={{ label: "Start Your Project", href: "/contact" }}
+          kicker="CASE STUDIES"
+          headline="Real work for real San Antonio businesses."
+          headlineAccent="Real work"
+          subheadline="Each entry is a single project — the problem the owner brought us, what we built, and what shipped."
+          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See Services", href: "/services" }}
           showMockups={false}
         />
 
-        {featured && <FeaturedCaseStudy caseStudy={featured} />}
-
-        {gridItems.length > 0 && <CaseStudyGrid caseStudies={gridItems} />}
+        <CaseStudiesTOC caseStudies={sorted} />
       </main>
       <Footer />
     </>

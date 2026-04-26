@@ -1,170 +1,445 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import DarkHero from "@/components/heroes/DarkHero";
 import type { CaseStudy } from "@/lib/case-studies-data";
 
+/**
+ * Case study detail template. Editorial register matching the locked
+ * homepage / About / Pricing / /services / 8 service detail pages.
+ *
+ * Replaces the prior pre-pivot template (bespoke navy hero band on
+ * bg-primary instead of the locked DarkHero component, font-bold serif
+ * headings throughout, brass vanity-metric tiles in the hero band that
+ * directly violated .impeccable.md anti-reference 2 + the brass-as-fill
+ * ban from §4, rounded-2xl shadow-2xl hero image with negative-margin
+ * overlap (boutique-agency anti-reference), bg-white outcome cards,
+ * rounded-full service chips, and a closing bg-primary CTA band that
+ * duplicated what the PreFooterCTA already drives on every inner page).
+ *
+ * Composition now:
+ *   01 DarkHero (kicker = client name + industry, headline =
+ *     outcomeHeadline, subheadline pulled from summary first sentence,
+ *     primary CTA = Book a consultation → /#talk-to-us, secondary CTA
+ *     = More case studies → /case-studies). No metrics in hero — the
+ *     facts list lives in section 02 to keep the hero clean.
+ *   Hero image — full-width editorial photo with typographic caption.
+ *   02 At a glance — typographic facts list (label / value rows) +
+ *     summary paragraph. heroMetrics data preserved, displayed
+ *     editorially without brass-on-numbers fill.
+ *   03 The challenge — narrative paragraph at 65ch.
+ *   04 Our approach — narrative + services tagged inline as italic
+ *     graphite caption (no rounded-full chips).
+ *   05 What we delivered — outcomes as numbered hairline-divided
+ *     editorial rows (FAQ-style pattern), each row is title + body.
+ *   06 In their words — pull-quote (conditional) in italic Source Serif
+ *     with named-and-attributed citation. Left-aligned per editorial
+ *     register; the prior centered treatment broke pattern with the
+ *     rest of the site.
+ *
+ * Closing CTA band dropped — PreFooterCTA already covers the
+ * /#talk-to-us prompt on every inner page.
+ */
 export default function CaseStudyDetailTemplate({
   caseStudy,
 }: {
   caseStudy: CaseStudy;
 }) {
+  // First sentence of summary used as DarkHero subhead so the hero
+  // stays single-screen-readable without truncating the full summary
+  // (which appears in section 02).
+  const summaryFirstSentence =
+    caseStudy.summary.split(/(?<=[.!?])\s/)[0] ?? caseStudy.summary;
+
   return (
     <>
-      {/* 1. Hero band */}
-      <section className="relative bg-primary pt-36 md:pt-44 pb-20 md:pb-28 px-6">
-        <div className="max-w-5xl mx-auto">
-          <Link
-            href="/case-studies"
-            className="inline-flex items-center gap-2 text-accent-dark text-sm font-semibold hover:text-white mb-8 focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded"
+      {/* 01 — DarkHero */}
+      <DarkHero
+        kicker={`${caseStudy.industry.toUpperCase()} · ${caseStudy.client.toUpperCase()}`}
+        headline={caseStudy.outcomeHeadline}
+        subheadline={summaryFirstSentence}
+        primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+        secondaryCta={{ label: "More case studies", href: "/case-studies" }}
+        showMockups={false}
+      />
+
+      {/* Hero image — editorial transition between hero and content */}
+      <section
+        className="bg-light"
+        style={{
+          paddingTop: "clamp(48px, 8vh, 96px)",
+          paddingBottom: "clamp(24px, 4vh, 48px)",
+        }}
+      >
+        <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+          <figure>
+            <div className="relative w-full overflow-hidden border border-border bg-light-surface" style={{ aspectRatio: "16 / 9" }}>
+              <Image
+                src={caseStudy.heroImageUrl}
+                alt={caseStudy.heroImageAlt}
+                fill
+                priority
+                sizes="(min-width: 1280px) 1152px, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption
+              className="mt-3 font-body italic"
+              style={{
+                fontSize: "0.8125rem",
+                lineHeight: 1.5,
+                color: "var(--color-gray)",
+              }}
+            >
+              {caseStudy.heroImageAlt}
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* 02 — At a glance (facts list + summary) */}
+      <section
+        aria-labelledby="cs-overview-heading"
+        className="bg-light border-t border-border"
+        style={{
+          paddingTop: "clamp(72px, 12vh, 144px)",
+          paddingBottom: "clamp(72px, 12vh, 144px)",
+        }}
+      >
+        <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+          <header className="mb-6">
+            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              <span className="font-heading text-base font-normal italic mr-1">
+                02
+              </span>
+              &nbsp;/&nbsp; At a glance
+            </div>
+          </header>
+
+          <h2
+            id="cs-overview-heading"
+            className="font-heading text-text text-balance"
+            style={{
+              fontSize: "var(--text-h2)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.015em",
+              fontWeight: 400,
+              maxWidth: "24ch",
+              margin: 0,
+            }}
           >
-            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-            All case studies
-          </Link>
-
-          <p className="text-sm font-semibold tracking-widest uppercase text-accent-dark mb-4">
-            {caseStudy.industry}
-          </p>
-          <h1 className="font-heading font-bold text-4xl md:text-6xl text-white mb-4 leading-tight tracking-tight">
-            {caseStudy.outcomeHeadline}
-          </h1>
-          <p className="text-lg md:text-xl text-text-on-dark-muted mb-12">
-            {caseStudy.client}
-          </p>
-
-          <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border-dark">
-            {caseStudy.heroMetrics.map((m) => (
-              <div key={m.label}>
-                <div className="font-heading font-bold text-3xl md:text-4xl text-accent-dark">
-                  {m.value}
-                </div>
-                <div className="text-xs text-text-on-dark-muted uppercase tracking-wider mt-1">
-                  {m.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Hero image */}
-      <section className="px-6 -mt-16 md:-mt-20 relative z-10 mb-20">
-        <div className="max-w-6xl mx-auto aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl bg-light-surface">
-          <div className="relative w-full h-full">
-            <Image
-              src={caseStudy.heroImageUrl}
-              alt={caseStudy.heroImageAlt}
-              fill
-              priority
-              sizes="(min-width: 1280px) 1152px, 100vw"
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Challenge */}
-      <section className="py-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
-            The Challenge
-          </p>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-text mb-6 leading-tight">
-            The problem we started with
+            What shipped, in numbers.
           </h2>
-          <p className="text-lg text-brand-text leading-relaxed">
+
+          <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
+            {/* Facts list — typographic label/value rows, hairline-divided */}
+            <dl className="border-t border-border">
+              {caseStudy.heroMetrics.map((m) => (
+                <div
+                  key={m.label}
+                  className="flex items-baseline justify-between gap-6 border-b border-border py-4"
+                >
+                  <dt
+                    className="font-body text-xs font-semibold uppercase"
+                    style={{
+                      letterSpacing: "0.12em",
+                      color: "var(--color-gray)",
+                    }}
+                  >
+                    {m.label}
+                  </dt>
+                  <dd
+                    className="font-heading italic text-text"
+                    style={{
+                      fontSize: "1.5rem",
+                      fontWeight: 400,
+                      lineHeight: 1,
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {m.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            {/* Summary paragraph */}
+            <p
+              className="font-body"
+              style={{
+                fontSize: "1.0625rem",
+                lineHeight: 1.6,
+                color: "var(--color-brand-text)",
+                maxWidth: "65ch",
+              }}
+            >
+              {caseStudy.summary}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 03 — The challenge */}
+      <section
+        aria-labelledby="cs-challenge-heading"
+        className="bg-light-surface border-t border-border"
+        style={{
+          paddingTop: "clamp(72px, 12vh, 144px)",
+          paddingBottom: "clamp(72px, 12vh, 144px)",
+        }}
+      >
+        <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+          <header className="mb-6">
+            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              <span className="font-heading text-base font-normal italic mr-1">
+                03
+              </span>
+              &nbsp;/&nbsp; The challenge
+            </div>
+          </header>
+
+          <h2
+            id="cs-challenge-heading"
+            className="font-heading text-text text-balance"
+            style={{
+              fontSize: "var(--text-h2)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.015em",
+              fontWeight: 400,
+              maxWidth: "24ch",
+              margin: 0,
+            }}
+          >
+            What we started with.
+          </h2>
+
+          <p
+            className="mt-8 font-body"
+            style={{
+              fontSize: "1.0625rem",
+              lineHeight: 1.6,
+              color: "var(--color-brand-text)",
+              maxWidth: "65ch",
+            }}
+          >
             {caseStudy.challenge}
           </p>
         </div>
       </section>
 
-      {/* 4. Approach */}
-      <section className="py-20 px-6 bg-light-surface">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
-            Our Approach
-          </p>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-text mb-6 leading-tight">
-            What we did
+      {/* 04 — Our approach */}
+      <section
+        aria-labelledby="cs-approach-heading"
+        className="bg-light border-t border-border"
+        style={{
+          paddingTop: "clamp(72px, 12vh, 144px)",
+          paddingBottom: "clamp(72px, 12vh, 144px)",
+        }}
+      >
+        <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+          <header className="mb-6">
+            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              <span className="font-heading text-base font-normal italic mr-1">
+                04
+              </span>
+              &nbsp;/&nbsp; Our approach
+            </div>
+          </header>
+
+          <h2
+            id="cs-approach-heading"
+            className="font-heading text-text text-balance"
+            style={{
+              fontSize: "var(--text-h2)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.015em",
+              fontWeight: 400,
+              maxWidth: "24ch",
+              margin: 0,
+            }}
+          >
+            What we built.
           </h2>
-          <p className="text-lg text-brand-text leading-relaxed mb-8">
+
+          <p
+            className="mt-8 font-body"
+            style={{
+              fontSize: "1.0625rem",
+              lineHeight: 1.6,
+              color: "var(--color-brand-text)",
+              maxWidth: "65ch",
+            }}
+          >
             {caseStudy.approach}
           </p>
-          <div className="flex flex-wrap gap-2">
-            {caseStudy.services.map((service) => (
-              <span
-                key={service}
-                className="text-xs font-semibold text-brand-text bg-white border border-border px-3 py-1.5 rounded-full"
-              >
-                {service}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 5. Outcomes */}
-      <section className="py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-3">
-            The Results
+          {/* Services as italic graphite caption — no rounded-full chips */}
+          <p
+            className="mt-6 font-body italic"
+            style={{
+              fontSize: "0.8125rem",
+              lineHeight: 1.5,
+              color: "var(--color-gray)",
+            }}
+          >
+            Services: {caseStudy.services.join(", ")}.
           </p>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-text mb-12 leading-tight">
-            What we delivered
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudy.outcomes.map((outcome) => (
-              <div
-                key={outcome.title}
-                className="p-8 rounded-2xl border border-border bg-white"
-              >
-                <h3 className="font-heading font-bold text-lg text-text mb-3">
-                  {outcome.title}
-                </h3>
-                <p className="text-sm text-brand-text leading-relaxed">
-                  {outcome.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* 6. Pull quote (optional) */}
+      {/* 05 — What we delivered (outcomes as numbered hairline rows) */}
+      <section
+        aria-labelledby="cs-outcomes-heading"
+        className="bg-light-surface border-t border-border"
+        style={{
+          paddingTop: "clamp(72px, 12vh, 144px)",
+          paddingBottom: "clamp(72px, 12vh, 144px)",
+        }}
+      >
+        <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+          <header className="mb-6">
+            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              <span className="font-heading text-base font-normal italic mr-1">
+                05
+              </span>
+              &nbsp;/&nbsp; What we delivered
+            </div>
+          </header>
+
+          <h2
+            id="cs-outcomes-heading"
+            className="font-heading text-text text-balance"
+            style={{
+              fontSize: "var(--text-h2)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.015em",
+              fontWeight: 400,
+              maxWidth: "24ch",
+              margin: 0,
+            }}
+          >
+            The outcomes.
+          </h2>
+
+          <ol
+            className="border-t border-border"
+            style={{ marginTop: "clamp(48px, 6vh, 64px)" }}
+          >
+            {caseStudy.outcomes.map((outcome, idx) => (
+              <li
+                key={outcome.title}
+                className="grid grid-cols-[3.5rem_1fr] gap-x-6 border-b border-border py-7 lg:py-9"
+              >
+                <span
+                  className="font-heading italic text-accent"
+                  style={{
+                    fontSize: "1rem",
+                    fontWeight: 400,
+                    lineHeight: 1.3,
+                    paddingTop: "0.35rem",
+                  }}
+                >
+                  05.{["i", "ii", "iii", "iv", "v", "vi"][idx]}
+                </span>
+                <div>
+                  <h3
+                    className="font-heading text-text"
+                    style={{
+                      fontSize: "1.375rem",
+                      lineHeight: 1.25,
+                      letterSpacing: "-0.01em",
+                      fontWeight: 400,
+                      margin: 0,
+                    }}
+                  >
+                    {outcome.title}
+                  </h3>
+                  <p
+                    className="mt-2 font-body"
+                    style={{
+                      fontSize: "0.9375rem",
+                      lineHeight: 1.6,
+                      color: "var(--color-brand-text)",
+                      maxWidth: "65ch",
+                      margin: "0.5rem 0 0 0",
+                    }}
+                  >
+                    {outcome.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* 06 — In their words (pull quote, conditional) */}
       {caseStudy.pullQuote && (
-        <section className="py-20 px-6 bg-light-surface">
-          <div className="max-w-4xl mx-auto text-center">
-            <div
-              className="mx-auto w-16 h-0.5 bg-border mb-8"
-              aria-hidden="true"
-            />
-            <blockquote className="font-heading font-semibold text-2xl md:text-3xl text-text leading-snug mb-8">
+        <section
+          aria-labelledby="cs-quote-heading"
+          className="bg-light border-t border-border"
+          style={{
+            paddingTop: "clamp(72px, 12vh, 144px)",
+            paddingBottom: "clamp(72px, 12vh, 144px)",
+          }}
+        >
+          <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
+            <header className="mb-6">
+              <div
+                id="cs-quote-heading"
+                className="text-xs font-semibold uppercase tracking-[0.16em] text-accent"
+              >
+                <span className="font-heading text-base font-normal italic mr-1">
+                  06
+                </span>
+                &nbsp;/&nbsp; In their words
+              </div>
+            </header>
+
+            <blockquote
+              className="font-heading text-text italic"
+              style={{
+                fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+                lineHeight: 1.25,
+                letterSpacing: "-0.01em",
+                fontWeight: 400,
+                maxWidth: "32ch",
+                margin: 0,
+              }}
+            >
               &ldquo;{caseStudy.pullQuote.text}&rdquo;
             </blockquote>
-            <p className="text-base text-brand-text font-semibold">
-              {caseStudy.pullQuote.author}
-            </p>
-            <p className="text-sm text-gray">
+
+            <cite
+              className="mt-6 block font-body text-sm not-italic"
+              style={{
+                paddingTop: "16px",
+                borderTop: "1px solid var(--color-border)",
+                color: "var(--color-gray)",
+                maxWidth: "32ch",
+              }}
+            >
+              <span className="font-medium" style={{ color: "var(--color-text)" }}>
+                {caseStudy.pullQuote.author}
+              </span>
+              {" · "}
               {caseStudy.pullQuote.title}
-            </p>
+            </cite>
           </div>
         </section>
       )}
 
-      {/* 7. Final CTA band */}
-      <section className="py-20 px-6 bg-primary">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-heading font-bold text-3xl md:text-5xl text-white mb-6 leading-tight">
-            Ready to be our next success story?
-          </h2>
-          <p className="text-lg text-text-on-dark-muted mb-8">
-            Let&apos;s talk about what we can do for your business.
-          </p>
+      {/* Back-to-index navigation — small footer link */}
+      <section
+        className="bg-light border-t border-border"
+        style={{ paddingBlock: "clamp(40px, 6vh, 64px)" }}
+      >
+        <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-light hover:bg-accent-dark text-primary hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-accent-dark focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+            href="/case-studies"
+            className="inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.12em] text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:underline hover:underline-offset-4"
           >
-            Start a Conversation
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            <span aria-hidden="true">&larr;</span>
+            All case studies
           </Link>
         </div>
       </section>
