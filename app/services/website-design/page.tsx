@@ -6,6 +6,7 @@ import ServiceFAQ from "@/components/services/ServiceFAQ";
 import ServiceRelated from "@/components/services/ServiceRelated";
 import DarkHero from "@/components/heroes/DarkHero";
 import { getService, getRelatedServices } from "@/lib/services-data";
+import BreadcrumbsSchema from "@/components/seo/BreadcrumbsSchema";
 
 const service = getService("website-design");
 
@@ -50,6 +51,16 @@ export default function WebsiteDesignPage() {
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}
+      />
+      <BreadcrumbsSchema
+        items={[
+          { name: "Home", url: "https://rankpointmedia.com" },
+          { name: "Services", url: "https://rankpointmedia.com/services" },
+          {
+            name: service.title,
+            url: `https://rankpointmedia.com/services/${service.slug}`,
+          },
+        ]}
       />
       <main>
         <DarkHero

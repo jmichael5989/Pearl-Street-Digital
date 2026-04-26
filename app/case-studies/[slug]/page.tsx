@@ -6,6 +6,7 @@ import {
   caseStudies,
   getCaseStudyBySlug,
 } from "@/lib/case-studies-data";
+import BreadcrumbsSchema from "@/components/seo/BreadcrumbsSchema";
 
 export function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -55,6 +56,16 @@ export default async function CaseStudyDetailPage({
 
   return (
     <>
+      <BreadcrumbsSchema
+        items={[
+          { name: "Home", url: "https://rankpointmedia.com" },
+          { name: "Case Studies", url: "https://rankpointmedia.com/case-studies" },
+          {
+            name: caseStudy.client,
+            url: `https://rankpointmedia.com/case-studies/${caseStudy.slug}`,
+          },
+        ]}
+      />
       <main>
         <CaseStudyDetailTemplate caseStudy={caseStudy} />
       </main>

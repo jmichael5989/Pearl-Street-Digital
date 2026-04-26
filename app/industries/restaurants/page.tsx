@@ -5,6 +5,7 @@ import IndustryPainPoints from "@/components/industries/IndustryPainPoints";
 import IndustrySolutions from "@/components/industries/IndustrySolutions";
 import IndustryFAQ from "@/components/industries/IndustryFAQ";
 import { getIndustry } from "@/lib/industries-data";
+import BreadcrumbsSchema from "@/components/seo/BreadcrumbsSchema";
 
 const industry = getIndustry("restaurants");
 
@@ -63,6 +64,16 @@ export default function RestaurantsPage() {
             },
           ]),
         }}
+      />
+      <BreadcrumbsSchema
+        items={[
+          { name: "Home", url: "https://rankpointmedia.com" },
+          { name: "Industries", url: "https://rankpointmedia.com/industries" },
+          {
+            name: industry.title,
+            url: `https://rankpointmedia.com/industries/${industry.slug}`,
+          },
+        ]}
       />
       <main>
         <DarkHero

@@ -7,6 +7,7 @@ import {
   getBlogPostBySlug,
   getSortedBlogPosts,
 } from "@/lib/blog-data";
+import BreadcrumbsSchema from "@/components/seo/BreadcrumbsSchema";
 
 /**
  * Blog post detail template. Long-form editorial article layout.
@@ -104,6 +105,16 @@ export default async function BlogPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <BreadcrumbsSchema
+        items={[
+          { name: "Home", url: "https://rankpointmedia.com" },
+          { name: "Journal", url: "https://rankpointmedia.com/blog" },
+          {
+            name: post.title,
+            url: `https://rankpointmedia.com/blog/${post.slug}`,
+          },
+        ]}
       />
       <main>
         <article>
