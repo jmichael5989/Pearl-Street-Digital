@@ -93,6 +93,69 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    // PLACEHOLDER IMAGES — both image fields below temporarily point at the
+    // pest-control case study assets so the page renders without breaking
+    // the next/image optimizer. Before this case study is presentable to
+    // prospects, drop real screenshots at the appeal-pro-ai-* paths and
+    // swap the URLs below. Suggested capture: appealproai.com home + a
+    // screenshot of the multi-step appeal-letter form.
+    id: "appeal-pro-ai",
+    slug: "appeal-pro-ai",
+    client: "Appeal Pro AI",
+    industry: "PropTech",
+    industrySlug: "proptech",
+    services: ["Website Design", "Custom AI Solutions"],
+    outcomeHeadline:
+      "AI-Powered Property Tax Appeal Tool, Built From the Ground Up",
+    summary:
+      "A custom-coded web app that lets Texas homeowners generate a professional property tax appeal letter in ten minutes for a flat $9.99 fee. AI handles the legal citations and comparable-property analysis; the homeowner just fills in the basics.",
+    heroMetrics: [
+      { value: "10 min", label: "User Workflow" },
+      { value: "$9.99", label: "Flat Fee Per Appeal" },
+      { value: "AI", label: "Letter Generation Engine" },
+    ],
+    cardMetrics: [
+      { value: "AI-Powered", label: "Custom Build" },
+      { value: "10 min", label: "User Workflow" },
+    ],
+    thumbnailUrl:
+      "/images/case-studies/modern-day-pest-control-thumb.webp",
+    thumbnailAlt:
+      "Appeal Pro AI homepage on a laptop screen",
+    heroImageUrl:
+      "/images/case-studies/modern-day-pest-control-hero.webp",
+    heroImageAlt:
+      "Appeal Pro AI property tax appeal generator on desktop",
+    featured: false,
+    publishedAt: "2026-04-15",
+    challenge:
+      "Texas property assessments routinely come in too high, but the appeal process is intimidating: most homeowners don't know what evidence to file, what tone to use, or what state-specific citations to include. Hiring a tax consultant or attorney costs hundreds to thousands of dollars — often more than the appeal might save them. The founder of Appeal Pro AI saw a gap: a software product that could automate the legal scaffolding of an appeal letter at a price homeowners would actually pay. They came to Rank Point Media needing a custom-coded site that wasn't a marketing brochure — it was the product itself.",
+    approach:
+      "We built Appeal Pro AI as a full custom web application from scratch — no template, no SaaS plugin. The site captures property details, assessed values, comparable sales, and condition photos through a streamlined multi-step form, then runs the inputs through an AI engine that generates a properly formatted appeal letter with state-specific legal citations and comparable-property analysis. The homeowner pays a one-time $9.99 fee through a secure checkout, downloads the PDF, and files it themselves. No accounts, no subscriptions, no upsells. We integrated county-specific property record lookup, real-time price-per-square-foot calculations, and three customizable tone options (Professional & Factual, Firm & Assertive, Respectful & Persuasive). The whole experience is designed to take ten minutes from start to filed appeal.",
+    outcomes: [
+      {
+        title: "Custom AI integration shipped end-to-end",
+        description:
+          "The AI letter generator runs server-side on every submission with state-specific legal citations and comparable-property logic — built from scratch, not bolted on as a third-party plugin.",
+      },
+      {
+        title: "Single-session transactional workflow",
+        description:
+          "Multi-step form, secure payment, AI generation, and PDF download integrated into one ten-minute path. No accounts, no email verification gates, no chance for the homeowner to bounce mid-funnel.",
+      },
+      {
+        title: "Mobile-first design for an on-the-go audience",
+        description:
+          "Most users hit the site after opening their property assessment notice on their phone. The form is touch-optimized and the PDF download works on mobile end-to-end so a homeowner can complete the entire flow without ever moving to a desktop.",
+      },
+      {
+        title: "$9.99 flat fee vs. $500–$2,000 in typical consultant savings",
+        description:
+          "Pricing is the product's killer feature — Appeal Pro saves the homeowner the consultant fee while still solving the same problem. We built the site to make that value proposition unmistakable above the fold.",
+      },
+    ],
+  },
 ];
 
 export function getFeaturedCaseStudy(): CaseStudy | null {
