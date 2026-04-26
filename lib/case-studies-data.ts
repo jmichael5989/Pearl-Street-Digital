@@ -154,11 +154,9 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    // PLACEHOLDER IMAGES — same pattern as appeal-pro-ai above. Swap to
-    // real Lone Star Steak Critic screenshots before this case study is
-    // shown to prospects. Suggested captures: the homepage with the
-    // city/neighborhood browse, plus a steakhouse listing page showing
-    // the 100-point rating treatment.
+    // Real owner-provided assets (2026-04-26). Both PNGs at 1870x918.
+    // Thumbnail is currently a copy of the hero — fine functionally,
+    // but worth re-cropping to a proper grid size later for performance.
     id: "lone-star-steak-critic",
     slug: "lone-star-steak-critic",
     client: "Lone Star Steak Critic",
@@ -178,12 +176,10 @@ export const caseStudies: CaseStudy[] = [
       { value: "385+", label: "Steakhouses" },
       { value: "13 Cities", label: "Texas-Wide" },
     ],
-    thumbnailUrl:
-      "/images/case-studies/modern-day-pest-control-thumb.webp",
+    thumbnailUrl: "/images/case-studies/lone-star-steak-critic-thumb.png",
     thumbnailAlt:
       "Lone Star Steak Critic homepage on a laptop screen",
-    heroImageUrl:
-      "/images/case-studies/modern-day-pest-control-hero.webp",
+    heroImageUrl: "/images/case-studies/lone-star-steak-critic-hero.png",
     heroImageAlt:
       "Lone Star Steak Critic city directory and review pages on desktop",
     featured: false,
