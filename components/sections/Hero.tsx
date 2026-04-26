@@ -16,12 +16,10 @@ import Link from "next/link";
  *   - Two columns on desktop (1.2fr text / 0.8fr aside), stacks on mobile.
  *   - H1 is the locked brand tagline ("Higher rankings. More customers.")
  *     so a cold visitor reads the category and value within one second.
- *     The "Nobody is ever 'looped in.'" positioning-spine line, previously
- *     the H1, is preserved verbatim in the aside as the lead sentence of
- *     the pull-quote — owner override of the prior .impeccable.md call to
- *     keep that line in the H1 slot, taken 2026-04-25 after a homepage
- *     review where the editorial H1 read as too cryptic for a service
- *     business that needs to introduce itself in one screen.
+ *     The aside pull-quote carries the two-person positioning ("you hire
+ *     us, you get us — not a team behind a team") in plainspoken language;
+ *     the prior "Nobody is ever 'looped in.'" line was retired 2026-04-25
+ *     on owner review as too cryptic for a service business.
  *   - Subline names the disciplines (websites, SEO, Google Ads) plus the
  *     positioning beat ("in front of the work") so the H1's commercial
  *     promise lands with concrete services rather than abstract claims.
@@ -148,9 +146,10 @@ export default function Hero() {
                 margin: 0,
               }}
             >
-              &ldquo;Nobody is ever &lsquo;looped in.&rsquo; When the site
-              launches, you talk to the person who wrote the CSS. When a
-              campaign misfires, you talk to the person who set it up.&rdquo;
+              &ldquo;You hire us, you get us &mdash; not a team behind a team.
+              When the site launches, you talk to the person who built it.
+              Once you&rsquo;re a client, you have a direct line to both of
+              us.&rdquo;
             </blockquote>
             <cite
               className="font-body text-sm not-italic text-gray"
