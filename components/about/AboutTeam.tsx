@@ -64,7 +64,7 @@ export default function AboutTeam() {
   return (
     <section
       aria-labelledby="team-heading"
-      className="bg-light border-t border-border"
+      className="bg-light-surface border-t border-border"
       style={{
         paddingTop: "clamp(72px, 12vh, 144px)",
         paddingBottom: "clamp(72px, 12vh, 144px)",

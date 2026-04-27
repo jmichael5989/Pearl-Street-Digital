@@ -55,7 +55,7 @@ export default function AboutValues() {
     <section
       id="approach"
       aria-labelledby="approach-heading"
-      className="bg-light-surface border-t border-border"
+      className="bg-light border-t border-border"
       style={{
         paddingTop: "clamp(72px, 12vh, 144px)",
         paddingBottom: "clamp(72px, 12vh, 144px)",
