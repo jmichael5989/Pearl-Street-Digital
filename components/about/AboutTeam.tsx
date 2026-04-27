@@ -75,7 +75,7 @@ export default function AboutTeam() {
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             <span className="font-heading text-base font-normal italic mr-1">
-              04
+              03
             </span>
             &nbsp;/&nbsp; The team
           </div>
