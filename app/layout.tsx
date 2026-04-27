@@ -39,6 +39,7 @@ const sourceCodePro = Source_Code_Pro({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rankpointmedia.com"),
   title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
   description:
     "A two-person agency in Leon Springs building custom-coded websites and digital marketing for small businesses in San Antonio. Transparent pricing from $99/mo.",

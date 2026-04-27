@@ -8,11 +8,11 @@ import CustomDevelopmentCallout from "@/components/sections/CustomDevelopmentCal
 export const metadata: Metadata = {
   title: "Digital Marketing Services San Antonio | Rank Point Media",
   description:
-    "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
+    "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management for small businesses in San Antonio. Run by two people.",
   openGraph: {
     title: "Digital Marketing Services San Antonio | Rank Point Media",
     description:
-      "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
+      "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management for small businesses in San Antonio. Run by two people.",
     url: "https://rankpointmedia.com/services",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Digital Marketing Services San Antonio | Rank Point Media",
     description:
-      "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
+      "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management for small businesses in San Antonio. Run by two people.",
   },
   alternates: { canonical: "https://rankpointmedia.com/services" },
 };
@@ -32,7 +32,7 @@ const servicesSchema = {
   "@type": "CollectionPage",
   name: "Digital Marketing Services San Antonio",
   description:
-    "Full-service digital marketing for San Antonio businesses. Website design, local SEO, social media, Google Ads, AI search optimization, and reputation management.",
+    "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management for small businesses in San Antonio. Run by two people.",
   url: "https://rankpointmedia.com/services",
   mainEntity: {
     "@type": "ItemList",

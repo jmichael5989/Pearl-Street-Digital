@@ -8,11 +8,11 @@ import AboutTeam from "@/components/about/AboutTeam";
 export const metadata: Metadata = {
   title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
   description:
-    "Meet Jon and Stacie, the husband-and-wife team behind Rank Point Media. We build fast, high-performing websites and run results-driven marketing campaigns for San Antonio small businesses.",
+    "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads for small businesses in San Antonio.",
   openGraph: {
     title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
     description:
-      "Meet Jon and Stacie, the husband-and-wife team behind Rank Point Media. We build fast, high-performing websites and run results-driven marketing campaigns for San Antonio small businesses.",
+      "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads for small businesses in San Antonio.",
     url: "https://rankpointmedia.com/about",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
     description:
-      "Meet Jon and Stacie, the husband-and-wife team behind Rank Point Media. We build fast, high-performing websites and run results-driven marketing campaigns for San Antonio small businesses.",
+      "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads for small businesses in San Antonio.",
   },
   alternates: {
     canonical: "https://rankpointmedia.com/about",
