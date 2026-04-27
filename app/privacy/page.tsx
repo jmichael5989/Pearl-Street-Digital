@@ -6,6 +6,21 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Rank Point Media",
   description:
     "Privacy Policy for Rank Point Media. Learn how we collect, use, and protect your personal information.",
+  openGraph: {
+    title: "Privacy Policy | Rank Point Media",
+    description:
+      "Privacy Policy for Rank Point Media. How we collect, use, and protect your personal information.",
+    url: "https://rankpointmedia.com/privacy",
+    siteName: "Rank Point Media",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Rank Point Media",
+    description:
+      "How we collect, use, and protect your personal information.",
+  },
   alternates: { canonical: "https://rankpointmedia.com/privacy" },
 };
 

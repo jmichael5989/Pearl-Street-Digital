@@ -40,19 +40,10 @@ const pricingSchema = {
   serviceType: "Website Design and Hosting",
   name: "Website design, hosting, and digital marketing — Rank Point Media",
   url: "https://rankpointmedia.com/pricing",
-  provider: {
-    "@type": "LocalBusiness",
-    name: "Rank Point Media",
-    url: "https://rankpointmedia.com",
-    telephone: "+1-210-305-7372",
-    email: "info@rankpointmedia.com",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "San Antonio",
-      addressRegion: "TX",
-      addressCountry: "US",
-    },
-  },
+  // Reference the canonical org node defined in app/layout.tsx (which carries
+  // full NAP including postalCode 78257). Both JSON-LD blocks render on the
+  // same page, so Google resolves the @id reference. Keeps NAP in one place.
+  provider: { "@id": "https://rankpointmedia.com#org" },
   areaServed: { "@type": "City", name: "San Antonio" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",

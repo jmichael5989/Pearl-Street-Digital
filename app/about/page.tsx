@@ -39,10 +39,12 @@ const aboutSchema = {
     name: "Rank Point Media",
     foundingDate: "2026",
     url: "https://rankpointmedia.com",
+    telephone: "+1-210-305-7372",
     address: {
       "@type": "PostalAddress",
       addressLocality: "San Antonio",
       addressRegion: "TX",
+      postalCode: "78257",
       addressCountry: "US",
     },
     areaServed: {

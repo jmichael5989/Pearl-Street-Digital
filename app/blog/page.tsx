@@ -20,13 +20,13 @@ import { getSortedBlogPosts } from "@/lib/blog-data";
  */
 
 export const metadata: Metadata = {
-  title: "Journal | Rank Point Media",
+  title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
   description:
-    "Long-form essays from the team at Rank Point Media — how we build websites, how we think about marketing for small San Antonio businesses, and what we've learned along the way.",
+    "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio small businesses.",
   openGraph: {
-    title: "Journal | Rank Point Media",
+    title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
     description:
-      "Long-form essays from the team at Rank Point Media — how we build websites, how we think about marketing for small San Antonio businesses, and what we've learned along the way.",
+      "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio small businesses.",
     url: "https://rankpointmedia.com/blog",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Journal | Rank Point Media",
+    title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
     description:
       "Long-form essays from the team at Rank Point Media.",
   },
@@ -59,7 +59,7 @@ export default function BlogIndexPage() {
     "@type": "Blog",
     name: "Rank Point Media Journal",
     description:
-      "Long-form essays from the team at Rank Point Media — how we build websites, how we think about marketing for small San Antonio businesses, and what we've learned along the way.",
+      "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio small businesses.",
     url: "https://rankpointmedia.com/blog",
     publisher: {
       "@type": "Organization",

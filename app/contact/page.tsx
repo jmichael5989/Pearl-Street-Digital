@@ -41,6 +41,7 @@ const contactSchema = {
       "@type": "PostalAddress",
       addressLocality: "San Antonio",
       addressRegion: "TX",
+      postalCode: "78257",
       addressCountry: "US",
     },
     areaServed: {

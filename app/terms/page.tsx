@@ -4,6 +4,19 @@ import Footer from "@/components/ui/Footer";
 export const metadata: Metadata = {
   title: "Terms of Service | Rank Point Media",
   description: "Terms of Service for Rank Point Media. Review our terms and conditions for using our website and services.",
+  openGraph: {
+    title: "Terms of Service | Rank Point Media",
+    description: "Terms of Service for Rank Point Media.",
+    url: "https://rankpointmedia.com/terms",
+    siteName: "Rank Point Media",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Service | Rank Point Media",
+    description: "Terms of Service for Rank Point Media.",
+  },
   alternates: { canonical: "https://rankpointmedia.com/terms" },
 };
 

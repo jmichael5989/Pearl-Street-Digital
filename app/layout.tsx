@@ -97,6 +97,16 @@ export default function RootLayout({
           as="script"
           crossOrigin="anonymous"
         />
+        {/* Geo meta tags — site-wide local-search signals. Old-school but
+            still parsed by some local-search crawlers (notably Bing Local
+            and a handful of niche directory parsers). Cost is two lines of
+            HTML, so we ship them. Coordinates are the Leon Springs
+            neighborhood centroid that the LocalBusiness JSON-LD also
+            references; keep them in sync if either changes. */}
+        <meta name="geo.region" content="US-TX" />
+        <meta name="geo.placename" content="San Antonio" />
+        <meta name="geo.position" content="29.4241;-98.4936" />
+        <meta name="ICBM" content="29.4241, -98.4936" />
       </head>
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script

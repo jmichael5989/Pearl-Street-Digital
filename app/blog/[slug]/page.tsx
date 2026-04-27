@@ -97,6 +97,11 @@ export default async function BlogPostPage({
       name: "Rank Point Media",
       url: "https://rankpointmedia.com",
     },
+    // Article schema requires `image` for Google Rich Results eligibility.
+    // Falls back to the root dynamic OG image (1200x630, navy-with-tagline)
+    // until per-post hero photography exists. When BlogPost gains an `image`
+    // field, prefer post.image and fall back to this URL.
+    image: "https://rankpointmedia.com/opengraph-image",
     url: `https://rankpointmedia.com/blog/${post.slug}`,
   };
 

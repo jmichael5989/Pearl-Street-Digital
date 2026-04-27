@@ -42,11 +42,7 @@ export default function SocialMediaPage() {
             "@type": "Service",
             name: `${service.title} San Antonio`,
             description: service.metaDescription,
-            provider: {
-              "@type": "LocalBusiness",
-              name: "Rank Point Media",
-              url: "https://rankpointmedia.com",
-            },
+            provider: { "@id": "https://rankpointmedia.com#org" },
             areaServed: { "@type": "City", name: "San Antonio" },
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
