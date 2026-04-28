@@ -221,22 +221,11 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
               <p className="text-sm leading-relaxed max-w-[280px]">
                 Custom-coded websites and digital marketing for San Antonio small businesses.
               </p>
-              {/* Social Icons — Facebook + Instagram hidden until those
-                  accounts are live. FacebookIcon / InstagramIcon
-                  components below remain defined so they're trivial to
-                  re-enable: copy a sibling <a> block and swap the icon
-                  + href + aria-label. */}
-              <div className="flex items-center gap-3 mt-5">
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-text-on-dark-muted transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark hover:text-text-on-dark"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedInIcon />
-                </a>
-              </div>
+              {/* Social Icons — LinkedIn / Facebook / Instagram hidden
+                  until those accounts are live. LinkedInIcon /
+                  FacebookIcon / InstagramIcon components below remain
+                  defined so they're trivial to re-enable: restore the
+                  wrapper <div> and an <a> block per platform. */}
             </div>
 
             {/* Column 2 — Services (accordion on mobile) */}
