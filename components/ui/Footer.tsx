@@ -267,7 +267,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
               </h3>
               <address className="not-italic space-y-3 text-sm">
                 <p className="font-medium text-white">Rank Point Media</p>
-                <p>San Antonio, TX (Leon Springs area)</p>
+                <p>San Antonio, TX</p>
                 <p>
                   <a
                     href="tel:+12103057372"

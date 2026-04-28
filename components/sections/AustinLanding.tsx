@@ -61,7 +61,7 @@ export default function AustinLanding() {
               margin: 0,
             }}
           >
-            From Leon Springs, north on I-35.
+            From San Antonio, north on I-35.
           </h2>
 
           <div
@@ -74,10 +74,9 @@ export default function AustinLanding() {
             }}
           >
             <p>
-              Rank Point Media is based in San Antonio &mdash; Leon Springs,
-              specifically &mdash; about seventy-five miles south of downtown
-              Austin. We take Austin clients selectively. When we do, we
-              drive up.
+              Rank Point Media is based in San Antonio &mdash; about
+              seventy-five miles south of downtown Austin. We take Austin
+              clients selectively. When we do, we drive up.
             </p>
             <p>
               Most of the work happens on a screen. The bookend conversations
@@ -85,7 +84,7 @@ export default function AustinLanding() {
               actually hire us, an occasional launch debrief &mdash; work
               better at a table, and we drive up for those. East Austin,
               South Lamar, Mueller, Round Rock, Cedar Park, the Domain: an
-              easy day from Leon Springs.
+              easy day from San Antonio.
             </p>
           </div>
         </div>

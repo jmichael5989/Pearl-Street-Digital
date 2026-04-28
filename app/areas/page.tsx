@@ -41,7 +41,7 @@ const areas: AreaCard[] = [
     city: "San Antonio",
     href: "/",
     status: "Live",
-    body: "Our home base. Two people in Leon Springs building websites and running digital marketing for SA small businesses.",
+    body: "Our home base. Two people building websites and running digital marketing for small businesses across the SA metro and surrounding cities.",
   },
   {
     city: "Austin",
@@ -70,7 +70,7 @@ export default function AreasPage() {
         <DarkHero
           kicker="SERVICE AREAS"
           headline="Texas small businesses, served from San Antonio."
-          subheadline="We're based in Leon Springs and currently expanding across Texas. As we add cities, dedicated landing pages will live below."
+          subheadline="We're based in San Antonio and currently expanding across Texas. As we add cities, dedicated landing pages will live below."
           primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}
           showMockups={false}

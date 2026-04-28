@@ -34,7 +34,7 @@ import AustinLanding from "@/components/sections/AustinLanding";
 export const metadata: Metadata = {
   title: "Web Design Austin | Rank Point Media",
   description:
-    "Custom-coded websites, local SEO, and Google Ads for Austin small businesses. From Rank Point Media — a two-person agency in Leon Springs, San Antonio.",
+    "Custom-coded websites, local SEO, and Google Ads for Austin small businesses. From Rank Point Media — a two-person agency in San Antonio.",
   robots: { index: false, follow: true },
   alternates: { canonical: "https://rankpointmedia.com/areas/austin" },
 };

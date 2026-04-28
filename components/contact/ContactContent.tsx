@@ -180,7 +180,7 @@ export default function ContactContent() {
                   <MapPinIcon />
                 </span>
                 <span className="text-sm font-medium">
-                  San Antonio, TX (Leon Springs area)
+                  San Antonio, TX
                 </span>
               </div>
             </div>

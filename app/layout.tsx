@@ -42,11 +42,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rankpointmedia.com"),
   title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
   description:
-    "A two-person agency in Leon Springs building custom-coded websites and digital marketing for small businesses in San Antonio. Transparent pricing from $99/mo.",
+    "A two-person San Antonio agency building custom-coded websites and digital marketing for small businesses across the metro and surrounding cities. Transparent pricing from $99/mo.",
   openGraph: {
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "A two-person agency in Leon Springs building custom-coded websites and digital marketing for small businesses in San Antonio. Transparent pricing from $99/mo.",
+      "A two-person San Antonio agency building custom-coded websites and digital marketing for small businesses across the metro and surrounding cities. Transparent pricing from $99/mo.",
     url: "https://rankpointmedia.com",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "A two-person agency in Leon Springs building custom-coded websites and digital marketing for small businesses in San Antonio. Transparent pricing from $99/mo.",
+      "A two-person San Antonio agency building custom-coded websites and digital marketing for small businesses across the metro and surrounding cities. Transparent pricing from $99/mo.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://rankpointmedia.com" },
@@ -100,9 +100,9 @@ export default function RootLayout({
         {/* Geo meta tags — site-wide local-search signals. Old-school but
             still parsed by some local-search crawlers (notably Bing Local
             and a handful of niche directory parsers). Cost is two lines of
-            HTML, so we ship them. Coordinates are the Leon Springs
-            neighborhood centroid that the LocalBusiness JSON-LD also
-            references; keep them in sync if either changes. */}
+            HTML, so we ship them. Coordinates are the San Antonio centroid
+            that the LocalBusiness JSON-LD also references; keep them in
+            sync if either changes. */}
         <meta name="geo.region" content="US-TX" />
         <meta name="geo.placename" content="San Antonio" />
         <meta name="geo.position" content="29.4241;-98.4936" />
@@ -128,7 +128,7 @@ export default function RootLayout({
                   name: "Rank Point Media",
               alternateName: "JSL Innovations LLC",
               description:
-                "A two-person web agency in Leon Springs, San Antonio, building custom-coded websites and running local SEO, Google Ads, and digital marketing for small businesses across Texas.",
+                "A two-person web agency in San Antonio building custom-coded websites and running local SEO, Google Ads, and digital marketing for small businesses across the SA metro, surrounding cities, and the rest of Texas.",
               url: "https://rankpointmedia.com",
               telephone: "+1-210-305-7372",
               email: "info@rankpointmedia.com",

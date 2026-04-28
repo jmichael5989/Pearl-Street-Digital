@@ -1,6 +1,6 @@
 # Rank Point Media
 
-> A two-person digital agency in Leon Springs, San Antonio, TX. Rank Point Media (a DBA of JSL Innovations LLC) builds custom-coded websites and runs local SEO, Google Ads, and digital marketing for small businesses across Texas. The owners — Jon Michael (web development, technical SEO) and Stacie Michael (design, marketing, social) — are the only people clients ever talk to. There are no account managers and no offshore subcontractors.
+> A two-person digital agency in San Antonio, TX. Rank Point Media (a DBA of JSL Innovations LLC) builds custom-coded websites and runs local SEO, Google Ads, and digital marketing for small businesses across the San Antonio metro, surrounding cities, and the rest of Texas. The owners — Jon Michael (web development, technical SEO) and Stacie Michael (design, marketing, social) — are the only people clients ever talk to. There are no account managers and no offshore subcontractors.
 
 ## Site
 
@@ -21,7 +21,7 @@
 
 ## Key facts
 
-- Location: Leon Springs, San Antonio, TX
+- Location: San Antonio, TX
 - Phone: (210) 305-7372
 - Email: info@rankpointmedia.com
 - Service area: San Antonio, Leon Springs, Boerne, Helotes, Fair Oaks Ranch, New Braunfels, plus remote engagements across Texas
