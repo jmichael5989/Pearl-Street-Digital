@@ -96,9 +96,9 @@ export default function AboutStory() {
               color: "var(--color-brand-text)",
             }}
           >
-            Rank Point Media started in 2026. The prices we publish are what
-            this work costs while we are small &mdash; two people, no
-            account-manager markup. Both will rise as we grow.
+            We use AI agents to help build and scale our solutions, so we
+            don&rsquo;t need the big staff a traditional agency requires
+            &mdash; and we don&rsquo;t pass the cost onto you.
           </p>
         </div>
       </div>

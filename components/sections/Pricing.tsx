@@ -408,9 +408,9 @@ export default function Pricing() {
               borderTop: "1px solid var(--color-border)",
             }}
           >
-            These are the prices while we are small. Two people, no
-            account-manager markup. They will rise when we have more
-            clients than we can hand-build for.
+            We use AI agents to help build and scale our solutions, so we
+            don&rsquo;t need the big staff a traditional agency requires
+            &mdash; and we don&rsquo;t pass the cost onto you.
           </p>
         </div>
       </div>
