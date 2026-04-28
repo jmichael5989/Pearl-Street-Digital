@@ -70,7 +70,7 @@ const addOns: AddOn[] = [
     name: "Brand identity refresh",
     description:
       "Logo, color, type, and brand-guide updates when the website gets a glow-up but the rest of the brand hasn't.",
-    price: "From $250 one-time",
+    price: "From $100 one-time",
   },
   {
     name: "AI solutions",
