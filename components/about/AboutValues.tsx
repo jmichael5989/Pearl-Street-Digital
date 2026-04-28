@@ -45,8 +45,8 @@ const values = [
   },
   {
     num: "vi.",
-    title: "No long-term contracts.",
-    body: "We earn the work month to month. Our clients stay because the results show up, not because they&rsquo;re locked in.",
+    title: "Flexible plans.",
+    body: "Pick a one-time build and own the code outright, or monthly hosting with updates and security included. No long-term contracts either way &mdash; clients stay because the work earns it.",
   },
 ];
 
