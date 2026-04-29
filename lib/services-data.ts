@@ -157,7 +157,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Local SEO services for San Antonio businesses. Google Maps optimization, citation building, and on-page SEO to drive more local customers to your door.",
     iconName: "search",
-    startingAt: "Plans from $497/mo",
+    startingAt: "Plans from $99/mo",
     overview: {
       heading: "Show Up When San Antonio Searches for You",
       paragraphs: [
@@ -267,7 +267,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Social media marketing for San Antonio businesses. Content creation, scheduling, community management, and analytics across Instagram, Facebook, and LinkedIn.",
     iconName: "share",
-    startingAt: "Plans from $500/mo",
+    startingAt: "Plans from $99/mo",
     overview: {
       heading: "Build a Local Following That Converts",
       paragraphs: [
@@ -372,7 +372,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Google Ads and PPC management for San Antonio businesses. Targeted campaigns, keyword research, and conversion tracking. Pay only for results.",
     iconName: "target",
-    startingAt: "Plans from $500/mo + ad spend",
+    startingAt: "Plans from $99/mo + ad spend",
     overview: {
       heading: "Get Leads Today, Not Six Months From Now",
       paragraphs: [
@@ -482,7 +482,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "AI search optimization (GEO) for San Antonio businesses. Get recommended by ChatGPT, Google AI Overviews, Siri, and Alexa. Future-proof your online presence.",
     iconName: "sparkle",
-    startingAt: "Plans from $497/mo",
+    startingAt: "Plans from $99/mo",
     overview: {
       heading: "Be the Answer When AI Responds",
       paragraphs: [
@@ -592,7 +592,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Online reputation management for San Antonio businesses. Review monitoring, response management, and review generation to build trust and drive more customers.",
     iconName: "shield",
-    startingAt: "Plans from $297/mo",
+    startingAt: "Plans from $149/mo",
     overview: {
       heading: "Your Reputation Is Your Best Marketing",
       paragraphs: [
@@ -702,7 +702,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Email marketing for San Antonio businesses. Campaign strategy, list building, template design, and automated flows that drive repeat sales and customer loyalty.",
     iconName: "mail",
-    startingAt: "Plans from $397/mo",
+    startingAt: "Plans from $99/mo",
     overview: {
       heading: "The Highest ROI Channel You're Probably Ignoring",
       paragraphs: [
@@ -807,7 +807,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Custom AI solutions for San Antonio businesses. Automated customer follow-ups, lead qualification, chatbots, and workflow automation tailored to your specific operation.",
     iconName: "cpu",
-    startingAt: "Projects from $2,000",
+    startingAt: "Pricing depends on project",
     overview: {
       heading: "AI That Actually Works for Your Business",
       paragraphs: [
