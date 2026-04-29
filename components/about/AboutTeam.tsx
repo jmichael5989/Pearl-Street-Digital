@@ -2,9 +2,11 @@ import Image from "next/image";
 
 /**
  * About-page Team section. Editorial register matching the locked
- * homepage pattern, with rectangular portrait photos and typographic
- * captions per .impeccable.md Photography Direction §"Captioned" — not
- * the prior centered-circle-avatar SaaS team-page pattern.
+ * homepage pattern, with rectangular portrait photos — not the prior
+ * centered-circle-avatar SaaS team-page pattern. Photo-credit captions
+ * (".impeccable.md Photography Direction §Captioned") were removed
+ * 2026-04-28 by owner request: with both photographers being Jon and
+ * Stacie, the credit line read as redundant inside the team grid.
  *
  * Replaces the prior section that violated multiple locks: bg-white
  * (retired surface), max-w-7xl (wrong container), text-primary +
@@ -29,7 +31,6 @@ interface TeamMember {
   role: string;
   photo: string;
   photoPosition: string;
-  caption: string;
   bio: string;
 }
 
@@ -39,7 +40,6 @@ const teamMembers: TeamMember[] = [
     role: "Web development & technical SEO",
     photo: "/images/team/jon.png",
     photoPosition: "center top",
-    caption: "Photograph by Stacie Michael, 2026.",
     bio: "Jon writes the code, runs technical SEO, and tunes performance at Rank Point Media. He holds an undergraduate degree in Economics and a Master of Science from the University of Texas at San Antonio, and spent 15+ years as a product manager at Fortune 150 companies before founding RPM. The work here is custom-built, not configured from a template.",
   },
   {
@@ -47,7 +47,6 @@ const teamMembers: TeamMember[] = [
     role: "Design, marketing & social",
     photo: "/images/team/stacie.jpg",
     photoPosition: "center top",
-    caption: "Photograph by Jon Michael, 2026.",
     bio: "Stacie heads up design, marketing, and social media for Rank Point Media. She holds a graphic design degree from the University of Texas at San Antonio and has built her career inside both web and interior design firms — a background that shapes how RPM approaches visual identity for local businesses.",
   },
   {
@@ -55,7 +54,6 @@ const teamMembers: TeamMember[] = [
     role: "Office presence",
     photo: "/images/team/george.jpg",
     photoPosition: "center center",
-    caption: "Photograph by Stacie Michael, 2026.",
     bio: "George supervises from her corner of the office.",
   },
 ];
@@ -128,21 +126,9 @@ export default function AboutTeam() {
                 />
               </div>
 
-              {/* Photo caption — italic graphite, beneath photo */}
-              <p
-                className="mt-3 font-body italic"
-                style={{
-                  fontSize: "0.8125rem",
-                  lineHeight: 1.5,
-                  color: "var(--color-gray)",
-                }}
-              >
-                {member.caption}
-              </p>
-
               {/* Name */}
               <h3
-                className="mt-6 font-heading text-text"
+                className="mt-8 font-heading text-text"
                 style={{
                   fontSize: "1.5rem",
                   lineHeight: 1.2,
