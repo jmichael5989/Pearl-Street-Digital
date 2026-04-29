@@ -43,11 +43,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rankpointmedia.com"),
   title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
   description:
-    "A two-person San Antonio agency building custom-coded websites and digital marketing for small businesses across the metro and surrounding cities. Transparent pricing from $99/mo.",
+    "Custom-coded websites, local SEO, and Google Ads for San Antonio small businesses. No templates, no shortcuts.",
   openGraph: {
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "A two-person San Antonio agency building custom-coded websites and digital marketing for small businesses across the metro and surrounding cities. Transparent pricing from $99/mo.",
+      "Custom-coded websites, local SEO, and Google Ads for San Antonio small businesses. No templates, no shortcuts.",
     url: "https://rankpointmedia.com",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "A two-person San Antonio agency building custom-coded websites and digital marketing for small businesses across the metro and surrounding cities. Transparent pricing from $99/mo.",
+      "Custom-coded websites, local SEO, and Google Ads for San Antonio small businesses. No templates, no shortcuts.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://rankpointmedia.com" },
