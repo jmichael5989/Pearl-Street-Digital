@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Source_Serif_4, Source_Sans_3, Source_Code_Pro } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import HeaderRouter from "@/components/ui/HeaderRouter";
 import MobileCTABar from "@/components/ui/MobileCTABar";
@@ -107,6 +108,16 @@ export default function RootLayout({
         <meta name="geo.placename" content="San Antonio" />
         <meta name="geo.position" content="29.4241;-98.4936" />
         <meta name="ICBM" content="29.4241, -98.4936" />
+        {/* Umami analytics — privacy-friendly, cookieless, no PII.
+            afterInteractive so it doesn't block first paint; Umami's
+            script hooks into the History API so SPA navigations still
+            fire pageviews. Tracker dashboard:
+            cloud.umami.is/analytics/us/websites/2bef9653-2613-43bc-bffb-e172adc8757f */}
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="2bef9653-2613-43bc-bffb-e172adc8757f"
+          strategy="afterInteractive"
+        />
       </head>
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script
