@@ -70,7 +70,19 @@ const addOns: AddOn[] = [
     name: "Brand identity refresh",
     description:
       "Logo, color, type, and brand-guide updates when the website gets a glow-up but the rest of the brand hasn't.",
-    price: "From $100 one-time",
+    price: "From $99 one-time",
+  },
+  {
+    name: "AI search optimization",
+    description:
+      "Get your business cited by ChatGPT, Google AI Overviews, Perplexity, and voice assistants. The next frontier of local visibility, before your competitors catch on.",
+    price: "From $99/mo",
+  },
+  {
+    name: "Reputation management",
+    description:
+      "Monitor reviews across Google, Yelp, and Facebook. Respond professionally, drive new 5-star reviews, and grow the reputation your business has earned.",
+    price: "From $149/mo",
   },
   {
     name: "AI solutions",
