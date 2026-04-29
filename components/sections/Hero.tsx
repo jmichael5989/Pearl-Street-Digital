@@ -170,7 +170,7 @@ export default function Hero() {
                 borderTop: "1px solid var(--color-border)",
               }}
             >
-              Jon Michael &middot; Rank Point Media
+              Jon &middot; Rank Point Media
             </cite>
           </aside>
         </div>

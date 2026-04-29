@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Why we write the code ourselves instead of dragging blocks around in a builder, and what changed in the last two years to make that practical.",
     publishedAt: "2026-04-28",
-    author: "Jon Michael",
+    author: "Jon",
     readingTime: "3 min read",
     body: (
       <>
@@ -152,7 +152,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Why we're writing essays instead of blog posts, and what to expect here.",
     publishedAt: "2026-04-25",
-    author: "Jon Michael",
+    author: "Jon",
     readingTime: "3 min read",
     body: (
       <>

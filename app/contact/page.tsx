@@ -6,11 +6,11 @@ import ContactContent from "@/components/contact/ContactContent";
 export const metadata: Metadata = {
   title: "Contact Us San Antonio | Rank Point Media",
   description:
-    "Book a 60-minute consultation with Jon Michael at Rank Point Media. A two-person San Antonio agency serving small businesses across the metro and surrounding cities.",
+    "Book a 60-minute consultation with Jon at Rank Point Media. A two-person San Antonio agency serving small businesses across the metro and surrounding cities.",
   openGraph: {
     title: "Contact Us San Antonio | Rank Point Media",
     description:
-      "Book a 60-minute consultation with Jon Michael at Rank Point Media. A two-person San Antonio agency serving small businesses across the metro and surrounding cities.",
+      "Book a 60-minute consultation with Jon at Rank Point Media. A two-person San Antonio agency serving small businesses across the metro and surrounding cities.",
     url: "https://rankpointmedia.com/contact",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Us San Antonio | Rank Point Media",
     description:
-      "Book a 60-minute consultation with Jon Michael at Rank Point Media. A two-person San Antonio agency serving small businesses across the metro and surrounding cities.",
+      "Book a 60-minute consultation with Jon at Rank Point Media. A two-person San Antonio agency serving small businesses across the metro and surrounding cities.",
   },
   alternates: {
     canonical: "https://rankpointmedia.com/contact",

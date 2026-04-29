@@ -54,7 +54,7 @@ const aboutSchema = {
     member: [
       {
         "@type": "Person",
-        name: "Jon Michael",
+        name: "Jon",
         jobTitle: "Founder & Lead Web Developer",
         worksFor: {
           "@type": "Organization",
@@ -63,7 +63,7 @@ const aboutSchema = {
       },
       {
         "@type": "Person",
-        name: "Stacie Michael",
+        name: "Stacie",
         jobTitle: "Marketing Lead & Social Media Manager",
         worksFor: {
           "@type": "Organization",

@@ -36,14 +36,14 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Jon Michael",
+    name: "Jon",
     role: "Web development & technical SEO",
     photo: "/images/team/jon.png",
     photoPosition: "center top",
     bio: "Jon writes the code, runs technical SEO, and tunes performance at Rank Point Media. He holds an undergraduate degree in Economics and a Master of Science from the University of Texas at San Antonio, and spent 15+ years as a product manager at Fortune 150 companies before founding RPM. The work here is custom-built, not configured from a template.",
   },
   {
-    name: "Stacie Michael",
+    name: "Stacie",
     role: "Design, marketing & social",
     photo: "/images/team/stacie.jpg",
     photoPosition: "center top",

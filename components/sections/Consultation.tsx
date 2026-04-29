@@ -264,7 +264,7 @@ export default function Consultation() {
               maxWidth: "58ch",
             }}
           >
-            The widget below shows Jon Michael&rsquo;s live calendar. Pick any
+            The widget below shows Jon&rsquo;s live calendar. Pick any
             open slot. You&rsquo;ll get a Google Calendar invite with a Google
             Meet link &mdash; no separate scheduling email.
           </p>
