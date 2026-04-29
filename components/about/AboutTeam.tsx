@@ -51,7 +51,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "George",
-    role: "Office presence",
+    role: "Chief Bark Officer",
     photo: "/images/team/george.jpg",
     photoPosition: "center center",
     bio: "George supervises from her corner of the office.",
