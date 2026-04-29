@@ -48,7 +48,7 @@ const teamMembers: TeamMember[] = [
     photo: "/images/team/stacie.jpg",
     photoPosition: "center top",
     caption: "Photograph by Jon Michael, 2026.",
-    bio: "Stacie runs design, marketing, and social media. Background in web and interior design. Every photograph on this site is hers.",
+    bio: "Stacie heads up design, marketing, and social media for Rank Point Media. She holds a graphic design degree from the University of Texas at San Antonio and has built her career inside both web and interior design firms — a background that shapes how RPM approaches visual identity for local businesses.",
   },
   {
     name: "George",
