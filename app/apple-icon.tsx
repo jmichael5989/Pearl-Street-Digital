@@ -1,23 +1,27 @@
 import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
 
 /**
  * Apple touch icon — 180x180 per iOS spec. Same R + upward-arrow
  * composition as the favicon (app/icon.tsx) at homescreen scale.
  *
- * Font is loaded from a co-located TTF for the same reasons as
- * app/icon.tsx — see that file for context.
+ * Font loaded via fs.readFileSync with a string path inside the
+ * handler — see app/icon.tsx for the full reasoning trail on why fetch
+ * and module-init readFileSync both failed in production builds.
  */
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-const sourceSerif600 = readFileSync(
-  new URL("./_fonts/source-serif-4-600.ttf", import.meta.url),
-);
-
 export default async function AppleIcon() {
+  const fontPath = fileURLToPath(
+    new URL("./_fonts/source-serif-4-600.ttf", import.meta.url),
+  );
+  const sourceSerif600 = readFileSync(fontPath);
+
   return new ImageResponse(
     (
       <div

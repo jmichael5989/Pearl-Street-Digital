@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
 
 /**
  * Favicon — generated at request time via ImageResponse so it stays in
@@ -13,23 +14,34 @@ import { readFileSync } from "fs";
  * gets replaced by their globe fallback). Multiple of 48 keeps the
  * icon eligible at every scaling tier Google uses.
  *
- * Font is loaded from a co-located TTF instead of fetched at request
- * time. The previous fetch-from-fonts.googleapis.com pattern broke for
- * two reasons: (1) the edge runtime's fetch was failing in production,
- * and (2) Google's CSS now returns .ttf rather than the .woff2 the
- * previous regex expected. Bundling the binary makes this route
- * deterministic and removes a runtime network dependency.
+ * Font is loaded from a co-located TTF inside the handler. History of
+ * approaches and why each failed:
+ *   1. Edge runtime + fetch(fonts.googleapis.com) — runtime sandbox
+ *      blocked the network call AND Google's CSS now returns .ttf,
+ *      not .woff2 the regex expected.
+ *   2. nodejs runtime + readFileSync(new URL(...)) at module init —
+ *      Turbopack's bundled URL object isn't a real file: URL, so fs
+ *      rejected it at runtime ("Received an instance of URL").
+ *   3. nodejs runtime + fetch(new URL(...)) inside handler —
+ *      Turbopack's SSR sandbox raised "not implemented yet" for
+ *      file:// fetch during the build's prerender pass.
+ * Current pattern: convert the URL to a string path via fileURLToPath
+ * (sidesteps the URL-class mismatch from #2) and read with fs inside
+ * the handler (defers I/O off module init from #2). dynamic =
+ * "force-dynamic" skips the prerender pass that broke #3.
  */
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 export const size = { width: 96, height: 96 };
 export const contentType = "image/png";
 
-const sourceSerif600 = readFileSync(
-  new URL("./_fonts/source-serif-4-600.ttf", import.meta.url),
-);
-
 export default async function Icon() {
+  const fontPath = fileURLToPath(
+    new URL("./_fonts/source-serif-4-600.ttf", import.meta.url),
+  );
+  const sourceSerif600 = readFileSync(fontPath);
+
   return new ImageResponse(
     (
       <div
