@@ -66,7 +66,7 @@ export default function ServicesPage() {
             { value: "SA", label: "Local Agency" },
             { value: "$99", label: "Starting Monthly" },
           ]}
-          mockupVariant="generic"
+          mockupVariant="services-overview"
         />
 
         {/* Editorial slab — section header + body copy */}

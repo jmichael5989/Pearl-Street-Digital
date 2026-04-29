@@ -22,6 +22,7 @@ export type MockupVariant =
   | "social"
   | "ai"
   | "reputation"
+  | "services-overview"
   | "generic";
 
 const cardBase =
@@ -437,6 +438,74 @@ function ReputationMockups() {
   );
 }
 
+// Services-index hero — samples one card from three of the per-service
+// variants so the trio reads as breadth ("build / rank / earn trust")
+// rather than depth in any one service. SERP card represents SEO,
+// Lighthouse rings represent websites, 5-star review represents
+// reputation. Card slots and rotations match the convention used by
+// every other variant: large top-right (+3°), medium bottom-left (-7°),
+// small bottom-right (+6°).
+function ServicesOverviewMockups() {
+  return (
+    <>
+      {/* Google SERP card — SEO */}
+      <CardWrap delay={0.2} rotate={3} className="top-0 right-0 w-96 p-5">
+        <div className="flex items-center gap-2 mb-3">
+          <div className="w-2 h-2 rounded-full bg-accent-dark" />
+          <MonoLabel>Google SERP</MonoLabel>
+        </div>
+        <div className="space-y-2">
+          <p className="text-[11px] text-accent-dark/80 font-mono">
+            yourbusiness.com
+          </p>
+          <p className="text-white text-sm font-semibold leading-snug">
+            Top-rated San Antonio Pros | Trusted, Local, Available
+          </p>
+          <p className="text-white/60 text-xs leading-relaxed">
+            Family-owned San Antonio business serving the metro since 2015.
+            4.9 stars across 300+ reviews.
+          </p>
+        </div>
+      </CardWrap>
+
+      {/* Lighthouse rings — websites */}
+      <CardWrap delay={0.4} rotate={-7} className="bottom-20 -left-6 w-72 p-5">
+        <div className="flex items-center gap-2 mb-4">
+          <div className="w-2 h-2 rounded-full bg-accent-dark" />
+          <MonoLabel>Lighthouse</MonoLabel>
+        </div>
+        <div className="flex items-center justify-around pt-2">
+          <LighthouseRing value={98} label="Perf" />
+          <LighthouseRing value={100} label="SEO" />
+          <LighthouseRing value={97} label="A11y" />
+        </div>
+      </CardWrap>
+
+      {/* 5-star review — reputation */}
+      <CardWrap delay={0.6} rotate={6} className="bottom-0 right-2 w-64 p-4">
+        <div className="flex items-center justify-between mb-2.5">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-full bg-accent-dark" />
+            <span className="text-white text-xs font-semibold">Sarah M.</span>
+          </div>
+          <div className="flex gap-0.5">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <Star
+                key={i}
+                className="w-3 h-3 fill-accent-dark text-accent-dark"
+              />
+            ))}
+          </div>
+        </div>
+        <p className="text-white text-xs leading-relaxed">
+          &ldquo;Best in San Antonio. Showed up on time and got the job
+          done right.&rdquo;
+        </p>
+      </CardWrap>
+    </>
+  );
+}
+
 function GenericMockups() {
   return (
     <>
@@ -466,6 +535,7 @@ export default function HeroMockups({
       {variant === "social" && <SocialMockups />}
       {variant === "ai" && <AiMockups />}
       {variant === "reputation" && <ReputationMockups />}
+      {variant === "services-overview" && <ServicesOverviewMockups />}
       {variant === "generic" && <GenericMockups />}
     </div>
   );
