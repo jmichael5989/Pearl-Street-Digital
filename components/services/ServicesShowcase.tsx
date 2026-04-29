@@ -4,8 +4,8 @@ import { services } from "@/lib/services-data";
 /**
  * Services index TOC. Same numbered editorial pattern as the homepage
  * ServicesSection, with richer per-row content (title + tagline +
- * "Plans from $99/mo" pricing pointer + "Read more" link to the
- * service detail page).
+ * per-service starting price + "Read more" link to the service detail
+ * page).
  *
  * Replaces the prior tab/panel widget (ServicesShowcase had a flip-card-
  * adjacent two-column composition with rounded-2xl bg-primary panels,
@@ -17,12 +17,14 @@ import { services } from "@/lib/services-data";
  * forbidden above headings.").
  *
  * Source of truth for service entries is lib/services-data.ts (slug,
- * title, tagline). The prior component had its own hard-coded services
- * array with per-service "starting at" prices ($99–$2,000) that did
- * not reconcile with the locked /pricing tiers ($99/$149/$249 monthly
- * bundles); those are dropped here in favor of a single global "Plans
- * from $99/mo" reference per row that points at the published
- * pricing — no invented per-service numbers.
+ * title, tagline, startingAt). The prior version of this rebuild
+ * displayed a single global "Plans from $99/mo" string on every row,
+ * but that under-sold every service except the website tier and
+ * confused visitors who expected à la carte pricing on a services
+ * index. Per-service starting prices were restored 2026-04-28; they
+ * intentionally diverge from the /pricing page bundles ($99/$149/$249)
+ * because /pricing sells whole-stack engagements while /services lets
+ * a prospect price a single channel.
  */
 
 const romanNumerals = [
@@ -148,7 +150,7 @@ export default function ServicesShowcase() {
                       color: "var(--color-gray)",
                     }}
                   >
-                    Plans from $99/mo
+                    {service.startingAt}
                   </span>
                   <span
                     className="hidden h-3 w-px bg-border sm:inline-block"
