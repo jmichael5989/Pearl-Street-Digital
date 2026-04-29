@@ -10,7 +10,10 @@ import { ImageResponse } from "next/og";
  */
 
 export const runtime = "edge";
-export const size = { width: 32, height: 32 };
+// 96×96 to clear Google's SERP favicon 48px minimum (anything below 48
+// gets replaced by their globe fallback). Multiple of 48 keeps the
+// icon eligible at every scaling tier Google uses.
+export const size = { width: 96, height: 96 };
 export const contentType = "image/png";
 
 async function loadGoogleFont(family: string, weight: number) {
@@ -42,13 +45,13 @@ export default async function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: "1px",
+          gap: "3px",
         }}
       >
         <span
           style={{
             fontFamily: "Source Serif 4",
-            fontSize: 24,
+            fontSize: 72,
             fontWeight: 600,
             color: "#14213D",
             lineHeight: 1,
@@ -57,7 +60,7 @@ export default async function Icon() {
           R
         </span>
         {/* Upward arrow as a single-line glyph */}
-        <svg width="10" height="20" viewBox="0 0 10 20">
+        <svg width="30" height="60" viewBox="0 0 10 20">
           <line
             x1="5"
             y1="18"
