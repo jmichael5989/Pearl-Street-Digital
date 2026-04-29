@@ -61,22 +61,48 @@ export default function GlassHeader({
       >
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex h-[100px] items-center justify-between">
-            <Link
-              href="/"
-              className="font-heading text-text-on-dark"
-              style={{
-                fontSize: "1.125rem",
-                fontWeight: 400,
-                letterSpacing: "-0.005em",
-                lineHeight: 1,
-              }}
-              onClick={() => setMenuOpen(false)}
-              aria-label="Rank Point Media — home"
-            >
-              Rank{" "}
-              <em className="font-normal italic text-accent-dark">Point</em>{" "}
-              Media
-            </Link>
+            {/* Wordmark + descriptor slug — matches the LegacyHeader
+                lockup so all routes share the same brand mark. */}
+            <div className="flex items-center gap-4">
+              <Link
+                href="/"
+                className="font-heading text-text-on-dark"
+                style={{
+                  fontSize: "1.125rem",
+                  fontWeight: 400,
+                  letterSpacing: "-0.005em",
+                  lineHeight: 1,
+                }}
+                onClick={() => setMenuOpen(false)}
+                aria-label="Rank Point Media — home"
+              >
+                Rank{" "}
+                <em className="font-normal italic text-accent-dark">Point</em>{" "}
+                Media
+              </Link>
+
+              {/* Brass hairline + stacked descriptor — small-business
+                  category slug to the right of the wordmark. Hidden below
+                  sm to keep the mobile header uncluttered. */}
+              <div
+                className="hidden sm:flex items-center gap-3"
+                aria-hidden="true"
+              >
+                <div className="h-9 w-px bg-accent-dark" />
+                <div
+                  className="font-body flex flex-col uppercase font-semibold text-text-on-dark-muted"
+                  style={{
+                    fontSize: "0.5625rem",
+                    letterSpacing: "0.18em",
+                    lineHeight: 1.25,
+                  }}
+                >
+                  <span>Web</span>
+                  <span>Service</span>
+                  <span>Agency</span>
+                </div>
+              </div>
+            </div>
 
             <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
