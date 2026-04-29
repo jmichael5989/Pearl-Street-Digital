@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
 
 /**
  * Favicon — generated at request time via ImageResponse so it stays in
@@ -7,34 +8,28 @@ import { ImageResponse } from "next/og";
  * Design: navy serif "R" left, navy upward arrow right, warm-white
  * background. Same composition reused at apple-icon size (180x180);
  * see app/apple-icon.tsx.
+ *
+ * 96×96 to clear Google's SERP favicon 48px minimum (anything below 48
+ * gets replaced by their globe fallback). Multiple of 48 keeps the
+ * icon eligible at every scaling tier Google uses.
+ *
+ * Font is loaded from a co-located TTF instead of fetched at request
+ * time. The previous fetch-from-fonts.googleapis.com pattern broke for
+ * two reasons: (1) the edge runtime's fetch was failing in production,
+ * and (2) Google's CSS now returns .ttf rather than the .woff2 the
+ * previous regex expected. Bundling the binary makes this route
+ * deterministic and removes a runtime network dependency.
  */
 
-export const runtime = "edge";
-// 96×96 to clear Google's SERP favicon 48px minimum (anything below 48
-// gets replaced by their globe fallback). Multiple of 48 keeps the
-// icon eligible at every scaling tier Google uses.
+export const runtime = "nodejs";
 export const size = { width: 96, height: 96 };
 export const contentType = "image/png";
 
-async function loadGoogleFont(family: string, weight: number) {
-  const url = `https://fonts.googleapis.com/css2?family=${family.replace(
-    / /g,
-    "+",
-  )}:wght@${weight}&display=swap`;
-  const css = await fetch(url, {
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    },
-  }).then((r) => r.text());
-  const fontUrl = css.match(/url\((https:\/\/[^)]+\.woff2)\)/)?.[1];
-  if (!fontUrl) throw new Error(`No font URL for ${family} ${weight}`);
-  return fetch(fontUrl).then((r) => r.arrayBuffer());
-}
+const sourceSerif600 = readFileSync(
+  new URL("./_fonts/source-serif-4-600.ttf", import.meta.url),
+);
 
 export default async function Icon() {
-  const serif = await loadGoogleFont("Source Serif 4", 600);
-
   return new ImageResponse(
     (
       <div
@@ -86,7 +81,7 @@ export default async function Icon() {
       fonts: [
         {
           name: "Source Serif 4",
-          data: serif,
+          data: sourceSerif600,
           weight: 600,
           style: "normal",
         },

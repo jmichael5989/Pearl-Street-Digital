@@ -1,33 +1,23 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
 
 /**
  * Apple touch icon — 180x180 per iOS spec. Same R + upward-arrow
  * composition as the favicon (app/icon.tsx) at homescreen scale.
+ *
+ * Font is loaded from a co-located TTF for the same reasons as
+ * app/icon.tsx — see that file for context.
  */
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-async function loadGoogleFont(family: string, weight: number) {
-  const url = `https://fonts.googleapis.com/css2?family=${family.replace(
-    / /g,
-    "+",
-  )}:wght@${weight}&display=swap`;
-  const css = await fetch(url, {
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-    },
-  }).then((r) => r.text());
-  const fontUrl = css.match(/url\((https:\/\/[^)]+\.woff2)\)/)?.[1];
-  if (!fontUrl) throw new Error(`No font URL for ${family} ${weight}`);
-  return fetch(fontUrl).then((r) => r.arrayBuffer());
-}
+const sourceSerif600 = readFileSync(
+  new URL("./_fonts/source-serif-4-600.ttf", import.meta.url),
+);
 
 export default async function AppleIcon() {
-  const serif = await loadGoogleFont("Source Serif 4", 600);
-
   return new ImageResponse(
     (
       <div
@@ -78,7 +68,7 @@ export default async function AppleIcon() {
       fonts: [
         {
           name: "Source Serif 4",
-          data: serif,
+          data: sourceSerif600,
           weight: 600,
           style: "normal",
         },
