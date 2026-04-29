@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
     role: "Design, marketing & social",
     photo: "/images/team/stacie.jpg",
     photoPosition: "center top",
-    bio: "Stacie heads up design, marketing, and social media for Rank Point Media. She holds a graphic design degree from the University of Texas at San Antonio and has built her career inside both web and interior design firms — a background that shapes how RPM approaches visual identity for local businesses.",
+    bio: "Stacie leads design, marketing, and social media at Rank Point Media. She holds a graphic design degree from the University of Texas at San Antonio and has built her career across web and interior design firms — a dual background that shapes how RPM approaches visual identity for local businesses.",
   },
   {
     name: "George",
