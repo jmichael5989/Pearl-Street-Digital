@@ -43,6 +43,8 @@ interface CalEmbedAPI {
  * 30-minute setup 2026-04-26 because 30-min slots were surfacing too
  * many availabilities and undersignaling the time commitment).
  */
+const CAL_EMBED_SRC = "https://app.cal.com/embed/embed.js";
+
 export default function Consultation() {
   // Track whether Cal injected its iframe (loaded) and whether we should
   // surface the prominent cal.com fallback CTA (slow). The slow flag
@@ -50,11 +52,48 @@ export default function Consultation() {
   // visitors get a real navy button to book directly on cal.com so a
   // sluggish embed never costs a booking. Once the iframe is in the DOM
   // the slow fallback is cleared in favor of the live widget.
+  //
+  // shouldLoadCal gates the bootstrap behind an IntersectionObserver so
+  // the embed script only loads when the section is near the viewport
+  // (or the page is opened to #talk-to-us). Cuts wasted requests for
+  // visitors who never scroll past the hero, frees the page LCP from
+  // competing with embed.js, and reduces the perceived "loading" window
+  // by deferring the slow-fallback timer until the section is actually
+  // in view.
   const [calLoaded, setCalLoaded] = useState(false);
   const [showSlowFallback, setShowSlowFallback] = useState(false);
+  const [shouldLoadCal, setShouldLoadCal] = useState(false);
   const calLoadedRef = useRef(false);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    // If Cal already booted in a prior mount (e.g. SPA back-navigation
+    // with the script cached on window), skip the observer and let the
+    // bootstrap effect run immediately.
+    if (window.Cal?.loaded) {
+      setShouldLoadCal(true);
+      return;
+    }
+    const target = document.getElementById("cal-consultation-embed");
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShouldLoadCal(true);
+          observer.disconnect();
+        }
+      },
+      // 600px lead time — by the time the user scrolls into view the
+      // script + first iframe paint are typically done. Tuned for the
+      // homepage flow where the hero alone is ~1 viewport tall.
+      { rootMargin: "600px 0px" }
+    );
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoadCal) return;
     if (typeof window === "undefined") return;
     if (window.Cal?.loaded) return;
 
@@ -100,7 +139,22 @@ export default function Consultation() {
           }
           p(cal, ar);
         } as unknown as CalEmbedAPI);
-    })(window, "https://app.cal.com/embed/embed.js", "init");
+    })(window, CAL_EMBED_SRC, "init");
+
+    // Surface the fallback the moment embed.js fails — 404, ad-blocker
+    // (uBlock/AdGuard list cal.com), CSP block, DNS failure, etc. The
+    // 3s slow-timer below catches "merely slow"; this listener catches
+    // "definitively broken" without making the visitor wait.
+    const scriptEl = document.querySelector<HTMLScriptElement>(
+      `script[src="${CAL_EMBED_SRC}"]`
+    );
+    const handleScriptError = () => {
+      if (!calLoadedRef.current) setShowSlowFallback(true);
+    };
+    if (scriptEl && !scriptEl.dataset.errorBound) {
+      scriptEl.dataset.errorBound = "true";
+      scriptEl.addEventListener("error", handleScriptError);
+    }
 
     window.Cal!("init", "consultation", { origin: "https://cal.com" });
     window.Cal!.ns.consultation("inline", {
@@ -155,8 +209,9 @@ export default function Consultation() {
     return () => {
       observer.disconnect();
       window.clearTimeout(slowTimer);
+      scriptEl?.removeEventListener("error", handleScriptError);
     };
-  }, []);
+  }, [shouldLoadCal]);
 
   return (
     <section
