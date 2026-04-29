@@ -267,7 +267,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Social media marketing for San Antonio businesses. Content creation, scheduling, community management, and analytics across Instagram, Facebook, and LinkedIn.",
     iconName: "share",
-    startingAt: "Plans from $99/mo",
+    startingAt: "Plans from $149/mo",
     overview: {
       heading: "Build a Local Following That Converts",
       paragraphs: [
@@ -372,7 +372,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Google Ads and PPC management for San Antonio businesses. Targeted campaigns, keyword research, and conversion tracking. Pay only for results.",
     iconName: "target",
-    startingAt: "Plans from $99/mo + ad spend",
+    startingAt: "Plans from $149/mo + ad spend",
     overview: {
       heading: "Get Leads Today, Not Six Months From Now",
       paragraphs: [
@@ -702,7 +702,7 @@ export const services: ServiceData[] = [
     metaDescription:
       "Email marketing for San Antonio businesses. Campaign strategy, list building, template design, and automated flows that drive repeat sales and customer loyalty.",
     iconName: "mail",
-    startingAt: "Plans from $99/mo",
+    startingAt: "From $99 setup",
     overview: {
       heading: "The Highest ROI Channel You're Probably Ignoring",
       paragraphs: [
