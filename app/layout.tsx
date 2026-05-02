@@ -118,6 +118,30 @@ export default function RootLayout({
           data-website-id="2bef9653-2613-43bc-bffb-e172adc8757f"
           strategy="afterInteractive"
         />
+        {/* Google Analytics 4 (gtag.js) — production only. We gate on
+            VERCEL_ENV so localhost dev traffic and Vercel preview
+            deployments don't pollute the GA4 property. The root layout
+            is a Server Component, so this branch runs at request time
+            and the script tags are simply omitted from non-prod HTML.
+            afterInteractive so it doesn't block first paint; gtag.js
+            installs a History API listener on `config`, so App Router
+            client-side navigations still fire pageviews. */}
+        {process.env.VERCEL_ENV === "production" && (
+          <>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-ZB14MHHYD8"
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-ZB14MHHYD8');
+              `}
+            </Script>
+          </>
+        )}
       </head>
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
         <script
