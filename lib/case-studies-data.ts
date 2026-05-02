@@ -65,7 +65,7 @@ export const caseStudies: CaseStudy[] = [
     heroImageAlt:
       "Modern Day Pest Control website homepage preview",
     featured: true,
-    publishedAt: "2026-03-15",
+    publishedAt: "2026-05-02",
     challenge:
       "Modern Day Pest Control is a San Antonio pest control business competing in a crowded market dominated by national brands like Orkin and Terminix. When a homeowner spots a roach or a wasp nest, they grab their phone and search -- whoever shows up first gets the call. The business needed a professional online presence that could compete with the national chains, load instantly on mobile, and make it trivial for new customers to request service without waiting on hold.",
     approach:
