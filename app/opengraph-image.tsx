@@ -6,8 +6,8 @@ import { ImageResponse } from "next/og";
  * static `/og-image.png` reference that was 404ing in social previews.
  *
  * Composition: navy background, brass eyebrow, brand wordmark in serif
- * with italic brass "Point", and the locked tagline ("Higher rankings.
- * More customers.") as the dominant element. 1200x630 per the OG spec.
+ * with italic brass "Point", and the locked tagline ("Websites that
+ * Rank.") as the dominant element. 1200x630 per the OG spec.
  *
  * Fonts are fetched from Google Fonts at build/render time. The CSS
  * endpoint must be hit with a desktop User-Agent so it returns woff2
@@ -19,7 +19,7 @@ export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
-  "Rank Point Media — Higher rankings. More customers. San Antonio digital agency.";
+  "Rank Point Media — Websites that Rank. San Antonio digital agency.";
 
 async function loadGoogleFont(
   family: string,
@@ -104,8 +104,7 @@ export default async function Image() {
               gap: "0.3em",
             }}
           >
-            <span>Higher rankings.</span>
-            <span style={{ fontStyle: "italic" }}>More customers.</span>
+            <span>Websites that Rank.</span>
           </div>
         </div>
 
