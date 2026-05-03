@@ -1,42 +1,74 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment, useEffect, useRef } from "react";
 
 /**
  * Homepage hero. Two-column editorial composition per the option-b.html
  * mock locked at .impeccable.md Resolved Decisions §4 (palette pivot).
  *
- * Composition:
- *   - Warm-white section background. The prior dark-navy hero (commit
- *     c69a11d) is superseded by the mock's lighter editorial register —
- *     dark sections on the homepage are now the footer only. .impeccable.md
- *     Theme direction said "dark sections are used sparingly... for the
- *     hero and CTA banner or footer"; the mock relegates dark to the
- *     footer alone, which the owner picked.
- *   - Numbered eyebrow with italic-serif section number ("01") in brass +
- *     sans uppercase letter-spaced label, matching the option-b mock.
- *   - Two columns on desktop (1.2fr text / 0.8fr aside), stacks on mobile.
- *   - H1 is the locked brand tagline ("Higher rankings. More customers.")
- *     so a cold visitor reads the category and value within one second.
- *     The aside pull-quote carries the two-person positioning ("you hire
- *     us, you get us — not a team behind a team") in plainspoken language;
- *     the prior "Nobody is ever 'looped in.'" line was retired 2026-04-25
- *     on owner review as too cryptic for a service business.
- *   - Subline names the disciplines (websites, SEO, Google Ads) plus the
- *     positioning beat ("in front of the work") so the H1's commercial
- *     promise lands with concrete services rather than abstract claims.
- *   - Two CTAs: primary is solid navy with hard-edged 1px border (per
- *     CLAUDE.md Colors §4 button spec); anchors to the Cal.com Consultation
- *     embed below. Secondary is transparent + navy border + navy text;
- *     inverts on hover.
+ * MOTION PREVIEW (2026-05-03 — owner evaluation pass): four candidate
+ * motion treatments are layered on the previously-static composition so
+ * the owner can pick which to keep. All motions are GPU-only (transform
+ * / opacity), gated on prefers-reduced-motion: no-preference, and run
+ * once on mount except Ken Burns which alternates indefinitely.
+ *   - Ken Burns: Tower decorative photo scales 1 → 1.008 over 22s,
+ *     ease-in-out, alternate. ~0.4% peak — barely perceptible "the page
+ *     is breathing" register.
+ *   - Eyebrow rule: a 56px brass hairline draws in beneath the "01 /
+ *     Rank Point Media" eyebrow on mount, scaleX(0) → scaleX(1).
+ *   - Type-in headline: each word fades + rises in sequence, 60ms
+ *     stagger, 320ms per word — finishes well under the 800ms ceiling.
+ *   - Soft parallax: Tower wrapper translates at 0.08 × scrollY. Wrapper
+ *     extends ±64px past the section so translation never exposes an
+ *     edge. requestAnimationFrame'd, passive scroll listener.
  *
- * Photography: the photo placeholder from the prior Hero is intentionally
- * removed — the pull-quote aside delivers comparable trust signal without
- * a placeholder feeling unfinished. Real photography of Jon, Stacie, and
- * George remains a Pre-Launch Checklist item; when those photos exist
- * they can be added back as a dedicated section below the hero or composed
- * into the aside slot.
+ * Headline: "Websites that Rank" (set 2026-05-03, owner pick). Overrides
+ * the locked tagline ("Higher rankings. More customers.") in CLAUDE.md;
+ * the brand identity Tagline line in CLAUDE.md still reads the old
+ * value and may need owner review for consistency.
+ *
+ * Word spacing: each word lives in its own inline-block span so the
+ * type-in stagger can target words individually. Spaces between words
+ * are rendered as literal text-node spaces *between* the spans, not
+ * trailing whitespace *inside* them — CSS collapses internal trailing
+ * whitespace on inline-block boxes, which would glue words together.
  */
+
+const HEADLINE_WORDS = ["Websites", "that", "Rank"];
+const WORD_STAGGER_MS = 60;
+
 export default function Hero() {
+  const parallaxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const el = parallaxRef.current;
+    if (!el) return;
+
+    let raf: number | null = null;
+    const update = () => {
+      raf = null;
+      const y = window.scrollY * 0.08;
+      el.style.transform = `translate3d(0, ${y}px, 0)`;
+    };
+    const onScroll = () => {
+      if (raf !== null) return;
+      raf = requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf !== null) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <section
       aria-label="Introducing Rank Point Media"
@@ -46,16 +78,64 @@ export default function Hero() {
         paddingBottom: "clamp(48px, 8vh, 96px)",
       }}
     >
+      <style>{`
+        @keyframes hero-ken-burns {
+          0%   { transform: scale(1); }
+          100% { transform: scale(1.008); }
+        }
+        @keyframes hero-word-rise {
+          0%   { opacity: 0; transform: translateY(0.35em); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes hero-rule-draw {
+          0%   { transform: scaleX(0); }
+          100% { transform: scaleX(1); }
+        }
+        .hero-ken-burns {
+          animation: hero-ken-burns 22s ease-in-out infinite alternate;
+          transform-origin: center center;
+          will-change: transform;
+        }
+        .hero-word {
+          display: inline-block;
+          opacity: 0;
+          will-change: opacity, transform;
+          animation: hero-word-rise 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+        }
+        .hero-rule {
+          display: block;
+          width: 56px;
+          height: 1px;
+          background: var(--color-accent);
+          transform: scaleX(0);
+          transform-origin: left center;
+          animation: hero-rule-draw 0.6s 0.18s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+        }
+        .hero-parallax {
+          will-change: transform;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .hero-ken-burns,
+          .hero-word,
+          .hero-rule,
+          .hero-parallax {
+            animation: none !important;
+            transform: none !important;
+            opacity: 1 !important;
+          }
+        }
+      `}</style>
+
       {/* Decorative editorial photo — fills the empty left viewport margin
           on wide screens with a small portrait of the Tower of the Americas.
-          Hairline border keeps it framed as an editorial object on the
-          warm-white surface (no gradient bleed — that pattern only works
-          when fading into navy). Hidden below lg where there is no margin
-          to fill. Decorative; the eyebrow's literal "01 / Rank Point
-          Media" carries the actual section semantics. */}
+          Wrapper extends ±64px past the section (top/bottom) so the parallax
+          translation never exposes a hard edge. The Ken Burns scale lives on
+          the Image; the parallax translate lives on this wrapper, so the two
+          transforms don't fight over the same property. Hidden below lg. */}
       <div
+        ref={parallaxRef}
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 hidden lg:block select-none overflow-hidden"
+        className="hero-parallax pointer-events-none absolute -top-16 -bottom-16 left-0 hidden lg:block select-none overflow-hidden"
         style={{
           width: "max(220px, calc((100vw - 82rem) / 2 + 12rem))",
           maxWidth: "30vw",
@@ -69,7 +149,7 @@ export default function Hero() {
             priority
             quality={75}
             sizes="30vw"
-            className="object-cover"
+            className="hero-ken-burns object-cover"
             style={{ objectPosition: "center top" }}
           />
           {/* Right-edge gradient — fades the image into the warm-white
@@ -87,7 +167,8 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-        {/* Eyebrow — italic-serif "01" in brass + sans label */}
+        {/* Eyebrow — italic-serif "01" in brass + sans label, with an
+            animated brass rule that draws in beneath. */}
         <header className="mb-12 lg:mb-16">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             <span className="font-heading text-base font-normal italic mr-1">
@@ -95,6 +176,7 @@ export default function Hero() {
             </span>
             &nbsp;/&nbsp; Rank Point Media
           </div>
+          <span className="hero-rule mt-3" aria-hidden="true" />
         </header>
 
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start lg:gap-16">
@@ -110,8 +192,17 @@ export default function Hero() {
                 margin: 0,
               }}
             >
-              Higher rankings.{" "}
-              <em className="font-normal italic">More customers.</em>
+              {HEADLINE_WORDS.map((word, i) => (
+                <Fragment key={`${word}-${i}`}>
+                  {i > 0 && " "}
+                  <span
+                    className="hero-word"
+                    style={{ animationDelay: `${i * WORD_STAGGER_MS}ms` }}
+                  >
+                    {word}
+                  </span>
+                </Fragment>
+              ))}
             </h1>
 
             <p
