@@ -70,7 +70,7 @@ You are building the website for Rank Point Media, a two-person digital agency i
 ### Identity
 - **Brand Name**: Rank Point Media (DBA for JSL Innovations LLC)
 - **Location**: San Antonio, TX (Leon Springs area)
-- **Tagline**: "Higher rankings. More customers."
+- **Tagline**: "Websites that Rank." (set 2026-05-03; previously "Higher rankings. More customers.")
 
 ### Colors (LOCKED 2026-04-24 -- see .impeccable.md Resolved Decisions §4)
 - **Navy** `#14213D` -- primary. Body text, headings, CTA buttons, dark sections, footer.
@@ -111,7 +111,7 @@ The homepage hero matches the option-b.html mock's editorial two-column composit
 - Section background: `bg-light` (warm white `#FAFAF6`), bottom hairline `border-border`.
 - Editorial section header (eyebrow): italic-serif section number "01" in `text-accent` (brass) + sans uppercase letter-spaced label "Rank Point Media" (`text-xs font-semibold uppercase tracking-[0.16em]`). Same pattern repeats on every homepage section's header — the numbering is a **structural motif** per `.impeccable.md` Reference 1 (The Gentlewoman).
 - Two-column grid on desktop (`lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]`); stacks on mobile.
-- **Left column**: H1 is the locked brand tagline "Higher rankings. *More customers.*" with italic emphasis on the second clause. Subhead beneath: "Websites, SEO, and Google Ads for San Antonio small businesses. Two people in front of the work — not behind a layer of account managers." CTA row: primary navy button "Book a consultation" anchoring to `#talk-to-us` (the Cal.com Consultation section); secondary outline button "See how we work" linking to `/about`.
+- **Left column**: H1 is the locked brand tagline "Websites that Rank" (set 2026-05-03). Three words, no italic emphasis, no terminal period in the H1 itself (the period lives in the brand-mark form of the tagline only). The H1 is rendered word-by-word in inline-block spans so the type-in motion can stagger entrance — keep that structure if editing. Subhead beneath: "Websites, SEO, and Google Ads for San Antonio small businesses. Two people in front of the work — not behind a layer of account managers." CTA row: primary navy button "Book a consultation" anchoring to `#talk-to-us` (the Cal.com Consultation section); secondary outline button "See how we work" linking to `/about`.
 - **Right column (aside)**: pull-quote in italic Source Serif 4 carrying the two-person positioning: "You hire us, you get us — not a team behind a team. When the site launches, you talk to the person who built it. Once you're a client, you have a direct line to both of us." Cited "Jon Michael · Rank Point Media" with a hairline divider above the citation. On desktop, aside has `lg:border-l lg:border-border lg:pl-8 xl:pl-12`. The prior "Nobody is ever 'looped in.'" line (in both the H1 and aside) was retired 2026-04-25 as too cryptic for a service business.
 - **No photography in the hero.** Real photos of Jon, Stacie, and George are a Pre-Launch Checklist item (`.impeccable.md`); when those exist, they may be added as a dedicated section below the hero or composed into the aside slot. **Do not add photo placeholders.**
 - **No text-shadows.** The light editorial register makes them unnecessary, and they would read as "hero on photo bleed" performance — the brief's "do not perform" principle applies.
