@@ -94,6 +94,66 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    // Headless-Edge screenshot of bernaltrust.com hero captured
+    // 2026-05-03; thumbnail is a duplicate of the hero (same
+    // convention used for Appeal Pro AI and Lone Star Steak Critic).
+    // Worth re-cropping/downsizing the thumb later for grid
+    // performance since the case-studies index loads it small.
+    id: "bernal-trust",
+    slug: "bernal-trust",
+    client: "Bernal Trust",
+    industry: "Financial Services",
+    industrySlug: "financial-services",
+    services: ["Website Design", "Local SEO"],
+    outcomeHeadline:
+      "Custom Lead-Gen Site for a San Antonio Insurance Agent, Built to Convert",
+    summary:
+      "A trust-first lead-gen site for an independent San Antonio life insurance and wealth management agent. Built around the way real customers shop for insurance — clear service explanations, founder-forward trust signals, and three frictionless paths to a free consultation.",
+    heroMetrics: [
+      { value: "95+", label: "Lighthouse Performance" },
+      { value: "6", label: "Service Categories" },
+      { value: "<2s", label: "Page Load" },
+    ],
+    cardMetrics: [
+      { value: "95+", label: "Lighthouse" },
+      { value: "6 Services", label: "Categories" },
+    ],
+    thumbnailUrl: "/images/case-studies/bernal-trust-thumb.png",
+    thumbnailAlt:
+      "Bernal Trust homepage with founder portrait and tagline",
+    heroImageUrl: "/images/case-studies/bernal-trust-hero.png",
+    heroImageAlt:
+      "Bernal Trust homepage hero featuring founder Adrian Bernal and the tagline Protect What Matters. Build What Lasts.",
+    featured: false,
+    publishedAt: "2026-04-25",
+    challenge:
+      "Bernal Trust is an independent life insurance and wealth management agent in San Antonio competing in a category dominated by national brands like Northwestern Mutual, State Farm, and Prudential — companies that spend tens of millions on brand marketing and have the trust signals that come with century-old name recognition. An independent agent's edge is personal: real relationships, plain-English advice, and no commissioned upsell pressure. But a website is the first interaction most prospects have with the business, and a generic insurance template can't carry that personal positioning. The site needed to communicate competence and trust without feeling corporate, explain six different service categories without overwhelming the visitor, and make it trivial to request a free consultation through whichever path the visitor preferred — phone, form, or scheduled call.",
+    approach:
+      "We built Bernal Trust a custom-coded site on Next.js and Tailwind CSS designed around the way real people shop for life insurance — with anxiety, with questions, and with a strong preference for talking to a human before committing to anything. The hero leads with the founder's portrait and a plain-English value proposition (\"Protect What Matters. Build What Lasts.\") so the very first impression is a person, not a brand. Six service categories — term life, whole life, family protection plans, business coverage, retirement planning, and living benefits riders — each get their own clearly-written explanation rather than buried bullet points. Three consultation paths are surfaced from every screen: a prominent phone number in the header, a \"Free Consultation\" CTA button in the navigation, and a contact form below the fold. An FAQ accordion handles the common objections (cost, complexity, who needs it) inline so a hesitant visitor doesn't have to leave the page to find answers. LocalBusiness + FinancialService JSON-LD ships on every page so Google understands what the business does and where it serves.",
+    outcomes: [
+      {
+        title: "Founder-forward trust signals built into page architecture",
+        description:
+          "The hero leads with Adrian Bernal's portrait and a plain-English tagline rather than stock imagery and corporate jargon. Trust signals are structural — not bolted on as a sidebar widget — so every visit reinforces the personal positioning that separates an independent agent from a national brand.",
+      },
+      {
+        title: "Six service categories explained in plain English",
+        description:
+          "Each service area gets a clearly-written summary that explains the product, who it's for, and what to expect — written for a homeowner or small business owner, not a licensing exam. No jargon, no nine-paragraph regulatory disclaimers above the explanation.",
+      },
+      {
+        title: "Three consultation paths surfaced site-wide",
+        description:
+          "Header phone number, persistent \"Free Consultation\" button, and an inline contact form below the fold. Whichever path the visitor prefers — phone, click, or write — is one tap away from any page.",
+      },
+      {
+        title: "Local SEO foundation for San Antonio + surrounding metro",
+        description:
+          "LocalBusiness + FinancialService JSON-LD schema on every page, geo-tagged meta, and copy written around real San Antonio search intent (\"life insurance san antonio\", \"independent insurance agent san antonio\"). Built so the site can rank for high-intent local queries without depending on paid ads to drive traffic.",
+      },
+    ],
+  },
+  {
     // Real owner-provided assets (2026-04-26). Both are PNGs (Windows
     // saved as .png; do not re-extension to .webp without an actual
     // re-encode). Thumbnail is currently a full-resolution copy of the
