@@ -1,0 +1,26 @@
+{
+  "dentists": {
+    "slug": "dentists",
+    "displayName": "Dentists",
+    "displayNamePlural": "Dental Practices",
+    "singularNoun": "dental practice",
+    "avgTicket": "$200 to $2,000 per visit",
+    "icon": "Stethoscope"
+  },
+  "hvac": {
+    "slug": "hvac",
+    "displayName": "HVAC",
+    "displayNamePlural": "HVAC Companies",
+    "singularNoun": "HVAC company",
+    "avgTicket": "$150 service to $8,000+ replacement",
+    "icon": "Wind"
+  },
+  "restaurants": {
+    "slug": "restaurants",
+    "displayName": "Restaurants",
+    "displayNamePlural": "Restaurants",
+    "singularNoun": "restaurant",
+    "avgTicket": "Varies by segment",
+    "icon": "UtensilsCrossed"
+  }
+}

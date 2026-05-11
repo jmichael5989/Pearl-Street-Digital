@@ -3,6 +3,7 @@ import { services } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
 import { caseStudies } from "@/lib/case-studies-data";
 import { blogPosts } from "@/lib/blog-data";
+import { getAllCombinations } from "@/lib/local-matrix/matrix";
 
 /**
  * Dynamic sitemap. Reads from the data files so new services,
@@ -67,11 +68,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
+  // Local Matrix programmatic SEO routes. Gated on MATRIX_PAGES_LIVE
+  // (must be exactly the string "true") so the 24 detail pages stay
+  // out of the sitemap until the owner flips them on. The matrix
+  // index page (/local) is intentionally never in the sitemap.
+  const matrixRoutes: MetadataRoute.Sitemap =
+    process.env.MATRIX_PAGES_LIVE === "true"
+      ? getAllCombinations().map((t) => ({
+          url: `${baseUrl}/local/${t.service}/${t.vertical}/${t.neighborhood}`,
+          lastModified: v,
+          changeFrequency: "monthly" as const,
+          priority: 0.5,
+        }))
+      : [];
+
   return [
     ...staticRoutes,
     ...serviceRoutes,
     ...industryRoutes,
     ...caseStudyRoutes,
     ...blogRoutes,
+    ...matrixRoutes,
   ];
 }
