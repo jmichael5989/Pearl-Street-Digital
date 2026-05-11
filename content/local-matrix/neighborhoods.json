@@ -1,0 +1,18 @@
+{
+  "stone-oak": {
+    "slug": "stone-oak",
+    "displayName": "Stone Oak",
+    "zipCodes": ["78258", "78259"],
+    "adjacentAreas": ["Sonterra", "Encino Park", "Hollywood Park"],
+    "majorCorridors": ["Stone Oak Parkway", "TX-281", "Loop 1604"],
+    "icon": "MapPin"
+  },
+  "alamo-heights": {
+    "slug": "alamo-heights",
+    "displayName": "Alamo Heights",
+    "zipCodes": ["78209"],
+    "adjacentAreas": ["Olmos Park", "Terrell Hills", "Mahncke Park"],
+    "majorCorridors": ["Broadway", "Austin Highway", "Loop 410"],
+    "icon": "MapPin"
+  }
+}
