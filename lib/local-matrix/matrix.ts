@@ -210,36 +210,43 @@ const Q1_PRICING_DETAIL: Record<ServiceSlug, (v: Vertical, n: Neighborhood) => s
       hvac: `'AC repair ${n.displayName}' is a tighter fight than 'AC repair San Antonio.'`,
       restaurants: `'Lunch ${n.displayName}' is a calmer fight than 'best tacos San Antonio.'`,
     };
-    return `The number moves with how competitive the Map Pack is for your specific terms. ${examples[v.slug as VerticalSlug]}`;
+    return `varies based on how competitive the Map Pack is for your specific terms. ${examples[v.slug as VerticalSlug]}`;
   },
   "website-design": (v) => {
     const factors: Record<VerticalSlug, string> = {
-      dentists: "an insurance-accepted page or a before-and-after gallery on the site",
+      dentists: "an insurance-accepted page or a before-and-after gallery",
       hvac: "a service-area map and financing-options content",
       restaurants: "reservations integration or online ordering integration",
     };
-    return `Build-only options also exist if you'd rather host elsewhere. Scope drives the rest of the number, mainly how many pages and whether the site needs ${factors[v.slug as VerticalSlug]}.`;
+    return `depends on scope, mainly how many pages you need and whether the site has to handle ${factors[v.slug as VerticalSlug]}. Build-only options exist if you'd rather host the site yourself after launch.`;
   },
   "ppc-google-ads": (v) => {
-    const ranges: Record<VerticalSlug, string> = {
-      dentists: "$1,500 and $5,000",
-      hvac: "$2,000 and $10,000",
-      restaurants: "$500 and $2,500",
+    const drivers: Record<VerticalSlug, string> = {
+      dentists:
+        "how aggressively you want to bid on cosmetic and specialty keywords versus general 'dentist near me' searches",
+      hvac:
+        "whether you're running Local Service Ads alongside traditional Search and how hard you want to fight for emergency repair clicks in peak summer",
+      restaurants:
+        "whether the ads are running for catering bookings or brand-search defense, since those are the only two cases the math really pencils for a restaurant",
     };
-    return `That's management. Ad spend is on top, and most ${PLURAL_LOWER[v.slug as VerticalSlug]} run between ${ranges[v.slug as VerticalSlug]} a month in spend depending on how aggressive you want to be.`;
+    return `depends on ${drivers[v.slug as VerticalSlug]}. Ad spend is on top of management and scales with how competitive your specific keyword set is.`;
   },
-  "social-media": () => {
-    return "The number moves with channel mix and whether you need photo or short-form video production on top of management.";
+  "social-media": (v) => {
+    const drivers: Record<VerticalSlug, string> = {
+      dentists:
+        "channel mix and whether you need photography or short-form video production on top of monthly management",
+      hvac:
+        "how much of the work is posting versus showing up in neighborhood Facebook groups, plus whether you need photo or short-form video production",
+      restaurants:
+        "how heavy the photo and short-form video load is, since food content lives or dies on production cadence more than copy",
+    };
+    return `depends on ${drivers[v.slug as VerticalSlug]}.`;
   },
 };
 
 function generateQ1(service: Service, vertical: Vertical, neighborhood: Neighborhood): string {
   const detail = Q1_PRICING_DETAIL[service.slug](vertical, neighborhood);
-  const pricePrefix =
-    service.slug === "ppc-google-ads"
-      ? `Our Google Ads engagements start at $${service.startingPrice} a month for management`
-      : `Our ${service.displayName} engagements start at $${service.startingPrice} a month`;
-  return `${pricePrefix}, and most ${neighborhood.displayName} ${PLURAL_LOWER[vertical.slug as VerticalSlug]} land in that band. ${detail} Full pricing lives on our pricing page; nothing's hidden behind a "contact us."`;
+  return `Pricing for ${service.displayName} for ${neighborhood.displayName} ${PLURAL_LOWER[vertical.slug as VerticalSlug]} ${detail} Full pricing lives on our pricing page, nothing hidden behind a "contact us."`;
 }
 
 function generateQ2(service: Service): string {

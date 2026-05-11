@@ -21,7 +21,6 @@ export interface Service {
   shortDesc: string;
   canonicalPath: string;
   deliverables: string[];
-  startingPrice: number;
   icon: string;
 }
 

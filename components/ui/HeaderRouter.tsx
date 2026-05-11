@@ -10,7 +10,7 @@ import LegacyHeader from "./LegacyHeader";
 // After the DarkHero rollout, only /industries (overview) and the /blog
 // surface (index + post detail) still have light editorial heroes.
 const LIGHT_HERO_EXACT = new Set<string>(["/industries"]);
-const LIGHT_HERO_PREFIXES = ["/blog"];
+const LIGHT_HERO_PREFIXES = ["/blog", "/local"];
 
 function isLightHeroRoute(pathname: string): boolean {
   if (LIGHT_HERO_EXACT.has(pathname)) return true;

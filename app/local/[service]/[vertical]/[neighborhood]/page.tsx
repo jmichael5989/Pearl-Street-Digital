@@ -246,12 +246,11 @@ export default async function LocalMatrixDetailPage({
               color: "var(--color-brand-text)",
             }}
           >
-            Starting at ${data.service.startingPrice}/mo.{" "}
             <Link
               href="/pricing"
               className="text-accent underline decoration-accent decoration-1 underline-offset-4 hover:text-text"
             >
-              See full pricing
+              See pricing
             </Link>
             .
           </p>
