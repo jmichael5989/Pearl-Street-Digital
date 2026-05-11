@@ -24,6 +24,11 @@ const baseUrl = "https://rankpointmedia.com";
 // and blog posts already use their own publishedAt.
 const SITE_CONTENT_VERSION = new Date("2026-04-26");
 
+// Matrix pages launch date — used for /local/* lastModified once
+// MATRIX_PAGES_LIVE is flipped on. Kept distinct from
+// SITE_CONTENT_VERSION so the matrix carries its own freshness signal.
+const MATRIX_LAUNCH_DATE = new Date("2026-05-11T00:00:00.000Z");
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const v = SITE_CONTENT_VERSION;
 
@@ -76,7 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     process.env.MATRIX_PAGES_LIVE === "true"
       ? getAllCombinations().map((t) => ({
           url: `${baseUrl}/local/${t.service}/${t.vertical}/${t.neighborhood}`,
-          lastModified: v,
+          lastModified: MATRIX_LAUNCH_DATE,
           changeFrequency: "monthly" as const,
           priority: 0.5,
         }))
