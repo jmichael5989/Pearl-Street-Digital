@@ -63,7 +63,7 @@ export default function AboutStory() {
           }}
         >
           <p>
-            Too many small businesses have been burned &mdash; long
+            Too many businesses have been burned &mdash; long
             contracts, recycled strategies, account managers who can&rsquo;t
             answer a question without escalating it. We started Rank Point
             Media because that&rsquo;s not how the work should feel.

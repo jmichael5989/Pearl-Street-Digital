@@ -45,7 +45,7 @@ export const services: ServiceData[] = [
       "Websites we hand-build, line by line. They load fast and they rank.",
     metaTitle: "Website Design San Antonio | Plans from $99/mo | Rank Point Media",
     metaDescription:
-      "Custom Next.js websites for San Antonio small businesses. Lighthouse 95+, launched in 2-3 weeks, plans from $99/month with hosting included.",
+      "Custom Next.js websites for San Antonio businesses. Lighthouse 95+, launched in 2-3 weeks, plans from $99/month with hosting included.",
     iconName: "globe",
     startingAt: "From $99/mo",
     overview: {
@@ -358,7 +358,7 @@ export const services: ServiceData[] = [
       {
         question: "Do you manage paid social ads?",
         answer:
-          "Paid social ad management is available at our premium tier. For most small businesses, we recommend starting with organic content and adding paid once you have a solid foundation.",
+          "Paid social ad management is available at our premium tier. For most businesses, we recommend starting with organic content and adding paid once you have a solid foundation.",
       },
     ],
     relatedSlugs: ["website-design", "reputation-management", "ppc-google-ads"],
@@ -448,7 +448,7 @@ export const services: ServiceData[] = [
       {
         question: "How much should I spend on Google Ads?",
         answer:
-          "For most San Antonio small businesses, $500-$2,000/month in ad spend is a solid starting point. We can work with smaller budgets but results scale with investment.",
+          "For most San Antonio businesses, $500-$2,000/month in ad spend is a solid starting point. We can work with smaller budgets but results scale with investment.",
       },
       {
         question: "How quickly will I see results?",
@@ -706,7 +706,7 @@ export const services: ServiceData[] = [
     overview: {
       heading: "The Highest ROI Channel You're Probably Ignoring",
       paragraphs: [
-        "For every dollar spent on email marketing, businesses earn an average of $36 back. It outperforms social media, ads, and SEO on pure return -- yet most San Antonio small businesses either never use it or send the wrong kind of emails. We fix both.",
+        "For every dollar spent on email marketing, businesses earn an average of $36 back. It outperforms social media, ads, and SEO on pure return -- yet most San Antonio businesses either never use it or send the wrong kind of emails. We fix both.",
         "We build campaigns that feel personal, not promotional. Segmented lists, clean templates, and automated flows that turn one-time customers into loyal repeat buyers. Everything is written in your voice and designed to drive measurable action.",
       ],
       highlights: [

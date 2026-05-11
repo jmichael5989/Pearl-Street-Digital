@@ -90,7 +90,7 @@ export default function AustinLanding() {
         </div>
       </section>
 
-      {/* 02 — What we build for Austin small businesses */}
+      {/* 02 — What we build for Austin businesses */}
       <section
         id="services"
         aria-labelledby="austin-services-heading"
@@ -136,7 +136,7 @@ export default function AustinLanding() {
             }}
           >
             We do not run a feature factory. Three things, done well, for the
-            small businesses we take on &mdash; the same three for Austin
+            businesses we take on &mdash; the same three for Austin
             clients as for San Antonio.
           </p>
 

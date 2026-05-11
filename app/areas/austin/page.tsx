@@ -34,7 +34,7 @@ import AustinLanding from "@/components/sections/AustinLanding";
 export const metadata: Metadata = {
   title: "Web Design Austin | Rank Point Media",
   description:
-    "Custom-coded websites, local SEO, and Google Ads for Austin small businesses. From Rank Point Media — a two-person agency in San Antonio.",
+    "Custom-coded websites, local SEO, and Google Ads for Austin businesses. From Rank Point Media — a two-person agency in San Antonio.",
   robots: { index: false, follow: true },
   alternates: { canonical: "https://rankpointmedia.com/areas/austin" },
 };
@@ -45,9 +45,9 @@ export default function AustinPage() {
       <main>
         <DarkHero
           kicker="AUSTIN, TX"
-          headline="Custom websites for Austin small businesses."
+          headline="Custom websites for Austin businesses."
           headlineAccent="Austin"
-          subheadline="Custom-coded websites, local SEO, and Google Ads for small businesses in Austin and central Texas. Two people in front of the work — not behind a layer of account managers."
+          subheadline="Custom-coded websites, local SEO, and Google Ads for businesses in Austin and central Texas. Two people in front of the work — not behind a layer of account managers."
           primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}
           showMockups={false}

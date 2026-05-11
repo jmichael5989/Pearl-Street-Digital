@@ -11,7 +11,7 @@ import CityPlaceholder from "@/components/sections/CityPlaceholder";
 export const metadata: Metadata = {
   title: "Web Design Dallas | Rank Point Media",
   description:
-    "Custom-coded websites, local SEO, and Google Ads for Dallas small businesses. From Rank Point Media — a two-person agency based in San Antonio expanding into the DFW metro.",
+    "Custom-coded websites, local SEO, and Google Ads for Dallas businesses. From Rank Point Media — a two-person agency based in San Antonio expanding into the DFW metro.",
   robots: { index: false, follow: true },
   alternates: { canonical: "https://rankpointmedia.com/areas/dallas" },
 };
@@ -22,9 +22,9 @@ export default function DallasPage() {
       <main>
         <DarkHero
           kicker="DALLAS"
-          headline="Custom websites for Dallas small businesses."
+          headline="Custom websites for Dallas businesses."
           headlineAccent="Dallas"
-          subheadline="We build hand-coded websites and run local SEO for small businesses across Dallas–Fort Worth. Two people, no account managers, no agency markup."
+          subheadline="We build hand-coded websites and run local SEO for businesses across Dallas–Fort Worth. Two people, no account managers, no agency markup."
           primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}
           showMockups={false}

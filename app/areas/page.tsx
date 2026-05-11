@@ -24,7 +24,7 @@ import DarkHero from "@/components/heroes/DarkHero";
 export const metadata: Metadata = {
   title: "Service Areas | Rank Point Media",
   description:
-    "Custom-coded websites and digital marketing for small businesses across Texas. Based in San Antonio; expanding to Austin, Houston, and Dallas.",
+    "Custom-coded websites and digital marketing for businesses across Texas. Based in San Antonio; expanding to Austin, Houston, and Dallas.",
   robots: { index: false, follow: true },
   alternates: { canonical: "https://rankpointmedia.com/areas" },
 };
@@ -41,7 +41,7 @@ const areas: AreaCard[] = [
     city: "San Antonio",
     href: "/",
     status: "Live",
-    body: "Our home base. Two people building websites and running digital marketing for small businesses across the SA metro and surrounding cities.",
+    body: "Our home base. Two people building websites and running digital marketing for businesses across the SA metro and surrounding cities.",
   },
   {
     city: "Austin",
@@ -53,7 +53,7 @@ const areas: AreaCard[] = [
     city: "Houston",
     href: "/areas/houston",
     status: "Coming soon",
-    body: "Serving Houston and the Gulf Coast region. Reach out if you're a Houston small business — we'd like to talk.",
+    body: "Serving Houston and the Gulf Coast region. Reach out if you're a Houston business — we'd like to talk.",
   },
   {
     city: "Dallas",
@@ -69,7 +69,7 @@ export default function AreasPage() {
       <main>
         <DarkHero
           kicker="SERVICE AREAS"
-          headline="Texas small businesses, served from San Antonio."
+          headline="Texas businesses, served from San Antonio."
           subheadline="We're based in San Antonio and currently expanding across Texas. As we add cities, dedicated landing pages will live below."
           primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}

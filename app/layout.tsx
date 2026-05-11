@@ -43,11 +43,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rankpointmedia.com"),
   title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
   description:
-    "Custom-coded websites, local SEO, and Google Ads for San Antonio small businesses. No templates, no shortcuts.",
+    "Custom-coded websites, local SEO, and Google Ads for San Antonio businesses. No templates, no shortcuts.",
   openGraph: {
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "Custom-coded websites, local SEO, and Google Ads for San Antonio small businesses. No templates, no shortcuts.",
+      "Custom-coded websites, local SEO, and Google Ads for San Antonio businesses. No templates, no shortcuts.",
     url: "https://rankpointmedia.com",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
     description:
-      "Custom-coded websites, local SEO, and Google Ads for San Antonio small businesses. No templates, no shortcuts.",
+      "Custom-coded websites, local SEO, and Google Ads for San Antonio businesses. No templates, no shortcuts.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://rankpointmedia.com" },
@@ -163,7 +163,7 @@ export default function RootLayout({
                   name: "Rank Point Media",
               alternateName: "JSL Innovations LLC",
               description:
-                "A two-person web agency in San Antonio building custom-coded websites and running local SEO, Google Ads, and digital marketing for small businesses across the SA metro, surrounding cities, and the rest of Texas.",
+                "A two-person web agency in San Antonio building custom-coded websites and running local SEO, Google Ads, and digital marketing for businesses across the SA metro, surrounding cities, and the rest of Texas.",
               url: "https://rankpointmedia.com",
               telephone: "+1-210-305-7372",
               email: "info@rankpointmedia.com",

@@ -77,7 +77,7 @@ export default function CityPlaceholder({ city }: { city: string }) {
           }}
         >
           We&rsquo;re actively building out our {city} presence. If
-          you&rsquo;re a {city} small business that wants a real website
+          you&rsquo;re a {city} business that wants a real website
           and direct access to the people building it, get in touch &mdash;
           we&rsquo;d like to talk.
         </p>

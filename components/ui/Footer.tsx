@@ -219,7 +219,7 @@ export default function Footer({ hidePreFooterCTA = false }: { hidePreFooterCTA?
                 Media
               </Link>
               <p className="text-sm leading-relaxed max-w-[280px]">
-                Custom-coded websites and digital marketing for San Antonio small businesses.
+                Custom-coded websites and digital marketing for San Antonio businesses.
               </p>
               {/* Social Icons — LinkedIn / Facebook / Instagram hidden
                   until those accounts are live. LinkedInIcon /

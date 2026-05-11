@@ -139,7 +139,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Six service categories explained in plain English",
         description:
-          "Each service area gets a clearly-written summary that explains the product, who it's for, and what to expect — written for a homeowner or small business owner, not a licensing exam. No jargon, no nine-paragraph regulatory disclaimers above the explanation.",
+          "Each service area gets a clearly-written summary that explains the product, who it's for, and what to expect — written for a homeowner or business owner, not a licensing exam. No jargon, no nine-paragraph regulatory disclaimers above the explanation.",
       },
       {
         title: "Three consultation paths surfaced site-wide",

@@ -14,7 +14,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Rank Point Media",
     short_name: "Rank Point",
     description:
-      "Custom-coded websites and digital marketing for San Antonio small businesses.",
+      "Custom-coded websites and digital marketing for San Antonio businesses.",
     start_url: "/",
     display: "standalone",
     background_color: "#FAFAF6",

@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
     body: (
       <>
         <p>
-          Most websites for small businesses in this city are built on the
+          Most websites for businesses in this city are built on the
           same five or six platforms. You can usually tell which one in about
           ninety seconds. There&rsquo;s the stock photo with a dark gradient
           over it, the rounded buttons that all look the same, the Powered by

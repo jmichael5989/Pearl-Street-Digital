@@ -135,7 +135,7 @@ export default function LegacyHeader() {
                 Media
               </Link>
 
-              {/* Brass hairline + stacked descriptor — small-business
+              {/* Brass hairline + stacked descriptor — business
                   category slug to the right of the wordmark. Hidden below
                   sm to keep the mobile header uncluttered. */}
               <div

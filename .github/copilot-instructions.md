@@ -86,11 +86,11 @@ This principle was synthesized from the three reference sites below. All three s
 
 **3. Frank Chimero (frankchimero.com).** The site reads like a book. The typography has weight, the margins breathe, the writing is a single specific person thinking out loud. There is no visual distinction between essay, portfolio, and shop — typography carries all three. The site is optimized for being read, not for conversion.
 
-*What we steal:* The site has a **Journal** (or Notes, Dispatches, Library — name to be decided). It is load-bearing. Not "Blog." It is where Jon and Stacie think out loud about small-business websites.
+*What we steal:* The site has a **Journal** (or Notes, Dispatches, Library — name to be decided). It is load-bearing. Not "Blog." It is where Jon and Stacie think out loud about business websites.
 
 **Launch contents.** Three to five seed posts, each signed by its author, each 1,200–1,800 words. Working titles:
 - The $450/month lawyer-marketing trap.
-- What "custom-coded" actually means to a small business.
+- What "custom-coded" actually means to a business.
 - Why we do not have a Spanish version yet.
 - What we asked our first client on the first call.
 
@@ -126,7 +126,7 @@ The through-line across all four anti-references is that **each of them is a per
 - Monochrome "Trusted by" logo rows.
 
 **Banned moves from the Squarespace-template-ad aesthetic (4 of 4).**
-- Soft-lit, desaturated, shallow-depth-of-field "small-business-owner" photography.
+- Soft-lit, desaturated, shallow-depth-of-field "business-owner" photography.
 - "Founder at laptop in white studio with succulent" imagery.
 - The words **passion**, **journey**, **dream**, **meaningful work** are banned from site copy.
 - Pastel lifestyle palettes signaling "aesthetically-minded solopreneur."

@@ -22,11 +22,11 @@ import { getSortedBlogPosts } from "@/lib/blog-data";
 export const metadata: Metadata = {
   title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
   description:
-    "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio small businesses.",
+    "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio businesses.",
   openGraph: {
     title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
     description:
-      "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio small businesses.",
+      "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio businesses.",
     url: "https://rankpointmedia.com/blog",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -59,7 +59,7 @@ export default function BlogIndexPage() {
     "@type": "Blog",
     name: "Rank Point Media Journal",
     description:
-      "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio small businesses.",
+      "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio businesses.",
     url: "https://rankpointmedia.com/blog",
     publisher: {
       "@type": "Organization",

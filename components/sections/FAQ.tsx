@@ -42,7 +42,7 @@ const faqs = [
   {
     question: "Where are you based, and do you work with businesses outside your area?",
     answer:
-      "We are based in San Antonio, TX but we work with small businesses across Texas and beyond. If you are looking for a team that understands local marketing, we are a good fit regardless of location.",
+      "We are based in San Antonio, TX but we work with businesses across Texas and beyond. If you are looking for a team that understands local marketing, we are a good fit regardless of location.",
   },
   {
     question: "What platform or CMS do you build on?",

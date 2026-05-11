@@ -1,6 +1,6 @@
 # Rank Point Media
 
-> A two-person digital agency in San Antonio, TX. Rank Point Media (a DBA of JSL Innovations LLC) builds custom-coded websites and runs local SEO, Google Ads, and digital marketing for small businesses across the San Antonio metro, surrounding cities, and the rest of Texas. The owners — Jon (web development, technical SEO) and Stacie (design, marketing, social) — are the only people clients ever talk to. There are no account managers and no offshore subcontractors.
+> A two-person digital agency in San Antonio, TX. Rank Point Media (a DBA of JSL Innovations LLC) builds custom-coded websites and runs local SEO, Google Ads, and digital marketing for businesses across the San Antonio metro, surrounding cities, and the rest of Texas. The owners — Jon (web development, technical SEO) and Stacie (design, marketing, social) — are the only people clients ever talk to. There are no account managers and no offshore subcontractors.
 
 ## Site
 
@@ -16,7 +16,7 @@
 - [Pricing](https://rankpointmedia.com/pricing) — Build + Hosting (monthly, 12-month term): Starter $99/mo, Business $149/mo, Growth $249/mo. Build Only (one-time, client owns and hosts): Starter $500, Business $1,000, Growth $1,500.
 - [Industries](https://rankpointmedia.com/industries) — sectors served
 - [Case Studies](https://rankpointmedia.com/case-studies) — past work with metrics
-- [Blog](https://rankpointmedia.com/blog) — essays on web, SEO, and small-business marketing
+- [Blog](https://rankpointmedia.com/blog) — essays on web, SEO, and business marketing
 - [Contact](https://rankpointmedia.com/contact) — booking, phone, email
 
 ## Key facts
