@@ -68,8 +68,8 @@ export default function ContactPage() {
           secondaryCta={{ label: "(210) 305-7372", href: "tel:+12103057372" }}
           showMockups={false}
         />
-        <ContactContent />
         <Consultation />
+        <ContactContent numeral="03" />
       </main>
       <Footer hidePreFooterCTA />
     </>
