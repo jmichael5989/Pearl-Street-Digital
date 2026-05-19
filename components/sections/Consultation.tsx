@@ -16,12 +16,12 @@ interface CalEmbedAPI {
 }
 
 /**
- * Homepage Cal.com embed section. Replaces the prior StatsBar — the
- * .impeccable.md brief commits the homepage to "one live, embedded, real
- * artifact" (Cal.com reference: "taste the soup"). A 4-tile stats band
- * does not satisfy that. The widget here is the actual booking UI a
- * prospect would see if they clicked a CTA — they can book directly
- * without leaving the page.
+ * Contact page Cal.com embed section. Moved off the homepage 2026-05-17:
+ * the homepage Hero CTA now jumps to /contact#talk-to-us, and this
+ * section sits beneath ContactContent as the contact page's "one live,
+ * embedded, real artifact" per .impeccable.md ("taste the soup"). The
+ * widget is the actual booking UI a prospect would see if they clicked
+ * a CTA — they can book directly without leaving the page.
  *
  * Composition follows Resolved Decisions §4 (palette) and §1 (typography):
  *   - Parchment section background, eyebrow + serif H2 + body lede + caption
@@ -84,8 +84,10 @@ export default function Consultation() {
         }
       },
       // 600px lead time — by the time the user scrolls into view the
-      // script + first iframe paint are typically done. Tuned for the
-      // homepage flow where the hero alone is ~1 viewport tall.
+      // script + first iframe paint are typically done. Safe on the
+      // contact page too: DarkHero + ContactContent sit above the widget,
+      // so the observer has plenty of runway before the section enters
+      // view.
       { rootMargin: "600px 0px" }
     );
     observer.observe(target);
@@ -226,7 +228,7 @@ export default function Consultation() {
         {/* Editorial section header — italic serif section-num + brass label */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">05</span>
+            <span className="font-heading text-base font-normal italic mr-1">03</span>
             &nbsp;/&nbsp; Talk to us
           </div>
         </header>
