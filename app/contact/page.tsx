@@ -63,8 +63,8 @@ export default function ContactPage() {
           kicker="CONTACT"
           headline="Tell us about your business."
           subheadline="A 60-minute conversation with Jon. We listen first, then tell you what we'd actually do — and whether we're the right fit."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
-          secondaryCta={{ label: "Email us", href: "mailto:info@rankpointmedia.com" }}
+          primaryCta={{ label: "Book a consultation", href: "#talk-to-us" }}
+          secondaryCta={{ label: "(210) 305-7372", href: "tel:+12103057372" }}
           showMockups={false}
         />
         <ContactContent />

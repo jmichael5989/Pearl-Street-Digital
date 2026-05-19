@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   PhoneIcon,
   MailIcon,
@@ -19,14 +18,20 @@ import ContactForm from "@/components/forms/ContactForm";
  * the banned card-chrome pattern from CLAUDE.md).
  *
  * Composition now:
- *   - Numbered editorial eyebrow "02 / Get in touch", left-aligned
- *     serif H2 weight 400, graphite lede that points to the homepage
- *     Cal.com widget as the faster path (the form remains for those
- *     who prefer to write).
+ *   - Numbered editorial eyebrow (numeral via prop; defaults to "02" for
+ *     the contact page where it follows the DarkHero, set to "05" on the
+ *     homepage where it follows Hero/WhyUs/Services/CustomDev). Left-
+ *     aligned serif H2 weight 400, graphite lede.
  *   - Two-column split at lg: left has "What happens next" with
  *     italic-serif numerals (no avatar chips) + contact info rows +
  *     trust callout. Right has the form on a hairline-bordered card
  *     with seating shadow only (no rounded-2xl, no drop-shadow).
+ *
+ * Section element carries id="talk-to-us" — the long-lived anchor that
+ * ~30 inner-page CTAs link to as /contact#talk-to-us. The anchor used
+ * to live on the Consultation (Cal.com) section; when Cal.com was
+ * pulled (2026-05-19, loading reliability issues) the anchor moved
+ * here so every existing CTA still lands on a working scheduling path.
  */
 
 const steps = [
@@ -44,11 +49,16 @@ const steps = [
   },
 ];
 
-export default function ContactContent() {
+export default function ContactContent({
+  numeral = "02",
+}: {
+  numeral?: string;
+} = {}) {
   return (
     <section
+      id="talk-to-us"
       aria-labelledby="contact-heading"
-      className="bg-light border-t border-border"
+      className="bg-light border-t border-border scroll-mt-24"
       style={{
         paddingTop: "clamp(72px, 12vh, 144px)",
         paddingBottom: "clamp(72px, 12vh, 144px)",
@@ -59,7 +69,7 @@ export default function ContactContent() {
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             <span className="font-heading text-base font-normal italic mr-1">
-              02
+              {numeral}
             </span>
             &nbsp;/&nbsp; Get in touch
           </div>
@@ -81,7 +91,7 @@ export default function ContactContent() {
           Two ways to reach us.
         </h2>
 
-        {/* Lede with Cal.com light-touch reference */}
+        {/* Lede */}
         <p
           className="mt-5 font-body"
           style={{
@@ -92,15 +102,22 @@ export default function ContactContent() {
             marginBottom: "clamp(48px, 6vh, 64px)",
           }}
         >
-          Want to skip the form?{" "}
-          <Link
-            href="/#talk-to-us"
+          Tell us about your business in the message below &mdash; or reach
+          Jon directly by{" "}
+          <a
+            href="tel:+12103057372"
             className="font-medium text-accent underline underline-offset-4 hover:text-text"
           >
-            Book an hour directly
-          </Link>{" "}
-          on Jon&rsquo;s calendar &mdash; or fill in the message below if
-          you&rsquo;d rather write first.
+            phone
+          </a>{" "}
+          or{" "}
+          <a
+            href="mailto:info@rankpointmedia.com"
+            className="font-medium text-accent underline underline-offset-4 hover:text-text"
+          >
+            email
+          </a>
+          . You&rsquo;ll hear back within one business day.
         </p>
 
         {/* Two-column composition */}
