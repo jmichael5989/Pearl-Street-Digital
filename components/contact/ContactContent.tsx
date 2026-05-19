@@ -27,11 +27,11 @@ import ContactForm from "@/components/forms/ContactForm";
  *     trust callout. Right has the form on a hairline-bordered card
  *     with seating shadow only (no rounded-2xl, no drop-shadow).
  *
- * Section element carries id="talk-to-us" — the long-lived anchor that
- * ~30 inner-page CTAs link to as /contact#talk-to-us. The anchor used
- * to live on the Consultation (Cal.com) section; when Cal.com was
- * pulled (2026-05-19, loading reliability issues) the anchor moved
- * here so every existing CTA still lands on a working scheduling path.
+ * The #talk-to-us anchor stays on the Consultation (Cal.com) section
+ * — that's where /contact#talk-to-us CTAs (≈30 across the site) land.
+ * On the contact page, ContactContent sits above Consultation so users
+ * scrolling past the form still reach the calendar; on the homepage
+ * ContactContent is the only contact surface and no anchor is needed.
  */
 
 const steps = [
@@ -56,9 +56,8 @@ export default function ContactContent({
 } = {}) {
   return (
     <section
-      id="talk-to-us"
       aria-labelledby="contact-heading"
-      className="bg-light border-t border-border scroll-mt-24"
+      className="bg-light border-t border-border"
       style={{
         paddingTop: "clamp(72px, 12vh, 144px)",
         paddingBottom: "clamp(72px, 12vh, 144px)",
