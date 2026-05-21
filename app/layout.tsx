@@ -52,10 +52,14 @@ export const metadata: Metadata = {
     siteName: "Rank Point Media",
     locale: "en_US",
     type: "website",
-    // Image is provided by app/opengraph-image.tsx — Next.js auto-injects
-    // it into og:image and twitter:image at build time. Removing the
-    // static `/og-image.png` reference (which 404'd in production) lets
-    // the dynamic OG image take over.
+    // og:image is provided two ways: a static fallback via the manual
+    // <meta> tags in <head> below, and the dynamic `app/opengraph-image.tsx`
+    // file convention which Next.js auto-injects. We don't set
+    // `openGraph.images` here because the file convention overrides it;
+    // emitting the static fallback as a manual <meta> sidesteps the
+    // override so both URLs appear as separate og:image tags and social
+    // crawlers can fall back if the dynamic one fails. See SEO audit
+    // 2026-05-21 §5.1 and the comment block in app/opengraph-image.tsx.
   },
   twitter: {
     card: "summary_large_image",
@@ -97,6 +101,31 @@ export default function RootLayout({
           href="https://app.cal.com/embed/embed.js"
           as="script"
           crossOrigin="anonymous"
+        />
+        {/* Static og:image fallback. Emitted manually because Next.js's
+            file convention at `app/opengraph-image.tsx` would otherwise
+            override anything we set via `metadata.openGraph.images`.
+            Two og:image tags in the head means social crawlers (LinkedIn,
+            Facebook, Slack, iMessage) have a guaranteed-working preview
+            even if the dynamic ImageResponse fails. The dynamic tag is
+            auto-appended by Next.js after these — both URLs will appear.
+            Regenerate the static PNG with:
+              curl -s -o public/og-image.png http://localhost:3000/opengraph-image
+            See SEO audit 2026-05-21 §5.1. */}
+        <meta
+          property="og:image"
+          content="https://rankpointmedia.com/og-image.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Rank Point Media — Websites that Rank. San Antonio digital agency."
+        />
+        <meta
+          name="twitter:image"
+          content="https://rankpointmedia.com/og-image.png"
         />
         {/* Geo meta tags — site-wide local-search signals. Old-school but
             still parsed by some local-search crawlers (notably Bing Local
