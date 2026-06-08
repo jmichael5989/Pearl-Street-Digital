@@ -66,6 +66,28 @@ export default function TransitionStage() {
         }}
       />
 
+      {/* Vertical slats (pricing) — navy panels sweep down to cover, up to
+          reveal, in a left-to-right stagger. Panels overlap slightly (20.4% wide
+          at 20% steps) so there are no sub-pixel gaps at full cover. */}
+      <div id="tx-slats" style={{ ...fill, ...hidden }}>
+        {[0, 1, 2, 3, 4].map((i) => (
+          <div
+            key={i}
+            className="tx-slat"
+            style={{
+              position: "absolute",
+              top: 0,
+              height: "100%",
+              left: `${i * 20}%`,
+              width: "20.4%",
+              backgroundColor: "var(--color-primary)",
+              transform: "translateY(-100%)",
+              willChange: "transform",
+            }}
+          />
+        ))}
+      </div>
+
       {/* SVG morph (services) — a navy shape morphs from the bottom edge up to
           full cover, then off the top to reveal. preserveAspectRatio:none so the
           0–100 viewBox stretches to the viewport. */}

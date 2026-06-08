@@ -13,7 +13,7 @@ const DEFAULT_EFFECT: EffectLoader = () =>
 
 const REGISTRY: Partial<Record<Namespace, EffectLoader>> = {
   about: () => import("./effects/webglDissolve").then((m) => m.default),
-  pricing: () => import("./effects/webglDissolve").then((m) => m.default),
+  pricing: () => import("./effects/slats").then((m) => m.default),
   services: () => import("./effects/svgMorph").then((m) => m.default),
   contact: () => import("./effects/curtainLift").then((m) => m.default),
   caseStudies: () => import("./effects/sectionMorph").then((m) => m.default),
