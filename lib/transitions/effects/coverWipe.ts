@@ -1,12 +1,17 @@
 import type { EffectModule } from "../types";
 
-// Default transition: a solid navy panel wipes up to cover the screen (leave),
-// the route swaps underneath it, then the panel continues up and off to reveal
-// the new page (enter). Transform-only (scaleY), so it's GPU-cheap and works in
-// every browser. On-brand: navy on warm-white. GSAP tweens are awaitable.
+// Default transition: a solid navy panel slides up to cover the screen (leave),
+// the route swaps underneath it, then it continues up and off to reveal the new
+// page (enter). A brass-soft hairline rides the leading/trailing edge (via
+// box-shadow) so the motion still registers when navigating between two dark
+// pages. Transform-only (translateY), GPU-cheap, works in every browser.
 
 const DURATION = 0.85;
 const EASE = "power3.inOut";
+// Brass hairline 2px above the top edge and 2px below the bottom edge — whichever
+// edge is leading reads as brass against a same-navy page behind it. Hex (not the
+// CSS var) so the value survives being set on box-shadow via GSAP.
+const BRASS_EDGE = "0 -2px 0 0 #B78F3E, 0 2px 0 0 #B78F3E";
 
 const coverWipe: EffectModule = {
   async leave({ gsap, stage }) {
@@ -14,16 +19,18 @@ const coverWipe: EffectModule = {
     gsap.set(stage.overlay, {
       visibility: "visible",
       backgroundColor: "var(--color-primary)",
-      transformOrigin: "bottom center",
-      scaleY: 0,
+      boxShadow: BRASS_EDGE,
+      scaleX: 1,
+      scaleY: 1,
+      yPercent: 100,
     });
-    await gsap.to(stage.overlay, { scaleY: 1, duration: DURATION, ease: EASE });
+    await gsap.to(stage.overlay, { yPercent: 0, duration: DURATION, ease: EASE });
   },
 
   async enter({ gsap, stage }) {
-    // Origin flips to top so the panel keeps travelling upward as it uncovers.
-    gsap.set(stage.overlay, { transformOrigin: "top center" });
-    await gsap.to(stage.overlay, { scaleY: 0, duration: DURATION, ease: EASE });
+    // The panel keeps travelling upward and off the top; the bottom edge (with
+    // its brass hairline) leads the reveal.
+    await gsap.to(stage.overlay, { yPercent: -100, duration: DURATION, ease: EASE });
   },
 
   teardown({ gsap, stage }) {

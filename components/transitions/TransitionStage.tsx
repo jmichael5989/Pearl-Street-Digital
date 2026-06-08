@@ -48,6 +48,7 @@ export default function TransitionStage() {
           top: 0,
           height: "50.5%",
           backgroundColor: "var(--color-primary)",
+          borderBottom: "2px solid var(--color-accent-dark)",
           willChange: "transform",
           ...hidden,
         }}
@@ -61,6 +62,7 @@ export default function TransitionStage() {
           bottom: 0,
           height: "50.5%",
           backgroundColor: "var(--color-primary)",
+          borderTop: "2px solid var(--color-accent-dark)",
           willChange: "transform",
           ...hidden,
         }}
@@ -81,6 +83,7 @@ export default function TransitionStage() {
               left: `${i * 20}%`,
               width: "20.4%",
               backgroundColor: "var(--color-primary)",
+              borderBottom: "2px solid var(--color-accent-dark)",
               transform: "translateY(-100%)",
               willChange: "transform",
             }}
@@ -97,7 +100,14 @@ export default function TransitionStage() {
         preserveAspectRatio="none"
         style={{ ...fill, width: "100%", height: "100%", ...hidden }}
       >
-        <path id="tx-morph-path" d="M0,100 L100,100 L100,100 L0,100 Z" fill="var(--color-primary)" />
+        <path
+          id="tx-morph-path"
+          d="M0,100 L100,100 L100,100 L0,100 Z"
+          fill="var(--color-primary)"
+          stroke="var(--color-accent-dark)"
+          strokeWidth={2}
+          vectorEffect="non-scaling-stroke"
+        />
       </svg>
 
       {/* SVG spiral (industries / areas) — a brass stroke drawn over the navy
