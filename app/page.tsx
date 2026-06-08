@@ -1,4 +1,4 @@
-import Hero from "@/components/sections/Hero";
+import HeroOrbit from "@/components/sections/HeroOrbit";
 import ServicesSection from "@/components/sections/ServicesSection";
 import WhyUs from "@/components/sections/WhyUs";
 import CustomDevelopmentCallout from "@/components/sections/CustomDevelopmentCallout";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <Hero />
+        <HeroOrbit />
         <WhyUs />
         <ServicesSection />
         <CustomDevelopmentCallout numeral="04" />

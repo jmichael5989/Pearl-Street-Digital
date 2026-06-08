@@ -107,7 +107,7 @@ export default function LegacyHeader() {
         }`}
       >
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex h-[100px] items-center justify-between">
+          <div className="flex h-[80px] items-center justify-between">
             {/* Wordmark + descriptor slug */}
             <div className="flex items-center gap-4">
               <Link
