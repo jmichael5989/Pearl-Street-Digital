@@ -4,10 +4,11 @@ import Script from "next/script";
 import "./globals.css";
 import HeaderRouter from "@/components/ui/HeaderRouter";
 import MobileCTABar from "@/components/ui/MobileCTABar";
+import TransitionProvider from "@/components/transitions/TransitionProvider";
 
 // Primary display face. Locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
-// Loaded as a variable font (weight axis 200-900) with italic — omitting `weight`
-// gives us the full variable axis in a single file per style.
+// Loaded as a variable font (weight axis 200-900). Italic axis kept solely to
+// render the "Point" wordmark in the brand name — no other site usage.
 const sourceSerif4 = Source_Serif_4({
   variable: "--font-source-serif",
   subsets: ["latin"],
@@ -22,7 +23,7 @@ const sourceSerif4 = Source_Serif_4({
 const sourceSans3 = Source_Sans_3({
   variable: "--font-source-sans",
   subsets: ["latin"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   display: "optional",
   fallback: ["Arial", "Helvetica", "sans-serif"],
 });
@@ -34,7 +35,7 @@ const sourceSans3 = Source_Sans_3({
 const sourceCodePro = Source_Code_Pro({
   variable: "--font-source-code",
   subsets: ["latin"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   display: "swap",
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
@@ -230,7 +231,7 @@ export default function RootLayout({
           }}
         />
         <HeaderRouter />
-        {children}
+        <TransitionProvider>{children}</TransitionProvider>
         <MobileCTABar />
       </body>
     </html>

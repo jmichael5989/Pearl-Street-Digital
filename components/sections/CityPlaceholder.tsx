@@ -1,10 +1,10 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 /**
  * Shared body section for the placeholder city pages under /areas/*.
  * Renders coherent placeholder copy with the city name woven in, plus a
  * CTA back to the homepage Cal.com widget. The accompanying city pages
- * are `noindex` so this content is not Google-facing — it exists so a
+ * are `noindex` so this content is not Google-facing â€” it exists so a
  * visitor who guesses the URL sees something real.
  *
  * When a city page is fully launched, replace this component with city-
@@ -26,7 +26,7 @@ export default function CityPlaceholder({ city }: { city: string }) {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               01
             </span>
             &nbsp;/&nbsp; {city}
@@ -67,7 +67,7 @@ export default function CityPlaceholder({ city }: { city: string }) {
 
         {/* Status note */}
         <p
-          className="mt-8 font-body italic max-w-2xl"
+          className="mt-8 font-body max-w-2xl"
           style={{
             fontSize: "0.9375rem",
             lineHeight: 1.6,
@@ -85,7 +85,7 @@ export default function CityPlaceholder({ city }: { city: string }) {
         {/* CTA */}
         <div className="mt-10 flex flex-wrap items-center gap-3.5">
           <Link
-            href="/#talk-to-us"
+            href="/contact#talk-to-us"
             className="font-body inline-flex items-center gap-2.5 border border-text bg-text px-6 py-3.5 text-[0.9375rem] font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark"
           >
             Book a consultation

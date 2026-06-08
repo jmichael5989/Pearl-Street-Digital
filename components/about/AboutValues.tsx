@@ -12,7 +12,7 @@
  *
  * Surface alternates with AboutStory (warm-white) → bg-light-surface
  * (parchment). Six commitments laid out as a 3-col grid at lg, 2-col at
- * sm, 1-col on mobile — each card uses italic-serif Roman numeral in
+ * sm, 1-col on mobile — each card uses serif Roman numeral in
  * brass with a hairline divider, then serif title weight 400, then
  * graphite body.
  */
@@ -65,7 +65,7 @@ export default function AboutValues() {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               04
             </span>
             &nbsp;/&nbsp; Our approach
@@ -111,7 +111,7 @@ export default function AboutValues() {
               className="flex flex-col gap-3.5 border border-border bg-light p-8 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-[3px]"
             >
               <div
-                className="font-heading italic text-accent"
+                className="font-heading text-accent"
                 style={{
                   fontSize: "0.9375rem",
                   fontWeight: 400,

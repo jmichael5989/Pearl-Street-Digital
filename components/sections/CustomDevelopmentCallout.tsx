@@ -13,19 +13,21 @@
  *     pattern of Hero / Consultation / WhyUs. Manifesto sections benefit
  *     from a centered visual change-up that signals "single statement,
  *     not comparison."
- *   - Eyebrow "05 / How it's built" with italic-serif section number in
+ *   - Eyebrow "05 / How it's built" with serif section number in
  *     brass per the homepage numbering motif.
  *   - H2 is the statement itself: "Every site we ship is custom-coded.
- *     No WordPress, no page builders, no shortcuts." Italic emphasis on
- *     "custom-coded" carries the differentiator without color.
+ *     No WordPress, no page builders, no shortcuts." The "custom-coded"
+ *     emphasis is carried by the `<em>` semantic tag for screen
+ *     readers; visually it sits in regular weight with the rest of
+ *     the headline (italic emphasis retired 2026-06-07).
  *   - Three small features below in a 1×3 grid. Lighter visual weight
  *     than the WhyUs cards: hairline top-border separators only, no card
  *     borders, no hover state — these are footnotes to the manifesto,
  *     not standalone claims.
  *
  * Replaces the prior centered italic-bold lead + 3 paragraph blocks. Same
- * structural intent; on-brief typography (weight 400 not bold) and
- * tighter copy.
+ * structural intent; on-brief typography (weight 400 not bold, upright
+ * not italic per the 2026-06-07 no-italics rule) and tighter copy.
  */
 
 const features = [
@@ -61,7 +63,7 @@ export default function CustomDevelopmentCallout({
         {/* Eyebrow — centered for the manifesto register */}
         <header className="mb-6 text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               {numeral}
             </span>
             &nbsp;/&nbsp; How it&rsquo;s built
@@ -82,7 +84,7 @@ export default function CustomDevelopmentCallout({
           }}
         >
           Every site we ship is{" "}
-          <em className="font-normal italic">custom-coded</em>. No WordPress,
+          <em className="font-normal">custom-coded</em>. No WordPress,
           no page builders, no shortcuts.
         </h2>
 

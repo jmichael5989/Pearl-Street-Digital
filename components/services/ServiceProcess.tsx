@@ -2,7 +2,7 @@ import type { ServiceData } from "@/lib/services-data";
 
 /**
  * Service detail Process section. Numbered editorial step list with
- * italic-serif Roman numeral leaders prefixed by the section index
+ * serif Roman numeral leaders prefixed by the section index
  * (04.i, 04.ii, ...) on a hairline-divided single-column layout.
  *
  * Replaces the prior pre-pivot section (bg-white shell, max-w-7xl
@@ -46,7 +46,7 @@ export default function ServiceProcess({ service }: { service: ServiceData }) {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               04
             </span>
             &nbsp;/&nbsp; How it works
@@ -80,7 +80,7 @@ export default function ServiceProcess({ service }: { service: ServiceData }) {
               className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
             >
               <span
-                className="font-heading italic text-accent"
+                className="font-heading text-accent"
                 style={{
                   fontSize: "1rem",
                   fontWeight: 400,

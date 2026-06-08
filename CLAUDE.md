@@ -80,7 +80,7 @@ You are building the website for Rank Point Media, a two-person digital agency i
 - **Graphite** `#3A3F4B` -- body paragraph text.
 - **Edge** `#D9D2C3` -- card borders, dividers.
 - **Mute** `#6A6E78` -- captions, micro-copy.
-- **Brass** `#836021` -- single accent. Links, selection highlight, section-number italics, underlines, footer brand wordmark **only**. Never on CTAs, never on headings, never as a card or chip fill. (Tuned 2026-04-25 from `#A07B33` to clear WCAG AA on warm-white at small text sizes.)
+- **Brass** `#836021` -- single accent. Links, selection highlight, section numerals, underlines, footer brand wordmark **only**. Never on CTAs, never on headings, never as a card or chip fill. (Tuned 2026-04-25 from `#A07B33` to clear WCAG AA on warm-white at small text sizes.)
 - **Brass-soft** `#B78F3E` -- brass on dark backgrounds only (raised for legibility against navy).
 - **CTA buttons (on light)**: Solid navy `#14213D` background, warm-white `#FAFAF6` text, 1px navy border. **No gradient.** Hover: navy-soft background.
 - **CTA buttons (on dark)**: Inverted -- warm-white background, navy text. Hover: brass background, warm-white text.
@@ -88,9 +88,9 @@ You are building the website for Rank Point Media, a two-person digital agency i
 - **Retired hues (zero tolerance for reintroduction)**: Teal `#14B8A6`, Violet `#8B5CF6`, Mint `#F0FDFA`, Mint-border `#CCFBF1`, Violet-bg `#F5F3FF`, Violet-border `#EDE9FE`, Slate-dark `#0F172A`. If you see any of these in code, it is a bug to fix, not a pattern to follow.
 - Reference render: [public/mocks/colors/option-b.html](public/mocks/colors/option-b.html).
 
-### Typography (LOCKED 2026-04-24 -- see .impeccable.md Resolved Decisions §1)
-- Headings/Display: **Source Serif 4** (Google Fonts, variable — weight axis 200-900, optical-size axis 8-60, italic). Regular + Medium at launch. Optical-size 48 for display, 12 for body.
-- Body text: **Source Sans 3** (Google Fonts, variable — weight axis 200-900, italic). Regular + Medium at launch.
+### Typography (LOCKED 2026-04-24, italic-rule updated 2026-06-07 -- see .impeccable.md Resolved Decisions §1)
+- Headings/Display: **Source Serif 4** (Google Fonts, variable — weight axis 200-900, optical-size axis 8-60). Regular + Medium at launch. Optical-size 48 for display, 12 for body. **Italic axis is loaded but reserved exclusively for the "Point" wordmark in the Rank Point Media brand name (Header, Footer, OG image).** No other italic usage anywhere on the site.
+- Body text: **Source Sans 3** (Google Fonts, variable — weight axis 200-900). Regular + Medium at launch. Italic axis is not loaded.
 - License: SIL Open Font License. Free, commercial use allowed, perpetual, no attribution required.
 - Load via `next/font/google` in `app/layout.tsx` with `display: 'swap'` for Source Serif 4 and `display: 'optional'` for Source Sans 3; tune `adjustFontFallback` against Georgia (serif) and Arial (sans) so CLS stays near zero.
 - NEVER use Inter, Geist, Roboto, Arial, Outfit, DM Sans, or system fonts as primary.
@@ -106,16 +106,14 @@ You are building the website for Rank Point Media, a two-person digital agency i
 - **Industry icon chips**: Same treatment as service chips. No separate violet-tinted variant.
 - **Navbar**: Transparent over the dark hero, transitions to warm white `rgba(250,250,246,0.95)` with `backdrop-blur(12px)` and a 1px edge `#D9D2C3` bottom border on scroll.
 
-### Hero Section (LOCKED 2026-04-25 — see [components/sections/Hero.tsx](components/sections/Hero.tsx))
-The homepage hero matches the option-b.html mock's editorial two-column composition; the dark Tower-of-Americas treatment that lived here previously is **retired on the homepage** and is not to be reintroduced. Dark sections on the homepage are now the footer only — `Hero`, `Consultation`, `WhyUs`, `ServicesSection`, `CustomDevelopmentCallout` are all on warm-white or parchment.
-- Section background: `bg-light` (warm white `#FAFAF6`), bottom hairline `border-border`.
-- Editorial section header (eyebrow): italic-serif section number "01" in `text-accent` (brass) + sans uppercase letter-spaced label "Rank Point Media" (`text-xs font-semibold uppercase tracking-[0.16em]`). Same pattern repeats on every homepage section's header — the numbering is a **structural motif** per `.impeccable.md` Reference 1 (The Gentlewoman).
-- Two-column grid on desktop (`lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]`); stacks on mobile.
-- **Left column**: H1 is the locked brand tagline "Websites that Rank" (set 2026-05-03). Three words, no italic emphasis, no terminal period in the H1 itself (the period lives in the brand-mark form of the tagline only). The H1 is rendered word-by-word in inline-block spans so the type-in motion can stagger entrance — keep that structure if editing. Subhead beneath: "Websites, SEO, and Google Ads for San Antonio businesses. Two people in front of the work — not behind a layer of account managers." CTA row: primary navy button "Book a consultation" anchoring to `#talk-to-us` (the Cal.com Consultation section); secondary outline button "See how we work" linking to `/about`.
-- **Right column (aside)**: pull-quote in italic Source Serif 4 carrying the two-person positioning: "You hire us, you get us — not a team behind a team. When the site launches, you talk to the person who built it. Once you're a client, you have a direct line to both of us." Cited "Jon Michael · Rank Point Media" with a hairline divider above the citation. On desktop, aside has `lg:border-l lg:border-border lg:pl-8 xl:pl-12`. The prior "Nobody is ever 'looped in.'" line (in both the H1 and aside) was retired 2026-04-25 as too cryptic for a service business.
-- **No photography in the hero.** Real photos of Jon, Stacie, and George are a Pre-Launch Checklist item (`.impeccable.md`); when those exist, they may be added as a dedicated section below the hero or composed into the aside slot. **Do not add photo placeholders.**
-- **No text-shadows.** The light editorial register makes them unnecessary, and they would read as "hero on photo bleed" performance — the brief's "do not perform" principle applies.
-- Inner-page heroes (About, Industry, Service, Case Study detail) may still use the dark navy treatment with the Tower-of-Americas photo and three gradient overlays blending into navy `#14213D` — that pattern is **inner-page-only** now, not homepage.
+### Hero Section (LOCKED 2026-06-07 — see [components/sections/HeroOrbit.tsx](components/sections/HeroOrbit.tsx))
+The homepage hero is the **"Orbit" entrance**: real client-work screenshots fly in from the screen edges, resolve into a circular ring, then spin perpetually with occasional card flips. It is a brand-adapted production port of Codrops "Entrance Animation for Images" **variation 2** (github.com/d3adrabbit/EntranceAnimationForImages, MIT), prototyped at [public/mocks/hero/orbit.html](public/mocks/hero/orbit.html). This **supersedes the prior editorial two-column hero** (option-b.html / `Hero.tsx`); that composition is retired on the homepage (the `Hero.tsx` file is retained, unreferenced, pending removal). Dark sections on the homepage remain the footer only.
+- Full-viewport section (`min-h-[100svh]`), centered composition, warm-white → parchment radial background.
+- **Centered headline — server-rendered and fully visible on first paint. It is the LCP element and must NEVER be gated behind the animation** (no opacity/blur reveal on the H1). Eyebrow "Websites, SEO, Google Ads" in brass; H1 the locked tagline "Websites that Rank" (no italic, no terminal period); subhead "Two people in front of the work — not behind a layer of account managers."; CTA row — primary navy "Book a consultation" → `/contact#talk-to-us`, secondary outline "See how we work" → `/about`. Legibility over the cards is handled by a warm-white radial scrim, not text-shadows.
+- **Orbit cards = real case-study screenshots** from `lib/case-studies-data.ts` (thumbnails + heroes). This is the one sanctioned use of photography in the homepage hero, and it agrees with `.impeccable.md`'s photography direction ("Photographs of actual screens of actual client sites"). **No stock imagery and no SVG/photo placeholders in production.** Built for 8 cards; reaching 8 fully-distinct images is a follow-up (3 of the 4 projects currently ship thumb≈hero).
+- **Motion is GSAP**, dynamically imported client-side so it stays off the server bundle and the LCP path. Entrance plays once, then the ring spins perpetually (20s) with random `rotateY` card flips. `prefers-reduced-motion: reduce` drops the cards straight into the static ring — no entrance, no perpetual motion. An IntersectionObserver pauses the loop when the hero is off-screen (protects INP/battery and the Lighthouse 95+ mandate).
+- **The "01 / Rank Point Media" section numeral is not rendered in the orbit hero** (the composition is centered, not a left-aligned editorial header). The numbering motif still governs the *following* homepage sections.
+- Inner-page heroes (About, Industry, Service, Case Study detail) may still use the dark navy treatment with the Tower-of-Americas photo and three gradient overlays blending into navy `#14213D` — that pattern is **inner-page-only**, not homepage.
 
 ### Footer Badge
 - **Solid colors only per `.impeccable.md` absolute ban on gradient text (background-clip: text + any gradient = forbidden site-wide).**
@@ -126,6 +124,7 @@ The homepage hero matches the option-b.html mock's editorial two-column composit
 
 ### Absolute Rules
 - **ZERO EMOJIS** anywhere in the codebase, UI, content, buttons, headings, or copy. Use SVG icons (Lucide-style) only.
+- **NO ITALICS** anywhere on the site except the "Point" italic in the brand wordmark (`<em className="font-normal italic ...">Point</em>` in `components/ui/GlassHeader.tsx`, `components/ui/Footer.tsx`, and the OG image at `app/opengraph-image.tsx`). Removed 2026-06-07. Any new `italic` Tailwind class, `<em>` without `not-italic`, or `font-style: italic` is a bug. Emphasis comes from weight, size, color, and serif/sans contrast — not slant. (Locked 2026-06-07.)
 - **No stock photo aesthetic** -- use real SA imagery or abstract patterns
 - **No lorem ipsum** -- all placeholder copy must be realistic SA-focused content
 - **Mobile-first** -- test at 320px, 375px, 768px, 1024px, 1440px

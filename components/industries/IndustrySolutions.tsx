@@ -36,7 +36,7 @@ export default function IndustrySolutions({
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               03
             </span>
             &nbsp;/&nbsp; How we help
@@ -83,7 +83,7 @@ export default function IndustrySolutions({
               className="flex flex-col gap-3.5 border border-border bg-light-surface p-8 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-[3px]"
             >
               <div
-                className="font-heading italic text-accent"
+                className="font-heading text-accent"
                 style={{
                   fontSize: "0.9375rem",
                   fontWeight: 400,

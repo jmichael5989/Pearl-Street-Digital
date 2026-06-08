@@ -5,13 +5,13 @@
  * Composition:
  *   - Warm-white section (alternates after Consultation's parchment).
  *   - Edge hairline at the top to mark the section transition.
- *   - Numbered eyebrow with italic-serif "03" in brass + sans label.
+ *   - Numbered eyebrow with serif "03" in brass + sans label.
  *   - Serif H2 in navy, weight 400, max-width 24ch, text-balance.
  *   - Graphite lede paragraph, max-width 58ch.
  *   - Four-card grid (stacks on mobile, 2x2 at sm, 4-up at lg).
  *   - Cards: 1px edge border, no shadow. Hover: border → navy +
  *     subtle translate lift; no glow shadow per the new palette spec.
- *   - Card numbers in italic-serif brass with an edge underline that
+ *   - Card numbers in serif brass with an edge underline that
  *     separates the number from the card title.
  *
  * Copy: H2, lede, and the first three card title/body pairs are
@@ -73,7 +73,7 @@ export default function WhyUs() {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               02
             </span>
             &nbsp;/&nbsp; Why us
@@ -121,7 +121,7 @@ export default function WhyUs() {
               className="flex flex-col gap-3.5 border border-border bg-light p-8 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-[3px]"
             >
               <div
-                className="font-heading italic text-accent"
+                className="font-heading text-accent"
                 style={{
                   fontSize: "0.9375rem",
                   fontWeight: 400,

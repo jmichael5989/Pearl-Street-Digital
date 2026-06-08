@@ -23,7 +23,7 @@ import ContactForm from "@/components/forms/ContactForm";
  *     homepage where it follows Hero/WhyUs/Services/CustomDev). Left-
  *     aligned serif H2 weight 400, graphite lede.
  *   - Two-column split at lg: left has "What happens next" with
- *     italic-serif numerals (no avatar chips) + contact info rows +
+ *     serif numerals (no avatar chips) + contact info rows +
  *     trust callout. Right has the form on a hairline-bordered card
  *     with seating shadow only (no rounded-2xl, no drop-shadow).
  *
@@ -67,7 +67,7 @@ export default function ContactContent({
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               {numeral}
             </span>
             &nbsp;/&nbsp; Get in touch
@@ -136,7 +136,7 @@ export default function ContactContent({
               What happens next.
             </h3>
 
-            {/* Editorial numbered steps — italic-serif numerals, no chips */}
+            {/* Editorial numbered steps — serif numerals, no chips */}
             <ol className="mt-6 border-t border-border">
               {steps.map((step) => (
                 <li
@@ -144,7 +144,7 @@ export default function ContactContent({
                   className="grid grid-cols-1 gap-y-2 border-b border-border py-5 sm:grid-cols-[2.5rem_1fr] sm:gap-x-4 sm:gap-y-0"
                 >
                   <span
-                    className="font-heading italic text-accent"
+                    className="font-heading text-accent"
                     style={{
                       fontSize: "0.9375rem",
                       fontWeight: 400,

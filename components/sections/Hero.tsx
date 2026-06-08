@@ -167,11 +167,11 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-        {/* Eyebrow — italic-serif "01" in brass + sans label, with an
+        {/* Eyebrow — serif "01" in brass + sans label, with an
             animated brass rule that draws in beneath. */}
         <header className="mb-12 lg:mb-16">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               01
             </span>
             &nbsp;/&nbsp; Rank Point Media
@@ -221,7 +221,7 @@ export default function Hero() {
 
             <div className="flex flex-wrap items-center gap-3.5">
               <Link
-                href="#talk-to-us"
+                href="/contact#talk-to-us"
                 className="font-body inline-flex items-center gap-2.5 border border-text bg-text px-6 py-3.5 text-[0.9375rem] font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark"
               >
                 Book a consultation
@@ -241,7 +241,7 @@ export default function Hero() {
               A note
             </div>
             <blockquote
-              className="font-heading text-text italic"
+              className="font-heading text-text"
               style={{
                 fontSize: "clamp(1.125rem, 1.5vw, 1.3125rem)",
                 lineHeight: 1.4,

@@ -1,10 +1,10 @@
-/**
+﻿/**
  * Service Areas hub. Lists the cities Rank Point Media serves with a
  * link to each city's landing page (or the homepage in San Antonio's
  * case, since the homepage is the SA experience).
  *
  * Per project_city_expansion.md (City Expansion Playbook), the routes
- * for Austin / Houston / Dallas are scaffolded as placeholders — they
+ * for Austin / Houston / Dallas are scaffolded as placeholders â€” they
  * are `noindex` until real content lands (city-specific case studies,
  * local proof points, unique copy distinct from the SA pages). This
  * hub page is also `noindex` until at least two city sub-pages are
@@ -53,7 +53,7 @@ const areas: AreaCard[] = [
     city: "Houston",
     href: "/areas/houston",
     status: "Coming soon",
-    body: "Serving Houston and the Gulf Coast region. Reach out if you're a Houston business — we'd like to talk.",
+    body: "Serving Houston and the Gulf Coast region. Reach out if you're a Houston business â€” we'd like to talk.",
   },
   {
     city: "Dallas",
@@ -71,7 +71,7 @@ export default function AreasPage() {
           kicker="SERVICE AREAS"
           headline="Texas businesses, served from San Antonio."
           subheadline="We're based in San Antonio and currently expanding across Texas. As we add cities, dedicated landing pages will live below."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}
           showMockups={false}
         />
@@ -87,7 +87,7 @@ export default function AreasPage() {
           <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
             <header className="mb-6">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal italic mr-1">
+                <span className="font-heading text-base font-normal mr-1">
                   01
                 </span>
                 &nbsp;/&nbsp; Where we work

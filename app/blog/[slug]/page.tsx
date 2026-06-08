@@ -138,7 +138,7 @@ export default async function BlogPostPage({
                   href="/blog"
                   className="text-xs font-semibold uppercase tracking-[0.16em] text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:text-text"
                 >
-                  <span className="font-heading text-base font-normal italic mr-1">
+                  <span className="font-heading text-base font-normal mr-1">
                     &larr;
                   </span>
                   &nbsp;/&nbsp; Journal
@@ -196,16 +196,16 @@ export default async function BlogPostPage({
                   "[&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-5 [&_ul]:text-[var(--color-brand-text)]",
                   "[&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-5 [&_ol]:text-[var(--color-brand-text)]",
                   "[&_li]:my-2 [&_li]:leading-[1.6]",
-                  // Blockquote — pull-quote style
-                  "[&_blockquote]:font-heading [&_blockquote]:italic [&_blockquote]:text-text [&_blockquote]:text-[1.5rem] [&_blockquote]:leading-[1.3] [&_blockquote]:tracking-[-0.01em] [&_blockquote]:my-10 [&_blockquote]:max-w-[32ch] [&_blockquote]:border-l [&_blockquote]:border-accent [&_blockquote]:pl-6",
+                  // Blockquote — pull-quote style (upright; brass left rule signals the quote)
+                  "[&_blockquote]:font-heading [&_blockquote]:text-text [&_blockquote]:text-[1.5rem] [&_blockquote]:leading-[1.3] [&_blockquote]:tracking-[-0.01em] [&_blockquote]:my-10 [&_blockquote]:max-w-[32ch] [&_blockquote]:border-l [&_blockquote]:border-accent [&_blockquote]:pl-6",
                   // Inline links
                   "[&_a]:text-accent [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-text",
-                  // Inline emphasis
-                  "[&_em]:italic",
+                  // Inline emphasis — override browser default italic on <em>; emphasis comes from weight instead
+                  "[&_em]:not-italic [&_em]:font-medium [&_em]:text-text",
                   "[&_strong]:font-medium [&_strong]:text-text",
                   // Figures
                   "[&_figure]:my-10",
-                  "[&_figcaption]:mt-3 [&_figcaption]:font-body [&_figcaption]:italic [&_figcaption]:text-[0.8125rem] [&_figcaption]:text-[var(--color-gray)]",
+                  "[&_figcaption]:mt-3 [&_figcaption]:font-body [&_figcaption]:text-[0.8125rem] [&_figcaption]:text-[var(--color-gray)]",
                 ].join(" ")}
                 style={{ maxWidth: "65ch" }}
               >

@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/ui/Footer";
 import { getSortedBlogPosts } from "@/lib/blog-data";
 
 /**
- * Journal index page. Light editorial register (no DarkHero) — the
+ * Journal index page. Light editorial register (no DarkHero) â€” the
  * journal is a long-form reading surface, not a marketing landing
  * page. Hero stack matches the homepage WhyUs / ServicesSection
  * pattern: numbered eyebrow + serif H2 weight 400 + graphite lede.
@@ -22,11 +22,11 @@ import { getSortedBlogPosts } from "@/lib/blog-data";
 export const metadata: Metadata = {
   title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
   description:
-    "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio businesses.",
+    "Long-form essays from Jon and Stacie at Rank Point Media â€” how we build websites and run marketing for San Antonio businesses.",
   openGraph: {
     title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
     description:
-      "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio businesses.",
+      "Long-form essays from Jon and Stacie at Rank Point Media â€” how we build websites and run marketing for San Antonio businesses.",
     url: "https://rankpointmedia.com/blog",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -59,7 +59,7 @@ export default function BlogIndexPage() {
     "@type": "Blog",
     name: "Rank Point Media Journal",
     description:
-      "Long-form essays from Jon and Stacie at Rank Point Media — how we build websites and run marketing for San Antonio businesses.",
+      "Long-form essays from Jon and Stacie at Rank Point Media â€” how we build websites and run marketing for San Antonio businesses.",
     url: "https://rankpointmedia.com/blog",
     publisher: {
       "@type": "Organization",
@@ -83,7 +83,7 @@ export default function BlogIndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
       <main>
-        {/* Hero — light editorial, not DarkHero */}
+        {/* Hero â€” light editorial, not DarkHero */}
         <section
           aria-labelledby="journal-heading"
           className="bg-light"
@@ -96,7 +96,7 @@ export default function BlogIndexPage() {
             {/* Eyebrow */}
             <header className="mb-6">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal italic mr-1">
+                <span className="font-heading text-base font-normal mr-1">
                   01
                 </span>
                 &nbsp;/&nbsp; Journal
@@ -149,7 +149,7 @@ export default function BlogIndexPage() {
             {/* Eyebrow */}
             <header className="mb-6">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal italic mr-1">
+                <span className="font-heading text-base font-normal mr-1">
                   02
                 </span>
                 &nbsp;/&nbsp; All essays
@@ -174,7 +174,7 @@ export default function BlogIndexPage() {
 
             {posts.length === 0 ? (
               <p
-                className="mt-12 font-body italic"
+                className="mt-12 font-body"
                 style={{
                   fontSize: "1.0625rem",
                   lineHeight: 1.6,
@@ -184,8 +184,8 @@ export default function BlogIndexPage() {
               >
                 The first essay lands soon. Check back, or{" "}
                 <Link
-                  href="/#talk-to-us"
-                  className="not-italic font-medium text-accent underline underline-offset-4 hover:text-text"
+                  href="/contact#talk-to-us"
+                  className="font-medium text-accent underline underline-offset-4 hover:text-text"
                 >
                   book an hour
                 </Link>{" "}
@@ -202,7 +202,7 @@ export default function BlogIndexPage() {
                     className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
                   >
                     <span
-                      className="font-heading italic text-accent"
+                      className="font-heading text-accent"
                       style={{
                         fontSize: "1rem",
                         fontWeight: 400,
@@ -257,7 +257,7 @@ export default function BlogIndexPage() {
 
                       <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
                         <span
-                          className="font-body text-xs italic"
+                          className="font-body text-xs"
                           style={{ color: "var(--color-gray)" }}
                         >
                           {post.readingTime}

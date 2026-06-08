@@ -1,9 +1,9 @@
-/**
+﻿/**
  * Matrix-page bottom CTA banner. Navy background, brass-soft accent
- * for the eyebrow numeral and label, italicized H2, primary CTA links
- * to the homepage Cal.com section at /#talk-to-us, secondary CTA is
- * the tel: link. Mirrors the dark-section copy block treatment used
- * on inner pages site-wide.
+ * for the eyebrow numeral and label, H2 in serif weight 400, primary
+ * CTA links to the homepage Cal.com section at /contact#talk-to-us,
+ * secondary CTA is the tel: link. Mirrors the dark-section copy block
+ * treatment used on inner pages site-wide.
  */
 
 import Link from "next/link";
@@ -29,7 +29,7 @@ export default function LocalCTA({ eyebrow, heading, copy }: LocalCTAProps) {
       <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               {num}
             </span>
             &nbsp;/&nbsp; {label}
@@ -61,7 +61,7 @@ export default function LocalCTA({ eyebrow, heading, copy }: LocalCTAProps) {
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-3.5">
           <Link
-            href="/#talk-to-us"
+            href="/contact#talk-to-us"
             className="font-body inline-flex items-center gap-2.5 border border-light bg-light px-6 py-3.5 text-[0.9375rem] font-medium tracking-[0.01em] text-text transition-[background-color,color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark hover:border-accent-dark hover:text-light"
           >
             Book a consultation

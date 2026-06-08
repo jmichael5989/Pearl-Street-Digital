@@ -29,7 +29,7 @@ export default function AboutStory() {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               02
             </span>
             &nbsp;/&nbsp; Our story
@@ -89,7 +89,7 @@ export default function AboutStory() {
           style={{ paddingTop: "20px", borderTop: "1px solid var(--color-border)" }}
         >
           <p
-            className="font-body italic"
+            className="font-body"
             style={{
               fontSize: "0.9375rem",
               lineHeight: 1.6,

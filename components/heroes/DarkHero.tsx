@@ -66,7 +66,7 @@ function HeadlineWithAccent({
   return (
     <>
       {headline.slice(0, idx)}
-      <em className="italic text-accent-dark">{accent}</em>
+      <em className="not-italic text-accent-dark">{accent}</em>
       {headline.slice(idx + accent.length)}
     </>
   );

@@ -33,7 +33,7 @@ export default function ServiceOverview({ service }: { service: ServiceData }) {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               02
             </span>
             &nbsp;/&nbsp; Overview

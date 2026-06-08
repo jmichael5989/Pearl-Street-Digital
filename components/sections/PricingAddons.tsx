@@ -1,8 +1,8 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 /**
  * Pricing add-ons rail. Sits below the three pricing tiers on /pricing
- * as nine bookable services that layer on top of a website build —
+ * as nine bookable services that layer on top of a website build â€”
  * Local SEO, Google Ads, social, email, content, brand identity, AI
  * solutions, photography, e-commerce.
  *
@@ -13,12 +13,12 @@ import Link from "next/link";
  * floor so the add-ons read as natural extensions of the entry plan.
  *
  * The lede carries the value-prop blurb that justifies Fiverr-floor
- * pricing without Fiverr-quality work — custom-coded, direct founder
+ * pricing without Fiverr-quality work â€” custom-coded, direct founder
  * access, no offshore developers, no generic AI templates. That
  * positioning has to land near the price for the comparison to feel
  * fair to a prospect who's only ever seen Fiverr.
  *
- * AI Solutions does NOT use the "From $X" pattern — it's billed
+ * AI Solutions does NOT use the "From $X" pattern â€” it's billed
  * hourly because scope varies wildly (chatbot vs custom integration
  * vs full app like appealproai.com). Tile shows the hourly rate
  * directly and routes to the same Cal.com consultation for scoping.
@@ -45,7 +45,7 @@ const addOns: AddOn[] = [
   {
     name: "Google Ads management",
     description:
-      "Campaign setup and ongoing optimization for paid search — landing pages, keyword bidding, and conversion tracking.",
+      "Campaign setup and ongoing optimization for paid search â€” landing pages, keyword bidding, and conversion tracking.",
     price: "From $149/mo",
   },
   {
@@ -87,8 +87,8 @@ const addOns: AddOn[] = [
   {
     name: "AI solutions",
     description:
-      "Custom AI integrations — chatbots, content generators, workflow automation, full apps like appealproai.com. Built from scratch, not bolted on.",
-    price: "Custom · $60/hr",
+      "Custom AI integrations â€” chatbots, content generators, workflow automation, full apps like appealproai.com. Built from scratch, not bolted on.",
+    price: "Custom Â· $60/hr",
   },
   {
     name: "Brand photography",
@@ -118,7 +118,7 @@ export default function PricingAddons() {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               03
             </span>
             &nbsp;/&nbsp; Add-ons
@@ -167,7 +167,7 @@ export default function PricingAddons() {
           {addOns.map((addon) => (
             <Link
               key={addon.name}
-              href="/#talk-to-us"
+              href="/contact#talk-to-us"
               className="group flex h-full flex-col border border-border bg-light p-6 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-[3px]"
               aria-label={`Book a consultation for ${addon.name}`}
             >

@@ -47,7 +47,7 @@ export default function ServiceRelated({
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               06
             </span>
             &nbsp;/&nbsp; Related
@@ -81,7 +81,7 @@ export default function ServiceRelated({
               className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
             >
               <span
-                className="font-heading italic text-accent"
+                className="font-heading text-accent"
                 style={{
                   fontSize: "1rem",
                   fontWeight: 400,

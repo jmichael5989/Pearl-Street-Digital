@@ -225,10 +225,10 @@ export default function Consultation() {
         className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24"
         style={{ paddingBlock: "clamp(72px, 12vh, 144px)" }}
       >
-        {/* Editorial section header — italic serif section-num + brass label */}
+        {/* Editorial section header — serif section-num + brass label */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">02</span>
+            <span className="font-heading text-base font-normal mr-1">02</span>
             &nbsp;/&nbsp; Talk to us
           </div>
         </header>
@@ -259,7 +259,7 @@ export default function Consultation() {
             we&rsquo;ll tell you that too.
           </p>
           <p
-            className="font-body text-sm italic leading-[1.55] text-gray"
+            className="font-body text-sm leading-[1.55] text-gray"
             style={{
               paddingTop: "16px",
               borderTop: "1px solid var(--color-border)",
@@ -322,7 +322,7 @@ export default function Consultation() {
               ) : (
                 <div className="max-w-md text-center">
                   <p
-                    className="font-body text-sm italic text-gray"
+                    className="font-body text-sm text-gray"
                     style={{ marginBottom: "12px" }}
                   >
                     Loading the calendar&hellip;

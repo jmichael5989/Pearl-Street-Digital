@@ -46,7 +46,7 @@ export function TestimonialCard({ testimonial }: { testimonial: TestimonialData 
           ))}
         </div>
       )}
-      <p className="italic text-base text-gray leading-relaxed">
+      <p className="text-base text-gray leading-relaxed">
         &ldquo;{testimonial.quote}&rdquo;
       </p>
       <div className="mt-6 flex items-center gap-3">

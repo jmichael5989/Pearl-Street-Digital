@@ -7,7 +7,7 @@ import Link from "next/link";
  * carries the agency-as-fact H1 and quiet-credentials subhead alone
  * against bg-brand-dark.
  *
- * Eyebrow uses the locked numbered editorial pattern — italic-serif
+ * Eyebrow uses the locked numbered editorial pattern — serif
  * "01" in brass-soft + sans uppercase "About" — same shape as the
  * homepage Hero. About-page sections then continue 02–04 (Story,
  * Approach, Team).
@@ -36,9 +36,9 @@ export default function AboutHero() {
     <section className="relative min-h-[50vh] md:min-h-[55vh] flex items-center overflow-hidden bg-brand-dark">
       <div className="relative z-[1] mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24 pt-28 pb-12 lg:pt-32 lg:pb-16 w-full">
         <div className="max-w-3xl text-left">
-          {/* Editorial eyebrow — italic-serif "01" in brass-soft + sans label */}
+          {/* Editorial eyebrow — serif "01" in brass-soft + sans label */}
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               01
             </span>
             &nbsp;/&nbsp; About
@@ -54,7 +54,7 @@ export default function AboutHero() {
               margin: "1.5rem 0 0 0",
             }}
           >
-            Two of us. <em className="font-normal italic">That&rsquo;s the company.</em>
+            Two of us. <em className="font-normal not-italic">That&rsquo;s the company.</em>
           </h1>
 
           <p

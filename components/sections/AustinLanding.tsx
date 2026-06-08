@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 /**
  * Austin city-hub body. Replaces the generic CityPlaceholder for the
@@ -6,10 +6,10 @@ import Link from "next/link";
  * into a real city landing page per the City Expansion Playbook.
  *
  * Composition (numbered editorial motif, matching the rest of the site):
- *   01 — Where we work          (warm white)
- *   02 — Services               (parchment)
- *   03 — How working with us actually goes  (warm white)
- *   04 — The trade-off + CTA    (parchment)
+ *   01 â€” Where we work          (warm white)
+ *   02 â€” Services               (parchment)
+ *   03 â€” How working with us actually goes  (warm white)
+ *   04 â€” The trade-off + CTA    (parchment)
  *
  * Copy posture:
  *   - Plainspoken; would survive the House Voice Test from .impeccable.md.
@@ -23,14 +23,14 @@ import Link from "next/link";
  *     design, matching the homepage hero's posture.
  *
  * The page's outbound links route to existing service pages
- * (website-design, local-seo, ppc-google-ads) — service content stays
+ * (website-design, local-seo, ppc-google-ads) â€” service content stays
  * generic and location-flexible per the 2026-03-30 decision; the city
  * page provides the Austin framing.
  */
 export default function AustinLanding() {
   return (
     <>
-      {/* 01 — Where we work in Austin */}
+      {/* 01 â€” Where we work in Austin */}
       <section
         aria-labelledby="austin-where-heading"
         className="bg-light border-t border-border"
@@ -42,7 +42,7 @@ export default function AustinLanding() {
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <header className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              <span className="font-heading text-base font-normal italic mr-1">
+              <span className="font-heading text-base font-normal mr-1">
                 01
               </span>
               &nbsp;/&nbsp; Where we work
@@ -90,7 +90,7 @@ export default function AustinLanding() {
         </div>
       </section>
 
-      {/* 02 — What we build for Austin businesses */}
+      {/* 02 â€” What we build for Austin businesses */}
       <section
         id="services"
         aria-labelledby="austin-services-heading"
@@ -103,7 +103,7 @@ export default function AustinLanding() {
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <header className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              <span className="font-heading text-base font-normal italic mr-1">
+              <span className="font-heading text-base font-normal mr-1">
                 02
               </span>
               &nbsp;/&nbsp; Services
@@ -166,7 +166,7 @@ export default function AustinLanding() {
                 className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
               >
                 <span
-                  className="font-heading italic text-accent"
+                  className="font-heading text-accent"
                   style={{
                     fontSize: "1rem",
                     fontWeight: 400,
@@ -216,7 +216,7 @@ export default function AustinLanding() {
         </div>
       </section>
 
-      {/* 03 — How working with us actually goes */}
+      {/* 03 â€” How working with us actually goes */}
       <section
         aria-labelledby="austin-how-heading"
         className="bg-light border-t border-border"
@@ -228,7 +228,7 @@ export default function AustinLanding() {
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <header className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              <span className="font-heading text-base font-normal italic mr-1">
+              <span className="font-heading text-base font-normal mr-1">
                 03
               </span>
               &nbsp;/&nbsp; How it works
@@ -279,7 +279,7 @@ export default function AustinLanding() {
         </div>
       </section>
 
-      {/* 04 — Why an SA agency for an Austin business + closer CTAs */}
+      {/* 04 â€” Why an SA agency for an Austin business + closer CTAs */}
       <section
         aria-labelledby="austin-tradeoff-heading"
         className="bg-light-surface border-t border-border"
@@ -291,7 +291,7 @@ export default function AustinLanding() {
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <header className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              <span className="font-heading text-base font-normal italic mr-1">
+              <span className="font-heading text-base font-normal mr-1">
                 04
               </span>
               &nbsp;/&nbsp; The trade-off
@@ -337,10 +337,10 @@ export default function AustinLanding() {
             </p>
           </div>
 
-          {/* Closer CTAs — same pattern as the homepage hero */}
+          {/* Closer CTAs â€” same pattern as the homepage hero */}
           <div className="mt-10 flex flex-wrap items-center gap-3.5">
             <Link
-              href="/#talk-to-us"
+              href="/contact#talk-to-us"
               className="font-body inline-flex items-center gap-2.5 border border-text bg-text px-6 py-3.5 text-[0.9375rem] font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark"
             >
               Book a consultation

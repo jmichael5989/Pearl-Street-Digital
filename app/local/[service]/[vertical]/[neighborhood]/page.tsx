@@ -217,7 +217,7 @@ export default async function LocalMatrixDetailPage({
                 className="flex gap-5 items-baseline py-4 border-b border-border last:border-b-0"
               >
                 <span
-                  className="font-heading italic text-accent shrink-0"
+                  className="font-heading text-accent shrink-0"
                   style={{
                     fontSize: "0.9375rem",
                     fontWeight: 400,

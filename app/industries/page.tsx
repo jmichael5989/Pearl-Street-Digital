@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/ui/Footer";
 import DarkHero from "@/components/heroes/DarkHero";
@@ -10,7 +10,7 @@ import { industries } from "@/lib/industries-data";
  *
  * Replaces the prior pre-pivot index that displayed six hardcoded
  * industry cards (medical, legal, home services, med spas, real
- * estate, restaurants/hospitality) — three of which had no detail
+ * estate, restaurants/hospitality) â€” three of which had no detail
  * page built and routed users to /contact instead. The honest TOC
  * shows only the three industries with real detail pages
  * (restaurants, beauty, auto) sourced from lib/industries-data.ts;
@@ -71,7 +71,7 @@ export default function IndustriesPage() {
           kicker="INDUSTRIES"
           headline="Marketing that fits how your customers actually search."
           subheadline="Every industry has different customers, different search patterns, and different conversion triggers. We build the strategy around how the work actually moves in your category."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}
           showMockups={false}
         />
@@ -89,7 +89,7 @@ export default function IndustriesPage() {
             {/* Eyebrow */}
             <header className="mb-6">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal italic mr-1">
+                <span className="font-heading text-base font-normal mr-1">
                   02
                 </span>
                 &nbsp;/&nbsp; Industries we serve
@@ -126,7 +126,7 @@ export default function IndustriesPage() {
               Three categories with real detail pages today. We work with
               other industries too &mdash; if yours isn&rsquo;t listed,{" "}
               <Link
-                href="/#talk-to-us"
+                href="/contact#talk-to-us"
                 className="font-medium text-accent underline underline-offset-4 hover:text-text"
               >
                 book a call
@@ -142,7 +142,7 @@ export default function IndustriesPage() {
                   className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
                 >
                   <span
-                    className="font-heading italic text-accent"
+                    className="font-heading text-accent"
                     style={{
                       fontSize: "1rem",
                       fontWeight: 400,

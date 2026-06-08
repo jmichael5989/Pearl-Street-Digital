@@ -51,7 +51,7 @@ export default function CaseStudiesTOC({
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               02
             </span>
             &nbsp;/&nbsp; Case studies
@@ -97,7 +97,7 @@ export default function CaseStudiesTOC({
               className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
             >
               <span
-                className="font-heading italic text-accent"
+                className="font-heading text-accent"
                 style={{
                   fontSize: "1rem",
                   fontWeight: 400,
@@ -171,7 +171,7 @@ export default function CaseStudiesTOC({
                 {/* Services + Read more */}
                 <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
                   <span
-                    className="font-body text-xs italic"
+                    className="font-body text-xs"
                     style={{ color: "var(--color-gray)" }}
                   >
                     {cs.services.join(", ")}

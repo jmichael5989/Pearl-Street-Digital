@@ -10,10 +10,8 @@ import type { ServiceSlug } from "@/lib/local-matrix/types";
 
 /**
  * Matrix index. Lists all 24 detail routes grouped by service. Plain
- * H2 group headings (no italic split) and plain-text links per the
- * owner-approved Sample D adjustment — the italic emphasis is reserved
- * for the 24 detail pages where it does meaningful work, not the
- * directory page.
+ * H2 group headings and plain-text links per the owner-approved
+ * Sample D adjustment.
  *
  * Always noindex regardless of MATRIX_PAGES_LIVE — the directory page
  * exists for owner navigation and AI-search discovery, not crawl
@@ -68,7 +66,7 @@ export default function LocalMatrixIndexPage() {
           <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
             <header className="mb-12 lg:mb-16">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal italic mr-1">
+                <span className="font-heading text-base font-normal mr-1">
                   00
                 </span>
                 &nbsp;/&nbsp; Matrix
@@ -86,7 +84,7 @@ export default function LocalMatrixIndexPage() {
               }}
             >
               Local marketing{" "}
-              <em className="font-normal italic">across San Antonio</em>.
+              <em className="font-normal not-italic">across San Antonio</em>.
             </h1>
             <p
               className="font-body mt-8 max-w-[52ch]"

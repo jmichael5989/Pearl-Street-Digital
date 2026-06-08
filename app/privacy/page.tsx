@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Footer from "@/components/ui/Footer";
 import DarkHero from "@/components/heroes/DarkHero";
 
@@ -164,7 +164,7 @@ export default function PrivacyPage() {
           kicker="LEGAL"
           headline="Privacy policy."
           subheadline="How we collect, use, and protect the information you share with us."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "Email us", href: "mailto:info@rankpointmedia.com" }}
           showMockups={false}
         />
@@ -181,7 +181,7 @@ export default function PrivacyPage() {
             {/* Eyebrow */}
             <header className="mb-6">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal italic mr-1">
+                <span className="font-heading text-base font-normal mr-1">
                   02
                 </span>
                 &nbsp;/&nbsp; Privacy policy
@@ -206,7 +206,7 @@ export default function PrivacyPage() {
 
             {/* Last updated caption */}
             <p
-              className="mt-5 font-body italic"
+              className="mt-5 font-body"
               style={{
                 fontSize: "0.875rem",
                 lineHeight: 1.5,
@@ -216,7 +216,7 @@ export default function PrivacyPage() {
               Last updated: March 30, 2026.
             </p>
 
-            {/* Policy sections — hairline-divided */}
+            {/* Policy sections â€” hairline-divided */}
             <div
               className="mt-12 max-w-3xl border-t border-border"
               style={{ marginTop: "clamp(48px, 6vh, 64px)" }}

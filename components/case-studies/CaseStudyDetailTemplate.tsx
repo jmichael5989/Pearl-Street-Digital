@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import DarkHero from "@/components/heroes/DarkHero";
 import type { CaseStudy } from "@/lib/case-studies-data";
@@ -11,7 +11,7 @@ import type { CaseStudy } from "@/lib/case-studies-data";
  * bg-primary instead of the locked DarkHero component, font-bold serif
  * headings throughout, brass vanity-metric tiles in the hero band that
  * directly violated .impeccable.md anti-reference 2 + the brass-as-fill
- * ban from §4, rounded-2xl shadow-2xl hero image with negative-margin
+ * ban from Â§4, rounded-2xl shadow-2xl hero image with negative-margin
  * overlap (boutique-agency anti-reference), bg-white outcome cards,
  * rounded-full service chips, and a closing bg-primary CTA band that
  * duplicated what the PreFooterCTA already drives on every inner page).
@@ -19,25 +19,25 @@ import type { CaseStudy } from "@/lib/case-studies-data";
  * Composition now:
  *   01 DarkHero (kicker = client name + industry, headline =
  *     outcomeHeadline, subheadline pulled from summary first sentence,
- *     primary CTA = Book a consultation → /#talk-to-us, secondary CTA
- *     = More case studies → /case-studies). No metrics in hero — the
+ *     primary CTA = Book a consultation â†’ /contact#talk-to-us, secondary CTA
+ *     = More case studies â†’ /case-studies). No metrics in hero â€” the
  *     facts list lives in section 02 to keep the hero clean.
- *   Hero image — full-width editorial photo with typographic caption.
- *   02 At a glance — typographic facts list (label / value rows) +
+ *   Hero image â€” full-width editorial photo with typographic caption.
+ *   02 At a glance â€” typographic facts list (label / value rows) +
  *     summary paragraph. heroMetrics data preserved, displayed
  *     editorially without brass-on-numbers fill.
- *   03 The challenge — narrative paragraph at 65ch.
- *   04 Our approach — narrative + services tagged inline as italic
+ *   03 The challenge â€” narrative paragraph at 65ch.
+ *   04 Our approach â€” narrative + services tagged inline as a
  *     graphite caption (no rounded-full chips).
- *   05 What we delivered — outcomes as numbered hairline-divided
+ *   05 What we delivered â€” outcomes as numbered hairline-divided
  *     editorial rows (FAQ-style pattern), each row is title + body.
- *   06 In their words — pull-quote (conditional) in italic Source Serif
+ *   06 In their words â€” pull-quote (conditional) in Source Serif
  *     with named-and-attributed citation. Left-aligned per editorial
  *     register; the prior centered treatment broke pattern with the
  *     rest of the site.
  *
- * Closing CTA band dropped — PreFooterCTA already covers the
- * /#talk-to-us prompt on every inner page.
+ * Closing CTA band dropped â€” PreFooterCTA already covers the
+ * /contact#talk-to-us prompt on every inner page.
  */
 export default function CaseStudyDetailTemplate({
   caseStudy,
@@ -52,17 +52,17 @@ export default function CaseStudyDetailTemplate({
 
   return (
     <>
-      {/* 01 — DarkHero */}
+      {/* 01 â€” DarkHero */}
       <DarkHero
-        kicker={`${caseStudy.industry.toUpperCase()} · ${caseStudy.client.toUpperCase()}`}
+        kicker={`${caseStudy.industry.toUpperCase()} Â· ${caseStudy.client.toUpperCase()}`}
         headline={caseStudy.outcomeHeadline}
         subheadline={summaryFirstSentence}
-        primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+        primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
         secondaryCta={{ label: "More case studies", href: "/case-studies" }}
         showMockups={false}
       />
 
-      {/* Hero image — editorial transition between hero and content */}
+      {/* Hero image â€” editorial transition between hero and content */}
       <section
         className="bg-light"
         style={{
@@ -83,7 +83,7 @@ export default function CaseStudyDetailTemplate({
               />
             </div>
             <figcaption
-              className="mt-3 font-body italic"
+              className="mt-3 font-body"
               style={{
                 fontSize: "0.8125rem",
                 lineHeight: 1.5,
@@ -96,7 +96,7 @@ export default function CaseStudyDetailTemplate({
         </div>
       </section>
 
-      {/* 02 — At a glance (facts list + summary) */}
+      {/* 02 â€” At a glance (facts list + summary) */}
       <section
         aria-labelledby="cs-overview-heading"
         className="bg-light border-t border-border"
@@ -108,7 +108,7 @@ export default function CaseStudyDetailTemplate({
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <header className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              <span className="font-heading text-base font-normal italic mr-1">
+              <span className="font-heading text-base font-normal mr-1">
                 02
               </span>
               &nbsp;/&nbsp; At a glance
@@ -131,7 +131,7 @@ export default function CaseStudyDetailTemplate({
           </h2>
 
           <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
-            {/* Facts list — typographic label/value rows, hairline-divided */}
+            {/* Facts list â€” typographic label/value rows, hairline-divided */}
             <dl className="border-t border-border">
               {caseStudy.heroMetrics.map((m) => (
                 <div
@@ -148,7 +148,7 @@ export default function CaseStudyDetailTemplate({
                     {m.label}
                   </dt>
                   <dd
-                    className="font-heading italic text-text"
+                    className="font-heading text-text"
                     style={{
                       fontSize: "1.5rem",
                       fontWeight: 400,
@@ -178,7 +178,7 @@ export default function CaseStudyDetailTemplate({
         </div>
       </section>
 
-      {/* 03 — The challenge */}
+      {/* 03 â€” The challenge */}
       <section
         aria-labelledby="cs-challenge-heading"
         className="bg-light-surface border-t border-border"
@@ -190,7 +190,7 @@ export default function CaseStudyDetailTemplate({
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <header className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              <span className="font-heading text-base font-normal italic mr-1">
+              <span className="font-heading text-base font-normal mr-1">
                 03
               </span>
               &nbsp;/&nbsp; The challenge
@@ -226,7 +226,7 @@ export default function CaseStudyDetailTemplate({
         </div>
       </section>
 
-      {/* 04 — Our approach */}
+      {/* 04 â€” Our approach */}
       <section
         aria-labelledby="cs-approach-heading"
         className="bg-light border-t border-border"
@@ -238,7 +238,7 @@ export default function CaseStudyDetailTemplate({
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <header className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              <span className="font-heading text-base font-normal italic mr-1">
+              <span className="font-heading text-base font-normal mr-1">
                 04
               </span>
               &nbsp;/&nbsp; Our approach
@@ -272,9 +272,9 @@ export default function CaseStudyDetailTemplate({
             {caseStudy.approach}
           </p>
 
-          {/* Services as italic graphite caption — no rounded-full chips */}
+          {/* Services as graphite caption â€” no rounded-full chips */}
           <p
-            className="mt-6 font-body italic"
+            className="mt-6 font-body"
             style={{
               fontSize: "0.8125rem",
               lineHeight: 1.5,
@@ -286,7 +286,7 @@ export default function CaseStudyDetailTemplate({
         </div>
       </section>
 
-      {/* 05 — What we delivered (outcomes as numbered hairline rows) */}
+      {/* 05 â€” What we delivered (outcomes as numbered hairline rows) */}
       <section
         aria-labelledby="cs-outcomes-heading"
         className="bg-light-surface border-t border-border"
@@ -298,7 +298,7 @@ export default function CaseStudyDetailTemplate({
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <header className="mb-6">
             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              <span className="font-heading text-base font-normal italic mr-1">
+              <span className="font-heading text-base font-normal mr-1">
                 05
               </span>
               &nbsp;/&nbsp; What we delivered
@@ -330,7 +330,7 @@ export default function CaseStudyDetailTemplate({
                 className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
               >
                 <span
-                  className="font-heading italic text-accent"
+                  className="font-heading text-accent"
                   style={{
                     fontSize: "1rem",
                     fontWeight: 400,
@@ -372,7 +372,7 @@ export default function CaseStudyDetailTemplate({
         </div>
       </section>
 
-      {/* 06 — In their words (pull quote, conditional) */}
+      {/* 06 â€” In their words (pull quote, conditional) */}
       {caseStudy.pullQuote && (
         <section
           aria-labelledby="cs-quote-heading"
@@ -388,7 +388,7 @@ export default function CaseStudyDetailTemplate({
                 id="cs-quote-heading"
                 className="text-xs font-semibold uppercase tracking-[0.16em] text-accent"
               >
-                <span className="font-heading text-base font-normal italic mr-1">
+                <span className="font-heading text-base font-normal mr-1">
                   06
                 </span>
                 &nbsp;/&nbsp; In their words
@@ -396,7 +396,7 @@ export default function CaseStudyDetailTemplate({
             </header>
 
             <blockquote
-              className="font-heading text-text italic"
+              className="font-heading text-text"
               style={{
                 fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
                 lineHeight: 1.25,
@@ -421,14 +421,14 @@ export default function CaseStudyDetailTemplate({
               <span className="font-medium" style={{ color: "var(--color-text)" }}>
                 {caseStudy.pullQuote.author}
               </span>
-              {" · "}
+              {" Â· "}
               {caseStudy.pullQuote.title}
             </cite>
           </div>
         </section>
       )}
 
-      {/* Back-to-index navigation — small footer link */}
+      {/* Back-to-index navigation â€” small footer link */}
       <section
         className="bg-light border-t border-border"
         style={{ paddingBlock: "clamp(40px, 6vh, 64px)" }}

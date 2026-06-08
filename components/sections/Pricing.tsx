@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -6,7 +6,7 @@ import FeatureIndicator from "@/components/icons/FeatureIndicator";
 
 /**
  * Pricing section. Editorial rebuild matching the homepage register
- * locked at .impeccable.md Resolved Decisions §4 (palette pivot) and
+ * locked at .impeccable.md Resolved Decisions Â§4 (palette pivot) and
  * the Pricing Transparency design principle.
  *
  * Replaces the prior centered template-family layout (centered bold-sans
@@ -14,7 +14,7 @@ import FeatureIndicator from "@/components/icons/FeatureIndicator";
  * container, rounded-2xl shadow-sm cards, font-extrabold serif prices,
  * pill toggle with bg-primary fill and InfoIcon tooltips, brass-soft
  * "MOST POPULAR" chip fill, hover:border-primary, and a Custom Services
- * trio that ended each tile with "Call for Pricing" / "Contact Us" — the
+ * trio that ended each tile with "Call for Pricing" / "Contact Us" â€” the
  * single biggest brief violation per the 2026-04-25 layout audit since
  * pricing transparency is the load-bearing trust trigger for the primary
  * persona).
@@ -24,7 +24,7 @@ import FeatureIndicator from "@/components/icons/FeatureIndicator";
  *   - Numbered editorial eyebrow "02 / Pricing".
  *   - Serif H2 weight 400, left-aligned, max-width 24ch.
  *   - Graphite lede max-width 58ch.
- *   - Engagement-model toggle as a text affordance — brass underline on
+ *   - Engagement-model toggle as a text affordance â€” brass underline on
  *     active, no pill, no tooltip. The distinction is visible in the
  *     lede, not hidden behind hover.
  *   - Three pricing cards: hairline border-border, no rounded-2xl, no
@@ -32,7 +32,7 @@ import FeatureIndicator from "@/components/icons/FeatureIndicator";
  *     border; "Most popular" badge is brass-soft outlined (not filled,
  *     per CLAUDE.md "brass never as a card or chip fill"). Prices are
  *     serif weight 400, not font-extrabold. Card CTAs anchor to the
- *     homepage Cal.com widget at /#talk-to-us so the page has one verb
+ *     homepage Cal.com widget at /contact#talk-to-us so the page has one verb
  *     with the homepage hero.
  *   - Phase-disclosure paragraph below the cards per .impeccable.md
  *     Early-stage Disclosure Posture: "one additional line may appear on
@@ -40,7 +40,7 @@ import FeatureIndicator from "@/components/icons/FeatureIndicator";
  *     positioning."
  *
  * The Custom Services trio (Marketing / Branding / Custom Web Apps) was
- * removed entirely — those capabilities are already covered in the
+ * removed entirely â€” those capabilities are already covered in the
  * regular services lineup (Social Media, Brand Management, Custom AI
  * Solutions in services-data.ts and ServicesSection's TOC), so the
  * pricing-page tiles were redundant content with the additional cost of
@@ -222,7 +222,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
           ))}
         </ul>
         <Link
-          href="/#talk-to-us"
+          href="/contact#talk-to-us"
           className="block w-full border border-light bg-light py-3.5 text-center font-body text-sm font-medium tracking-[0.01em] text-text transition-[background-color,border-color,color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark hover:border-accent-dark hover:text-light"
         >
           Book a consultation
@@ -290,7 +290,7 @@ function PricingCard({ plan, hosted }: { plan: Plan; hosted: boolean }) {
         ))}
       </ul>
       <Link
-        href="/#talk-to-us"
+        href="/contact#talk-to-us"
         className="block w-full border border-text bg-text py-3.5 text-center font-body text-sm font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark"
       >
         Book a consultation
@@ -316,7 +316,7 @@ export default function Pricing() {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               02
             </span>
             &nbsp;/&nbsp; Pricing
@@ -358,7 +358,7 @@ export default function Pricing() {
           after delivery.
         </p>
 
-        {/* Engagement-model toggle — text affordance with brass underline on active */}
+        {/* Engagement-model toggle â€” text affordance with brass underline on active */}
         <div className="mt-10 inline-flex items-center gap-8 text-xs font-semibold uppercase tracking-[0.16em]">
           <button
             type="button"
@@ -396,10 +396,10 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Phase-disclosure — per .impeccable.md Early-stage Disclosure Posture */}
+        {/* Phase-disclosure â€” per .impeccable.md Early-stage Disclosure Posture */}
         <div className="mt-16 lg:mt-20 max-w-2xl">
           <p
-            className="font-body italic"
+            className="font-body"
             style={{
               fontSize: "0.9375rem",
               lineHeight: 1.6,

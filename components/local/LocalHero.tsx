@@ -1,14 +1,14 @@
-/**
+﻿/**
  * Matrix-page hero. Editorial section header (eyebrow "01 / Local
- * marketing") plus the italicized H1 ("Local SEO *for Dentists in
- * Stone Oak*") plus a one-sentence subhead pulled from
- * service.shortDesc. Two CTAs: book a consultation anchoring to the
- * homepage Cal.com embed at /#talk-to-us, and a secondary outline link
- * to /pricing.
+ * marketing") plus the H1 ("Local SEO for Dentists in Stone Oak")
+ * plus a one-sentence subhead pulled from service.shortDesc. Two
+ * CTAs: book a consultation anchoring to the homepage Cal.com embed
+ * at /contact#talk-to-us, and a secondary outline link to /pricing.
  *
  * No motion. Matrix pages are SEO-conversion surface, not brand-
- * marketing surface. The H1 italic split is the only typographic
- * flourish.
+ * marketing surface. The H1 reads as a single line; the prior italic
+ * split on the "for {vertical} in {neighborhood}" tail was retired
+ * 2026-06-07 with the site-wide no-italics rule.
  */
 
 import Link from "next/link";
@@ -33,7 +33,7 @@ export default function LocalHero({ service, vertical, neighborhood }: LocalHero
       <div className="relative mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
         <header className="mb-12 lg:mb-16">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               01
             </span>
             &nbsp;/&nbsp; Local marketing
@@ -52,7 +52,7 @@ export default function LocalHero({ service, vertical, neighborhood }: LocalHero
             }}
           >
             {service.displayName}{" "}
-            <em className="font-normal italic">
+            <em className="font-normal not-italic">
               for {vertical.displayNamePlural} in {neighborhood.displayName}
             </em>
           </h1>
@@ -71,7 +71,7 @@ export default function LocalHero({ service, vertical, neighborhood }: LocalHero
 
           <div className="flex flex-wrap items-center gap-3.5">
             <Link
-              href="/#talk-to-us"
+              href="/contact#talk-to-us"
               className="font-body inline-flex items-center gap-2.5 border border-text bg-text px-6 py-3.5 text-[0.9375rem] font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark"
             >
               Book a consultation

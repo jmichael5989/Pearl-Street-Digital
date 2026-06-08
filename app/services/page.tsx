@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import { services } from "@/lib/services-data";
 import DarkHero from "@/components/heroes/DarkHero";
 import ServicesShowcase from "@/components/services/ServicesShowcase";
@@ -54,11 +54,11 @@ export default function ServicesPage() {
       />
       <main>
         <DarkHero
-          kicker="— OUR SERVICES"
+          kicker="â€” OUR SERVICES"
           headline="Six ways to grow your business online."
           headlineAccent="grow"
-          subheadline="From custom websites to AI search optimization, we give San Antonio businesses the digital marketing toolkit of a much larger agency — at prices built for local owners."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          subheadline="From custom websites to AI search optimization, we give San Antonio businesses the digital marketing toolkit of a much larger agency â€” at prices built for local owners."
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
             { value: "6", label: "Core Services" },
@@ -69,7 +69,7 @@ export default function ServicesPage() {
           showMockups={false}
         />
 
-        {/* Editorial slab — section header + body copy */}
+        {/* Editorial slab â€” section header + body copy */}
         <section
           aria-labelledby="services-intro-heading"
           className="bg-light border-t border-border"
@@ -82,7 +82,7 @@ export default function ServicesPage() {
             {/* Eyebrow */}
             <header className="mb-6">
               <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal italic mr-1">
+                <span className="font-heading text-base font-normal mr-1">
                   02
                 </span>
                 &nbsp;/&nbsp; The work
@@ -105,7 +105,7 @@ export default function ServicesPage() {
               The presence businesses actually need.
             </h2>
 
-            {/* Body — graphite paragraphs at 65ch measure */}
+            {/* Body â€” graphite paragraphs at 65ch measure */}
             <div
               className="mt-8 flex flex-col gap-5 font-body"
               style={{

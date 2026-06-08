@@ -21,11 +21,11 @@ import Link from "next/link";
  *   - Parchment surface (alternates against WhyUs's warm-white above
  *     and CustomDevelopmentCallout's warm-white below).
  *   - Edge hairline at the top to mark the section transition.
- *   - Numbered eyebrow "04 / Services" — italic-serif numeral in brass.
+ *   - Numbered eyebrow "04 / Services" — serif numeral in brass.
  *   - Serif H2 in navy weight 400, left-aligned, max-width 24ch.
  *   - Graphite lede max-width 58ch.
  *   - <ol> of eight services as numbered editorial rows. Each row:
- *     italic-serif numeral (03.i–03.viii) in the left rail, serif title
+ *     serif numeral (03.i–03.viii) in the left rail, serif title
  *     + graphite one-sentence body in the body column, sans-uppercase
  *     "Read more" link in brass beneath. Hairline border-b between
  *     rows. 2-column at lg, single-column on mobile.
@@ -102,7 +102,7 @@ export default function ServicesSection() {
         {/* Eyebrow */}
         <header className="mb-6">
           <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal italic mr-1">
+            <span className="font-heading text-base font-normal mr-1">
               03
             </span>
             &nbsp;/&nbsp; Services
@@ -148,7 +148,7 @@ export default function ServicesSection() {
               className="group grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
             >
               <span
-                className="font-heading italic text-accent"
+                className="font-heading text-accent"
                 style={{
                   fontSize: "1rem",
                   fontWeight: 400,
