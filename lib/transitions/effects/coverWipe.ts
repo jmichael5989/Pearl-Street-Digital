@@ -5,7 +5,7 @@ import type { EffectModule } from "../types";
 // the new page (enter). Transform-only (scaleY), so it's GPU-cheap and works in
 // every browser. On-brand: navy on warm-white. GSAP tweens are awaitable.
 
-const DURATION = 0.6;
+const DURATION = 0.85;
 const EASE = "power3.inOut";
 
 const coverWipe: EffectModule = {

@@ -4,7 +4,7 @@ import type { EffectModule } from "../types";
 // screen, then part (top lifts, bottom drops) to reveal the new page — a
 // theatre-curtain / split. Transform-only (yPercent), no plugins.
 
-const D = 0.55;
+const D = 0.78;
 const EASE = "power3.inOut";
 
 function els() {

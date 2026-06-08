@@ -146,7 +146,7 @@ const webglDissolve: EffectModule = {
     await new Promise<void>((resolve) => {
       gsap.to(material!.uniforms.uProgress, {
         value: -0.75,
-        duration: 0.9,
+        duration: 1.15,
         ease: "power1.in",
         onUpdate: render,
         onComplete: resolve,
@@ -162,7 +162,7 @@ const webglDissolve: EffectModule = {
     await new Promise<void>((resolve) => {
       gsap.to(material!.uniforms.uProgress, {
         value: 1.5,
-        duration: 0.9,
+        duration: 1.15,
         ease: "power1.in",
         onUpdate: render,
         onComplete: resolve,

@@ -53,9 +53,9 @@ const spiralDraw: EffectModule = {
     gsap.set(svg, { visibility: "visible" });
     gsap.set(path, { drawSVG: "50% 50%" });
     const tl = gsap.timeline();
-    tl.to(overlay, { opacity: 1, duration: 0.6, ease: "power2.inOut" }, 0).to(
+    tl.to(overlay, { opacity: 1, duration: 0.8, ease: "power2.inOut" }, 0).to(
       path,
-      { drawSVG: "0% 100%", duration: 0.75, ease: "sine.inOut" },
+      { drawSVG: "0% 100%", duration: 1.0, ease: "sine.inOut" },
       0,
     );
     await tl;
@@ -64,10 +64,10 @@ const spiralDraw: EffectModule = {
   async enter({ gsap }) {
     const { overlay, path } = refs();
     const tl = gsap.timeline();
-    tl.to(path, { drawSVG: "100% 100%", duration: 0.6, ease: "sine.inOut" }, 0).to(
+    tl.to(path, { drawSVG: "100% 100%", duration: 0.82, ease: "sine.inOut" }, 0).to(
       overlay,
-      { opacity: 0, duration: 0.55, ease: "power2.inOut" },
-      0.1,
+      { opacity: 0, duration: 0.72, ease: "power2.inOut" },
+      0.12,
     );
     await tl;
   },

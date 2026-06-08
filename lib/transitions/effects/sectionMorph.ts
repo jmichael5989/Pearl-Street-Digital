@@ -83,10 +83,10 @@ const sectionMorph: EffectModule = {
       left: r.left,
       width: r.width,
       height: r.height,
-      duration: 0.7,
+      duration: 0.95,
       ease: "power3.inOut",
     });
-    await gsap.to(clone, { autoAlpha: 0, duration: 0.25, ease: "power1.out" });
+    await gsap.to(clone, { autoAlpha: 0, duration: 0.3, ease: "power1.out" });
     clone.remove();
     clone = null;
   },

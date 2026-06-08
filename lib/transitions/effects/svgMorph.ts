@@ -30,18 +30,18 @@ const svgMorph: EffectModule = {
     gsap.set(svg, { visibility: "visible" });
     gsap.set(path(), { attr: { d: FLAT_BOTTOM } });
     const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-    tl.to(path(), { morphSVG: WAVE_UP, duration: 0.35 }).to(path(), {
+    tl.to(path(), { morphSVG: WAVE_UP, duration: 0.48 }).to(path(), {
       morphSVG: FULL,
-      duration: 0.3,
+      duration: 0.42,
     });
     await tl;
   },
 
   async enter({ gsap }) {
     const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-    tl.to(path(), { morphSVG: WAVE_TOP, duration: 0.3 }).to(path(), {
+    tl.to(path(), { morphSVG: WAVE_TOP, duration: 0.42 }).to(path(), {
       morphSVG: FLAT_TOP,
-      duration: 0.35,
+      duration: 0.48,
     });
     await tl;
   },

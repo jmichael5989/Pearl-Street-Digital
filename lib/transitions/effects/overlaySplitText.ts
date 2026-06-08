@@ -37,10 +37,10 @@ const overlaySplitText: EffectModule = {
     split?.revert();
     split = new SplitText(title, { type: "words" });
     const tl = gsap.timeline();
-    tl.to(overlay, { scaleY: 1, duration: 0.5, ease: "power3.inOut" }).from(
+    tl.to(overlay, { scaleY: 1, duration: 0.7, ease: "power3.inOut" }).from(
       split.words,
-      { yPercent: 115, opacity: 0, duration: 0.5, stagger: 0.07, ease: "hop" },
-      "-=0.15",
+      { yPercent: 115, opacity: 0, duration: 0.62, stagger: 0.09, ease: "hop" },
+      "-=0.2",
     );
     await tl;
   },
@@ -52,15 +52,15 @@ const overlaySplitText: EffectModule = {
       tl.to(split.words, {
         yPercent: -115,
         opacity: 0,
-        duration: 0.4,
-        stagger: 0.05,
+        duration: 0.5,
+        stagger: 0.07,
         ease: "power2.in",
       });
     }
     tl.to(
       overlay,
-      { scaleY: 0, transformOrigin: "center", duration: 0.5, ease: "power3.inOut" },
-      split ? "-=0.1" : 0,
+      { scaleY: 0, transformOrigin: "center", duration: 0.7, ease: "power3.inOut" },
+      split ? "-=0.12" : 0,
     );
     await tl;
   },
