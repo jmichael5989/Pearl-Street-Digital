@@ -4,7 +4,6 @@ import Script from "next/script";
 import "./globals.css";
 import HeaderRouter from "@/components/ui/HeaderRouter";
 import MobileCTABar from "@/components/ui/MobileCTABar";
-import TransitionProvider from "@/components/transitions/TransitionProvider";
 
 // Primary display face. Locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
 // Loaded as a variable font (weight axis 200-900). Italic axis kept solely to
@@ -231,7 +230,7 @@ export default function RootLayout({
           }}
         />
         <HeaderRouter />
-        <TransitionProvider>{children}</TransitionProvider>
+        {children}
         <MobileCTABar />
       </body>
     </html>
