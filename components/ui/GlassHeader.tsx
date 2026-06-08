@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -22,6 +23,14 @@ export default function GlassHeader({
   const [scrolledState, setScrolledState] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const scrolled = forceScrolled || scrolledState;
+
+  // Close the mobile menu on navigation. The page-transition engine intercepts
+  // link clicks (stopImmediatePropagation), so the per-link onClick that used to
+  // close the menu no longer fires — closing on pathname change is robust either way.
+  const pathname = usePathname();
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (forceScrolled) return;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const navLinks = [
@@ -73,6 +74,14 @@ function CloseIcon({ className }: { className?: string }) {
 export default function LegacyHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close the mobile menu on navigation. The page-transition engine intercepts
+  // link clicks (stopImmediatePropagation), so the per-link onClick that used to
+  // close the menu no longer fires — closing on pathname change is robust either way.
+  const pathname = usePathname();
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     function onScroll() {
