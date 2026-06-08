@@ -123,7 +123,13 @@ export default function TransitionProvider({ children }: { children: ReactNode }
 
       stateRef.current = "leaving";
       try {
-        await effect.leave(ctx);
+        // Safety net: never let a misbehaving effect hang the cover. If leave
+        // doesn't resolve in time, proceed to navigate anyway (teardown still
+        // runs after enter to clean up).
+        await Promise.race([
+          effect.leave(ctx),
+          new Promise<void>((resolve) => setTimeout(resolve, 3000)),
+        ]);
       } catch {
         try {
           effect.teardown(ctx);

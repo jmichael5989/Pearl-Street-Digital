@@ -72,7 +72,7 @@ export default function CaseStudyDetailTemplate({
       >
         <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
           <figure>
-            <div className="relative w-full overflow-hidden border border-border bg-light-surface" style={{ aspectRatio: "16 / 9" }}>
+            <div data-flip-id={caseStudy.slug} className="relative w-full overflow-hidden border border-border bg-light-surface" style={{ aspectRatio: "16 / 9" }}>
               <Image
                 src={caseStudy.heroImageUrl}
                 alt={caseStudy.heroImageAlt}

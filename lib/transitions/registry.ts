@@ -12,13 +12,13 @@ const DEFAULT_EFFECT: EffectLoader = () =>
   import("./effects/coverWipe").then((m) => m.default);
 
 const REGISTRY: Partial<Record<Namespace, EffectLoader>> = {
+  about: () => import("./effects/webglDissolve").then((m) => m.default),
   services: () => import("./effects/svgMorph").then((m) => m.default),
   contact: () => import("./effects/curtainLift").then((m) => m.default),
-  caseStudies: () => import("./effects/overlaySplitText").then((m) => m.default),
-  blog: () => import("./effects/overlaySplitText").then((m) => m.default),
+  caseStudies: () => import("./effects/sectionMorph").then((m) => m.default),
+  blog: () => import("./effects/sectionMorph").then((m) => m.default),
   industries: () => import("./effects/spiralDraw").then((m) => m.default),
   areas: () => import("./effects/spiralDraw").then((m) => m.default),
-  // about: webglDissolve (Phase 3 — adds three.js)
 };
 
 export function resolveEffect(to: Namespace): EffectLoader {

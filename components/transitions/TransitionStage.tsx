@@ -97,6 +97,10 @@ export default function TransitionStage() {
         />
       </svg>
 
+      {/* WebGL canvas mount (about) — webglDissolve appends a fullscreen
+          three.js canvas here; removed again on teardown. */}
+      <div id="tx-canvas-mount" style={{ ...fill, ...hidden }} />
+
       {/* Destination title (case-studies / blog) — serif, warm-white, upright
           (no italic per brand rule). Text + word-split set by the effect. */}
       <div

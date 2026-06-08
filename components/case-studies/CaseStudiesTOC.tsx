@@ -118,7 +118,10 @@ export default function CaseStudiesTOC({
                   aria-label={`Read the ${cs.client} case study`}
                   tabIndex={-1}
                 >
-                  <div className="relative aspect-[2/1] overflow-hidden border border-border bg-light-surface">
+                  <div
+                    data-flip-id={cs.slug}
+                    className="relative aspect-[2/1] overflow-hidden border border-border bg-light-surface"
+                  >
                     <Image
                       src={cs.thumbnailUrl}
                       alt={cs.thumbnailAlt}
