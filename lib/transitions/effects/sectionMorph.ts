@@ -1,4 +1,4 @@
-import overlaySplitText from "./overlaySplitText";
+import slats from "./slats";
 import type { EffectModule } from "../types";
 
 // Case-studies / blog signature with a shared-element image morph.
@@ -6,8 +6,8 @@ import type { EffectModule } from "../types";
 // When navigating from an index card to a detail page — i.e. a [data-flip-id]
 // thumbnail for the destination slug exists on the CURRENT page — the clicked
 // thumbnail morphs into the detail hero image. Otherwise (index navigation,
-// deep link, or no matching thumbnail) it falls back to the overlaySplitText
-// signature.
+// deep link, or no matching thumbnail) it falls back to the section's base
+// transition (the vertical slats).
 //
 // No GSAP Flip plugin needed: the clone is a fixed-position box whose
 // top/left/width/height animate while an object-fit:cover <img> re-covers, so
@@ -15,7 +15,7 @@ import type { EffectModule } from "../types";
 // on the persistent #tx-stage, so it survives the route swap between leave and
 // enter.
 
-let mode: "flip" | "overlay" = "overlay";
+let mode: "flip" | "fallback" = "fallback";
 let clone: HTMLDivElement | null = null;
 
 function detailSlug(path: string): string | null {
@@ -38,8 +38,8 @@ const sectionMorph: EffectModule = {
     const sourceImg = sourceWrap?.querySelector("img") as HTMLImageElement | null;
 
     if (!slug || !sourceImg) {
-      mode = "overlay";
-      await overlaySplitText.leave(ctx);
+      mode = "fallback";
+      await slats.leave(ctx);
       return;
     }
 
@@ -62,8 +62,8 @@ const sectionMorph: EffectModule = {
   },
 
   async enter(ctx) {
-    if (mode === "overlay") {
-      await overlaySplitText.enter(ctx);
+    if (mode === "fallback") {
+      await slats.enter(ctx);
       return;
     }
     const { gsap, targetPath } = ctx;
@@ -92,15 +92,15 @@ const sectionMorph: EffectModule = {
   },
 
   teardown(ctx) {
-    if (mode === "overlay") {
-      overlaySplitText.teardown(ctx);
+    if (mode === "fallback") {
+      slats.teardown(ctx);
     } else {
       clone?.remove();
       clone = null;
       const stage = document.getElementById("tx-stage") as HTMLElement;
       ctx.gsap.set(stage, { visibility: "hidden", pointerEvents: "none" });
     }
-    mode = "overlay";
+    mode = "fallback";
   },
 };
 

@@ -19,7 +19,10 @@ const curtainLift: EffectModule = {
   async leave({ gsap }) {
     const { stage, top, bottom } = els();
     gsap.set(stage, { visibility: "visible", pointerEvents: "auto" });
-    gsap.set([top, bottom], { visibility: "visible" });
+    // Re-assert the navy fill on every leave: teardown only clears the
+    // transform (not the background), and GSAP owning the color avoids a
+    // React-vs-imperative-DOM conflict that could leave the panels transparent.
+    gsap.set([top, bottom], { visibility: "visible", backgroundColor: "#14213D" });
     gsap.set(top, { yPercent: -100 });
     gsap.set(bottom, { yPercent: 100 });
     await gsap.to([top, bottom], { yPercent: 0, duration: D, ease: EASE });
@@ -36,7 +39,8 @@ const curtainLift: EffectModule = {
 
   teardown({ gsap }) {
     const { stage, top, bottom } = els();
-    gsap.set([top, bottom], { clearProps: "all", visibility: "hidden" });
+    // Clear only the transform (NOT the background) so the navy fill survives.
+    gsap.set([top, bottom], { clearProps: "transform", visibility: "hidden" });
     gsap.set(stage, { visibility: "hidden", pointerEvents: "none" });
   },
 };

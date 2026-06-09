@@ -48,7 +48,7 @@ export default function TransitionStage() {
           top: 0,
           height: "50.5%",
           backgroundColor: "var(--color-primary)",
-          borderBottom: "2px solid var(--color-accent-dark)",
+          borderBottom: "2px solid #B78F3E",
           willChange: "transform",
           ...hidden,
         }}
@@ -62,7 +62,7 @@ export default function TransitionStage() {
           bottom: 0,
           height: "50.5%",
           backgroundColor: "var(--color-primary)",
-          borderTop: "2px solid var(--color-accent-dark)",
+          borderTop: "2px solid #B78F3E",
           willChange: "transform",
           ...hidden,
         }}
@@ -83,7 +83,7 @@ export default function TransitionStage() {
               left: `${i * 20}%`,
               width: "20.4%",
               backgroundColor: "var(--color-primary)",
-              borderBottom: "2px solid var(--color-accent-dark)",
+              borderBottom: "2px solid #B78F3E",
               transform: "translateY(-100%)",
               willChange: "transform",
             }}
