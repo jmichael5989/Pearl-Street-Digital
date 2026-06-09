@@ -70,7 +70,7 @@ export default function EmailMarketingPage() {
             { value: "24/7", label: "Automations Running" },
             { value: "Owned", label: "Your List, Your Asset" },
           ]}
-          mockupVariant="generic"
+          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

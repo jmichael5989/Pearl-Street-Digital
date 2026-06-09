@@ -71,7 +71,7 @@ export default function WebsiteDesignPage() {
             { value: "$99", label: "Starter Plan" },
             { value: "95+", label: "Lighthouse" },
           ]}
-          mockupVariant="website"
+          showMockups={false}
         />
 
         <ServiceOverview service={service} />

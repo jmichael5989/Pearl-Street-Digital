@@ -72,7 +72,7 @@ export default function CustomAISolutionsPage() {
             { value: "24/7", label: "Always Running" },
             { value: "You", label: "Own The System" },
           ]}
-          mockupVariant="ai"
+          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

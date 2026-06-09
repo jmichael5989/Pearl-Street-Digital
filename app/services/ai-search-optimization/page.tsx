@@ -71,7 +71,7 @@ export default function AiSearchOptimizationPage() {
             { value: "First", label: "Mover Advantage" },
             { value: "2026", label: "Built for Now" },
           ]}
-          mockupVariant="ai"
+          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

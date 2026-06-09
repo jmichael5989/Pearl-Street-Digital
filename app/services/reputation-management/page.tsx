@@ -71,7 +71,7 @@ export default function ReputationManagementPage() {
             { value: "5★", label: "Target Rating" },
             { value: "All", label: "Review Platforms" },
           ]}
-          mockupVariant="reputation"
+          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

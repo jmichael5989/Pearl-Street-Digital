@@ -70,7 +70,7 @@ export default function LocalSeoPage() {
             { value: "3-6", label: "Months to Results" },
             { value: "24/7", label: "Always Working" },
           ]}
-          mockupVariant="seo"
+          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

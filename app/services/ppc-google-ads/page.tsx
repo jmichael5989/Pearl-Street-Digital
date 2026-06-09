@@ -71,7 +71,7 @@ export default function PpcGoogleAdsPage() {
             { value: "$500", label: "Starting Budget" },
             { value: "100%", label: "Transparent Reporting" },
           ]}
-          mockupVariant="ppc"
+          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

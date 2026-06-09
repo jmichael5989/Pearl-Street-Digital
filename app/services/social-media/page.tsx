@@ -72,7 +72,7 @@ export default function SocialMediaPage() {
             { value: "24hr", label: "Response Time" },
             { value: "Monthly", label: "Performance Reports" },
           ]}
-          mockupVariant="social"
+          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
