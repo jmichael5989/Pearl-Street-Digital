@@ -25,7 +25,7 @@ export default function HoustonPage() {
           headline="Custom websites for Houston businesses."
           headlineAccent="Houston"
           subheadline="We build hand-coded websites and run local SEO for businesses across Houston and the Gulf Coast. Two people, no account managers, no agency markup."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}
           showMockups={false}
         />

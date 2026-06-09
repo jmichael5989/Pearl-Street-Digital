@@ -80,7 +80,7 @@ export default function BeautyPage() {
           kicker="BEAUTY"
           headline={industry.heroHeading}
           subheadline={industry.heroSubtitle}
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See pricing", href: "/pricing" }}
           showMockups={false}
         />

@@ -64,7 +64,7 @@ export default function PpcGoogleAdsPage() {
           headline="Leads today, not someday."
           headlineAccent="today"
           subheadline="Targeted ad campaigns that put your San Antonio business in front of customers actively searching for your services right now. Pay for results, not impressions."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
             { value: "48hr", label: "Campaign Launch" },

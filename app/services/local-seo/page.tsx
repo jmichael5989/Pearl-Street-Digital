@@ -64,7 +64,7 @@ export default function LocalSeoPage() {
           headline="Rank higher in San Antonio."
           headlineAccent="higher"
           subheadline="Get found on Google Maps and local search before your competitors do. Dominate the 3-pack for your neighborhood, your service, your customer."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
             { value: "3-6", label: "Months to Results" },

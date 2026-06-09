@@ -48,7 +48,7 @@ export default function AustinPage() {
           headline="Custom websites for Austin businesses."
           headlineAccent="Austin"
           subheadline="Custom-coded websites, local SEO, and Google Ads for businesses in Austin and central Texas. Two people in front of the work — not behind a layer of account managers."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}
           showMockups={false}
         />

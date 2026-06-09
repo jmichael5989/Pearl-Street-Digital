@@ -58,7 +58,7 @@ export default function CaseStudiesPage() {
           headline="Real work for real San Antonio businesses."
           headlineAccent="Real work"
           subheadline="Each entry is a single project — the problem the owner brought us, what we built, and what shipped."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Services", href: "/services" }}
           showMockups={false}
         />

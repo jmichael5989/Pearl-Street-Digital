@@ -25,7 +25,7 @@ export default function DallasPage() {
           headline="Custom websites for Dallas businesses."
           headlineAccent="Dallas"
           subheadline="We build hand-coded websites and run local SEO for businesses across Dallas–Fort Worth. Two people, no account managers, no agency markup."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See services", href: "/services" }}
           showMockups={false}
         />

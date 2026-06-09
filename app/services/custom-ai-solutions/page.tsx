@@ -64,7 +64,7 @@ export default function CustomAISolutionsPage() {
           headline="AI tools built for how your business actually works."
           headlineAccent="your business"
           subheadline="Automated follow-ups, intelligent lead qualification, and workflow automation tailored to your San Antonio business. Not another off-the-shelf chatbot — real systems that earn back hours every week."
-          primaryCta={{ label: "Book a consultation", href: "/#talk-to-us" }}
+          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
             { value: "10hr+", label: "Saved Per Week" },
