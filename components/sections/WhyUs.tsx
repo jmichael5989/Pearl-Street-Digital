@@ -14,17 +14,15 @@
  *   - Card numbers in serif brass with an edge underline that
  *     separates the number from the card title.
  *
- * Copy: H2, lede, and the first three card title/body pairs are
- * verbatim from the option-b.html mock. The owner wrote them when
- * locking the palette; they are on-brief — plainspoken, dry, names the
- * competition by behavior not by name ("template shops", "agencies that
- * bill $450 a month for a four-hour intake call"), claims are concrete
- * and defensible (i. names the people on calls, ii. names the page-load
- * target, iii. names the handoff). Card iv. (lean staffing via AI) was
- * added 2026-04-25 per owner request — intentionally re-introduces an
- * AI mention into customer copy after the 642ef8e "AI-powered" cleanup.
- * The framing leads with the cost outcome rather than the AI mechanism
- * so it reads as a price differentiator, not a differentiator buzzword.
+ * Copy: H2, lede, and the three card title/body pairs are verbatim
+ * from the option-b.html mock. The owner wrote them when locking the
+ * palette; they are on-brief — plainspoken, dry, names the competition
+ * by behavior not by name ("template shops", "agencies that bill $450
+ * a month for a four-hour intake call"), claims are concrete and
+ * defensible (i. names the people on calls, ii. names the page-load
+ * target, iii. names the handoff). The earlier card iv. ("Less staff.
+ * Lower cost.") that referenced AI agents was removed 2026-06-08 with
+ * the site-wide drop of the AI-build-stack disclosure.
  *
  * Replaces the prior WhyUs (centered title with primary underline,
  * drop-cap "R", marketing-speak two-paragraph copy: AI-powered /
@@ -51,11 +49,6 @@ const whyCards = [
     num: "iii.",
     title: "You keep the keys.",
     body: "Your domain, your hosting, your analytics. If you decide in year three to take it somewhere else, the handoff is a Git repository and a coffee.",
-  },
-  {
-    num: "iv.",
-    title: "Less staff. Lower cost.",
-    body: "We use AI agents to help build and scale our solutions, so we don't need the big staff a traditional agency requires — and we don't pass the cost onto you.",
   },
 ];
 
@@ -113,8 +106,8 @@ export default function WhyUs() {
           fit the gap a specific kind of owner keeps describing to us.
         </p>
 
-        {/* 4-card grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 3-card grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {whyCards.map((card) => (
             <article
               key={card.num}

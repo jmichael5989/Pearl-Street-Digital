@@ -34,10 +34,8 @@ import FeatureIndicator from "@/components/icons/FeatureIndicator";
  *     serif weight 400, not font-extrabold. Card CTAs anchor to the
  *     homepage Cal.com widget at /contact#talk-to-us so the page has one verb
  *     with the homepage hero.
- *   - Phase-disclosure paragraph below the cards per .impeccable.md
- *     Early-stage Disclosure Posture: "one additional line may appear on
- *     the pricing page, phrased so the defense rests on the durable
- *     positioning."
+ *   - No phase-disclosure paragraph below the cards. The AI-build-stack
+ *     acknowledgment that briefly lived here was removed 2026-06-08.
  *
  * The Custom Services trio (Marketing / Branding / Custom Web Apps) was
  * removed entirely â€” those capabilities are already covered in the
@@ -394,24 +392,6 @@ export default function Pricing() {
           {plans.map((plan) => (
             <PricingCard key={plan.name} plan={plan} hosted={hosted} />
           ))}
-        </div>
-
-        {/* Phase-disclosure â€” per .impeccable.md Early-stage Disclosure Posture */}
-        <div className="mt-16 lg:mt-20 max-w-2xl">
-          <p
-            className="font-body"
-            style={{
-              fontSize: "0.9375rem",
-              lineHeight: 1.6,
-              color: "var(--color-brand-text)",
-              paddingTop: "16px",
-              borderTop: "1px solid var(--color-border)",
-            }}
-          >
-            We use AI agents to help build and scale our solutions, so we
-            don&rsquo;t need the big staff a traditional agency requires
-            &mdash; and we don&rsquo;t pass the cost onto you.
-          </p>
         </div>
       </div>
     </section>

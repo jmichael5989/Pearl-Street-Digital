@@ -9,8 +9,9 @@
  * "modern AI tools with proven local marketing strategies"). Now uses
  * the canonical numbered editorial pattern (eyebrow "02 / Our story",
  * left-aligned serif H2 weight 400, graphite paragraphs at 65ch
- * measure) and adds the early-stage disclosure paragraph that
- * .impeccable.md commits the About page to carrying.
+ * measure). The early-stage disclosure paragraph about AI agents that
+ * briefly appeared at the bottom of this section was removed
+ * 2026-06-08 with the site-wide AI-mention cleanup.
  *
  * Surface alternates with AboutHero (dark) → bg-light (warm-white).
  */
@@ -80,25 +81,6 @@ export default function AboutStory() {
             we run, every dollar of ad spend we manage is tied to our name
             &mdash; not to an account manager who&rsquo;ll be reassigned to
             someone else&rsquo;s account next quarter.
-          </p>
-        </div>
-
-        {/* Phase-disclosure paragraph — per .impeccable.md Early-stage Disclosure Posture */}
-        <div
-          className="mt-12 max-w-2xl"
-          style={{ paddingTop: "20px", borderTop: "1px solid var(--color-border)" }}
-        >
-          <p
-            className="font-body"
-            style={{
-              fontSize: "0.9375rem",
-              lineHeight: 1.6,
-              color: "var(--color-brand-text)",
-            }}
-          >
-            We use AI agents to help build and scale our solutions, so we
-            don&rsquo;t need the big staff a traditional agency requires
-            &mdash; and we don&rsquo;t pass the cost onto you.
           </p>
         </div>
       </div>
