@@ -10,7 +10,8 @@ const navLinks = [
   { label: "Services", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Journal", href: "/blog" },
+  // Journal hidden 2026-06-08 pending content refresh. Re-add when ready:
+  // { label: "Journal", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 

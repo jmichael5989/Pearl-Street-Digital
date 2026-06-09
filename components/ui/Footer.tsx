@@ -17,7 +17,8 @@ const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Blog", href: "/blog" },
+  // Blog/Journal hidden 2026-06-08 pending content refresh. Re-add when ready:
+  // { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -118,12 +119,14 @@ function FooterAccordion({
 }
 
 /* ── Pre-Footer CTA Bar ────────────────────────────────── */
-/* Editorial outro band shown on inner pages only (homepage hides it
+/* Editorial outro band shown on most pages. The contact page hides it
  * via Footer's hidePreFooterCTA prop, since the Consultation section
- * is the actual booking artifact). Parchment surface for a clean
- * handoff into the navy footer below. Two-column at lg: editorial
- * pitch on the left, brass-arrow CTA + phone on the right. The CTA
- * anchors back to the homepage's #talk-to-us Cal.com widget. */
+ * there is the actual booking artifact and a duplicate "book an hour"
+ * nudge directly above the footer would be redundant. Parchment surface
+ * for a clean handoff into the navy footer below. Two-column at lg:
+ * editorial pitch on the left, brass-arrow CTA + phone on the right.
+ * The CTA anchors to /contact#talk-to-us where the Cal.com widget now
+ * lives. */
 function PreFooterCTA() {
   return (
     <section
@@ -163,14 +166,14 @@ function PreFooterCTA() {
               }}
             >
               An hour with Jon. No slides, no script &mdash; just the
-              conversation. Pick any open time on the homepage calendar.
+              conversation. Pick any open time on Jon&rsquo;s live calendar.
             </p>
           </div>
 
           {/* Right: actions */}
           <div className="flex flex-col gap-4 lg:items-end">
             <Link
-              href="/#talk-to-us"
+              href="/contact#talk-to-us"
               className="inline-flex items-center gap-2 text-base font-semibold text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:underline hover:underline-offset-4"
             >
               Book an hour

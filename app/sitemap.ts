@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { services } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
 import { caseStudies } from "@/lib/case-studies-data";
-import { blogPosts } from "@/lib/blog-data";
+// import { blogPosts } from "@/lib/blog-data"; // restore when Journal returns (see blogRoutes below)
 import { getAllCombinations } from "@/lib/local-matrix/matrix";
 
 /**
@@ -37,7 +37,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/services`, lastModified: v, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/industries`, lastModified: v, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/case-studies`, lastModified: v, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/blog`, lastModified: v, changeFrequency: "weekly", priority: 0.7 },
+    // /blog and /blog/[slug] excluded 2026-06-08 pending content refresh.
+    // Pages are also robots:noindex while hidden. Re-add here when nav links return.
     { url: `${baseUrl}/pricing`, lastModified: v, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/about`, lastModified: v, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/contact`, lastModified: v, changeFrequency: "monthly", priority: 0.9 },
@@ -66,12 +67,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((p) => ({
-    url: `${baseUrl}/blog/${p.slug}`,
-    lastModified: new Date(p.publishedAt),
-    changeFrequency: "yearly",
-    priority: 0.5,
-  }));
+  // Blog posts excluded from sitemap 2026-06-08 alongside the /blog index.
+  // Restore by uncommenting the block below when the Journal section returns.
+  const blogRoutes: MetadataRoute.Sitemap = [];
+  // const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((p) => ({
+  //   url: `${baseUrl}/blog/${p.slug}`,
+  //   lastModified: new Date(p.publishedAt),
+  //   changeFrequency: "yearly",
+  //   priority: 0.5,
+  // }));
 
   // Local Matrix programmatic SEO routes. Gated on MATRIX_PAGES_LIVE
   // (must be exactly the string "true") so the 24 detail pages stay

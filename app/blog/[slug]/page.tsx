@@ -60,6 +60,10 @@ export async function generateMetadata({
       description: post.excerpt,
     },
     alternates: { canonical: url },
+    // Journal hidden 2026-06-08 pending content refresh. While hidden, deindex
+    // every post so Google drops them from search results; remove this
+    // `robots` block when the Journal section returns.
+    robots: { index: false, follow: true },
   };
 }
 

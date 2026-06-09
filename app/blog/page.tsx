@@ -39,6 +39,10 @@ export const metadata: Metadata = {
       "Long-form essays from the team at Rank Point Media.",
   },
   alternates: { canonical: "https://rankpointmedia.com/blog" },
+  // Journal hidden 2026-06-08 pending content refresh. While hidden, deindex
+  // both the index and detail pages so Google drops them from search results;
+  // remove this `robots` block when the Journal section returns.
+  robots: { index: false, follow: true },
 };
 
 const romanNumerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"];
