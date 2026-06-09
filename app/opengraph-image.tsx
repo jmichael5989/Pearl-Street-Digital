@@ -32,11 +32,11 @@ export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt =
-  "Rank Point Media — Websites that Rank. San Antonio digital agency.";
+  "Rank Point Media — Websites that Rank.";
 
 // Every glyph that appears in the composition below — kept in one place
 // so the `&text=` subset stays in sync with the rendered text.
-const OG_TEXT = "Websites that Rank. Point Media San Antonio · Texas rankpointmedia.com";
+const OG_TEXT = "Websites that Rank. Point Media Web · Marketing rankpointmedia.com";
 
 async function loadGoogleFont(
   family: string,
@@ -136,9 +136,9 @@ export default async function Image() {
             color: "#B78F3E",
           }}
         >
-          <span>San Antonio</span>
+          <span>Web</span>
           <span style={{ color: "rgba(250,250,246,0.4)" }}>·</span>
-          <span>Texas</span>
+          <span>Marketing</span>
         </div>
 
         {/* Middle: tagline H1 */}

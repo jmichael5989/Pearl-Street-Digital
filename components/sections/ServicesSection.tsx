@@ -136,8 +136,7 @@ export default function ServicesSection() {
             marginBottom: "clamp(48px, 6vh, 64px)",
           }}
         >
-          Eight things we do for small San Antonio businesses. Built by us,
-          run by us, billed honestly.
+          Eight things we do. Built by us, run by us, billed honestly.
         </p>
 
         {/* Numbered editorial list — 2-col at lg, hairline rules between rows */}

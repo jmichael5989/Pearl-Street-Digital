@@ -18,13 +18,13 @@ import { industries } from "@/lib/industries-data";
  */
 
 export const metadata: Metadata = {
-  title: "Industries We Serve San Antonio | Rank Point Media",
+  title: "Industries We Serve | Rank Point Media",
   description:
-    "Website design and digital marketing for San Antonio restaurants, beauty businesses, and auto repair shops. Industry-specific strategies that drive real results.",
+    "Website design and digital marketing for restaurants, beauty businesses, and auto repair shops. Industry-specific strategies that drive real results.",
   openGraph: {
-    title: "Industries We Serve San Antonio | Rank Point Media",
+    title: "Industries We Serve | Rank Point Media",
     description:
-      "Website design and digital marketing for San Antonio restaurants, beauty businesses, and auto repair shops.",
+      "Website design and digital marketing for restaurants, beauty businesses, and auto repair shops.",
     url: "https://rankpointmedia.com/industries",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Industries We Serve San Antonio | Rank Point Media",
+    title: "Industries We Serve | Rank Point Media",
     description:
-      "Website design and digital marketing for San Antonio restaurants, beauty businesses, and auto repair shops.",
+      "Website design and digital marketing for restaurants, beauty businesses, and auto repair shops.",
   },
   alternates: { canonical: "https://rankpointmedia.com/industries" },
 };
@@ -45,9 +45,9 @@ export default function IndustriesPage() {
   const industriesSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Industries We Serve San Antonio",
+    name: "Industries We Serve",
     description:
-      "Website design and digital marketing for San Antonio restaurants, beauty businesses, and auto repair shops.",
+      "Website design and digital marketing for restaurants, beauty businesses, and auto repair shops.",
     url: "https://rankpointmedia.com/industries",
     mainEntity: {
       "@type": "ItemList",

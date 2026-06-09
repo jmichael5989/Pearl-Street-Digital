@@ -36,13 +36,13 @@ export const industries: IndustryData[] = [
     slug: "restaurants",
     title: "Restaurants & Food Trucks",
     metaTitle:
-      "Restaurant Website Design San Antonio | Rank Point Media",
+      "Restaurant Website Design | Rank Point Media",
     metaDescription:
-      "Website design and digital marketing for San Antonio restaurants, food trucks, and catering businesses. Get found on Google Maps, drive online orders, and fill more seats.",
+      "Website design and digital marketing for restaurants, food trucks, and catering businesses. Get found on Google Maps, drive online orders, and fill more seats.",
     heroHeading:
-      "Restaurant Website Design and Marketing in San Antonio",
+      "Restaurant Website Design and Marketing",
     heroSubtitle:
-      "San Antonio welcomes 36.8 million visitors a year and holds a UNESCO Creative City of Gastronomy designation. If your restaurant does not show up when someone searches \"best tacos near me,\" you are losing customers every single day.",
+      "Independent restaurants compete with national chains for the same hungry searchers. If your restaurant does not show up when someone searches \"best tacos near me,\" you are losing customers every single day.",
     painPoints: [
       {
         title: "Invisible on Google Maps",
@@ -62,7 +62,7 @@ export const industries: IndustryData[] = [
       {
         title: "Losing to Chains with Bigger Budgets",
         description:
-          "National chains spend thousands on digital marketing every month. Without a strategy, independent restaurants in San Antonio cannot compete for the same search results.",
+          "National chains spend thousands on digital marketing every month. Without a strategy, independent restaurants cannot compete for the same search results.",
       },
     ],
     solutions: [
@@ -87,7 +87,7 @@ export const industries: IndustryData[] = [
       {
         title: "Local SEO for Food Searches",
         description:
-          "Targeted SEO for high-intent searches like \"best tacos San Antonio,\" \"food trucks near me,\" and \"catering San Antonio.\" We put you in front of customers who are ready to eat.",
+          "Targeted SEO for high-intent searches like \"best tacos near me,\" \"food trucks near me,\" and \"catering near me.\" We put you in front of customers who are ready to eat.",
         serviceSlug: "local-seo",
       },
     ],
@@ -95,7 +95,7 @@ export const industries: IndustryData[] = [
       name: "Business",
       price: "$500",
       description:
-        "Most San Antonio restaurants start with our Business tier -- a custom website with online ordering links, Google Business Profile setup, and foundational local SEO. One-time build, no contracts.",
+        "Most restaurants start with our Business tier -- a custom website with online ordering links, Google Business Profile setup, and foundational local SEO. One-time build, no contracts.",
     },
     faqs: [
       {
@@ -127,13 +127,13 @@ export const industries: IndustryData[] = [
     slug: "beauty",
     title: "Beauty Salons & Barber Shops",
     metaTitle:
-      "Salon & Barber Shop Website Design San Antonio | Rank Point Media",
+      "Salon & Barber Shop Website Design | Rank Point Media",
     metaDescription:
-      "Website design and marketing for San Antonio salons, barber shops, and beauty businesses. Get found online, fill your appointment book, and grow your client base.",
+      "Website design and marketing for salons, barber shops, and beauty businesses. Get found online, fill your appointment book, and grow your client base.",
     heroHeading:
-      "Website Design and Marketing for San Antonio Salons and Barber Shops",
+      "Website Design and Marketing for Salons and Barber Shops",
     heroSubtitle:
-      "Your clients are searching \"barber shop near me\" and \"best salon San Antonio\" right now. If your business does not show up, they are booking with someone else.",
+      "Your clients are searching \"barber shop near me\" and \"best salon near me\" right now. If your business does not show up, they are booking with someone else.",
     painPoints: [
       {
         title: "Still Booking by Phone Only",
@@ -143,7 +143,7 @@ export const industries: IndustryData[] = [
       {
         title: "No Professional Online Presence",
         description:
-          "Your best work lives on Instagram, but Instagram does not rank on Google. Without a website, potential clients who search for salons in San Antonio will never find you.",
+          "Your best work lives on Instagram, but Instagram does not rank on Google. Without a website, potential clients who search for salons will never find you.",
       },
       {
         title: "Relying Solely on Social Media",
@@ -153,7 +153,7 @@ export const industries: IndustryData[] = [
       {
         title: "Not Showing Up for Local Searches",
         description:
-          "When someone searches \"barber shop near me\" or \"hair salon San Antonio,\" your competitors appear first because they have optimized websites and Google Business Profiles.",
+          "When someone searches \"barber shop near me\" or \"hair salon near me,\" your competitors appear first because they have optimized websites and Google Business Profiles.",
       },
     ],
     solutions: [
@@ -218,11 +218,11 @@ export const industries: IndustryData[] = [
     slug: "auto",
     title: "Auto Repair & Detailing",
     metaTitle:
-      "Auto Repair Website Design San Antonio | Rank Point Media",
+      "Auto Repair Website Design | Rank Point Media",
     metaDescription:
-      "Website design and digital marketing for San Antonio auto repair shops, mechanics, and detailing businesses. Get found online and bring more cars through your bay doors.",
+      "Website design and digital marketing for auto repair shops, mechanics, and detailing businesses. Get found online and bring more cars through your bay doors.",
     heroHeading:
-      "Auto Repair and Detailing Website Design in San Antonio",
+      "Auto Repair and Detailing Website Design",
     heroSubtitle:
       "When a car breaks down, the owner grabs their phone and searches \"auto repair near me.\" If your shop does not show up in those results, the job goes to someone else.",
     painPoints: [
@@ -269,7 +269,7 @@ export const industries: IndustryData[] = [
       {
         title: "Local SEO for Auto Searches",
         description:
-          "Targeted optimization for searches like \"auto repair near me,\" \"oil change San Antonio,\" and \"mobile detailing San Antonio.\" We help you rank where customers are already searching.",
+          "Targeted optimization for searches like \"auto repair near me,\" \"oil change near me,\" and \"mobile detailing near me.\" We help you rank where customers are already searching.",
         serviceSlug: "local-seo",
       },
     ],

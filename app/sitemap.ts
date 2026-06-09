@@ -3,17 +3,16 @@ import { services } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
 import { caseStudies } from "@/lib/case-studies-data";
 // import { blogPosts } from "@/lib/blog-data"; // restore when Journal returns (see blogRoutes below)
-import { getAllCombinations } from "@/lib/local-matrix/matrix";
 
 /**
  * Dynamic sitemap. Reads from the data files so new services,
  * industries, case studies, and blog posts auto-appear at build time
  * — no manual sitemap edit required.
  *
- * /areas/* routes are intentionally excluded; per
- * project_city_expansion.md they are noindex placeholders until each
- * city has real content. When a city page is launched, also add it
- * here with the appropriate priority.
+ * The /areas/* city-expansion pages and the /local/* programmatic SEO
+ * matrix were removed 2026-06-08 in the nationwide pivot — they were
+ * built around San Antonio neighborhoods and Texas cities and no
+ * longer fit the brand. No /areas/* or /local/* entries belong here.
  */
 
 const baseUrl = "https://rankpointmedia.com";
@@ -22,12 +21,7 @@ const baseUrl = "https://rankpointmedia.com";
 // to ignore lastModified when every URL is "today" at every build, so
 // keep this explicit. Per-item dates win where available — case studies
 // and blog posts already use their own publishedAt.
-const SITE_CONTENT_VERSION = new Date("2026-04-26");
-
-// Matrix pages launch date — used for /local/* lastModified once
-// MATRIX_PAGES_LIVE is flipped on. Kept distinct from
-// SITE_CONTENT_VERSION so the matrix carries its own freshness signal.
-const MATRIX_LAUNCH_DATE = new Date("2026-05-11T00:00:00.000Z");
+const SITE_CONTENT_VERSION = new Date("2026-06-08");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const v = SITE_CONTENT_VERSION;
@@ -77,26 +71,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   //   priority: 0.5,
   // }));
 
-  // Local Matrix programmatic SEO routes. Gated on MATRIX_PAGES_LIVE
-  // (must be exactly the string "true") so the 24 detail pages stay
-  // out of the sitemap until the owner flips them on. The matrix
-  // index page (/local) is intentionally never in the sitemap.
-  const matrixRoutes: MetadataRoute.Sitemap =
-    process.env.MATRIX_PAGES_LIVE === "true"
-      ? getAllCombinations().map((t) => ({
-          url: `${baseUrl}/local/${t.service}/${t.vertical}/${t.neighborhood}`,
-          lastModified: MATRIX_LAUNCH_DATE,
-          changeFrequency: "monthly" as const,
-          priority: 0.5,
-        }))
-      : [];
-
   return [
     ...staticRoutes,
     ...serviceRoutes,
     ...industryRoutes,
     ...caseStudyRoutes,
     ...blogRoutes,
-    ...matrixRoutes,
   ];
 }

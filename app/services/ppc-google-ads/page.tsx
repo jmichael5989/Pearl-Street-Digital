@@ -40,10 +40,9 @@ export default function PpcGoogleAdsPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `${service.title} San Antonio`,
+            name: service.title,
             description: service.metaDescription,
             provider: { "@id": "https://rankpointmedia.com#org" },
-            areaServed: { "@type": "City", name: "San Antonio" },
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}
@@ -63,7 +62,7 @@ export default function PpcGoogleAdsPage() {
           kicker="— GOOGLE ADS"
           headline="Leads today, not someday."
           headlineAccent="today"
-          subheadline="Targeted ad campaigns that put your San Antonio business in front of customers actively searching for your services right now. Pay for results, not impressions."
+          subheadline="Targeted ad campaigns that put your business in front of customers actively searching for your services right now. Pay for results, not impressions."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[

@@ -40,10 +40,9 @@ export default function ReputationManagementPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `${service.title} San Antonio`,
+            name: service.title,
             description: service.metaDescription,
             provider: { "@id": "https://rankpointmedia.com#org" },
-            areaServed: { "@type": "City", name: "San Antonio" },
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}

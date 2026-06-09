@@ -40,10 +40,9 @@ export default function LocalSeoPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `${service.title} San Antonio`,
+            name: service.title,
             description: service.metaDescription,
             provider: { "@id": "https://rankpointmedia.com#org" },
-            areaServed: { "@type": "City", name: "San Antonio" },
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}
@@ -61,7 +60,7 @@ export default function LocalSeoPage() {
       <main>
         <DarkHero
           kicker="— LOCAL SEO"
-          headline="Rank higher in San Antonio."
+          headline="Rank higher in local search."
           headlineAccent="higher"
           subheadline="Get found on Google Maps and local search before your competitors do. Dominate the 3-pack for your neighborhood, your service, your customer."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}

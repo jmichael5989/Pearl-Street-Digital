@@ -40,9 +40,9 @@ const faqs = [
       "Yes, 100 percent. You own all code, content, images, and domain credentials. We hand everything over at launch. No lock-in, no hostage domains, no surprise invoices.",
   },
   {
-    question: "Where are you based, and do you work with businesses outside your area?",
+    question: "Do you work with businesses anywhere in the US?",
     answer:
-      "We are based in San Antonio, TX but we work with businesses across Texas and beyond. If you are looking for a team that understands local marketing, we are a good fit regardless of location.",
+      "Yes. We work with business owners across the country. Most projects run remotely with regular calls and shared dashboards; we'll fly in for kickoffs, launches, or strategic reviews when the engagement warrants it.",
   },
   {
     question: "What platform or CMS do you build on?",

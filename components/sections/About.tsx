@@ -2,8 +2,8 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const stats = [
   { value: "2026", label: "Founded" },
-  { value: "San Antonio, TX", label: "Based In" },
-  { value: "Texas Businesses", label: "Our Focus" },
+  { value: "2", label: "People on Every Project" },
+  { value: "100%", label: "Built In-House" },
   { value: "You Own Everything", label: "Our Model" },
 ];
 
@@ -17,15 +17,14 @@ export default function About() {
             About Us
           </span>
           <h2 className="mt-3 font-heading font-bold text-dark" style={{ fontSize: "var(--text-h2)", lineHeight: 1.2 }}>
-            Texas Roots. Modern Tools. Honest Work.
+            Modern Tools. Honest Work.
           </h2>
           <p className="mt-6 text-gray leading-relaxed">
-            Rank Point Media is a digital marketing agency founded in San
-            Antonio with one goal: give local businesses
-            access to the same caliber of digital marketing that big companies
-            take for granted. We use hand-built code and modern web standards
-            to deliver faster, leaner, and more effective results &mdash; without
-            the agency markup.
+            Rank Point Media is a two-person digital agency with one goal:
+            give business owners access to the same caliber of digital
+            marketing that big companies take for granted. We use hand-built
+            code and modern web standards to deliver faster, leaner, and more
+            effective results without the agency markup.
           </p>
           <p className="mt-4 text-gray leading-relaxed">
             Every project is founder-led. You work directly with the person

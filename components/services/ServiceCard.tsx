@@ -18,7 +18,7 @@ export default function ServiceCard({ slug, title, tagline, image }: ServiceCard
           {image && (
             <Image
               src={image}
-              alt={`${title} for San Antonio businesses`}
+              alt={`${title} services from Rank Point Media`}
               fill
               className="object-cover"
               sizes="(max-width: 640px) 50vw, 33vw"

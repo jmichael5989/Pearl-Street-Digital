@@ -6,13 +6,13 @@ import FAQ from "@/components/sections/FAQ";
 import CustomDevelopmentCallout from "@/components/sections/CustomDevelopmentCallout";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Services San Antonio | Rank Point Media",
+  title: "Digital Marketing Services | Rank Point Media",
   description:
-    "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management for businesses in San Antonio. Run by two people.",
+    "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management. A two-person agency.",
   openGraph: {
-    title: "Digital Marketing Services San Antonio | Rank Point Media",
+    title: "Digital Marketing Services | Rank Point Media",
     description:
-      "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management for businesses in San Antonio. Run by two people.",
+      "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management. A two-person agency.",
     url: "https://rankpointmedia.com/services",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Marketing Services San Antonio | Rank Point Media",
+    title: "Digital Marketing Services | Rank Point Media",
     description:
-      "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management for businesses in San Antonio. Run by two people.",
+      "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management. A two-person agency.",
   },
   alternates: { canonical: "https://rankpointmedia.com/services" },
 };
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
 const servicesSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Digital Marketing Services San Antonio",
+  name: "Digital Marketing Services",
   description:
-    "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management for businesses in San Antonio. Run by two people.",
+    "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management. A two-person agency.",
   url: "https://rankpointmedia.com/services",
   mainEntity: {
     "@type": "ItemList",
@@ -54,16 +54,16 @@ export default function ServicesPage() {
       />
       <main>
         <DarkHero
-          kicker="â€” OUR SERVICES"
+          kicker="OUR SERVICES"
           headline="Six ways to grow your business online."
           headlineAccent="grow"
-          subheadline="From custom websites to AI search optimization, we give San Antonio businesses the digital marketing toolkit of a much larger agency â€” at prices built for local owners."
+          subheadline="From custom websites to AI search optimization, the digital marketing toolkit of a much larger agency, run by two people."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
             { value: "6", label: "Core Services" },
             { value: "100%", label: "Built In-House" },
-            { value: "SA", label: "Local Agency" },
+            { value: "2", label: "People on Every Project" },
             { value: "$99", label: "Starting Monthly" },
           ]}
           showMockups={false}

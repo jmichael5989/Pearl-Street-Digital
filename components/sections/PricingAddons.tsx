@@ -39,7 +39,7 @@ const addOns: AddOn[] = [
   {
     name: "Local SEO",
     description:
-      "Google Business Profile optimization, citation cleanup, and local keyword targeting so San Antonio searchers find you first.",
+      "Google Business Profile optimization, citation cleanup, and local keyword targeting so local searchers find you first.",
     price: "From $99/mo",
   },
   {

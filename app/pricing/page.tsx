@@ -5,13 +5,13 @@ import Pricing from "@/components/sections/Pricing";
 import PricingAddons from "@/components/sections/PricingAddons";
 
 export const metadata: Metadata = {
-  title: "Pricing San Antonio | Rank Point Media",
+  title: "Pricing | Rank Point Media",
   description:
-    "Transparent pricing for web design, hosting, and digital marketing services in San Antonio. Flexible plans starting at $99/month. No hidden costs.",
+    "Transparent pricing for web design, hosting, and digital marketing. Flexible plans starting at $99/month. No hidden costs.",
   openGraph: {
-    title: "Pricing San Antonio | Rank Point Media",
+    title: "Pricing | Rank Point Media",
     description:
-      "Transparent pricing for web design, hosting, and digital marketing services in San Antonio. Flexible plans starting at $99/month. No hidden costs.",
+      "Transparent pricing for web design, hosting, and digital marketing. Flexible plans starting at $99/month. No hidden costs.",
     url: "https://rankpointmedia.com/pricing",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pricing San Antonio | Rank Point Media",
+    title: "Pricing | Rank Point Media",
     description:
-      "Transparent pricing for web design, hosting, and digital marketing services in San Antonio. Flexible plans starting at $99/month. No hidden costs.",
+      "Transparent pricing for web design, hosting, and digital marketing. Flexible plans starting at $99/month. No hidden costs.",
   },
   alternates: {
     canonical: "https://rankpointmedia.com/pricing",
@@ -31,20 +31,19 @@ export const metadata: Metadata = {
 // Service + OfferCatalog schema. Exposes the published prices as
 // queryable structured data so generative engines (ChatGPT, Perplexity,
 // Google AI Overviews) can cite concrete numbers when answering "how
-// much does a website in San Antonio cost?" — the brief's pricing
-// transparency principle, made machine-readable. Bump these when the
-// Pricing component's plan data changes.
+// much does a website cost?" — the brief's pricing transparency
+// principle, made machine-readable. Bump these when the Pricing
+// component's plan data changes.
 const pricingSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   serviceType: "Website Design and Hosting",
   name: "Website design, hosting, and digital marketing — Rank Point Media",
   url: "https://rankpointmedia.com/pricing",
-  // Reference the canonical org node defined in app/layout.tsx (which carries
-  // full NAP including postalCode 78257). Both JSON-LD blocks render on the
-  // same page, so Google resolves the @id reference. Keeps NAP in one place.
+  // Reference the canonical org node defined in app/layout.tsx. Both JSON-LD
+  // blocks render on the same page, so Google resolves the @id reference.
+  // Keeps NAP in one place.
   provider: { "@id": "https://rankpointmedia.com#org" },
-  areaServed: { "@type": "City", name: "San Antonio" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Plans",

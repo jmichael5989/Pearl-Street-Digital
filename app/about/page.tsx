@@ -6,13 +6,13 @@ import AboutValues from "@/components/about/AboutValues";
 import AboutTeam from "@/components/about/AboutTeam";
 
 export const metadata: Metadata = {
-  title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
+  title: "About Rank Point Media | Two-Person Digital Agency",
   description:
-    "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads for businesses in San Antonio.",
+    "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads. No account managers, no offshore developers.",
   openGraph: {
-    title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
+    title: "About Rank Point Media | Two-Person Digital Agency",
     description:
-      "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads for businesses in San Antonio.",
+      "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads. No account managers, no offshore developers.",
     url: "https://rankpointmedia.com/about",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Rank Point Media | San Antonio Web Design & Marketing Team",
+    title: "About Rank Point Media | Two-Person Digital Agency",
     description:
-      "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads for businesses in San Antonio.",
+      "Jon and Stacie, the two-person team behind Rank Point Media. Custom-coded websites, local SEO, and Google Ads. No account managers, no offshore developers.",
   },
   alternates: {
     canonical: "https://rankpointmedia.com/about",
@@ -40,17 +40,6 @@ const aboutSchema = {
     foundingDate: "2026",
     url: "https://rankpointmedia.com",
     telephone: "+1-210-305-7372",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "San Antonio",
-      addressRegion: "TX",
-      postalCode: "78257",
-      addressCountry: "US",
-    },
-    areaServed: {
-      "@type": "City",
-      name: "San Antonio",
-    },
     member: [
       {
         "@type": "Person",

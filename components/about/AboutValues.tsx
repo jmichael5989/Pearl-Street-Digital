@@ -40,8 +40,8 @@ const values = [
   },
   {
     num: "v.",
-    title: "Local focus.",
-    body: "We know San Antonio &mdash; the neighborhoods, the competition, what customers actually search for. That context makes the work sharper.",
+    title: "Direct access.",
+    body: "Jon answers the phone. Stacie answers the email. No tickets, no intake queues, no escalation paths.",
   },
   {
     num: "vi.",

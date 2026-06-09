@@ -100,10 +100,10 @@ export default function WhyUs() {
             marginBottom: "clamp(48px, 6vh, 64px)",
           }}
         >
-          The San Antonio business agency market is saturated with
-          template shops on the cheap end and large agencies that bill $450
-          a month for a four-hour intake call. We built Rank Point Media to
-          fit the gap a specific kind of owner keeps describing to us.
+          The agency market is saturated with template shops on the cheap
+          end and large agencies that bill $450 a month for a four-hour
+          intake call. We built Rank Point Media to fit the gap a specific
+          kind of owner keeps describing to us.
         </p>
 
         {/* 3-card grid */}

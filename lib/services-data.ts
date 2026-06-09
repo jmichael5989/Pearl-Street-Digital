@@ -43,9 +43,9 @@ export const services: ServiceData[] = [
     title: "Website Design",
     tagline:
       "Websites we hand-build, line by line. They load fast and they rank.",
-    metaTitle: "Website Design San Antonio | Plans from $99/mo | Rank Point Media",
+    metaTitle: "Website Design | Plans from $99/mo | Rank Point Media",
     metaDescription:
-      "Custom Next.js websites for San Antonio businesses. Lighthouse 95+, launched in 2-3 weeks, plans from $99/month with hosting included.",
+      "Custom Next.js websites for business owners. Lighthouse 95+, launched in 2-3 weeks, plans from $99/month with hosting included.",
     iconName: "globe",
     startingAt: "From $99/mo",
     overview: {
@@ -152,17 +152,17 @@ export const services: ServiceData[] = [
     slug: "local-seo",
     title: "SEO",
     tagline:
-      "Rank higher on Google Maps and local search results so San Antonio customers find you first -- not your competitors.",
-    metaTitle: "Local SEO San Antonio | Get Found on Google | Rank Point Media",
+      "Rank higher on Google Maps and local search results so local customers find you first -- not your competitors.",
+    metaTitle: "Local SEO | Get Found on Google | Rank Point Media",
     metaDescription:
-      "Local SEO services for San Antonio businesses. Google Maps optimization, citation building, and on-page SEO to drive more local customers to your door.",
+      "Local SEO services for business owners. Google Maps optimization, citation building, and on-page SEO to drive more local customers to your door.",
     iconName: "search",
     startingAt: "From $99/mo",
     overview: {
-      heading: "Show Up When San Antonio Searches for You",
+      heading: "Show Up When Local Searches Happen",
       paragraphs: [
-        "When someone searches 'plumber near me' or 'best tacos in San Antonio,' Google decides who shows up first. Local SEO is how you get into that top spot. We optimize your Google Business Profile, build local citations, and tune your website so Google sees you as the most relevant result for your area.",
-        "Most San Antonio businesses are leaving leads on the table because their online presence is not optimized for local search. We fix that with a systematic approach that targets the keywords your customers actually use, builds your authority in Google's eyes, and gets your phone ringing.",
+        "When someone searches 'plumber near me' or 'best tacos near me,' Google decides who shows up first. Local SEO is how you get into that top spot. We optimize your Google Business Profile, build local citations, and tune your website so Google sees you as the most relevant result for your area.",
+        "Most businesses are leaving leads on the table because their online presence is not optimized for local search. We fix that with a systematic approach that targets the keywords your customers actually use, builds your authority in Google's eyes, and gets your phone ringing.",
       ],
       highlights: [
         { label: "Results In", value: "4-8 Weeks" },
@@ -185,7 +185,7 @@ export const services: ServiceData[] = [
       {
         title: "On-Page SEO Optimization",
         description:
-          "Title tags, meta descriptions, header structure, and schema markup tuned for San Antonio-specific keywords.",
+          "Title tags, meta descriptions, header structure, and schema markup tuned for locally-targeted keywords.",
       },
       {
         title: "Review Strategy",
@@ -208,13 +208,13 @@ export const services: ServiceData[] = [
         number: "01",
         title: "Local SEO Audit",
         description:
-          "We audit your current online presence -- GBP, citations, website SEO, and competitor landscape in San Antonio.",
+          "We audit your current online presence -- GBP, citations, website SEO, and competitor landscape in your market.",
       },
       {
         number: "02",
         title: "Keyword Research",
         description:
-          "We identify the exact search terms your San Antonio customers use and map them to your services and locations.",
+          "We identify the exact search terms your local customers use and map them to your services and locations.",
       },
       {
         number: "03",
@@ -262,17 +262,17 @@ export const services: ServiceData[] = [
     slug: "social-media",
     title: "Social Media",
     tagline:
-      "Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement in the San Antonio market.",
-    metaTitle: "Social Media Management San Antonio | Rank Point Media",
+      "Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement in your local market.",
+    metaTitle: "Social Media Management | Rank Point Media",
     metaDescription:
-      "Social media marketing for San Antonio businesses. Content creation, scheduling, community management, and analytics across Instagram, Facebook, and LinkedIn.",
+      "Social media marketing for business owners. Content creation, scheduling, community management, and analytics across Instagram, Facebook, and LinkedIn.",
     iconName: "share",
     startingAt: "From $149/mo",
     overview: {
       heading: "Build a Local Following That Converts",
       paragraphs: [
-        "Social media is where your San Antonio customers hang out, read reviews, and decide who to trust with their money. A dead or inconsistent social presence tells potential customers you are not serious. We keep your profiles active, professional, and engaging.",
-        "We handle content creation, scheduling, community management, and analytics so you can focus on running your business. Every post is crafted with your San Antonio audience in mind -- always on-brand, and designed to drive real engagement.",
+        "Social media is where your local customers hang out, read reviews, and decide who to trust with their money. A dead or inconsistent social presence tells potential customers you are not serious. We keep your profiles active, professional, and engaging.",
+        "We handle content creation, scheduling, community management, and analytics so you can focus on running your business. Every post is crafted with your audience in mind -- always on-brand, and designed to drive real engagement.",
       ],
       highlights: [
         { label: "Platforms", value: "2-3" },
@@ -305,7 +305,7 @@ export const services: ServiceData[] = [
       {
         title: "Hashtag Strategy",
         description:
-          "Local SA hashtags and industry-specific tags researched and applied to maximize reach in your target market.",
+          "Locally-relevant hashtags and industry-specific tags researched and applied to maximize reach in your target market.",
       },
       {
         title: "Performance Analytics",
@@ -367,21 +367,21 @@ export const services: ServiceData[] = [
     slug: "ppc-google-ads",
     title: "Ad Campaigns",
     tagline:
-      "Targeted ad campaigns that put your San Antonio business in front of customers actively searching for your services right now.",
-    metaTitle: "Google Ads Management San Antonio | PPC Agency | Rank Point Media",
+      "Targeted ad campaigns that put your business in front of customers actively searching for your services right now.",
+    metaTitle: "Google Ads Management | PPC Agency | Rank Point Media",
     metaDescription:
-      "Google Ads and PPC management for San Antonio businesses. Targeted campaigns, keyword research, and conversion tracking. Pay only for results.",
+      "Google Ads and PPC management for business owners. Targeted campaigns, keyword research, and conversion tracking. Pay only for results.",
     iconName: "target",
     startingAt: "From $149/mo",
     overview: {
       heading: "Get Leads Today, Not Six Months From Now",
       paragraphs: [
-        "SEO is a long game. Google Ads puts you at the top of search results today. When someone in San Antonio searches for your service, your ad appears first -- and you only pay when they click. It is the fastest path from zero to leads for local businesses.",
+        "SEO is a long game. Google Ads puts you at the top of search results today. When someone searches for your service, your ad appears first -- and you only pay when they click. It is the fastest path from zero to leads for local businesses.",
         "We build and manage campaigns that target the right keywords, write ads that get clicks, and optimize landing pages that convert. Every dollar of your ad spend is tracked, measured, and optimized for maximum return.",
       ],
       highlights: [
         { label: "Results In", value: "24-48 Hours" },
-        { label: "Targeting", value: "San Antonio" },
+        { label: "Targeting", value: "Geo-targeted" },
         { label: "Tracking", value: "Full Funnel" },
         { label: "Reporting", value: "Weekly" },
       ],
@@ -390,12 +390,12 @@ export const services: ServiceData[] = [
       {
         title: "Campaign Strategy",
         description:
-          "Custom campaign architecture based on your services, budget, and target areas within San Antonio.",
+          "Custom campaign architecture based on your services, budget, and target areas within your market.",
       },
       {
         title: "Keyword Research",
         description:
-          "Deep research into what your SA customers are searching for, with negative keywords to avoid wasted spend.",
+          "Deep research into what your local customers are searching for, with negative keywords to avoid wasted spend.",
       },
       {
         title: "Ad Copywriting",
@@ -429,7 +429,7 @@ export const services: ServiceData[] = [
         number: "02",
         title: "Campaign Build",
         description:
-          "We build targeted campaigns with tight ad groups, compelling copy, and San Antonio geo-targeting.",
+          "We build targeted campaigns with tight ad groups, compelling copy, and precise geo-targeting.",
       },
       {
         number: "03",
@@ -448,7 +448,7 @@ export const services: ServiceData[] = [
       {
         question: "How much should I spend on Google Ads?",
         answer:
-          "For most San Antonio businesses, $500-$2,000/month in ad spend is a solid starting point. We can work with smaller budgets but results scale with investment.",
+          "For most businesses, $500-$2,000/month in ad spend is a solid starting point. We can work with smaller budgets but results scale with investment.",
       },
       {
         question: "How quickly will I see results?",
@@ -466,7 +466,7 @@ export const services: ServiceData[] = [
           "Most failed Google Ads campaigns suffer from poor targeting, weak landing pages, or no conversion tracking. We fix all three.",
       },
       {
-        question: "Can you target specific neighborhoods in San Antonio?",
+        question: "Can you target specific neighborhoods or service areas?",
         answer:
           "Yes. We can geo-target specific zip codes, neighborhoods, or radius areas around your business location.",
       },
@@ -478,15 +478,15 @@ export const services: ServiceData[] = [
     title: "AI Search Optimization",
     tagline:
       "Get your business recommended by ChatGPT, Google AI Overviews, and voice assistants. The next frontier of local visibility.",
-    metaTitle: "AI Search Optimization San Antonio | GEO Services | Rank Point Media",
+    metaTitle: "AI Search Optimization | GEO Services | Rank Point Media",
     metaDescription:
-      "AI search optimization (GEO) for San Antonio businesses. Get recommended by ChatGPT, Google AI Overviews, Siri, and Alexa. Future-proof your online presence.",
+      "AI search optimization (GEO) for business owners. Get recommended by ChatGPT, Google AI Overviews, Siri, and Alexa. Future-proof your online presence.",
     iconName: "sparkle",
     startingAt: "From $99/mo",
     overview: {
       heading: "Be the Answer When AI Responds",
       paragraphs: [
-        "The way people find businesses is changing. More and more searches happen through AI assistants -- ChatGPT, Google's AI Overviews, Siri, Alexa. When someone asks 'who is the best plumber in San Antonio,' you want to be the answer. That requires a different kind of optimization.",
+        "The way people find businesses is changing. More and more searches happen through AI assistants -- ChatGPT, Google's AI Overviews, Siri, Alexa. When someone asks 'who is the best plumber near me,' you want to be the answer. That requires a different kind of optimization.",
         "Generative Engine Optimization (GEO) is the practice of structuring your online presence so AI systems can understand, trust, and recommend your business. We optimize your content, schema markup, and digital footprint to make your business AI-friendly.",
       ],
       highlights: [
@@ -533,7 +533,7 @@ export const services: ServiceData[] = [
         number: "01",
         title: "AI Visibility Audit",
         description:
-          "We test how AI systems currently respond to queries about your business and industry in San Antonio.",
+          "We test how AI systems currently respond to queries about your business and industry.",
       },
       {
         number: "02",
@@ -578,7 +578,7 @@ export const services: ServiceData[] = [
       {
         question: "Is this relevant for small local businesses?",
         answer:
-          "Absolutely. Local queries like 'best dentist in San Antonio' are increasingly answered by AI. Being optimized now gives you a first-mover advantage before your competitors catch on.",
+          "Absolutely. Local queries like 'best dentist near me' are increasingly answered by AI. Being optimized now gives you a first-mover advantage before your competitors catch on.",
       },
     ],
     relatedSlugs: ["local-seo", "website-design", "ppc-google-ads"],
@@ -587,10 +587,10 @@ export const services: ServiceData[] = [
     slug: "reputation-management",
     title: "Brand Management",
     tagline:
-      "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your San Antonio business has earned.",
-    metaTitle: "Reputation Management San Antonio | Online Reviews | Rank Point Media",
+      "Monitor, respond to, and grow your online reviews. Build the 5-star reputation your business has earned.",
+    metaTitle: "Reputation Management | Online Reviews | Rank Point Media",
     metaDescription:
-      "Online reputation management for San Antonio businesses. Review monitoring, response management, and review generation to build trust and drive more customers.",
+      "Online reputation management for business owners. Review monitoring, response management, and review generation to build trust and drive more customers.",
     iconName: "shield",
     startingAt: "From $149/mo",
     overview: {
@@ -610,7 +610,7 @@ export const services: ServiceData[] = [
       {
         title: "Review Monitoring",
         description:
-          "Real-time monitoring across Google, Yelp, Facebook, and industry-specific review sites for your San Antonio business.",
+          "Real-time monitoring across Google, Yelp, Facebook, and industry-specific review sites for your business.",
       },
       {
         title: "Response Management",
@@ -697,16 +697,16 @@ export const services: ServiceData[] = [
     slug: "email-marketing",
     title: "Email Marketing",
     tagline:
-      "Turn one-time visitors into repeat San Antonio customers with email campaigns that actually get opened, read, and clicked.",
-    metaTitle: "Email Marketing San Antonio | Campaigns & Automation | Rank Point Media",
+      "Turn one-time visitors into repeat local customers with email campaigns that actually get opened, read, and clicked.",
+    metaTitle: "Email Marketing | Campaigns & Automation | Rank Point Media",
     metaDescription:
-      "Email marketing for San Antonio businesses. Campaign strategy, list building, template design, and automated flows that drive repeat sales and customer loyalty.",
+      "Email marketing for business owners. Campaign strategy, list building, template design, and automated flows that drive repeat sales and customer loyalty.",
     iconName: "mail",
     startingAt: "From $99 setup",
     overview: {
       heading: "The Highest ROI Channel You're Probably Ignoring",
       paragraphs: [
-        "For every dollar spent on email marketing, businesses earn an average of $36 back. It outperforms social media, ads, and SEO on pure return -- yet most San Antonio businesses either never use it or send the wrong kind of emails. We fix both.",
+        "For every dollar spent on email marketing, businesses earn an average of $36 back. It outperforms social media, ads, and SEO on pure return -- yet most businesses either never use it or send the wrong kind of emails. We fix both.",
         "We build campaigns that feel personal, not promotional. Segmented lists, clean templates, and automated flows that turn one-time customers into loyal repeat buyers. Everything is written in your voice and designed to drive measurable action.",
       ],
       highlights: [
@@ -720,7 +720,7 @@ export const services: ServiceData[] = [
       {
         title: "Campaign Strategy",
         description:
-          "A monthly calendar of promotions, announcements, and nurture emails tailored to your San Antonio audience and business goals.",
+          "A monthly calendar of promotions, announcements, and nurture emails tailored to your audience and business goals.",
       },
       {
         title: "List Building and Segmentation",
@@ -803,15 +803,15 @@ export const services: ServiceData[] = [
     title: "Custom AI Solutions",
     tagline:
       "Custom artificial intelligence tools built for your business -- automated follow-ups, intelligent lead qualification, and workflow automation that gives you an unfair advantage.",
-    metaTitle: "Custom AI Solutions San Antonio | Automation & Agents | Rank Point Media",
+    metaTitle: "Custom AI Solutions | Automation & Agents | Rank Point Media",
     metaDescription:
-      "Custom AI solutions for San Antonio businesses. Automated customer follow-ups, lead qualification, chatbots, and workflow automation tailored to your specific operation.",
+      "Custom AI solutions for business owners. Automated customer follow-ups, lead qualification, chatbots, and workflow automation tailored to your specific operation.",
     iconName: "cpu",
     startingAt: "Custom · $60/hr",
     overview: {
       heading: "AI That Actually Works for Your Business",
       paragraphs: [
-        "Most agencies talk about AI. We build it. Our team creates custom artificial intelligence solutions tailored to your specific San Antonio business -- automated customer follow-ups, intelligent lead qualification, 24/7 chatbots that sound like you, and workflow automation that frees up hours every week.",
+        "Most agencies talk about AI. We build it. Our team creates custom artificial intelligence solutions tailored to your specific business -- automated customer follow-ups, intelligent lead qualification, 24/7 chatbots that sound like you, and workflow automation that frees up hours every week.",
         "This is not generic ChatGPT wrappers. We integrate directly with your CRM, email, scheduling, and operations tools. The result: a system that works while you sleep, qualifies leads while you handle the ones that matter, and scales without hiring.",
       ],
       highlights: [

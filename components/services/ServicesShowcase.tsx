@@ -87,9 +87,8 @@ export default function ServicesShowcase() {
             marginBottom: "clamp(48px, 6vh, 64px)",
           }}
         >
-          {services.length} services for small San Antonio businesses. All
-          plans include the website build and hosting; ongoing services
-          scale with scope. See{" "}
+          {services.length} services, one team. All plans include the
+          website build and hosting; ongoing services scale with scope. See{" "}
           <Link
             href="/pricing"
             className="font-medium text-accent underline underline-offset-4 hover:text-text"

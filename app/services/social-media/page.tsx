@@ -40,10 +40,9 @@ export default function SocialMediaPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `${service.title} San Antonio`,
+            name: service.title,
             description: service.metaDescription,
             provider: { "@id": "https://rankpointmedia.com#org" },
-            areaServed: { "@type": "City", name: "San Antonio" },
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}
@@ -63,7 +62,7 @@ export default function SocialMediaPage() {
           kicker="— SOCIAL MEDIA"
           headline="Content that actually builds a following."
           headlineAccent="actually"
-          subheadline="Consistent, on-brand social content for San Antonio businesses. Post strategy, creative production, and community management — done for you, done right."
+          subheadline="Consistent, on-brand social content. Post strategy, creative production, and community management. Done for you, done right."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[

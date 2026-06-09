@@ -71,7 +71,7 @@ export default function CaseStudiesTOC({
             margin: 0,
           }}
         >
-          Real work for real San Antonio businesses.
+          Real work, real results.
         </h2>
 
         {/* Lede */}

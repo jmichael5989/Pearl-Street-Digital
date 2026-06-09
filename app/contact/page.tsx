@@ -5,13 +5,13 @@ import ContactContent from "@/components/contact/ContactContent";
 import Consultation from "@/components/sections/Consultation";
 
 export const metadata: Metadata = {
-  title: "Contact Us San Antonio | Rank Point Media",
+  title: "Contact Us | Rank Point Media",
   description:
-    "Book a 60-minute consultation with Jon at Rank Point Media. A two-person San Antonio agency serving businesses across the metro and surrounding cities.",
+    "Book a 60-minute consultation with Jon at Rank Point Media. A two-person digital agency. We listen first, then tell you what we'd actually do.",
   openGraph: {
-    title: "Contact Us San Antonio | Rank Point Media",
+    title: "Contact Us | Rank Point Media",
     description:
-      "Book a 60-minute consultation with Jon at Rank Point Media. A two-person San Antonio agency serving businesses across the metro and surrounding cities.",
+      "Book a 60-minute consultation with Jon at Rank Point Media. A two-person digital agency. We listen first, then tell you what we'd actually do.",
     url: "https://rankpointmedia.com/contact",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Us San Antonio | Rank Point Media",
+    title: "Contact Us | Rank Point Media",
     description:
-      "Book a 60-minute consultation with Jon at Rank Point Media. A two-person San Antonio agency serving businesses across the metro and surrounding cities.",
+      "Book a 60-minute consultation with Jon at Rank Point Media. A two-person digital agency. We listen first, then tell you what we'd actually do.",
   },
   alternates: {
     canonical: "https://rankpointmedia.com/contact",
@@ -34,21 +34,10 @@ const contactSchema = {
   name: "Contact Rank Point Media",
   url: "https://rankpointmedia.com/contact",
   mainEntity: {
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     name: "Rank Point Media",
     telephone: "+1-210-305-7372",
     email: "info@rankpointmedia.com",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "San Antonio",
-      addressRegion: "TX",
-      postalCode: "78257",
-      addressCountry: "US",
-    },
-    areaServed: {
-      "@type": "City",
-      name: "San Antonio",
-    },
   },
 };
 

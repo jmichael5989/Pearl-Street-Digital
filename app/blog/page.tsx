@@ -20,13 +20,13 @@ import { getSortedBlogPosts } from "@/lib/blog-data";
  */
 
 export const metadata: Metadata = {
-  title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
+  title: "Journal | Rank Point Media",
   description:
-    "Long-form essays from Jon and Stacie at Rank Point Media â€” how we build websites and run marketing for San Antonio businesses.",
+    "Long-form essays from Jon and Stacie at Rank Point Media on how we build websites and run digital marketing.",
   openGraph: {
-    title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
+    title: "Journal | Rank Point Media",
     description:
-      "Long-form essays from Jon and Stacie at Rank Point Media â€” how we build websites and run marketing for San Antonio businesses.",
+      "Long-form essays from Jon and Stacie at Rank Point Media on how we build websites and run digital marketing.",
     url: "https://rankpointmedia.com/blog",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Journal | San Antonio Web Design & Marketing | Rank Point Media",
+    title: "Journal | Rank Point Media",
     description:
       "Long-form essays from the team at Rank Point Media.",
   },
@@ -63,7 +63,7 @@ export default function BlogIndexPage() {
     "@type": "Blog",
     name: "Rank Point Media Journal",
     description:
-      "Long-form essays from Jon and Stacie at Rank Point Media â€” how we build websites and run marketing for San Antonio businesses.",
+      "Long-form essays from Jon and Stacie at Rank Point Media on how we build websites and run digital marketing.",
     url: "https://rankpointmedia.com/blog",
     publisher: {
       "@type": "Organization",
@@ -133,9 +133,8 @@ export default function BlogIndexPage() {
               }}
             >
               Long-form pieces about how we build websites, how we think
-              about marketing for small San Antonio businesses, and what
-              we&rsquo;ve learned along the way. Signed, dated, written
-              by us.
+              about digital marketing, and what we&rsquo;ve learned along
+              the way. Signed, dated, written by us.
             </p>
           </div>
         </section>

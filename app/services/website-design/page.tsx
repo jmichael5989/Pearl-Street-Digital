@@ -40,10 +40,9 @@ export default function WebsiteDesignPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `${service.title} San Antonio`,
+            name: service.title,
             description: service.metaDescription,
             provider: { "@id": "https://rankpointmedia.com#org" },
-            areaServed: { "@type": "City", name: "San Antonio" },
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}
@@ -63,7 +62,7 @@ export default function WebsiteDesignPage() {
           kicker="— WEBSITE DESIGN"
           headline="Websites that convert."
           headlineAccent="convert"
-          subheadline="Custom Next.js sites built for speed, SEO, and conversions. Designed for San Antonio businesses who are tired of agencies that overpromise and underdeliver."
+          subheadline="Custom Next.js sites built for speed, SEO, and conversions. For business owners who are tired of agencies that overpromise and underdeliver."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[

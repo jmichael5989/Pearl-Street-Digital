@@ -191,14 +191,6 @@ export default function ContactContent({
                   info@rankpointmedia.com
                 </span>
               </a>
-              <div className="flex items-center gap-4 text-text">
-                <span className="flex h-10 w-10 items-center justify-center border border-border bg-light-surface">
-                  <MapPinIcon />
-                </span>
-                <span className="text-sm font-medium">
-                  San Antonio, TX
-                </span>
-              </div>
             </div>
 
             {/* Trust callout — hairline border, no shadow */}

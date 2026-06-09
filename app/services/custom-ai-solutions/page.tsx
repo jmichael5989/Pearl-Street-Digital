@@ -40,10 +40,9 @@ export default function CustomAISolutionsPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `${service.title} San Antonio`,
+            name: service.title,
             description: service.metaDescription,
             provider: { "@id": "https://rankpointmedia.com#org" },
-            areaServed: { "@type": "City", name: "San Antonio" },
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}
@@ -63,7 +62,7 @@ export default function CustomAISolutionsPage() {
           kicker="— CUSTOM AI"
           headline="AI tools built for how your business actually works."
           headlineAccent="your business"
-          subheadline="Automated follow-ups, intelligent lead qualification, and workflow automation tailored to your San Antonio business. Not another off-the-shelf chatbot — real systems that earn back hours every week."
+          subheadline="Automated follow-ups, intelligent lead qualification, and workflow automation tailored to your business. Not another off-the-shelf chatbot. Real systems that earn back hours every week."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[

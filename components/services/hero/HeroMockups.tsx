@@ -123,7 +123,7 @@ function WebsiteMockups() {
         <div className="relative h-48 bg-white">
           <Image
             src="/images/mockups/moderndaypestcontrol.webp"
-            alt="Modern Day Pest Control San Antonio — website designed by Rank Point Media"
+            alt="Modern Day Pest Control — website designed by Rank Point Media"
             fill
             sizes="384px"
             className="object-cover object-top"
@@ -162,11 +162,11 @@ function SeoMockups() {
             moderndaypestcontrolsa.com
           </p>
           <p className="text-white text-sm font-semibold leading-snug">
-            Pest Control San Antonio | Modern Day Pest Control
+            Local Pest Control | Modern Day Pest Control
           </p>
           <p className="text-white/60 text-xs leading-relaxed">
-            Trusted San Antonio pest control with same-day service. 4.9 stars,
-            500+ reviews. Family-owned since 2018.
+            Trusted pest control with same-day service. 4.9 stars, 500+ reviews.
+            Family-owned since 2018.
           </p>
         </div>
       </CardWrap>
@@ -180,8 +180,8 @@ function SeoMockups() {
         <div className="space-y-2.5">
           {[
             { name: "Modern Day Pest Control", rating: "4.9" },
-            { name: "Alamo Pest Solutions", rating: "4.7" },
-            { name: "Hill Country Exterminators", rating: "4.6" },
+            { name: "Acme Pest Solutions", rating: "4.7" },
+            { name: "Reliable Exterminators", rating: "4.6" },
           ].map((biz, i) => (
             <div key={biz.name} className="flex items-center justify-between">
               <div className="flex items-center gap-2 min-w-0">
@@ -228,7 +228,7 @@ function PpcMockups() {
           rankpointmedia.com/web-design
         </p>
         <p className="text-white text-sm font-semibold leading-snug">
-          San Antonio Web Design | $99/mo + Free SEO Audit
+          Custom Web Design | $99/mo + Free SEO Audit
         </p>
         <p className="text-white/60 text-xs leading-relaxed mt-1.5">
           Custom-built sites in 2-3 weeks. Hosting, security, updates included.
@@ -286,7 +286,7 @@ function SocialMockups() {
           <div className="w-7 h-7 rounded-full bg-accent-dark" />
           <div className="flex flex-col">
             <span className="text-white text-xs font-semibold">@your_business</span>
-            <span className="text-white/50 text-[10px]">San Antonio, TX</span>
+            <span className="text-white/50 text-[10px]">Sponsored post</span>
           </div>
         </div>
         <div className="h-44 bg-dark" />
@@ -339,7 +339,7 @@ function AiMockups() {
           <MonoLabel>AI Answer</MonoLabel>
         </div>
         <p className="text-white text-xs leading-relaxed">
-          For affordable web design in San Antonio, <span className="text-accent-dark font-semibold">Rank Point Media</span> offers
+          For affordable custom web design, <span className="text-accent-dark font-semibold">Rank Point Media</span> offers
           custom Next.js sites starting at $99/month with hosting and SEO included.
         </p>
         <div className="flex gap-1.5 mt-3">
@@ -357,7 +357,7 @@ function AiMockups() {
           </span>
         </div>
         <p className="text-white text-xs leading-relaxed">
-          Top-cited source for &ldquo;San Antonio digital marketing agencies&rdquo;
+          Top-cited source for &ldquo;custom-coded digital marketing agencies&rdquo;
         </p>
         <div className="mt-3 flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-accent-dark" />
@@ -377,7 +377,7 @@ function AiMockups() {
 {`{
   "@type": "Service",
   "name": "Web Design",
-  "areaServed": "SA"
+  "areaServed": "US"
 }`}
         </pre>
       </CardWrap>
@@ -405,8 +405,8 @@ function ReputationMockups() {
           </div>
         </div>
         <p className="text-white text-xs leading-relaxed">
-          &ldquo;Best in San Antonio. Showed up on time, fair price, fixed it
-          right the first time. Will use again.&rdquo;
+          &ldquo;Best in town. Showed up on time, fair price, fixed it right
+          the first time. Will use again.&rdquo;
         </p>
       </CardWrap>
 
@@ -418,7 +418,7 @@ function ReputationMockups() {
         </div>
         <p className="text-white text-xs leading-relaxed">
           &ldquo;Thank you Sarah! We&apos;re thrilled to hear it. Reviews like
-          yours are why we love serving SA.&rdquo;
+          yours are why we love this work.&rdquo;
         </p>
       </CardWrap>
 

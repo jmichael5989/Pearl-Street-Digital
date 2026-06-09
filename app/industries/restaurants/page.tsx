@@ -40,14 +40,13 @@ export default function RestaurantsPage() {
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              name: "Restaurant Website Design and Marketing San Antonio",
+              name: "Restaurant Website Design and Marketing",
               description: industry.metaDescription,
               provider: {
-                "@type": "LocalBusiness",
+                "@type": "Organization",
                 name: "Rank Point Media",
                 url: "https://rankpointmedia.com",
               },
-              areaServed: { "@type": "City", name: "San Antonio" },
               url: `https://rankpointmedia.com/industries/${industry.slug}`,
             },
             {

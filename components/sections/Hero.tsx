@@ -214,9 +214,8 @@ export default function Hero() {
                 margin: 0,
               }}
             >
-              Websites, SEO, and Google Ads for San Antonio businesses.
-              Two people in front of the work &mdash; not behind a layer of
-              account managers.
+              Websites, SEO, and Google Ads. Two people in front of the
+              work, not behind a layer of account managers.
             </p>
 
             <div className="flex flex-wrap items-center gap-3.5">

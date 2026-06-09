@@ -42,13 +42,13 @@ const sourceCodePro = Source_Code_Pro({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rankpointmedia.com"),
-  title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
+  title: "Web Design & Digital Marketing | Rank Point Media",
   description:
-    "Custom-coded websites, local SEO, and Google Ads for San Antonio businesses. No templates, no shortcuts.",
+    "Custom-coded websites, local SEO, and Google Ads. A two-person agency. No templates, no account managers, no shortcuts.",
   openGraph: {
-    title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
+    title: "Web Design & Digital Marketing | Rank Point Media",
     description:
-      "Custom-coded websites, local SEO, and Google Ads for San Antonio businesses. No templates, no shortcuts.",
+      "Custom-coded websites, local SEO, and Google Ads. A two-person agency. No templates, no account managers, no shortcuts.",
     url: "https://rankpointmedia.com",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "San Antonio Web Design & Digital Marketing | Rank Point Media",
+    title: "Web Design & Digital Marketing | Rank Point Media",
     description:
-      "Custom-coded websites, local SEO, and Google Ads for San Antonio businesses. No templates, no shortcuts.",
+      "Custom-coded websites, local SEO, and Google Ads. A two-person agency. No templates, no account managers, no shortcuts.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://rankpointmedia.com" },
@@ -122,22 +122,12 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
         <meta
           property="og:image:alt"
-          content="Rank Point Media — Websites that Rank. San Antonio digital agency."
+          content="Rank Point Media — Websites that Rank."
         />
         <meta
           name="twitter:image"
           content="https://rankpointmedia.com/og-image.png"
         />
-        {/* Geo meta tags — site-wide local-search signals. Old-school but
-            still parsed by some local-search crawlers (notably Bing Local
-            and a handful of niche directory parsers). Cost is two lines of
-            HTML, so we ship them. Coordinates are the San Antonio centroid
-            that the LocalBusiness JSON-LD also references; keep them in
-            sync if either changes. */}
-        <meta name="geo.region" content="US-TX" />
-        <meta name="geo.placename" content="San Antonio" />
-        <meta name="geo.position" content="29.4241;-98.4936" />
-        <meta name="ICBM" content="29.4241, -98.4936" />
         {/* Umami analytics — privacy-friendly, cookieless, no PII.
             afterInteractive so it doesn't block first paint; Umami's
             script hooks into the History API so SPA navigations still
@@ -188,43 +178,17 @@ export default function RootLayout({
                   publisher: { "@id": "https://rankpointmedia.com#org" },
                 },
                 {
-                  "@type": ["LocalBusiness", "MarketingAgency"],
+                  "@type": ["Organization", "ProfessionalService"],
                   "@id": "https://rankpointmedia.com#org",
                   name: "Rank Point Media",
-              alternateName: "JSL Innovations LLC",
-              description:
-                "A two-person web agency in San Antonio building custom-coded websites and running local SEO, Google Ads, and digital marketing for businesses across the SA metro, surrounding cities, and the rest of Texas.",
-              url: "https://rankpointmedia.com",
-              telephone: "+1-210-305-7372",
-              email: "info@rankpointmedia.com",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "San Antonio",
-                addressRegion: "TX",
-                postalCode: "78257",
-                addressCountry: "US",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: 29.4241,
-                longitude: -98.4936,
-              },
-              areaServed: [
-                { "@type": "City", name: "San Antonio", sameAs: "https://en.wikipedia.org/wiki/San_Antonio" },
-                { "@type": "City", name: "Leon Springs" },
-                { "@type": "City", name: "Boerne" },
-                { "@type": "City", name: "Helotes" },
-                { "@type": "City", name: "Fair Oaks Ranch" },
-                { "@type": "City", name: "New Braunfels" },
-              ],
-              priceRange: "$$",
-              openingHoursSpecification: {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                opens: "09:00",
-                closes: "17:00",
-              },
-              sameAs: [],
+                  alternateName: "JSL Innovations LLC",
+                  description:
+                    "A two-person digital agency. Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management.",
+                  url: "https://rankpointmedia.com",
+                  telephone: "+1-210-305-7372",
+                  email: "info@rankpointmedia.com",
+                  priceRange: "$$",
+                  sameAs: [],
                 },
               ],
             }),

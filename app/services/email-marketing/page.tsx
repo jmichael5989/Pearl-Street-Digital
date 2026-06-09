@@ -40,10 +40,9 @@ export default function EmailMarketingPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `${service.title} San Antonio`,
+            name: service.title,
             description: service.metaDescription,
             provider: { "@id": "https://rankpointmedia.com#org" },
-            areaServed: { "@type": "City", name: "San Antonio" },
             url: `https://rankpointmedia.com/services/${service.slug}`,
           }),
         }}
@@ -63,7 +62,7 @@ export default function EmailMarketingPage() {
           kicker="— EMAIL MARKETING"
           headline="Visitors today, repeat customers tomorrow."
           headlineAccent="repeat"
-          subheadline="Email campaigns and automations that turn one-time San Antonio visitors into loyal customers. Opens, clicks, and revenue — not just another newsletter nobody reads."
+          subheadline="Email campaigns and automations that turn one-time visitors into loyal customers. Opens, clicks, and revenue. Not just another newsletter nobody reads."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[

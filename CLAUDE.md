@@ -2,7 +2,7 @@
 
 # Rank Point Media -- Claude Code Configuration
 
-You are building the website for Rank Point Media, a two-person digital agency in Leon Springs, San Antonio. They build custom-coded websites and run local SEO, Google Ads, and digital marketing for businesses across Texas. Follow every rule in this file on every task. No exceptions.
+You are building the website for Rank Point Media, a two-person digital agency. Jon writes code and runs technical SEO; Stacie runs design, marketing, and social. They build custom-coded websites and run local SEO, Google Ads, and digital marketing for businesses across the US. Follow every rule in this file on every task. No exceptions.
 
 ---
 
@@ -69,7 +69,7 @@ You are building the website for Rank Point Media, a two-person digital agency i
 
 ### Identity
 - **Brand Name**: Rank Point Media (DBA for JSL Innovations LLC)
-- **Location**: San Antonio, TX (Leon Springs area)
+- **Scope**: Nationwide digital agency. Works with clients across the US. Geographic gating (e.g. "San Antonio", "Texas", "[City] businesses") was removed sitewide 2026-06-08. The site no longer carries a registered business address in JSON-LD or visible copy. Case studies and biographical facts that happen to be SA-based are factual exceptions; everything else is geo-neutral.
 - **Tagline**: "Websites that Rank." (set 2026-05-03; previously "Higher rankings. More customers.")
 
 ### Colors (LOCKED 2026-04-24 -- see .impeccable.md Resolved Decisions §4)
@@ -124,6 +124,7 @@ The homepage hero is the **"Orbit" entrance**: real client-work screenshots fly 
 
 ### Absolute Rules
 - **ZERO EMOJIS** anywhere in the codebase, UI, content, buttons, headings, or copy. Use SVG icons (Lucide-style) only.
+- **NO GEOGRAPHIC GATING** — the agency works with clients anywhere in the US. Do not reintroduce "San Antonio", "Texas", "Leon Springs", or any city/state framing in user-facing copy, page titles, meta descriptions, JSON-LD, or rendered OG image text. Case study client descriptions that happen to reference where a real client is based (Modern Day Pest Control, Bernal Trust) and Jon/Stacie's UTSA degrees in their bios are factual exceptions. Anything else surfacing SA is a bug. (Locked 2026-06-08.)
 - **NO ITALICS** anywhere on the site except the "Point" italic in the brand wordmark (`<em className="font-normal italic ...">Point</em>` in `components/ui/GlassHeader.tsx`, `components/ui/Footer.tsx`, and the OG image at `app/opengraph-image.tsx`). Removed 2026-06-07. Any new `italic` Tailwind class, `<em>` without `not-italic`, or `font-style: italic` is a bug. Emphasis comes from weight, size, color, and serif/sans contrast — not slant. (Locked 2026-06-07.)
 - **No stock photo aesthetic** -- use real SA imagery or abstract patterns
 - **No lorem ipsum** -- all placeholder copy must be realistic SA-focused content
@@ -139,7 +140,7 @@ The homepage hero is the **"Orbit" entrance**: real client-work screenshots fly 
 - **Pricing transparency is a design principle**, per `.impeccable.md`. No "starting at" hooks that conceal typical engagements. No "contact us for pricing" on the Services page. No budget-qualifying form fields before a prospect sees any number. No tiers where the top one is replaced with "Let's talk."
 
 ### SEO Rules
-- Every page title: "[Service/Page] San Antonio | Rank Point Media"
+- Every page title: "[Service/Page] | Rank Point Media"
 - Single H1 per page
 - LocalBusiness JSON-LD schema on every page
 - Service schema on service pages

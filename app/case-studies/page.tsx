@@ -5,13 +5,13 @@ import CaseStudiesTOC from "@/components/case-studies/CaseStudiesTOC";
 import { caseStudies } from "@/lib/case-studies-data";
 
 export const metadata: Metadata = {
-  title: "Case Studies San Antonio | Rank Point Media",
+  title: "Case Studies | Rank Point Media",
   description:
-    "Real results for real San Antonio businesses. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
+    "Real work, real results. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
   openGraph: {
-    title: "Case Studies San Antonio | Rank Point Media",
+    title: "Case Studies | Rank Point Media",
     description:
-      "Real results for real San Antonio businesses. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
+      "Real work, real results. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
     url: "https://rankpointmedia.com/case-studies",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Case Studies San Antonio | Rank Point Media",
+    title: "Case Studies | Rank Point Media",
     description:
-      "Real results for real San Antonio businesses. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
+      "Real work, real results. See how Rank Point Media delivers high-performance websites, local SEO, and digital marketing that drives measurable growth.",
   },
   alternates: { canonical: "https://rankpointmedia.com/case-studies" },
 };
@@ -42,10 +42,10 @@ export default function CaseStudiesPage() {
             "@type": "CollectionPage",
             name: "Case Studies - Rank Point Media",
             description:
-              "Real results for real San Antonio businesses. Portfolio of digital marketing and web design projects.",
+              "Real work, real results. Portfolio of digital marketing and web design projects.",
             url: "https://rankpointmedia.com/case-studies",
             provider: {
-              "@type": "LocalBusiness",
+              "@type": "Organization",
               name: "Rank Point Media",
               url: "https://rankpointmedia.com",
             },
@@ -55,9 +55,9 @@ export default function CaseStudiesPage() {
       <main>
         <DarkHero
           kicker="CASE STUDIES"
-          headline="Real work for real San Antonio businesses."
+          headline="Real work, real results."
           headlineAccent="Real work"
-          subheadline="Each entry is a single project — the problem the owner brought us, what we built, and what shipped."
+          subheadline="Each entry is a single project: the problem the owner brought us, what we built, and what shipped."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Services", href: "/services" }}
           showMockups={false}
