@@ -32,6 +32,8 @@ interface FormValues {
   phone: string;
   service: string;
   message: string;
+  // Honeypot — must stay empty; bots fill it and the server drops the submission.
+  company?: string;
 }
 
 const inputClasses =
@@ -138,6 +140,28 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+      {/* Honeypot: hidden from people (off-screen, no tab stop), tempting to
+          bots. The server treats any non-empty value as spam and drops it. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: "1px",
+          height: "1px",
+          overflow: "hidden",
+        }}
+      >
+        <label htmlFor="company">Company</label>
+        <input
+          id="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          {...register("company")}
+        />
+      </div>
+
       <div>
         <label htmlFor="name" className={labelClasses}>
           Name <span style={requiredColor} aria-hidden="true">*</span>
