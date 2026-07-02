@@ -21,6 +21,12 @@ const sourceSerif4 = Source_Serif_4({
   subsets: ["latin"],
   style: ["normal", "italic"],
   display: "swap",
+  // preload:false — the Source family is applied globally but is only USED on
+  // the not-yet-ported navy routes, not the three-color homepage. Preloading it
+  // put ~4 unused font files on the homepage's mobile critical path and delayed
+  // LCP. It still loads on the navy pages via its @font-face; it's just no
+  // longer preloaded. Revisit when the whole site is on the three-color system.
+  preload: false,
   fallback: ["Georgia", "Iowan Old Style", "serif"],
 });
 
@@ -32,6 +38,7 @@ const sourceSans3 = Source_Sans_3({
   subsets: ["latin"],
   style: ["normal"],
   display: "optional",
+  preload: false, // used only on the navy routes; see Source Serif note above
   fallback: ["Arial", "Helvetica", "sans-serif"],
 });
 
@@ -44,6 +51,7 @@ const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
   style: ["normal"],
   display: "swap",
+  preload: false, // used only on the navy routes; see Source Serif note above
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
 
