@@ -173,8 +173,8 @@ export default function PrivacyPage() {
           aria-labelledby="privacy-heading"
           className="bg-light border-t border-border"
           style={{
-            paddingTop: "clamp(72px, 12vh, 144px)",
-            paddingBottom: "clamp(72px, 12vh, 144px)",
+            paddingTop: "clamp(48px, 8vh, 100px)",
+            paddingBottom: "clamp(48px, 8vh, 100px)",
           }}
         >
           <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">

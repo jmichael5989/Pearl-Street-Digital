@@ -455,7 +455,7 @@ body {
   --body: var(--ff-inter-tight), system-ui, sans-serif;
   --mono: var(--ff-jetbrains), ui-monospace, monospace;
   --gutter: clamp(20px, 4vw, 64px);
-  --section: clamp(100px, 13vw, 190px);
+  --section: clamp(64px, 8vw, 120px);
   --max: 1320px;
   background: var(--white);
   color: var(--text);

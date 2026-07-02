@@ -83,8 +83,8 @@ export default function FAQ() {
       aria-labelledby="faq-heading"
       className="bg-light-surface border-t border-border"
       style={{
-        paddingTop: "clamp(72px, 12vh, 144px)",
-        paddingBottom: "clamp(72px, 12vh, 144px)",
+        paddingTop: "clamp(48px, 8vh, 100px)",
+        paddingBottom: "clamp(48px, 8vh, 100px)",
       }}
     >
       <script

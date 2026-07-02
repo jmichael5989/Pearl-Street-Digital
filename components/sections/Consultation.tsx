@@ -223,7 +223,7 @@ export default function Consultation() {
     >
       <div
         className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24"
-        style={{ paddingBlock: "clamp(72px, 12vh, 144px)" }}
+        style={{ paddingBlock: "clamp(48px, 8vh, 100px)" }}
       >
         {/* Editorial section header — serif section-num + brass label */}
         <header className="mb-6">
