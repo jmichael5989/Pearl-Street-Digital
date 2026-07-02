@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { Source_Serif_4, Source_Sans_3, Source_Code_Pro } from "next/font/google";
+import {
+  Source_Serif_4,
+  Source_Sans_3,
+  Source_Code_Pro,
+  Fraunces,
+  Inter_Tight,
+  JetBrains_Mono,
+} from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import HeaderRouter from "@/components/ui/HeaderRouter";
@@ -38,6 +45,35 @@ const sourceCodePro = Source_Code_Pro({
   style: ["normal"],
   display: "swap",
   fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+});
+
+// ── Three-color redesign faces (homepage, phase 1) ──────────────────────────
+// Added alongside the Source family, not replacing it: the new homepage uses
+// these; every other route still uses Source Serif 4 / Sans 3 / Code Pro.
+// Fraunces = display serif (opsz axis kept for optical display sizing); Inter
+// Tight = body/UI; JetBrains Mono = small labels + the ghost numerals. Inter
+// Tight must be a real loaded family because the voxel hero samples it via
+// canvas 2D (`await document.fonts.ready` gates the sampling).
+const fraunces = Fraunces({
+  variable: "--ff-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz"],
+  display: "swap",
+  fallback: ["Georgia", "serif"],
+});
+
+const interTight = Inter_Tight({
+  variable: "--ff-inter-tight",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "Arial", "sans-serif"],
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--ff-jetbrains",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["ui-monospace", "SFMono-Regular", "monospace"],
 });
 
 export const metadata: Metadata = {
@@ -81,7 +117,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${sourceSerif4.variable} ${sourceSans3.variable} ${sourceCodePro.variable} h-full antialiased`}
+      className={`${sourceSerif4.variable} ${sourceSans3.variable} ${sourceCodePro.variable} ${fraunces.variable} ${interTight.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <head>
         {/* Cal.com resource hints — the booking widget on the homepage is

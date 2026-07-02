@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 /**
  * Mobile-only sticky CTA bar at the bottom of every page. Two
@@ -33,6 +34,31 @@ function PhoneIcon() {
 }
 
 export default function MobileCTABar() {
+  const pathname = usePathname();
+
+  // Homepage runs the three-color redesign; the bar is re-skinned to the
+  // black/white palette there so it doesn't drop a navy/brass strip onto the
+  // new design (and it still fills the layout's mobile pb-14).
+  if (pathname === "/") {
+    return (
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-[#333] bg-black md:hidden">
+        <a
+          href="tel:+12103057372"
+          className="flex flex-1 items-center justify-center gap-2 border-r border-[#333] font-[family-name:var(--ff-jetbrains)] text-xs font-medium uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#111]"
+        >
+          <PhoneIcon />
+          Call now
+        </a>
+        <Link
+          href="/contact#talk-to-us"
+          className="flex flex-1 items-center justify-center gap-2 bg-white font-[family-name:var(--ff-jetbrains)] text-xs font-medium uppercase tracking-[0.08em] text-black transition-colors hover:bg-[#e5e5e5]"
+        >
+          Book an hour
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-border bg-light md:hidden">
       <a

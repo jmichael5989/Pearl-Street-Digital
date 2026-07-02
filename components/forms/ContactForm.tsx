@@ -36,14 +36,17 @@ interface FormValues {
   company?: string;
 }
 
-const inputClasses =
-  "w-full border border-border bg-light px-4 py-3 text-base text-text placeholder:text-gray transition-colors focus:outline-none focus:border-text font-body";
+type ContactFormTheme = "navy" | "threeColor";
 
-const labelClasses =
-  "mb-2 block font-body text-sm font-medium text-text";
+interface ContactFormProps {
+  // "navy" (default) preserves the sitewide styling used on other pages.
+  // "threeColor" swaps only the visual class strings for the three-color
+  // (#000 / #9C9C9C / #FFF) homepage-body palette. All logic is identical.
+  theme?: ContactFormTheme;
+}
 
 // Hardcoded muted dark red. No defined --color-error token yet;
-// when one is added, swap this hex for the token.
+// when one is added, swap this hex for the token. Shared across both themes.
 const requiredColor = { color: "#8B2A2A" };
 
 function SpinnerIcon() {
@@ -71,7 +74,21 @@ function SpinnerIcon() {
   );
 }
 
-export default function ContactForm() {
+export default function ContactForm({ theme = "navy" }: ContactFormProps) {
+  const isThreeColor = theme === "threeColor";
+
+  const inputClasses = isThreeColor
+    ? "w-full border-0 border-b border-[#9C9C9C] bg-transparent px-0 py-2 text-base text-black transition-colors focus:outline-none focus:border-black font-[family-name:var(--ff-inter-tight)] placeholder:text-[#9C9C9C]"
+    : "w-full border border-border bg-light px-4 py-3 text-base text-text placeholder:text-gray transition-colors focus:outline-none focus:border-text font-body";
+
+  const labelClasses = isThreeColor
+    ? "mb-2 block text-[11.5px] font-medium uppercase tracking-[0.12em] text-[#9C9C9C] font-[family-name:var(--ff-jetbrains)]"
+    : "mb-2 block font-body text-sm font-medium text-text";
+
+  const submitClasses = isThreeColor
+    ? "block w-full border border-black bg-black py-3.5 text-center text-sm font-medium uppercase tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-black font-[family-name:var(--ff-jetbrains)] disabled:opacity-60"
+    : "block w-full border border-text bg-text py-3.5 text-center font-body text-sm font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark disabled:opacity-60";
+
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
 
@@ -93,7 +110,13 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="flex h-full items-center justify-center border border-border bg-light-surface p-12 text-center">
+      <div
+        className={
+          isThreeColor
+            ? "flex h-full items-center justify-center border border-[#9C9C9C] bg-white p-12 text-center"
+            : "flex h-full items-center justify-center border border-border bg-light-surface p-12 text-center"
+        }
+      >
         <div>
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border">
             <svg
@@ -112,7 +135,11 @@ export default function ContactForm() {
             </svg>
           </div>
           <h3
-            className="font-heading text-text"
+            className={
+              isThreeColor
+                ? "font-[family-name:var(--ff-fraunces)] text-text"
+                : "font-heading text-text"
+            }
             style={{
               fontSize: "1.25rem",
               fontWeight: 400,
@@ -285,7 +312,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="block w-full border border-text bg-text py-3.5 text-center font-body text-sm font-medium tracking-[0.01em] text-light transition-[background-color,border-color] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark hover:border-primary-dark disabled:opacity-60"
+        className={submitClasses}
       >
         {isSubmitting ? (
           <>

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import GlassHeader from "./GlassHeader";
-import LegacyHeader from "./LegacyHeader";
+import VoxelHeader from "@/components/home/VoxelHeader";
 
 // Routes whose first section is light-bg. The transparent State A would render
 // invisible white-on-white text there, so we force GlassHeader into State B
@@ -21,6 +21,8 @@ function isLightHeroRoute(pathname: string): boolean {
 
 export default function HeaderRouter() {
   const pathname = usePathname();
-  if (pathname === "/") return <LegacyHeader />;
+  // Homepage runs the three-color redesign (phase 1) with its own hamburger
+  // header. Every other route stays on the navy GlassHeader until re-themed.
+  if (pathname === "/") return <VoxelHeader />;
   return <GlassHeader forceScrolled={isLightHeroRoute(pathname)} />;
 }
