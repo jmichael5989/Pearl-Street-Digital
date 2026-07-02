@@ -47,12 +47,17 @@ const GRAVITY = -10.0; // world gravity (more negative = snappier drop)
 const SUBSTEPS = 4; // physics steps per frame — small cubes fall fast, restored
 // to the mock's value now that this only ever runs on capable desktop clients
 const REST = 0.82; // cube restitution (bounce) — higher = livelier
-const REST_FLOOR = 0.6; // floor restitution
-const FRICTION = 0.5; // cube friction (lower = slides/scatters more on landing)
-const LIN_DAMP = 0.035; // linear damping (low = keeps bouncing longer)
-const ANG_DAMP = 0.15; // angular damping (low = more tumbling)
-const SCATTER = 0.55; // horizontal break-apart velocity range
-const SPIN = 6.5; // tumble (angular velocity) range
+const REST_FLOOR = 0.65; // floor restitution (raised — the floor impact is
+// the most visible bounce, so it gets the strongest kick back)
+const FRICTION = 0.42; // cube friction (lower = slides/scatters more on landing)
+const LIN_DAMP = 0.03; // linear damping (low = keeps bouncing longer)
+const ANG_DAMP = 0.13; // angular damping (low = more tumbling)
+const SCATTER = 0.75; // horizontal break-apart velocity range
+const SPIN = 9; // tumble (angular velocity) range
+const POP_MIN = 0.18; // minimum upward kick on drop — every cube gets at least
+const POP_RANGE = 0.5; // this much lift, so none of them just fall flat; a
+// pure Math.random() kick let some cubes roll near-zero and drop with no
+// visible bounce at all
 const MAX_SIM_FRAMES = 1500; // hard cap: force the sim to stop even if it never sleeps
 /* ===================================================================== */
 
@@ -627,7 +632,7 @@ export default function VoxelHero() {
           b.setLinvel(
             {
               x: (Math.random() - 0.5) * SCATTER,
-              y: Math.random() * 0.25,
+              y: POP_MIN + Math.random() * POP_RANGE,
               z: (Math.random() - 0.5) * SCATTER,
             },
             true,

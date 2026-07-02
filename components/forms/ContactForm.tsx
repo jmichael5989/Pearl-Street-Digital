@@ -146,6 +146,9 @@ export default function ContactForm({ theme = "navy" }: ContactFormProps) {
               lineHeight: 1.25,
               letterSpacing: "-0.01em",
               margin: 0,
+              // Fraunces' default swash "f" reads as a rendering bug; no-op
+              // for the navy branch (Source Serif 4 doesn't have it).
+              fontFeatureSettings: '"liga" 0, "calt" 0, "dlig" 0, "clig" 0',
             }}
           >
             Thank you.

@@ -105,6 +105,9 @@ export default function VoxelHeader() {
             href={item.href}
             onClick={() => setOpen(false)}
             className="font-[family-name:var(--ff-fraunces)] text-[clamp(28px,6.2vw,54px)] font-medium uppercase leading-[1.22] tracking-[0.015em] text-[#EDE7DC] transition-colors hover:text-[#9C9C9C]"
+            // Fraunces' default swash "f" ligature reads as a rendering bug
+            // in all-caps nav labels; same reset as the .rpm3 CSS.
+            style={{ fontFeatureSettings: '"liga" 0, "calt" 0, "dlig" 0, "clig" 0' }}
           >
             {item.label}
           </Link>
