@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Option D — Warm charcoal header (orbit mark)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300..800;1,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+  <style>
+    /* ── Warm Charcoal tokens (primitives + semantic; light default / dark) ── */
+    :root {
+      --wc-black-ink:#0F0D0B; --wc-ink:#1B1A17; --wc-inverted:#15140F; --wc-smoke:#2A2724;
+      --wc-stone:#6B6660; --wc-driftwood:#A8A29A;
+      --wc-paper:#EDE7DC; --wc-buff-light:#E8D2B8; --wc-buff:#C9A06A;
+
+      --color-bg:var(--wc-paper); --color-surface:var(--wc-buff-light); --color-surface-sunk:#E4DBCC;
+      --color-text:var(--wc-ink); --color-text-strong:var(--wc-black-ink); --color-text-secondary:var(--wc-smoke);
+      --color-text-muted:var(--wc-stone); --color-border:var(--wc-driftwood); --color-border-strong:var(--wc-stone);
+      --color-accent:var(--wc-buff); --color-accent-text:var(--wc-ink); --color-meta:var(--wc-stone);
+
+      /* header-local: the bar over the dark hero is always dark-on; once scrolled it adopts the theme surface */
+      --hd-over-text: #EDE7DC;            /* wordmark/nav while transparent over the dark hero band */
+      --hd-over-muted: rgba(237,231,220,0.62);
+      --header-h: 80px;
+
+      --font-display:"Source Serif 4","Iowan Old Style",Georgia,serif;
+      --font-body:"Source Sans 3",ui-sans-serif,system-ui,sans-serif;
+      --edge-pad: clamp(18px,5vw,64px);
+    }
+    [data-theme="dark"] {
+      --color-bg:var(--wc-inverted); --color-surface:var(--wc-smoke); --color-surface-sunk:var(--wc-black-ink);
+      --color-text:var(--wc-paper); --color-text-strong:var(--wc-paper); --color-text-secondary:var(--wc-buff-light);
+      --color-text-muted:var(--wc-driftwood); --color-border:var(--wc-stone); --color-border-strong:var(--wc-driftwood);
+      --color-accent:var(--wc-buff); --color-accent-text:var(--wc-buff); --color-meta:var(--wc-driftwood);
+    }
+    html.theme-switching, html.theme-switching *,
+    html.theme-switching *::before, html.theme-switching *::after { transition:none !important; }
+
+    *,*::before,*::after{box-sizing:border-box;} html,body{margin:0;padding:0;}
+    body{ background:var(--color-bg); color:var(--color-text); font-family:var(--font-body); font-size:1.125rem; line-height:1.6; -webkit-font-smoothing:antialiased; }
+
+    /* ── Header ── */
+    .hdr{
+      position:fixed; top:0; left:0; right:0; z-index:50; height:var(--header-h);
+      display:flex; align-items:center;
+      background:transparent; border-bottom:1px solid transparent;
+      transition:background-color .3s ease, border-color .3s ease, backdrop-filter .3s ease;
+    }
+    .hdr-inner{ width:100%; max-width:1320px; margin:0 auto; padding:0 var(--edge-pad); display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .wordmark{ font-family:var(--font-display); font-weight:400; font-size:1.125rem; letter-spacing:-0.005em; line-height:1; color:var(--hd-over-text); transition:color .3s ease; }
+    .wordmark em{ font-style:italic; font-weight:400; color:var(--color-accent); transition:color .3s ease; }
+
+    /* orbit "Point" mark — a center point + ring + one orbiting dot (CSS only) */
+    .mark{ width:30px; height:30px; flex:none; overflow:visible; }
+    .mark .ring{ fill:none; stroke:var(--hd-over-muted); stroke-width:1; transition:stroke .3s ease; }
+    .mark .pt{ fill:var(--color-accent); transition:fill .3s ease; }
+    .mark .orbit{ transform-origin:16px 16px; animation:spin 7s linear infinite; }
+    @keyframes spin{ to{ transform:rotate(360deg);} }
+
+    .nav{ display:flex; align-items:center; gap:26px; }
+    .nav a{ font-size:13px; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none; color:var(--hd-over-text); opacity:.92; transition:color .3s ease, opacity .2s ease; }
+    .nav a:hover{ opacity:1; text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--color-accent); }
+    @media (max-width:880px){ .nav{ display:none; } }
+    .hdr-right{ display:flex; align-items:center; gap:12px; }
+    .pill{ font-size:0.8125rem; font-weight:500; letter-spacing:0.02em; cursor:pointer; text-decoration:none; padding:8px 16px; border-radius:999px; border:1px solid var(--hd-over-muted); color:var(--hd-over-text); background:transparent; transition:background-color .2s ease, color .2s ease, border-color .3s ease; }
+    .pill:hover{ background:var(--hd-over-text); color:var(--wc-black-ink); border-color:var(--hd-over-text); }
+
+    /* scrolled state: bar adopts the theme surface + hairline; text switches to theme ink */
+    .hdr.scrolled{
+      background:color-mix(in srgb, var(--color-bg) 88%, transparent);
+      backdrop-filter:blur(12px); border-bottom-color:var(--color-border);
+    }
+    .hdr.scrolled .wordmark{ color:var(--color-text-strong); }
+    .hdr.scrolled .nav a{ color:var(--color-text); }
+    .hdr.scrolled .mark .ring{ stroke:var(--color-border-strong); }
+    .hdr.scrolled .pill{ color:var(--color-text); border-color:var(--color-border-strong); }
+    .hdr.scrolled .pill:hover{ background:var(--color-text); color:var(--color-bg); border-color:var(--color-text); }
+
+    /* theme toggle pill always readable */
+    #themeToggle.scrolled-aware{}
+
+    /* ── Hero band (dark, so the transparent header reads) ── */
+    .hero{
+      min-height:78vh; display:flex; align-items:center; justify-content:center; text-align:center;
+      padding:var(--header-h) var(--edge-pad) 0;
+      background:
+        radial-gradient(120% 90% at 50% -10%, rgba(201,160,106,0.10), transparent 60%),
+        var(--wc-inverted);
+      color:var(--wc-paper);
+    }
+    .hero h1{ font-family:var(--font-display); font-weight:400; font-size:clamp(2.6rem,7vw,5rem); line-height:1.02; letter-spacing:-0.02em; margin:0; color:var(--wc-paper); }
+    .hero .eyebrow{ margin:18px 0 0; font-weight:600; font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--wc-driftwood); }
+    .hero .scrollnote{ margin-top:34px; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--wc-stone); }
+
+    /* ── Section below, in-theme (so scrolling shows the solid header) ── */
+    .below{ padding:clamp(64px,12vh,128px) var(--edge-pad); background:var(--color-bg); border-top:1px solid var(--color-border); }
+    .below .wrap{ max-width:1320px; margin:0 auto; }
+    .below .eyebrow{ font-weight:600; font-size:0.75rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-meta); }
+    .below h2{ font-family:var(--font-display); font-weight:400; font-size:clamp(1.8rem,4vw,2.75rem); line-height:1.12; letter-spacing:-0.015em; margin:14px 0 0; max-width:26ch; color:var(--color-text-strong); }
+    .below p{ margin:18px 0 0; max-width:60ch; color:var(--color-text); }
+    .spacer{ height:60vh; }
+
+    /* ── Study banner ── */
+    .approx-banner{ position:fixed; bottom:16px; right:16px; z-index:60; padding:10px 14px; background:var(--color-surface-sunk); color:var(--color-text); border:1px solid var(--color-accent); font-size:0.6875rem; letter-spacing:0.1em; text-transform:uppercase; line-height:1.5; }
+    .approx-banner a{ color:var(--color-accent); text-decoration:underline; margin-left:10px; }
+
+    @media (prefers-reduced-motion:reduce){ .mark .orbit{ animation:none; } }
+  </style>
+</head>
+<body>
+  <header class="hdr" id="hdr">
+    <div class="hdr-inner">
+      <a class="brand" href="#">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle class="ring" cx="16" cy="16" r="10.5"></circle>
+          <circle class="pt" cx="16" cy="16" r="2.1"></circle>
+          <g class="orbit"><circle class="pt" cx="16" cy="5.5" r="2.4"></circle></g>
+        </svg>
+        <span class="wordmark">Rank <em>Point</em> Media</span>
+      </a>
+      <nav class="nav">
+        <a href="#">Services</a><a href="#">Work</a><a href="#">About</a><a href="#">Pricing</a><a href="#">Contact</a>
+      </nav>
+      <div class="hdr-right">
+        <button class="pill" id="themeToggle" type="button">Dark mode</button>
+        <a class="pill" href="tel:+12103057372">(210) 305-7372</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Rank Point Media</h1>
+      <p class="eyebrow">Websites, SEO, Digital Marketing</p>
+      <p class="scrollnote">Scroll to see the header settle</p>
+    </div>
+  </section>
+
+  <section class="below">
+    <div class="wrap">
+      <div class="eyebrow"><span style="font-family:var(--font-display)">02</span> &nbsp;/&nbsp; Why us</div>
+      <h2>Small enough to be accountable. Serious enough to do real work.</h2>
+      <p>Scroll up and down: the header is transparent over the dark hero, then settles onto a warm hairline-bordered bar in whichever mode you pick. The small orbit mark beside the wordmark echoes the homepage dial — built in plain SVG + CSS, so it costs the performance budget nothing.</p>
+      <div class="spacer"></div>
+    </div>
+  </section>
+
+  <aside class="approx-banner">
+    Option D &middot; Warm charcoal &middot; Header
+    <a href="index.html">&larr; Back</a>
+  </aside>
+
+  <script>
+  (function(){
+    "use strict";
+    var hdr = document.getElementById("hdr");
+    var ticking = false;
+    function onScroll(){
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        if (window.scrollY > 60) hdr.classList.add("scrolled"); else hdr.classList.remove("scrolled");
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    onScroll();
+
+    var root = document.documentElement;
+    var toggle = document.getElementById("themeToggle");
+    function syncLabel(){ toggle.textContent = root.getAttribute("data-theme") === "dark" ? "Light mode" : "Dark mode"; }
+    syncLabel();
+    toggle.addEventListener("click", function(){
+      root.classList.add("theme-switching");
+      root.setAttribute("data-theme", root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      void root.offsetWidth;
+      requestAnimationFrame(function(){ root.classList.remove("theme-switching"); });
+      syncLabel();
+    });
+  })();
+  </script>
+</body>
+</html>

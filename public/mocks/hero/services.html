@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Rank Point Media</title>
+<!-- ============================================================
+     SERVICES — three-color design (#000 / #9C9C9C / #FFF), Fraunces +
+     Inter Tight + JetBrains Mono. Matches the about mock's body system
+     and shares the hamburger menu. Real page copy laid in verbatim from
+     app/services/page.tsx, components/services/ServicesShowcase.tsx,
+     components/sections/CustomDevelopmentCallout.tsx, FAQ.tsx, and
+     lib/services-data.ts. MOCK ONLY.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000;--grey:#9C9C9C;--white:#FFF;
+  --bg:#FFF;--text:#000;--line:#9C9C9C;--ghost:#9C9C9C;--muted:#9C9C9C;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Inter Tight",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --gutter:clamp(20px,4vw,64px);--section:clamp(90px,12vw,170px);--max:1320px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:#000;color:#fff}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.05;letter-spacing:-0.015em;color:var(--text)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+section{padding:var(--section) 0;position:relative}
+.kicker{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--text);display:flex;align-items:center;gap:14px}
+.kicker::after{content:"";height:1px;flex:1;max-width:80px;background:var(--line)}
+.spine{font-family:var(--display);font-weight:400;font-size:clamp(64px,11vw,150px);line-height:.9;color:var(--ghost);letter-spacing:-0.01em;font-feature-settings:"lnum" 1,"tnum" 1;user-select:none}
+.u-link{position:relative;font-family:var(--mono);font-size:13px;letter-spacing:0.06em;color:var(--text)}
+.u-link::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.u-link:hover::after,.u-link:focus-visible::after{transform:scaleX(1)}
+.btn{display:inline-block;padding:16px 32px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:var(--black);color:var(--white);border:1px solid var(--black);transition:background .25s,color .25s;cursor:pointer}
+.btn:hover,.btn:focus-visible{background:var(--white);color:var(--black)}
+.appear{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.appear.in{opacity:1;transform:none}
+.inverted{background:#000;color:#fff;--text:#fff;--line:#9C9C9C;--muted:#9C9C9C}
+.inverted .kicker{color:var(--muted)}
+.inverted .btn{background:#fff;color:#000;border-color:#fff}
+.inverted .btn:hover{background:transparent;color:#fff}
+@media (prefers-reduced-motion:reduce){.appear{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ===== sticky header ===== */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr-row{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.wordmark{font-family:var(--display);font-size:21px;font-weight:600;letter-spacing:-0.01em;color:var(--black)}
+.wordmark span{color:var(--grey)}
+.hamburger{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;width:34px;height:26px;background:none;border:none;cursor:pointer;padding:0}
+.hamburger span{display:block;height:1.5px;width:100%;background:var(--black);transition:background .25s}
+.hamburger:hover span{background:var(--grey)}
+
+/* ===== services hero ===== */
+.svc-hero{padding-top:clamp(56px,7vw,96px)}
+.svc-hero h1{font-size:clamp(46px,7vw,104px);margin:26px 0 28px;max-width:14ch}
+.svc-hero .lede{font-size:clamp(18px,1.7vw,22px);max-width:40em;color:var(--text)}
+.svc-cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px}
+.btn-ghost{display:inline-block;padding:16px 32px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:transparent;color:var(--black);border:1px solid var(--black);transition:background .25s,color .25s;cursor:pointer}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--black);color:var(--white)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,48px);margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--line);padding-top:42px}
+.metric-val{font-family:var(--display);font-size:clamp(34px,4vw,56px);font-weight:500;line-height:1;letter-spacing:-0.02em}
+.metric-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-top:12px}
+@media(max-width:720px){.metrics{grid-template-columns:1fr 1fr;gap:30px}}
+
+/* ===== intro slab ===== */
+.intro h2{font-size:clamp(32px,4.6vw,64px);max-width:24ch;margin:24px 0 32px}
+.intro-body{max-width:65ch;display:flex;flex-direction:column;gap:22px;color:var(--text)}
+
+/* ===== services TOC ===== */
+.toc h2{font-size:clamp(32px,4.6vw,64px);max-width:24ch;margin:24px 0 22px}
+.toc-lede{max-width:58ch;color:var(--text);margin-bottom:clamp(48px,6vh,64px)}
+.toc-list{list-style:none;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(28px,4vw,72px)}
+.toc-item{display:grid;grid-template-columns:3.5rem 1fr;column-gap:22px;padding:36px 0;border-bottom:1px solid var(--line);align-items:start}
+.toc-num{font-family:var(--mono);font-size:14px;letter-spacing:0.04em;color:var(--grey);padding-top:6px}
+.toc-item h3{font-family:var(--display);font-size:clamp(22px,2.1vw,28px);font-weight:500;line-height:1.2}
+.toc-item .tagline{color:var(--text);max-width:52ch;margin-top:10px}
+.toc-meta{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:20px}
+.toc-price{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey)}
+.toc-div{height:12px;width:1px;background:var(--line)}
+@media(max-width:820px){.toc-list{grid-template-columns:1fr}.toc-item{grid-template-columns:2.6rem 1fr;padding:30px 0}}
+
+/* ===== build callout (inverted) ===== */
+.build{text-align:center}
+.build .kicker{justify-content:center}
+.build .kicker::before{content:"";height:1px;width:80px;background:var(--line)}
+.build h2{font-size:clamp(30px,4.2vw,58px);max-width:32ch;margin:20px auto 0;line-height:1.15}
+.build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3vw,44px);max-width:980px;margin:clamp(48px,6vh,80px) auto 0;text-align:center}
+.build-feature{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:10px}
+.build-feature h3{font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:-0.005em;line-height:1.3;color:var(--text)}
+.build-feature p{font-size:15px;line-height:1.55;color:var(--text)}
+@media(max-width:760px){.build-grid{grid-template-columns:1fr;gap:0}.build-feature{padding:26px 0}}
+
+/* ===== FAQ ===== */
+.faq h2{font-size:clamp(32px,4.6vw,64px);max-width:24ch;margin:24px 0 0}
+.faq-list{max-width:760px;border-top:1px solid var(--line);margin-top:clamp(48px,6vh,64px)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{display:flex;width:100%;align-items:baseline;justify-content:space-between;gap:24px;padding:22px 0;text-align:left;background:none;border:none;cursor:pointer;font-family:var(--display);font-size:clamp(18px,1.7vw,21px);font-weight:500;line-height:1.35;color:var(--text);transition:color .22s}
+.faq-q:hover{color:var(--grey)}
+.faq-sign{flex-shrink:0;font-family:var(--body);font-size:24px;line-height:1;color:var(--grey)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a-inner{overflow:hidden}
+.faq-a p{padding-bottom:24px;max-width:65ch;color:var(--text);font-size:16px;line-height:1.6}
+
+/* ===== CTA band ===== */
+.cta-band{text-align:center}
+.cta-band .kicker{justify-content:center}
+.cta-band .kicker::before{content:"";height:1px;width:80px;background:var(--line)}
+.cta-band h2{font-size:clamp(34px,4.8vw,70px);max-width:14ch;margin:18px auto 32px}
+
+/* ===== footer ===== */
+footer{background:var(--black);color:var(--white);padding:84px 0 40px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:clamp(28px,4vw,72px);padding-bottom:62px;border-bottom:1px solid var(--grey)}
+.foot-grid h3{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey);font-weight:500;margin-bottom:18px}
+.foot-blurb{font-size:14.5px;color:var(--grey);max-width:24em;margin-top:14px;line-height:1.65}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-grid li a{font-size:14.5px;color:var(--grey)}
+.foot-grid li a:hover{color:var(--white)}
+.foot-contact{font-family:var(--mono);font-size:13px;display:flex;flex-direction:column;gap:10px;color:var(--grey)}
+.foot-contact a{color:var(--grey)}.foot-contact a:hover{color:var(--white)}
+.foot-legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.04em;color:var(--grey)}
+.foot-legal a{color:var(--grey)}.foot-legal a:hover{color:var(--white)}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.foot-grid{grid-template-columns:1fr}}
+
+/* ===== full-screen menu (shared with home) ===== */
+.menu{position:fixed;inset:0;z-index:100;background:#0A0A0A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(4px,1.1vh,14px);opacity:0;visibility:hidden;transition:opacity .45s cubic-bezier(.22,1,.36,1),visibility .45s}
+.menu.open{opacity:1;visibility:visible}
+.menu-item{font-family:var(--display);font-weight:500;font-size:clamp(28px,6.2vw,54px);line-height:1.22;letter-spacing:0.015em;text-transform:uppercase;color:#EDE7DC;transition:color .22s}
+.menu-item:hover,.menu-item:focus-visible{color:#9C9C9C}
+.menu-phone{margin-top:clamp(22px,4.5vh,46px);font-family:var(--mono);font-size:14px;letter-spacing:0.07em;color:#9a958c;display:inline-flex;align-items:center;gap:9px;transition:color .22s}
+.menu-phone:hover{color:#EDE7DC}
+.menu-close{position:absolute;top:20px;right:clamp(20px,5vw,90px);width:42px;height:42px;background:none;border:none;color:#EDE7DC;font-size:34px;line-height:1;cursor:pointer;transition:color .22s}
+.menu-close:hover{color:#9C9C9C}
+
+/* mock study banner */
+.study{position:fixed;bottom:14px;right:14px;z-index:30;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);border:1px solid var(--line);padding:8px 12px;background:rgba(255,255,255,.85)}
+.study a{color:var(--black);text-decoration:underline;margin-left:8px}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-row">
+    <a class="wordmark" href="/mocks/hero/voxel-drop.html">Rank <span>Point</span> Media</a>
+    <button class="hamburger" id="menuOpen" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- SERVICES HERO -->
+<section class="svc-hero">
+  <div class="wrap">
+    <p class="kicker appear">Our services</p>
+    <h1 class="appear">Six ways to grow your business online.</h1>
+    <p class="lede appear">From custom websites to AI search optimization, the digital marketing toolkit of a much larger agency, run by two people.</p>
+    <div class="svc-cta-row appear">
+      <a class="btn" href="mailto:info@rankpointmedia.com">Book a consultation</a>
+      <a class="btn-ghost" href="/mocks/hero/pricing.html">See Pricing</a>
+    </div>
+    <div class="metrics appear">
+      <div><div class="metric-val">6</div><div class="metric-label">Core Services</div></div>
+      <div><div class="metric-val">100%</div><div class="metric-label">Built In-House</div></div>
+      <div><div class="metric-val">2</div><div class="metric-label">People on Every Project</div></div>
+      <div><div class="metric-val">$99</div><div class="metric-label">Starting Monthly</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE WORK -->
+<section class="intro">
+  <div class="wrap">
+    <p class="kicker appear"><span style="font-family:var(--display);font-size:18px;letter-spacing:0">02</span>&nbsp;/&nbsp;The work</p>
+    <h2 class="appear">The presence businesses actually need.</h2>
+    <div class="intro-body appear">
+      <p>Every engagement starts with a custom-coded website built for speed, clarity, and conversion, no templates, no shortcuts, no recycled layouts. From there we layer in the marketing that fits your market: local SEO, paid ads that generate real phone calls, social content, reputation management.</p>
+      <p>No contracts. No account managers shuffling you between specialists. One team, the same team that built your site, running every campaign and owning every result.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES TOC -->
+<section class="toc inverted">
+  <div class="wrap">
+    <p class="kicker appear"><span style="font-family:var(--display);font-size:18px;letter-spacing:0">03</span>&nbsp;/&nbsp;Services</p>
+    <h2 class="appear">Everything we do.</h2>
+    <p class="toc-lede appear">8 services, one team. All plans include the website build and hosting; ongoing services scale with scope. See <a class="u-link" href="/mocks/hero/pricing.html">pricing</a> for the full breakdown.</p>
+    <ol class="toc-list appear">
+      <li class="toc-item">
+        <span class="toc-num">03.i</span>
+        <div>
+          <h3>Website Design</h3>
+          <p class="tagline">Websites we hand-build, line by line. They load fast and they rank.</p>
+          <div class="toc-meta">
+            <span class="toc-price">From $99/mo</span>
+            <span class="toc-div"></span>
+            <a class="u-link" href="https://rankpointmedia.com/services/website-design">Read more &rarr;</a>
+          </div>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-num">03.ii</span>
+        <div>
+          <h3>SEO</h3>
+          <p class="tagline">Rank higher on Google Maps and local search results so local customers find you first, not your competitors.</p>
+          <div class="toc-meta">
+            <span class="toc-price">From $99/mo</span>
+            <span class="toc-div"></span>
+            <a class="u-link" href="https://rankpointmedia.com/services/local-seo">Read more &rarr;</a>
+          </div>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-num">03.iii</span>
+        <div>
+          <h3>Social Media</h3>
+          <p class="tagline">Strategic content and management across Instagram, Facebook, and LinkedIn that builds trust and drives engagement in your local market.</p>
+          <div class="toc-meta">
+            <span class="toc-price">From $149/mo</span>
+            <span class="toc-div"></span>
+            <a class="u-link" href="https://rankpointmedia.com/services/social-media">Read more &rarr;</a>
+          </div>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-num">03.iv</span>
+        <div>
+          <h3>Ad Campaigns</h3>
+          <p class="tagline">Targeted ad campaigns that put your business in front of customers actively searching for your services right now.</p>
+          <div class="toc-meta">
+            <span class="toc-price">From $149/mo</span>
+            <span class="toc-div"></span>
+            <a class="u-link" href="https://rankpointmedia.com/services/ppc-google-ads">Read more &rarr;</a>
+          </div>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-num">03.v</span>
+        <div>
+          <h3>AI Search Optimization</h3>
+          <p class="tagline">Get your business recommended by ChatGPT, Google AI Overviews, and voice assistants. The next frontier of local visibility.</p>
+          <div class="toc-meta">
+            <span class="toc-price">From $99/mo</span>
+            <span class="toc-div"></span>
+            <a class="u-link" href="https://rankpointmedia.com/services/ai-search-optimization">Read more &rarr;</a>
+          </div>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-num">03.vi</span>
+        <div>
+          <h3>Brand Management</h3>
+          <p class="tagline">Monitor, respond to, and grow your online reviews. Build the 5-star reputation your business has earned.</p>
+          <div class="toc-meta">
+            <span class="toc-price">From $149/mo</span>
+            <span class="toc-div"></span>
+            <a class="u-link" href="https://rankpointmedia.com/services/reputation-management">Read more &rarr;</a>
+          </div>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-num">03.vii</span>
+        <div>
+          <h3>Email Marketing</h3>
+          <p class="tagline">Turn one-time visitors into repeat local customers with email campaigns that actually get opened, read, and clicked.</p>
+          <div class="toc-meta">
+            <span class="toc-price">From $99 setup</span>
+            <span class="toc-div"></span>
+            <a class="u-link" href="https://rankpointmedia.com/services/email-marketing">Read more &rarr;</a>
+          </div>
+        </div>
+      </li>
+      <li class="toc-item">
+        <span class="toc-num">03.viii</span>
+        <div>
+          <h3>Custom AI Solutions</h3>
+          <p class="tagline">Custom artificial intelligence tools built for your business, automated follow-ups, intelligent lead qualification, and workflow automation that gives you an unfair advantage.</p>
+          <div class="toc-meta">
+            <span class="toc-price">Custom &middot; $60/hr</span>
+            <span class="toc-div"></span>
+            <a class="u-link" href="https://rankpointmedia.com/services/custom-ai-solutions">Read more &rarr;</a>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- HOW IT'S BUILT -->
+<section class="build">
+  <div class="wrap">
+    <p class="kicker appear"><span style="font-family:var(--display);font-size:18px;letter-spacing:0">04</span>&nbsp;/&nbsp;How it's built</p>
+    <h2 class="appear">Every site we ship is custom-coded. No WordPress, no page builders, no shortcuts.</h2>
+    <div class="build-grid">
+      <div class="build-feature appear">
+        <h3>Custom schema markup</h3>
+        <p>Hand-coded structured data tells Google exactly what your business does, where you are, and what you offer, for the rich-result coverage generic sites never get.</p>
+      </div>
+      <div class="build-feature appear">
+        <h3>Performance-first code</h3>
+        <p>No bloated plugins, no unused CSS. Every site we ship loads in under two seconds and clears Lighthouse 95+ because we wrote it that way.</p>
+      </div>
+      <div class="build-feature appear">
+        <h3>Built for your business</h3>
+        <p>Your site is designed around your specific customers, market, and offer, not squeezed into a template a thousand other businesses already share.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <p class="kicker appear"><span style="font-family:var(--display);font-size:18px;letter-spacing:0">05</span>&nbsp;/&nbsp;Questions</p>
+    <h2 class="appear">Common questions, straight answers.</h2>
+    <div class="faq-list appear">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          How long does it take to build a website?
+          <span class="faq-sign" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Most projects launch in two to three weeks. Starter sites with fewer pages can go live even sooner. We give you a clear timeline before we start so there are no surprises.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          What is included in the one-time price?
+          <span class="faq-sign" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Everything you need to go live: custom design, responsive development, basic on-page SEO, contact form setup, and post-launch support. No hidden fees, no recurring charges unless you opt into our hosting add-on.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          Do I own the website after it is built?
+          <span class="faq-sign" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes, 100 percent. You own all code, content, images, and domain credentials. We hand everything over at launch. No lock-in, no hostage domains, no surprise invoices.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          Do you work with businesses anywhere in the US?
+          <span class="faq-sign" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Yes. We work with business owners across the country. Most projects run remotely with regular calls and shared dashboards; we'll fly in for kickoffs, launches, or strategic reviews when the engagement warrants it.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          What platform or CMS do you build on?
+          <span class="faq-sign" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><p>We build with Next.js and modern web standards, fast, secure, and fully customizable. If you need a traditional CMS like WordPress for easy self-editing, we can accommodate that too. We recommend the best tool for your situation.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          How long before I see SEO results?
+          <span class="faq-sign" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><p>On-page SEO improvements can start showing traction in four to eight weeks. Competitive keywords in your local market may take three to six months to rank well. We set realistic expectations and focus on steady, measurable gains.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">
+          What if I need changes after launch?
+          <span class="faq-sign" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Every plan includes post-launch support (30, 60, or 90 days depending on your tier). During that window we handle edits, fixes, and adjustments at no extra charge. After that, we offer affordable maintenance or you can manage the site yourself.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="kicker appear">Talk to us</p>
+    <h2 class="appear">When you're ready, we're here.</h2>
+    <p class="lede appear" style="max-width:46em;margin:0 auto 32px">An hour with Jon. No slides, no script, just the conversation. Pick any open time on Jon's live calendar.</p>
+    <div class="svc-cta-row appear" style="justify-content:center;margin-top:0">
+      <a class="btn" href="/mocks/hero/contact.html">Book an hour</a>
+      <a class="btn-ghost" href="tel:+12103057372">(210) 305-7372</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="wordmark" href="/mocks/hero/voxel-drop.html" style="color:#fff">Rank <span style="color:var(--grey)">Point</span> Media</a>
+        <p class="foot-blurb">Custom-coded websites and digital marketing. A two-person agency run by Jon and Stacie.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="https://rankpointmedia.com/services/website-design">Web Design</a></li>
+          <li><a href="https://rankpointmedia.com/services/local-seo">SEO</a></li>
+          <li><a href="https://rankpointmedia.com/services/ppc-google-ads">Google Ads (PPC)</a></li>
+          <li><a href="https://rankpointmedia.com/services/social-media">Social Media</a></li>
+          <li><a href="https://rankpointmedia.com/services/ai-search-optimization">AI Search Optimization</a></li>
+          <li><a href="https://rankpointmedia.com/services/reputation-management">Brand Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="https://rankpointmedia.com/about">About</a></li>
+          <li><a href="https://rankpointmedia.com/pricing">Pricing</a></li>
+          <li><a href="https://rankpointmedia.com/case-studies">Case Studies</a></li>
+          <li><a href="https://rankpointmedia.com/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div class="foot-contact">
+          <span>Rank Point Media</span>
+          <span><a href="tel:+12103057372">(210) 305-7372</a></span>
+          <span><a href="mailto:info@rankpointmedia.com">info@rankpointmedia.com</a></span>
+          <span>Mon-Fri 9am-5pm CST</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;padding-top:40px;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase">
+      <span style="color:var(--grey)">Design by:</span>&nbsp;<span style="color:var(--white)">Rank Point Media</span>
+    </div>
+    <div class="foot-legal">
+      <span>2026 Rank Point Media. All rights reserved.</span>
+      <span>
+        <a href="https://rankpointmedia.com/privacy">Privacy Policy</a> &nbsp;&middot;&nbsp;
+        <a href="https://rankpointmedia.com/terms">Terms of Service</a> &nbsp;&middot;&nbsp;
+        <a href="https://rankpointmedia.com/sitemap.xml">Sitemap</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<aside class="study" aria-hidden="true">
+  Services &middot; 3-color mock
+  <a href="/mocks/colors/index.html">&larr; Back</a>
+</aside>
+
+<!-- full-screen menu (shared with home) -->
+<nav class="menu" id="menu" aria-hidden="true" aria-label="Main menu">
+  <button class="menu-close" id="menuClose" type="button" aria-label="Close menu">&times;</button>
+  <a class="menu-item" href="/mocks/hero/voxel-drop.html">Home</a>
+  <a class="menu-item" href="/mocks/hero/about.html">About</a>
+  <a class="menu-item" href="/mocks/hero/services.html">Services</a>
+  <a class="menu-item" href="/mocks/hero/case-studies.html">Case Studies</a>
+  <a class="menu-item" href="/mocks/hero/pricing.html">Pricing</a>
+  <a class="menu-item" href="/mocks/hero/contact.html">Contact</a>
+  <a class="menu-phone" href="tel:+12103057372">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>
+    (210) 305-7372
+  </a>
+</nav>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.appear').forEach(function(el){ io.observe(el); });
+
+  var menu = document.getElementById('menu');
+  var openBtn = document.getElementById('menuOpen');
+  var closeBtn = document.getElementById('menuClose');
+  function openMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); document.documentElement.style.overflow='hidden'; }
+  function closeMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); document.documentElement.style.overflow=''; }
+  if (openBtn) openBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.querySelector('.faq-sign').textContent = isOpen ? '−' : '+';
+    });
+  });
+})();
+</script>
+</body>
+</html>

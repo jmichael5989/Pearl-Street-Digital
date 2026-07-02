@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case studies | Rank Point Media</title>
+<!-- ============================================================
+     CASE STUDIES — three-color design (#000 / #9C9C9C / #FFF),
+     Fraunces + Inter Tight + JetBrains Mono. Shares the home mock's
+     body system, sticky header, footer, and hamburger menu. Copy is
+     the verbatim live-page wording from lib/case-studies-data.ts and
+     the DarkHero on app/case-studies/page.tsx. MOCK ONLY.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000;--grey:#9C9C9C;--white:#FFF;
+  --bg:#FFF;--text:#000;--line:#9C9C9C;--ghost:#9C9C9C;--muted:#9C9C9C;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Inter Tight",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --gutter:clamp(20px,4vw,64px);--section:clamp(90px,12vw,170px);--max:1320px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:#000;color:#fff}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.05;letter-spacing:-0.015em;color:var(--text)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+section{padding:var(--section) 0;position:relative}
+.kicker{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--text);display:flex;align-items:center;gap:14px}
+.kicker::after{content:"";height:1px;flex:1;max-width:80px;background:var(--line)}
+.spine{font-family:var(--display);font-weight:400;font-size:clamp(64px,11vw,150px);line-height:.9;color:var(--ghost);letter-spacing:-0.01em;font-feature-settings:"lnum" 1,"tnum" 1;user-select:none}
+.spine-outline{-webkit-text-stroke:1px var(--ghost);color:transparent}
+.u-link{position:relative;font-family:var(--mono);font-size:13px;letter-spacing:0.06em;color:var(--text)}
+.u-link::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.u-link:hover::after,.u-link:focus-visible::after{transform:scaleX(1)}
+.btn{display:inline-block;padding:16px 32px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:var(--black);color:var(--white);border:1px solid var(--black);transition:background .25s,color .25s;cursor:pointer}
+.btn:hover,.btn:focus-visible{background:var(--white);color:var(--black)}
+.btn-ghost{background:transparent;color:var(--black)}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--black);color:var(--white)}
+.appear{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.appear.in{opacity:1;transform:none}
+.inverted{background:#000;color:#fff;--text:#fff;--line:#9C9C9C;--muted:#9C9C9C}
+.inverted .kicker{color:var(--muted)}
+.inverted .btn{background:#fff;color:#000;border-color:#fff}
+.inverted .btn:hover{background:transparent;color:#fff}
+.inverted .btn-ghost{background:transparent;color:#fff;border-color:#fff}
+.inverted .btn-ghost:hover{background:#fff;color:#000}
+@media (prefers-reduced-motion:reduce){.appear{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ===== sticky header ===== */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr-row{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.wordmark{font-family:var(--display);font-size:21px;font-weight:600;letter-spacing:-0.01em;color:var(--black)}
+.wordmark span{color:var(--grey)}
+.hamburger{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;width:34px;height:26px;background:none;border:none;cursor:pointer;padding:0}
+.hamburger span{display:block;height:1.5px;width:100%;background:var(--black);transition:background .25s}
+.hamburger:hover span{background:var(--grey)}
+
+/* ===== case-studies hero ===== */
+.cs-hero{padding-top:clamp(56px,7vw,96px)}
+.cs-hero h1{font-size:clamp(46px,7vw,104px);margin:26px 0 28px;max-width:13ch}
+.cs-hero .lede{font-size:clamp(18px,1.7vw,22px);max-width:40em;color:var(--text);margin-bottom:38px}
+.cs-cta{display:flex;flex-wrap:wrap;gap:16px}
+
+/* ===== work entries ===== */
+.work{padding-top:0}
+.work-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center;padding:clamp(54px,7vw,96px) 0;border-top:1px solid var(--line)}
+.work-row:nth-child(even) .work-media{order:2}
+.work-media{display:block;overflow:hidden;background:var(--black);aspect-ratio:16/10}
+.work-media img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06);transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.work-row:hover .work-media img{transform:scale(1.03)}
+.work-index{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+.work-meta .outcome{font-size:clamp(26px,3.1vw,42px);margin-bottom:18px;line-height:1.06}
+.work-meta .client{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.work-summary{color:var(--text);max-width:40em;margin-bottom:26px}
+.work-metrics{display:flex;flex-wrap:wrap;gap:clamp(24px,3vw,46px);margin-bottom:26px}
+.metric .m-value{font-family:var(--display);font-size:clamp(28px,3vw,40px);font-weight:500;line-height:1}
+.metric .m-label{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-top:8px;max-width:14em}
+.work-tags{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey)}
+@media(max-width:820px){
+  .work-row{grid-template-columns:1fr;gap:24px}
+  .work-row:nth-child(even) .work-media{order:0}
+}
+
+/* ===== detail blocks ===== */
+.detail{border-top:1px solid var(--line)}
+.detail-row{display:grid;grid-template-columns:auto 1fr 1.4fr;gap:clamp(22px,3vw,56px);padding:54px 0;border-top:1px solid var(--line);align-items:start}
+.detail-row:first-of-type{border-top:none}
+.detail-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.detail-row h3{font-size:clamp(22px,2.2vw,30px);margin-bottom:8px}
+.detail-row p{color:var(--text);max-width:44em}
+.detail-head{margin-bottom:30px}
+.detail-head .client{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
+.detail-head h2{font-size:clamp(28px,3.4vw,50px);max-width:18ch}
+.outcomes-list{display:grid;gap:34px;margin-top:8px}
+.outcome-item h3{font-size:clamp(20px,2vw,27px);margin-bottom:8px}
+.outcome-item p{color:var(--text);max-width:46em}
+@media(max-width:820px){.detail-row{grid-template-columns:1fr;gap:14px}.detail-row .spine{font-size:72px}}
+
+/* ===== CTA band ===== */
+.cta-band{text-align:center}
+.cta-band .kicker{justify-content:center}
+.cta-band .kicker::before{content:"";height:1px;width:80px;background:var(--line)}
+.cta-band h2{font-size:clamp(34px,4.8vw,70px);max-width:14ch;margin:18px auto 32px}
+
+/* ===== footer ===== */
+footer{background:var(--black);color:var(--white);padding:84px 0 40px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:clamp(28px,4vw,72px);padding-bottom:62px;border-bottom:1px solid var(--grey)}
+.foot-grid h3{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey);font-weight:500;margin-bottom:18px}
+.foot-blurb{font-size:14.5px;color:var(--grey);max-width:24em;margin-top:14px;line-height:1.65}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-grid li a{font-size:14.5px;color:var(--grey)}
+.foot-grid li a:hover{color:var(--white)}
+.foot-contact{font-family:var(--mono);font-size:13px;display:flex;flex-direction:column;gap:10px;color:var(--grey)}
+.foot-contact a{color:var(--grey)}.foot-contact a:hover{color:var(--white)}
+.foot-badge{text-align:center;padding-top:30px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.18em}
+.foot-badge-label{color:var(--grey)}
+.foot-badge-brand{color:var(--white)}
+.foot-legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.04em;color:var(--grey)}
+.foot-legal a{color:var(--grey)}.foot-legal a:hover{color:var(--white)}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.foot-grid{grid-template-columns:1fr}}
+
+/* ===== full-screen menu (shared with home) ===== */
+.menu{position:fixed;inset:0;z-index:100;background:#0A0A0A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(4px,1.1vh,14px);opacity:0;visibility:hidden;transition:opacity .45s cubic-bezier(.22,1,.36,1),visibility .45s}
+.menu.open{opacity:1;visibility:visible}
+.menu-item{font-family:var(--display);font-weight:500;font-size:clamp(28px,6.2vw,54px);line-height:1.22;letter-spacing:0.015em;text-transform:uppercase;color:#EDE7DC;transition:color .22s}
+.menu-item:hover,.menu-item:focus-visible{color:#9C9C9C}
+.menu-phone{margin-top:clamp(22px,4.5vh,46px);font-family:var(--mono);font-size:14px;letter-spacing:0.07em;color:#9a958c;display:inline-flex;align-items:center;gap:9px;transition:color .22s}
+.menu-phone:hover{color:#EDE7DC}
+.menu-close{position:absolute;top:20px;right:clamp(20px,5vw,90px);width:42px;height:42px;background:none;border:none;color:#EDE7DC;font-size:34px;line-height:1;cursor:pointer;transition:color .22s}
+.menu-close:hover{color:#9C9C9C}
+
+/* mock study banner */
+.study{position:fixed;bottom:14px;right:14px;z-index:30;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);border:1px solid var(--line);padding:8px 12px;background:rgba(255,255,255,.85)}
+.study a{color:var(--black);text-decoration:underline;margin-left:8px}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-row">
+    <a class="wordmark" href="/mocks/hero/voxel-drop.html">Rank <span>Point</span> Media</a>
+    <button class="hamburger" id="menuOpen" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- CASE STUDIES HERO -->
+<section class="cs-hero">
+  <div class="wrap">
+    <p class="kicker appear">Case Studies</p>
+    <h1 class="appear">Real work, real results.</h1>
+    <p class="lede appear">Each entry is a single project: the problem the owner brought us, what we built, and what shipped.</p>
+    <div class="cs-cta appear">
+      <a class="btn" href="mailto:info@rankpointmedia.com">Book a consultation</a>
+      <a class="btn btn-ghost" href="/mocks/hero/services.html">See Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK ENTRIES -->
+<section class="work">
+  <div class="wrap">
+
+    <!-- 01 Modern Day Pest Control -->
+    <div class="work-row appear">
+      <a class="work-media" href="https://rankpointmedia.com/case-studies/modern-day-pest-control" aria-label="Modern Day Pest Control case study">
+        <img src="https://rankpointmedia.com/images/case-studies/modern-day-pest-control-hero.webp" alt="Modern Day Pest Control website homepage preview" loading="lazy">
+      </a>
+      <div class="work-meta">
+        <p class="work-index">01 / Home Services</p>
+        <p class="client">Modern Day Pest Control</p>
+        <h3 class="outcome">Pest Control Website Built in 5 Days, Scoring 95+ on Lighthouse</h3>
+        <p class="work-summary">A fast, mobile-first pest control website built to convert homeowners searching for help right now. Delivered in 5 business days with a Lighthouse performance score of 95+ and full local SEO foundation on day one.</p>
+        <div class="work-metrics">
+          <div class="metric"><div class="m-value">95+</div><div class="m-label">Lighthouse Performance</div></div>
+          <div class="metric"><div class="m-value">5 Days</div><div class="m-label">Build Time</div></div>
+          <div class="metric"><div class="m-value">&lt;2s</div><div class="m-label">Page Load</div></div>
+        </div>
+        <p class="work-tags">Website Design &middot; Local SEO</p>
+      </div>
+    </div>
+
+    <!-- 02 Bernal Trust -->
+    <div class="work-row appear">
+      <a class="work-media" href="https://rankpointmedia.com/case-studies/bernal-trust" aria-label="Bernal Trust case study">
+        <img src="https://rankpointmedia.com/images/case-studies/bernal-trust-hero.png" alt="Bernal Trust homepage hero featuring founder Adrian Bernal and the tagline Protect What Matters. Build What Lasts." loading="lazy">
+      </a>
+      <div class="work-meta">
+        <p class="work-index">02 / Financial Services</p>
+        <p class="client">Bernal Trust</p>
+        <h3 class="outcome">Custom Lead-Gen Site for a San Antonio Insurance Agent, Built to Convert</h3>
+        <p class="work-summary">A trust-first lead-gen site for an independent San Antonio life insurance and wealth management agent. Built around the way real customers shop for insurance, clear service explanations, founder-forward trust signals, and three frictionless paths to a free consultation.</p>
+        <div class="work-metrics">
+          <div class="metric"><div class="m-value">95+</div><div class="m-label">Lighthouse Performance</div></div>
+          <div class="metric"><div class="m-value">6</div><div class="m-label">Service Categories</div></div>
+          <div class="metric"><div class="m-value">&lt;2s</div><div class="m-label">Page Load</div></div>
+        </div>
+        <p class="work-tags">Website Design &middot; Local SEO</p>
+      </div>
+    </div>
+
+    <!-- 03 Appeal Pro AI -->
+    <div class="work-row appear">
+      <a class="work-media" href="https://rankpointmedia.com/case-studies/appeal-pro-ai" aria-label="Appeal Pro AI case study">
+        <img src="https://rankpointmedia.com/images/case-studies/appeal-pro-ai-hero.png" alt="Appeal Pro AI property tax appeal generator on desktop" loading="lazy">
+      </a>
+      <div class="work-meta">
+        <p class="work-index">03 / PropTech</p>
+        <p class="client">Appeal Pro AI</p>
+        <h3 class="outcome">AI-Powered Property Tax Appeal Tool, Built From the Ground Up</h3>
+        <p class="work-summary">A custom-coded web app that lets Texas homeowners generate a professional property tax appeal letter in ten minutes for a flat $9.99 fee. AI handles the legal citations and comparable-property analysis; the homeowner just fills in the basics.</p>
+        <div class="work-metrics">
+          <div class="metric"><div class="m-value">10 min</div><div class="m-label">User Workflow</div></div>
+          <div class="metric"><div class="m-value">$9.99</div><div class="m-label">Flat Fee Per Appeal</div></div>
+          <div class="metric"><div class="m-value">AI</div><div class="m-label">Letter Generation Engine</div></div>
+        </div>
+        <p class="work-tags">Website Design &middot; Custom AI Solutions</p>
+      </div>
+    </div>
+
+    <!-- 04 Lone Star Steak Critic -->
+    <div class="work-row appear">
+      <a class="work-media" href="https://rankpointmedia.com/case-studies/lone-star-steak-critic" aria-label="Lone Star Steak Critic case study">
+        <img src="https://rankpointmedia.com/images/case-studies/lone-star-steak-critic-hero.png" alt="Lone Star Steak Critic city directory and review pages on desktop" loading="lazy">
+      </a>
+      <div class="work-meta">
+        <p class="work-index">04 / Editorial / Directory</p>
+        <p class="client">Lone Star Steak Critic</p>
+        <h3 class="outcome">Texas-Wide Steakhouse Directory, 385+ Listings on Day One</h3>
+        <p class="work-summary">A custom-coded review and directory platform covering 385+ steakhouses across 13 Texas cities, with neighborhood-level filtering, an interactive map, a 100-point rating system, and an editorial layer that reads like a magazine on top of structured restaurant data.</p>
+        <div class="work-metrics">
+          <div class="metric"><div class="m-value">385+</div><div class="m-label">Steakhouses Indexed</div></div>
+          <div class="metric"><div class="m-value">13</div><div class="m-label">Texas Cities Covered</div></div>
+          <div class="metric"><div class="m-value">75+</div><div class="m-label">Browseable Neighborhoods</div></div>
+        </div>
+        <p class="work-tags">Website Design &middot; Local SEO</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DETAIL: MODERN DAY PEST CONTROL -->
+<section class="detail">
+  <div class="wrap">
+    <div class="detail-head appear">
+      <p class="client">01 / Modern Day Pest Control &middot; Home Services</p>
+      <h2>Pest Control Website Built in 5 Days, Scoring 95+ on Lighthouse</h2>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">01</span>
+      <div><p class="detail-eyebrow">Challenge</p><h3>The problem</h3></div>
+      <p>Modern Day Pest Control is a San Antonio pest control business competing in a crowded market dominated by national brands like Orkin and Terminix. When a homeowner spots a roach or a wasp nest, they grab their phone and search, whoever shows up first gets the call. The business needed a professional online presence that could compete with the national chains, load instantly on mobile, and make it trivial for new customers to request service without waiting on hold.</p>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">02</span>
+      <div><p class="detail-eyebrow">Approach</p><h3>What we built</h3></div>
+      <p>We built Modern Day Pest Control a custom mobile-first website designed around the way homeowners actually shop for pest control, quick access to service offerings, clear pricing expectations, and a prominent call-to-action on every screen. The site was built on Next.js and Tailwind CSS with performance as the top priority. Every service page was optimized for local San Antonio searches, and LocalBusiness + Service JSON-LD schema was implemented on day one so Google understood exactly what the business does and where it serves.</p>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">03</span>
+      <div><p class="detail-eyebrow">Outcomes</p><h3>What shipped</h3></div>
+      <div class="outcomes-list">
+        <div class="outcome-item">
+          <h3>Lighthouse 95+ performance score</h3>
+          <p>Fast sites convert better and rank better. A 95+ score means ads spend less per conversion and organic SEO lifts faster.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Site launched in 5 business days</h3>
+          <p>A lean, hand-coded build compressed a typical 6-to-10 week agency timeline into a single business week.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Schema markup + Google Business Profile optimized on day one</h3>
+          <p>LocalBusiness and Service schema gave Google rich context immediately, shortening the runway to first page for local searches.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Mobile-first design for 70%+ mobile traffic</h3>
+          <p>Click-to-call and quote-request forms were prioritized above the fold so homeowners in a hurry never had to scroll to ask for help.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL: BERNAL TRUST -->
+<section class="detail">
+  <div class="wrap">
+    <div class="detail-head appear">
+      <p class="client">02 / Bernal Trust &middot; Financial Services</p>
+      <h2>Custom Lead-Gen Site for a San Antonio Insurance Agent, Built to Convert</h2>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">01</span>
+      <div><p class="detail-eyebrow">Challenge</p><h3>The problem</h3></div>
+      <p>Bernal Trust is an independent life insurance and wealth management agent in San Antonio competing in a category dominated by national brands like Northwestern Mutual, State Farm, and Prudential, companies that spend tens of millions on brand marketing and have the trust signals that come with century-old name recognition. An independent agent's edge is personal: real relationships, plain-English advice, and no commissioned upsell pressure. But a website is the first interaction most prospects have with the business, and a generic insurance template can't carry that personal positioning. The site needed to communicate competence and trust without feeling corporate, explain six different service categories without overwhelming the visitor, and make it trivial to request a free consultation through whichever path the visitor preferred, phone, form, or scheduled call.</p>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">02</span>
+      <div><p class="detail-eyebrow">Approach</p><h3>What we built</h3></div>
+      <p>We built Bernal Trust a custom-coded site on Next.js and Tailwind CSS designed around the way real people shop for life insurance, with anxiety, with questions, and with a strong preference for talking to a human before committing to anything. The hero leads with the founder's portrait and a plain-English value proposition ("Protect What Matters. Build What Lasts.") so the very first impression is a person, not a brand. Six service categories, term life, whole life, family protection plans, business coverage, retirement planning, and living benefits riders, each get their own clearly-written explanation rather than buried bullet points. Three consultation paths are surfaced from every screen: a prominent phone number in the header, a "Free Consultation" CTA button in the navigation, and a contact form below the fold. An FAQ accordion handles the common objections (cost, complexity, who needs it) inline so a hesitant visitor doesn't have to leave the page to find answers. LocalBusiness + FinancialService JSON-LD ships on every page so Google understands what the business does and where it serves.</p>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">03</span>
+      <div><p class="detail-eyebrow">Outcomes</p><h3>What shipped</h3></div>
+      <div class="outcomes-list">
+        <div class="outcome-item">
+          <h3>Founder-forward trust signals built into page architecture</h3>
+          <p>The hero leads with Adrian Bernal's portrait and a plain-English tagline rather than stock imagery and corporate jargon. Trust signals are structural, not bolted on as a sidebar widget, so every visit reinforces the personal positioning that separates an independent agent from a national brand.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Six service categories explained in plain English</h3>
+          <p>Each service area gets a clearly-written summary that explains the product, who it's for, and what to expect, written for a homeowner or business owner, not a licensing exam. No jargon, no nine-paragraph regulatory disclaimers above the explanation.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Three consultation paths surfaced site-wide</h3>
+          <p>Header phone number, persistent "Free Consultation" button, and an inline contact form below the fold. Whichever path the visitor prefers, phone, click, or write, is one tap away from any page.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Local SEO foundation for San Antonio + surrounding metro</h3>
+          <p>LocalBusiness + FinancialService JSON-LD schema on every page, geo-tagged meta, and copy written around real San Antonio search intent ("life insurance san antonio", "independent insurance agent san antonio"). Built so the site can rank for high-intent local queries without depending on paid ads to drive traffic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL: APPEAL PRO AI -->
+<section class="detail">
+  <div class="wrap">
+    <div class="detail-head appear">
+      <p class="client">03 / Appeal Pro AI &middot; PropTech</p>
+      <h2>AI-Powered Property Tax Appeal Tool, Built From the Ground Up</h2>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">01</span>
+      <div><p class="detail-eyebrow">Challenge</p><h3>The problem</h3></div>
+      <p>Texas property assessments routinely come in too high, but the appeal process is intimidating: most homeowners don't know what evidence to file, what tone to use, or what state-specific citations to include. Hiring a tax consultant or attorney costs hundreds to thousands of dollars, often more than the appeal might save them. The founder of Appeal Pro AI saw a gap: a software product that could automate the legal scaffolding of an appeal letter at a price homeowners would actually pay. They came to Rank Point Media needing a custom-coded site that wasn't a marketing brochure, it was the product itself.</p>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">02</span>
+      <div><p class="detail-eyebrow">Approach</p><h3>What we built</h3></div>
+      <p>We built Appeal Pro AI as a full custom web application from scratch, no template, no SaaS plugin. The site captures property details, assessed values, comparable sales, and condition photos through a streamlined multi-step form, then runs the inputs through an AI engine that generates a properly formatted appeal letter with state-specific legal citations and comparable-property analysis. The homeowner pays a one-time $9.99 fee through a secure checkout, downloads the PDF, and files it themselves. No accounts, no subscriptions, no upsells. We integrated county-specific property record lookup, real-time price-per-square-foot calculations, and three customizable tone options (Professional & Factual, Firm & Assertive, Respectful & Persuasive). The whole experience is designed to take ten minutes from start to filed appeal.</p>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">03</span>
+      <div><p class="detail-eyebrow">Outcomes</p><h3>What shipped</h3></div>
+      <div class="outcomes-list">
+        <div class="outcome-item">
+          <h3>Custom AI integration shipped end-to-end</h3>
+          <p>The AI letter generator runs server-side on every submission with state-specific legal citations and comparable-property logic, built from scratch, not bolted on as a third-party plugin.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Single-session transactional workflow</h3>
+          <p>Multi-step form, secure payment, AI generation, and PDF download integrated into one ten-minute path. No accounts, no email verification gates, no chance for the homeowner to bounce mid-funnel.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Mobile-first design for an on-the-go audience</h3>
+          <p>Most users hit the site after opening their property assessment notice on their phone. The form is touch-optimized and the PDF download works on mobile end-to-end so a homeowner can complete the entire flow without ever moving to a desktop.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>$9.99 flat fee vs. $500&ndash;$2,000 in typical consultant savings</h3>
+          <p>Pricing is the product's killer feature, Appeal Pro saves the homeowner the consultant fee while still solving the same problem. We built the site to make that value proposition unmistakable above the fold.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL: LONE STAR STEAK CRITIC -->
+<section class="detail">
+  <div class="wrap">
+    <div class="detail-head appear">
+      <p class="client">04 / Lone Star Steak Critic &middot; Editorial / Directory</p>
+      <h2>Texas-Wide Steakhouse Directory, 385+ Listings on Day One</h2>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">01</span>
+      <div><p class="detail-eyebrow">Challenge</p><h3>The problem</h3></div>
+      <p>Texas has hundreds of steakhouses and no definitive guide. Yelp and Google Maps are commodity directories, every restaurant looks the same in the listing, the reviews are noisy, and there's no curatorial voice telling diners which place is actually worth the drive across town. The Lone Star Steak Critic wanted a platform that combined the rigor of a directory (every steakhouse, every city, every neighborhood) with the authority of an editorial publication (a 100-point grading scale, neighborhood-level best-of lists, and informed commentary on the broader beef market). The challenge was building a site that could hold ~400 structured listings + editorial layers without devolving into a generic WordPress directory template.</p>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">02</span>
+      <div><p class="detail-eyebrow">Approach</p><h3>What we built</h3></div>
+      <p>We built Lone Star Steak Critic as a custom Next.js site from the ground up, no directory plugin, no WordPress theme. The data model handles 385+ steakhouses with rich metadata (price tier, dining style, neighborhood, 100-point rating), faceted city + neighborhood browsing across 13 cities and 75+ neighborhoods, an interactive map for spatial discovery, and an editorial CMS layer for the best-of lists and the beef-market data section. Restaurant + Review + AggregateRating JSON-LD ships on every listing so Google can render rich snippets in search, and the URL structure is engineered for the long-tail queries that actually drive discovery, "best steakhouse in [neighborhood]" pages, "fine dining steakhouses in [city]" pages, neighborhood guides, and so on. Affiliate-link infrastructure is built into the data layer so the revenue model is wired in cleanly rather than bolted on.</p>
+    </div>
+    <div class="detail-row appear">
+      <span class="spine spine-outline">03</span>
+      <div><p class="detail-eyebrow">Outcomes</p><h3>What shipped</h3></div>
+      <div class="outcomes-list">
+        <div class="outcome-item">
+          <h3>Custom directory + editorial platform, no template</h3>
+          <p>Built on Next.js with a structured listing data layer plus an editorial CMS for best-of lists and market commentary. The owner controls the schema, the rating rubric, and the visual register, none of which is possible on a Yelp-style platform or a directory plugin.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>SEO architecture for hundreds of long-tail queries</h3>
+          <p>City pages, neighborhood pages, and best-of-by-tier pages each target a real search pattern ("best fine dining steakhouse in Austin downtown", "affordable steakhouses in Houston"). Restaurant + Review + AggregateRating schema on every listing gives Google rich-snippet coverage from launch.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Interactive map for spatial discovery</h3>
+          <p>Most diners think geographically, not alphabetically. The map lets users browse steakhouses by neighborhood, narrow by price tier, and tap through to a full review without leaving the spatial view they started in.</p>
+        </div>
+        <div class="outcome-item">
+          <h3>Beef market data section as a category-defining angle</h3>
+          <p>No competitor combines steakhouse reviews with beef market commentary. Building the data section as part of the platform, rather than a blog afterthought, turns Lone Star Steak Critic into the publication of record for both diners and the industry itself.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <p class="kicker appear">Talk to us</p>
+    <h2 class="appear">When you're ready, we're here.</h2>
+    <p class="lede appear" style="max-width:38em;margin:0 auto 32px;color:var(--text)">An hour with Jon. No slides, no script, just the conversation. Pick any open time on Jon's live calendar.</p>
+    <div class="cs-cta appear" style="justify-content:center">
+      <a class="btn" href="/mocks/hero/contact.html">Book an hour</a>
+      <a class="btn btn-ghost" href="tel:+12103057372">(210) 305-7372</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="wordmark" href="/mocks/hero/voxel-drop.html" style="color:#fff">Rank <span style="color:var(--grey)">Point</span> Media</a>
+        <p class="foot-blurb">Custom-coded websites and digital marketing. A two-person agency run by Jon and Stacie.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="https://rankpointmedia.com/services/website-design">Web Design</a></li>
+          <li><a href="https://rankpointmedia.com/services/local-seo">SEO</a></li>
+          <li><a href="https://rankpointmedia.com/services/ppc-google-ads">Google Ads (PPC)</a></li>
+          <li><a href="https://rankpointmedia.com/services/social-media">Social Media</a></li>
+          <li><a href="https://rankpointmedia.com/services/ai-search-optimization">AI Search Optimization</a></li>
+          <li><a href="https://rankpointmedia.com/services/reputation-management">Brand Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="https://rankpointmedia.com/about">About</a></li>
+          <li><a href="https://rankpointmedia.com/pricing">Pricing</a></li>
+          <li><a href="https://rankpointmedia.com/case-studies">Case Studies</a></li>
+          <li><a href="https://rankpointmedia.com/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div class="foot-contact">
+          <span>Rank Point Media</span>
+          <span><a href="tel:+12103057372">(210) 305-7372</a></span>
+          <span><a href="mailto:info@rankpointmedia.com">info@rankpointmedia.com</a></span>
+          <span>Mon-Fri 9am-5pm CST</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-badge">
+      <span class="foot-badge-label">Design by:</span> <span class="foot-badge-brand">Rank Point Media</span>
+    </div>
+    <div class="foot-legal">
+      <span>2026 Rank Point Media. All rights reserved.</span>
+      <span>
+        <a href="https://rankpointmedia.com/privacy">Privacy Policy</a> &nbsp;&middot;&nbsp;
+        <a href="https://rankpointmedia.com/terms">Terms of Service</a> &nbsp;&middot;&nbsp;
+        <a href="https://rankpointmedia.com/sitemap.xml">Sitemap</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<aside class="study" aria-hidden="true">
+  Case studies &middot; 3-color mock
+  <a href="/mocks/colors/index.html">&larr; Back</a>
+</aside>
+
+<!-- full-screen menu (shared with home) -->
+<nav class="menu" id="menu" aria-hidden="true" aria-label="Main menu">
+  <button class="menu-close" id="menuClose" type="button" aria-label="Close menu">&times;</button>
+  <a class="menu-item" href="/mocks/hero/voxel-drop.html">Home</a>
+  <a class="menu-item" href="/mocks/hero/about.html">About</a>
+  <a class="menu-item" href="/mocks/hero/services.html">Services</a>
+  <a class="menu-item" href="/mocks/hero/case-studies.html">Case Studies</a>
+  <a class="menu-item" href="/mocks/hero/pricing.html">Pricing</a>
+  <a class="menu-item" href="/mocks/hero/contact.html">Contact</a>
+  <a class="menu-phone" href="tel:+12103057372">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>
+    (210) 305-7372
+  </a>
+</nav>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.appear').forEach(function(el){ io.observe(el); });
+
+  var menu = document.getElementById('menu');
+  var openBtn = document.getElementById('menuOpen');
+  var closeBtn = document.getElementById('menuClose');
+  function openMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); document.documentElement.style.overflow='hidden'; }
+  function closeMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); document.documentElement.style.overflow=''; }
+  if (openBtn) openBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voxel drop hero &middot; RPM evaluation mock</title>
+<!-- ============================================================
+     SOLID-GLASS WORDMARK -> VOXEL DROP hero (Three.js + Rapier) — eval MOCK.
+     The wordmark "Rank Point Media" first renders as a SOLID 3D glass mesh
+     (real transmission). After a 2s hold it shatters: the solid is swapped
+     for a field of glass-like cubes — one per sampled pixel of the wordmark —
+     that are real Rapier rigid bodies, so they drop, BOUNCE on the floor, and
+     pile. Recolored to the warm-grey ladder on near-black.
+
+     Built from the warm-grey starter, with the hand-rolled no-bounce
+     integrator swapped for authentic Rapier (compat) physics, plus an
+     auto-drop sequence, real reduced-motion handling, and an offscreen/
+     hidden pause for the performance budget.
+
+     Palette: #cfcabf brightest -> #9a958c -> #565656 (stamp only),
+     borders #333/#2c2c2c, on #0A0A0A canvas / #0C0C0C floor.
+     Fonts: Inter Tight (display/body) + JetBrains Mono (mono labels).
+     MOCK ONLY — not wired to the live hero, nothing ships.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{ --void:#0A0A0A; --text:#cfcabf; --dim:#9a958c; --stamp:#565656; --body:"Inter Tight",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace; --gutter:clamp(22px,5vw,90px); }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--void);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+/* the dark voxel hero is now the first screen; the 3-color body scrolls below it */
+.hero-stage{position:relative;height:100svh;overflow:hidden;background:var(--void)}
+#gl{position:absolute;inset:0;z-index:0;display:block;cursor:pointer}
+.vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(130% 100% at 50% 38%, transparent 58%, rgba(0,0,0,.5) 100%)}
+
+.overlay{position:absolute;inset:0;z-index:10;pointer-events:none;display:flex;flex-direction:column;justify-content:space-between;padding:22px var(--gutter) clamp(26px,5vh,48px)}
+.overlay a,.overlay button{pointer-events:auto}
+.nav-row{display:flex;align-items:center;justify-content:space-between}
+.wm{font-weight:500;font-size:15px;letter-spacing:0.01em}
+.overlay .contact{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;border:1px solid #333;padding:9px 15px;transition:border-color .3s}
+.overlay .contact:hover{border-color:var(--text)}
+.bottom{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.cta{font-family:var(--mono);font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--text);background:var(--text);color:var(--void);padding:14px 28px;transition:background .3s,color .3s,border-color .3s}
+.cta:hover,.cta:focus-visible{background:transparent;color:var(--text)}
+.controls{display:flex;gap:10px;align-items:center}
+.ctrl{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);background:none;border:1px solid #2c2c2c;border-radius:0;padding:9px 16px;cursor:pointer;transition:border-color .3s,color .3s}
+.ctrl:hover,.ctrl:focus-visible{border-color:var(--text);color:var(--text)}
+.stamp{font-family:var(--mono);font-size:clamp(16px,1.9vw,21px);font-weight:500;letter-spacing:0.06em;color:var(--text);transition:color .25s}
+.stamp:hover{color:#fff}
+:focus-visible{outline:1px solid var(--text);outline-offset:3px}
+
+/* hamburger button (sits in the hero header; dark-on treatment) */
+.hamburger{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;width:34px;height:26px;background:none;border:none;cursor:pointer;padding:0;pointer-events:auto}
+.hamburger span{display:block;height:1.5px;width:100%;background:var(--text);transition:background .25s}
+.hamburger:hover span{background:#fff}
+
+/* full-screen menu — keeps the existing page set, recolored to the new scheme */
+.menu{position:fixed;inset:0;z-index:100;background:#0A0A0A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(4px,1.1vh,14px);opacity:0;visibility:hidden;transition:opacity .45s cubic-bezier(.22,1,.36,1),visibility .45s}
+.menu.open{opacity:1;visibility:visible}
+.menu-item{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:clamp(28px,6.2vw,54px);line-height:1.22;letter-spacing:0.015em;text-transform:uppercase;color:#EDE7DC;transition:color .22s,transform .22s}
+.menu-item:hover,.menu-item:focus-visible{color:#9C9C9C}
+.menu-phone{margin-top:clamp(22px,4.5vh,46px);font-family:var(--mono);font-size:14px;letter-spacing:0.07em;color:#9a958c;display:inline-flex;align-items:center;gap:9px;transition:color .22s}
+.menu-phone:hover{color:#EDE7DC}
+.menu-close{position:absolute;top:20px;right:clamp(20px,5vw,90px);width:42px;height:42px;background:none;border:none;color:#EDE7DC;font-size:34px;line-height:1;cursor:pointer;transition:color .22s}
+.menu-close:hover{color:#9C9C9C}
+
+/* glassy statement that dissolves in where the wordmark was, once it drops */
+.reveal{position:absolute;left:0;right:0;top:31%;transform:translateY(-50%) scale(1.05);z-index:8;text-align:center;pointer-events:none;padding:0 var(--gutter);
+  font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:clamp(26px,3.9vw,50px);letter-spacing:0.002em;line-height:1.16;
+  color:rgba(207,202,191,0.95);
+  text-shadow:0 1px 2px rgba(0,0,0,0.5);
+  opacity:0;filter:blur(16px)}
+.reveal .line{display:inline-block;max-width:20ch;text-wrap:balance}
+.reveal .hl{font-weight:700;color:#ECE6DA;text-shadow:0 0 26px rgba(236,230,218,0.28)}
+/* transition lives on .show only, so it dissolves IN slowly but hides INSTANTLY
+   (never lingers over the wordmark on reform/replay) */
+.reveal.show{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1);
+  transition:opacity 1.9s ease, filter 1.9s ease, transform 1.9s ease}
+
+/* scramble quotes scattered across the dark hero — faint mono, one per slot */
+.scram{position:absolute;z-index:7;font-family:var(--mono);font-size:clamp(10px,1.15vw,14px);letter-spacing:0.14em;color:var(--stamp);
+  pointer-events:none;max-width:22ch;line-height:1.5;opacity:0;transition:opacity .6s ease}
+.scram.on{opacity:1}
+.scram .dud{color:var(--dim)}
+
+.gl-fallback{position:absolute;inset:0;z-index:5;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+.gl-fallback .mark{font-weight:600;font-size:clamp(40px,8vw,110px);letter-spacing:-0.02em;line-height:0.95;color:var(--text)}
+body.no-webgl #gl{display:none}
+body.no-webgl .gl-fallback{display:flex}
+
+/* fixed study banner, matching the repo mock convention */
+.study{position:fixed;bottom:14px;right:14px;z-index:20;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--stamp);border:1px solid #2c2c2c;padding:8px 12px;line-height:1.6;background:rgba(10,10,10,.6)}
+.study a{color:var(--dim);text-decoration:underline;text-underline-offset:3px;margin-left:8px}
+.study a:hover{color:var(--text)}
+
+/* ============================================================
+   THREE-COLOR BODY — scoped under .rpm3 so it can't touch the hero.
+   Strict palette: #000000 / #9C9C9C / #FFFFFF. Fraunces display.
+   Ported from rankpoint-3color-redesign.html; geo + bilingual copy
+   scrubbed for the locked nationwide / English-only positioning.
+   ============================================================ */
+.rpm3{
+  --black:#000;--grey:#9C9C9C;--white:#FFF;
+  --bg:#FFF;--text:#000;--line:#9C9C9C;--ghost:#9C9C9C;--muted:#9C9C9C;
+  --display:"Fraunces",Georgia,serif;
+  --gutter:clamp(20px,4vw,64px);--section:clamp(100px,13vw,190px);--max:1320px;
+  background:var(--white);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;position:relative;z-index:1;
+}
+.rpm3 a{color:inherit;text-decoration:none}
+.rpm3 img{display:block;max-width:100%}
+.rpm3 ::selection{background:#000;color:#fff}
+.rpm3 h2,.rpm3 h3{font-family:var(--display);font-weight:500;font-style:normal;line-height:1.05;letter-spacing:-0.015em;color:var(--text)}
+.rpm3 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.rpm3 section{padding:var(--section) 0;position:relative}
+
+.rpm3 .kicker{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--text);display:flex;align-items:center;gap:14px}
+.rpm3 .kicker::after{content:"";height:1px;flex:1;max-width:80px;background:var(--line)}
+
+.rpm3 .spine{font-family:var(--display);font-weight:400;font-size:clamp(64px,11vw,150px);line-height:.9;color:var(--ghost);letter-spacing:-0.01em;font-feature-settings:"lnum" 1,"tnum" 1;user-select:none}
+.rpm3 .spine-outline{color:transparent;-webkit-text-stroke:1.4px var(--grey)}
+
+.rpm3 .u-link{position:relative;font-family:var(--mono);font-size:13px;letter-spacing:0.06em;color:var(--text)}
+.rpm3 .u-link::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.rpm3 .u-link:hover::after,.rpm3 .u-link:focus-visible::after{transform:scaleX(1)}
+
+.rpm3 .btn{display:inline-block;padding:16px 32px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:var(--black);color:var(--white);border:1px solid var(--black);transition:background .25s,color .25s;cursor:pointer}
+.rpm3 .btn:hover,.rpm3 .btn:focus-visible{background:var(--white);color:var(--black)}
+.rpm3 .inverted .btn{background:var(--white);color:var(--black);border-color:var(--white)}
+.rpm3 .inverted .btn:hover{background:transparent;color:var(--white)}
+
+.rpm3 .appear{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rpm3 .appear.in{opacity:1;transform:none}
+
+/* inverted (dark) section — apply the bg the source omitted */
+.rpm3 .inverted{--text:#FFF;--line:#9C9C9C;--muted:#9C9C9C;background:#000;color:#FFF}
+.rpm3 .inverted .kicker{color:var(--muted)}
+
+/* sticky nav: below the hero, so it only appears once you scroll into the body */
+.rpm3 .r-nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.rpm3 .r-nav-row{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.rpm3 .wordmark{font-family:var(--display);font-size:21px;font-weight:600;letter-spacing:-0.01em;color:var(--black)}
+.rpm3 .wordmark span{color:var(--grey)}
+.rpm3 .r-nav-links{display:flex;gap:30px;align-items:center}
+.rpm3 .r-nav-links a{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--black)}
+.rpm3 .r-nav-links a:hover{color:var(--grey)}
+.rpm3 .nav-phone{border:1px solid var(--grey);padding:9px 16px;transition:border-color .25s}
+.rpm3 .nav-phone:hover{border-color:var(--black)}
+@media(max-width:880px){.rpm3 .r-nav-links a:not(.nav-phone){display:none}}
+
+/* WHY US */
+.rpm3 .why h2{font-size:clamp(32px,3.9vw,58px);max-width:15em;margin:24px 0 14px}
+.rpm3 .why-lede{color:var(--text);max-width:38em;margin-bottom:56px}
+/* intro quote — display serif pull-quote with a right-aligned source line.
+   cite is forced non-italic per the sitewide no-italics rule. */
+.rpm3 .why-quote{margin:26px 0 64px;max-width:30ch}
+.rpm3 .why-quote p{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.4vw,50px);line-height:1.18;letter-spacing:-0.015em;color:var(--text);margin:0}
+.rpm3 .why-quote cite{display:block;font-style:normal;text-align:right;margin-top:20px;font-family:var(--mono);font-size:12px;letter-spacing:0.08em;color:var(--grey)}
+.rpm3 .why-row{display:grid;grid-template-columns:auto 1fr 1.35fr;gap:clamp(22px,3vw,56px);padding:48px 0;border-top:1px solid var(--line);align-items:start}
+.rpm3 .why-copy h3{font-size:clamp(22px,2.2vw,30px);margin-bottom:4px}
+.rpm3 .why-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin-bottom:12px}
+.rpm3 .why-row p{color:var(--text)}
+@media(max-width:820px){.rpm3 .why-row{grid-template-columns:1fr;gap:12px}.rpm3 .why-row .spine{font-size:72px}}
+
+/* WORK (inverted) */
+.rpm3 .work h2{font-size:clamp(32px,3.9vw,58px);margin:24px 0 8px}
+.rpm3 .work-lede{color:var(--muted);max-width:34em;margin-bottom:60px}
+.rpm3 .work-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,72px);padding:58px 0;border-top:1px solid var(--line);align-items:center}
+.rpm3 .work-row:nth-of-type(even){direction:rtl}
+.rpm3 .work-row:nth-of-type(even)>*{direction:ltr}
+.rpm3 .work-media{overflow:hidden;background:var(--black);aspect-ratio:16/10}
+.rpm3 .work-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06);transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.rpm3 .work-row:hover .work-media img{transform:scale(1.03)}
+.rpm3 .work-meta h3{font-size:clamp(26px,2.6vw,40px);margin:16px 0 14px;color:var(--white)}
+.rpm3 .work-meta p{color:var(--muted);max-width:30em;margin-bottom:20px}
+.rpm3 .work-tags{font-family:var(--mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted)}
+.rpm3 .work-index{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;color:var(--muted)}
+@media(max-width:880px){.rpm3 .work-row{grid-template-columns:1fr}}
+
+/* SERVICES */
+.rpm3 .svc h2{font-size:clamp(32px,3.9vw,58px);margin:24px 0 14px}
+.rpm3 .svc-lede{color:var(--text);max-width:36em;margin-bottom:56px}
+.rpm3 .svc-row{display:grid;grid-template-columns:auto 1fr 1.3fr;gap:clamp(22px,3vw,56px);padding:46px 0;border-top:1px solid var(--line);align-items:start}
+.rpm3 .svc-copy h3{font-size:clamp(24px,2.4vw,34px);margin-bottom:8px}
+.rpm3 .svc-copy .desc{color:var(--text);margin-bottom:18px}
+.rpm3 .svc-links{display:flex;gap:22px;flex-wrap:wrap}
+@media(max-width:820px){.rpm3 .svc-row{grid-template-columns:1fr;gap:12px}.rpm3 .svc-row .spine{font-size:72px}}
+
+/* SPEC */
+.rpm3 .spec h2{font-size:clamp(28px,3.2vw,46px);max-width:17em;margin:24px 0 52px}
+.rpm3 .spec-table{border-top:1px solid var(--black)}
+.rpm3 .spec-row{display:grid;grid-template-columns:1fr 2fr;gap:clamp(20px,3vw,64px);padding:26px 0;border-bottom:1px solid var(--line)}
+.rpm3 .spec-key{font-family:var(--mono);font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey)}
+.rpm3 .spec-val{font-size:16px;color:var(--text)}
+.rpm3 .spec-val b{font-weight:600}
+@media(max-width:680px){.rpm3 .spec-row{grid-template-columns:1fr;gap:6px}}
+
+/* CONTACT */
+.rpm3 .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,110px)}
+.rpm3 .contact h2{font-size:clamp(32px,3.9vw,56px);margin:24px 0 18px}
+.rpm3 .contact-lede{color:var(--text);margin-bottom:44px;max-width:30em}
+.rpm3 .next-step{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line);align-items:baseline}
+.rpm3 .next-num{font-family:var(--mono);font-size:12px;color:var(--grey);letter-spacing:0.06em}
+.rpm3 .next-step p{color:var(--text);font-size:15.5px}
+.rpm3 .contact-direct{margin-top:36px;font-family:var(--mono);font-size:13px;letter-spacing:0.04em;display:flex;flex-direction:column;gap:10px}
+.rpm3 .contact-direct a{color:var(--text);border-bottom:1px solid var(--grey)}
+.rpm3 .contact-direct a:hover{border-color:var(--black)}
+.rpm3 form{display:flex;flex-direction:column;border-top:2px solid var(--black)}
+.rpm3 .field{display:flex;flex-direction:column;gap:8px;padding:22px 0;border-bottom:1px solid var(--line)}
+.rpm3 label{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey)}
+.rpm3 input,.rpm3 select,.rpm3 textarea{font-family:var(--body);font-size:16px;color:var(--text);background:transparent;border:none;padding:4px 0}
+.rpm3 input:focus,.rpm3 select:focus,.rpm3 textarea:focus{outline:none}
+.rpm3 .field:focus-within label{color:var(--black)}
+.rpm3 textarea{resize:vertical;min-height:96px}
+.rpm3 form .btn{margin-top:30px;align-self:flex-start}
+.rpm3 .form-note{font-family:var(--mono);font-size:11.5px;color:var(--grey);margin-top:16px;letter-spacing:0.04em}
+@media(max-width:880px){.rpm3 .contact-grid{grid-template-columns:1fr}}
+
+/* CTA BAND */
+.rpm3 .cta-band{text-align:center}
+.rpm3 .cta-band .kicker{justify-content:center}
+.rpm3 .cta-band .kicker::before{content:"";height:1px;width:80px;background:var(--muted)}
+.rpm3 .cta-band h2{font-size:clamp(34px,4.8vw,68px);max-width:16ch;margin:18px auto 30px}
+
+/* FOOTER */
+.rpm3 footer{background:var(--black);color:var(--white);padding:84px 0 40px}
+.rpm3 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:clamp(28px,4vw,72px);padding-bottom:62px;border-bottom:1px solid var(--grey)}
+.rpm3 .foot-grid h3{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey);font-weight:500;margin-bottom:18px}
+.rpm3 .foot-blurb{font-size:14.5px;color:var(--grey);max-width:24em;margin-top:14px;line-height:1.65}
+.rpm3 .foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.rpm3 .foot-grid li a{font-size:14.5px;color:var(--grey)}
+.rpm3 .foot-grid li a:hover{color:var(--white)}
+.rpm3 .foot-contact{font-family:var(--mono);font-size:13px;display:flex;flex-direction:column;gap:10px;color:var(--grey)}
+.rpm3 .foot-contact a{color:var(--grey)}
+.rpm3 .foot-contact a:hover{color:var(--white)}
+.rpm3 .foot-legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.04em;color:var(--grey)}
+.rpm3 .foot-legal a{color:var(--grey)}
+@media(max-width:880px){.rpm3 .foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.rpm3 .foot-grid{grid-template-columns:1fr}}
+
+@media (prefers-reduced-motion:reduce){.rpm3 .appear{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div class="hero-stage">
+<canvas id="gl"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="gl-fallback" aria-hidden="true"><div class="mark">Rank Point<br>Media</div></div>
+<div class="reveal" id="reveal" aria-hidden="true"><span class="line">Designing for the <span class="hl">digital universe</span>. Experiences as impactful as the brands they&rsquo;re for.</span></div>
+
+<div class="overlay">
+  <div class="nav-row">
+    <span></span>
+    <button class="hamburger" id="menuOpen" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="bottom">
+    <a class="cta" href="mailto:info@rankpointmedia.com">Book a consultation</a>
+    <div class="controls">
+      <button class="ctrl" id="replay" type="button">Replay</button>
+    </div>
+    <a class="stamp" href="tel:+12103057372">(210) 305-7372</a>
+  </div>
+</div><!-- /.overlay -->
+</div><!-- /.hero-stage -->
+
+<aside class="study" aria-hidden="true">
+  Voxel hero + 3-color body &middot; evaluation mock
+  <a href="/mocks/colors/index.html">&larr; Back</a>
+</aside>
+
+<!-- full-screen menu (hamburger) — same page set, new colors -->
+<nav class="menu" id="menu" aria-hidden="true" aria-label="Main menu">
+  <button class="menu-close" id="menuClose" type="button" aria-label="Close menu">&times;</button>
+  <a class="menu-item" href="/mocks/hero/voxel-drop.html">Home</a>
+  <a class="menu-item" href="/mocks/hero/about.html">About</a>
+  <a class="menu-item" href="/mocks/hero/services.html">Services</a>
+  <a class="menu-item" href="/mocks/hero/case-studies.html">Case Studies</a>
+  <a class="menu-item" href="/mocks/hero/pricing.html">Pricing</a>
+  <a class="menu-item" href="/mocks/hero/contact.html">Contact</a>
+  <a class="menu-phone" href="tel:+12103057372">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>
+    (210) 305-7372
+  </a>
+</nav>
+
+<!-- ===================== THREE-COLOR BODY (scrolls below the hero) ===================== -->
+<main class="rpm3">
+
+  <!-- WHY US -->
+  <section class="why" id="approach">
+    <div class="wrap">
+      <p class="kicker appear">Why us</p>
+      <blockquote class="why-quote appear">
+        <p>&ldquo;When Google shows an AI answer above the results, the top-ranked page gets 58% fewer clicks. Ranking first no longer means getting found. We build for the answer, not just the position.&rdquo;</p>
+        <cite>Source: Ahrefs, 300,000-keyword study, December 2025</cite>
+      </blockquote>
+
+      <div class="why-row appear">
+        <span class="spine">01</span>
+        <div class="why-copy">
+          <p class="why-eyebrow">Access</p>
+          <h3>You speak to the builder.</h3>
+        </div>
+        <p>Every call is Jon or Stacie, the people whose hands are on the code and the camera. Nothing gets lost between an account manager and the work.</p>
+      </div>
+      <div class="why-row appear">
+        <span class="spine">02</span>
+        <div class="why-copy">
+          <p class="why-eyebrow">Craft</p>
+          <h3>Custom-coded for your business.</h3>
+        </div>
+        <p>Your site is written for your business. The page loads under two seconds and the Lighthouse score is 95 or higher because we built it that way on purpose.</p>
+      </div>
+      <div class="why-row appear">
+        <span class="spine">03</span>
+        <div class="why-copy">
+          <p class="why-eyebrow">Ownership</p>
+          <h3>You keep the keys.</h3>
+        </div>
+        <p>Your domain, your hosting, your analytics. If you decide in year three to take it somewhere else, the handoff is a Git repository and a coffee.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="svc" id="services">
+    <div class="wrap">
+      <p class="kicker appear">Services</p>
+      <h2 class="appear">Eight offers. Four disciplines.</h2>
+      <p class="svc-lede appear">Built by us, run by us, billed honestly. Each discipline links to the full breakdown.</p>
+
+      <div class="svc-row appear">
+        <span class="spine spine-outline">01</span>
+        <div class="svc-copy"><h3>Design &amp; build</h3></div>
+        <div>
+          <p class="desc">Custom-coded sites written for your business, plus the automation behind them: lead qualification, follow-ups, and workflow tools.</p>
+          <div class="svc-links">
+            <a class="u-link" href="https://rankpointmedia.com/services/website-design">Website design</a>
+            <a class="u-link" href="https://rankpointmedia.com/services/custom-ai-solutions">Custom AI solutions</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-row appear">
+        <span class="spine spine-outline">02</span>
+        <div class="svc-copy"><h3>Search</h3></div>
+        <div>
+          <p class="desc">Rank on Google Maps, local search, and the AI assistants your customers ask next. One discipline, two frontiers.</p>
+          <div class="svc-links">
+            <a class="u-link" href="https://rankpointmedia.com/services/local-seo">Local SEO</a>
+            <a class="u-link" href="https://rankpointmedia.com/services/ai-search-optimization">AI search optimization</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-row appear">
+        <span class="spine spine-outline">03</span>
+        <div class="svc-copy"><h3>Demand</h3></div>
+        <div>
+          <p class="desc">Targeted campaigns in front of customers searching right now, and email flows that turn one-time buyers into repeat ones.</p>
+          <div class="svc-links">
+            <a class="u-link" href="https://rankpointmedia.com/services/ppc-google-ads">Google Ads</a>
+            <a class="u-link" href="https://rankpointmedia.com/services/email-marketing">Email marketing</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-row appear">
+        <span class="spine spine-outline">04</span>
+        <div class="svc-copy"><h3>Reputation</h3></div>
+        <div>
+          <p class="desc">Strategic content across the channels that matter, and review management that builds the five-star record you earned.</p>
+          <div class="svc-links">
+            <a class="u-link" href="https://rankpointmedia.com/services/social-media">Social media</a>
+            <a class="u-link" href="https://rankpointmedia.com/services/reputation-management">Brand management</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEC SHEET -->
+  <section class="spec">
+    <div class="wrap">
+      <p class="kicker appear">Build standard</p>
+      <h2 class="appear">Every site ships against the same spec.</h2>
+      <div class="spec-table appear">
+        <div class="spec-row"><span class="spec-key">Performance</span><span class="spec-val"><b>Lighthouse 95 or higher</b> and load under two seconds, verified before launch.</span></div>
+        <div class="spec-row"><span class="spec-key">Code</span><span class="spec-val"><b>Hand-written.</b> No WordPress, no page builders, no bloated plugins, no unused CSS.</span></div>
+        <div class="spec-row"><span class="spec-key">Search</span><span class="spec-val"><b>Custom schema markup</b> tells Google what you do and what you offer.</span></div>
+        <div class="spec-row"><span class="spec-key">Ownership</span><span class="spec-val"><b>Yours.</b> Domain, hosting, analytics, and a Git repository on handoff.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND (dark, restores the rhythm the Work section gave) -->
+  <section class="cta-band inverted">
+    <div class="wrap">
+      <p class="kicker appear">Work with us</p>
+      <h2 class="appear">Two people. Your whole web presence.</h2>
+      <a class="btn appear" href="#contact">Book a consultation</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="kicker appear">Get in touch</p>
+        <h2 class="appear">Two ways to reach us.</h2>
+        <p class="contact-lede appear">Tell us about your business in the message, or reach Jon directly. You hear back within one business day.</p>
+        <div class="appear">
+          <div class="next-step"><span class="next-num">i.</span><p>We review your message within one business day.</p></div>
+          <div class="next-step"><span class="next-num">ii.</span><p>Jon calls or emails back with a tailored read on what we would do.</p></div>
+          <div class="next-step"><span class="next-num">iii.</span><p>You decide whether we fit. No pressure either way.</p></div>
+        </div>
+        <div class="contact-direct appear">
+          <span><a href="tel:+12103057372">(210) 305-7372</a></span>
+          <span><a href="mailto:info@rankpointmedia.com">info@rankpointmedia.com</a></span>
+        </div>
+      </div>
+      <form class="appear" onsubmit="return false">
+        <div class="field"><label for="f-name">Name *</label><input id="f-name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Email *</label><input id="f-email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-svc">Service interest</label>
+          <select id="f-svc">
+            <option>Select a service</option>
+            <option>Website design and development</option>
+            <option>Local SEO</option>
+            <option>Social media marketing</option>
+            <option>Google Ads</option>
+            <option>AI search optimization</option>
+            <option>Brand management</option>
+            <option>Other / not sure</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Message *</label><textarea id="f-msg" required></textarea></div>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-note">We reply within one business day.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a class="wordmark" href="/mocks/hero/voxel-drop.html" style="color:#fff">Rank <span style="color:var(--grey)">Point</span> Media</a>
+          <p class="foot-blurb">Custom-coded websites and digital marketing for businesses across the US. A two-person agency run by Jon and Stacie.</p>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <ul>
+            <li><a href="https://rankpointmedia.com/services/website-design">Web design</a></li>
+            <li><a href="https://rankpointmedia.com/services/local-seo">SEO</a></li>
+            <li><a href="https://rankpointmedia.com/services/ppc-google-ads">Google Ads</a></li>
+            <li><a href="https://rankpointmedia.com/services/social-media">Social media</a></li>
+            <li><a href="https://rankpointmedia.com/services/ai-search-optimization">AI search</a></li>
+            <li><a href="https://rankpointmedia.com/services/reputation-management">Brand management</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="https://rankpointmedia.com/about">About</a></li>
+            <li><a href="https://rankpointmedia.com/pricing">Pricing</a></li>
+            <li><a href="https://rankpointmedia.com/case-studies">Case studies</a></li>
+            <li><a href="https://rankpointmedia.com/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <div class="foot-contact">
+            <span><a href="tel:+12103057372">(210) 305-7372</a></span>
+            <span><a href="mailto:info@rankpointmedia.com">info@rankpointmedia.com</a></span>
+            <span>Mon to Fri, 9am to 5pm</span>
+          </div>
+        </div>
+      </div>
+      <div class="foot-legal">
+        <span>2026 Rank Point Media, a DBA of JSL Innovations LLC. All rights reserved.</span>
+        <span>
+          <a href="https://rankpointmedia.com/privacy">Privacy</a> &nbsp;&middot;&nbsp;
+          <a href="https://rankpointmedia.com/terms">Terms</a> &nbsp;&middot;&nbsp;
+          <a href="https://rankpointmedia.com/sitemap.xml">Sitemap</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+  "@dimforge/rapier3d-compat": "https://cdn.jsdelivr.net/npm/@dimforge/rapier3d-compat@0.14.0/+esm"
+}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import RAPIER from '@dimforge/rapier3d-compat';
+
+/* ============================ TUNING KNOBS ============================ */
+const DROP_DELAY_MS = 2500;   // hold the formed wordmark this long (visible time), then drop
+const REVEAL_DELAY_MS = 1300; // after the drop, wait for blocks to reach the floor, then reveal
+const GRID_COLS     = 96;     // voxelization width (cube count scales with this)
+const ASPECT        = 0.46;   // grid height : width
+const VOXEL         = 0.045;  // world size of one cube
+const GRAVITY       = -10.0;  // world gravity (more negative = snappier drop)
+const SUBSTEPS      = 4;      // physics steps per frame — small cubes fall fast,
+                              // so substepping is what makes the bounce read
+const REST          = 0.80;   // cube restitution (bounce) — higher = livelier
+const REST_FLOOR    = 0.62;   // floor restitution
+const FRICTION      = 0.55;   // cube friction (lower = slides/scatters more on landing)
+const LIN_DAMP      = 0.03;   // linear damping (lower = keeps bouncing longer)
+const ANG_DAMP      = 0.14;   // angular damping (lower = more tumbling)
+const SCATTER       = 0.55;   // horizontal break-apart velocity range
+const SPIN          = 6.5;    // tumble (angular velocity) range
+/* ===================================================================== */
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const canvas = document.getElementById('gl');
+
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias:true }); if(!renderer.getContext()) throw 0; }
+catch(e){ document.body.classList.add('no-webgl'); }
+
+if (renderer) {
+  init().catch(err => { console.error('[voxel-drop] init failed:', err); document.body.classList.add('no-webgl'); });
+}
+
+async function init(){
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.95;
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x0A0A0A);
+
+  // Framing is set responsively by fit() once the voxel bounds are known.
+  const camera = new THREE.PerspectiveCamera(42, window.innerWidth/window.innerHeight, 0.1, 100);
+  camera.position.set(0, 0.15, 5.4);
+
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  const key = new THREE.DirectionalLight(0xffffff, 0.7); key.position.set(2.5, 4, 4); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xffffff, 0.5); rim.position.set(-3, 1.5, -4); scene.add(rim);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.12));
+
+  /* ---- sample the wordmark into a pixel grid ---- */
+  const GRID_ROWS = Math.round(GRID_COLS * ASPECT);
+  const sCanvas = document.createElement('canvas');
+  sCanvas.width = GRID_COLS; sCanvas.height = GRID_ROWS;
+
+  function paintWordmark(){
+    const ctx = sCanvas.getContext('2d', { willReadFrequently:true });
+    ctx.clearRect(0,0,GRID_COLS,GRID_ROWS);
+    ctx.fillStyle = '#ffffff'; ctx.textAlign='center'; ctx.textBaseline='middle';
+    const fs = Math.round(GRID_ROWS * 0.42);
+    ctx.font = `700 ${fs}px "Inter Tight", system-ui, sans-serif`;
+    ctx.fillText('RANK POINT', GRID_COLS/2, GRID_ROWS*0.34);
+    ctx.fillText('MEDIA',      GRID_COLS/2, GRID_ROWS*0.70);
+    return ctx.getImageData(0,0,GRID_COLS,GRID_ROWS).data;
+  }
+
+  // Wait for Inter Tight before sampling, so the grid matches the rendered font.
+  if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch(e){} }
+
+  const data = paintWordmark();
+  const homes = [];
+  const standY = 0.55;
+  for (let r=0; r<GRID_ROWS; r++){
+    for (let c=0; c<GRID_COLS; c++){
+      const a = data[(r*GRID_COLS + c)*4 + 3];
+      if (a > 90){
+        const x = (c - GRID_COLS/2) * VOXEL;
+        const y = standY + (GRID_ROWS/2 - r) * VOXEL;
+        const z = (Math.random()-0.5) * VOXEL * 0.6;
+        const b = 0.86 + Math.random()*0.14;   // brightness mix #9a958c -> #cfcabf
+        homes.push({ x, y, z, b });
+      }
+    }
+  }
+  const N = homes.length;
+  const floorY = -1.45;
+  console.info(`[voxel-drop] ${N} voxels (GRID_COLS=${GRID_COLS}, rows=${GRID_ROWS})`);
+
+  // actual bounds of the lit wordmark, for responsive framing + glass fitting
+  let minX=Infinity, maxX=-Infinity, minY=Infinity, maxY=-Infinity;
+  for (const h of homes){ if (h.x<minX) minX=h.x; if (h.x>maxX) maxX=h.x; if (h.y<minY) minY=h.y; if (h.y>maxY) maxY=h.y; }
+  const wmW = maxX - minX;
+
+  // Frame so the wordmark fits horizontally (with margin) on any aspect, and
+  // the floor/pile stays in view. Pulls the camera back on narrow viewports.
+  function fit(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    const vHalf = Math.tan((camera.fov * Math.PI/180) / 2);
+    const topY = maxY;
+    const botY = floorY + 0.05;
+    const centerY = (topY + botY) / 2;
+    const halfH = (topY - botY) / 2 * 1.16;
+    const halfW = (wmW / 2) * 1.16;
+    const distH = halfH / vHalf;
+    const distW = halfW / (vHalf * camera.aspect);
+    const dist = Math.max(distH, distW) + 0.4;
+    camera.position.set(0, centerY + 0.12, dist);
+    camera.lookAt(0, centerY, 0);
+    camera.updateProjectionMatrix();
+  }
+
+  /* ---- instanced cubes (the shards; hidden until the drop) ---- */
+  const geo = new THREE.BoxGeometry(VOXEL*0.92, VOXEL*0.92, VOXEL*0.92);
+  const mat = new THREE.MeshPhysicalMaterial({   // mirror-glass: sharp environment reflections
+    metalness:1.0, roughness:0.045, envMapIntensity:2.0,
+    clearcoat:1.0, clearcoatRoughness:0.03, ior:1.5
+  });
+  const mesh = new THREE.InstancedMesh(geo, mat, N);
+  mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  const dummy = new THREE.Object3D();
+  const tmpC = new THREE.Color();
+  for (let i=0;i<N;i++){
+    const t = (homes[i].b - 0.86) / 0.14;
+    tmpC.setRGB(0.604+0.208*t, 0.584+0.208*t, 0.549+0.200*t); // #9a958c -> #cfcabf
+    mesh.setColorAt(i, tmpC);
+  }
+  mesh.instanceColor.needsUpdate = true;
+  mesh.visible = false;            // solid glass wordmark shows first; cubes appear on drop
+  scene.add(mesh);
+
+  /* ---- solid glass wordmark — the formed state that shatters into the cubes ---- */
+  const font = await new Promise((res, rej) =>
+    new FontLoader().load(
+      'https://cdn.jsdelivr.net/npm/three@0.170.0/examples/fonts/helvetiker_bold.typeface.json',
+      res, undefined, rej));
+  const glassMat = new THREE.MeshPhysicalMaterial({
+    color:0xcfcabf, transmission:0.4, thickness:0.5, roughness:0.13, ior:1.45,
+    metalness:0.0, clearcoat:1.0, clearcoatRoughness:0.06, envMapIntensity:1.6,
+    emissive:0xcfcabf, emissiveIntensity:0.14, transparent:true,
+    attenuationColor:new THREE.Color(0xcfcabf), attenuationDistance:1.0,
+    specularIntensity:1.0
+  });
+  function makeLine(str){
+    const g = new TextGeometry(str, {
+      font, size:1, depth:0.22, height:0.22, curveSegments:5,
+      bevelEnabled:true, bevelThickness:0.02, bevelSize:0.016, bevelSegments:2
+    });
+    g.computeBoundingBox();
+    const b = g.boundingBox;
+    g.translate(-(b.max.x+b.min.x)/2, -(b.max.y+b.min.y)/2, -(b.max.z+b.min.z)/2);
+    return g;
+  }
+  const wordmarkMesh = new THREE.Group();
+  const lineGap = 1.32;            // line spacing, in size-1 units
+  const m1 = new THREE.Mesh(makeLine('RANK POINT'), glassMat); m1.position.y =  lineGap/2;
+  const m2 = new THREE.Mesh(makeLine('MEDIA'),      glassMat); m2.position.y = -lineGap/2;
+  wordmarkMesh.add(m1, m2);
+  // scale + center the solid wordmark onto the exact footprint the voxels occupy
+  {
+    const gb = new THREE.Box3().setFromObject(wordmarkMesh);
+    const s = Math.min((maxX-minX)/(gb.max.x-gb.min.x), (maxY-minY)/(gb.max.y-gb.min.y));
+    wordmarkMesh.scale.setScalar(s);
+    const gb2 = new THREE.Box3().setFromObject(wordmarkMesh);
+    wordmarkMesh.position.x += -(gb2.max.x+gb2.min.x)/2;
+    wordmarkMesh.position.y += (minY+maxY)/2 - (gb2.max.y+gb2.min.y)/2;
+  }
+  scene.add(wordmarkMesh);
+
+  // visual floor
+  const floor = new THREE.Mesh(
+    new THREE.PlaneGeometry(40,40),
+    new THREE.MeshStandardMaterial({ color:0x0c0c0c, roughness:1.0, metalness:0.0 })
+  );
+  floor.rotation.x = -Math.PI/2; floor.position.y = floorY; scene.add(floor);
+
+  /* ---- Rapier physics ---- */
+  await RAPIER.init();
+  const world = new RAPIER.World({ x:0, y:GRAVITY, z:0 });
+  world.integrationParameters.dt = 1 / (60 * SUBSTEPS); // realtime, finer steps
+
+  const MAX = RAPIER.CoefficientCombineRule.Max;        // cube's restitution wins
+
+  // fixed floor collider (top surface at floorY)
+  world.createCollider(
+    RAPIER.ColliderDesc.cuboid(20, 0.1, 20)
+      .setTranslation(0, floorY - 0.1, 0)
+      .setRestitution(REST_FLOOR)
+      .setRestitutionCombineRule(MAX)
+      .setFriction(0.9)
+  );
+
+  const half = VOXEL * 0.46;
+  const bodies = new Array(N);
+  for (let i=0;i<N;i++){
+    const h = homes[i];
+    const body = world.createRigidBody(
+      RAPIER.RigidBodyDesc.fixed()                 // held while "formed"
+        .setTranslation(h.x, h.y, h.z)
+        .setLinearDamping(LIN_DAMP)
+        .setAngularDamping(ANG_DAMP)
+    );
+    world.createCollider(
+      RAPIER.ColliderDesc.cuboid(half, half, half)
+        .setRestitution(REST)
+        .setRestitutionCombineRule(MAX)
+        .setFriction(FRICTION),
+      body
+    );
+    bodies[i] = body;
+  }
+
+  function syncInstances(){
+    for (let i=0;i<N;i++){
+      const t = bodies[i].translation();
+      const q = bodies[i].rotation();
+      dummy.position.set(t.x, t.y, t.z);
+      dummy.quaternion.set(q.x, q.y, q.z, q.w);
+      dummy.updateMatrix();
+      mesh.setMatrixAt(i, dummy.matrix);
+    }
+    mesh.instanceMatrix.needsUpdate = true;
+  }
+  fit();           // responsive framing
+  syncInstances(); // seat the formed wordmark
+
+  /* ---- drive loop: render on demand, step only while simulating + visible ---- */
+  let simulating = false;   // physics should advance
+  let simFrames  = 0;       // guard so we don't "settle" before bodies wake
+  let visible    = !document.hidden;  // hero on-screen and tab focused
+  let rafId      = null;
+  const revealEl = document.getElementById('reveal');
+  let revealTimer = null;
+
+  /* ---- scramble quotes scattered across the dark hero — each scrambles in,
+         holds, then fades; new ones keep appearing in free slots ---- */
+  const QUOTES = [
+    'Rank Higher',
+    'Imagination is power',
+    'Code is poetry',
+    'Creativity takes courage',
+    'Design is intelligence made visible',
+    'Every pixel has a purpose',
+    'Simplicity is the ultimate sophistication'
+  ];
+  const SCRAM_SLOTS = [
+    {top:'12%', left:'6%',  align:'left'},
+    {top:'11%', right:'7%', align:'right'},
+    {top:'18%', align:'center'},
+    {top:'32%', left:'5%',  align:'left'},
+    {top:'38%', right:'6%', align:'right'},
+    {top:'44%', left:'7%',  align:'left'},
+    {top:'43%', right:'8%', align:'right'},
+    {top:'26%', right:'11%',align:'right'}
+  ];
+  const SCRAM_CHARS = '!<>-_\\/[]{}=+*^?#________';
+  const scramEls = SCRAM_SLOTS.map(s => {
+    const d = document.createElement('div'); d.className = 'scram';
+    d.style.top = s.top; d.style.textAlign = s.align;
+    if (s.align === 'center'){ d.style.left = '50%'; d.style.transform = 'translateX(-50%)'; }
+    else { if (s.left) d.style.left = s.left; if (s.right) d.style.right = s.right; }
+    (document.querySelector('.hero-stage') || document.body).appendChild(d); return d;
+  });
+  let scramRunning = false, scramTimer = null, qIndex = 0, revealed = false;
+
+  function scrambleTo(el, text){
+    return new Promise(resolve => {
+      const queue = [];
+      for (let i=0;i<text.length;i++){ const start = Math.floor(Math.random()*18); queue.push({ to:text[i], start, end:start+8+Math.floor(Math.random()*18), char:null }); }
+      let frame = 0;
+      (function tick(){
+        let out = '', done = 0;
+        for (let i=0;i<queue.length;i++){
+          const q = queue[i];
+          if (frame >= q.end){ done++; out += q.to; }
+          else if (frame >= q.start){ if (!q.char || Math.random() < 0.28) q.char = SCRAM_CHARS[Math.floor(Math.random()*SCRAM_CHARS.length)]; out += '<span class="dud">'+q.char+'</span>'; }
+          else out += ' ';
+        }
+        el.innerHTML = out;
+        if (done === queue.length) resolve();
+        else { frame++; el._raf = requestAnimationFrame(tick); }
+      })();
+    });
+  }
+  async function runScram(el, text){
+    el.classList.add('on');
+    await scrambleTo(el, text);
+    await new Promise(r => setTimeout(r, 1500 + Math.random()*900));   // hold readable
+    el.classList.remove('on');
+    setTimeout(() => { if (!el.classList.contains('on')) el.innerHTML = ''; }, 700);
+  }
+  function scramSpawn(){
+    if (!scramRunning || !visible) return;
+    const free = scramEls.filter(e => !e.classList.contains('on'));
+    if (free.length) runScram(free[Math.floor(Math.random()*free.length)], QUOTES[qIndex++ % QUOTES.length]);
+    scramTimer = setTimeout(scramSpawn, 850 + Math.random()*900);
+  }
+  function startScram(){ if (scramRunning) return; scramRunning = true; scramSpawn(); }
+  function stopScram(){ scramRunning = false; clearTimeout(scramTimer);
+    scramEls.forEach(e => { if (e._raf) cancelAnimationFrame(e._raf); e.classList.remove('on'); e.innerHTML = ''; }); }
+
+  function showReveal(){ revealed = true; revealEl.classList.add('show'); startScram(); }
+  function hideReveal(){ revealed = false; revealEl.classList.remove('show'); stopScram(); }
+
+  function renderOnce(){ renderer.render(scene, camera); }
+
+  function frame(){
+    rafId = null;
+    if (simulating && visible){
+      for (let s=0;s<SUBSTEPS;s++) world.step();
+      simFrames++;
+      syncInstances();
+      if (simFrames > 40 && allAsleep()){ simulating = false; }
+    }
+    renderOnce();
+    if (simulating && visible) schedule();
+  }
+  function schedule(){ if (rafId == null) rafId = requestAnimationFrame(frame); }
+  function stop(){ if (rafId != null){ cancelAnimationFrame(rafId); rafId = null; } }
+
+  function allAsleep(){
+    for (let i=0;i<N;i++){ if (!bodies[i].isSleeping()) return false; }
+    return true;
+  }
+
+  function drop(){
+    if (simulating) return;
+    simulating = true; simFrames = 0;
+    wordmarkMesh.visible = false; mesh.visible = true;  // solid shatters into cubes
+    clearTimeout(revealTimer);
+    // keep the statement + scramble texts hidden until the blocks have fallen to the floor
+    revealTimer = setTimeout(showReveal, REVEAL_DELAY_MS);
+    for (let i=0;i<N;i++){
+      const b = bodies[i];
+      b.setBodyType(RAPIER.RigidBodyType.Dynamic, true);
+      b.setLinvel({ x:(Math.random()-0.5)*SCATTER, y:Math.random()*0.25, z:(Math.random()-0.5)*SCATTER }, true);
+      b.setAngvel({ x:(Math.random()-0.5)*SPIN, y:(Math.random()-0.5)*SPIN, z:(Math.random()-0.5)*SPIN }, true);
+    }
+    schedule();
+  }
+
+  function reform(){
+    stop();
+    simulating = false; simFrames = 0;
+    mesh.visible = false; wordmarkMesh.visible = true;  // cubes vanish, solid returns
+    clearTimeout(revealTimer);
+    hideReveal();                                       // hide statement + scramble texts
+    for (let i=0;i<N;i++){
+      const b = bodies[i], h = homes[i];
+      b.setBodyType(RAPIER.RigidBodyType.Fixed, true);
+      b.setTranslation({ x:h.x, y:h.y, z:h.z }, true);
+      b.setRotation({ x:0, y:0, z:0, w:1 }, true);
+      b.setLinvel({ x:0, y:0, z:0 }, true);
+      b.setAngvel({ x:0, y:0, z:0 }, true);
+    }
+    syncInstances();
+    renderOnce();
+  }
+
+  function replay(){
+    reform();
+    requestDrop();   // show the reformed title for the full hold, then drop again
+  }
+
+  /* ---- auto-sequence: hold the title for DROP_DELAY_MS of VISIBLE time, then
+         drop. The countdown only runs while the hero is on-screen and the tab is
+         focused, so the title is always shown for the full hold before it drops —
+         even if the page first loaded in a background tab. ---- */
+  renderOnce();
+  let wantDrop = false, holdTimer = null;
+  function startHoldTimer(){ if (wantDrop && holdTimer == null && visible) holdTimer = setTimeout(() => { holdTimer = null; wantDrop = false; drop(); }, DROP_DELAY_MS); }
+  function pauseHoldTimer(){ if (holdTimer != null){ clearTimeout(holdTimer); holdTimer = null; } }
+  function requestDrop(){ wantDrop = true; pauseHoldTimer(); startHoldTimer(); }   // (re)start a full hold
+  if (!reduce) requestDrop();
+
+  /* ---- controls ---- */
+  document.getElementById('replay').addEventListener('click', replay);
+  canvas.addEventListener('click', () => { if (!simulating) replay(); });
+
+  /* ---- pause when offscreen or tab hidden (perf budget) ---- */
+  const io = new IntersectionObserver((entries) => {
+    visible = entries[0].isIntersecting && !document.hidden;
+    if (visible){ startHoldTimer(); if (simulating) schedule(); else renderOnce(); if (revealed) startScram(); }
+    else { pauseHoldTimer(); stop(); stopScram(); }
+  }, { threshold: 0 });
+  io.observe(canvas);
+
+  document.addEventListener('visibilitychange', () => {
+    visible = !document.hidden;
+    if (visible){ startHoldTimer(); if (simulating) schedule(); else renderOnce(); if (revealed) startScram(); }
+    else { pauseHoldTimer(); stop(); stopScram(); }
+  });
+
+  /* ---- resize ---- */
+  addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    fit();
+    renderOnce();
+  });
+}
+</script>
+
+<!-- scroll-reveal for the three-color body sections (independent of the WebGL hero) -->
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.rpm3 .appear').forEach(function(el){ io.observe(el); });
+
+  // hamburger menu
+  var menu = document.getElementById('menu');
+  var openBtn = document.getElementById('menuOpen');
+  var closeBtn = document.getElementById('menuClose');
+  function openMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); document.documentElement.style.overflow='hidden'; }
+  function closeMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); document.documentElement.style.overflow=''; }
+  if (openBtn) openBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+</body>
+</html>

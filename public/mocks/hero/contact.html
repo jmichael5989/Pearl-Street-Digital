@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Rank Point Media</title>
+<!-- ============================================================
+     CONTACT -- three-color design (#000 / #9C9C9C / #FFF), Fraunces +
+     Inter Tight + JetBrains Mono. Matches the home mock's body system
+     and shares the hamburger menu. Copy lifted verbatim from the live
+     page (DarkHero + Consultation + ContactContent); em-dashes turned
+     to commas/periods, geo + bilingual scrubbed. MOCK ONLY.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000;--grey:#9C9C9C;--white:#FFF;
+  --bg:#FFF;--text:#000;--line:#9C9C9C;--ghost:#9C9C9C;--muted:#9C9C9C;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Inter Tight",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --gutter:clamp(20px,4vw,64px);--section:clamp(90px,12vw,170px);--max:1320px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:#000;color:#fff}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.05;letter-spacing:-0.015em;color:var(--text)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+section{padding:var(--section) 0;position:relative}
+.kicker{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--text);display:flex;align-items:center;gap:14px}
+.kicker::after{content:"";height:1px;flex:1;max-width:80px;background:var(--line)}
+.spine{font-family:var(--display);font-weight:400;font-size:clamp(64px,11vw,150px);line-height:.9;color:var(--ghost);letter-spacing:-0.01em;font-feature-settings:"lnum" 1,"tnum" 1;user-select:none}
+.spine-outline{font-family:var(--display);font-weight:400;font-size:clamp(64px,11vw,150px);line-height:.9;letter-spacing:-0.01em;font-feature-settings:"lnum" 1,"tnum" 1;user-select:none;color:transparent;-webkit-text-stroke:1px var(--ghost)}
+.u-link{position:relative;font-family:var(--mono);font-size:13px;letter-spacing:0.06em;color:var(--text)}
+.u-link::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.u-link:hover::after,.u-link:focus-visible::after{transform:scaleX(1)}
+.btn{display:inline-block;padding:16px 32px;font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;background:var(--black);color:var(--white);border:1px solid var(--black);transition:background .25s,color .25s;cursor:pointer}
+.btn:hover,.btn:focus-visible{background:var(--white);color:var(--black)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--black);color:var(--white);border-color:var(--black)}
+.appear{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.appear.in{opacity:1;transform:none}
+.inverted{background:#000;color:#fff;--text:#fff;--line:#9C9C9C;--muted:#9C9C9C}
+.inverted .kicker{color:var(--muted)}
+.inverted .btn{background:#fff;color:#000;border-color:#fff}
+.inverted .btn:hover{background:transparent;color:#fff}
+.inverted .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.inverted .btn-ghost:hover{background:#fff;color:#000;border-color:#fff}
+@media (prefers-reduced-motion:reduce){.appear{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ===== sticky header ===== */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr-row{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.wordmark{font-family:var(--display);font-size:21px;font-weight:600;letter-spacing:-0.01em;color:var(--black)}
+.wordmark span{color:var(--grey)}
+.hamburger{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;width:34px;height:26px;background:none;border:none;cursor:pointer;padding:0}
+.hamburger span{display:block;height:1.5px;width:100%;background:var(--black);transition:background .25s}
+.hamburger:hover span{background:var(--grey)}
+
+/* ===== contact hero (inverted) ===== */
+.contact-hero{padding-top:clamp(64px,9vw,128px)}
+.contact-hero h1{font-size:clamp(46px,7vw,104px);margin:26px 0 28px;max-width:13ch}
+.contact-hero .lede{font-size:clamp(18px,1.7vw,22px);max-width:40em;color:var(--text)}
+.contact-hero .hero-ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:clamp(34px,4vw,52px)}
+
+/* ===== consultation ===== */
+.consult h2{font-size:clamp(34px,4.6vw,68px);margin:24px 0 22px;max-width:15ch}
+.consult-lede{font-size:clamp(18px,1.6vw,21px);max-width:42em;color:var(--text);margin-bottom:26px}
+.consult-note{font-family:var(--body);font-size:15px;line-height:1.55;color:var(--grey);max-width:42em;padding-top:16px;border-top:1px solid var(--line)}
+.consult-cal{margin-top:clamp(44px,6vw,72px);border:1px solid var(--line);background:#fafafa;min-height:clamp(280px,40vw,440px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:48px var(--gutter)}
+.consult-cal .cal-label{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey)}
+.consult-cal p{color:var(--grey);font-size:15px;max-width:34em}
+
+/* ===== get in touch ===== */
+.touch h2{font-size:clamp(34px,4.6vw,68px);margin:24px 0 22px;max-width:18ch}
+.touch-lede{font-size:clamp(18px,1.6vw,21px);max-width:58ch;color:var(--text)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,104px);align-items:start;margin-top:clamp(48px,6vw,72px)}
+.next-head{font-family:var(--display);font-size:clamp(20px,1.9vw,24px);font-weight:500;line-height:1.25;letter-spacing:-0.01em}
+.next-steps{margin:clamp(26px,3vw,38px) 0 clamp(38px,5vw,52px)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,2.2vw,32px);padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
+.step:last-child{border-bottom:1px solid var(--line)}
+.step-num{font-family:var(--mono);font-size:14px;letter-spacing:0.08em;color:var(--grey)}
+.step p{color:var(--text);max-width:34em}
+.direct h3{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey);margin-bottom:18px}
+.direct-links{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.direct-link{font-family:var(--mono);font-size:clamp(15px,1.5vw,19px);letter-spacing:0.02em;color:var(--text);border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .25s}
+.direct-link:hover,.direct-link:focus-visible{border-color:var(--black)}
+.trust{display:flex;align-items:center;gap:12px;margin-top:clamp(30px,4vw,44px);border:1px solid var(--line);padding:16px 20px}
+.trust svg{flex:none;color:var(--grey)}
+.trust p{font-size:14px;line-height:1.5;color:var(--text)}
+
+.contact-form{border-top:1px solid var(--line);padding-top:clamp(28px,3vw,40px)}
+.field{display:flex;flex-direction:column;margin-bottom:clamp(24px,3vw,34px)}
+.field label{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.field label .req{color:#8B2A2A}
+.field input,.field select,.field textarea{font-family:var(--body);font-size:17px;color:var(--text);background:transparent;border:none;border-bottom:1px solid var(--line);padding:8px 0;width:100%;transition:border-color .25s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--black)}
+.field input::placeholder,.field textarea::placeholder{color:var(--grey)}
+.field select{appearance:none;-webkit-appearance:none;border-radius:0;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%239C9C9C' stroke-width='1.5'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:24px}
+.field textarea{resize:vertical;min-height:120px;line-height:1.55}
+.form-note{font-family:var(--mono);font-size:12px;letter-spacing:0.04em;color:var(--grey);margin-top:20px}
+@media(max-width:880px){.contact-grid{grid-template-columns:1fr;gap:clamp(48px,9vw,72px)}}
+
+/* ===== CTA band ===== */
+.cta-band{text-align:center}
+.cta-band .kicker{justify-content:center}
+.cta-band .kicker::before{content:"";height:1px;width:80px;background:var(--line)}
+.cta-band h2{font-size:clamp(34px,4.8vw,70px);max-width:14ch;margin:18px auto 32px}
+
+/* ===== footer ===== */
+footer{background:var(--black);color:var(--white);padding:84px 0 40px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:clamp(28px,4vw,72px);padding-bottom:62px;border-bottom:1px solid var(--grey)}
+.foot-grid h3{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey);font-weight:500;margin-bottom:18px}
+.foot-blurb{font-size:14.5px;color:var(--grey);max-width:24em;margin-top:14px;line-height:1.65}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.foot-grid li a{font-size:14.5px;color:var(--grey)}
+.foot-grid li a:hover{color:var(--white)}
+.foot-contact{font-family:var(--mono);font-size:13px;display:flex;flex-direction:column;gap:10px;color:var(--grey)}
+.foot-contact a{color:var(--grey)}.foot-contact a:hover{color:var(--white)}
+.foot-legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.04em;color:var(--grey)}
+.foot-legal a{color:var(--grey)}.foot-legal a:hover{color:var(--white)}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.foot-grid{grid-template-columns:1fr}}
+
+/* ===== full-screen menu (shared with home) ===== */
+.menu{position:fixed;inset:0;z-index:100;background:#0A0A0A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(4px,1.1vh,14px);opacity:0;visibility:hidden;transition:opacity .45s cubic-bezier(.22,1,.36,1),visibility .45s}
+.menu.open{opacity:1;visibility:visible}
+.menu-item{font-family:var(--display);font-weight:500;font-size:clamp(28px,6.2vw,54px);line-height:1.22;letter-spacing:0.015em;text-transform:uppercase;color:#EDE7DC;transition:color .22s}
+.menu-item:hover,.menu-item:focus-visible{color:#9C9C9C}
+.menu-phone{margin-top:clamp(22px,4.5vh,46px);font-family:var(--mono);font-size:14px;letter-spacing:0.07em;color:#9a958c;display:inline-flex;align-items:center;gap:9px;transition:color .22s}
+.menu-phone:hover{color:#EDE7DC}
+.menu-close{position:absolute;top:20px;right:clamp(20px,5vw,90px);width:42px;height:42px;background:none;border:none;color:#EDE7DC;font-size:34px;line-height:1;cursor:pointer;transition:color .22s}
+.menu-close:hover{color:#9C9C9C}
+
+/* mock study banner */
+.study{position:fixed;bottom:14px;right:14px;z-index:30;font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);border:1px solid var(--line);padding:8px 12px;background:rgba(255,255,255,.85)}
+.study a{color:var(--black);text-decoration:underline;margin-left:8px}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-row">
+    <a class="wordmark" href="/mocks/hero/voxel-drop.html">Rank <span>Point</span> Media</a>
+    <button class="hamburger" id="menuOpen" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- CONTACT HERO (inverted) -->
+<section class="contact-hero inverted">
+  <div class="wrap">
+    <p class="kicker appear">Contact</p>
+    <h1 class="appear">Tell us about your business.</h1>
+    <p class="lede appear">A 60-minute conversation with Jon. We listen first, then tell you what we'd actually do, and whether we're the right fit.</p>
+    <div class="hero-ctas appear">
+      <a class="btn" href="#talk-to-us">Book a consultation</a>
+      <a class="btn btn-ghost" href="tel:+12103057372">(210) 305-7372</a>
+    </div>
+  </div>
+</section>
+
+<!-- TALK TO US / CONSULTATION -->
+<section class="consult" id="talk-to-us">
+  <div class="wrap">
+    <p class="kicker appear"><span class="spine" style="font-size:1em;line-height:1;margin-right:.1em;color:var(--grey)">02</span>Talk to us</p>
+    <h2 class="appear">An hour with Jon. Pick a time.</h2>
+    <p class="consult-lede appear">No slides, no discovery-call script, just the conversation. If we're not the right fit for what you're building, we'll tell you that too.</p>
+    <p class="consult-note appear">The widget below shows Jon's live calendar. Pick any open slot. You'll get a Google Calendar invite with a Google Meet link, no separate scheduling email.</p>
+
+    <div class="consult-cal appear" aria-label="Cal.com booking widget">
+      <span class="cal-label">Cal.com booking widget</span>
+      <p>Book the same 60-minute consultation directly on cal.com.</p>
+      <a class="u-link" href="https://cal.com/rankpointmedia/consultation" target="_blank" rel="noopener noreferrer">Book on cal.com &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- GET IN TOUCH -->
+<section class="touch">
+  <div class="wrap">
+    <p class="kicker appear"><span class="spine" style="font-size:1em;line-height:1;margin-right:.1em;color:var(--grey)">03</span>Get in touch</p>
+    <h2 class="appear">Two ways to reach us.</h2>
+    <p class="touch-lede appear">Tell us about your business in the message below, or reach Jon directly by <a class="u-link" href="tel:+12103057372">phone</a> or <a class="u-link" href="mailto:info@rankpointmedia.com">email</a>. You'll hear back within one business day.</p>
+
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+      <div>
+        <h3 class="next-head appear">What happens next.</h3>
+        <div class="next-steps appear">
+          <div class="step">
+            <span class="step-num">i.</span>
+            <p>We review your message within one business day.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">ii.</span>
+            <p>Jon calls or emails back with a tailored read on what we'd do.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">iii.</span>
+            <p>You decide whether we're the right fit. No pressure either way.</p>
+          </div>
+        </div>
+
+        <div class="direct appear">
+          <div class="direct-links">
+            <a class="direct-link" href="tel:+12103057372">(210) 305-7372</a>
+            <a class="direct-link" href="mailto:info@rankpointmedia.com">info@rankpointmedia.com</a>
+          </div>
+        </div>
+
+        <div class="trust appear">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p>We respond to every message within one business day.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <form class="contact-form appear" onsubmit="return false">
+        <div class="field">
+          <label for="name">Name <span class="req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(210) 555-0000" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="service">Service interest</label>
+          <select id="service" name="service">
+            <option value="" disabled selected>Select a service</option>
+            <option value="web-design">Website design and development</option>
+            <option value="local-seo">Local SEO</option>
+            <option value="social-media">Social media marketing</option>
+            <option value="ppc">Google Ads</option>
+            <option value="ai-search">AI search optimization</option>
+            <option value="reputation">Brand management</option>
+            <option value="other">Other / not sure</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message <span class="req">*</span></label>
+          <textarea id="message" name="message" placeholder="Tell us about your project or what you need help with." required></textarea>
+        </div>
+        <button class="btn" type="submit">Send message</button>
+        <p class="form-note">We reply within one business day.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="wordmark" href="/mocks/hero/voxel-drop.html" style="color:#fff">Rank <span style="color:var(--grey)">Point</span> Media</a>
+        <p class="foot-blurb">Custom-coded websites and digital marketing. A two-person agency run by Jon and Stacie.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="https://rankpointmedia.com/services/website-design">Web Design</a></li>
+          <li><a href="https://rankpointmedia.com/services/local-seo">SEO</a></li>
+          <li><a href="https://rankpointmedia.com/services/ppc-google-ads">Google Ads (PPC)</a></li>
+          <li><a href="https://rankpointmedia.com/services/social-media">Social Media</a></li>
+          <li><a href="https://rankpointmedia.com/services/ai-search-optimization">AI Search Optimization</a></li>
+          <li><a href="https://rankpointmedia.com/services/reputation-management">Brand Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="https://rankpointmedia.com/about">About</a></li>
+          <li><a href="https://rankpointmedia.com/pricing">Pricing</a></li>
+          <li><a href="https://rankpointmedia.com/case-studies">Case Studies</a></li>
+          <li><a href="https://rankpointmedia.com/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div class="foot-contact">
+          <span>Rank Point Media</span>
+          <span><a href="tel:+12103057372">(210) 305-7372</a></span>
+          <span><a href="mailto:info@rankpointmedia.com">info@rankpointmedia.com</a></span>
+          <span>Mon-Fri 9am-5pm CST</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-badge" style="text-align:center;padding-top:40px;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase">
+      <span style="color:var(--grey)">Design by:</span> <span style="color:var(--white)">Rank Point Media</span>
+    </div>
+    <div class="foot-legal">
+      <span>2026 Rank Point Media. All rights reserved.</span>
+      <span>
+        <a href="https://rankpointmedia.com/privacy">Privacy Policy</a> &nbsp;&middot;&nbsp;
+        <a href="https://rankpointmedia.com/terms">Terms of Service</a> &nbsp;&middot;&nbsp;
+        <a href="https://rankpointmedia.com/sitemap.xml">Sitemap</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<aside class="study" aria-hidden="true">
+  Contact &middot; 3-color mock
+  <a href="/mocks/colors/index.html">&larr; Back</a>
+</aside>
+
+<!-- full-screen menu (shared with home) -->
+<nav class="menu" id="menu" aria-hidden="true" aria-label="Main menu">
+  <button class="menu-close" id="menuClose" type="button" aria-label="Close menu">&times;</button>
+  <a class="menu-item" href="/mocks/hero/voxel-drop.html">Home</a>
+  <a class="menu-item" href="/mocks/hero/about.html">About</a>
+  <a class="menu-item" href="/mocks/hero/services.html">Services</a>
+  <a class="menu-item" href="/mocks/hero/case-studies.html">Case Studies</a>
+  <a class="menu-item" href="/mocks/hero/pricing.html">Pricing</a>
+  <a class="menu-item" href="/mocks/hero/contact.html">Contact</a>
+  <a class="menu-phone" href="tel:+12103057372">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.27a2 2 0 0 1 2.11-.45c.74.34 1.53.57 2.34.7A2 2 0 0 1 22 16.92z"/></svg>
+    (210) 305-7372
+  </a>
+</nav>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.appear').forEach(function(el){ io.observe(el); });
+
+  var menu = document.getElementById('menu');
+  var openBtn = document.getElementById('menuOpen');
+  var closeBtn = document.getElementById('menuClose');
+  function openMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); document.documentElement.style.overflow='hidden'; }
+  function closeMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); document.documentElement.style.overflow=''; }
+  if (openBtn) openBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
+</body>
+</html>

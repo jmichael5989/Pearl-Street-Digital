@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Option D — Warm charcoal hero (light / dark)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300..800;1,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <style>
+    /* ============================================================
+       WARM CHARCOAL — owner-supplied tokens (primitives + semantic)
+       Type held to the locked Source faces (color is the variable).
+       ============================================================ */
+    :root {
+      /* primitives — warm darks */
+      --wc-black-ink: #0F0D0B;
+      --wc-ink:       #1B1A17;
+      --wc-inverted:  #15140F;
+      --wc-smoke:     #2A2724;
+      /* primitives — warm mid-greys */
+      --wc-stone:     #6B6660;
+      --wc-driftwood: #A8A29A;
+      /* primitives — warm lights */
+      --wc-paper:      #EDE7DC;
+      --wc-buff-light: #E8D2B8;
+      --wc-buff:       #C9A06A;
+
+      /* SEMANTIC — light mode (default) */
+      --color-bg:            var(--wc-paper);
+      --color-surface:       var(--wc-buff-light);
+      --color-surface-sunk:  #E4DBCC;
+      --color-text:          var(--wc-ink);
+      --color-text-strong:   var(--wc-black-ink);
+      --color-text-secondary:var(--wc-smoke);
+      --color-text-muted:    var(--wc-stone);
+      --color-border:        var(--wc-driftwood);
+      --color-border-strong: var(--wc-stone);
+      --color-accent:        var(--wc-buff);
+      --color-accent-text:   var(--wc-ink);
+      --color-meta:          var(--wc-stone);
+
+      /* mock-local: keeps the headline legible over the dial */
+      --hero-scrim: radial-gradient(ellipse at center, rgba(237,231,220,0.92) 0%, rgba(237,231,220,0.78) 40%, rgba(237,231,220,0) 72%);
+      --hero-glow:  rgba(201,160,106,0.07);
+      --dial-guide: rgba(107,102,96,0.20);
+
+      --font-display: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+      --font-body:    "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+      --edge-pad: clamp(20px, 5vw, 72px);
+    }
+
+    [data-theme="dark"] {
+      --color-bg:            var(--wc-inverted);
+      --color-surface:       var(--wc-smoke);
+      --color-surface-sunk:  var(--wc-black-ink);
+      --color-text:          var(--wc-paper);
+      --color-text-strong:   var(--wc-paper);
+      --color-text-secondary:var(--wc-buff-light);
+      --color-text-muted:    var(--wc-driftwood);
+      --color-border:        var(--wc-stone);
+      --color-border-strong: var(--wc-driftwood);
+      --color-accent:        var(--wc-buff);
+      --color-accent-text:   var(--wc-buff);
+      --color-meta:          var(--wc-driftwood);
+
+      --hero-scrim: radial-gradient(ellipse at center, rgba(15,13,11,0.94) 0%, rgba(15,13,11,0.82) 40%, rgba(15,13,11,0) 72%);
+      --hero-glow:  rgba(201,160,106,0.08);
+      --dial-guide: rgba(237,231,220,0.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 1.125rem; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      transition: background-color .4s ease, color .4s ease;
+    }
+
+    /* Suppress transitions during a theme switch: changing a custom property
+       doesn't reliably restart var-dependent transitions in Chromium, which can
+       leave color/background stuck on the previous mode. Toggling this class for
+       one frame makes the new theme apply instantly; hover transitions stay. */
+    html.theme-switching, html.theme-switching *,
+    html.theme-switching *::before, html.theme-switching *::after { transition: none !important; }
+
+    /* ── Masthead ── */
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      transition: background-color .4s ease, border-color .4s ease;
+    }
+    .nav-inner { max-width: 1320px; margin: 0 auto; padding: 14px var(--edge-pad); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .wordmark { font-family: var(--font-display); font-weight: 400; font-size: 1.125rem; letter-spacing: -0.005em; color: var(--color-text-strong); }
+    .wordmark em { font-style: italic; font-weight: 400; }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .pill {
+      font-family: var(--font-body); font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.02em;
+      color: var(--color-text); background: transparent; text-decoration: none; cursor: pointer;
+      border: 1px solid var(--color-border-strong); padding: 8px 16px; border-radius: 999px;
+      transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .pill:hover { background: var(--color-text); color: var(--color-bg); border-color: var(--color-text); }
+
+    /* ── Orbit hero ── */
+    .hero {
+      position: relative; min-height: 100svh; display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      background: radial-gradient(120% 90% at 50% -8%, var(--hero-glow), transparent 60%), var(--color-bg);
+      transition: background-color .4s ease;
+    }
+    .stage { position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%); width: min(840px, 94vw, 88vh); aspect-ratio: 1 / 1; }
+    .stage::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, transparent 0 28.8%, var(--dial-guide) 28.8% 29.2%, transparent 29.6%);
+    }
+    .ring { position: absolute; inset: 0; transform-origin: 50% 50%; will-change: transform; }
+    .slot { position: absolute; will-change: transform, opacity; }
+    .card { width: 100%; height: 100%; border-radius: 3px; overflow: hidden; transform-origin: 50% 50%; will-change: transform; position: relative; }
+    .card.work { box-shadow: 0 16px 34px -18px rgba(0,0,0,0.55); }
+    .card.work .img { position: absolute; inset: 0; }
+    .card.work .grain {
+      position: absolute; inset: 0; mix-blend-mode: soft-light; opacity: 0.5;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .card.work .sheen { position: absolute; inset: 0; background: linear-gradient(150deg, rgba(255,255,255,0.16), transparent 42%, rgba(0,0,0,0.36)); }
+    .card.work .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 7px 8px 8px; background: linear-gradient(to top, rgba(15,13,11,0.86), transparent); border-top: 1px solid rgba(237,231,220,0.12); }
+    .card.work .cap .name { font-family: var(--font-body); font-weight: 600; font-size: 10.5px; color: #EDE7DC; line-height: 1.1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .card.work .cap .meta { font-family: var(--font-body); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #BCB1A1; margin-top: 3px; }
+
+    .scrim { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(46rem, 94vw); height: min(34rem, 78vh); pointer-events: none; background: var(--hero-scrim); transition: background .4s ease; }
+    .hero-content { position: relative; z-index: 5; text-align: center; padding: 0 24px; max-width: 46rem; }
+    .hero-h1 { font-family: var(--font-display); font-weight: 400; color: var(--color-text-strong); font-size: clamp(2.6rem, 7vw, 5.4rem); line-height: 1.02; letter-spacing: -0.02em; margin: 0; text-wrap: balance; transition: color .4s ease; }
+    .hero-eyebrow { margin: 20px 0 0 0; font-family: var(--font-body); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-meta); transition: color .4s ease; }
+    .eyebrow-rule { width: 30px; height: 2px; background: var(--color-accent); margin: 14px auto 0; transition: background-color .4s ease; }
+    .hero .cta-row { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .btn { font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600; letter-spacing: 0.01em; padding: 14px 26px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: 1px solid transparent; cursor: pointer; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+    .btn-primary { background: var(--color-accent); color: var(--wc-ink); border-color: var(--color-accent); }
+    .btn-primary:hover { background: var(--color-text-strong); color: var(--color-bg); border-color: var(--color-text-strong); }
+    .btn-secondary { background: transparent; color: var(--color-text); border-color: var(--color-border-strong); }
+    .btn-secondary:hover { background: var(--color-text); color: var(--color-bg); border-color: var(--color-text); }
+    .scroll-cue { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 6; font-size: 0.6875rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-text-muted); }
+
+    /* ── Study banner ── */
+    .approx-banner { position: fixed; bottom: 16px; right: 16px; z-index: 50; padding: 10px 14px; background: var(--color-surface-sunk); color: var(--color-text); border: 1px solid var(--color-accent); font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.5; }
+    .approx-banner a { color: var(--color-accent); text-decoration: underline; margin-left: 10px; }
+
+    @media (prefers-reduced-motion: reduce) { .ring { transition: none; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="wordmark">Rank <em>Point</em> Media</div>
+      <div class="nav-right">
+        <button class="pill" id="themeToggle" type="button" aria-label="Toggle light or dark mode">Dark mode</button>
+        <a class="pill" href="tel:+12103057372">(210) 305-7372</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="stage" id="stage"><div class="ring" id="ring"></div></div>
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="hero-content" id="heroContent">
+      <h1 class="hero-h1">Rank Point Media</h1>
+      <p class="hero-eyebrow">Websites, SEO, Digital Marketing</p>
+      <div class="eyebrow-rule" aria-hidden="true"></div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#">Book a consultation</a>
+        <a class="btn btn-secondary" href="#">See how we work</a>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">Scroll</div>
+  </section>
+
+  <aside class="approx-banner">
+    Option D &middot; Warm charcoal &middot; Hero
+    <a href="index.html">&larr; Back</a>
+  </aside>
+
+  <script>
+  (function(){
+    "use strict";
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (window.CustomEase) CustomEase.create("hop","M0,0 C0.2,0 0.1,1 0.5,1 0.75,1 0.7,0 1,0");
+
+    /* theme toggle */
+    var root = document.documentElement;
+    var toggle = document.getElementById("themeToggle");
+    function syncLabel(){ toggle.textContent = root.getAttribute("data-theme") === "dark" ? "Light mode" : "Dark mode"; }
+    syncLabel();
+    toggle.addEventListener("click", function(){
+      root.classList.add("theme-switching");
+      root.setAttribute("data-theme", root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      void root.offsetWidth; // force reflow so the new theme paints before transitions return
+      requestAnimationFrame(function(){ root.classList.remove("theme-switching"); });
+      syncLabel();
+    });
+
+    /* orbit (ported from option-d.html) */
+    var N = 10;
+    var workItems = [
+      {name:"Appeal Pro",       meta:"Product · 25",     c:["#B5764D","#6E3D28"]},
+      {name:"Lonestar Critic",  meta:"Editorial · 25",   c:["#9C5A3C","#3A211A"]},
+      {name:"Texas CAD",        meta:"Directory · 26",   c:["#7C7A4F","#34331F"]},
+      {name:"Rank Point Media", meta:"Identity · 26",    c:["#3A372E","#15140F"]},
+      {name:"Field Notes",      meta:"Interaction · 25", c:["#C99A4E","#6B4A1E"]},
+      {name:"Atlas",            meta:"Systems · 24",     c:["#8A8276","#3E3A33"]},
+      {name:"Harbor",           meta:"Commerce · 25",    c:["#8E4A33","#2C1712"]},
+      {name:"Meridian",         meta:"Brand · 26",       c:["#CBB48E","#5E5340"]},
+      {name:"Quarry",           meta:"Editorial · 24",   c:["#9A9388","#45413A"]},
+      {name:"Beacon",           meta:"Product · 25",     c:["#A8542F","#34170E"]}
+    ];
+
+    var stage = document.getElementById("stage");
+    var ring  = document.getElementById("ring");
+    var content = document.getElementById("heroContent");
+    var slots = [];
+
+    for (var i=0;i<N;i++){
+      var slot = document.createElement("div"); slot.className="slot";
+      var card = document.createElement("div"); var it = workItems[i];
+      card.className = "card work";
+      card.innerHTML =
+        '<div class="img" style="background:linear-gradient(150deg,'+it.c[0]+','+it.c[1]+')"></div>'+
+        '<div class="grain"></div><div class="sheen"></div>'+
+        '<div class="cap"><div class="name">'+it.name+'</div><div class="meta">'+it.meta+'</div></div>';
+      slot.appendChild(card); ring.appendChild(slot);
+      slots.push({slot:slot, card:card, dx:0, dy:0});
+    }
+
+    function layout(){
+      var S = stage.clientWidth; var R = S*0.305;
+      var cardW = Math.round(S*0.205); var cardH = Math.round(cardW*1.32);
+      var cx = S/2, cy = S/2;
+      slots.forEach(function(o,i){
+        var a = -Math.PI/2 + i*(2*Math.PI/N);
+        var x = cx + R*Math.cos(a); var y = cy + R*Math.sin(a);
+        o.slot.style.width = cardW+"px"; o.slot.style.height = cardH+"px";
+        o.slot.style.left = (x-cardW/2)+"px"; o.slot.style.top = (y-cardH/2)+"px";
+        o.dx = cx-x; o.dy = cy-y;
+      });
+    }
+    layout();
+    window.addEventListener("resize", layout);
+
+    var drift = {r:0};
+    function applyDrift(){
+      ring.style.transform = "rotate("+drift.r+"deg)";
+      slots.forEach(function(o){ o.card.style.transform = "rotate("+(-drift.r)+"deg)"; });
+    }
+    var driftTween = null;
+    function startDrift(){
+      if (reduce) return;
+      if (driftTween) driftTween.kill();
+      driftTween = gsap.to(drift,{r:"+=360",duration:90,ease:"none",repeat:-1,onUpdate:applyDrift});
+    }
+
+    function play(){
+      if (!window.gsap) return;
+      if (driftTween) driftTween.kill();
+      drift.r = 0; applyDrift();
+      gsap.killTweensOf(slots.map(function(o){return o.slot;}));
+      if (reduce){
+        gsap.set(slots.map(function(o){return o.slot;}),{x:0,y:0,scale:1,opacity:1});
+        gsap.set(content,{opacity:1,filter:"blur(0px)"});
+        return;
+      }
+      gsap.set(content,{opacity:0});
+      var tl = gsap.timeline({onComplete:startDrift});
+      tl.fromTo(slots.map(function(o){return o.slot;}),
+        {x:function(i){return slots[i].dx;}, y:function(i){return slots[i].dy;}, scale:0.42, opacity:0},
+        {x:0,y:0,scale:1,opacity:1,duration:0.95,ease:"power3.out",stagger:{each:0.055,from:"center"}});
+      tl.fromTo(content,
+        {opacity:0,filter:"blur(16px)"},
+        {opacity:1,filter:"blur(0px)",duration:1.0,ease:"power2.out"}, "-=0.35");
+    }
+
+    window.addEventListener("load", play);
+    if (document.readyState === "complete") play();
+  })();
+  </script>
+</body>
+</html>

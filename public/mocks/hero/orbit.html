@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orbit hero — RPM evaluation mock</title>
+  <meta name="description" content="Codrops EntranceAnimationForImages adapted to the Rank Point Media brand register. Evaluation mock only." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300..800;1,300..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /*
+      Orbit hero evaluation mockup.
+      Source: github.com/d3adrabbit/EntranceAnimationForImages (MIT, Codrops 2024).
+      Adapted to RPM brand: navy / warm-white / parchment / brass + Source Serif 4.
+      Single-file mock — vendored CSS/JS from the demo with palette + typography swapped.
+      Not for production. Production version would be a React component with lazy GSAP.
+    */
+
+    :root {
+      --navy: #14213D;
+      --navy-soft: #1F3057;
+      --warm-white: #FAFAF6;
+      --parchment: #F1EDE4;
+      --edge: #D9D2C3;
+      --graphite: #3A3F4B;
+      --mute: #6A6E78;
+      --brass: #836021;
+      --brass-soft: #B78F3E;
+      --font-serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+      --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+      --page-padding: clamp(20px, 3vw, 40px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--navy);
+      background: var(--warm-white);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+      height: 100vh;
+      /* Subtle radial wash on warm-white — keeps the orbit visually anchored
+         without a noise overlay (the original demo uses noise.png; we keep
+         the editorial calm by skipping it). */
+      background:
+        radial-gradient(ellipse at center, var(--warm-white) 0%, var(--parchment) 100%);
+    }
+
+    /* Page loader — preserved from the demo so the orbit doesn't pop in
+       before images preload. Background matches warm-white. */
+    .js .loading::before,
+    .js .loading::after {
+      content: "";
+      position: fixed;
+      z-index: 1000;
+    }
+    .js .loading::before {
+      inset: 0;
+      background: var(--warm-white);
+    }
+    .js .loading::after {
+      top: 50%;
+      left: 50%;
+      width: 56px;
+      height: 56px;
+      margin: -28px 0 0 -28px;
+      border-radius: 50%;
+      opacity: 0.4;
+      background: var(--brass);
+      animation: loaderAnim 0.7s linear infinite alternate forwards;
+    }
+    @keyframes loaderAnim {
+      to { opacity: 1; transform: scale3d(0.5, 0.5, 1); }
+    }
+
+    /* Top-left RPM eyebrow — replaces the Codrops frame chrome.
+       Same pattern used on the production homepage hero: italic-serif
+       numeral + sans uppercase label, separated by an em-dash slash. */
+    .frame {
+      position: fixed;
+      top: var(--page-padding);
+      left: var(--page-padding);
+      z-index: 1000;
+      pointer-events: none;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--brass);
+    }
+    .frame__num {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1rem;
+      letter-spacing: 0;
+      margin-right: 0.25rem;
+    }
+    .frame__sep { margin: 0 0.4rem; opacity: 0.6; }
+
+    /* Wordmark — top-right, mirrors the production navbar wordmark.
+       Pointer-events restored so the demo nav link example remains
+       interactive (just a visual placeholder, not functional). */
+    .wordmark {
+      position: fixed;
+      top: var(--page-padding);
+      right: var(--page-padding);
+      z-index: 1000;
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .wordmark em {
+      font-style: italic;
+      color: var(--brass);
+      font-weight: 400;
+    }
+
+    /* Scene = stage. content = centering wrapper. group = the 8 cards.
+       Layout preserved from the demo; only colors and image sources change. */
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      inset: 0;
+    }
+    .scene {
+      perspective: 1000px;
+      overflow: hidden;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      inset: 0;
+    }
+    .group {
+      /* GSAP applies transform-style: preserve-3d at init time. */
+      position: relative;
+    }
+
+    .card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .card__img {
+      width: 5em;
+      border-radius: 4px;
+      aspect-ratio: 2/3;
+      background-position: center;
+      background-size: cover;
+      /* Hairline edge border + warm-white seating shadow per the brand
+         card pattern. Identical chrome to the rest of the site so the
+         orbit cards feel like brand elements, not stock components. */
+      border: 1px solid var(--edge);
+      box-shadow: 0 1px 0 rgba(20, 33, 61, 0.08);
+    }
+
+    /* Center caption — replaces the demo's "Astral Aesthetics 2024" with
+       the locked RPM tagline + a sub-eyebrow. CTAs sit beneath. */
+    .headings {
+      text-align: center;
+      position: relative;
+      z-index: 10;
+      color: var(--navy);
+      max-width: 90vw;
+    }
+    .headings__eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--brass);
+      margin: 0 0 1.25rem 0;
+    }
+    .headings__main {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-style: normal;
+      font-size: clamp(2.6rem, 7vw, 5.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--navy);
+      text-wrap: balance;
+    }
+    .headings__sub {
+      font-family: var(--font-sans);
+      font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
+      line-height: 1.5;
+      color: var(--graphite);
+      margin: 1.5rem auto 0;
+      max-width: 42ch;
+    }
+
+    /* CTA row — primary navy (matches production "Book a consultation"
+       button), secondary outline navy ("See how we work"). Identical
+       chrome to the live site so we can judge whether they sit
+       comfortably below the orbit composition. */
+    .headings__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.875rem;
+      margin-top: 2rem;
+    }
+    .btn {
+      font-family: var(--font-sans);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.875rem 1.5rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      border: 1px solid var(--navy);
+      transition: background-color 0.18s ease-out, color 0.18s ease-out,
+                  border-color 0.18s ease-out;
+      cursor: pointer;
+    }
+    .btn--primary {
+      background: var(--navy);
+      color: var(--warm-white);
+    }
+    .btn--primary:hover {
+      background: var(--navy-soft);
+      border-color: var(--navy-soft);
+    }
+    .btn--secondary {
+      background: transparent;
+      color: var(--navy);
+    }
+    .btn--secondary:hover {
+      background: var(--navy);
+      color: var(--warm-white);
+    }
+
+    /* Mockup footer caption — tiny note at the bottom telling the viewer
+       what they're looking at. Removable for screenshots. */
+    .mock-stamp {
+      position: fixed;
+      bottom: var(--page-padding);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      pointer-events: none;
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      color: var(--mute);
+      text-align: center;
+    }
+
+    /* Desktop tuning — matches the demo's 53em breakpoint. */
+    @media screen and (min-width: 53em) {
+      .card__img { width: 6em; }
+    }
+
+    /* Reduced-motion fallback — GSAP timeline is skipped in JS; here
+       we just make sure the page renders cleanly without the loader
+       intercepting (some browsers honor reduce by skipping the JS
+       motion path entirely). */
+    @media (prefers-reduced-motion: reduce) {
+      .js .loading::after {
+        animation: none;
+        transform: scale3d(0.5, 0.5, 1);
+      }
+    }
+  </style>
+
+  <script>
+    document.documentElement.className = "js";
+  </script>
+</head>
+<body class="loading">
+  <header class="frame" aria-hidden="true">
+    <span class="frame__num">01</span>
+    <span>Rank Point Media</span>
+  </header>
+
+  <a class="wordmark" href="#" tabindex="-1">
+    Rank <em>Point</em> Media
+  </a>
+
+  <main>
+    <div class="content">
+      <div class="scene">
+        <div class="group">
+          <div class="card"><div class="card__img" style="background-image: url(placeholder-01.svg)"></div></div>
+          <div class="card"><div class="card__img" style="background-image: url(placeholder-02.svg)"></div></div>
+          <div class="card"><div class="card__img" style="background-image: url(placeholder-03.svg)"></div></div>
+          <div class="card"><div class="card__img" style="background-image: url(placeholder-04.svg)"></div></div>
+          <div class="card"><div class="card__img" style="background-image: url(placeholder-05.svg)"></div></div>
+          <div class="card"><div class="card__img" style="background-image: url(placeholder-06.svg)"></div></div>
+          <div class="card"><div class="card__img" style="background-image: url(placeholder-07.svg)"></div></div>
+          <div class="card"><div class="card__img" style="background-image: url(placeholder-08.svg)"></div></div>
+        </div>
+      </div>
+
+      <div class="headings">
+        <p class="headings__eyebrow">Websites, SEO, Google Ads</p>
+        <h1 class="headings__main">Websites that Rank</h1>
+        <p class="headings__sub">
+          Two people in front of the work &mdash; not behind a layer of
+          account managers.
+        </p>
+        <div class="headings__ctas">
+          <a class="btn btn--primary" href="/contact#talk-to-us">Book a consultation</a>
+          <a class="btn btn--secondary" href="/about">See how we work</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <p class="mock-stamp">
+    Evaluation mock &middot; Codrops orbit hero adapted to RPM brand &middot; placeholders are SVG, not final images
+  </p>
+
+  <!-- Vendored from the d3adrabbit demo. Loaded from CDN to keep the
+       mock self-contained; in production these would be lazy-loaded
+       after LCP. -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
+
+  <script>
+    /*
+      Adapted from js/index.js + js/utils.js in the d3adrabbit repo (MIT).
+      Two adaptations beyond the literal port:
+        1. preloadImages bundled inline (no module import needed).
+        2. prefers-reduced-motion check up front — if reduced, we skip
+           the entrance + perpetual rotation entirely and gsap.set() the
+           cards into their final orbit positions. Static final state,
+           no animation. Required for WCAG 2.1 AA which the brand brief
+           mandates.
+    */
+
+    function preloadImages(selector) {
+      return new Promise((resolve) => {
+        imagesLoaded(document.querySelectorAll(selector), { background: true }, resolve);
+      });
+    }
+
+    function init() {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const breakPoint = "53em";
+      const mm = gsap.matchMedia();
+
+      mm.add(
+        {
+          isDesktop: `(min-width: ${breakPoint})`,
+          isMobile: `(max-width: ${breakPoint})`,
+        },
+        (context) => {
+          const { isDesktop } = context.conditions;
+          const image = document.querySelector(".card__img");
+          const cardList = gsap.utils.toArray(".card");
+          const count = cardList.length;
+          const sliceAngle = (2 * Math.PI) / count;
+
+          const radius1 = 50 + image.clientHeight / 2;
+          const radius2 = isDesktop ? 250 - radius1 : 180 - radius1;
+
+          // Common final-state setters — applied in both motion paths so
+          // the orbit ends up in the same arrangement either way.
+          gsap.set(".group", { transformStyle: "preserve-3d" });
+
+          if (reduce) {
+            // Static path: place cards in their final orbit positions
+            // immediately. No entrance, no perpetual rotation.
+            gsap.set(cardList, {
+              transformOrigin: `center ${radius1 + image.clientHeight / 2}px`,
+            });
+            gsap.set(cardList, {
+              x: (i) => Math.round(radius2 * Math.cos(sliceAngle * i - Math.PI / 4)),
+              y: (i) => Math.round(radius2 * Math.sin(sliceAngle * i - Math.PI / 4)) - radius1,
+              rotation: (i) => (i + 1) * (360 / count),
+              rotateY: 180,
+              opacity: 0.8,
+            });
+            return () => {};
+          }
+
+          // Motion path — verbatim from the original index.js timeline.
+          gsap
+            .timeline()
+            .from(cardList, {
+              y: window.innerHeight / 2 + image.clientHeight * 1.5,
+              rotateX: -180,
+              stagger: 0.1,
+              duration: 0.5,
+              opacity: 0.8,
+              scale: 3,
+            })
+            .set(cardList, {
+              transformOrigin: `center ${radius1 + image.clientHeight / 2}px`,
+            })
+            .to(cardList, {
+              y: -radius1,
+              duration: 0.5,
+              ease: "power1.out",
+            })
+            .to(
+              cardList,
+              {
+                rotation: (i) => (i * 360) / count,
+                rotateY: 15,
+                duration: 1,
+                ease: "power1.out",
+              },
+              "<"
+            )
+            .to(cardList, {
+              x: (i) => Math.round(radius2 * Math.cos(sliceAngle * i - Math.PI / 4)),
+              y: (i) => Math.round(radius2 * Math.sin(sliceAngle * i - Math.PI / 4)) - radius1,
+              rotation: (i) => (i + 1) * (360 / count),
+            })
+            .to(
+              cardList,
+              {
+                rotateY: 180,
+                opacity: 0.8,
+                duration: 1,
+              },
+              "<"
+            )
+            .from(
+              ".headings",
+              {
+                opacity: 0,
+                filter: "blur(60px)",
+                duration: 1,
+              },
+              "<"
+            )
+            .to(cardList, {
+              repeat: -1,
+              duration: 2,
+              onRepeat: () => {
+                gsap.to(cardList[Math.floor(Math.random() * count)], {
+                  rotateY: "+=180",
+                });
+              },
+            })
+            .to(
+              ".group",
+              {
+                rotation: 360,
+                duration: 20,
+                repeat: -1,
+                ease: "none",
+              },
+              "<-=2"
+            );
+
+          return () => {};
+        }
+      );
+    }
+
+    preloadImages(".card__img").then(() => {
+      document.body.classList.remove("loading");
+      init();
+    });
+  </script>
+</body>
+</html>
