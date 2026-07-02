@@ -1,5 +1,6 @@
 import VoxelHero from "@/components/home/VoxelHero";
-import WhyUsQuote from "@/components/home/WhyUsQuote";
+import DesignQuote from "@/components/home/DesignQuote";
+import Build from "@/components/home/Build";
 import ServicesList from "@/components/home/ServicesList";
 import SpecTable from "@/components/home/SpecTable";
 import CtaBand from "@/components/home/CtaBand";
@@ -15,7 +16,8 @@ export default function Home() {
     <>
       <VoxelHero />
       <main className="rpm3">
-        <WhyUsQuote />
+        <DesignQuote />
+        <Build />
         <ServicesList />
         <SpecTable />
         <CtaBand />
