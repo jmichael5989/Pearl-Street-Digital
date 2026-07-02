@@ -57,7 +57,9 @@ const sourceCodePro = Source_Code_Pro({
 const fraunces = Fraunces({
   variable: "--ff-fraunces",
   subsets: ["latin"],
-  axes: ["opsz"],
+  // opsz axis intentionally omitted: it enlarges the variable-font payload and
+  // the hero <h1> is the LCP element, so a smaller Fraunces file swaps in
+  // sooner. Optical sizing is a negligible visual difference at our sizes.
   display: "swap",
   fallback: ["Georgia", "serif"],
 });

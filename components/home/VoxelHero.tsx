@@ -29,18 +29,22 @@ import Link from "next/link";
 /* ============================ TUNING KNOBS ============================ */
 const DROP_DELAY_MS = 2500; // hold the formed wordmark this long (visible time), then drop
 const REVEAL_DELAY_MS = 1300; // after the drop, wait for blocks to reach the floor, then reveal scramble
-const GRID_COLS = 96; // voxelization width (cube count scales with this)
+const GRID_COLS = 72; // voxelization width (cube count scales with this). Lowered
+// from 96 for the production port: ~2x fewer rigid bodies keeps the settle cheap
+// on the main thread (Lighthouse mobile TBT). Still legible as a wordmark.
 const ASPECT = 0.46; // grid height : width
-const VOXEL = 0.045; // world size of one cube
+const VOXEL = 0.06; // world size of one cube (raised with the lower density so the
+// wordmark keeps the same footprint)
 const GRAVITY = -10.0; // world gravity (more negative = snappier drop)
-const SUBSTEPS = 4; // physics steps per frame — small cubes fall fast
-const REST = 0.8; // cube restitution (bounce) — higher = livelier
-const REST_FLOOR = 0.62; // floor restitution
-const FRICTION = 0.55; // cube friction (lower = slides/scatters more on landing)
-const LIN_DAMP = 0.03; // linear damping (lower = keeps bouncing longer)
-const ANG_DAMP = 0.14; // angular damping (lower = more tumbling)
+const SUBSTEPS = 3; // physics steps per frame (was 4) — small cubes fall fast
+const REST = 0.74; // cube restitution (bounce) — higher = livelier
+const REST_FLOOR = 0.55; // floor restitution
+const FRICTION = 0.6; // cube friction (lower = slides/scatters more on landing)
+const LIN_DAMP = 0.06; // linear damping — raised so the pile settles (and Rapier
+const ANG_DAMP = 0.22; // sleeps) faster, ending the main-thread work sooner
 const SCATTER = 0.55; // horizontal break-apart velocity range
 const SPIN = 6.5; // tumble (angular velocity) range
+const MAX_SIM_FRAMES = 900; // hard cap: force the sim to stop even if it never sleeps
 /* ===================================================================== */
 
 const QUOTES = [
@@ -86,10 +90,46 @@ export default function VoxelHero() {
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    init().catch((err) => {
-      console.error("[voxel-hero] init failed:", err);
+    // Capability gate. The three.js + Rapier hero is a desktop enhancement: on a
+    // throttled mobile CPU the physics settle jams the main thread (Lighthouse
+    // mobile TBT/LCP). So we only load and run it on wide, fine-pointer,
+    // motion-OK, non-data-saver clients. Everyone else gets a fast static hero —
+    // the CSS wordmark ("no-webgl" reveals it) plus the server-rendered <h1> and
+    // CTA — with three/rapier never imported at all.
+    const conn = (
+      navigator as Navigator & { connection?: { saveData?: boolean } }
+    ).connection;
+    const capable =
+      !reduce &&
+      window.matchMedia("(min-width: 900px) and (pointer: fine)").matches &&
+      !(conn && conn.saveData);
+
+    if (!capable) {
       section.classList.add("no-webgl");
-    });
+      return; // no heavy import, no physics, no listeners to tear down
+    }
+
+    // Defer the heavy import + init to browser idle so it never competes with
+    // hydration or the LCP paint. Falls back to a short timeout where
+    // requestIdleCallback is unavailable (Safari).
+    const idle = window as unknown as {
+      requestIdleCallback?: (
+        cb: () => void,
+        opts?: { timeout: number },
+      ) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const hasRIC = typeof idle.requestIdleCallback === "function";
+    const startInit = () => {
+      if (disposed) return;
+      init().catch((err) => {
+        console.error("[voxel-hero] init failed:", err);
+        section.classList.add("no-webgl");
+      });
+    };
+    const idleId = hasRIC
+      ? idle.requestIdleCallback!(startInit, { timeout: 2500 })
+      : window.setTimeout(startInit, 600);
 
     async function init() {
       const THREE = await import("three");
@@ -521,6 +561,7 @@ export default function VoxelHero() {
           simFrames++;
           syncInstances();
           if (simFrames > 40 && allAsleep()) simulating = false;
+          else if (simFrames > MAX_SIM_FRAMES) simulating = false;
         }
         renderOnce();
         if (simulating && visible) schedule();
@@ -701,6 +742,8 @@ export default function VoxelHero() {
 
     return () => {
       disposed = true;
+      if (hasRIC && idle.cancelIdleCallback) idle.cancelIdleCallback(idleId);
+      else window.clearTimeout(idleId);
       if (cleanup) cleanup();
     };
   }, []);
