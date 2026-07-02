@@ -327,6 +327,39 @@ body {
   text-shadow: 0 0 26px rgba(236, 230, 218, 0.28);
 }
 
+/* Reveal choreography for the WebGL-capable path (desktop). The base rule
+   above is what the server renders and what stays in effect the whole time
+   for reduced-motion / mobile / no-WebGL visitors — full opacity from first
+   paint, which is what keeps the <h1> LCP-fast. On capable clients, VoxelHero
+   adds "gl-pending" the instant the formed glass wordmark is about to render
+   (not before — so there's no blank moment while three/rapier are loading),
+   which dims the text INSTANTLY (no transition declared here) so it reads as
+   hidden behind the wordmark during the hold. "reveal-in" replaces it once
+   the shatter settles, and is the only state that declares a transition, so
+   only the reveal animates — never the hide. Only `color`/`filter` change,
+   never `opacity`, so the element's already-recorded LCP paint (from the
+   bright first paint) is never revisited. */
+.voxel-hero .voxel-statement.gl-pending {
+  color: rgba(207, 202, 191, 0.04);
+  text-shadow: none;
+  filter: blur(12px);
+}
+.voxel-hero .voxel-statement.gl-pending .hl {
+  color: rgba(236, 230, 218, 0.04);
+  text-shadow: none;
+}
+.voxel-hero .voxel-statement.reveal-in {
+  color: rgba(207, 202, 191, 0.95);
+  filter: blur(0);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: color 1.6s ease, filter 1.6s ease, text-shadow 1.6s ease;
+}
+.voxel-hero .voxel-statement.reveal-in .hl {
+  color: #ece6da;
+  text-shadow: 0 0 26px rgba(236, 230, 218, 0.28);
+  transition: color 1.6s ease, text-shadow 1.6s ease;
+}
+
 /* scramble quotes scattered across the dark hero */
 .voxel-hero .scram {
   position: absolute;

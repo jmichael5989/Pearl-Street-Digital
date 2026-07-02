@@ -10,17 +10,25 @@
  * at public/mocks/hero/voxel-drop.html.
  *
  * Production adaptations over the mock:
- *  - three + rapier are dynamically imported inside the effect, so they stay
- *    off the server bundle and the LCP path (mirrors HeroOrbit's lazy-GSAP
- *    pattern). Reduced-motion / no-WebGL visitors never load them.
- *  - The Fraunces statement is a server-rendered, always-visible <h1> (the LCP
- *    element). It is NEVER gated behind the animation. The scramble quotes are
- *    the only post-drop reveal.
+ *  - three + rapier are dynamically imported inside the effect, deferred to
+ *    requestIdleCallback, so they stay off the server bundle and the LCP
+ *    path (mirrors HeroOrbit's lazy-GSAP pattern). A capability gate skips
+ *    the import entirely on mobile/touch/reduced-motion/save-data — those
+ *    visitors get the static CSS wordmark fallback instead (see .no-webgl).
+ *  - The Fraunces statement is a server-rendered <h1> at full opacity from
+ *    first paint (the LCP element; opacity never toggles, which is what
+ *    keeps that first paint fast and its recorded LCP time early). Once the
+ *    formed glass wordmark is about to render, the statement's *color* (not
+ *    opacity) is dimmed near-invisible via the "gl-pending" class so it
+ *    reads as hidden behind the title during the hold, then fades back in
+ *    via "reveal-in" once the shards settle — matching the mock's original
+ *    choreography without reintroducing the opacity-fade-delays-LCP problem
+ *    that motivated making it always-visible in the first place. Visitors on
+ *    the fallback path (no WebGL/physics ever runs) never get dimmed.
  *  - Full GL + physics disposal on unmount (renderer.forceContextLoss, world
  *    .free, all timers/observers/listeners) because React remounts on client
  *    navigation, unlike the one-shot static mock.
- *  - prefers-reduced-motion holds the formed title (no drop); an
- *    IntersectionObserver + visibilitychange pause the loop off-screen.
+ *  - An IntersectionObserver + visibilitychange pause the loop off-screen.
  */
 
 import { useEffect, useRef } from "react";
@@ -36,15 +44,16 @@ const ASPECT = 0.46; // grid height : width
 const VOXEL = 0.06; // world size of one cube (raised with the lower density so the
 // wordmark keeps the same footprint)
 const GRAVITY = -10.0; // world gravity (more negative = snappier drop)
-const SUBSTEPS = 3; // physics steps per frame (was 4) — small cubes fall fast
-const REST = 0.74; // cube restitution (bounce) — higher = livelier
-const REST_FLOOR = 0.55; // floor restitution
-const FRICTION = 0.6; // cube friction (lower = slides/scatters more on landing)
-const LIN_DAMP = 0.06; // linear damping — raised so the pile settles (and Rapier
-const ANG_DAMP = 0.22; // sleeps) faster, ending the main-thread work sooner
+const SUBSTEPS = 4; // physics steps per frame — small cubes fall fast, restored
+// to the mock's value now that this only ever runs on capable desktop clients
+const REST = 0.82; // cube restitution (bounce) — higher = livelier
+const REST_FLOOR = 0.6; // floor restitution
+const FRICTION = 0.5; // cube friction (lower = slides/scatters more on landing)
+const LIN_DAMP = 0.035; // linear damping (low = keeps bouncing longer)
+const ANG_DAMP = 0.15; // angular damping (low = more tumbling)
 const SCATTER = 0.55; // horizontal break-apart velocity range
 const SPIN = 6.5; // tumble (angular velocity) range
-const MAX_SIM_FRAMES = 900; // hard cap: force the sim to stop even if it never sleeps
+const MAX_SIM_FRAMES = 1500; // hard cap: force the sim to stop even if it never sleeps
 /* ===================================================================== */
 
 const QUOTES = [
@@ -79,6 +88,7 @@ export default function VoxelHero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const replayRef = useRef<HTMLButtonElement | null>(null);
+  const statementRef = useRef<HTMLHeadingElement | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -261,14 +271,26 @@ export default function VoxelHero() {
       }
 
       /* ---- instanced cubes (the shards; hidden until the drop) ---- */
+      // Same family of physical properties as the formed glassMat below (a
+      // transmissive dielectric, not a mirror), so the shards read as small
+      // pieces of the same glass the wordmark was made of, not chrome ball
+      // bearings. transmission/thickness are lighter than the wordmark's
+      // since each cube is tiny — a thick attenuation reads as opaque at
+      // this scale.
       const geo = new THREE.BoxGeometry(VOXEL * 0.92, VOXEL * 0.92, VOXEL * 0.92);
       const mat = new THREE.MeshPhysicalMaterial({
-        metalness: 1.0,
-        roughness: 0.045,
-        envMapIntensity: 2.0,
+        color: 0xffffff, // instance color (below) tints this per-cube
+        metalness: 0.08,
+        roughness: 0.08,
+        transmission: 0.5,
+        thickness: VOXEL * 2.4,
+        ior: 1.45,
         clearcoat: 1.0,
-        clearcoatRoughness: 0.03,
-        ior: 1.5,
+        clearcoatRoughness: 0.04,
+        envMapIntensity: 1.9,
+        emissive: 0xcfcabf,
+        emissiveIntensity: 0.12,
+        transparent: true,
       });
       const mesh = new THREE.InstancedMesh(geo, mat, N);
       mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
@@ -539,14 +561,23 @@ export default function VoxelHero() {
         });
       }
 
-      // The statement <h1> is always visible (server-rendered LCP), so "reveal"
-      // only drives the decorative scramble quotes after the blocks land.
+      // The statement <h1> is server-rendered visible (LCP-safe) and STAYS
+      // that way until the formed wordmark is about to appear (see the
+      // "gl-pending" class add below, right before the hold begins) — so
+      // there's no blank moment while three/rapier are still loading. Once
+      // dimmed, "reveal" fades it back in over the settled shard pile via the
+      // "reveal-in" class (color/filter only, never opacity — see the CSS
+      // comment for why that matters for LCP).
       function showReveal() {
         revealed = true;
+        statementRef.current?.classList.remove("gl-pending");
+        statementRef.current?.classList.add("reveal-in");
         startScram();
       }
       function hideReveal() {
         revealed = false;
+        statementRef.current?.classList.remove("reveal-in");
+        statementRef.current?.classList.add("gl-pending");
         stopScram();
       }
 
@@ -641,6 +672,11 @@ export default function VoxelHero() {
 
       /* ---- auto-sequence: hold, then drop (only counts down while visible) ---- */
       renderOnce();
+      // The formed glass wordmark is on screen as of this render — dim the
+      // statement now (instant, see the .gl-pending CSS) so it reads as
+      // hidden behind the title for the hold, instead of staying bright the
+      // whole time three/rapier were still loading.
+      statementRef.current?.classList.add("gl-pending");
       let wantDrop = false;
       let holdTimer: ReturnType<typeof setTimeout> | null = null;
       function startHoldTimer() {
@@ -760,7 +796,7 @@ export default function VoxelHero() {
         </div>
       </div>
 
-      <h1 className="voxel-statement">
+      <h1 ref={statementRef} className="voxel-statement">
         Designing for the <span className="hl">digital universe</span>.
         Experiences as impactful as the brands they{"’"}re for.
       </h1>
