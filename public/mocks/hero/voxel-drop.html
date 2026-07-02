@@ -154,8 +154,12 @@ body.no-webgl .gl-fallback{display:flex}
 .rpm3 .why h2{font-size:clamp(32px,3.9vw,58px);max-width:15em;margin:24px 0 14px}
 .rpm3 .why-lede{color:var(--text);max-width:38em;margin-bottom:56px}
 /* intro quote — display serif pull-quote with a right-aligned source line.
-   cite is forced non-italic per the sitewide no-italics rule. */
-.rpm3 .why-quote{margin:26px 0 64px;max-width:30ch}
+   cite is forced non-italic per the sitewide no-italics rule. Width is a
+   stable px/vw clamp, not ch — Fraunces' digit glyph measures far
+   narrower than its body text at display sizes, so ch massively
+   under-sizes max-width here (30ch resolved to ~295px at 50px type,
+   wrapping to one word per line with the rest of the section empty). */
+.rpm3 .why-quote{margin:26px 0 64px;max-width:clamp(420px,62vw,820px)}
 .rpm3 .why-quote p{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.4vw,50px);line-height:1.18;letter-spacing:-0.015em;color:var(--text);margin:0}
 .rpm3 .why-quote cite{display:block;font-style:normal;text-align:right;margin-top:20px;font-family:var(--mono);font-size:12px;letter-spacing:0.08em;color:var(--grey)}
 .rpm3 .why-row{display:grid;grid-template-columns:auto 1fr 1.35fr;gap:clamp(22px,3vw,56px);padding:48px 0;border-top:1px solid var(--line);align-items:start}

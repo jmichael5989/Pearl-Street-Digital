@@ -67,16 +67,17 @@ section{padding:var(--section) 0;position:relative}
 .cs-hero .lede{font-size:clamp(18px,1.7vw,22px);max-width:40em;color:var(--text);margin-bottom:38px}
 .cs-cta{display:flex;flex-wrap:wrap;gap:16px}
 
-/* ===== work entries ===== */
-.work{padding-top:0}
-.work-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center;padding:clamp(54px,7vw,96px) 0;border-top:1px solid var(--line)}
-.work-row:nth-child(even) .work-media{order:2}
+/* ===== case entries — summary + full story combined, one section per
+   client so each company reads once, top to bottom. Images are plain
+   (no links to individual case-study pages; this page is the whole
+   story). Even entries flip the image side via .alt. ===== */
+.case{padding:clamp(56px,7vw,100px) 0;border-top:1px solid var(--line)}
+.work-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center;padding-bottom:clamp(44px,5.5vw,80px)}
+.case.alt .work-media{order:2}
 .work-media{display:block;overflow:hidden;background:var(--black);aspect-ratio:16/10}
-.work-media img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06);transition:transform .6s cubic-bezier(.22,1,.36,1)}
-.work-row:hover .work-media img{transform:scale(1.03)}
+.work-media img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06)}
 .work-index{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
 .work-meta .outcome{font-size:clamp(26px,3.1vw,42px);margin-bottom:18px;line-height:1.06}
-.work-meta .client{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
 .work-summary{color:var(--text);max-width:40em;margin-bottom:26px}
 .work-metrics{display:flex;flex-wrap:wrap;gap:clamp(24px,3vw,46px);margin-bottom:26px}
 .metric .m-value{font-family:var(--display);font-size:clamp(28px,3vw,40px);font-weight:500;line-height:1}
@@ -84,19 +85,15 @@ section{padding:var(--section) 0;position:relative}
 .work-tags{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey)}
 @media(max-width:820px){
   .work-row{grid-template-columns:1fr;gap:24px}
-  .work-row:nth-child(even) .work-media{order:0}
+  .case.alt .work-media{order:0}
 }
 
-/* ===== detail blocks ===== */
-.detail{border-top:1px solid var(--line)}
+/* story rows inside each case (Challenge / Approach / Outcomes) */
 .detail-row{display:grid;grid-template-columns:auto 1fr 1.4fr;gap:clamp(22px,3vw,56px);padding:54px 0;border-top:1px solid var(--line);align-items:start}
-.detail-row:first-of-type{border-top:none}
+.detail-row:last-child{padding-bottom:0}
 .detail-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
 .detail-row h3{font-size:clamp(22px,2.2vw,30px);margin-bottom:8px}
 .detail-row p{color:var(--text);max-width:44em}
-.detail-head{margin-bottom:30px}
-.detail-head .client{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey);margin-bottom:14px}
-.detail-head h2{font-size:clamp(28px,3.4vw,50px);max-width:18ch}
 .outcomes-list{display:grid;gap:34px;margin-top:8px}
 .outcome-item h3{font-size:clamp(20px,2vw,27px);margin-bottom:8px}
 .outcome-item p{color:var(--text);max-width:46em}
@@ -163,15 +160,13 @@ footer{background:var(--black);color:var(--white);padding:84px 0 40px}
   </div>
 </section>
 
-<!-- WORK ENTRIES -->
-<section class="work">
+<!-- 01 MODERN DAY PEST CONTROL — summary + full story, one section -->
+<section class="case">
   <div class="wrap">
-
-    <!-- 01 Modern Day Pest Control -->
     <div class="work-row appear">
-      <a class="work-media" href="https://rankpointmedia.com/case-studies/modern-day-pest-control" aria-label="Modern Day Pest Control case study">
+      <div class="work-media">
         <img src="https://rankpointmedia.com/images/case-studies/modern-day-pest-control-hero.webp" alt="Modern Day Pest Control website homepage preview" loading="lazy">
-      </a>
+      </div>
       <div class="work-meta">
         <p class="work-index">01 / Home Services</p>
         <p class="client">Modern Day Pest Control</p>
@@ -184,74 +179,6 @@ footer{background:var(--black);color:var(--white);padding:84px 0 40px}
         </div>
         <p class="work-tags">Website Design &middot; Local SEO</p>
       </div>
-    </div>
-
-    <!-- 02 Bernal Trust -->
-    <div class="work-row appear">
-      <a class="work-media" href="https://rankpointmedia.com/case-studies/bernal-trust" aria-label="Bernal Trust case study">
-        <img src="https://rankpointmedia.com/images/case-studies/bernal-trust-hero.png" alt="Bernal Trust homepage hero featuring founder Adrian Bernal and the tagline Protect What Matters. Build What Lasts." loading="lazy">
-      </a>
-      <div class="work-meta">
-        <p class="work-index">02 / Financial Services</p>
-        <p class="client">Bernal Trust</p>
-        <h3 class="outcome">Custom Lead-Gen Site for a San Antonio Insurance Agent, Built to Convert</h3>
-        <p class="work-summary">A trust-first lead-gen site for an independent San Antonio life insurance and wealth management agent. Built around the way real customers shop for insurance, clear service explanations, founder-forward trust signals, and three frictionless paths to a free consultation.</p>
-        <div class="work-metrics">
-          <div class="metric"><div class="m-value">95+</div><div class="m-label">Lighthouse Performance</div></div>
-          <div class="metric"><div class="m-value">6</div><div class="m-label">Service Categories</div></div>
-          <div class="metric"><div class="m-value">&lt;2s</div><div class="m-label">Page Load</div></div>
-        </div>
-        <p class="work-tags">Website Design &middot; Local SEO</p>
-      </div>
-    </div>
-
-    <!-- 03 Appeal Pro AI -->
-    <div class="work-row appear">
-      <a class="work-media" href="https://rankpointmedia.com/case-studies/appeal-pro-ai" aria-label="Appeal Pro AI case study">
-        <img src="https://rankpointmedia.com/images/case-studies/appeal-pro-ai-hero.png" alt="Appeal Pro AI property tax appeal generator on desktop" loading="lazy">
-      </a>
-      <div class="work-meta">
-        <p class="work-index">03 / PropTech</p>
-        <p class="client">Appeal Pro AI</p>
-        <h3 class="outcome">AI-Powered Property Tax Appeal Tool, Built From the Ground Up</h3>
-        <p class="work-summary">A custom-coded web app that lets Texas homeowners generate a professional property tax appeal letter in ten minutes for a flat $9.99 fee. AI handles the legal citations and comparable-property analysis; the homeowner just fills in the basics.</p>
-        <div class="work-metrics">
-          <div class="metric"><div class="m-value">10 min</div><div class="m-label">User Workflow</div></div>
-          <div class="metric"><div class="m-value">$9.99</div><div class="m-label">Flat Fee Per Appeal</div></div>
-          <div class="metric"><div class="m-value">AI</div><div class="m-label">Letter Generation Engine</div></div>
-        </div>
-        <p class="work-tags">Website Design &middot; Custom AI Solutions</p>
-      </div>
-    </div>
-
-    <!-- 04 Lone Star Steak Critic -->
-    <div class="work-row appear">
-      <a class="work-media" href="https://rankpointmedia.com/case-studies/lone-star-steak-critic" aria-label="Lone Star Steak Critic case study">
-        <img src="https://rankpointmedia.com/images/case-studies/lone-star-steak-critic-hero.png" alt="Lone Star Steak Critic city directory and review pages on desktop" loading="lazy">
-      </a>
-      <div class="work-meta">
-        <p class="work-index">04 / Editorial / Directory</p>
-        <p class="client">Lone Star Steak Critic</p>
-        <h3 class="outcome">Texas-Wide Steakhouse Directory, 385+ Listings on Day One</h3>
-        <p class="work-summary">A custom-coded review and directory platform covering 385+ steakhouses across 13 Texas cities, with neighborhood-level filtering, an interactive map, a 100-point rating system, and an editorial layer that reads like a magazine on top of structured restaurant data.</p>
-        <div class="work-metrics">
-          <div class="metric"><div class="m-value">385+</div><div class="m-label">Steakhouses Indexed</div></div>
-          <div class="metric"><div class="m-value">13</div><div class="m-label">Texas Cities Covered</div></div>
-          <div class="metric"><div class="m-value">75+</div><div class="m-label">Browseable Neighborhoods</div></div>
-        </div>
-        <p class="work-tags">Website Design &middot; Local SEO</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- DETAIL: MODERN DAY PEST CONTROL -->
-<section class="detail">
-  <div class="wrap">
-    <div class="detail-head appear">
-      <p class="client">01 / Modern Day Pest Control &middot; Home Services</p>
-      <h2>Pest Control Website Built in 5 Days, Scoring 95+ on Lighthouse</h2>
     </div>
     <div class="detail-row appear">
       <span class="spine spine-outline">01</span>
@@ -288,12 +215,25 @@ footer{background:var(--black);color:var(--white);padding:84px 0 40px}
   </div>
 </section>
 
-<!-- DETAIL: BERNAL TRUST -->
-<section class="detail">
+<!-- 02 BERNAL TRUST — summary + full story, one section -->
+<section class="case alt">
   <div class="wrap">
-    <div class="detail-head appear">
-      <p class="client">02 / Bernal Trust &middot; Financial Services</p>
-      <h2>Custom Lead-Gen Site for a San Antonio Insurance Agent, Built to Convert</h2>
+    <div class="work-row appear">
+      <div class="work-media">
+        <img src="https://rankpointmedia.com/images/case-studies/bernal-trust-hero.png" alt="Bernal Trust homepage hero featuring founder Adrian Bernal and the tagline Protect What Matters. Build What Lasts." loading="lazy">
+      </div>
+      <div class="work-meta">
+        <p class="work-index">02 / Financial Services</p>
+        <p class="client">Bernal Trust</p>
+        <h3 class="outcome">Custom Lead-Gen Site for a San Antonio Insurance Agent, Built to Convert</h3>
+        <p class="work-summary">A trust-first lead-gen site for an independent San Antonio life insurance and wealth management agent. Built around the way real customers shop for insurance, clear service explanations, founder-forward trust signals, and three frictionless paths to a free consultation.</p>
+        <div class="work-metrics">
+          <div class="metric"><div class="m-value">95+</div><div class="m-label">Lighthouse Performance</div></div>
+          <div class="metric"><div class="m-value">6</div><div class="m-label">Service Categories</div></div>
+          <div class="metric"><div class="m-value">&lt;2s</div><div class="m-label">Page Load</div></div>
+        </div>
+        <p class="work-tags">Website Design &middot; Local SEO</p>
+      </div>
     </div>
     <div class="detail-row appear">
       <span class="spine spine-outline">01</span>
@@ -330,12 +270,25 @@ footer{background:var(--black);color:var(--white);padding:84px 0 40px}
   </div>
 </section>
 
-<!-- DETAIL: APPEAL PRO AI -->
-<section class="detail">
+<!-- 03 APPEAL PRO AI — summary + full story, one section -->
+<section class="case">
   <div class="wrap">
-    <div class="detail-head appear">
-      <p class="client">03 / Appeal Pro AI &middot; PropTech</p>
-      <h2>AI-Powered Property Tax Appeal Tool, Built From the Ground Up</h2>
+    <div class="work-row appear">
+      <div class="work-media">
+        <img src="https://rankpointmedia.com/images/case-studies/appeal-pro-ai-hero.png" alt="Appeal Pro AI property tax appeal generator on desktop" loading="lazy">
+      </div>
+      <div class="work-meta">
+        <p class="work-index">03 / PropTech</p>
+        <p class="client">Appeal Pro AI</p>
+        <h3 class="outcome">AI-Powered Property Tax Appeal Tool, Built From the Ground Up</h3>
+        <p class="work-summary">A custom-coded web app that lets Texas homeowners generate a professional property tax appeal letter in ten minutes for a flat $9.99 fee. AI handles the legal citations and comparable-property analysis; the homeowner just fills in the basics.</p>
+        <div class="work-metrics">
+          <div class="metric"><div class="m-value">10 min</div><div class="m-label">User Workflow</div></div>
+          <div class="metric"><div class="m-value">$9.99</div><div class="m-label">Flat Fee Per Appeal</div></div>
+          <div class="metric"><div class="m-value">AI</div><div class="m-label">Letter Generation Engine</div></div>
+        </div>
+        <p class="work-tags">Website Design &middot; Custom AI Solutions</p>
+      </div>
     </div>
     <div class="detail-row appear">
       <span class="spine spine-outline">01</span>
@@ -372,12 +325,25 @@ footer{background:var(--black);color:var(--white);padding:84px 0 40px}
   </div>
 </section>
 
-<!-- DETAIL: LONE STAR STEAK CRITIC -->
-<section class="detail">
+<!-- 04 LONE STAR STEAK CRITIC — summary + full story, one section -->
+<section class="case alt">
   <div class="wrap">
-    <div class="detail-head appear">
-      <p class="client">04 / Lone Star Steak Critic &middot; Editorial / Directory</p>
-      <h2>Texas-Wide Steakhouse Directory, 385+ Listings on Day One</h2>
+    <div class="work-row appear">
+      <div class="work-media">
+        <img src="https://rankpointmedia.com/images/case-studies/lone-star-steak-critic-hero.png" alt="Lone Star Steak Critic city directory and review pages on desktop" loading="lazy">
+      </div>
+      <div class="work-meta">
+        <p class="work-index">04 / Editorial / Directory</p>
+        <p class="client">Lone Star Steak Critic</p>
+        <h3 class="outcome">Texas-Wide Steakhouse Directory, 385+ Listings on Day One</h3>
+        <p class="work-summary">A custom-coded review and directory platform covering 385+ steakhouses across 13 Texas cities, with neighborhood-level filtering, an interactive map, a 100-point rating system, and an editorial layer that reads like a magazine on top of structured restaurant data.</p>
+        <div class="work-metrics">
+          <div class="metric"><div class="m-value">385+</div><div class="m-label">Steakhouses Indexed</div></div>
+          <div class="metric"><div class="m-value">13</div><div class="m-label">Texas Cities Covered</div></div>
+          <div class="metric"><div class="m-value">75+</div><div class="m-label">Browseable Neighborhoods</div></div>
+        </div>
+        <p class="work-tags">Website Design &middot; Local SEO</p>
+      </div>
     </div>
     <div class="detail-row appear">
       <span class="spine spine-outline">01</span>
