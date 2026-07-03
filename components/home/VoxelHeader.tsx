@@ -17,6 +17,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV = [
   { label: "Home", href: "/" },
@@ -39,6 +40,15 @@ export default function VoxelHeader({
 }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Close the menu whenever the committed route changes. The transition engine
+  // intercepts the menu-item click in the capture phase and calls
+  // stopImmediatePropagation, so the item's own onClick never fires — this
+  // route-change effect is what actually dismisses the menu after navigation.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (variant !== "hero") return;
@@ -127,9 +137,20 @@ export default function VoxelHeader({
           type="button"
           aria-label="Close menu"
           onClick={() => setOpen(false)}
-          className="absolute right-[clamp(20px,5vw,90px)] top-5 h-[42px] w-[42px] text-[34px] leading-none text-[#EDE7DC] transition-colors hover:text-[#9C9C9C]"
+          className="absolute right-[clamp(20px,5vw,80px)] top-6 flex h-[64px] w-[64px] items-center justify-center text-[#EDE7DC] transition-colors hover:text-[#9C9C9C]"
         >
-          &times;
+          <svg
+            width="46"
+            height="46"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <path d="M5 5 19 19M19 5 5 19" />
+          </svg>
         </button>
 
         {NAV.map((item) => (
