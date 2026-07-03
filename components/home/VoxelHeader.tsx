@@ -1,15 +1,18 @@
 "use client";
 
 /**
- * VoxelHeader — the homepage header for the three-color redesign.
+ * VoxelHeader — the three-color redesign header. Two variants share one
+ * full-screen Fraunces menu:
  *
- * A hamburger-only header (no inline nav) that opens a full-screen black
- * Fraunces menu, reimplemented from the mock's `.menu` / `.hamburger` with
- * React state. Escape closes it and body scroll is locked while open.
+ *  - variant="hero" (homepage): a floating hamburger over the full-viewport
+ *    voxel hero. Bars switch from warm-grey (over the dark hero) to black
+ *    (over the white body) past the fold.
+ *  - variant="bar" (inner three-color pages, e.g. /about): a sticky white bar
+ *    with the "Rank Point Media" wordmark on the left and a black hamburger on
+ *    the right — the right treatment for light content pages.
  *
- * The bar sits fixed over a full-viewport hero that scrolls into a white body,
- * so the hamburger switches from warm-grey (over the dark hero) to black (over
- * the white body) past the fold — the same adaptive idea as GlassHeader.
+ * Escape closes the menu; body scroll is locked while it's open. Menu items are
+ * next/link, so the site's page transitions still play on navigation.
  */
 
 import { useEffect, useState } from "react";
@@ -27,16 +30,23 @@ const NAV = [
 const PHONE_DISPLAY = "(210) 305-7372";
 const PHONE_HREF = "tel:+12103057372";
 
-export default function VoxelHeader() {
+const SWASH_OFF = { fontFeatureSettings: '"liga" 0, "calt" 0, "dlig" 0, "clig" 0' };
+
+export default function VoxelHeader({
+  variant = "hero",
+}: {
+  variant?: "hero" | "bar";
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    if (variant !== "hero") return;
     const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.6);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [variant]);
 
   useEffect(() => {
     if (!open) return;
@@ -52,43 +62,63 @@ export default function VoxelHeader() {
     };
   }, [open]);
 
-  const barColor = scrolled ? "bg-black" : "bg-[#cfcabf]";
+  const heroBar = scrolled ? "bg-black" : "bg-[#cfcabf]";
 
   return (
     <>
-      {/* Hamburger — fixed top-right, hidden while the menu is open.
-          opacity/pointer-events are set inline: Tailwind v4 is not emitting the
-          bare opacity-0/opacity-100 utilities in this project, so the toggle
-          would otherwise have no backing CSS. */}
-      <div
-        className="fixed right-[clamp(22px,5vw,90px)] top-5 z-[60] transition-opacity duration-200"
-        style={{
-          opacity: open ? 0 : 1,
-          pointerEvents: open ? "none" : "auto",
-        }}
-      >
-        <button
-          type="button"
-          aria-label="Open menu"
-          aria-expanded={open}
-          onClick={() => setOpen(true)}
-          className="group flex h-[26px] w-[34px] flex-col justify-center gap-[6px] p-0"
+      {variant === "hero" ? (
+        /* Floating hamburger — fixed top-right, hidden while the menu is open.
+           opacity/pointer-events are set inline: Tailwind v4 is not emitting the
+           bare opacity utilities in this project, so the toggle would otherwise
+           have no backing CSS. */
+        <div
+          className="fixed right-[clamp(22px,5vw,90px)] top-5 z-[60] transition-opacity duration-200"
+          style={{ opacity: open ? 0 : 1, pointerEvents: open ? "none" : "auto" }}
         >
-          <span className={`block h-[1.5px] w-full transition-colors ${barColor} group-hover:bg-white`} />
-          <span className={`block h-[1.5px] w-full transition-colors ${barColor} group-hover:bg-white`} />
-          <span className={`block h-[1.5px] w-full transition-colors ${barColor} group-hover:bg-white`} />
-        </button>
-      </div>
+          <button
+            type="button"
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen(true)}
+            className="group flex h-[26px] w-[34px] flex-col justify-center gap-[6px] p-0"
+          >
+            <span className={`block h-[1.5px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
+            <span className={`block h-[1.5px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
+            <span className={`block h-[1.5px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
+          </button>
+        </div>
+      ) : (
+        /* Sticky white bar for inner light pages. */
+        <header className="sticky top-0 z-[60] border-b border-[#9C9C9C] bg-[rgba(255,255,255,0.93)] backdrop-blur-[8px]">
+          <div className="mx-auto flex h-[74px] max-w-[1320px] items-center justify-between px-[clamp(20px,4vw,64px)]">
+            <Link
+              href="/"
+              className="font-[family-name:var(--ff-fraunces)] text-[21px] font-semibold tracking-[-0.01em] text-black"
+              style={SWASH_OFF}
+            >
+              Rank <span className="text-[#9c9c9c]">Point</span> Media
+            </Link>
+            <button
+              type="button"
+              aria-label="Open menu"
+              aria-expanded={open}
+              onClick={() => setOpen(true)}
+              className="group flex h-[26px] w-[34px] flex-col justify-center gap-[6px] p-0"
+            >
+              <span className="block h-[1.5px] w-full bg-black transition-colors group-hover:bg-[#9C9C9C]" />
+              <span className="block h-[1.5px] w-full bg-black transition-colors group-hover:bg-[#9C9C9C]" />
+              <span className="block h-[1.5px] w-full bg-black transition-colors group-hover:bg-[#9C9C9C]" />
+            </button>
+          </div>
+        </header>
+      )}
 
-      {/* Full-screen menu */}
+      {/* Full-screen menu (shared by both variants) */}
       <nav
         aria-label="Main menu"
         aria-hidden={!open}
         className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-[clamp(4px,1.1vh,14px)] bg-[#0A0A0A] transition-[opacity,visibility] duration-[450ms] ease-[cubic-bezier(.22,1,.36,1)]"
-        style={{
-          opacity: open ? 1 : 0,
-          visibility: open ? "visible" : "hidden",
-        }}
+        style={{ opacity: open ? 1 : 0, visibility: open ? "visible" : "hidden" }}
       >
         <button
           type="button"
@@ -105,9 +135,7 @@ export default function VoxelHeader() {
             href={item.href}
             onClick={() => setOpen(false)}
             className="font-[family-name:var(--ff-fraunces)] text-[clamp(28px,6.2vw,54px)] font-medium uppercase leading-[1.22] tracking-[0.015em] text-[#EDE7DC] transition-colors hover:text-[#9C9C9C]"
-            // Fraunces' default swash "f" ligature reads as a rendering bug
-            // in all-caps nav labels; same reset as the .rpm3 CSS.
-            style={{ fontFeatureSettings: '"liga" 0, "calt" 0, "dlig" 0, "clig" 0' }}
+            style={SWASH_OFF}
           >
             {item.label}
           </Link>

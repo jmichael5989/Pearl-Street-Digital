@@ -1,169 +1,57 @@
-import Image from "next/image";
-
 /**
- * About-page Team section. Editorial register matching the locked
- * homepage pattern, with rectangular portrait photos — not the prior
- * centered-circle-avatar SaaS team-page pattern. Photo-credit captions
- * (".impeccable.md Photography Direction §Captioned") were removed
- * 2026-04-28 by owner request: with both photographers being Jon and
- * Stacie, the credit line read as redundant inside the team grid.
- *
- * Replaces the prior section that violated multiple locks: bg-white
- * (retired surface), max-w-7xl (wrong container), text-primary +
- * hover:border-primary + bg-primary + bg-accent (retired tokens),
- * font-bold serif H2 (locked weight is 400), centered text alignment
- * (locked register is left-aligned), rounded-2xl + double-wrapped div
- * card geometry (banned), border-4 rounded-full circular avatars (the
- * 2018 SaaS team-page pattern the brief explicitly contrasts against
- * The Gentlewoman / Cal.com register), and George's bio in the jokey
- * register (.impeccable.md Brand Personality §"A little dry": "the
- * site does not try to charm... the 404 is not a pun").
- *
- * Bios now lead with the working role and treat credentials as quiet
- * facts per .impeccable.md Positioning §"Credentials are proof".
- *
- * Surface alternates with AboutValues (parchment) → bg-light
- * (warm-white).
+ * About-page Team section — three-color port of the approved mock at
+ * public/mocks/hero/about.html. Server component; shared .rpm3 classes
+ * (wrap / kicker / spine) plus the About-specific .team / .people-row
+ * rules in globals.css. The `appear` class is animated in by the
+ * ScrollReveal client component.
  */
-
-interface TeamMember {
-  name: string;
-  role: string;
-  photo: string;
-  photoPosition: string;
-  bio: string;
-}
-
-const teamMembers: TeamMember[] = [
-  {
-    name: "Jon",
-    role: "Web development & technical SEO",
-    photo: "/images/team/jon.png",
-    photoPosition: "center top",
-    bio: "Jon writes the code, runs technical SEO, and tunes performance at Rank Point Media. He holds an undergraduate degree in Economics and a Master of Science from the University of Texas at San Antonio, and spent 15+ years as a product manager at Fortune 150 companies before founding RPM. The work here is custom-built, not configured from a template.",
-  },
-  {
-    name: "Stacie",
-    role: "Design, marketing & social",
-    photo: "/images/team/stacie.jpg",
-    photoPosition: "center top",
-    bio: "Stacie leads design, marketing, and social media at Rank Point Media. She holds a graphic design degree from the University of Texas at San Antonio and has built her career across web and interior design firms — a dual background that shapes how RPM approaches visual identity for local businesses.",
-  },
-  {
-    name: "George",
-    role: "Chief Bark Officer",
-    photo: "/images/team/george.jpg",
-    photoPosition: "center center",
-    bio: "George supervises from her corner of the office.",
-  },
-];
-
 export default function AboutTeam() {
   return (
-    <section
-      aria-labelledby="team-heading"
-      className="bg-light-surface border-t border-border"
-      style={{
-        paddingTop: "clamp(48px, 8vh, 100px)",
-        paddingBottom: "clamp(48px, 8vh, 100px)",
-      }}
-    >
-      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-        {/* Eyebrow */}
-        <header className="mb-6">
-          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal mr-1">
-              03
-            </span>
-            &nbsp;/&nbsp; The team
-          </div>
-        </header>
-
-        {/* H2 */}
-        <h2
-          id="team-heading"
-          className="font-heading text-text text-balance"
-          style={{
-            fontSize: "var(--text-h2)",
-            lineHeight: 1.1,
-            letterSpacing: "-0.015em",
-            fontWeight: 400,
-            maxWidth: "24ch",
-            margin: 0,
-          }}
-        >
-          Who you actually talk to.
-        </h2>
-
-        {/* Lede */}
-        <p
-          className="mt-5 font-body"
-          style={{
-            fontSize: "1.0625rem",
-            lineHeight: 1.6,
-            color: "var(--color-brand-text)",
-            maxWidth: "58ch",
-            marginBottom: "clamp(48px, 6vh, 64px)",
-          }}
-        >
-          Two people, plus a dog. Every email, every call, every line of
-          code &mdash; one of us. No layers in between.
+    <section className="team">
+      <div className="wrap">
+        <p className="kicker appear">03 / The team</p>
+        <h2 className="appear">Who you actually talk to.</h2>
+        <p className="team-lede appear">
+          Two people, plus a dog. Every email, every call, every line of code,
+          one of us. No layers in between.
         </p>
 
-        {/* 3-col grid of editorial portraits */}
-        <div className="grid gap-10 lg:grid-cols-3 lg:gap-8">
-          {teamMembers.map((member) => (
-            <article key={member.name} className="flex flex-col">
-              {/* Rectangular portrait — aspect 4/5, no rounded, no border */}
-              <div className="relative w-full overflow-hidden bg-light-surface" style={{ aspectRatio: "4 / 5" }}>
-                <Image
-                  src={member.photo}
-                  alt={`${member.name} portrait`}
-                  fill
-                  className="object-cover"
-                  style={{ objectPosition: member.photoPosition }}
-                  sizes="(min-width: 1024px) 26vw, (min-width: 640px) 80vw, 100vw"
-                />
-              </div>
-
-              {/* Name */}
-              <h3
-                className="mt-8 font-heading text-text"
-                style={{
-                  fontSize: "1.5rem",
-                  lineHeight: 1.2,
-                  letterSpacing: "-0.01em",
-                  fontWeight: 400,
-                  margin: 0,
-                }}
-              >
-                {member.name}
-              </h3>
-
-              {/* Role — sans uppercase letter-spaced caption */}
-              <p
-                className="mt-1 font-body text-xs font-semibold uppercase"
-                style={{
-                  letterSpacing: "0.12em",
-                  color: "var(--color-gray)",
-                }}
-              >
-                {member.role}
-              </p>
-
-              {/* Bio */}
-              <p
-                className="mt-4 font-body"
-                style={{
-                  fontSize: "0.9375rem",
-                  lineHeight: 1.58,
-                  color: "var(--color-brand-text)",
-                }}
-              >
-                {member.bio}
-              </p>
-            </article>
-          ))}
+        <div className="people-row appear">
+          <span className="spine">01</span>
+          <div>
+            <p className="person-role">Web development &amp; technical SEO</p>
+            <div className="person-name">Jon</div>
+          </div>
+          <p>
+            Jon writes the code, runs technical SEO, and tunes performance at
+            Rank Point Media. He holds an undergraduate degree in Economics and a
+            Master of Science from the University of Texas at San Antonio, and
+            spent 15+ years as a product manager at Fortune 150 companies before
+            founding RPM. The work here is custom-built, not configured from a
+            template.
+          </p>
+        </div>
+        <div className="people-row appear">
+          <span className="spine">02</span>
+          <div>
+            <p className="person-role">Design, marketing &amp; social</p>
+            <div className="person-name">Stacie</div>
+          </div>
+          <p>
+            Stacie leads design, marketing, and social media at Rank Point
+            Media. She holds a graphic design degree from the University of Texas
+            at San Antonio and has built her career across web and interior
+            design firms, a dual background that shapes how RPM approaches visual
+            identity for local businesses.
+          </p>
+        </div>
+        <div className="people-row appear">
+          <span className="spine">03</span>
+          <div>
+            <p className="person-role">Chief Bark Officer</p>
+            <div className="person-name">George</div>
+          </div>
+          <p>George supervises from her corner of the office.</p>
         </div>
       </div>
     </section>

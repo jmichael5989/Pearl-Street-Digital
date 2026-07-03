@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import Footer from "@/components/ui/Footer";
 import AboutHero from "@/components/about/AboutHero";
 import AboutStory from "@/components/about/AboutStory";
-import AboutValues from "@/components/about/AboutValues";
 import AboutTeam from "@/components/about/AboutTeam";
+import AboutValues from "@/components/about/AboutValues";
+import PreFooterCta from "@/components/home/PreFooterCta";
+import ThreeColorFooter from "@/components/home/ThreeColorFooter";
+import ScrollReveal from "@/components/home/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "About Rank Point Media | Two-Person Digital Agency",
@@ -63,6 +65,9 @@ const aboutSchema = {
   },
 };
 
+// About page — three-color redesign (phase 2). Body scoped under .rpm3; the
+// sticky bar header + full-screen menu are supplied by HeaderRouter -> VoxelHeader
+// (variant="bar"). Copy is verbatim from the prior navy version.
 export default function AboutPage() {
   return (
     <>
@@ -70,13 +75,17 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
       />
-      <main>
+      <main className="rpm3">
         <AboutHero />
         <AboutStory />
         <AboutTeam />
         <AboutValues />
+        <PreFooterCta />
       </main>
-      <Footer />
+      <div className="rpm3">
+        <ThreeColorFooter />
+      </div>
+      <ScrollReveal />
     </>
   );
 }

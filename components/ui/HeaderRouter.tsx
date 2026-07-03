@@ -21,8 +21,11 @@ function isLightHeroRoute(pathname: string): boolean {
 
 export default function HeaderRouter() {
   const pathname = usePathname();
-  // Homepage runs the three-color redesign (phase 1) with its own hamburger
-  // header. Every other route stays on the navy GlassHeader until re-themed.
-  if (pathname === "/") return <VoxelHeader />;
+  // Three-color redesign routes get the VoxelHeader (shared hamburger menu):
+  // the homepage uses the floating "hero" variant over its dark voxel hero;
+  // inner three-color pages (About, and future ports) use the sticky white
+  // "bar" variant. Every other route stays on the navy GlassHeader until ported.
+  if (pathname === "/") return <VoxelHeader variant="hero" />;
+  if (pathname === "/about") return <VoxelHeader variant="bar" />;
   return <GlassHeader forceScrolled={isLightHeroRoute(pathname)} />;
 }
