@@ -613,7 +613,7 @@ body {
 /* WHY US */
 .rpm3 .why h2 { font-size: clamp(32px, 3.9vw, 58px); max-width: 15em; margin: 24px 0 14px; }
 .rpm3 .why-lede { color: var(--text); max-width: 38em; margin-bottom: 56px; }
-.rpm3 .why-quote { margin: 26px 0 64px; max-width: clamp(420px, 62vw, 820px); }
+.rpm3 .why-quote { margin: 26px 0 0; max-width: clamp(420px, 62vw, 820px); }
 .rpm3 .why-quote p {
   font-family: var(--display);
   font-weight: 500;
