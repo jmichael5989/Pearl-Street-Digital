@@ -767,7 +767,11 @@ body {
 .rpm3 .person-role { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); margin-bottom: 8px; }
 .rpm3 .person-name { font-family: var(--display); font-size: clamp(26px, 2.8vw, 40px); font-weight: 500; line-height: 1.05; }
 .rpm3 .people-row p { color: var(--text); max-width: 42em; }
-@media (max-width: 820px) { .rpm3 .people-row { grid-template-columns: 1fr; gap: 12px; } .rpm3 .people-row .spine { font-size: 72px; } }
+/* Profile photo occupying the same box the .spine numeral used, so swapping in
+   a photo doesn't resize the auto column or the row. Grayscale to hold the
+   three-color palette. */
+.rpm3 .person-photo { width: clamp(64px, 11vw, 150px); height: clamp(64px, 11vw, 150px); object-fit: cover; display: block; filter: grayscale(1) contrast(1.03); background: var(--line); }
+@media (max-width: 820px) { .rpm3 .people-row { grid-template-columns: 1fr; gap: 12px; } .rpm3 .people-row .spine { font-size: 72px; } .rpm3 .people-row .person-photo { width: 72px; height: 72px; } }
 
 /* ===== approach (inverted) ===== */
 .rpm3 .ap h2 { font-size: clamp(32px, 3.9vw, 58px); max-width: 14em; margin: 24px 0 16px; }

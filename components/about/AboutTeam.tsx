@@ -1,9 +1,15 @@
+import Image from "next/image";
+
 /**
  * About-page Team section — three-color port of the approved mock at
  * public/mocks/hero/about.html. Server component; shared .rpm3 classes
  * (wrap / kicker / spine) plus the About-specific .team / .people-row
  * rules in globals.css. The `appear` class is animated in by the
  * ScrollReveal client component.
+ *
+ * The first grid column carries a grayscale profile photo (.person-photo)
+ * sized to the same box the .spine numeral used, so swapping numeral -> photo
+ * doesn't shift the row/column layout.
  */
 export default function AboutTeam() {
   return (
@@ -17,7 +23,14 @@ export default function AboutTeam() {
         </p>
 
         <div className="people-row appear">
-          <span className="spine">01</span>
+          <Image
+            className="person-photo"
+            src="/images/team/jon.png"
+            alt="Jon"
+            width={300}
+            height={300}
+            style={{ objectPosition: "center top" }}
+          />
           <div>
             <p className="person-role">Web development &amp; technical SEO</p>
             <div className="person-name">Jon</div>
@@ -32,7 +45,14 @@ export default function AboutTeam() {
           </p>
         </div>
         <div className="people-row appear">
-          <span className="spine">02</span>
+          <Image
+            className="person-photo"
+            src="/images/team/stacie.jpg"
+            alt="Stacie"
+            width={300}
+            height={300}
+            style={{ objectPosition: "center top" }}
+          />
           <div>
             <p className="person-role">Design, marketing &amp; social</p>
             <div className="person-name">Stacie</div>
