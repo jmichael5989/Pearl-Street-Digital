@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/about/AboutHero";
-import AboutStory from "@/components/about/AboutStory";
 import AboutTeam from "@/components/about/AboutTeam";
 import AboutValues from "@/components/about/AboutValues";
 import PreFooterCta from "@/components/home/PreFooterCta";
@@ -77,7 +76,6 @@ export default function AboutPage() {
       />
       <main className="rpm3">
         <AboutHero />
-        <AboutStory />
         <AboutTeam />
         <AboutValues />
         <PreFooterCta />

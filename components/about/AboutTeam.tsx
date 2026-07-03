@@ -9,11 +9,11 @@ export default function AboutTeam() {
   return (
     <section className="team">
       <div className="wrap">
-        <p className="kicker appear">03 / The team</p>
+        <p className="kicker appear">02 / The team</p>
         <h2 className="appear">Who you actually talk to.</h2>
         <p className="team-lede appear">
-          Two people, plus a dog. Every email, every call, every line of code,
-          one of us. No layers in between.
+          Two people. Every email, every call, every line of code, one of us. No
+          layers in between.
         </p>
 
         <div className="people-row appear">
@@ -44,14 +44,6 @@ export default function AboutTeam() {
             design firms, a dual background that shapes how RPM approaches visual
             identity for local businesses.
           </p>
-        </div>
-        <div className="people-row appear">
-          <span className="spine">03</span>
-          <div>
-            <p className="person-role">Chief Bark Officer</p>
-            <div className="person-name">George</div>
-          </div>
-          <p>George supervises from her corner of the office.</p>
         </div>
       </div>
     </section>

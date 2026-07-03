@@ -90,7 +90,10 @@ export default function VoxelHeader({
       ) : (
         /* Sticky white bar for inner light pages. */
         <header className="sticky top-0 z-[60] border-b border-[#9C9C9C] bg-[rgba(255,255,255,0.93)] backdrop-blur-[8px]">
-          <div className="mx-auto flex h-[74px] max-w-[1320px] items-center justify-between px-[clamp(20px,4vw,64px)]">
+          {/* Full-width gutter matching the homepage hamburger's
+              right-[clamp(22px,5vw,90px)] inset, so the hamburger lands in the
+              same spot on both pages (not pulled in to a 1320px container). */}
+          <div className="flex h-[74px] items-center justify-between px-[clamp(22px,5vw,90px)]">
             <Link
               href="/"
               className="font-[family-name:var(--ff-fraunces)] text-[21px] font-semibold tracking-[-0.01em] text-black"

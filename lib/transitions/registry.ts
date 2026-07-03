@@ -11,12 +11,16 @@ type EffectLoader = () => Promise<EffectModule>;
 const slats: EffectLoader = () => import("./effects/slats").then((m) => m.default);
 const curtain: EffectLoader = () =>
   import("./effects/curtainLift").then((m) => m.default);
+// White variant for the three-color redesign routes (home, about, ...) so the
+// cover matches the light pages instead of flashing navy.
+const whiteCurtain: EffectLoader = () =>
+  import("./effects/whiteCurtainLift").then((m) => m.default);
 
 const DEFAULT_EFFECT: EffectLoader = slats;
 
 const REGISTRY: Partial<Record<Namespace, EffectLoader>> = {
-  home: curtain,
-  about: curtain,
+  home: whiteCurtain,
+  about: whiteCurtain,
   services: curtain,
   industries: curtain,
   contact: curtain,

@@ -12,10 +12,11 @@ export default function AboutHero() {
     <section className="about-hero">
       <div className="wrap">
         <p className="kicker appear">01 / About</p>
-        <h1 className="appear">Two of us. That&rsquo;s the company.</h1>
+        <h1 className="appear">Code meets Design.</h1>
         <p className="lede appear">
-          Jon writes the code. Stacie runs design and marketing. Two people, in
-          front of the work, not behind a layer of account managers.
+          Two people. Zero middlemen. Stacie architects the design and marketing
+          strategy, and Jon brings it to life with flawless code. You get a
+          custom-built website without agency markup.
         </p>
         <div className="hero-links appear">
           <a className="u-link" href="#approach">

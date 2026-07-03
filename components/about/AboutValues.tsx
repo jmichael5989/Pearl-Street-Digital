@@ -10,7 +10,7 @@ export default function AboutValues() {
   return (
     <section className="ap inverted" id="approach">
       <div className="wrap">
-        <p className="kicker appear">04 / Our approach</p>
+        <p className="kicker appear">03 / Our approach</p>
         <h2 className="appear">How we work.</h2>
         <p className="ap-lede appear">
           Six commitments that shape every project. None of them are unusual on
