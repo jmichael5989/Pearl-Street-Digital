@@ -245,7 +245,11 @@ export default function VoxelHero() {
         }
       }
       const N = homes.length;
-      const floorY = -1.45;
+      // Floor sits just below the wordmark (was -1.45). Raised so fit() can
+      // frame tightly on the wordmark itself — making it large on screen, per
+      // the reference — while the shards still fall a short distance and pile
+      // within the visible frame.
+      const floorY = -0.7;
 
       let minX = Infinity,
         maxX = -Infinity,
@@ -263,14 +267,16 @@ export default function VoxelHero() {
         camera.aspect = window.innerWidth / window.innerHeight;
         const vHalf = Math.tan(((camera.fov * Math.PI) / 180) / 2);
         const topY = maxY;
-        const botY = floorY + 0.05;
+        const botY = floorY;
         const centerY = (topY + botY) / 2;
-        const halfH = ((topY - botY) / 2) * 1.16;
-        const halfW = (wmW / 2) * 1.16;
+        // Tight margins so the wordmark reads large (near edge-to-edge on
+        // width, which is the limiting axis for the wide "RANK POINT" line).
+        const halfH = ((topY - botY) / 2) * 1.05;
+        const halfW = (wmW / 2) * 1.04;
         const distH = halfH / vHalf;
         const distW = halfW / (vHalf * camera.aspect);
-        const dist = Math.max(distH, distW) + 0.4;
-        camera.position.set(0, centerY + 0.12, dist);
+        const dist = Math.max(distH, distW) + 0.12;
+        camera.position.set(0, centerY + 0.06, dist);
         camera.lookAt(0, centerY, 0);
         camera.updateProjectionMatrix();
       }
@@ -624,6 +630,8 @@ export default function VoxelHero() {
         simFrames = 0;
         wordmarkMesh.visible = false;
         mesh.visible = true;
+        // Fade out the CTA + "Established 2025" as the wordmark shatters.
+        section!.classList.add("dropped");
         if (revealTimer) clearTimeout(revealTimer);
         revealTimer = setTimeout(showReveal, REVEAL_DELAY_MS);
         for (let i = 0; i < N; i++) {
@@ -657,6 +665,7 @@ export default function VoxelHero() {
         wordmarkMesh.visible = true;
         if (revealTimer) clearTimeout(revealTimer);
         hideReveal();
+        section!.classList.remove("dropped");
         for (let i = 0; i < N; i++) {
           const b = bodies[i],
             h = homes[i];
@@ -806,6 +815,11 @@ export default function VoxelHero() {
         Experiences as impactful as the brands they{"’"}re for.
       </h1>
 
+      {/* Small "Established 2025" line under the wordmark. Like the CTA, it's
+          visible while the wordmark is formed and fades out once it shatters
+          (the .voxel-hero.dropped state). */}
+      <p className="voxel-established">Established 2025</p>
+
       <div className="voxel-overlay">
         <div className="voxel-bottom">
           <Link className="voxel-cta" href="/contact#talk-to-us">
@@ -816,9 +830,6 @@ export default function VoxelHero() {
               Replay
             </button>
           </div>
-          <a className="voxel-stamp" href="tel:+12103057372">
-            (210) 305-7372
-          </a>
         </div>
       </div>
     </section>

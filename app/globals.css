@@ -408,7 +408,7 @@ body {
   background: var(--hero-text);
   color: var(--void);
   padding: 14px 28px;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, opacity 0.6s ease;
 }
 .voxel-hero .voxel-cta:hover,
 .voxel-hero .voxel-cta:focus-visible {
@@ -430,15 +430,35 @@ body {
 }
 .voxel-hero .voxel-ctrl:hover,
 .voxel-hero .voxel-ctrl:focus-visible { border-color: var(--hero-text); color: var(--hero-text); }
-.voxel-hero .voxel-stamp {
+/* Small "Established 2025" line, sitting below the formed wordmark. */
+.voxel-hero .voxel-established {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 72%;
+  z-index: 9;
+  margin: 0;
+  text-align: center;
+  pointer-events: none;
   font-family: var(--hero-mono);
-  font-size: clamp(16px, 1.9vw, 21px);
+  font-size: clamp(10px, 1vw, 13px);
   font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--hero-text);
-  transition: color 0.25s;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--hero-dim);
+  transition: opacity 0.6s ease;
 }
-.voxel-hero .voxel-stamp:hover { color: #fff; }
+
+/* Once the wordmark shatters (.dropped), the CTA and the Established line fade
+   out — the final resting state is just the revealed statement + shard pile.
+   The fallback path (mobile / reduced-motion / no WebGL) never drops, so they
+   stay visible there. */
+.voxel-hero.dropped .voxel-cta,
+.voxel-hero.dropped .voxel-established {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .voxel-hero :focus-visible { outline: 1px solid var(--hero-text); outline-offset: 3px; }
 
 /* ---- THREE-COLOR BODY (scoped under .rpm3) ---- */
