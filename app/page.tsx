@@ -1,9 +1,7 @@
 import VoxelHero from "@/components/home/VoxelHero";
 import DesignQuote from "@/components/home/DesignQuote";
-import Build from "@/components/home/Build";
 import ServicesList from "@/components/home/ServicesList";
 import SpecTable from "@/components/home/SpecTable";
-import CtaBand from "@/components/home/CtaBand";
 import ContactSection from "@/components/home/ContactSection";
 import ThreeColorFooter from "@/components/home/ThreeColorFooter";
 import ScrollReveal from "@/components/home/ScrollReveal";
@@ -17,10 +15,8 @@ export default function Home() {
       <VoxelHero />
       <main className="rpm3">
         <DesignQuote />
-        <Build />
         <ServicesList />
         <SpecTable />
-        <CtaBand />
         <ContactSection />
       </main>
       <div className="rpm3">
