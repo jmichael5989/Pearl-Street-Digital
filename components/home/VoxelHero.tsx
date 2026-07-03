@@ -245,11 +245,7 @@ export default function VoxelHero() {
         }
       }
       const N = homes.length;
-      // Floor sits just below the wordmark (was -1.45). Raised so fit() can
-      // frame tightly on the wordmark itself — making it large on screen, per
-      // the reference — while the shards still fall a short distance and pile
-      // within the visible frame.
-      const floorY = -0.7;
+      const floorY = -1.45;
 
       let minX = Infinity,
         maxX = -Infinity,
@@ -267,16 +263,14 @@ export default function VoxelHero() {
         camera.aspect = window.innerWidth / window.innerHeight;
         const vHalf = Math.tan(((camera.fov * Math.PI) / 180) / 2);
         const topY = maxY;
-        const botY = floorY;
+        const botY = floorY + 0.05;
         const centerY = (topY + botY) / 2;
-        // Tight margins so the wordmark reads large (near edge-to-edge on
-        // width, which is the limiting axis for the wide "RANK POINT" line).
-        const halfH = ((topY - botY) / 2) * 1.05;
-        const halfW = (wmW / 2) * 1.04;
+        const halfH = ((topY - botY) / 2) * 1.16;
+        const halfW = (wmW / 2) * 1.16;
         const distH = halfH / vHalf;
         const distW = halfW / (vHalf * camera.aspect);
-        const dist = Math.max(distH, distW) + 0.12;
-        camera.position.set(0, centerY + 0.06, dist);
+        const dist = Math.max(distH, distW) + 0.4;
+        camera.position.set(0, centerY + 0.12, dist);
         camera.lookAt(0, centerY, 0);
         camera.updateProjectionMatrix();
       }
