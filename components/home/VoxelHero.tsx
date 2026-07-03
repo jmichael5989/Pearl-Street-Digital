@@ -94,6 +94,7 @@ export default function VoxelHero() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const replayRef = useRef<HTMLButtonElement | null>(null);
   const statementRef = useRef<HTMLHeadingElement | null>(null);
+  const horizonRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -245,7 +246,10 @@ export default function VoxelHero() {
         }
       }
       const N = homes.length;
-      const floorY = -1.45;
+      // Floor kept close to the wordmark so fit() frames tightly and the
+      // wordmark reads large; the visual floor plane is hidden (all-black
+      // lower half) and a gold horizon line marks where the shards land.
+      const floorY = -0.7;
 
       let minX = Infinity,
         maxX = -Infinity,
@@ -263,16 +267,27 @@ export default function VoxelHero() {
         camera.aspect = window.innerWidth / window.innerHeight;
         const vHalf = Math.tan(((camera.fov * Math.PI) / 180) / 2);
         const topY = maxY;
-        const botY = floorY + 0.05;
+        const botY = floorY;
         const centerY = (topY + botY) / 2;
-        const halfH = ((topY - botY) / 2) * 1.16;
-        const halfW = (wmW / 2) * 1.16;
+        // Tight margins so the wordmark reads large (near edge-to-edge on width).
+        const halfH = ((topY - botY) / 2) * 1.05;
+        const halfW = (wmW / 2) * 1.04;
         const distH = halfH / vHalf;
         const distW = halfW / (vHalf * camera.aspect);
-        const dist = Math.max(distH, distW) + 0.4;
-        camera.position.set(0, centerY + 0.12, dist);
+        const dist = Math.max(distH, distW) + 0.12;
+        camera.position.set(0, centerY + 0.06, dist);
         camera.lookAt(0, centerY, 0);
         camera.updateProjectionMatrix();
+
+        // Park the gold horizon line just below the wordmark's projected
+        // bottom, so it tracks the wordmark across aspect ratios.
+        if (horizonRef.current) {
+          const nd = new THREE.Vector3((minX + maxX) / 2, minY, 0).project(
+            camera,
+          );
+          const yPct = ((1 - nd.y) / 2) * 100 + 4;
+          horizonRef.current.style.top = `${yPct}%`;
+        }
       }
 
       /* ---- instanced cubes (the shards; hidden until the drop) ---- */
@@ -395,6 +410,11 @@ export default function VoxelHero() {
       const floor = new THREE.Mesh(floorGeo, floorMat);
       floor.rotation.x = -Math.PI / 2;
       floor.position.y = floorY;
+      // Visual floor hidden: the lower half stays uniform near-black (the scene
+      // background) and a gold horizon line marks the landing plane instead.
+      // The Rapier physics floor collider (created separately below) is untouched,
+      // so the shards still land and pile.
+      floor.visible = false;
       scene.add(floor);
 
       /* ---- Rapier physics ---- */
@@ -796,6 +816,9 @@ export default function VoxelHero() {
     <section ref={sectionRef} className="voxel-hero" aria-label="Rank Point Media">
       <canvas ref={canvasRef} className="gl-canvas" aria-hidden="true" />
       <div className="vignette" aria-hidden="true" />
+      {/* Gold horizon line — the "floor". Positioned by fit() just below the
+          wordmark; the shards fall and pile below it. */}
+      <div ref={horizonRef} className="voxel-horizon" aria-hidden="true" />
       <div className="gl-fallback" aria-hidden="true">
         <div className="mark">
           Rank Point

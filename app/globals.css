@@ -299,6 +299,21 @@ body {
 .voxel-hero.no-webgl .gl-canvas { display: none; }
 .voxel-hero.no-webgl .gl-fallback { display: flex; }
 
+/* Gold horizon line — the "floor". Its `top` is set by fit() in JS so it sits
+   just below the wordmark. Wordmark above, shards pile below. */
+.voxel-hero .voxel-horizon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 64%;
+  z-index: 4;
+  pointer-events: none;
+  border-top: 1px solid #c9a06a;
+  box-shadow: 0 -1px 24px -10px rgba(201, 160, 106, 0.45);
+}
+/* Hidden on the static fallback (no WebGL wordmark to anchor it to). */
+.voxel-hero.no-webgl .voxel-horizon { display: none; }
+
 /* the Fraunces statement — server-rendered, always-visible LCP element */
 .voxel-hero .voxel-statement {
   position: absolute;
@@ -313,12 +328,12 @@ body {
   padding: 0 var(--hero-gutter);
   font-family: var(--ff-fraunces), Georgia, serif;
   font-weight: 500;
-  font-size: clamp(32px, 5.4vw, 82px);
+  font-size: clamp(30px, 4.6vw, 66px);
   letter-spacing: 0.002em;
   line-height: 1.16;
   color: rgba(207, 202, 191, 0.95);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  max-width: 20ch;
+  max-width: 30ch;
   text-wrap: balance;
   /* see the .rpm3 comment above — Fraunces' default swash "f" */
   font-feature-settings: "liga" 0, "calt" 0, "dlig" 0, "clig" 0;
@@ -435,7 +450,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 57%;
+  top: 72%;
   z-index: 9;
   margin: 0;
   text-align: center;
