@@ -90,11 +90,11 @@ export default function VoxelHeader({
             aria-label="Open menu"
             aria-expanded={open}
             onClick={() => setOpen(true)}
-            className="group flex h-[26px] w-[34px] flex-col justify-center gap-[6px] p-0"
+            className="group flex h-[36px] w-[48px] flex-col justify-center gap-[9px] p-0"
           >
-            <span className={`block h-[1.5px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
-            <span className={`block h-[1.5px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
-            <span className={`block h-[1.5px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
+            <span className={`block h-[2px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
+            <span className={`block h-[2px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
+            <span className={`block h-[2px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
           </button>
         </div>
       ) : (
