@@ -210,6 +210,16 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-full flex flex-col pb-14 md:pb-0">
+        {/* Pre-paint capability flag: matches VoxelHero's WebGL gate exactly.
+            Adds `voxel-cap` to <html> before first paint (persists across SPA
+            nav) so the homepage hero statement is hidden via CSS until the glass
+            wordmark drops — no verbiage flash on entry. Harmless on other routes. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var m=window.matchMedia;if(m('(min-width: 900px) and (pointer: fine)').matches&&!m('(prefers-reduced-motion: reduce)').matches&&!(navigator.connection&&navigator.connection.saveData)){document.documentElement.classList.add('voxel-cap')}}catch(e){}",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

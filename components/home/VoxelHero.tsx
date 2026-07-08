@@ -15,16 +15,13 @@
  *    path (mirrors HeroOrbit's lazy-GSAP pattern). A capability gate skips
  *    the import entirely on mobile/touch/reduced-motion/save-data — those
  *    visitors get the static CSS wordmark fallback instead (see .no-webgl).
- *  - The Fraunces statement is a server-rendered <h1> at full opacity from
- *    first paint (the LCP element; opacity never toggles, which is what
- *    keeps that first paint fast and its recorded LCP time early). Once the
- *    formed glass wordmark is about to render, the statement's *color* (not
- *    opacity) is dimmed near-invisible via the "gl-pending" class so it
- *    reads as hidden behind the title during the hold, then fades back in
- *    via "reveal-in" once the shards settle — matching the mock's original
- *    choreography without reintroducing the opacity-fade-delays-LCP problem
- *    that motivated making it always-visible in the first place. Visitors on
- *    the fallback path (no WebGL/physics ever runs) never get dimmed.
+ *  - The Fraunces statement is a server-rendered <h1>. On capable clients a
+ *    pre-paint inline script (app/layout.tsx) adds `voxel-cap` to <html>, and
+ *    CSS hides the statement FROM FIRST PAINT (color/filter, never opacity) so
+ *    the glass wordmark shows alone until it drops — no verbiage flash on entry.
+ *    "reveal-in" fades it back in once the shards settle. Visitors on the
+ *    fallback path (mobile/touch/reduced-motion/save-data — no `voxel-cap`) keep
+ *    the statement visible from first paint, so it stays their fast LCP element.
  *  - Full GL + physics disposal on unmount (renderer.forceContextLoss, world
  *    .free, all timers/observers/listeners) because React remounts on client
  *    navigation, unlike the one-shot static mock.
@@ -586,23 +583,19 @@ export default function VoxelHero() {
         });
       }
 
-      // The statement <h1> is server-rendered visible (LCP-safe) and STAYS
-      // that way until the formed wordmark is about to appear (see the
-      // "gl-pending" class add below, right before the hold begins) — so
-      // there's no blank moment while three/rapier are still loading. Once
-      // dimmed, "reveal" fades it back in over the settled shard pile via the
-      // "reveal-in" class (color/filter only, never opacity — see the CSS
-      // comment for why that matters for LCP).
+      // On capable clients the statement is hidden from first paint (the
+      // voxel-cap html class + CSS), so the glass wordmark shows alone during
+      // the hold. "reveal" fades it back in over the settled shard pile via the
+      // "reveal-in" class (color/filter only, never opacity).
       function showReveal() {
         revealed = true;
-        statementRef.current?.classList.remove("gl-pending");
         statementRef.current?.classList.add("reveal-in");
         startScram();
       }
       function hideReveal() {
         revealed = false;
+        // Removing reveal-in re-applies the CSS hide (voxel-cap :not(.reveal-in)).
         statementRef.current?.classList.remove("reveal-in");
-        statementRef.current?.classList.add("gl-pending");
         stopScram();
       }
 
@@ -700,11 +693,9 @@ export default function VoxelHero() {
 
       /* ---- auto-sequence: hold, then drop (only counts down while visible) ---- */
       renderOnce();
-      // The formed glass wordmark is on screen as of this render — dim the
-      // statement now (instant, see the .gl-pending CSS) so it reads as
-      // hidden behind the title for the hold, instead of staying bright the
-      // whole time three/rapier were still loading.
-      statementRef.current?.classList.add("gl-pending");
+      // The statement is already hidden from first paint on capable clients (the
+      // voxel-cap html class + CSS), so the glass wordmark shows alone during the
+      // hold; nothing to dim here.
       let wantDrop = false;
       let holdTimer: ReturnType<typeof setTimeout> | null = null;
       function startHoldTimer() {
