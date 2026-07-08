@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import DarkHero from "@/components/heroes/DarkHero";
+import ServiceDetailHero from "@/components/services/ServiceDetailHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -57,12 +57,11 @@ export default function ReputationManagementPage() {
           },
         ]}
       />
-      <main>
-        <DarkHero
-          kicker="— BRAND MANAGEMENT"
+      <main className="rpm3">
+        <ServiceDetailHero
+          kicker="BRAND MANAGEMENT"
           headline="Five stars, earned and protected."
-          headlineAccent="earned"
-          subheadline="Monitor, respond to, and grow your online reviews across Google, Yelp, and Facebook. Build the reputation that makes customers choose you."
+          lede="Monitor, respond to, and grow your online reviews across Google, Yelp, and Facebook. Build the reputation that makes customers choose you."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
@@ -70,7 +69,6 @@ export default function ReputationManagementPage() {
             { value: "5★", label: "Target Rating" },
             { value: "All", label: "Review Platforms" },
           ]}
-          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import DarkHero from "@/components/heroes/DarkHero";
+import ServiceDetailHero from "@/components/services/ServiceDetailHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -57,12 +57,11 @@ export default function CustomAISolutionsPage() {
           },
         ]}
       />
-      <main>
-        <DarkHero
-          kicker="— CUSTOM AI"
+      <main className="rpm3">
+        <ServiceDetailHero
+          kicker="CUSTOM AI"
           headline="AI tools built for how your business actually works."
-          headlineAccent="your business"
-          subheadline="Automated follow-ups, intelligent lead qualification, and workflow automation tailored to your business. Not another off-the-shelf chatbot. Real systems that earn back hours every week."
+          lede="Automated follow-ups, intelligent lead qualification, and workflow automation tailored to your business. Not another off-the-shelf chatbot. Real systems that earn back hours every week."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
@@ -71,7 +70,6 @@ export default function CustomAISolutionsPage() {
             { value: "24/7", label: "Always Running" },
             { value: "You", label: "Own The System" },
           ]}
-          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

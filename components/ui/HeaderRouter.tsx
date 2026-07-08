@@ -27,7 +27,7 @@ export default function HeaderRouter() {
   // "bar" variant. Every other route stays on the navy GlassHeader until ported.
   if (pathname === "/") return <VoxelHeader variant="hero" />;
   if (pathname === "/about") return <VoxelHeader variant="bar" />;
-  if (pathname === "/services") return <VoxelHeader variant="bar" />;
+  if (pathname === "/services" || pathname.startsWith("/services/")) return <VoxelHeader variant="bar" />;
   if (pathname === "/case-studies") return <VoxelHeader variant="bar" />;
   return <GlassHeader forceScrolled={isLightHeroRoute(pathname)} />;
 }

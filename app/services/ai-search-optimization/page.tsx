@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import DarkHero from "@/components/heroes/DarkHero";
+import ServiceDetailHero from "@/components/services/ServiceDetailHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -57,12 +57,11 @@ export default function AiSearchOptimizationPage() {
           },
         ]}
       />
-      <main>
-        <DarkHero
-          kicker="— AI SEARCH"
+      <main className="rpm3">
+        <ServiceDetailHero
+          kicker="AI SEARCH"
           headline="Get found on ChatGPT and Perplexity."
-          headlineAccent="ChatGPT"
-          subheadline="AI assistants are the new search engines. We optimize your business for ChatGPT, Perplexity, Google AI Overviews, and Claude so customers find you in the answer, not in the 10th link."
+          lede="AI assistants are the new search engines. We optimize your business for ChatGPT, Perplexity, Google AI Overviews, and Claude so customers find you in the answer, not in the 10th link."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
@@ -70,7 +69,6 @@ export default function AiSearchOptimizationPage() {
             { value: "First", label: "Mover Advantage" },
             { value: "2026", label: "Built for Now" },
           ]}
-          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

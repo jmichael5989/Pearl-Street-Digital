@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import DarkHero from "@/components/heroes/DarkHero";
+import ServiceDetailHero from "@/components/services/ServiceDetailHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -57,12 +57,11 @@ export default function PpcGoogleAdsPage() {
           },
         ]}
       />
-      <main>
-        <DarkHero
-          kicker="— GOOGLE ADS"
+      <main className="rpm3">
+        <ServiceDetailHero
+          kicker="GOOGLE ADS"
           headline="Leads today, not someday."
-          headlineAccent="today"
-          subheadline="Targeted ad campaigns that put your business in front of customers actively searching for your services right now. Pay for results, not impressions."
+          lede="Targeted ad campaigns that put your business in front of customers actively searching for your services right now. Pay for results, not impressions."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
@@ -70,7 +69,6 @@ export default function PpcGoogleAdsPage() {
             { value: "$500", label: "Starting Budget" },
             { value: "100%", label: "Transparent Reporting" },
           ]}
-          showMockups={false}
         />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />

@@ -39,7 +39,7 @@ export default function MobileCTABar() {
   // Three-color redesign routes re-skin this bar to the black/white palette so
   // it doesn't drop a navy/brass strip onto the new design (and it still fills
   // the layout's mobile pb-14). Grows as pages are ported.
-  const threeColor = pathname === "/" || pathname === "/about" || pathname === "/services" || pathname === "/case-studies";
+  const threeColor = pathname === "/" || pathname === "/about" || pathname === "/services" || pathname.startsWith("/services/") || pathname === "/case-studies";
   if (threeColor) {
     return (
       <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-[#333] bg-black md:hidden">

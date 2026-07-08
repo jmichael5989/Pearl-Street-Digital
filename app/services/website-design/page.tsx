@@ -1,10 +1,10 @@
 import { Metadata } from "next";
+import ServiceDetailHero from "@/components/services/ServiceDetailHero";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
 import ServiceFAQ from "@/components/services/ServiceFAQ";
 import ServiceRelated from "@/components/services/ServiceRelated";
-import DarkHero from "@/components/heroes/DarkHero";
 import { getService, getRelatedServices } from "@/lib/services-data";
 import BreadcrumbsSchema from "@/components/seo/BreadcrumbsSchema";
 
@@ -57,12 +57,11 @@ export default function WebsiteDesignPage() {
           },
         ]}
       />
-      <main>
-        <DarkHero
-          kicker="— WEBSITE DESIGN"
+      <main className="rpm3">
+        <ServiceDetailHero
+          kicker="WEBSITE DESIGN"
           headline="Websites that convert."
-          headlineAccent="convert"
-          subheadline="Custom Next.js sites built for speed, SEO, and conversions. For business owners who are tired of agencies that overpromise and underdeliver."
+          lede="Custom Next.js sites built for speed, SEO, and conversions. For business owners who are tired of agencies that overpromise and underdeliver."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
@@ -70,9 +69,7 @@ export default function WebsiteDesignPage() {
             { value: "$99", label: "Starter Plan" },
             { value: "95+", label: "Lighthouse" },
           ]}
-          showMockups={false}
         />
-
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />
