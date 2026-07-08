@@ -1,6 +1,5 @@
 import { services } from "../lib/services-data";
 import { industries } from "../lib/industries-data";
-import { caseStudies } from "../lib/case-studies-data";
 import { blogPosts } from "../lib/blog-data";
 
 const KEY = process.env.INDEXNOW_KEY;
@@ -29,7 +28,6 @@ const urlList = [
   ...staticPaths.map((p) => `${ORIGIN}${p === "/" ? "" : p}`),
   ...services.map((s) => `${ORIGIN}/services/${s.slug}`),
   ...industries.map((i) => `${ORIGIN}/industries/${i.slug}`),
-  ...caseStudies.map((c) => `${ORIGIN}/case-studies/${c.slug}`),
   ...blogPosts.map((p) => `${ORIGIN}/blog/${p.slug}`),
 ];
 

@@ -194,3 +194,40 @@ Two Lighthouse home scores fall short of the CLAUDE.md "95+ on all four" target.
 ### Outcome
 
 Migration shipped with explicit accepted trade-offs. Future Lighthouse runs that re-surface either of the above two should reference this section rather than re-investigating from scratch.
+
+---
+
+## Three-color / Fraunces redesign — page-by-page rollout
+
+Home (phase 1), About (phase 2), Services (phase 3) shipped. Case Studies =
+phase 4 (below). Remaining: Pricing, Contact, then lock brand docs.
+
+### Phase 4: port /case-studies to three-color [IN PROGRESS 2026-07-07]
+
+Owner decision: **Retire + 301 redirect** the 4 detail pages. The approved mock
+(`public/mocks/hero/case-studies.html`) inlines each client's full story
+(Challenge / Approach / Outcomes) onto the single `/case-studies` page and drops
+the detail links, so `/case-studies/[slug]` becomes duplicate content and is
+retired. Review on Opus; execute on Sonnet.
+
+**Create** (`components/case-studies/`):
+- [ ] `CaseStudiesHero.tsx` — `.cs-hero` (kicker, h1 "Real work, real results.",
+      lede, `.cs-cta`: btn -> /contact#talk-to-us, btn-ghost "See Services" -> /services)
+- [ ] `CaseStudyEntries.tsx` — maps `caseStudies` in array order (mock order:
+      MDPC, Bernal, Appeal, Lone Star), numbered 01..0N, `.alt` on odd. Each =
+      `.work-row` (heroImage + meta + 3 heroMetrics + services tags) + 3
+      `.detail-row` (Challenge/Approach/Outcomes). Renders from data (DRY).
+
+**Modify:** `app/case-studies/page.tsx` (rewrite; metadata + CollectionPage
+JSON-LD verbatim), `lib/case-studies-data.ts` (strip em-dashes, keep en-dash
+range), `app/globals.css` (append `.rpm3 ` case-studies block), `HeaderRouter`
+(/case-studies -> bar), `MobileCTABar` (add /case-studies), `registry`
+(caseStudies -> whiteCurtain), `next.config.ts` (301 /case-studies/:slug ->
+/case-studies), `sitemap.ts` + `scripts/indexnow.ts` (drop slug URLs).
+
+**Delete:** `app/case-studies/[slug]/`, `CaseStudyDetailTemplate.tsx`,
+`CaseStudiesTOC.tsx`.
+
+**Verify:** tsc/build clean; no dead imports; render + order + metrics + detail
+rows; no em-dashes (keep $500–$2,000); 308 redirect on old slug; sitemap pruned;
+white curtain + menu auto-close; commit/push/deploy.

@@ -24,7 +24,7 @@ const REGISTRY: Partial<Record<Namespace, EffectLoader>> = {
   services: whiteCurtain,
   industries: curtain,
   contact: curtain,
-  caseStudies: () => import("./effects/sectionMorph").then((m) => m.default),
+  caseStudies: whiteCurtain,
   blog: () => import("./effects/sectionMorph").then((m) => m.default),
   areas: slats,
   pricing: slats,

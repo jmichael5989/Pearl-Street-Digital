@@ -1,8 +1,9 @@
-import { Metadata } from "next";
-import Footer from "@/components/ui/Footer";
-import DarkHero from "@/components/heroes/DarkHero";
-import CaseStudiesTOC from "@/components/case-studies/CaseStudiesTOC";
-import { caseStudies } from "@/lib/case-studies-data";
+import type { Metadata } from "next";
+import CaseStudiesHero from "@/components/case-studies/CaseStudiesHero";
+import CaseStudyEntries from "@/components/case-studies/CaseStudyEntries";
+import PreFooterCta from "@/components/home/PreFooterCta";
+import ThreeColorFooter from "@/components/home/ThreeColorFooter";
+import ScrollReveal from "@/components/home/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Case Studies | Rank Point Media",
@@ -26,46 +27,38 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://rankpointmedia.com/case-studies" },
 };
 
-export default function CaseStudiesPage() {
-  const sorted = [...caseStudies].sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-  );
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Case Studies - Rank Point Media",
+  description:
+    "Real work, real results. Portfolio of digital marketing and web design projects.",
+  url: "https://rankpointmedia.com/case-studies",
+  provider: {
+    "@type": "Organization",
+    name: "Rank Point Media",
+    url: "https://rankpointmedia.com",
+  },
+};
 
+// Case studies overview — three-color redesign (phase 4). Full story inlined
+// per the approved mock; the individual detail pages were retired (301 -> here).
+export default function CaseStudiesPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            name: "Case Studies - Rank Point Media",
-            description:
-              "Real work, real results. Portfolio of digital marketing and web design projects.",
-            url: "https://rankpointmedia.com/case-studies",
-            provider: {
-              "@type": "Organization",
-              name: "Rank Point Media",
-              url: "https://rankpointmedia.com",
-            },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
       />
-      <main>
-        <DarkHero
-          kicker="CASE STUDIES"
-          headline="Real work, real results."
-          headlineAccent="Real work"
-          subheadline="Each entry is a single project: the problem the owner brought us, what we built, and what shipped."
-          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
-          secondaryCta={{ label: "See Services", href: "/services" }}
-          showMockups={false}
-        />
-
-        <CaseStudiesTOC caseStudies={sorted} />
+      <main className="rpm3">
+        <CaseStudiesHero />
+        <CaseStudyEntries />
+        <PreFooterCta />
       </main>
-      <Footer />
+      <div className="rpm3">
+        <ThreeColorFooter />
+      </div>
+      <ScrollReveal />
     </>
   );
 }

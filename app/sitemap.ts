@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/lib/services-data";
 import { industries } from "@/lib/industries-data";
-import { caseStudies } from "@/lib/case-studies-data";
 // import { blogPosts } from "@/lib/blog-data"; // restore when Journal returns (see blogRoutes below)
 
 /**
@@ -54,13 +53,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((c) => ({
-    url: `${baseUrl}/case-studies/${c.slug}`,
-    lastModified: new Date(c.publishedAt),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
-
   // Blog posts excluded from sitemap 2026-06-08 alongside the /blog index.
   // Restore by uncommenting the block below when the Journal section returns.
   const blogRoutes: MetadataRoute.Sitemap = [];
@@ -75,7 +67,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes,
     ...serviceRoutes,
     ...industryRoutes,
-    ...caseStudyRoutes,
     ...blogRoutes,
   ];
 }
