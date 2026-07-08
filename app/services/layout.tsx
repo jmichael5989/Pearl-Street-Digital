@@ -1,6 +1,6 @@
 import PreFooterCta from "@/components/home/PreFooterCta";
 import ThreeColorFooter from "@/components/home/ThreeColorFooter";
-import ScrollReveal from "@/components/home/ScrollReveal";
+import ScrollRevealOnRoute from "@/components/home/ScrollRevealOnRoute";
 
 // Shared footer for every /services route — the three-color overview AND the
 // still-navy service detail pages. Centralized here (was the navy <Footer />)
@@ -21,7 +21,7 @@ export default function ServicesLayout({
         <PreFooterCta />
         <ThreeColorFooter />
       </div>
-      <ScrollReveal />
+      <ScrollRevealOnRoute />
     </div>
   );
 }
