@@ -732,9 +732,9 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .foot-contact { font-family: var(--mono); font-size: 13px; display: flex; flex-direction: column; gap: 10px; color: var(--grey); }
 .rpm3 .foot-contact a { color: var(--grey); }
 .rpm3 .foot-contact a:hover { color: var(--white); }
-.rpm3 .foot-legal { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-top: 28px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--grey); }
+.rpm3 .foot-legal { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding-top: 30px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--grey); }
 .rpm3 .foot-legal a { color: var(--grey); }
-.rpm3 .foot-badge { margin-top: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; display: flex; gap: 8px; }
+.rpm3 .foot-badge { margin-top: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; display: flex; justify-content: center; gap: 8px; }
 .rpm3 .foot-badge span:first-child { color: rgba(255, 255, 255, 0.5); }
 .rpm3 .foot-badge span:last-child { color: #b78f3e; }
 @media (max-width: 880px) { .rpm3 .foot-grid { grid-template-columns: 1fr 1fr; } }
