@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import Footer from "@/components/ui/Footer";
-import DarkHero from "@/components/heroes/DarkHero";
+import Link from "next/link";
 import Pricing from "@/components/sections/Pricing";
 import PricingAddons from "@/components/sections/PricingAddons";
+import PreFooterCta from "@/components/home/PreFooterCta";
+import ThreeColorFooter from "@/components/home/ThreeColorFooter";
+import ScrollReveal from "@/components/home/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Pricing | Rank Point Media",
@@ -137,25 +139,49 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
       />
-      <main>
-        <DarkHero
-          kicker="— TRANSPARENT PRICING"
-          headline="Simple pricing. No surprises."
-          headlineAccent="Simple"
-          subheadline="Flexible monthly plans that fit your budget. No hidden costs, no surprise invoices. You own everything we build."
-          primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
-          secondaryCta={{ label: "See Services", href: "/services" }}
-          showMockups={false}
-          metrics={[
-            { value: "$99", label: "Starter" },
-            { value: "$149", label: "Business" },
-            { value: "$249", label: "Growth" },
-          ]}
-        />
+      <main className="rpm3">
+        {/* B4a — Inverted price-hero (server markup, matches mock verbatim) */}
+        <section className="price-hero inverted">
+          <div className="wrap">
+            <p className="kicker appear">Transparent pricing</p>
+            <h1 className="appear">Simple pricing. No surprises.</h1>
+            <p className="lede appear">
+              Flexible monthly plans that fit your budget. No hidden costs, no
+              surprise invoices. You own everything we build.
+            </p>
+            <div className="hero-ctas appear">
+              <Link className="btn" href="/contact#talk-to-us">
+                Book a consultation
+              </Link>
+              <Link className="btn btn-light" href="/services">
+                See Services
+              </Link>
+            </div>
+            <div className="hero-metrics appear">
+              <div className="hero-metric">
+                <div className="m-value">$99</div>
+                <div className="m-label">Starter</div>
+              </div>
+              <div className="hero-metric">
+                <div className="m-value">$149</div>
+                <div className="m-label">Business</div>
+              </div>
+              <div className="hero-metric">
+                <div className="m-value">$249</div>
+                <div className="m-label">Growth</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Pricing />
         <PricingAddons />
+        <PreFooterCta />
       </main>
-      <Footer />
+      <div className="rpm3">
+        <ThreeColorFooter />
+      </div>
+      <ScrollReveal />
     </>
   );
 }

@@ -1,32 +1,14 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 /**
- * Pricing add-ons rail. Sits below the three pricing tiers on /pricing
- * as nine bookable services that layer on top of a website build â€”
- * Local SEO, Google Ads, social, email, content, brand identity, AI
- * solutions, photography, e-commerce.
+ * Pricing add-ons — three-color redesign (Phase B).
+ * Re-skin of the prior navy/brass PricingAddons.tsx to the .rpm3 design system,
+ * matching public/mocks/hero/pricing.html verbatim.
  *
- * Originally shipped as a "Coming next" roadmap rail with `Coming soon`
- * tags (see prior commit on this file). Owner moved it to bookable
- * 2026-04-26: real prices, real CTAs. Pricing is set at the lower end
- * of typical Fiverr ranges, anchored to the existing $99/mo website
- * floor so the add-ons read as natural extensions of the entry plan.
+ * KEEP: addOns[] data array verbatim (all 11 services, names, descriptions, prices).
+ * DROP: Tailwind utility classes, navy/brass tokens, inline styles.
  *
- * The lede carries the value-prop blurb that justifies Fiverr-floor
- * pricing without Fiverr-quality work â€” custom-coded, direct founder
- * access, no offshore developers, no generic AI templates. That
- * positioning has to land near the price for the comparison to feel
- * fair to a prospect who's only ever seen Fiverr.
- *
- * AI Solutions does NOT use the "From $X" pattern â€” it's billed
- * hourly because scope varies wildly (chatbot vs custom integration
- * vs full app like appealproai.com). Tile shows the hourly rate
- * directly and routes to the same Cal.com consultation for scoping.
- *
- * Visual register matches the rest of /pricing: parchment surface for
- * alternation off Pricing's warm-white, hairline edge border on tiles
- * (no rounded-2xl, no shadow), serif H3 weight 400, price text at the
- * bottom in navy. Each tile is a Link to the homepage Cal.com widget.
+ * Each addon tile is a <Link> to /contact#talk-to-us so the whole tile is clickable.
  */
 
 interface AddOn {
@@ -45,7 +27,7 @@ const addOns: AddOn[] = [
   {
     name: "Google Ads management",
     description:
-      "Campaign setup and ongoing optimization for paid search â€” landing pages, keyword bidding, and conversion tracking.",
+      "Campaign setup and ongoing optimization for paid search, landing pages, keyword bidding, and conversion tracking.",
     price: "From $149/mo",
   },
   {
@@ -87,8 +69,8 @@ const addOns: AddOn[] = [
   {
     name: "AI solutions",
     description:
-      "Custom AI integrations â€” chatbots, content generators, workflow automation, full apps like appealproai.com. Built from scratch, not bolted on.",
-    price: "Custom Â· $60/hr",
+      "Custom AI integrations, chatbots, content generators, workflow automation, full apps like appealproai.com. Built from scratch, not bolted on.",
+    price: "Custom · $60/hr",
   },
   {
     name: "Brand photography",
@@ -106,102 +88,43 @@ const addOns: AddOn[] = [
 
 export default function PricingAddons() {
   return (
-    <section
-      aria-labelledby="addons-heading"
-      className="bg-light-surface border-t border-border"
-      style={{
-        paddingTop: "clamp(48px, 8vh, 100px)",
-        paddingBottom: "clamp(48px, 8vh, 100px)",
-      }}
-    >
-      <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-        {/* Eyebrow */}
-        <header className="mb-6">
-          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-            <span className="font-heading text-base font-normal mr-1">
+    <section className="addons">
+      <div className="wrap">
+        <header className="addons-head">
+          {/* Numbered kicker: spine-outline numeral + label, same idiom as Pricing (02) */}
+          <p className="kicker appear">
+            <span
+              className="spine spine-outline"
+              style={{ fontSize: "1em", WebkitTextStroke: "1px var(--grey)" }}
+            >
               03
             </span>
-            &nbsp;/&nbsp; Add-ons
-          </div>
+            &nbsp;/&nbsp;Add-ons
+          </p>
+          <h2 className="appear">Beyond the build.</h2>
+          <p className="addons-lede appear">
+            A website is the foundation. Layer on the marketing services that
+            compound the investment, at prices that beat Fiverr, with work that
+            doesn&rsquo;t. Every add-on is custom-coded by Jon and Stacie
+            directly. No account managers, no offshore developers, no generic AI
+            templates. The prices below are the floor; scope drives the final
+            number. Mention which ones you want at your consultation.
+          </p>
         </header>
 
-        {/* H2 */}
-        <h2
-          id="addons-heading"
-          className="font-heading text-text text-balance"
-          style={{
-            fontSize: "var(--text-h2)",
-            lineHeight: 1.1,
-            letterSpacing: "-0.015em",
-            fontWeight: 400,
-            maxWidth: "24ch",
-            margin: 0,
-          }}
-        >
-          Beyond the build.
-        </h2>
-
-        {/* Lede */}
-        <p
-          className="mt-5 font-body"
-          style={{
-            fontSize: "1.0625rem",
-            lineHeight: 1.6,
-            color: "var(--color-brand-text)",
-            maxWidth: "62ch",
-          }}
-        >
-          A website is the foundation. Layer on the marketing services that
-          compound the investment &mdash; at prices that beat Fiverr, with
-          work that doesn&rsquo;t. Every add-on is custom-coded by Jon and
-          Stacie directly. No account managers, no offshore developers, no
-          generic AI templates. The prices below are the floor; scope drives
-          the final number. Mention which ones you want at your consultation.
-        </p>
-
-        {/* Add-on tiles */}
-        <div
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          style={{ marginTop: "clamp(40px, 5vh, 64px)" }}
-        >
+        <div className="addon-grid appear">
           {addOns.map((addon) => (
             <Link
               key={addon.name}
               href="/contact#talk-to-us"
-              className="group flex h-full flex-col border border-border bg-light p-6 transition-[border-color,transform] duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:border-text hover:-translate-y-[3px]"
+              className="addon"
               aria-label={`Book a consultation for ${addon.name}`}
             >
-              <h3
-                className="font-heading text-text"
-                style={{
-                  fontSize: "1.25rem",
-                  fontWeight: 400,
-                  lineHeight: 1.2,
-                  letterSpacing: "-0.01em",
-                  margin: 0,
-                }}
-              >
-                {addon.name}
-              </h3>
-              <p
-                className="mt-3 mb-6 flex-1 font-body text-sm leading-[1.55]"
-                style={{ color: "var(--color-brand-text)" }}
-              >
-                {addon.description}
-              </p>
-              <div
-                className="flex items-center justify-between gap-3 border-t border-border pt-4"
-                style={{ marginTop: "auto" }}
-              >
-                <span className="font-body text-sm font-semibold text-text">
-                  {addon.price}
-                </span>
-                <span
-                  className="font-body text-xs font-semibold uppercase tracking-[0.14em] text-accent transition-transform duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                >
-                  Book &rarr;
-                </span>
+              <h3>{addon.name}</h3>
+              <p>{addon.description}</p>
+              <div className="addon-foot">
+                <span className="addon-price">{addon.price}</span>
+                <span className="addon-book">Book</span>
               </div>
             </Link>
           ))}

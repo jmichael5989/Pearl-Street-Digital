@@ -876,3 +876,77 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .svc-hero-metrics .metric-val { font-family: var(--display); font-size: clamp(34px, 4vw, 54px); font-weight: 500; line-height: 1; letter-spacing: -0.02em; font-feature-settings: "lnum" 1, "tnum" 1, "liga" 0, "calt" 0, "dlig" 0, "clig" 0; }
 .rpm3 .svc-hero-metrics .metric-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); margin-top: 12px; max-width: 16em; }
 @media (max-width: 560px) { .rpm3 .svc-hero-metrics { gap: 24px 40px; } }
+
+/* ---- PRICING PAGE (three-color) ---- */
+
+/* ===== inverted hero ===== */
+.rpm3 .price-hero { padding-top: clamp(64px,8vw,108px); padding-bottom: clamp(56px,7vw,96px); }
+.rpm3 .price-hero h1 { font-size: clamp(46px,7vw,104px); margin: 26px 0 28px; max-width: 13ch; }
+.rpm3 .price-hero .lede { font-size: clamp(18px,1.7vw,22px); max-width: 40em; }
+.rpm3 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 38px; }
+.rpm3 .hero-metrics { display: grid; grid-template-columns: repeat(3,auto); gap: clamp(28px,5vw,80px); margin-top: clamp(48px,6vw,80px); border-top: 1px solid var(--line); padding-top: clamp(32px,4vw,52px); }
+.rpm3 .hero-metric .m-value { font-family: var(--display); font-weight: 500; font-size: clamp(38px,4.6vw,62px); line-height: 1; letter-spacing: -0.02em; font-feature-settings: "lnum" 1,"tnum" 1,"liga" 0,"calt" 0,"dlig" 0,"clig" 0; }
+.rpm3 .hero-metric .m-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); margin-top: 12px; }
+@media (max-width: 600px) { .rpm3 .hero-metrics { grid-template-columns: repeat(3,auto); gap: 22px; } }
+
+/* ===== btn-light (secondary on inverted hero) ===== */
+.rpm3 .btn-light { background: var(--white); color: var(--black); border-color: var(--white); }
+.rpm3 .btn-light:hover, .rpm3 .btn-light:focus-visible { background: transparent; color: var(--white); }
+
+/* ===== pricing section header ===== */
+.rpm3 .price-head h2 { font-size: clamp(34px,4.4vw,64px); max-width: 24ch; margin: 22px 0 0; }
+.rpm3 .price-lede { margin-top: 22px; max-width: 58ch; font-size: 18px; line-height: 1.6; color: var(--text); }
+.rpm3 .price-lede strong { font-weight: 600; }
+
+/* ===== toggle ===== */
+.rpm3 .toggle { display: inline-flex; align-items: center; gap: 38px; margin-top: 44px; }
+.rpm3 .toggle button { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 0 0 8px; background: none; border: none; border-bottom: 2px solid transparent; color: var(--grey); cursor: pointer; transition: color .25s,border-color .25s; }
+.rpm3 .toggle button.active { color: var(--text); border-bottom-color: var(--text); }
+.rpm3 .toggle button:not(.active):hover { color: var(--text); }
+
+/* ===== tiers ===== */
+.rpm3 .tiers { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); margin-top: clamp(40px,5vw,64px); }
+.rpm3 .tier { padding: clamp(36px,3.4vw,52px) clamp(26px,2.4vw,40px) clamp(40px,3.6vw,56px); border-right: 1px solid var(--line); position: relative; display: flex; flex-direction: column; }
+.rpm3 .tier:last-child { border-right: none; }
+.rpm3 .tier-badge { position: absolute; top: 0; left: clamp(26px,2.4vw,40px); transform: translateY(-50%); font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; background: var(--black); color: var(--white); padding: 6px 12px; }
+.rpm3 .tier.featured { background: #000; color: #fff; }
+.rpm3 .tier.featured h3 { color: #fff; }
+.rpm3 .tier.featured .tier-pages { color: var(--grey); }
+.rpm3 .tier.featured .tier-price { color: #fff; }
+.rpm3 .tier.featured .tier-unit { color: var(--grey); }
+.rpm3 .tier.featured .tier-term { color: var(--grey); }
+.rpm3 .tier.featured .tier-feats li { color: var(--grey); }
+.rpm3 .tier.featured .tier-feats li.emph { color: #fff; }
+.rpm3 .tier.featured .tier-badge { background: #fff; color: #000; }
+.rpm3 .tier.featured .tier-cta { background: #fff; color: #000; border-color: #fff; }
+.rpm3 .tier.featured .tier-cta:hover, .rpm3 .tier.featured .tier-cta:focus-visible { background: transparent; color: #fff; }
+.rpm3 .tier h3 { font-family: var(--display); font-size: clamp(24px,2.4vw,32px); font-weight: 500; margin-bottom: 4px; }
+.rpm3 .tier-pages { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--grey); text-transform: none; margin-bottom: 26px; }
+.rpm3 .tier-price-row { display: flex; align-items: baseline; gap: 10px; }
+.rpm3 .tier-price { font-family: var(--display); font-weight: 500; font-size: clamp(46px,5.4vw,72px); line-height: .95; letter-spacing: -0.02em; color: var(--black); font-feature-settings: "lnum" 1,"tnum" 1,"liga" 0,"calt" 0,"dlig" 0,"clig" 0; }
+.rpm3 .tier-unit { font-size: 14px; color: var(--grey); }
+.rpm3 .tier-term { font-size: 14px; font-weight: 600; margin-top: 10px; min-height: 1.4em; color: var(--text); }
+.rpm3 .tier-feats { list-style: none; margin: 30px 0 34px; display: flex; flex-direction: column; flex: 1; }
+.rpm3 .tier-feats li { font-size: 15px; line-height: 1.5; padding-left: 22px; position: relative; color: var(--text); margin-bottom: 12px; }
+.rpm3 .tier-feats li.emph { font-weight: 600; }
+.rpm3 .tier-feats li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border: 1px solid currentColor; border-radius: 50%; }
+.rpm3 .tier-cta { display: block; width: 100%; text-align: center; padding: 15px 18px; font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; transition: background .25s,color .25s; }
+.rpm3 .tier-cta:hover, .rpm3 .tier-cta:focus-visible { background: var(--white); color: var(--black); }
+@media (max-width: 880px) {
+  .rpm3 .tiers { grid-template-columns: 1fr; border-top: none; }
+  .rpm3 .tier { border-right: none; border-top: 1px solid var(--line); }
+}
+
+/* ===== add-ons ===== */
+.rpm3 .addons-head h2 { font-size: clamp(34px,4.4vw,64px); max-width: 24ch; margin: 22px 0 0; }
+.rpm3 .addons-lede { margin-top: 22px; max-width: 62ch; font-size: 18px; line-height: 1.6; color: var(--text); }
+.rpm3 .addon-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid var(--line); margin-top: clamp(40px,5vw,64px); }
+.rpm3 .addon { padding: clamp(26px,2.4vw,38px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background .2s; }
+.rpm3 .addon:hover { background: #f7f7f7; }
+.rpm3 .addon h3 { font-family: var(--display); font-size: clamp(19px,1.6vw,22px); font-weight: 500; margin-bottom: 14px; }
+.rpm3 .addon p { font-size: 14.5px; line-height: 1.55; color: var(--text); flex: 1; }
+.rpm3 .addon-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); }
+.rpm3 .addon-price { font-size: 14px; font-weight: 600; color: var(--text); }
+.rpm3 .addon-book { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
+@media (max-width: 880px) { .rpm3 .addon-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .rpm3 .addon-grid { grid-template-columns: 1fr; } .rpm3 .addon { border-right: none; } }
