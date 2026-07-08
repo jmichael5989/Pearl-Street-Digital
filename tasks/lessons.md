@@ -31,3 +31,34 @@ environment `grep -F` (fixed-string) returns 0 matches on it even when the strin
 is present, and `grep -c` counts *lines* (always 1). Use `grep -oE '<regex>' | wc -l`
 for reliable counts when curling live/prod HTML. Also remember the RSC flight
 payload duplicates rendered text, so DOM counts roughly double.
+
+## `.appear` scroll-reveal: mount ScrollReveal where it REMOUNTS on navigation
+
+**Mistake (phase-A service detail pages, 2026-07-07):** the ported detail pages
+used `.appear` (opacity:0 until `ScrollReveal` adds `.in`), and `ScrollReveal` was
+mounted in `app/services/layout.tsx`. That layout PERSISTS across client-side
+navigation within `/services`, so `ScrollReveal` scanned once on mount and never
+re-observed a newly-navigated page's `.appear` elements. Clicking "Read more"
+(overview→detail, detail→detail) landed on a page whose content stayed at
+opacity:0 — a **blank white page**. Direct URL loads worked (fresh mount), which
+is exactly why curl + fresh-load checks passed and I shipped it. The user caught it.
+
+**Fix:** `components/home/ScrollRevealOnRoute.tsx` renders `<ScrollReveal key={pathname}>`
+so a route change forces a remount → the effect re-runs → re-observes. Use that
+(not bare `<ScrollReveal/>`) in any PERSISTENT layout. Page-level `<ScrollReveal/>`
+is fine because route-segment pages already remount on nav.
+
+**Rules:**
+- Any `.appear`/IntersectionObserver reveal must be re-triggered on SPA nav. If
+  it lives in a persistent layout, key it by `usePathname()`; otherwise mount it
+  in the page. (A one-shot `useEffect(...,[])` in a persistent layout is the trap.
+  Note: adding `usePathname()` but forgetting to put `pathname` in the dep array
+  is a silent no-op — I did exactly that first.)
+- **Client-reveal bugs are invisible to curl.** Server HTML ships `.appear` at
+  opacity:0 by design, so `curl | grep 'svc-hero'` says "present" while the live
+  page renders blank. Verify reveals in a browser, exercising the ACTUAL nav path
+  (click "Read more"), not just a direct load.
+- **Headless preview gotchas when testing reveals:** `window.innerHeight` can read
+  0 (no layout) → resize with explicit `preview_resize {width,height}`; and the
+  IntersectionObserver does NOT fire its initial callback without a paint —
+  trigger it with `window.scrollTo(0,400); scrollTo(0,0)` before asserting `.in`.
