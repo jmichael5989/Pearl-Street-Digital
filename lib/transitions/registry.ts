@@ -21,7 +21,7 @@ const DEFAULT_EFFECT: EffectLoader = slats;
 const REGISTRY: Partial<Record<Namespace, EffectLoader>> = {
   home: whiteCurtain,
   about: whiteCurtain,
-  services: curtain,
+  services: whiteCurtain,
   industries: curtain,
   contact: curtain,
   caseStudies: () => import("./effects/sectionMorph").then((m) => m.default),
