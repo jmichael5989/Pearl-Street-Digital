@@ -6,8 +6,6 @@ import ServicesIntro from "@/components/services/ServicesIntro";
 import ServicesToc from "@/components/services/ServicesToc";
 import ServicesBuild from "@/components/services/ServicesBuild";
 import ServicesFaq from "@/components/services/ServicesFaq";
-import PreFooterCta from "@/components/home/PreFooterCta";
-import ThreeColorFooter from "@/components/home/ThreeColorFooter";
 import ScrollReveal from "@/components/home/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -83,11 +81,7 @@ export default function ServicesPage() {
         <ServicesToc />
         <ServicesBuild />
         <ServicesFaq />
-        <PreFooterCta />
       </main>
-      <div className="rpm3">
-        <ThreeColorFooter />
-      </div>
       <ScrollReveal />
     </>
   );
