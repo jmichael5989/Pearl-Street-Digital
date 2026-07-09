@@ -51,9 +51,25 @@ export default function GlassHeader({
   }, [forceScrolled]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (!menuOpen) return;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "";
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.width = prev.width;
+      body.style.overflow = prev.overflow;
+      window.scrollTo(0, scrollY);
     };
   }, [menuOpen]);
 
@@ -159,7 +175,7 @@ export default function GlassHeader({
 
       {/* Mobile full-screen overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-xl transition-all duration-300 ease-out ${
+        className={`fixed inset-0 z-40 bg-brand-dark/95 backdrop-blur-xl transition-all duration-300 ease-out overscroll-none ${
           menuOpen
             ? "opacity-100 pointer-events-auto translate-y-0"
             : "opacity-0 pointer-events-none -translate-y-4"

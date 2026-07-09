@@ -78,8 +78,8 @@ export default function ContactForm({ theme = "navy" }: ContactFormProps) {
   const isThreeColor = theme === "threeColor";
 
   const inputClasses = isThreeColor
-    ? "w-full border-0 border-b border-[#9C9C9C] bg-transparent px-0 py-2 text-base text-black transition-colors focus:outline-none focus:border-black font-[family-name:var(--ff-inter-tight)] placeholder:text-[#9C9C9C]"
-    : "w-full border border-border bg-light px-4 py-3 text-base text-text placeholder:text-gray transition-colors focus:outline-none focus:border-text font-body";
+    ? "w-full border-0 border-b border-[#9C9C9C] bg-transparent px-0 py-2 text-base text-black transition-colors focus:outline-none focus:border-black font-[family-name:var(--ff-inter-tight)] placeholder:text-[#9C9C9C] min-h-[44px]"
+    : "w-full border border-border bg-light px-4 py-3 text-base text-text placeholder:text-gray transition-colors focus:outline-none focus:border-text font-body min-h-[44px]";
 
   const labelClasses = isThreeColor
     ? "mb-2 block text-[11.5px] font-medium uppercase tracking-[0.12em] text-[#9C9C9C] font-[family-name:var(--ff-jetbrains)]"

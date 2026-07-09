@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import {
   Source_Serif_4,
   Source_Sans_3,
@@ -116,6 +116,21 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://rankpointmedia.com" },
+  appleWebApp: {
+    capable: true,
+    title: "Rank Point",
+    statusBarStyle: "default",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FAFAF6" },
+    { media: "(prefers-color-scheme: dark)", color: "#14213D" },
+  ],
 };
 
 export default function RootLayout({
@@ -130,25 +145,6 @@ export default function RootLayout({
       className={`${sourceSerif4.variable} ${sourceSans3.variable} ${sourceCodePro.variable} ${fraunces.variable} ${interTight.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <head>
-        {/* Cal.com resource hints — the booking widget on the homepage is
-            the highest-leverage interactive element on the site. Preconnect
-            opens TCP/TLS to the embed origins (app.cal.com serves embed.js,
-            cal.com serves the iframe content). Preload starts fetching the
-            ~50KB embed.js during HTML parse so it's already in the cache by
-            the time Consultation's useEffect appends the script tag — saves
-            ~200-500ms of "Loading the calendar..." on first visit. */}
-        <link
-          rel="preconnect"
-          href="https://app.cal.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
-        <link
-          rel="preload"
-          href="https://app.cal.com/embed/embed.js"
-          as="script"
-          crossOrigin="anonymous"
-        />
         {/* Static og:image fallback. Emitted manually because Next.js's
             file convention at `app/opengraph-image.tsx` would otherwise
             override anything we set via `metadata.openGraph.images`.
@@ -209,7 +205,7 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body className="min-h-full flex flex-col pb-14 md:pb-0">
+      <body className="min-h-full flex flex-col pb-[calc(3.5rem_+_env(safe-area-inset-bottom))] md:pb-0">
         {/* Pre-paint capability flag: matches VoxelHero's WebGL gate exactly.
             Adds `voxel-cap` to <html> before first paint (persists across SPA
             nav) so the homepage hero statement is hidden via CSS until the glass

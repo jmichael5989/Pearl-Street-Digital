@@ -113,6 +113,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -568,13 +571,26 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
   background: var(--grey);
   transition: background-color 0.25s ease;
 }
-.rpm3 .u-link:hover::after,
+/* Expand .u-link tap target to >=44px WITHOUT growing its box (the ::after
+   underline is anchored to the box; growing the box would detach it). This
+   transparent overlay only adds hit area, on touch devices only. */
+@media (pointer: coarse) {
+  .rpm3 .u-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 44px;
+    min-width: 44px;
+  }
+}
 .rpm3 .u-link:focus-visible::after { background: currentColor; }
 .rpm3 .u-link-arrow {
   flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.rpm3 .u-link:hover .u-link-arrow,
 .rpm3 .u-link:focus-visible .u-link-arrow {
   transform: translate(2px, -2px);
 }
@@ -593,10 +609,8 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
   transition: background 0.25s, color 0.25s;
   cursor: pointer;
 }
-.rpm3 .btn:hover,
 .rpm3 .btn:focus-visible { background: var(--white); color: var(--black); }
 .rpm3 .inverted .btn { background: var(--white); color: var(--black); border-color: var(--white); }
-.rpm3 .inverted .btn:hover { background: transparent; color: var(--white); }
 
 .rpm3 .appear {
   opacity: 0;
@@ -604,6 +618,17 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
   transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .rpm3 .appear.in { opacity: 1; transform: none; }
+
+/* Inner three-color hero clusters are LCP content: paint on first server
+   render, never gated behind ScrollReveal hydration. Below-the-fold .appear
+   reveals are unaffected. */
+.rpm3 .about-hero .appear,
+.rpm3 .svc-hero .appear,
+.rpm3 .cs-hero .appear {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
 
 .rpm3 .inverted { --text: #fff; --line: #9c9c9c; --muted: #9c9c9c; background: #000; color: #fff; }
 .rpm3 .inverted .kicker { color: var(--muted); }
@@ -704,7 +729,6 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .next-step p { color: var(--text); font-size: 15.5px; }
 .rpm3 .contact-direct { margin-top: 36px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; display: flex; flex-direction: column; gap: 10px; }
 .rpm3 .contact-direct a { color: var(--text); border-bottom: 1px solid var(--grey); }
-.rpm3 .contact-direct a:hover { border-color: var(--black); }
 @media (max-width: 880px) { .rpm3 .contact-grid { grid-template-columns: 1fr; } }
 
 /* CTA BAND */
@@ -728,10 +752,8 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .foot-blurb { font-size: 14.5px; color: var(--grey); max-width: 24em; margin-top: 14px; line-height: 1.65; }
 .rpm3 .foot-grid ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .rpm3 .foot-grid li a { font-size: 14.5px; color: var(--grey); }
-.rpm3 .foot-grid li a:hover { color: var(--white); }
 .rpm3 .foot-contact { font-family: var(--mono); font-size: 13px; display: flex; flex-direction: column; gap: 10px; color: var(--grey); }
 .rpm3 .foot-contact a { color: var(--grey); }
-.rpm3 .foot-contact a:hover { color: var(--white); }
 .rpm3 .foot-legal { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding-top: 30px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--grey); }
 .rpm3 .foot-legal a { color: var(--grey); }
 .rpm3 .foot-badge { margin-top: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; display: flex; justify-content: center; gap: 8px; }
@@ -739,6 +761,11 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .foot-badge span:last-child { color: #b78f3e; }
 @media (max-width: 880px) { .rpm3 .foot-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 540px) { .rpm3 .foot-grid { grid-template-columns: 1fr; } }
+@media (pointer: coarse) {
+  .rpm3 .foot-grid li a,
+  .rpm3 .foot-contact a { display: inline-flex; align-items: center; min-height: 44px; }
+  .rpm3 .foot-grid ul { gap: 2px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .rpm3 .appear { opacity: 1; transform: none; transition: none; }
@@ -825,7 +852,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .svc-hero .lede { font-size: clamp(18px, 1.7vw, 22px); max-width: 40em; color: var(--text); }
 .rpm3 .svc-cta-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 38px; }
 .rpm3 .btn-ghost { display: inline-block; padding: 16px 32px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: transparent; color: var(--black); border: 1px solid var(--black); transition: background .25s, color .25s; cursor: pointer; }
-.rpm3 .btn-ghost:hover, .rpm3 .btn-ghost:focus-visible { background: var(--black); color: var(--white); }
+.rpm3 .btn-ghost:focus-visible { background: var(--black); color: var(--white); }
 .rpm3 .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 3vw, 48px); margin-top: clamp(48px, 6vw, 80px); border-top: 1px solid var(--line); padding-top: 42px; }
 .rpm3 .metric-val { font-family: var(--display); font-size: clamp(34px, 4vw, 56px); font-weight: 500; line-height: 1; letter-spacing: -0.02em; }
 .rpm3 .metric-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); margin-top: 12px; }
@@ -864,7 +891,6 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .faq-list { max-width: 760px; border-top: 1px solid var(--line); margin-top: clamp(48px, 6vh, 64px); }
 .rpm3 .faq-item { border-bottom: 1px solid var(--line); }
 .rpm3 .faq-q { display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 24px; padding: 22px 0; text-align: left; background: none; border: none; cursor: pointer; font-family: var(--display); font-size: clamp(18px, 1.7vw, 21px); font-weight: 500; line-height: 1.35; color: var(--text); transition: color .22s; }
-.rpm3 .faq-q:hover { color: var(--grey); }
 .rpm3 .faq-sign { flex-shrink: 0; font-family: var(--body); font-size: 24px; line-height: 1; color: var(--grey); }
 .rpm3 .faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
 .rpm3 .faq-item.open .faq-a { grid-template-rows: 1fr; }
@@ -891,7 +917,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 
 /* ===== btn-light (secondary on inverted hero) ===== */
 .rpm3 .btn-light { background: var(--white); color: var(--black); border-color: var(--white); }
-.rpm3 .btn-light:hover, .rpm3 .btn-light:focus-visible { background: transparent; color: var(--white); }
+.rpm3 .btn-light:focus-visible { background: transparent; color: var(--white); }
 
 /* ===== pricing section header ===== */
 .rpm3 .price-head h2 { font-size: clamp(34px,4.4vw,64px); max-width: 24ch; margin: 22px 0 0; }
@@ -900,9 +926,8 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 
 /* ===== toggle ===== */
 .rpm3 .toggle { display: inline-flex; align-items: center; gap: 38px; margin-top: 44px; }
-.rpm3 .toggle button { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 0 0 8px; background: none; border: none; border-bottom: 2px solid transparent; color: var(--grey); cursor: pointer; transition: color .25s,border-color .25s; }
+.rpm3 .toggle button { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 12px 0 8px; min-height: 44px; display: inline-flex; align-items: flex-end; background: none; border: none; border-bottom: 2px solid transparent; color: var(--grey); cursor: pointer; transition: color .25s,border-color .25s; }
 .rpm3 .toggle button.active { color: var(--text); border-bottom-color: var(--text); }
-.rpm3 .toggle button:not(.active):hover { color: var(--text); }
 
 /* ===== tiers ===== */
 .rpm3 .tiers { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); margin-top: clamp(40px,5vw,64px); }
@@ -919,7 +944,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .tier.featured .tier-feats li.emph { color: #fff; }
 .rpm3 .tier.featured .tier-badge { background: #fff; color: #000; }
 .rpm3 .tier.featured .tier-cta { background: #fff; color: #000; border-color: #fff; }
-.rpm3 .tier.featured .tier-cta:hover, .rpm3 .tier.featured .tier-cta:focus-visible { background: transparent; color: #fff; }
+.rpm3 .tier.featured .tier-cta:focus-visible { background: transparent; color: #fff; }
 .rpm3 .tier h3 { font-family: var(--display); font-size: clamp(24px,2.4vw,32px); font-weight: 500; margin-bottom: 4px; }
 .rpm3 .tier-pages { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--grey); text-transform: none; margin-bottom: 26px; }
 .rpm3 .tier-price-row { display: flex; align-items: baseline; gap: 10px; }
@@ -931,7 +956,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .tier-feats li.emph { font-weight: 600; }
 .rpm3 .tier-feats li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border: 1px solid currentColor; border-radius: 50%; }
 .rpm3 .tier-cta { display: block; width: 100%; text-align: center; padding: 15px 18px; font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--black); color: var(--white); border: 1px solid var(--black); cursor: pointer; transition: background .25s,color .25s; }
-.rpm3 .tier-cta:hover, .rpm3 .tier-cta:focus-visible { background: var(--white); color: var(--black); }
+.rpm3 .tier-cta:focus-visible { background: var(--white); color: var(--black); }
 @media (max-width: 880px) {
   .rpm3 .tiers { grid-template-columns: 1fr; border-top: none; }
   .rpm3 .tier { border-right: none; border-top: 1px solid var(--line); }
@@ -942,7 +967,6 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .addons-lede { margin-top: 22px; max-width: 62ch; font-size: 18px; line-height: 1.6; color: var(--text); }
 .rpm3 .addon-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid var(--line); margin-top: clamp(40px,5vw,64px); }
 .rpm3 .addon { padding: clamp(26px,2.4vw,38px); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background .2s; }
-.rpm3 .addon:hover { background: #f7f7f7; }
 .rpm3 .addon h3 { font-family: var(--display); font-size: clamp(19px,1.6vw,22px); font-weight: 500; margin-bottom: 14px; }
 .rpm3 .addon p { font-size: 14.5px; line-height: 1.55; color: var(--text); flex: 1; }
 .rpm3 .addon-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); }
@@ -950,3 +974,20 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .addon-book { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
 @media (max-width: 880px) { .rpm3 .addon-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .rpm3 .addon-grid { grid-template-columns: 1fr; } .rpm3 .addon { border-right: none; } }
+
+@media (hover: hover) and (pointer: fine) {
+  .rpm3 .btn:hover { background: var(--white); color: var(--black); }
+  .rpm3 .inverted .btn:hover { background: transparent; color: var(--white); }
+  .rpm3 .btn-ghost:hover { background: var(--black); color: var(--white); }
+  .rpm3 .btn-light:hover { background: transparent; color: var(--white); }
+  .rpm3 .u-link:hover::after { background: currentColor; }
+  .rpm3 .u-link:hover .u-link-arrow { transform: translate(2px, -2px); }
+  .rpm3 .foot-grid li a:hover { color: var(--white); }
+  .rpm3 .foot-contact a:hover { color: var(--white); }
+  .rpm3 .contact-direct a:hover { border-color: var(--black); }
+  .rpm3 .faq-q:hover { color: var(--grey); }
+  .rpm3 .toggle button:not(.active):hover { color: var(--text); }
+  .rpm3 .tier.featured .tier-cta:hover { background: transparent; color: #fff; }
+  .rpm3 .tier-cta:hover { background: var(--white); color: var(--black); }
+  .rpm3 .addon:hover { background: #f7f7f7; }
+}

@@ -42,7 +42,7 @@ export default function MobileCTABar() {
   const threeColor = pathname === "/" || pathname === "/about" || pathname === "/services" || pathname.startsWith("/services/") || pathname === "/case-studies" || pathname === "/pricing";
   if (threeColor) {
     return (
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-[#333] bg-black md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-[#333] bg-black pb-[env(safe-area-inset-bottom)] md:hidden">
         <a
           href="tel:+12103057372"
           className="flex flex-1 items-center justify-center gap-2 border-r border-[#333] font-[family-name:var(--ff-jetbrains)] text-xs font-medium uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#111]"
@@ -61,7 +61,7 @@ export default function MobileCTABar() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-border bg-light md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-border bg-light pb-[env(safe-area-inset-bottom)] md:hidden">
       <a
         href="tel:+12103057372"
         className="flex flex-1 items-center justify-center gap-2 bg-text text-sm font-medium text-light transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark"

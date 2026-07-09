@@ -64,11 +64,25 @@ export default function VoxelHeader({
       if (e.key === "Escape") setOpen(false);
     };
     document.addEventListener("keydown", onKey);
-    const prev = document.documentElement.style.overflow;
-    document.documentElement.style.overflow = "hidden";
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.documentElement.style.overflow = prev;
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.width = prev.width;
+      body.style.overflow = prev.overflow;
+      window.scrollTo(0, scrollY);
     };
   }, [open]);
 
@@ -90,7 +104,7 @@ export default function VoxelHeader({
             aria-label="Open menu"
             aria-expanded={open}
             onClick={() => setOpen(true)}
-            className="group flex h-[36px] w-[48px] flex-col justify-center gap-[9px] p-0"
+            className="group flex h-12 w-12 flex-col justify-center gap-[9px] p-0"
           >
             <span className={`block h-[2px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
             <span className={`block h-[2px] w-full transition-colors ${heroBar} group-hover:bg-white`} />
@@ -116,11 +130,11 @@ export default function VoxelHeader({
               aria-label="Open menu"
               aria-expanded={open}
               onClick={() => setOpen(true)}
-              className="group flex h-[26px] w-[34px] flex-col justify-center gap-[6px] p-0"
+              className="group -mr-2 flex h-11 w-11 flex-col items-end justify-center gap-[6px] p-0"
             >
-              <span className="block h-[1.5px] w-full bg-black transition-colors group-hover:bg-[#9C9C9C]" />
-              <span className="block h-[1.5px] w-full bg-black transition-colors group-hover:bg-[#9C9C9C]" />
-              <span className="block h-[1.5px] w-full bg-black transition-colors group-hover:bg-[#9C9C9C]" />
+              <span className="block h-[1.5px] w-[34px] bg-black transition-colors group-hover:bg-[#9C9C9C]" />
+              <span className="block h-[1.5px] w-[34px] bg-black transition-colors group-hover:bg-[#9C9C9C]" />
+              <span className="block h-[1.5px] w-[34px] bg-black transition-colors group-hover:bg-[#9C9C9C]" />
             </button>
           </div>
         </header>
@@ -131,7 +145,7 @@ export default function VoxelHeader({
         aria-label="Main menu"
         aria-hidden={!open}
         className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-[clamp(4px,1.1vh,14px)] bg-[#0A0A0A] transition-[opacity,visibility] duration-[450ms] ease-[cubic-bezier(.22,1,.36,1)]"
-        style={{ opacity: open ? 1 : 0, visibility: open ? "visible" : "hidden" }}
+        style={{ opacity: open ? 1 : 0, visibility: open ? "visible" : "hidden", overscrollBehavior: "none" }}
       >
         <button
           type="button"

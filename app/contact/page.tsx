@@ -44,6 +44,9 @@ const contactSchema = {
 export default function ContactPage() {
   return (
     <>
+      <link rel="preconnect" href="https://app.cal.com" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
+      <link rel="preload" href="https://app.cal.com/embed/embed.js" as="script" crossOrigin="anonymous" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}

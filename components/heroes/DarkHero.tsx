@@ -93,10 +93,10 @@ export default function DarkHero({
       <HeroBackground />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-16 sm:pt-32 lg:pt-48 lg:pb-20 flex flex-col min-h-[85vh] lg:min-h-[90vh]">
-        <div className="grid grid-cols-12 gap-8 flex-1">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 flex-1">
           {/* LEFT: copy + CTAs */}
           <div
-            className={`col-span-12 ${showMockups ? "lg:col-span-7" : "lg:col-span-9"} flex flex-col`}
+            className={`col-span-1 ${showMockups ? "lg:col-span-7" : "lg:col-span-9"} flex flex-col`}
           >
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-dark break-words">
               {kicker}
