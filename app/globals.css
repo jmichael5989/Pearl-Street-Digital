@@ -300,7 +300,13 @@ body {
   color: var(--hero-text);
 }
 .voxel-hero.no-webgl .gl-canvas { display: none; }
-.voxel-hero.no-webgl .gl-fallback { display: flex; }
+/* On the no-WebGL fallback path (mobile / touch-pointer / WebGL-off / init
+   failure) the server-rendered .voxel-statement <h1> stays visible (its hide
+   rule is gated `:not(.no-webgl)`) and IS the hero. The static wordmark used to
+   also show here (display:flex), producing a wordmark + statement overlap in the
+   centre. Keep the statement (it's the LCP <h1> and matches the WebGL resting
+   state) and leave the redundant fallback wordmark hidden. */
+.voxel-hero.no-webgl .gl-fallback { display: none; }
 
 /* Gold horizon line — the "floor". Its `top` is set by fit() in JS so it sits
    just below the wordmark. Wordmark above, shards pile below. */
