@@ -300,13 +300,40 @@ body {
   color: var(--hero-text);
 }
 .voxel-hero.no-webgl .gl-canvas { display: none; }
-/* On the no-WebGL fallback path (mobile / touch-pointer / WebGL-off / init
-   failure) the server-rendered .voxel-statement <h1> stays visible (its hide
-   rule is gated `:not(.no-webgl)`) and IS the hero. The static wordmark used to
-   also show here (display:flex), producing a wordmark + statement overlap in the
-   centre. Keep the statement (it's the LCP <h1> and matches the WebGL resting
-   state) and leave the redundant fallback wordmark hidden. */
-.voxel-hero.no-webgl .gl-fallback { display: none; }
+/* No-WebGL fallback layout (phones / touch-pointer / WebGL-off / init failure).
+   The WebGL path positions the wordmark, tagline <h1>, Established stamp and CTA
+   as absolute overlays that only read correctly with the canvas behind them —
+   without it they collapse onto each other (wordmark + tagline overlapped in the
+   centre). So on .no-webgl lay the hero out as a normal centred flowing column,
+   in DOM order: brand wordmark, then the tagline <h1>, then the Established stamp,
+   then the CTA. Canvas + horizon are already display:none; the vignette stays an
+   absolute background. */
+.voxel-hero.no-webgl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3.2vh, 38px);
+  padding: clamp(76px, 11vh, 116px) var(--hero-gutter) clamp(84px, 13vh, 124px);
+}
+.voxel-hero.no-webgl .gl-fallback,
+.voxel-hero.no-webgl .voxel-statement,
+.voxel-hero.no-webgl .voxel-established,
+.voxel-hero.no-webgl .voxel-overlay {
+  position: static;
+  inset: auto;
+  top: auto;
+  transform: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.voxel-hero.no-webgl .gl-fallback { display: flex; }
+.voxel-hero.no-webgl .voxel-overlay {
+  padding-top: 0;
+  padding-bottom: 0;
+  justify-content: center;
+}
 
 /* Gold horizon line — the "floor". Its `top` is set by fit() in JS so it sits
    just below the wordmark. Wordmark above, shards pile below. */
