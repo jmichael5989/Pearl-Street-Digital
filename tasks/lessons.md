@@ -62,3 +62,12 @@ is fine because route-segment pages already remount on nav.
   0 (no layout) → resize with explicit `preview_resize {width,height}`; and the
   IntersectionObserver does NOT fire its initial callback without a paint —
   trigger it with `window.scrollTo(0,400); scrollTo(0,0)` before asserting `.in`.
+- **Never put `.appear` (or any JS-gated reveal) on the LCP / above-the-fold hero.**
+  During the three-color ports, every inner hero `<h1>` (+ kicker/lede) got
+  `className="appear"` (opacity:0 until ScrollReveal runs). That render-blocks the
+  LCP element behind hydration on throttled mobile — a real Core-Web-Vitals
+  regression — and is the same blank-on-nav trap. Fix shipped: force-paint the hero
+  cluster with `.rpm3 .about-hero/.svc-hero/.cs-hero .appear { opacity:1; transform:none; transition:none }`
+  so it renders on first server paint; keep `.appear` for below-the-fold sections
+  only. Rule: above-the-fold hero content must be visible on first server render,
+  never gated behind client JS.
