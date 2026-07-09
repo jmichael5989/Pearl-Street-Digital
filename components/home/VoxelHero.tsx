@@ -103,18 +103,24 @@ export default function VoxelHero() {
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Capability gate. The three.js + Rapier hero is a desktop enhancement: on a
-    // throttled mobile CPU the physics settle jams the main thread (Lighthouse
-    // mobile TBT/LCP). So we only load and run it on wide, fine-pointer,
-    // motion-OK, non-data-saver clients. Everyone else gets a fast static hero —
-    // the CSS wordmark ("no-webgl" reveals it) plus the server-rendered <h1> and
-    // CTA — with three/rapier never imported at all.
+    // Capability gate. The three.js + Rapier hero is a large-screen enhancement:
+    // on a throttled mobile CPU the physics settle jams the main thread
+    // (Lighthouse mobile TBT/LCP). Run it on desktops (fine pointer, >=900px) AND
+    // on any wide screen >=1024px — so touch-screen laptops / hybrids (which
+    // report `pointer: coarse` even with a mouse) get the animation too, while
+    // phones (incl. landscape ~<=930px) and small/portrait tablets stay on the
+    // fast static hero (the server-rendered <h1> + CTA), with three/rapier never
+    // imported. Reduced-motion + save-data are always honored.
+    // NOTE: keep this media string IDENTICAL to the pre-paint voxel-cap gate in
+    // app/layout.tsx — a mismatch hides the statement without a wordmark (or v.v.).
     const conn = (
       navigator as Navigator & { connection?: { saveData?: boolean } }
     ).connection;
     const capable =
       !reduce &&
-      window.matchMedia("(min-width: 900px) and (pointer: fine)").matches &&
+      window.matchMedia(
+        "(min-width: 900px) and (pointer: fine), (min-width: 1024px)",
+      ).matches &&
       !(conn && conn.saveData);
 
     if (!capable) {

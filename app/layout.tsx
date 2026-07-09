@@ -213,7 +213,7 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{var m=window.matchMedia;if(m('(min-width: 900px) and (pointer: fine)').matches&&!m('(prefers-reduced-motion: reduce)').matches&&!(navigator.connection&&navigator.connection.saveData)){document.documentElement.classList.add('voxel-cap')}}catch(e){}",
+              "try{var m=window.matchMedia;if(m('(min-width: 900px) and (pointer: fine), (min-width: 1024px)').matches&&!m('(prefers-reduced-motion: reduce)').matches&&!(navigator.connection&&navigator.connection.saveData)){document.documentElement.classList.add('voxel-cap')}}catch(e){}",
           }}
         />
         <script
