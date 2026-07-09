@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Footer from "@/components/ui/Footer";
-import DarkHero from "@/components/heroes/DarkHero";
+import ContactHero from "@/components/contact/ContactHero";
 import ContactContent from "@/components/contact/ContactContent";
 import Consultation from "@/components/sections/Consultation";
+import ThreeColorFooter from "@/components/home/ThreeColorFooter";
+import ScrollReveal from "@/components/home/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Contact Us | Rank Point Media",
@@ -46,24 +47,25 @@ export default function ContactPage() {
     <>
       <link rel="preconnect" href="https://app.cal.com" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://cal.com" crossOrigin="anonymous" />
-      <link rel="preload" href="https://app.cal.com/embed/embed.js" as="script" crossOrigin="anonymous" />
+      <link
+        rel="preload"
+        href="https://app.cal.com/embed/embed.js"
+        as="script"
+        crossOrigin="anonymous"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
-      <main>
-        <DarkHero
-          kicker="CONTACT"
-          headline="Tell us about your business."
-          subheadline="A 60-minute conversation with Jon. We listen first, then tell you what we'd actually do — and whether we're the right fit."
-          primaryCta={{ label: "Book a consultation", href: "#talk-to-us" }}
-          secondaryCta={{ label: "(210) 305-7372", href: "tel:+12103057372" }}
-          showMockups={false}
-        />
+      <main className="rpm3">
+        <ContactHero />
         <Consultation />
-        <ContactContent numeral="03" />
+        <ContactContent />
       </main>
-      <Footer hidePreFooterCTA />
+      <div className="rpm3">
+        <ThreeColorFooter />
+      </div>
+      <ScrollReveal />
     </>
   );
 }

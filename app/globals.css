@@ -657,7 +657,8 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
    reveals are unaffected. */
 .rpm3 .about-hero .appear,
 .rpm3 .svc-hero .appear,
-.rpm3 .cs-hero .appear {
+.rpm3 .cs-hero .appear,
+.rpm3 .contact-hero .appear {
   opacity: 1;
   transform: none;
   transition: none;
@@ -1001,3 +1002,24 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
   .rpm3 .tier-cta:hover { background: var(--white); color: var(--black); }
   .rpm3 .addon:hover { background: #f7f7f7; }
 }
+
+/* ---- CONTACT PAGE (three-color) ---- */
+.rpm3 .contact-hero { padding-top: clamp(64px, 9vw, 128px); }
+.rpm3 .contact-hero h1 { font-size: clamp(46px, 7vw, 104px); margin: 26px 0 28px; max-width: 13ch; }
+.rpm3 .contact-hero .lede { font-size: clamp(18px, 1.7vw, 22px); max-width: 40em; color: var(--text); }
+/* Force-paint the above-the-fold inverted hero on first load (like the other
+   inner-page heroes) so it isn't gated behind the scroll-reveal observer.
+   Declared above in the shared LCP cluster; this comment is a breadcrumb. */
+
+.rpm3 .consult h2 { font-size: clamp(34px, 4.6vw, 68px); margin: 24px 0 22px; max-width: 15ch; }
+.rpm3 .consult-lede { font-size: clamp(18px, 1.6vw, 21px); max-width: 42em; color: var(--text); margin-bottom: 26px; }
+.rpm3 .consult-note { font-family: var(--body); font-size: 15px; line-height: 1.55; color: var(--grey); max-width: 42em; padding-top: 16px; border-top: 1px solid var(--line); }
+.rpm3 .consult-cal { position: relative; margin-top: clamp(44px, 6vw, 72px); }
+
+.rpm3 .touch h2 { font-size: clamp(34px, 4.6vw, 68px); margin: 24px 0 22px; max-width: 18ch; }
+.rpm3 .touch-lede { font-size: clamp(18px, 1.6vw, 21px); max-width: 58ch; color: var(--text); }
+.rpm3 .touch .contact-grid { margin-top: clamp(48px, 6vw, 72px); }
+.rpm3 .next-head { font-family: var(--display); font-size: clamp(20px, 1.9vw, 24px); font-weight: 500; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: clamp(20px, 2.4vw, 30px); }
+.rpm3 .trust { display: flex; align-items: center; gap: 12px; margin-top: clamp(30px, 4vw, 44px); border: 1px solid var(--line); padding: 16px 20px; }
+.rpm3 .trust svg { flex: none; color: var(--grey); }
+.rpm3 .trust p { font-size: 14px; line-height: 1.5; color: var(--text); }

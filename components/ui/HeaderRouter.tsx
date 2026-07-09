@@ -30,5 +30,6 @@ export default function HeaderRouter() {
   if (pathname === "/services" || pathname.startsWith("/services/")) return <VoxelHeader variant="bar" />;
   if (pathname === "/case-studies") return <VoxelHeader variant="bar" />;
   if (pathname === "/pricing") return <VoxelHeader variant="bar" />;
+  if (pathname === "/contact") return <VoxelHeader variant="bar" />;
   return <GlassHeader forceScrolled={isLightHeroRoute(pathname)} />;
 }
