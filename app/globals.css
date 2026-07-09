@@ -658,7 +658,8 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .about-hero .appear,
 .rpm3 .svc-hero .appear,
 .rpm3 .cs-hero .appear,
-.rpm3 .contact-hero .appear {
+.rpm3 .contact-hero .appear,
+.rpm3 .ind-hero .appear {
   opacity: 1;
   transform: none;
   transition: none;
@@ -1023,3 +1024,8 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .trust { display: flex; align-items: center; gap: 12px; margin-top: clamp(30px, 4vw, 44px); border: 1px solid var(--line); padding: 16px 20px; }
 .rpm3 .trust svg { flex: none; color: var(--grey); }
 .rpm3 .trust p { font-size: 14px; line-height: 1.5; color: var(--text); }
+
+/* ---- INDUSTRIES PAGE (three-color) ---- */
+.rpm3 .ind-hero { padding-top: clamp(64px, 9vw, 128px); }
+.rpm3 .ind-hero h1 { font-size: clamp(46px, 7vw, 104px); margin: 26px 0 28px; max-width: 15ch; }
+.rpm3 .ind-hero .lede { font-size: clamp(18px, 1.7vw, 22px); max-width: 42em; color: var(--text); }

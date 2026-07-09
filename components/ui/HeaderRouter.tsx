@@ -9,7 +9,7 @@ import VoxelHeader from "@/components/home/VoxelHeader";
 // (navy translucent strip with warm-white wordmark — visible on light hero).
 // After the DarkHero rollout, only /industries (overview) and the /blog
 // surface (index + post detail) still have light editorial heroes.
-const LIGHT_HERO_EXACT = new Set<string>(["/industries"]);
+const LIGHT_HERO_EXACT = new Set<string>([]);
 const LIGHT_HERO_PREFIXES = ["/blog", "/local"];
 
 function isLightHeroRoute(pathname: string): boolean {
@@ -31,5 +31,6 @@ export default function HeaderRouter() {
   if (pathname === "/case-studies") return <VoxelHeader variant="bar" />;
   if (pathname === "/pricing") return <VoxelHeader variant="bar" />;
   if (pathname === "/contact") return <VoxelHeader variant="bar" />;
+  if (pathname === "/industries" || pathname.startsWith("/industries/")) return <VoxelHeader variant="bar" />;
   return <GlassHeader forceScrolled={isLightHeroRoute(pathname)} />;
 }

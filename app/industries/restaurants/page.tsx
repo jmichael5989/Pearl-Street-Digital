@@ -1,11 +1,10 @@
 import { Metadata } from "next";
-import Footer from "@/components/ui/Footer";
-import DarkHero from "@/components/heroes/DarkHero";
+import { getIndustry } from "@/lib/industries-data";
+import BreadcrumbsSchema from "@/components/seo/BreadcrumbsSchema";
+import IndustriesHero from "@/components/industries/IndustriesHero";
 import IndustryPainPoints from "@/components/industries/IndustryPainPoints";
 import IndustrySolutions from "@/components/industries/IndustrySolutions";
 import IndustryFAQ from "@/components/industries/IndustryFAQ";
-import { getIndustry } from "@/lib/industries-data";
-import BreadcrumbsSchema from "@/components/seo/BreadcrumbsSchema";
 
 const industry = getIndustry("restaurants");
 
@@ -74,20 +73,18 @@ export default function RestaurantsPage() {
           },
         ]}
       />
-      <main>
-        <DarkHero
+      <main className="rpm3">
+        <IndustriesHero
           kicker="RESTAURANTS"
           headline={industry.heroHeading}
-          subheadline={industry.heroSubtitle}
+          lede={industry.heroSubtitle}
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "See pricing", href: "/pricing" }}
-          showMockups={false}
         />
         <IndustryPainPoints industry={industry} />
         <IndustrySolutions industry={industry} />
         <IndustryFAQ industry={industry} />
       </main>
-      <Footer />
     </>
   );
 }

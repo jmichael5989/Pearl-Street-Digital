@@ -22,7 +22,7 @@ const REGISTRY: Partial<Record<Namespace, EffectLoader>> = {
   home: whiteCurtain,
   about: whiteCurtain,
   services: whiteCurtain,
-  industries: curtain,
+  industries: whiteCurtain,
   contact: whiteCurtain,
   caseStudies: whiteCurtain,
   blog: () => import("./effects/sectionMorph").then((m) => m.default),
