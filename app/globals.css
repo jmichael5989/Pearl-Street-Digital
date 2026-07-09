@@ -770,35 +770,14 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .cta-band .kicker::before { content: ""; height: 1px; width: 80px; background: var(--muted); }
 .rpm3 .cta-band h2 { font-size: clamp(34px, 4.8vw, 68px); max-width: 16ch; margin: 18px auto 30px; }
 
-/* FOOTER */
-.rpm3 footer { background: var(--black); color: var(--white); padding: 84px 0 40px; }
-.rpm3 .foot-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.2fr;
-  gap: clamp(28px, 4vw, 72px);
-  padding-bottom: 62px;
-  border-bottom: 1px solid var(--grey);
-}
-.rpm3 .foot-grid h3 { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey); font-weight: 500; margin-bottom: 18px; }
-.rpm3 .wordmark { font-family: var(--display); font-size: 21px; font-weight: 600; letter-spacing: -0.01em; color: var(--black); }
-.rpm3 .wordmark span { color: var(--grey); }
-.rpm3 .foot-blurb { font-size: 14.5px; color: var(--grey); max-width: 24em; margin-top: 14px; line-height: 1.65; }
-.rpm3 .foot-grid ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-.rpm3 .foot-grid li a { font-size: 14.5px; color: var(--grey); }
-.rpm3 .foot-contact { font-family: var(--mono); font-size: 13px; display: flex; flex-direction: column; gap: 10px; color: var(--grey); }
-.rpm3 .foot-contact a { color: var(--grey); }
-.rpm3 .foot-legal { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; padding-top: 30px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--grey); }
+/* FOOTER — nav grid (wordmark/blurb + Services/Company/Contact columns)
+   removed 2026-07-09; the footer is now just the legal row + design-by badge. */
+.rpm3 footer { background: var(--black); color: var(--white); padding: 56px 0 40px; }
+.rpm3 .foot-legal { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--grey); }
 .rpm3 .foot-legal a { color: var(--grey); }
 .rpm3 .foot-badge { margin-top: 20px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; display: flex; justify-content: center; gap: 8px; }
 .rpm3 .foot-badge span:first-child { color: rgba(255, 255, 255, 0.5); }
 .rpm3 .foot-badge span:last-child { color: #b78f3e; }
-@media (max-width: 880px) { .rpm3 .foot-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 540px) { .rpm3 .foot-grid { grid-template-columns: 1fr; } }
-@media (pointer: coarse) {
-  .rpm3 .foot-grid li a,
-  .rpm3 .foot-contact a { display: inline-flex; align-items: center; min-height: 44px; }
-  .rpm3 .foot-grid ul { gap: 2px; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .rpm3 .appear { opacity: 1; transform: none; transition: none; }
@@ -1015,8 +994,6 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
   .rpm3 .btn-light:hover { background: transparent; color: var(--white); }
   .rpm3 .u-link:hover::after { background: currentColor; }
   .rpm3 .u-link:hover .u-link-arrow { transform: translate(2px, -2px); }
-  .rpm3 .foot-grid li a:hover { color: var(--white); }
-  .rpm3 .foot-contact a:hover { color: var(--white); }
   .rpm3 .contact-direct a:hover { border-color: var(--black); }
   .rpm3 .faq-q:hover { color: var(--grey); }
   .rpm3 .toggle button:not(.active):hover { color: var(--text); }
