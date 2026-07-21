@@ -659,7 +659,9 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .svc-hero .appear,
 .rpm3 .cs-hero .appear,
 .rpm3 .contact-hero .appear,
-.rpm3 .ind-hero .appear {
+.rpm3 .ind-hero .appear,
+.rpm3 .blog-hero .appear,
+.rpm3 .post-hero .appear {
   opacity: 1;
   transform: none;
   transition: none;
@@ -1049,3 +1051,60 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 .rpm3 .legal-prose a { color: var(--black); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey); transition: text-decoration-color 0.2s ease; }
 .rpm3 .legal-prose a:hover { text-decoration-color: var(--black); }
 .rpm3 .legal-prose a:focus-visible { text-decoration-color: var(--black); outline: 2px solid var(--black); outline-offset: 2px; }
+
+/* ---- JOURNAL / BLOG (three-color): /blog, /blog/[slug] ---- */
+/* A light editorial reading surface (the .impeccable.md Frank Chimero
+   register), deliberately distinct from the inverted marketing heroes. */
+.rpm3 .blog-hero { padding-top: clamp(72px, 12vw, 150px); }
+.rpm3 .blog-hero h1 { font-size: clamp(42px, 8vw, 92px); line-height: 1.02; margin: 26px 0 0; max-width: 16ch; }
+.rpm3 .blog-hero .lede { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.55; max-width: 54ch; color: var(--text); margin-top: 32px; }
+
+/* Essay index list */
+.rpm3 .essay-list { list-style: none; margin: clamp(40px, 6vw, 72px) 0 0; padding: 0; border-top: 1px solid var(--line); }
+.rpm3 .essay-row { display: grid; grid-template-columns: 4rem 1fr; gap: clamp(16px, 3vw, 40px); padding: clamp(28px, 4vw, 44px) 0; border-bottom: 1px solid var(--line); }
+.rpm3 .essay-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; color: var(--grey); padding-top: 8px; }
+.rpm3 .essay-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); }
+.rpm3 .essay-row h3 { font-family: var(--display); font-weight: 500; font-size: clamp(22px, 2.6vw, 34px); line-height: 1.15; letter-spacing: -0.015em; margin: 12px 0 0; }
+.rpm3 .essay-row h3 a { transition: color 0.2s ease; }
+.rpm3 .essay-row h3 a:hover { color: var(--grey); }
+.rpm3 .essay-excerpt { color: var(--text); max-width: 58ch; margin: 12px 0 0; }
+.rpm3 .essay-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 18px; }
+.rpm3 .essay-time { font-family: var(--mono); font-size: 12px; color: var(--grey); }
+.rpm3 .essay-rule { width: 1px; height: 12px; background: var(--line); }
+.rpm3 .essay-readmore { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); display: inline-flex; align-items: center; gap: 6px; }
+.rpm3 .essay-readmore:hover { color: var(--grey); }
+@media (max-width: 640px) { .rpm3 .essay-row { grid-template-columns: 1fr; gap: 8px; } .rpm3 .essay-num { padding-top: 0; } }
+
+/* Post detail */
+.rpm3 .post-hero { padding-top: clamp(72px, 12vw, 150px); }
+.rpm3 .post-back { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s ease; }
+.rpm3 .post-back:hover { color: var(--text); }
+.rpm3 .post-hero h1 { font-size: clamp(38px, 6.4vw, 78px); line-height: 1.05; margin: 24px 0 0; max-width: 20ch; }
+.rpm3 .post-byline { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); margin-top: 32px; }
+
+/* Essay reading column */
+.rpm3 .essay-body { max-width: 68ch; margin-top: clamp(32px, 5vw, 56px); font-size: 18px; line-height: 1.72; color: var(--text); }
+.rpm3 .essay-body p { margin: 0 0 1.35em; }
+.rpm3 .essay-body p:last-child { margin-bottom: 0; }
+.rpm3 .essay-body h2 { font-family: var(--display); font-weight: 500; font-size: clamp(24px, 3vw, 34px); line-height: 1.2; letter-spacing: -0.015em; margin: 1.8em 0 0.55em; max-width: 26ch; }
+.rpm3 .essay-body h3 { font-family: var(--display); font-weight: 500; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.25; letter-spacing: -0.01em; margin: 1.6em 0 0.5em; }
+.rpm3 .essay-body ul, .rpm3 .essay-body ol { margin: 1.2em 0; padding-left: 24px; }
+.rpm3 .essay-body ul { list-style: disc; }
+.rpm3 .essay-body ol { list-style: decimal; }
+.rpm3 .essay-body li { margin: 0.5em 0; }
+.rpm3 .essay-body blockquote { font-family: var(--display); font-weight: 500; font-style: normal; font-size: clamp(22px, 3vw, 30px); line-height: 1.3; letter-spacing: -0.01em; margin: 1.6em 0; max-width: 24ch; border-left: 2px solid var(--black); padding-left: 24px; }
+.rpm3 .essay-body a { color: var(--black); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey); transition: text-decoration-color 0.2s ease; }
+.rpm3 .essay-body a:hover { text-decoration-color: var(--black); }
+.rpm3 .essay-body em { font-style: normal; font-weight: 500; }
+.rpm3 .essay-body strong { font-weight: 600; }
+.rpm3 .essay-body figure { margin: 2em 0; }
+.rpm3 .essay-body figcaption { font-family: var(--mono); font-size: 12px; color: var(--grey); margin-top: 10px; }
+
+/* "More essays" footer */
+.rpm3 .more-head { font-family: var(--display); font-weight: 500; font-size: clamp(26px, 3.4vw, 44px); line-height: 1.1; letter-spacing: -0.015em; margin: 22px 0 0; max-width: 20ch; }
+.rpm3 .more-list { list-style: none; margin: clamp(32px, 5vw, 52px) 0 0; padding: 0; border-top: 1px solid var(--line); }
+.rpm3 .more-row { padding: clamp(24px, 3.5vw, 36px) 0; border-bottom: 1px solid var(--line); }
+.rpm3 .more-row h3 { font-family: var(--display); font-weight: 500; font-size: clamp(20px, 2.2vw, 28px); line-height: 1.2; letter-spacing: -0.01em; margin: 10px 0 0; }
+.rpm3 .more-row h3 a { transition: color 0.2s ease; }
+.rpm3 .more-row h3 a:hover { color: var(--grey); }
+.rpm3 .more-excerpt { color: var(--text); max-width: 58ch; margin: 10px 0 0; }

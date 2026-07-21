@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Footer from "@/components/ui/Footer";
 import {
   blogPosts,
   getBlogPostBySlug,
@@ -10,19 +9,14 @@ import {
 import BreadcrumbsSchema from "@/components/seo/BreadcrumbsSchema";
 
 /**
- * Blog post detail template. Long-form editorial article layout.
+ * Blog post detail — three-color editorial article. Light reading
+ * surface: a post hero (back-link eyebrow + serif H1 + byline), the
+ * article body in a ~68ch reading column styled by the scoped
+ * `.essay-body` block in app/globals.css, and a "more essays" footer.
+ * Footer + pre-footer CTA come from app/blog/layout.tsx.
  *
- * Composition:
- *   - Light editorial hero with category eyebrow + serif H1 weight
- *     400 + byline (author · date · reading time).
- *   - Article body in a 65ch reading column. Element styles applied
- *     via arbitrary Tailwind selectors on the wrapper so each post's
- *     JSX body stays minimal (just plain <p>, <h2>, <h3>, <ul>,
- *     <blockquote>, <figure>).
- *   - "More essays" footer linking back to the index.
- *
- * The index pattern would also support a Related Essays footer once
- * there are 3+ posts.
+ * Post bodies stay minimal JSX (plain <p>, <h2>, <h3>, <ul>,
+ * <blockquote>, <figure>); `.essay-body` supplies the editorial defaults.
  */
 
 export function generateStaticParams() {
@@ -102,9 +96,9 @@ export default async function BlogPostPage({
       url: "https://rankpointmedia.com",
     },
     // Article schema requires `image` for Google Rich Results eligibility.
-    // Falls back to the root dynamic OG image (1200x630, navy-with-tagline)
-    // until per-post hero photography exists. When BlogPost gains an `image`
-    // field, prefer post.image and fall back to this URL.
+    // Falls back to the root dynamic OG image (1200x630) until per-post hero
+    // photography exists. When BlogPost gains an `image` field, prefer
+    // post.image and fall back to this URL.
     image: "https://rankpointmedia.com/opengraph-image",
     url: `https://rankpointmedia.com/blog/${post.slug}`,
   };
@@ -125,53 +119,16 @@ export default async function BlogPostPage({
           },
         ]}
       />
-      <main>
+      <main className="rpm3">
         <article>
-          {/* Article hero — light editorial */}
-          <header
-            className="bg-light"
-            style={{
-              paddingTop: "clamp(80px, 14vh, 160px)",
-              paddingBottom: "clamp(40px, 6vh, 64px)",
-            }}
-          >
-            <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-              {/* Category eyebrow */}
-              <div className="mb-6">
-                <Link
-                  href="/blog"
-                  className="text-xs font-semibold uppercase tracking-[0.16em] text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:text-text"
-                >
-                  <span className="font-heading text-base font-normal mr-1">
-                    &larr;
-                  </span>
-                  &nbsp;/&nbsp; Journal
-                </Link>
-              </div>
-
-              {/* Title */}
-              <h1
-                className="font-heading text-text text-balance"
-                style={{
-                  fontSize: "clamp(2.4rem, 6vw, 4.5rem)",
-                  lineHeight: 1.05,
-                  letterSpacing: "-0.02em",
-                  fontWeight: 400,
-                  maxWidth: "20ch",
-                  margin: 0,
-                }}
-              >
-                {post.title}
-              </h1>
-
-              {/* Byline */}
-              <p
-                className="mt-8 font-body text-xs font-semibold uppercase"
-                style={{
-                  letterSpacing: "0.12em",
-                  color: "var(--color-gray)",
-                }}
-              >
+          {/* Post hero — light editorial */}
+          <header className="post-hero">
+            <div className="wrap">
+              <Link href="/blog" className="post-back appear">
+                <span aria-hidden="true">&larr;</span> Journal
+              </Link>
+              <h1 className="appear">{post.title}</h1>
+              <p className="post-byline appear">
                 {post.author} &middot; {formatDate(post.publishedAt)} &middot;{" "}
                 {post.readingTime}
               </p>
@@ -179,147 +136,44 @@ export default async function BlogPostPage({
           </header>
 
           {/* Article body */}
-          <section
-            className="bg-light"
-            style={{
-              paddingTop: "clamp(40px, 6vh, 64px)",
-              paddingBottom: "clamp(48px, 8vh, 100px)",
-            }}
-          >
-            <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-              <div
-                className={[
-                  "font-body",
-                  // Body paragraphs
-                  "[&_p]:font-body [&_p]:text-[1.0625rem] [&_p]:leading-[1.65] [&_p]:text-[var(--color-brand-text)] [&_p]:my-5",
-                  // Body H2
-                  "[&_h2]:font-heading [&_h2]:text-text [&_h2]:text-[1.625rem] [&_h2]:leading-[1.2] [&_h2]:tracking-[-0.01em] [&_h2]:font-normal [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:max-w-[28ch]",
-                  // Body H3
-                  "[&_h3]:font-heading [&_h3]:text-text [&_h3]:text-[1.25rem] [&_h3]:leading-[1.25] [&_h3]:font-normal [&_h3]:mt-10 [&_h3]:mb-3",
-                  // Lists
-                  "[&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-5 [&_ul]:text-[var(--color-brand-text)]",
-                  "[&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-5 [&_ol]:text-[var(--color-brand-text)]",
-                  "[&_li]:my-2 [&_li]:leading-[1.6]",
-                  // Blockquote — pull-quote style (upright; brass left rule signals the quote)
-                  "[&_blockquote]:font-heading [&_blockquote]:text-text [&_blockquote]:text-[1.5rem] [&_blockquote]:leading-[1.3] [&_blockquote]:tracking-[-0.01em] [&_blockquote]:my-10 [&_blockquote]:max-w-[32ch] [&_blockquote]:border-l [&_blockquote]:border-accent [&_blockquote]:pl-6",
-                  // Inline links
-                  "[&_a]:text-accent [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-text",
-                  // Inline emphasis — override browser default italic on <em>; emphasis comes from weight instead
-                  "[&_em]:not-italic [&_em]:font-medium [&_em]:text-text",
-                  "[&_strong]:font-medium [&_strong]:text-text",
-                  // Figures
-                  "[&_figure]:my-10",
-                  "[&_figcaption]:mt-3 [&_figcaption]:font-body [&_figcaption]:text-[0.8125rem] [&_figcaption]:text-[var(--color-gray)]",
-                ].join(" ")}
-                style={{ maxWidth: "65ch" }}
-              >
-                {post.body}
-              </div>
+          <section aria-label="Article">
+            <div className="wrap">
+              <div className="essay-body">{post.body}</div>
             </div>
           </section>
 
-          {/* More essays footer */}
+          {/* More essays */}
           {otherPosts.length > 0 ? (
-            <section
-              aria-label="More essays"
-              className="bg-light-surface border-t border-border"
-              style={{
-                paddingTop: "clamp(48px, 8vh, 100px)",
-                paddingBottom: "clamp(48px, 8vh, 100px)",
-              }}
-            >
-              <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-                <header className="mb-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                    More essays
-                  </div>
-                </header>
-
-                <h2
-                  className="font-heading text-text text-balance"
-                  style={{
-                    fontSize: "var(--text-h2)",
-                    lineHeight: 1.1,
-                    letterSpacing: "-0.015em",
-                    fontWeight: 400,
-                    maxWidth: "24ch",
-                    margin: 0,
-                  }}
-                >
-                  Keep reading.
-                </h2>
-
-                <ol
-                  className="border-t border-border"
-                  style={{ marginTop: "clamp(48px, 6vh, 64px)" }}
-                >
+            <section aria-label="More essays">
+              <div className="wrap">
+                <p className="kicker appear">More essays</p>
+                <h2 className="more-head appear">Keep reading.</h2>
+                <ol className="more-list appear">
                   {otherPosts.slice(0, 3).map((p) => (
-                    <li
-                      key={p.slug}
-                      className="border-b border-border py-7 lg:py-9"
-                    >
-                      <p
-                        className="font-body text-xs font-semibold uppercase"
-                        style={{
-                          letterSpacing: "0.12em",
-                          color: "var(--color-gray)",
-                        }}
-                      >
+                    <li key={p.slug} className="more-row">
+                      <p className="essay-meta">
                         {p.author} &middot; {formatDate(p.publishedAt)}
                       </p>
-                      <h3
-                        className="mt-2 font-heading text-text"
-                        style={{
-                          fontSize: "1.375rem",
-                          lineHeight: 1.25,
-                          letterSpacing: "-0.01em",
-                          fontWeight: 400,
-                          margin: "0.5rem 0 0 0",
-                        }}
-                      >
-                        <Link
-                          href={`/blog/${p.slug}`}
-                          className="transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:text-accent"
-                        >
-                          {p.title}
-                        </Link>
+                      <h3>
+                        <Link href={`/blog/${p.slug}`}>{p.title}</Link>
                       </h3>
-                      <p
-                        className="mt-2 font-body"
-                        style={{
-                          fontSize: "0.9375rem",
-                          lineHeight: 1.58,
-                          color: "var(--color-brand-text)",
-                          maxWidth: "58ch",
-                          margin: "0.5rem 0 0 0",
-                        }}
-                      >
-                        {p.excerpt}
-                      </p>
+                      <p className="more-excerpt">{p.excerpt}</p>
                     </li>
                   ))}
                 </ol>
               </div>
             </section>
           ) : (
-            <section
-              className="bg-light-surface border-t border-border"
-              style={{ paddingBlock: "clamp(40px, 6vh, 64px)" }}
-            >
-              <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-                <Link
-                  href="/blog"
-                  className="inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.12em] text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:underline hover:underline-offset-4"
-                >
-                  <span aria-hidden="true">&larr;</span>
-                  All essays
+            <section aria-label="Back to journal">
+              <div className="wrap">
+                <Link href="/blog" className="post-back appear">
+                  <span aria-hidden="true">&larr;</span> All essays
                 </Link>
               </div>
             </section>
           )}
         </article>
       </main>
-      <Footer />
     </>
   );
 }

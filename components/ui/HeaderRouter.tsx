@@ -4,13 +4,13 @@ import { usePathname } from "next/navigation";
 import GlassHeader from "./GlassHeader";
 import VoxelHeader from "@/components/home/VoxelHeader";
 
-// Routes whose first section is light-bg. The transparent State A would render
-// invisible white-on-white text there, so we force GlassHeader into State B
-// (navy translucent strip with warm-white wordmark — visible on light hero).
-// After the DarkHero rollout, only /industries (overview) and the /blog
-// surface (index + post detail) still have light editorial heroes.
+// Routes still on GlassHeader whose first section is light-bg. The transparent
+// State A would render invisible white-on-white text there, so we force
+// GlassHeader into State B (navy translucent strip with warm-white wordmark —
+// visible on a light hero). With /blog now on the three-color VoxelHeader, only
+// the (currently unused) /local surface remains here.
 const LIGHT_HERO_EXACT = new Set<string>([]);
-const LIGHT_HERO_PREFIXES = ["/blog", "/local"];
+const LIGHT_HERO_PREFIXES = ["/local"];
 
 function isLightHeroRoute(pathname: string): boolean {
   if (LIGHT_HERO_EXACT.has(pathname)) return true;
@@ -34,5 +34,6 @@ export default function HeaderRouter() {
   if (pathname === "/industries" || pathname.startsWith("/industries/")) return <VoxelHeader variant="bar" />;
   if (pathname === "/privacy") return <VoxelHeader variant="bar" />;
   if (pathname === "/terms") return <VoxelHeader variant="bar" />;
+  if (pathname === "/blog" || pathname.startsWith("/blog/")) return <VoxelHeader variant="bar" />;
   return <GlassHeader forceScrolled={isLightHeroRoute(pathname)} />;
 }

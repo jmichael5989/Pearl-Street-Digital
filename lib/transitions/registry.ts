@@ -1,10 +1,9 @@
 import type { EffectModule, Namespace } from "./types";
 
-// Consolidated to two signatures (owner pick 2026-06-08): the split-curtain and
-// the vertical slats. Case-studies/blog keep the card→detail image morph
-// (sectionMorph), which falls back to slats for index navigation. The other
-// effect modules (cover-wipe, WebGL dissolve, SVG morph, spiral, overlay) are no
-// longer referenced and tree-shake out of the build.
+// Consolidated to the white split-curtain for the three-color routes and the
+// vertical slats for the still-navy fallback. (The old card→detail image morph,
+// sectionMorph, plus cover-wipe, WebGL dissolve, SVG morph, spiral, and overlay
+// are no longer referenced and tree-shake out of the build.)
 
 type EffectLoader = () => Promise<EffectModule>;
 
@@ -25,7 +24,7 @@ const REGISTRY: Partial<Record<Namespace, EffectLoader>> = {
   industries: whiteCurtain,
   contact: whiteCurtain,
   caseStudies: whiteCurtain,
-  blog: () => import("./effects/sectionMorph").then((m) => m.default),
+  blog: whiteCurtain,
   areas: slats,
   pricing: whiteCurtain,
   legal: whiteCurtain,

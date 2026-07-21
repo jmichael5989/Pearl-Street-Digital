@@ -1,22 +1,16 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
-import Footer from "@/components/ui/Footer";
 import { getSortedBlogPosts } from "@/lib/blog-data";
 
 /**
- * Journal index page. Light editorial register (no DarkHero) â€” the
- * journal is a long-form reading surface, not a marketing landing
- * page. Hero stack matches the homepage WhyUs / ServicesSection
- * pattern: numbered eyebrow + serif H2 weight 400 + graphite lede.
- *
- * Below the hero: numbered editorial TOC of essays mirroring the
- * /services and /case-studies index patterns. Each row is a single
- * essay's metadata + link to the detail page.
+ * Journal index — three-color editorial register. A light reading
+ * surface (not an inverted marketing hero): numbered eyebrow, serif H1,
+ * lede, then a numbered list of essays. Footer + pre-footer CTA come
+ * from app/blog/layout.tsx.
  *
  * Per .impeccable.md (Frank Chimero reference), the journal is the
- * editorial register at full length. The "Journal" label inside the
- * page sets the editorial flavor while the URL stays /blog for
- * discoverability.
+ * editorial register at full length. The "Journal" label sets the
+ * editorial flavor while the URL stays /blog for discoverability.
  */
 
 export const metadata: Metadata = {
@@ -44,8 +38,6 @@ export const metadata: Metadata = {
   // remove this `robots` block when the Journal section returns.
   robots: { index: false, follow: true },
 };
-
-const romanNumerals = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"];
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -86,192 +78,65 @@ export default function BlogIndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
-      <main>
-        {/* Hero â€” light editorial, not DarkHero */}
-        <section
-          aria-labelledby="journal-heading"
-          className="bg-light"
-          style={{
-            paddingTop: "clamp(80px, 14vh, 160px)",
-            paddingBottom: "clamp(48px, 8vh, 96px)",
-          }}
-        >
-          <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-            {/* Eyebrow */}
-            <header className="mb-6">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal mr-1">
-                  01
-                </span>
-                &nbsp;/&nbsp; Journal
-              </div>
-            </header>
-
-            {/* H1 */}
-            <h1
-              id="journal-heading"
-              className="font-heading text-text text-balance"
-              style={{
-                fontSize: "clamp(2.6rem, 7vw, 5.4rem)",
-                lineHeight: 1.02,
-                letterSpacing: "-0.02em",
-                fontWeight: 400,
-                margin: 0,
-              }}
-            >
-              Essays from the work.
+      <main className="rpm3">
+        {/* Hero — light editorial */}
+        <section className="blog-hero" aria-labelledby="journal-heading">
+          <div className="wrap">
+            <p className="kicker appear">01&nbsp;&nbsp;/&nbsp;&nbsp;Journal</p>
+            <h1 id="journal-heading" className="appear">
+              Essays from the work
             </h1>
-
-            {/* Lede */}
-            <p
-              className="mt-8 font-body"
-              style={{
-                fontSize: "clamp(1.0625rem, 1.6vw, 1.3125rem)",
-                lineHeight: 1.55,
-                color: "var(--color-brand-text)",
-                maxWidth: "58ch",
-              }}
-            >
-              Long-form pieces about how we build websites, how we think
-              about digital marketing, and what we&rsquo;ve learned along
-              the way. Signed, dated, written by us.
+            <p className="lede appear">
+              Long-form pieces about how we build websites, how we think about
+              digital marketing, and what we&rsquo;ve learned along the way.
+              Signed, dated, written by us.
             </p>
           </div>
         </section>
 
-        {/* Numbered TOC */}
-        <section
-          aria-label="Essay index"
-          className="bg-light-surface border-t border-border"
-          style={{
-            paddingTop: "clamp(48px, 8vh, 100px)",
-            paddingBottom: "clamp(48px, 8vh, 100px)",
-          }}
-        >
-          <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-            {/* Eyebrow */}
-            <header className="mb-6">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal mr-1">
-                  02
-                </span>
-                &nbsp;/&nbsp; All essays
-              </div>
-            </header>
-
-            <h2
-              className="font-heading text-text text-balance"
-              style={{
-                fontSize: "var(--text-h2)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.015em",
-                fontWeight: 400,
-                maxWidth: "24ch",
-                margin: 0,
-              }}
-            >
+        {/* Numbered index */}
+        <section aria-label="Essay index">
+          <div className="wrap">
+            <p className="kicker appear">02&nbsp;&nbsp;/&nbsp;&nbsp;All essays</p>
+            <h2 className="more-head appear">
               {posts.length === 1
                 ? "One essay, with more on the way."
                 : `${posts.length} essays.`}
             </h2>
 
             {posts.length === 0 ? (
-              <p
-                className="mt-12 font-body"
-                style={{
-                  fontSize: "1.0625rem",
-                  lineHeight: 1.6,
-                  color: "var(--color-brand-text)",
-                  maxWidth: "58ch",
-                }}
-              >
+              <p className="essay-excerpt appear" style={{ marginTop: "clamp(32px, 5vw, 52px)" }}>
                 The first essay lands soon. Check back, or{" "}
                 <Link
                   href="/contact#talk-to-us"
-                  className="font-medium text-accent underline underline-offset-4 hover:text-text"
+                  className="essay-readmore"
+                  style={{ textTransform: "none", letterSpacing: "0" }}
                 >
                   book an hour
                 </Link>{" "}
                 in the meantime.
               </p>
             ) : (
-              <ol
-                className="border-t border-border"
-                style={{ marginTop: "clamp(48px, 6vh, 64px)" }}
-              >
+              <ol className="essay-list appear">
                 {posts.map((post, idx) => (
-                  <li
-                    key={post.slug}
-                    className="grid grid-cols-1 gap-y-3 border-b border-border py-7 lg:grid-cols-[3.5rem_1fr] lg:gap-x-6 lg:py-9"
-                  >
-                    <span
-                      className="font-heading text-accent"
-                      style={{
-                        fontSize: "1rem",
-                        fontWeight: 400,
-                        lineHeight: 1.3,
-                        paddingTop: "0.35rem",
-                      }}
-                    >
-                      02.{romanNumerals[idx]}
+                  <li key={post.slug} className="essay-row">
+                    <span className="essay-num">
+                      {String(idx + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      {/* Byline tagline */}
-                      <p
-                        className="font-body text-xs font-semibold uppercase"
-                        style={{
-                          letterSpacing: "0.12em",
-                          color: "var(--color-gray)",
-                        }}
-                      >
+                      <p className="essay-meta">
                         {post.author} &middot; {formatDate(post.publishedAt)}
                       </p>
-
-                      <h3
-                        className="mt-2 font-heading text-text text-balance"
-                        style={{
-                          fontSize: "1.5rem",
-                          lineHeight: 1.2,
-                          letterSpacing: "-0.01em",
-                          fontWeight: 400,
-                          margin: "0.5rem 0 0 0",
-                        }}
-                      >
-                        <Link
-                          href={`/blog/${post.slug}`}
-                          className="transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:text-accent"
-                        >
-                          {post.title}
-                        </Link>
+                      <h3>
+                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                       </h3>
-
-                      <p
-                        className="mt-2 font-body"
-                        style={{
-                          fontSize: "0.9375rem",
-                          lineHeight: 1.58,
-                          color: "var(--color-brand-text)",
-                          maxWidth: "58ch",
-                          margin: "0.5rem 0 0 0",
-                        }}
-                      >
-                        {post.excerpt}
-                      </p>
-
-                      <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
-                        <span
-                          className="font-body text-xs"
-                          style={{ color: "var(--color-gray)" }}
-                        >
-                          {post.readingTime}
-                        </span>
-                        <span
-                          className="hidden h-3 w-px bg-border sm:inline-block"
-                          aria-hidden="true"
-                        />
+                      <p className="essay-excerpt">{post.excerpt}</p>
+                      <div className="essay-foot">
+                        <span className="essay-time">{post.readingTime}</span>
+                        <span className="essay-rule" aria-hidden="true" />
                         <Link
                           href={`/blog/${post.slug}`}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-accent transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:underline hover:underline-offset-4"
+                          className="essay-readmore"
                           aria-label={`Read ${post.title}`}
                         >
                           Read essay
@@ -286,7 +151,6 @@ export default function BlogIndexPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
