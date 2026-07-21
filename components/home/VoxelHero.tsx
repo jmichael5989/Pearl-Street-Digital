@@ -596,12 +596,16 @@ export default function VoxelHero() {
       function showReveal() {
         revealed = true;
         statementRef.current?.classList.add("reveal-in");
+        // Fade the Established eyebrow + CTA in above the horizon line, together
+        // with the statement (CSS: .voxel-hero.revealed).
+        section!.classList.add("revealed");
         startScram();
       }
       function hideReveal() {
         revealed = false;
         // Removing reveal-in re-applies the CSS hide (voxel-cap :not(.reveal-in)).
         statementRef.current?.classList.remove("reveal-in");
+        section!.classList.remove("revealed");
         stopScram();
       }
 
@@ -643,8 +647,8 @@ export default function VoxelHero() {
         simFrames = 0;
         wordmarkMesh.visible = false;
         mesh.visible = true;
-        // Fade out the CTA + "Established 2025" as the wordmark shatters.
-        section!.classList.add("dropped");
+        // The CTA + "Established 2025" are hidden during the hold and fade in at
+        // showReveal (below), so nothing toggles here on the drop itself.
         if (revealTimer) clearTimeout(revealTimer);
         revealTimer = setTimeout(showReveal, REVEAL_DELAY_MS);
         for (let i = 0; i < N; i++) {
@@ -678,7 +682,6 @@ export default function VoxelHero() {
         wordmarkMesh.visible = true;
         if (revealTimer) clearTimeout(revealTimer);
         hideReveal();
-        section!.classList.remove("dropped");
         for (let i = 0; i < N; i++) {
           const b = bodies[i],
             h = homes[i];
@@ -835,16 +838,19 @@ export default function VoxelHero() {
         </span>
       </h1>
 
-      {/* Small "Established 2025" line under the wordmark. Like the CTA, it's
-          visible while the wordmark is formed and fades out once it shatters
-          (the .voxel-hero.dropped state). */}
+      {/* "Established 2025" eyebrow + the CTA. On the WebGL path both are hidden
+          during the wordmark hold and fade in above the horizon line once the
+          shards settle (.voxel-hero.revealed), matching the statement's reveal.
+          On the static fallback (no drop) they stay visible in the flowing
+          column, in DOM order after the statement. */}
       <p className="voxel-established">Established 2025</p>
+
+      <Link className="voxel-cta" href="/contact#talk-to-us">
+        Book a consultation
+      </Link>
 
       <div className="voxel-overlay">
         <div className="voxel-bottom">
-          <Link className="voxel-cta" href="/contact#talk-to-us">
-            Book a consultation
-          </Link>
           <div className="voxel-controls">
             <button ref={replayRef} className="voxel-ctrl" type="button">
               Replay
