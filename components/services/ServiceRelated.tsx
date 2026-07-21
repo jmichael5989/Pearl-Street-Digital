@@ -32,8 +32,6 @@ export default function ServiceRelated({
                 <h3>{svc.title}</h3>
                 <p className="tagline">{svc.tagline}</p>
                 <div className="toc-meta">
-                  <span className="toc-price">{svc.startingAt}</span>
-                  <span className="toc-div" />
                   <Link className="u-link" href={`/services/${svc.slug}`}>
                     Read more &rarr;
                   </Link>

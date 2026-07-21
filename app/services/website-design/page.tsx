@@ -66,7 +66,6 @@ export default function WebsiteDesignPage() {
           secondaryCta={{ label: "See Pricing", href: "/pricing" }}
           metrics={[
             { value: "2-3", label: "Weeks Timeline" },
-            { value: "$99", label: "Starter Plan" },
             { value: "95+", label: "Lighthouse" },
           ]}
         />

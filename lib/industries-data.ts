@@ -284,7 +284,7 @@ export const industries: IndustryData[] = [
         question:
           "How much does a website for an auto repair shop cost?",
         answer:
-          "Our Business tier starts at $500 for a complete website with service listings, quote request forms, and Google Business Profile optimization. No monthly contracts and no hidden fees.",
+          "We build every auto-shop site with service listings, quote-request forms, and Google Business Profile optimization, with no monthly contracts and no hidden fees. See our pricing page for current build and hosting options.",
       },
       {
         question:

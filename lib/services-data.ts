@@ -43,9 +43,9 @@ export const services: ServiceData[] = [
     title: "Website Design",
     tagline:
       "Websites we hand-build, line by line. They load fast and they rank.",
-    metaTitle: "Website Design | Plans from $99/mo | Rank Point Media",
+    metaTitle: "Website Design | Rank Point Media",
     metaDescription:
-      "Custom Next.js websites for business owners. Lighthouse 95+, launched in 2-3 weeks, plans from $99/month with hosting included.",
+      "Custom Next.js websites for business owners. Lighthouse 95+, launched in 2-3 weeks, hosting included.",
     iconName: "globe",
     startingAt: "From $99/mo",
     overview: {
@@ -898,7 +898,7 @@ export const services: ServiceData[] = [
       {
         question: "How much does a custom AI solution cost?",
         answer:
-          "It depends on complexity. Simple automations start around $500 one-time. Full-scale custom agents and integrations range from $2,000-$10,000+. We scope and quote every project upfront.",
+          "We scope and quote every custom AI project upfront, from a single automation to a full custom agent with several integrations. You get a fixed number before any work starts.",
       },
       {
         question: "Can you integrate with my existing CRM or tools?",

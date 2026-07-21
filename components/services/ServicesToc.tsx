@@ -5,6 +5,9 @@ import Link from "next/link";
  * port of the "Services TOC" in public/mocks/hero/services.html.
  * Server component. Shared .rpm3 classes (wrap / kicker / inverted /
  * u-link / appear) plus Services-specific .toc rules in globals.css.
+ *
+ * Per-service prices removed 2026-07 — pricing lives only on /pricing. The
+ * toc-lede still points to the pricing page for the full breakdown.
  */
 export default function ServicesToc() {
   return (
@@ -29,8 +32,6 @@ export default function ServicesToc() {
               <h3>Website Design</h3>
               <p className="tagline">Websites we hand-build, line by line. They load fast and they rank.</p>
               <div className="toc-meta">
-                <span className="toc-price">From $99/mo</span>
-                <span className="toc-div" />
                 <Link className="u-link" href="/services/website-design">
                   Read more &rarr;
                 </Link>
@@ -46,8 +47,6 @@ export default function ServicesToc() {
                 first, not your competitors.
               </p>
               <div className="toc-meta">
-                <span className="toc-price">From $99/mo</span>
-                <span className="toc-div" />
                 <Link className="u-link" href="/services/local-seo">
                   Read more &rarr;
                 </Link>
@@ -63,8 +62,6 @@ export default function ServicesToc() {
                 builds trust and drives engagement in your local market.
               </p>
               <div className="toc-meta">
-                <span className="toc-price">From $149/mo</span>
-                <span className="toc-div" />
                 <Link className="u-link" href="/services/social-media">
                   Read more &rarr;
                 </Link>
@@ -80,8 +77,6 @@ export default function ServicesToc() {
                 searching for your services right now.
               </p>
               <div className="toc-meta">
-                <span className="toc-price">From $149/mo</span>
-                <span className="toc-div" />
                 <Link className="u-link" href="/services/ppc-google-ads">
                   Read more &rarr;
                 </Link>
@@ -97,8 +92,6 @@ export default function ServicesToc() {
                 assistants. The next frontier of local visibility.
               </p>
               <div className="toc-meta">
-                <span className="toc-price">From $99/mo</span>
-                <span className="toc-div" />
                 <Link className="u-link" href="/services/ai-search-optimization">
                   Read more &rarr;
                 </Link>
@@ -114,8 +107,6 @@ export default function ServicesToc() {
                 your business has earned.
               </p>
               <div className="toc-meta">
-                <span className="toc-price">From $149/mo</span>
-                <span className="toc-div" />
                 <Link className="u-link" href="/services/reputation-management">
                   Read more &rarr;
                 </Link>
@@ -131,8 +122,6 @@ export default function ServicesToc() {
                 actually get opened, read, and clicked.
               </p>
               <div className="toc-meta">
-                <span className="toc-price">From $99 setup</span>
-                <span className="toc-div" />
                 <Link className="u-link" href="/services/email-marketing">
                   Read more &rarr;
                 </Link>
@@ -149,8 +138,6 @@ export default function ServicesToc() {
                 you an unfair advantage.
               </p>
               <div className="toc-meta">
-                <span className="toc-price">Custom · $60/hr</span>
-                <span className="toc-div" />
                 <Link className="u-link" href="/services/custom-ai-solutions">
                   Read more &rarr;
                 </Link>

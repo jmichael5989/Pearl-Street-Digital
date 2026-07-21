@@ -37,10 +37,6 @@ export default function ServicesHero() {
             <div className="metric-val">2</div>
             <div className="metric-label">People on Every Project</div>
           </div>
-          <div>
-            <div className="metric-val">$99</div>
-            <div className="metric-label">Starting Monthly</div>
-          </div>
         </div>
       </div>
     </section>
