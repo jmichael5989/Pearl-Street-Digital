@@ -157,20 +157,6 @@ export default function PricingPage() {
                 See Services
               </Link>
             </div>
-            <div className="hero-metrics appear">
-              <div className="hero-metric">
-                <div className="m-value">$99</div>
-                <div className="m-label">Starter</div>
-              </div>
-              <div className="hero-metric">
-                <div className="m-value">$149</div>
-                <div className="m-label">Business</div>
-              </div>
-              <div className="hero-metric">
-                <div className="m-value">$249</div>
-                <div className="m-label">Growth</div>
-              </div>
-            </div>
           </div>
         </section>
 
