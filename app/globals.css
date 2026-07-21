@@ -120,20 +120,20 @@ html {
 }
 
 body {
-  background: #FAFAF6;
-  color: #3A3F4B;
+  background: #FFF;
+  color: #000;
   font-family: var(--font-body);
   font-size: 1.125rem;
   line-height: 1.6;
 }
 
 ::selection {
-  background: rgba(160, 123, 51, 0.22);  /* brass with alpha */
-  color: #14213D;
+  background: #000;
+  color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid #14213D;  /* navy */
+  outline: 2px solid #000;
   outline-offset: 2px;
 }
 
@@ -156,65 +156,6 @@ body {
     opacity: 1;
   }
 }
-/* ── Button micro-interactions ───────────────────────────
-   Palette lock 2026-04-24: no colored glow shadows. Transform-based lift is
-   preserved as a polish micro-motion; shadows are neutral navy seating only. */
-.btn-primary {
-  transition-property: transform, background-color, box-shadow;
-  transition-duration: var(--motion-duration-quick);
-  transition-timing-function: var(--motion-ease-out);
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  background-color: var(--color-primary-dark);
-  box-shadow: 0 2px 6px rgba(20, 33, 61, 0.12);
-}
-.btn-primary:active {
-  transform: scale(0.98) translateY(0);
-  box-shadow: none;
-}
-
-.btn-dark {
-  transition-property: transform, background-color, box-shadow;
-  transition-duration: var(--motion-duration-quick);
-  transition-timing-function: var(--motion-ease-out);
-}
-.btn-dark:hover {
-  transform: translateY(-2px);
-  background-color: var(--color-primary-dark);
-  box-shadow: 0 2px 6px rgba(20, 33, 61, 0.12);
-}
-.btn-dark:active {
-  transform: scale(0.98) translateY(0);
-}
-
-/* ── Nav link animated underline ──────────────────────── */
-.nav-link {
-  position: relative;
-}
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: #A07B33;  /* brass — on-brand for small accent marks */
-  border-radius: 1px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--motion-duration-medium) var(--motion-ease-out);
-}
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
-
-/* ── Form input focus glow ────────────────────────────── */
-.input-glow:focus {
-  border-color: #14213D;  /* navy */
-  box-shadow: 0 0 0 3px rgba(20, 33, 61, 0.12);
-}
-
 /* ── Tracing border animation ────────────────────────── */
 @property --border-angle {
   syntax: "<angle>";

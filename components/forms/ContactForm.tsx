@@ -118,7 +118,7 @@ export default function ContactForm({ theme = "navy" }: ContactFormProps) {
         }
       >
         <div>
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-border">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center border border-[#9C9C9C]">
             <svg
               width="24"
               height="24"
@@ -128,7 +128,7 @@ export default function ContactForm({ theme = "navy" }: ContactFormProps) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-accent"
+              className="text-black"
               aria-hidden="true"
             >
               <polyline points="20 6 9 17 4 12" />
@@ -137,7 +137,7 @@ export default function ContactForm({ theme = "navy" }: ContactFormProps) {
           <h3
             className={
               isThreeColor
-                ? "font-[family-name:var(--ff-fraunces)] text-text"
+                ? "font-[family-name:var(--ff-fraunces)] text-black"
                 : "font-heading text-text"
             }
             style={{
