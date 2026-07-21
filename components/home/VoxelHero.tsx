@@ -825,8 +825,16 @@ export default function VoxelHero() {
       </div>
 
       <h1 ref={statementRef} className="voxel-statement">
-        Designing for the <span className="hl">digital universe</span>.
-        Experiences as impactful as the brands they{"’"}re for.
+        <span className="vs-base">
+          Designing for the <span className="hl">digital universe</span>.
+          Experiences as impactful as the brands they{"’"}re for.
+        </span>
+        {/* Decorative bright copy for the tracing-light sweep (see .vs-shine in
+            globals.css). aria-hidden so the statement isn't read twice. */}
+        <span className="vs-shine" aria-hidden="true">
+          Designing for the digital universe. Experiences as impactful as the
+          brands they{"’"}re for.
+        </span>
       </h1>
 
       {/* Small "Established 2025" line under the wordmark. Like the CTA, it's

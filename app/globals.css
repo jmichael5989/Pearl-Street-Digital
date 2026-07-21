@@ -300,6 +300,8 @@ body {
   top: 46%;
   transform: translateY(-50%);
   z-index: 8;
+  display: grid;
+  justify-items: center;
   margin: 0 auto;
   text-align: center;
   pointer-events: none;
@@ -317,9 +319,11 @@ body {
   font-feature-settings: "liga" 0, "calt" 0, "dlig" 0, "clig" 0;
 }
 .voxel-hero .voxel-statement .hl {
-  font-weight: 700;
-  color: #ece6da;
-  text-shadow: 0 0 26px rgba(236, 230, 218, 0.28);
+  /* Unified 2026 — "digital universe" now renders identical to the rest of the
+     line (was font-weight 700 + brass-white glow). Inherits from the statement. */
+  font-weight: inherit;
+  color: inherit;
+  text-shadow: inherit;
 }
 
 /* Reveal choreography for the WebGL-capable path (desktop). The base rule above
@@ -336,20 +340,46 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) {
   text-shadow: none;
   filter: blur(12px);
 }
-html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
-  color: rgba(236, 230, 218, 0.04);
-  text-shadow: none;
-}
 .voxel-hero .voxel-statement.reveal-in {
   color: rgba(207, 202, 191, 0.95);
   filter: blur(0);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   transition: color 1.6s ease, filter 1.6s ease, text-shadow 1.6s ease;
 }
-.voxel-hero .voxel-statement.reveal-in .hl {
-  color: #ece6da;
-  text-shadow: 0 0 26px rgba(236, 230, 218, 0.28);
-  transition: color 1.6s ease, text-shadow 1.6s ease;
+/* Base + shine layers stacked in one grid cell so they wrap identically and the
+   tracing light lands exactly on the letterforms. */
+.voxel-hero .voxel-statement .vs-base,
+.voxel-hero .voxel-statement .vs-shine { grid-area: 1 / 1; }
+
+/* Tracing light — a bright specular copy of the words revealed through a moving
+   alpha window, so a band of light glides over the letters once as the statement
+   resolves (.reveal-in). This is an alpha MASK, NOT a background-clip:text colour
+   gradient, so the letters are never multi-hued — compliant with the sitewide
+   gradient-text ban. Decorative + aria-hidden; the base copy is the real text. */
+.voxel-hero .voxel-statement .vs-shine {
+  color: #fffdf7;
+  text-shadow: 0 0 16px rgba(255, 250, 240, 0.6), 0 0 3px rgba(255, 250, 240, 0.9);
+  opacity: 0;
+  -webkit-mask-image: linear-gradient(112deg, transparent 43%, #000 50%, transparent 57%);
+          mask-image: linear-gradient(112deg, transparent 43%, #000 50%, transparent 57%);
+  -webkit-mask-size: 260% 100%;
+          mask-size: 260% 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: 130% 0;
+          mask-position: 130% 0;
+}
+.voxel-hero .voxel-statement.reveal-in .vs-shine {
+  animation: voxel-sweep 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s 1 both;
+}
+@keyframes voxel-sweep {
+  0% { -webkit-mask-position: 130% 0; mask-position: 130% 0; opacity: 0; }
+  14% { opacity: 1; }
+  86% { opacity: 1; }
+  100% { -webkit-mask-position: -55% 0; mask-position: -55% 0; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voxel-hero .voxel-statement .vs-shine { display: none; }
 }
 
 /* scramble quotes scattered across the dark hero */

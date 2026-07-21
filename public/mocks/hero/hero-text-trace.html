@@ -13,6 +13,8 @@
      bright copy of the text (mask-image gradient = alpha, not colour). It is
      NOT `background-clip:text` + colour gradient, so it does not trip the
      brand ban on gradient text. The letters are never multi-hued.
+     Base + shine are stacked in ONE grid cell so they wrap identically and
+     the light band lands exactly on the letterforms.
      ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +24,7 @@
   --mono:"JetBrains Mono",ui-monospace,monospace;
   --gutter:clamp(20px,4vw,64px);
   --stmt:rgba(207,202,191,0.95);   /* the line's base warm-white */
-  --stmt-bright:#F4EFE6;            /* specular highlight colour */
+  --stmt-bright:#FFFDF7;            /* specular highlight colour */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
@@ -34,14 +36,13 @@ body{
   overflow:hidden;
 }
 .hero{position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:0 var(--gutter)}
-
-/* faint floor line + grain to echo the real hero's tone */
 .horizon{position:absolute;left:0;right:0;top:62%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(183,143,62,0.55),transparent);opacity:.6}
 
-/* ---- the statement ---- */
+/* ---- the statement (grid-stack: base + shine share one cell) ---- */
 .stmt{
-  position:relative;
+  display:grid;
+  justify-items:center;
   max-width:20ch;
   text-align:center;
   font-weight:500;
@@ -49,8 +50,6 @@ body{
   line-height:1.16;
   letter-spacing:0.002em;
   text-wrap:balance;
-  color:var(--stmt);
-  text-shadow:0 1px 2px rgba(0,0,0,0.5);
   font-feature-settings:"liga" 0,"calt" 0,"dlig" 0,"clig" 0;
   /* start hidden — dissolves in like the real reveal */
   opacity:0;filter:blur(16px);transform:scale(1.05);
@@ -58,51 +57,55 @@ body{
 .stmt.in{opacity:1;filter:blur(0);transform:scale(1);
   transition:opacity 1.5s ease, filter 1.5s ease, transform 1.5s ease}
 
+.stmt .base-text,
+.stmt .shine{ grid-area:1 / 1; }   /* perfectly overlaid, identical wrapping */
+
+.stmt .base-text{
+  color:var(--stmt);
+  text-shadow:0 1px 2px rgba(0,0,0,0.5);
+}
+
 /* PART 1 — "digital universe" now matches the rest of the line.
    Toggle `.stmt.compare` to preview the OLD bold + glow treatment. */
-.stmt .hl{font-weight:500;color:var(--stmt);text-shadow:inherit}
-.stmt.compare .hl{font-weight:700;color:#ECE6DA;text-shadow:0 0 26px rgba(236,230,218,0.28)}
+.stmt .hl{font-weight:500;color:inherit;text-shadow:inherit}
+.stmt.compare .base-text .hl{font-weight:700;color:#ECE6DA;text-shadow:0 0 26px rgba(236,230,218,0.28)}
 
-/* PART 2 — the tracing light.
-   `.shine` is an exact, absolutely-positioned copy of the words in a bright
-   specular colour. A narrow transparent-window alpha mask sweeps across it, so
-   a band of light glides over the letterforms — the glass-mirror trace. Because
-   the copy inherits the same font/size/width, it wraps identically to the base. */
+/* PART 2 — the tracing light: a bright specular copy of the words, revealed
+   only through a narrow moving alpha window, so a band of light glides over
+   the letterforms once. */
 .shine{
-  position:absolute;left:0;top:0;width:100%;
   color:var(--stmt-bright);
-  text-shadow:0 0 14px rgba(244,239,230,0.45), 0 0 2px rgba(244,239,230,0.9);
+  text-shadow:0 0 16px rgba(255,250,240,0.65), 0 0 3px rgba(255,250,240,0.95);
   pointer-events:none;
   opacity:0;
-  -webkit-mask-image:linear-gradient(115deg,transparent 44%, #000 50%, transparent 56%);
-          mask-image:linear-gradient(115deg,transparent 44%, #000 50%, transparent 56%);
-  -webkit-mask-size:280% 100%; mask-size:280% 100%;
-  -webkit-mask-position:120% 0; mask-position:120% 0;
+  -webkit-mask-image:linear-gradient(112deg,transparent 43%, #000 50%, transparent 57%);
+          mask-image:linear-gradient(112deg,transparent 43%, #000 50%, transparent 57%);
+  -webkit-mask-size:260% 100%; mask-size:260% 100%;
   -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+  -webkit-mask-position:130% 0; mask-position:130% 0;
 }
-/* trigger the sweep once, shortly after the text starts resolving */
 .stmt.trace .shine{
-  opacity:1;
-  animation:sweep 1.9s cubic-bezier(.4,0,.2,1) 0.55s 1 both;
+  animation:sweep 1.8s cubic-bezier(.4,0,.2,1) 0.6s 1 both;
 }
 @keyframes sweep{
-  0%{ -webkit-mask-position:120% 0; mask-position:120% 0; opacity:0 }
-  12%{ opacity:1 }
-  88%{ opacity:1 }
-  100%{ -webkit-mask-position:-60% 0; mask-position:-60% 0; opacity:0 }
+  0%{ -webkit-mask-position:130% 0; mask-position:130% 0; opacity:0 }
+  14%{ opacity:1 }
+  86%{ opacity:1 }
+  100%{ -webkit-mask-position:-55% 0; mask-position:-55% 0; opacity:0 }
 }
 
-/* VARIANT B — "wide wipe": a broader leading-edge of light travels L→R,
-   lighting the whole phrase up as it passes rather than a thin glint. */
+/* VARIANT B — "wide wipe": a broad leading edge of light travels L→R, lighting
+   the whole phrase up as it passes rather than a thin glint. */
 .stmt.wide .shine{
-  -webkit-mask-image:linear-gradient(100deg,#000 0%, #000 8%, transparent 34%);
-          mask-image:linear-gradient(100deg,#000 0%, #000 8%, transparent 34%);
+  -webkit-mask-image:linear-gradient(100deg,#000 0%, #000 10%, transparent 40%);
+          mask-image:linear-gradient(100deg,#000 0%, #000 10%, transparent 40%);
+  -webkit-mask-size:200% 100%; mask-size:200% 100%;
 }
-.stmt.wide.trace .shine{ animation:sweepWide 2.1s cubic-bezier(.35,0,.2,1) 0.5s 1 both }
+.stmt.wide.trace .shine{ animation:sweepWide 2.1s cubic-bezier(.35,0,.2,1) 0.55s 1 both }
 @keyframes sweepWide{
-  0%{ -webkit-mask-position:135% 0; mask-position:135% 0; opacity:0 }
+  0%{ -webkit-mask-position:140% 0; mask-position:140% 0; opacity:0 }
   10%{ opacity:1 }
-  100%{ -webkit-mask-position:-40% 0; mask-position:-40% 0; opacity:.9 }
+  100%{ -webkit-mask-position:-45% 0; mask-position:-45% 0; opacity:.85 }
 }
 
 /* controls */
@@ -134,7 +137,7 @@ body{
 </div>
 
 <div class="panel">
-  <button id="replay" class="active" type="button">Replay</button>
+  <button id="replay" type="button">Replay</button>
   <button id="vGlint" class="active" type="button">Glint</button>
   <button id="vWide" type="button">Wide wipe</button>
   <button id="compare" type="button">Show old “hl”</button>
@@ -143,24 +146,21 @@ body{
 <script>
 (function(){
   var stmt = document.getElementById('stmt');
-  var wide = false;
 
   function play(){
     stmt.classList.remove('in','trace');
-    // force reflow so the animation restarts cleanly on replay
-    void stmt.offsetWidth;
+    void stmt.offsetWidth;               // reflow so the sweep restarts cleanly
     stmt.classList.add('in','trace');
   }
 
   document.getElementById('replay').addEventListener('click', play);
-
   document.getElementById('vGlint').addEventListener('click', function(){
-    wide = false; stmt.classList.remove('wide');
+    stmt.classList.remove('wide');
     this.classList.add('active'); document.getElementById('vWide').classList.remove('active');
     play();
   });
   document.getElementById('vWide').addEventListener('click', function(){
-    wide = true; stmt.classList.add('wide');
+    stmt.classList.add('wide');
     this.classList.add('active'); document.getElementById('vGlint').classList.remove('active');
     play();
   });
@@ -170,8 +170,7 @@ body{
     this.textContent = on ? 'Unified “hl”' : 'Show old “hl”';
   });
 
-  // auto-play shortly after load, mimicking the moment the wordmark shatters
-  window.setTimeout(play, 600);
+  window.setTimeout(play, 600);          // mimic the moment the wordmark shatters
 })();
 </script>
 </body>
