@@ -72,60 +72,61 @@ You are building the website for Rank Point Media, a two-person digital agency. 
 - **Scope**: Nationwide digital agency. Works with clients across the US. Geographic gating (e.g. "San Antonio", "Texas", "[City] businesses") was removed sitewide 2026-06-08. The site no longer carries a registered business address in JSON-LD or visible copy. Case studies and biographical facts that happen to be SA-based are factual exceptions; everything else is geo-neutral.
 - **Tagline**: "Websites that Rank." (set 2026-05-03; previously "Higher rankings. More customers.")
 
-### Colors (LOCKED 2026-04-24 -- see .impeccable.md Resolved Decisions §4)
-- **Navy** `#14213D` -- primary. Body text, headings, CTA buttons, dark sections, footer.
-- **Navy-soft** `#1F3057` -- primary hover only.
-- **Warm white** `#FAFAF6` -- body background.
-- **Parchment** `#F1EDE4` -- alternating section background (replaces former mint).
-- **Graphite** `#3A3F4B` -- body paragraph text.
-- **Edge** `#D9D2C3` -- card borders, dividers.
-- **Mute** `#6A6E78` -- captions, micro-copy.
-- **Brass** `#836021` -- single accent. Links, selection highlight, section numerals, underlines, footer brand wordmark **only**. Never on CTAs, never on headings, never as a card or chip fill. (Tuned 2026-04-25 from `#A07B33` to clear WCAG AA on warm-white at small text sizes.)
-- **Brass-soft** `#B78F3E` -- brass on dark backgrounds only (raised for legibility against navy).
-- **CTA buttons (on light)**: Solid navy `#14213D` background, warm-white `#FAFAF6` text, 1px navy border. **No gradient.** Hover: navy-soft background.
-- **CTA buttons (on dark)**: Inverted -- warm-white background, navy text. Hover: brass background, warm-white text.
-- **Secondary buttons**: Transparent background, navy text, navy border. Hover inverts (navy bg, warm-white text).
-- **Retired hues (zero tolerance for reintroduction)**: Teal `#14B8A6`, Violet `#8B5CF6`, Mint `#F0FDFA`, Mint-border `#CCFBF1`, Violet-bg `#F5F3FF`, Violet-border `#EDE9FE`, Slate-dark `#0F172A`. If you see any of these in code, it is a bug to fix, not a pattern to follow.
-- Reference render: [public/mocks/colors/option-b.html](public/mocks/colors/option-b.html).
+### Colors (LOCKED 2026-07-20 -- strict three-color monochrome; see .impeccable.md Resolved Decisions §5)
+The whole site runs on three colors, scoped under the `.rpm3` class in `app/globals.css`. There is no fourth hue; hierarchy comes from type, hairlines, and black/white inversion -- never from color.
+- **Black** `#000` -- primary. Text, headings, solid CTA fills, inverted (dark) sections.
+- **Grey** `#9C9C9C` -- the single mid-tone. Hairline dividers and borders (`--line`), ghost section numerals (`--ghost`), captions and mono micro-copy (`--muted`).
+- **White** `#FFF` -- body background (`--bg`), and text/hairlines on inverted sections.
+- **Tokens** (under `.rpm3`): `--black`, `--grey`, `--white`, `--line`, `--ghost`, `--muted`, `--text`, plus the `--display` / `--body` / `--mono` font vars.
+- **CTA buttons (`.btn`)**: solid black background, white text, 1px black border. **No gradient.** Hover/focus inverts to white background + black text.
+- **Secondary buttons (`.btn-ghost`)**: transparent background, black text, 1px black border.
+- **Inverted (dark) sections (`.inverted`)**: black background, white text; any `.btn` inside flips to white background + black text. Used for the inner-page heroes (/contact, /industries, /privacy, /terms) and the pre-footer + footer.
+- **Only surviving warm mark**: the footer wordmark "RANK POINT MEDIA" stays brass-soft `#B78F3E` (see Footer Badge). It is the single deliberate exception to the monochrome rule.
+- **Retired (zero tolerance for reintroduction as active tokens)**: the entire prior navy system -- Navy `#14213D`, Navy-soft `#1F3057`, Warm-white `#FAFAF6`, Parchment `#F1EDE4`, Graphite `#3A3F4B`, Edge `#D9D2C3`, Mute `#6A6E78`, Brass `#836021` (brass-soft `#B78F3E` survives ONLY as the footer wordmark) -- plus the older teal `#14B8A6`, violet `#8B5CF6`, mint `#F0FDFA`. Any of these as an active design token or utility (outside the footer wordmark) is a bug to fix, not a pattern to follow.
+- Reference renders: the approved mocks under [public/mocks/hero/](public/mocks/hero/) (home = `voxel-drop.html`).
 
-### Typography (LOCKED 2026-04-24, italic-rule updated 2026-06-07 -- see .impeccable.md Resolved Decisions §1)
-- Headings/Display: **Source Serif 4** (Google Fonts, variable — weight axis 200-900, optical-size axis 8-60). Regular + Medium at launch. Optical-size 48 for display, 12 for body. **Italic axis is loaded but reserved exclusively for the "Point" wordmark in the Rank Point Media brand name (Header, Footer, OG image).** No other italic usage anywhere on the site.
-- Body text: **Source Sans 3** (Google Fonts, variable — weight axis 200-900). Regular + Medium at launch. Italic axis is not loaded.
-- License: SIL Open Font License. Free, commercial use allowed, perpetual, no attribution required.
-- Load via `next/font/google` in `app/layout.tsx` with `display: 'swap'` for Source Serif 4 and `display: 'optional'` for Source Sans 3; tune `adjustFontFallback` against Georgia (serif) and Arial (sans) so CLS stays near zero.
-- NEVER use Inter, Geist, Roboto, Arial, Outfit, DM Sans, or system fonts as primary.
-- Section labels: 0.78rem, weight 600, letter-spacing 0.12em, uppercase (set in Source Sans 3).
+### Typography (LOCKED 2026-07-20 -- see .impeccable.md Resolved Decisions §5)
+- Display/Headings: **Fraunces** (Google Fonts, variable serif). The editorial primary face -- H1s, section headings, pull quotes, spine numerals.
+- Body/UI: **Inter Tight** (Google Fonts, variable sans). Body copy, ledes, UI text.
+- Mono: **JetBrains Mono** (Google Fonts, variable). Kickers/eyebrows, small labels, metadata, ghost numerals.
+- The `.impeccable.md` anti-reference bans "Inter/Geist as the PRIMARY typeface" -- that targets Inter-as-display driving a generic Vercel/Linear look. Here the PRIMARY/display face is Fraunces (an editorial serif); Inter Tight is only the workhorse body face, so that ban is honored, not broken. See §5.
+- License: SIL Open Font License (all three). Free, commercial use, perpetual, no attribution.
+- Load via `next/font/google` in `app/layout.tsx` as `--ff-fraunces` / `--ff-inter-tight` / `--ff-jetbrains`; exposed as `font-fraunces` / `font-inter-tight` / `font-jetbrains` utilities and as `--display` / `--body` / `--mono` inside `.rpm3`.
+- NEVER use Inter (non-Tight) as display, Geist, Roboto, Outfit, DM Sans, Arial, or system fonts as a primary face. The prior **Source Serif 4 / Source Sans 3 / Source Code Pro** family is retired (still loaded in `app/layout.tsx` with `preload:false` as legacy; used by no live component -- safe to remove).
+- Section labels/eyebrows (`.kicker`): JetBrains Mono, ~12px, letter-spacing 0.16em, uppercase, with a trailing 1px hairline rule.
+- **No italics** except the "Point" wordmark (see Absolute Rules).
 
 ### Design System
-- **Body background**: Warm white `#FAFAF6`
-- **Alternating sections**: Parchment `#F1EDE4` (Why Us, Process, Services); optional warmer parchment `#E4DFD3` for Testimonials and FAQ if a second step is needed for hierarchy
-- **Dark sections**: Navy `#14213D` for Hero, CTA banner, Footer ONLY
-- **Card borders**: Edge `#D9D2C3`; hover transitions to navy `#14213D`. Never to brass.
-- **Card hover**: `translateY(-3px)` plus border-color transition. **No colored glow. No box-shadow beyond a subtle `0 1px 0 rgba(20,33,61,0.08)` for seating.**
-- **Service icon chips**: Parchment `#F1EDE4` background, edge `#D9D2C3` hairline border. Icon stroke color is brass `#A07B33` when a small amount of color is needed for hierarchy; otherwise navy.
-- **Industry icon chips**: Same treatment as service chips. No separate violet-tinted variant.
-- **Navbar**: Transparent over the dark hero, transitions to warm white `rgba(250,250,246,0.95)` with `backdrop-blur(12px)` and a 1px edge `#D9D2C3` bottom border on scroll.
+- **Body background**: White `#FFF` (`.rpm3`). No warm-white, no parchment alternating bands -- sections are separated by 1px grey hairlines, not fills.
+- **Hairlines**: 1px grey `#9C9C9C` (`--line`) for section tops, list-row dividers, and card/box borders.
+- **Inverted sections**: black `#000` (`.inverted`) for the inner-page heroes (/contact, /industries, /privacy, /terms) and the pre-footer + footer. The homepage hero is the VoxelHero (see Hero Section).
+- **Kickers/eyebrows**: mono uppercase label + trailing hairline, usually prefixed with a two-digit section numeral ("01 / Services").
+- **Spine numerals**: large ghost-grey Fraunces numerals (`.spine`) on section headers -- the numbering motif carried over from the editorial concept.
+- **Buttons**: `.btn` (solid black) and `.btn-ghost` (outline); both invert inside `.inverted`. No colored glow, no heavy shadows.
+- **Motion**: `.appear` elements reveal on scroll via the `ScrollReveal` / `ScrollRevealOnRoute` client components. Above-the-fold hero clusters are force-painted (LCP-safe) via the cluster in `app/globals.css` -- NEVER gate an H1 / LCP element behind the reveal.
+- **Header**: `VoxelHeader` (hamburger + full-screen menu) is the global default via `components/ui/HeaderRouter.tsx` -- `hero` variant over the homepage voxel hero, `bar` variant (sticky white) on every other route.
+- **Footer**: `ThreeColorFooter` on every page. **Mobile CTA bar**: `MobileCTABar`, black/white, on every route.
 
-### Hero Section (LOCKED 2026-06-07 — see [components/sections/HeroOrbit.tsx](components/sections/HeroOrbit.tsx))
-The homepage hero is the **"Orbit" entrance**: real client-work screenshots fly in from the screen edges, resolve into a circular ring, then spin perpetually with occasional card flips. It is a brand-adapted production port of Codrops "Entrance Animation for Images" **variation 2** (github.com/d3adrabbit/EntranceAnimationForImages, MIT), prototyped at [public/mocks/hero/orbit.html](public/mocks/hero/orbit.html). This **supersedes the prior editorial two-column hero** (option-b.html / `Hero.tsx`); that composition is retired on the homepage (the `Hero.tsx` file is retained, unreferenced, pending removal). Dark sections on the homepage remain the footer only.
-- Full-viewport section (`min-h-[100svh]`), centered composition, warm-white → parchment radial background.
-- **Centered headline — server-rendered and fully visible on first paint. It is the LCP element and must NEVER be gated behind the animation** (no opacity/blur reveal on the H1). Eyebrow "Websites, SEO, Google Ads" in brass; H1 the locked tagline "Websites that Rank" (no italic, no terminal period); subhead "Two people in front of the work — not behind a layer of account managers."; CTA row — primary navy "Book a consultation" → `/contact#talk-to-us`, secondary outline "See how we work" → `/about`. Legibility over the cards is handled by a warm-white radial scrim, not text-shadows.
-- **Orbit cards = real case-study screenshots** from `lib/case-studies-data.ts` (thumbnails + heroes). This is the one sanctioned use of photography in the homepage hero, and it agrees with `.impeccable.md`'s photography direction ("Photographs of actual screens of actual client sites"). **No stock imagery and no SVG/photo placeholders in production.** Built for 8 cards; reaching 8 fully-distinct images is a follow-up (3 of the 4 projects currently ship thumb≈hero).
-- **Motion is GSAP**, dynamically imported client-side so it stays off the server bundle and the LCP path. Entrance plays once, then the ring spins perpetually (20s) with random `rotateY` card flips. `prefers-reduced-motion: reduce` drops the cards straight into the static ring — no entrance, no perpetual motion. An IntersectionObserver pauses the loop when the hero is off-screen (protects INP/battery and the Lighthouse 95+ mandate).
-- **The "01 / Rank Point Media" section numeral is not rendered in the orbit hero** (the composition is centered, not a left-aligned editorial header). The numbering motif still governs the *following* homepage sections.
-- Inner-page heroes (About, Industry, Service, Case Study detail) may still use the dark navy treatment with the Tower-of-Americas photo and three gradient overlays blending into navy `#14213D` — that pattern is **inner-page-only**, not homepage.
+### Hero Section (LOCKED 2026-07-20 -- see [components/home/VoxelHero.tsx](components/home/VoxelHero.tsx))
+The homepage hero is the **VoxelHero**: a three.js + Rapier physics "voxel drop" composition, dynamically imported client-side so it stays off the server bundle and the LCP path. Prototyped at [public/mocks/hero/voxel-drop.html](public/mocks/hero/voxel-drop.html). This supersedes the retired Orbit hero (`HeroOrbit.tsx`) and, before it, the editorial two-column hero (`Hero.tsx`) -- both files are now deleted.
+- **Centered headline -- server-rendered and fully visible on first paint. It is the LCP element and must NEVER be gated behind the animation** (no opacity/blur reveal on the H1). H1 is the locked tagline "Websites that Rank" (no italic, no terminal period).
+- `prefers-reduced-motion: reduce` and the no-WebGL fallback drop to a static composition -- no physics, no motion. An IntersectionObserver pauses any loop off-screen (protects INP/battery and the Lighthouse 95+ mandate).
+- **Inner-page heroes are three-color** (NOT the old navy DarkHero, deleted):
+  - **Inverted black hero** (`.ind-hero.inverted` / `ContactHero` / `LegalHero`): /contact, /industries (+ detail), /privacy, /terms.
+  - **Light hero** (`.svc-hero`, `.about-hero`, `.cs-hero`, `.blog-hero`, `.price-hero`): /services (+ detail), /about, /case-studies, /blog (+ posts), /pricing.
+- Every hero's above-the-fold cluster is registered in the force-paint list in `app/globals.css`, so its H1 is LCP-safe.
 
 ### Footer Badge
-- **Solid colors only per `.impeccable.md` absolute ban on gradient text (background-clip: text + any gradient = forbidden site-wide).**
-  - "DESIGN BY:" in `rgba(250, 250, 246, 0.5)` (muted warm-white on navy footer)
-  - "RANK POINT MEDIA" in brass-soft `#B78F3E`
-- All caps, letter-spacing 0.18em
+- Rendered by `ThreeColorFooter` (`.foot-badge`) on every page. **Solid colors only** per the `.impeccable.md` absolute ban on gradient text (`background-clip: text` + any gradient = forbidden site-wide).
+  - "DESIGN BY:" in muted white `rgba(255, 255, 255, 0.5)` (the footer sits on a dark/inverted band)
+  - "RANK POINT MEDIA" in brass-soft `#B78F3E` -- the single warm mark retained from the prior palette
+- Mono, all caps, letter-spacing 0.18em
 - Must appear on every page footer
 
 ### Absolute Rules
 - **ZERO EMOJIS** anywhere in the codebase, UI, content, buttons, headings, or copy. Use SVG icons (Lucide-style) only.
 - **NO GEOGRAPHIC GATING** — the agency works with clients anywhere in the US. Do not reintroduce "San Antonio", "Texas", "Leon Springs", or any city/state framing in user-facing copy, page titles, meta descriptions, JSON-LD, or rendered OG image text. Case study client descriptions that happen to reference where a real client is based (Modern Day Pest Control, Bernal Trust) and Jon/Stacie's UTSA degrees in their bios are factual exceptions. Anything else surfacing SA is a bug. (Locked 2026-06-08.)
-- **NO ITALICS** anywhere on the site except the "Point" italic in the brand wordmark (`<em className="font-normal italic ...">Point</em>` in `components/ui/GlassHeader.tsx`, `components/ui/Footer.tsx`, and the OG image at `app/opengraph-image.tsx`). Removed 2026-06-07. Any new `italic` Tailwind class, `<em>` without `not-italic`, or `font-style: italic` is a bug. Emphasis comes from weight, size, color, and serif/sans contrast — not slant. (Locked 2026-06-07.)
+- **NO ITALICS** anywhere on the site. The three-color chrome renders the "Point" wordmark via color/weight, not slant (`components/home/VoxelHeader.tsx` shows "Point" in grey; `components/home/ThreeColorFooter.tsx` renders it plain). The ONE remaining italic in the codebase is the "Point" span in the OG image (`app/opengraph-image.tsx`), which still carries the pre-redesign navy/brass/italic branding and is pending a three-color refresh. Any new `italic` Tailwind class, `<em>` without `not-italic`, or `font-style: italic` elsewhere is a bug. Emphasis comes from weight, size, and serif/sans/mono contrast -- not slant. (Locked 2026-06-07; wordmark de-italicized in the redesign 2026-07-20.)
 - **No stock photo aesthetic** -- use real SA imagery or abstract patterns
 - **No lorem ipsum** -- all placeholder copy must be realistic SA-focused content
 - **Mobile-first** -- test at 320px, 375px, 768px, 1024px, 1440px
