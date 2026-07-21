@@ -1,18 +1,13 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 /**
- * Mobile-only sticky CTA bar at the bottom of every page. Two
- * affordances side by side: phone (call now) and book (Cal.com).
+ * Mobile-only sticky CTA bar at the bottom of every page: two affordances
+ * side by side, phone (call now) and book (Cal.com), in the three-color
+ * black/white palette.
  *
- * Tokens migrated from the pre-pivot vocabulary (bg-white shell,
- * bg-dark/bg-primary fills, text-white labels, "Free Audit" copy
- * which violated .impeccable.md anti-reference 1) to the locked
- * editorial register: warm-white shell with edge hairline,
- * navy-fill phone button, brass-fill book button, plainspoken
- * labels routing to the homepage Cal.com widget.
+ * The navy fallback variant and the per-route allow-list were removed
+ * 2026-07-20 once every page was ported to the three-color system, so the
+ * bar is now the same on every route (it fills the layout's mobile pb-14).
  */
 
 function PhoneIcon() {
@@ -34,44 +29,18 @@ function PhoneIcon() {
 }
 
 export default function MobileCTABar() {
-  const pathname = usePathname();
-
-  // Three-color redesign routes re-skin this bar to the black/white palette so
-  // it doesn't drop a navy/brass strip onto the new design (and it still fills
-  // the layout's mobile pb-14). Grows as pages are ported.
-  const threeColor = pathname === "/" || pathname === "/about" || pathname === "/services" || pathname.startsWith("/services/") || pathname === "/case-studies" || pathname === "/pricing" || pathname === "/contact" || pathname === "/industries" || pathname.startsWith("/industries/") || pathname === "/privacy" || pathname === "/terms" || pathname === "/blog" || pathname.startsWith("/blog/");
-  if (threeColor) {
-    return (
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-[#333] bg-black pb-[env(safe-area-inset-bottom)] md:hidden">
-        <a
-          href="tel:+12103057372"
-          className="flex flex-1 items-center justify-center gap-2 border-r border-[#333] font-[family-name:var(--ff-jetbrains)] text-xs font-medium uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#111]"
-        >
-          <PhoneIcon />
-          Call now
-        </a>
-        <Link
-          href="/contact#talk-to-us"
-          className="flex flex-1 items-center justify-center gap-2 bg-white font-[family-name:var(--ff-jetbrains)] text-xs font-medium uppercase tracking-[0.08em] text-black transition-colors hover:bg-[#e5e5e5]"
-        >
-          Book an hour
-        </Link>
-      </div>
-    );
-  }
-
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-border bg-light pb-[env(safe-area-inset-bottom)] md:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex h-14 items-stretch border-t border-[#333] bg-black pb-[env(safe-area-inset-bottom)] md:hidden">
       <a
         href="tel:+12103057372"
-        className="flex flex-1 items-center justify-center gap-2 bg-text text-sm font-medium text-light transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-primary-dark"
+        className="flex flex-1 items-center justify-center gap-2 border-r border-[#333] font-[family-name:var(--ff-jetbrains)] text-xs font-medium uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#111]"
       >
         <PhoneIcon />
         Call now
       </a>
       <Link
         href="/contact#talk-to-us"
-        className="flex flex-1 items-center justify-center gap-2 bg-accent text-sm font-medium text-light transition-colors duration-[var(--motion-duration-quick)] ease-[var(--motion-ease-out)] hover:bg-accent-dark"
+        className="flex flex-1 items-center justify-center gap-2 bg-white font-[family-name:var(--ff-jetbrains)] text-xs font-medium uppercase tracking-[0.08em] text-black transition-colors hover:bg-[#e5e5e5]"
       >
         Book an hour
       </Link>
