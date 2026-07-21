@@ -373,17 +373,16 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) {
           mask-position: 106% 0;
 }
 .voxel-hero .voxel-statement.reveal-in .vs-shine {
-  animation: voxel-trace 9s cubic-bezier(0.4, 0, 0.2, 1) 0.6s infinite both;
+  animation: voxel-trace 5s linear 0.6s infinite both;
 }
-/* The sweep occupies the first ~55% of the cycle (≈5s, the original trace speed),
-   then the shine rests transparent for the remainder before the next pass — so the
-   light traces the statement continuously with a breathing gap, not back-to-back. */
+/* Seamless continuous trace: the bright band sweeps right-to-left at constant
+   speed and wraps with no gap. It's held off the letterforms at both ends of the
+   cycle (mask window at 106% / -6%), so the instant wrap from -6% back to 106% is
+   invisible — the light appears to glide across the statement without pausing.
+   `linear` (not eased) keeps the speed constant so there's no hitch at the loop. */
 @keyframes voxel-trace {
-  0% { -webkit-mask-position: 106% 0; mask-position: 106% 0; opacity: 0; }
-  3% { opacity: 1; }
-  52% { opacity: 1; }
-  55% { -webkit-mask-position: -6% 0; mask-position: -6% 0; opacity: 0; }
-  100% { -webkit-mask-position: -6% 0; mask-position: -6% 0; opacity: 0; }
+  0% { -webkit-mask-position: 106% 0; mask-position: 106% 0; opacity: 1; }
+  100% { -webkit-mask-position: -6% 0; mask-position: -6% 0; opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .voxel-hero .voxel-statement .vs-shine { display: none; }
@@ -434,13 +433,13 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) {
   z-index: 9;
   pointer-events: auto;
   font-family: var(--hero-mono);
-  font-size: 12.5px;
+  font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border: 1px solid var(--hero-text);
   background: var(--hero-text);
   color: var(--void);
-  padding: 14px 28px;
+  padding: 11px 22px;
   transition: background 0.3s, color 0.3s, border-color 0.3s, opacity 1.6s ease;
 }
 .voxel-hero .voxel-cta:hover,
