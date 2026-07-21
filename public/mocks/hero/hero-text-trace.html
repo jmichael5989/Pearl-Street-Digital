@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero text — tracing light study</title>
+<!-- ============================================================
+     HERO TEXT / TRACING-LIGHT STUDY  (MOCK ONLY — not shipped)
+     Isolates the reveal statement from the VoxelHero so we can judge:
+       1. "digital universe" unified to the rest of the line (no bold/glow).
+       2. A glass-mirror "tracing light" that runs once as the text appears.
+     Compliance note: the shine is an ALPHA MASK sweep over a solid-color
+     bright copy of the text (mask-image gradient = alpha, not colour). It is
+     NOT `background-clip:text` + colour gradient, so it does not trip the
+     brand ban on gradient text. The letters are never multi-hued.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --gutter:clamp(20px,4vw,64px);
+  --stmt:rgba(207,202,191,0.95);   /* the line's base warm-white */
+  --stmt-bright:#F4EFE6;            /* specular highlight colour */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:radial-gradient(120% 90% at 50% 30%, #14110c 0%, #0a0a0a 60%, #050505 100%);
+  color:var(--stmt);
+  font-family:"Fraunces",Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  overflow:hidden;
+}
+.hero{position:relative;height:100%;display:flex;align-items:center;justify-content:center;padding:0 var(--gutter)}
+
+/* faint floor line + grain to echo the real hero's tone */
+.horizon{position:absolute;left:0;right:0;top:62%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(183,143,62,0.55),transparent);opacity:.6}
+
+/* ---- the statement ---- */
+.stmt{
+  position:relative;
+  max-width:20ch;
+  text-align:center;
+  font-weight:500;
+  font-size:clamp(30px,4.6vw,66px);
+  line-height:1.16;
+  letter-spacing:0.002em;
+  text-wrap:balance;
+  color:var(--stmt);
+  text-shadow:0 1px 2px rgba(0,0,0,0.5);
+  font-feature-settings:"liga" 0,"calt" 0,"dlig" 0,"clig" 0;
+  /* start hidden — dissolves in like the real reveal */
+  opacity:0;filter:blur(16px);transform:scale(1.05);
+}
+.stmt.in{opacity:1;filter:blur(0);transform:scale(1);
+  transition:opacity 1.5s ease, filter 1.5s ease, transform 1.5s ease}
+
+/* PART 1 — "digital universe" now matches the rest of the line.
+   Toggle `.stmt.compare` to preview the OLD bold + glow treatment. */
+.stmt .hl{font-weight:500;color:var(--stmt);text-shadow:inherit}
+.stmt.compare .hl{font-weight:700;color:#ECE6DA;text-shadow:0 0 26px rgba(236,230,218,0.28)}
+
+/* PART 2 — the tracing light.
+   `.shine` is an exact, absolutely-positioned copy of the words in a bright
+   specular colour. A narrow transparent-window alpha mask sweeps across it, so
+   a band of light glides over the letterforms — the glass-mirror trace. Because
+   the copy inherits the same font/size/width, it wraps identically to the base. */
+.shine{
+  position:absolute;left:0;top:0;width:100%;
+  color:var(--stmt-bright);
+  text-shadow:0 0 14px rgba(244,239,230,0.45), 0 0 2px rgba(244,239,230,0.9);
+  pointer-events:none;
+  opacity:0;
+  -webkit-mask-image:linear-gradient(115deg,transparent 44%, #000 50%, transparent 56%);
+          mask-image:linear-gradient(115deg,transparent 44%, #000 50%, transparent 56%);
+  -webkit-mask-size:280% 100%; mask-size:280% 100%;
+  -webkit-mask-position:120% 0; mask-position:120% 0;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+}
+/* trigger the sweep once, shortly after the text starts resolving */
+.stmt.trace .shine{
+  opacity:1;
+  animation:sweep 1.9s cubic-bezier(.4,0,.2,1) 0.55s 1 both;
+}
+@keyframes sweep{
+  0%{ -webkit-mask-position:120% 0; mask-position:120% 0; opacity:0 }
+  12%{ opacity:1 }
+  88%{ opacity:1 }
+  100%{ -webkit-mask-position:-60% 0; mask-position:-60% 0; opacity:0 }
+}
+
+/* VARIANT B — "wide wipe": a broader leading-edge of light travels L→R,
+   lighting the whole phrase up as it passes rather than a thin glint. */
+.stmt.wide .shine{
+  -webkit-mask-image:linear-gradient(100deg,#000 0%, #000 8%, transparent 34%);
+          mask-image:linear-gradient(100deg,#000 0%, #000 8%, transparent 34%);
+}
+.stmt.wide.trace .shine{ animation:sweepWide 2.1s cubic-bezier(.35,0,.2,1) 0.5s 1 both }
+@keyframes sweepWide{
+  0%{ -webkit-mask-position:135% 0; mask-position:135% 0; opacity:0 }
+  10%{ opacity:1 }
+  100%{ -webkit-mask-position:-40% 0; mask-position:-40% 0; opacity:.9 }
+}
+
+/* controls */
+.panel{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:20;
+  display:flex;gap:8px;flex-wrap:wrap;justify-content:center;
+  background:rgba(12,12,12,.7);border:1px solid #2a2a2a;border-radius:2px;padding:8px 10px;backdrop-filter:blur(6px)}
+.panel button{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+  color:#EDE7DC;background:transparent;border:1px solid #3a3a3a;padding:8px 12px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.panel button:hover{border-color:#6a6a6a}
+.panel button.active{background:#EDE7DC;color:#0a0a0a;border-color:#EDE7DC}
+.tag{position:fixed;top:16px;left:16px;z-index:20;font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#6a6a6a}
+
+@media (prefers-reduced-motion:reduce){
+  .stmt{opacity:1;filter:none;transform:none}
+  .shine{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="tag">Hero text · tracing-light study · mock</div>
+
+<div class="hero">
+  <div class="horizon" aria-hidden="true"></div>
+  <h1 class="stmt" id="stmt">
+    <span class="base-text">Designing for the <span class="hl">digital universe</span>. Experiences as impactful as the brands they&rsquo;re for.</span>
+    <span class="shine" aria-hidden="true">Designing for the <span class="hl">digital universe</span>. Experiences as impactful as the brands they&rsquo;re for.</span>
+  </h1>
+</div>
+
+<div class="panel">
+  <button id="replay" class="active" type="button">Replay</button>
+  <button id="vGlint" class="active" type="button">Glint</button>
+  <button id="vWide" type="button">Wide wipe</button>
+  <button id="compare" type="button">Show old “hl”</button>
+</div>
+
+<script>
+(function(){
+  var stmt = document.getElementById('stmt');
+  var wide = false;
+
+  function play(){
+    stmt.classList.remove('in','trace');
+    // force reflow so the animation restarts cleanly on replay
+    void stmt.offsetWidth;
+    stmt.classList.add('in','trace');
+  }
+
+  document.getElementById('replay').addEventListener('click', play);
+
+  document.getElementById('vGlint').addEventListener('click', function(){
+    wide = false; stmt.classList.remove('wide');
+    this.classList.add('active'); document.getElementById('vWide').classList.remove('active');
+    play();
+  });
+  document.getElementById('vWide').addEventListener('click', function(){
+    wide = true; stmt.classList.add('wide');
+    this.classList.add('active'); document.getElementById('vGlint').classList.remove('active');
+    play();
+  });
+  document.getElementById('compare').addEventListener('click', function(){
+    var on = stmt.classList.toggle('compare');
+    this.classList.toggle('active', on);
+    this.textContent = on ? 'Unified “hl”' : 'Show old “hl”';
+  });
+
+  // auto-play shortly after load, mimicking the moment the wordmark shatters
+  window.setTimeout(play, 600);
+})();
+</script>
+</body>
+</html>

@@ -690,6 +690,13 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 @media (max-width: 680px) { .rpm3 .spec-row { grid-template-columns: 1fr; gap: 6px; } }
 
 /* CONTACT (left column; the form itself is the themed ContactForm component) */
+/* Warm off-white band, matching the Services section. No bottom border: this
+   section runs straight into the black footer, where a warm hairline is invisible
+   and the cream->black edge is already a hard transition. */
+.rpm3 .contact {
+  background: var(--surface);
+  border-top: 1px solid var(--surface-edge);
+}
 .rpm3 .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 6vw, 110px); }
 .rpm3 .contact h2 { font-size: clamp(32px, 3.9vw, 56px); margin: 24px 0 18px; }
 .rpm3 .contact-lede { color: var(--text); margin-bottom: 44px; max-width: 30em; }
@@ -749,7 +756,9 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 /* Profile photo occupying the same box the .spine numeral used, so swapping in
    a photo doesn't resize the auto column or the row. Grayscale to hold the
    three-color palette. */
-.rpm3 .person-photo { width: clamp(64px, 11vw, 150px); height: clamp(64px, 11vw, 150px); object-fit: cover; display: block; filter: grayscale(1) contrast(1.03); background: var(--line); }
+.rpm3 .person-photo { width: clamp(64px, 11vw, 150px); height: clamp(64px, 11vw, 150px); object-fit: cover; display: block; filter: grayscale(1) contrast(1.03); background: var(--line); transition: filter .35s ease; }
+.rpm3 .person-photo:hover { filter: grayscale(0) contrast(1); }
+@media (hover: none) { .rpm3 .person-photo:hover { filter: grayscale(1) contrast(1.03); } }
 @media (max-width: 820px) { .rpm3 .people-row { grid-template-columns: 1fr; gap: 12px; } .rpm3 .people-row .spine { font-size: 72px; } .rpm3 .people-row .person-photo { width: 72px; height: 72px; } }
 
 /* ===== approach (inverted) ===== */
