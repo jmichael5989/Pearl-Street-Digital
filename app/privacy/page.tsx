@@ -1,6 +1,8 @@
-﻿import type { Metadata } from "next";
-import Footer from "@/components/ui/Footer";
-import DarkHero from "@/components/heroes/DarkHero";
+import type { Metadata } from "next";
+import LegalHero from "@/components/legal/LegalHero";
+import LegalBody, { type LegalSection } from "@/components/legal/LegalBody";
+import ThreeColorFooter from "@/components/home/ThreeColorFooter";
+import ScrollReveal from "@/components/home/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Rank Point Media",
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://rankpointmedia.com/privacy" },
 };
 
-const sections = [
+const sections: LegalSection[] = [
   {
     title: "Information we collect",
     body: (
@@ -33,7 +35,7 @@ const sections = [
           When you visit our website or submit a contact form, we may collect
           the following information:
         </p>
-        <ul className="mt-3 list-disc space-y-1 pl-5">
+        <ul>
           <li>
             Name, email address, and phone number (when you submit our contact
             form)
@@ -53,13 +55,13 @@ const sections = [
     body: (
       <>
         <p>We use the information we collect to:</p>
-        <ul className="mt-3 list-disc space-y-1 pl-5">
+        <ul>
           <li>Respond to your inquiries and provide requested services</li>
           <li>Send project updates and service-related communications</li>
           <li>Improve our website and marketing efforts</li>
           <li>Comply with legal obligations</li>
         </ul>
-        <p className="mt-3">
+        <p>
           We do not sell, trade, or rent your personal information to third
           parties.
         </p>
@@ -103,13 +105,7 @@ const sections = [
       <p>
         You have the right to request access to, correction of, or deletion
         of your personal information. To make such a request, contact us at{" "}
-        <a
-          href="mailto:info@rankpointmedia.com"
-          className="font-medium text-accent underline underline-offset-4 hover:text-text"
-        >
-          info@rankpointmedia.com
-        </a>
-        .
+        <a href="mailto:info@rankpointmedia.com">info@rankpointmedia.com</a>.
       </p>
     ),
   },
@@ -138,16 +134,11 @@ const sections = [
     body: (
       <>
         <p>If you have questions about this Privacy Policy, contact us at:</p>
-        <p className="mt-3">
+        <p>
           Rank Point Media
           <br />
           Email:{" "}
-          <a
-            href="mailto:info@rankpointmedia.com"
-            className="font-medium text-accent underline underline-offset-4 hover:text-text"
-          >
-            info@rankpointmedia.com
-          </a>
+          <a href="mailto:info@rankpointmedia.com">info@rankpointmedia.com</a>
           <br />
           Phone: (210) 305-7372
         </p>
@@ -159,103 +150,26 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
-      <main>
-        <DarkHero
+      <main className="rpm3">
+        <LegalHero
           kicker="LEGAL"
-          headline="Privacy policy."
-          subheadline="How we collect, use, and protect the information you share with us."
+          headline="Privacy policy"
+          lede="How we collect, use, and protect the information you share with us."
           primaryCta={{ label: "Book a consultation", href: "/contact#talk-to-us" }}
           secondaryCta={{ label: "Email us", href: "mailto:info@rankpointmedia.com" }}
-          showMockups={false}
         />
-
-        <section
-          aria-labelledby="privacy-heading"
-          className="bg-light border-t border-border"
-          style={{
-            paddingTop: "clamp(48px, 8vh, 100px)",
-            paddingBottom: "clamp(48px, 8vh, 100px)",
-          }}
-        >
-          <div className="mx-auto max-w-[82rem] px-6 sm:px-10 lg:px-24">
-            {/* Eyebrow */}
-            <header className="mb-6">
-              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                <span className="font-heading text-base font-normal mr-1">
-                  02
-                </span>
-                &nbsp;/&nbsp; Privacy policy
-              </div>
-            </header>
-
-            {/* H2 */}
-            <h2
-              id="privacy-heading"
-              className="font-heading text-text text-balance"
-              style={{
-                fontSize: "var(--text-h2)",
-                lineHeight: 1.1,
-                letterSpacing: "-0.015em",
-                fontWeight: 400,
-                maxWidth: "24ch",
-                margin: 0,
-              }}
-            >
-              How we handle your information.
-            </h2>
-
-            {/* Last updated caption */}
-            <p
-              className="mt-5 font-body"
-              style={{
-                fontSize: "0.875rem",
-                lineHeight: 1.5,
-                color: "var(--color-gray)",
-              }}
-            >
-              Last updated: March 30, 2026.
-            </p>
-
-            {/* Policy sections â€” hairline-divided */}
-            <div
-              className="mt-12 max-w-3xl border-t border-border"
-              style={{ marginTop: "clamp(48px, 6vh, 64px)" }}
-            >
-              {sections.map((section) => (
-                <article
-                  key={section.title}
-                  className="border-b border-border py-8 lg:py-10"
-                >
-                  <h3
-                    className="font-heading text-text"
-                    style={{
-                      fontSize: "1.25rem",
-                      lineHeight: 1.25,
-                      letterSpacing: "-0.01em",
-                      fontWeight: 400,
-                      margin: 0,
-                    }}
-                  >
-                    {section.title}
-                  </h3>
-                  <div
-                    className="mt-3 font-body"
-                    style={{
-                      fontSize: "0.9375rem",
-                      lineHeight: 1.6,
-                      color: "var(--color-brand-text)",
-                      maxWidth: "65ch",
-                    }}
-                  >
-                    {section.body}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <LegalBody
+          number="01"
+          label="Privacy policy"
+          heading="How we handle your information"
+          lastUpdated="March 30, 2026"
+          sections={sections}
+        />
       </main>
-      <Footer hidePreFooterCTA />
+      <div className="rpm3">
+        <ThreeColorFooter />
+      </div>
+      <ScrollReveal />
     </>
   );
 }
