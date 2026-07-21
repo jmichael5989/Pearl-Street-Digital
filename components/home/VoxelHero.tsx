@@ -28,12 +28,19 @@
  *  - An IntersectionObserver + visibilitychange pause the loop off-screen.
  */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Fragment, type CSSProperties } from "react";
 import Link from "next/link";
 
 /* ============================ TUNING KNOBS ============================ */
 const DROP_DELAY_MS = 2500; // hold the formed wordmark this long (visible time), then drop
 const REVEAL_DELAY_MS = 1300; // after the drop, wait for blocks to reach the floor, then reveal scramble
+
+// The reveal statement, split for the per-word tracing-light flash: each word
+// lights up in turn once the statement resolves, staggered by its index (--i).
+const STATEMENT_WORDS = [
+  "Designing", "for", "the", "digital", "universe.", "Experiences",
+  "as", "impactful", "as", "the", "brands", "they’re", "for.",
+];
 const GRID_COLS = 72; // voxelization width (cube count scales with this). Lowered
 // from 96 for the production port: ~2x fewer rigid bodies keeps the settle cheap
 // on the main thread (Lighthouse mobile TBT). Still legible as a wordmark.
@@ -829,11 +836,18 @@ export default function VoxelHero() {
           Designing for the <span className="hl">digital universe</span>.
           Experiences as impactful as the brands they{"’"}re for.
         </span>
-        {/* Decorative bright copy for the tracing-light sweep (see .vs-shine in
-            globals.css). aria-hidden so the statement isn't read twice. */}
+        {/* Decorative bright copy for the per-word tracing-light flash (see
+            .vs-shine in globals.css). Each word flashes in turn, staggered by
+            --i. aria-hidden so the statement isn't read twice. */}
         <span className="vs-shine" aria-hidden="true">
-          Designing for the digital universe. Experiences as impactful as the
-          brands they{"’"}re for.
+          {STATEMENT_WORDS.map((word, i) => (
+            <Fragment key={i}>
+              <span className="w" style={{ ["--i"]: i } as CSSProperties}>
+                {word}
+              </span>
+              {i < STATEMENT_WORDS.length - 1 ? " " : ""}
+            </Fragment>
+          ))}
         </span>
       </h1>
 
