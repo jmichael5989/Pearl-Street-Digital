@@ -1,8 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import {
-  Source_Serif_4,
-  Source_Sans_3,
-  Source_Code_Pro,
   Fraunces,
   Inter_Tight,
   JetBrains_Mono,
@@ -13,51 +10,10 @@ import HeaderRouter from "@/components/ui/HeaderRouter";
 import MobileCTABar from "@/components/ui/MobileCTABar";
 import TransitionProvider from "@/components/transitions/TransitionProvider";
 
-// Primary display face. Locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
-// Loaded as a variable font (weight axis 200-900). Italic axis kept solely to
-// render the "Point" wordmark in the brand name — no other site usage.
-const sourceSerif4 = Source_Serif_4({
-  variable: "--font-source-serif",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  display: "swap",
-  // preload:false — the Source family is applied globally but is only USED on
-  // the not-yet-ported navy routes, not the three-color homepage. Preloading it
-  // put ~4 unused font files on the homepage's mobile critical path and delayed
-  // LCP. It still loads on the navy pages via its @font-face; it's just no
-  // longer preloaded. Revisit when the whole site is on the three-color system.
-  preload: false,
-  fallback: ["Georgia", "Iowan Old Style", "serif"],
-});
-
-// Primary body face. Locked 2026-04-24 per .impeccable.md Resolved Decisions §1.
-// `display: 'optional'` avoids FOUT on long-read body; fallback is Arial so CLS
-// stays near zero when the font is not yet cached.
-const sourceSans3 = Source_Sans_3({
-  variable: "--font-source-sans",
-  subsets: ["latin"],
-  style: ["normal"],
-  display: "optional",
-  preload: false, // used only on the navy routes; see Source Serif note above
-  fallback: ["Arial", "Helvetica", "sans-serif"],
-});
-
-// Mono companion for timestamps, metadata, labels. Same Adobe Source family as
-// Source Serif 4 and Source Sans 3 (SIL Open Font License, free, designed to pair).
-// Loaded as a variable font; `display: 'swap'` because it's used in UI affordances
-// where fallback is acceptable during initial load.
-const sourceCodePro = Source_Code_Pro({
-  variable: "--font-source-code",
-  subsets: ["latin"],
-  style: ["normal"],
-  display: "swap",
-  preload: false, // used only on the navy routes; see Source Serif note above
-  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
-});
-
-// ── Three-color redesign faces (homepage, phase 1) ──────────────────────────
-// Added alongside the Source family, not replacing it: the new homepage uses
-// these; every other route still uses Source Serif 4 / Sans 3 / Code Pro.
+// ── Three-color faces (the site's only type system) ─────────────────────────
+// Fraunces / Inter Tight / JetBrains Mono are the locked faces (see
+// .impeccable.md §5). The prior Source Serif 4 / Sans 3 / Code Pro family was
+// removed 2026-07-20 once every route was on the three-color system.
 // Fraunces = display serif (opsz axis kept for optical display sizing); Inter
 // Tight = body/UI; JetBrains Mono = small labels + the ghost numerals. Inter
 // Tight must be a real loaded family because the voxel hero samples it via
@@ -142,7 +98,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${sourceSerif4.variable} ${sourceSans3.variable} ${sourceCodePro.variable} ${fraunces.variable} ${interTight.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${interTight.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <head>
         {/* Static og:image fallback. Emitted manually because Next.js's

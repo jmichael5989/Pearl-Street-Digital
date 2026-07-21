@@ -35,13 +35,14 @@
   --color-icon-industry-bg: #F1EDE4;
   --color-icon-industry-border: #D9D2C3;
 
-  /* ── Typography (locked per .impeccable.md §1 — unchanged) ──
-     All typographic tokens resolve to the Adobe Source family (Source Serif 4,
-     Source Sans 3, Source Code Pro) under SIL OFL. */
-  --font-heading: var(--font-source-serif);
-  --font-body: var(--font-source-sans);
-  --font-display: var(--font-source-serif);
-  --font-mono: var(--font-source-code);
+  /* ── Typography — the three-color faces (see .impeccable.md §5). These
+     legacy token names are kept as aliases so the font-heading/-body/-mono
+     utilities still resolve; they now point at Fraunces / Inter Tight /
+     JetBrains Mono instead of the retired Source family. */
+  --font-heading: var(--ff-fraunces);
+  --font-body: var(--ff-inter-tight);
+  --font-display: var(--ff-fraunces);
+  --font-mono: var(--ff-jetbrains);
 
   /* ── Three-color redesign faces (homepage, phase 1) ──────────────────────
      Additive font-family tokens so Tailwind emits `font-fraunces`,
