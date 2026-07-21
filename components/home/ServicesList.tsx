@@ -24,7 +24,7 @@ export default function ServicesList() {
     <section className="svc" id="services">
       <div className="wrap">
         <p className="kicker appear">Services</p>
-        <h2 className="appear">Four disciplines. Eight offers.</h2>
+        <h2 className="appear">We are a boutique creative studio crafting premium visual identities, bespoke websites, and digital experiences for ambitious brands worldwide.</h2>
         <p className="svc-lede appear">
           Built by us, run by us, billed honestly. Each discipline links to the
           full breakdown.
