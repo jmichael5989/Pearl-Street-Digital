@@ -843,7 +843,7 @@ export default function VoxelHero() {
           shards settle (.voxel-hero.revealed), matching the statement's reveal.
           On the static fallback (no drop) they stay visible in the flowing
           column, in DOM order after the statement. */}
-      <p className="voxel-established">Established 2025</p>
+      <p className="voxel-established">Est. 2025</p>
 
       <Link className="voxel-cta" href="/contact#talk-to-us">
         Book a consultation

@@ -298,7 +298,7 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  top: 46%;
+  top: 40%;
   transform: translateY(-50%);
   z-index: 8;
   display: grid;
@@ -459,13 +459,13 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) {
 }
 .voxel-hero .voxel-ctrl:hover,
 .voxel-hero .voxel-ctrl:focus-visible { border-color: var(--hero-text); color: var(--hero-text); }
-/* "Established 2025" eyebrow — sits above the statement on the WebGL path and is
-   revealed with it after the drop. */
+/* "Est. 2025" line — sits below the statement, between it and the CTA, revealed
+   with the statement after the drop. */
 .voxel-hero .voxel-established {
   position: absolute;
   left: 0;
   right: 0;
-  top: 34%;
+  top: 52%;
   z-index: 9;
   margin: 0;
   text-align: center;
