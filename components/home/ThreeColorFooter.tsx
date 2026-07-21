@@ -6,8 +6,7 @@ export default function ThreeColorFooter() {
       <div className="wrap">
         <div className="foot-legal">
           <span>
-            2026 Rank Point Media, a DBA of JSL Innovations LLC. All rights
-            reserved.
+            2026 JSL Innovations LLC. All rights reserved.
           </span>
           <span>
             <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{" "}
