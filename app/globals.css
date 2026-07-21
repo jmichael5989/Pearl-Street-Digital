@@ -457,6 +457,8 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
   --grey: #9c9c9c;
   --white: #fff;
   --bg: #fff;
+  --surface: #F8F5EF;                 /* warm off-white — alternating section band */
+  --surface-edge: #E9E3D7;            /* warm hairline framing a surface band */
   --text: #000;
   --line: #9c9c9c;
   --ghost: #9c9c9c;
@@ -625,16 +627,6 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
   color: var(--text);
   margin: 0;
 }
-.rpm3 .why-quote cite {
-  display: block;
-  font-style: normal;
-  text-align: right;
-  margin-top: 20px;
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  color: var(--grey);
-}
 .rpm3 .why-row {
   display: grid;
   grid-template-columns: auto 1fr 1.35fr;
@@ -659,6 +651,11 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) .hl {
 }
 
 /* SERVICES */
+.rpm3 .svc {
+  background: var(--surface);
+  border-top: 1px solid var(--surface-edge);
+  border-bottom: 1px solid var(--surface-edge);
+}
 .rpm3 .svc h2 { font-size: clamp(32px, 3.9vw, 58px); margin: 24px 0 14px; }
 .rpm3 .svc-lede { color: var(--text); max-width: 36em; margin-bottom: 56px; }
 .rpm3 .svc-row {

@@ -27,11 +27,10 @@ export default function DesignQuote() {
         </h2>
         <blockquote className="why-quote appear">
           <p>
-            “When Google shows an AI answer above the results, the top-ranked
+            When Google shows an AI answer above the results, the top-ranked
             page gets 58% fewer clicks. Ranking first no longer means getting
-            found. We build for the answer, not just the position.”
+            found. We build for the answer, not just the position.
           </p>
-          <cite>Source: Ahrefs, 300,000-keyword study, December 2025</cite>
         </blockquote>
       </div>
     </section>
