@@ -3,7 +3,7 @@ export default function SpecTable() {
     <section className="spec">
       <div className="wrap">
         <p className="kicker appear">Build standard</p>
-        <h2 className="appear">Every site ships against the same spec.</h2>
+        <h2 className="appear">Result-driven projects, with a focus on design and functionality.</h2>
         <div className="spec-table appear">
           <div className="spec-row">
             <span className="spec-key">Performance</span>
