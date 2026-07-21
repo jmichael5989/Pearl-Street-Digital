@@ -32,7 +32,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 
 /* ============================ TUNING KNOBS ============================ */
-const DROP_DELAY_MS = 2500; // hold the formed wordmark this long (visible time), then drop
+const DROP_DELAY_MS = 2000; // hold the formed wordmark this long (visible time), then drop
 const REVEAL_DELAY_MS = 1300; // after the drop, wait for blocks to reach the floor, then reveal scramble
 const GRID_COLS = 72; // voxelization width (cube count scales with this). Lowered
 // from 96 for the production port: ~2x fewer rigid bodies keeps the settle cheap
