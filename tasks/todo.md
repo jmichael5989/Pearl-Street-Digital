@@ -231,3 +231,33 @@ range), `app/globals.css` (append `.rpm3 ` case-studies block), `HeaderRouter`
 **Verify:** tsc/build clean; no dead imports; render + order + metrics + detail
 rows; no em-dashes (keep $500–$2,000); 308 redirect on old slug; sitemap pruned;
 white curtain + menu auto-close; commit/push/deploy.
+
+---
+
+## Task: Align /services with the trimmed pricing menu (2026-07-22)
+
+Pricing add-ons were trimmed 11 -> 5 (PR #8). The services page still
+advertises all 8 services at full prominence, so the two pages tell
+different stories and 4 TOC entries point at services with no published
+price.
+
+### Plan
+- [x] ServicesToc.tsx: keep 4 full rows — Website Design, SEO, AI Search
+      Optimization, Ad Campaigns (renumber 03.i–03.iv)
+- [x] ServicesToc.tsx: demote Social Media, Email Marketing, Brand
+      Management, Custom AI Solutions to one "Also available on request"
+      line of u-links (keeps internal links so live pages aren't orphaned)
+- [x] ServicesToc.tsx: lede — drop "8 services", note content +
+      e-commerce add-ons live on /pricing
+- [x] ServicesIntro.tsx: swap "social content, reputation management"
+      for the advertised set
+- [x] app/services/page.tsx: update meta/OG/Twitter + CollectionPage
+      descriptions (keep ItemList of all 8 — pages stay live)
+- [x] globals.css: small .toc-more style (muted line, inverted section)
+- [ ] Verify: tsc, Playwright render at 1440/375, no console errors
+- [ ] Commit + push
+
+### Out of scope (flagged)
+- Homepage ServicesList.tsx links all 8 services — same inconsistency,
+  separate decision
+- SERVICE_FAQS may reference cut services — audit only

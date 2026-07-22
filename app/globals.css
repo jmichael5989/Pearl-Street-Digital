@@ -921,6 +921,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 .rpm3 .toc-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 20px; }
 .rpm3 .toc-price { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); }
 .rpm3 .toc-div { height: 12px; width: 1px; background: var(--line); }
+.rpm3 .toc-more { margin-top: clamp(28px, 3vw, 44px); font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 62ch; }
 @media (max-width: 820px) { .rpm3 .toc-list { grid-template-columns: 1fr; } .rpm3 .toc-item { grid-template-columns: 2.6rem 1fr; padding: 30px 0; } }
 
 /* ===== build callout ===== */
