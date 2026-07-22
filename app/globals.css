@@ -1014,8 +1014,17 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 .rpm3 .addon-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); }
 .rpm3 .addon-price { font-size: 14px; font-weight: 600; color: var(--text); }
 .rpm3 .addon-book { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
-@media (max-width: 880px) { .rpm3 .addon-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .rpm3 .addon-grid { grid-template-columns: 1fr; } .rpm3 .addon { border-right: none; } }
+/* 5 tiles in the grid: let the last one span the remaining columns so the
+   hairline-boxed grid never shows an empty cell (3-col: 3+2, 2-col: 2+2+full). */
+.rpm3 .addon-grid .addon:last-child:nth-child(3n + 2) { grid-column: span 2; }
+@media (max-width: 880px) {
+  .rpm3 .addon-grid { grid-template-columns: 1fr 1fr; }
+  .rpm3 .addon-grid .addon:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .rpm3 .addon-grid { grid-template-columns: 1fr; }
+  .rpm3 .addon { border-right: none; grid-column: auto !important; }
+}
 
 @media (hover: hover) and (pointer: fine) {
   .rpm3 .btn:hover { background: var(--white); color: var(--black); }
