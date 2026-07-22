@@ -11,11 +11,11 @@ import ScrollReveal from "@/components/home/ScrollReveal";
 export const metadata: Metadata = {
   title: "Digital Marketing Services | Rank Point Media",
   description:
-    "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management. A two-person agency.",
+    "Custom-coded websites, local SEO, AI search optimization, Google Ads, and monthly content. A two-person agency.",
   openGraph: {
     title: "Digital Marketing Services | Rank Point Media",
     description:
-      "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management. A two-person agency.",
+      "Custom-coded websites, local SEO, AI search optimization, Google Ads, and monthly content. A two-person agency.",
     url: "https://rankpointmedia.com/services",
     siteName: "Rank Point Media",
     locale: "en_US",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Digital Marketing Services | Rank Point Media",
     description:
-      "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management. A two-person agency.",
+      "Custom-coded websites, local SEO, AI search optimization, Google Ads, and monthly content. A two-person agency.",
   },
   alternates: { canonical: "https://rankpointmedia.com/services" },
 };
@@ -35,7 +35,7 @@ const servicesSchema = {
   "@type": "CollectionPage",
   name: "Digital Marketing Services",
   description:
-    "Custom-coded websites, local SEO, Google Ads, social media, AI search, and reputation management. A two-person agency.",
+    "Custom-coded websites, local SEO, AI search optimization, Google Ads, and monthly content. A two-person agency.",
   url: "https://rankpointmedia.com/services",
   mainEntity: {
     "@type": "ItemList",

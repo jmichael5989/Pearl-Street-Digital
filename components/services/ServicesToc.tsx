@@ -8,6 +8,12 @@ import Link from "next/link";
  *
  * Per-service prices removed 2026-07 — pricing lives only on /pricing. The
  * toc-lede still points to the pricing page for the full breakdown.
+ *
+ * Trimmed 2026-07-22 to the 4 services advertised on /pricing (Website
+ * Design, SEO, AI Search Optimization, Ad Campaigns). The other 4 (social
+ * media, brand management, email marketing, custom AI solutions) remain
+ * linked via the toc-more line below the list so their pages stay in the
+ * internal link graph.
  */
 export default function ServicesToc() {
   return (
@@ -18,8 +24,8 @@ export default function ServicesToc() {
         </p>
         <h2 className="appear">Everything we do.</h2>
         <p className="toc-lede appear">
-          8 services, one team. All plans include the website build and hosting; ongoing services
-          scale with scope. See{" "}
+          Four core services, one team. Every plan starts with the website build and hosting;
+          content and e-commerce add-ons are on the pricing page. See{" "}
           <Link className="u-link" href="/pricing">
             pricing
           </Link>{" "}
@@ -56,13 +62,13 @@ export default function ServicesToc() {
           <li className="toc-item">
             <span className="toc-num">03.iii</span>
             <div>
-              <h3>Social Media</h3>
+              <h3>AI Search Optimization</h3>
               <p className="tagline">
-                Strategic content and management across Instagram, Facebook, and LinkedIn that
-                builds trust and drives engagement in your local market.
+                Get your business recommended by ChatGPT, Google AI Overviews, and voice
+                assistants. The next frontier of local visibility.
               </p>
               <div className="toc-meta">
-                <Link className="u-link" href="/services/social-media">
+                <Link className="u-link" href="/services/ai-search-optimization">
                   Read more &rarr;
                 </Link>
               </div>
@@ -83,68 +89,26 @@ export default function ServicesToc() {
               </div>
             </div>
           </li>
-          <li className="toc-item">
-            <span className="toc-num">03.v</span>
-            <div>
-              <h3>AI Search Optimization</h3>
-              <p className="tagline">
-                Get your business recommended by ChatGPT, Google AI Overviews, and voice
-                assistants. The next frontier of local visibility.
-              </p>
-              <div className="toc-meta">
-                <Link className="u-link" href="/services/ai-search-optimization">
-                  Read more &rarr;
-                </Link>
-              </div>
-            </div>
-          </li>
-          <li className="toc-item">
-            <span className="toc-num">03.vi</span>
-            <div>
-              <h3>Brand Management</h3>
-              <p className="tagline">
-                Monitor, respond to, and grow your online reviews. Build the 5-star reputation
-                your business has earned.
-              </p>
-              <div className="toc-meta">
-                <Link className="u-link" href="/services/reputation-management">
-                  Read more &rarr;
-                </Link>
-              </div>
-            </div>
-          </li>
-          <li className="toc-item">
-            <span className="toc-num">03.vii</span>
-            <div>
-              <h3>Email Marketing</h3>
-              <p className="tagline">
-                Turn one-time visitors into repeat local customers with email campaigns that
-                actually get opened, read, and clicked.
-              </p>
-              <div className="toc-meta">
-                <Link className="u-link" href="/services/email-marketing">
-                  Read more &rarr;
-                </Link>
-              </div>
-            </div>
-          </li>
-          <li className="toc-item">
-            <span className="toc-num">03.viii</span>
-            <div>
-              <h3>Custom AI Solutions</h3>
-              <p className="tagline">
-                Custom artificial intelligence tools built for your business, automated
-                follow-ups, intelligent lead qualification, and workflow automation that gives
-                you an unfair advantage.
-              </p>
-              <div className="toc-meta">
-                <Link className="u-link" href="/services/custom-ai-solutions">
-                  Read more &rarr;
-                </Link>
-              </div>
-            </div>
-          </li>
         </ol>
+        <p className="toc-more appear">
+          Also available on request:{" "}
+          <Link className="u-link" href="/services/social-media">
+            social media
+          </Link>
+          ,{" "}
+          <Link className="u-link" href="/services/email-marketing">
+            email marketing
+          </Link>
+          ,{" "}
+          <Link className="u-link" href="/services/reputation-management">
+            reputation management
+          </Link>
+          , and{" "}
+          <Link className="u-link" href="/services/custom-ai-solutions">
+            custom AI solutions
+          </Link>
+          .
+        </p>
       </div>
     </section>
   );

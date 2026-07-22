@@ -15,8 +15,8 @@ export default function ServicesIntro() {
           <p>
             Every engagement starts with a custom-coded website built for speed, clarity, and
             conversion, no templates, no shortcuts, no recycled layouts. From there we layer in the
-            marketing that fits your market: local SEO, paid ads that generate real phone calls,
-            social content, reputation management.
+            marketing that fits your market: local SEO, AI search optimization, paid ads that
+            generate real phone calls, and monthly content.
           </p>
           <p>
             No contracts. No account managers shuffling you between specialists. One team, the same
