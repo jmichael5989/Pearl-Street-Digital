@@ -4,14 +4,16 @@ import Link from "next/link";
  * Services page hero — three-color port of the approved mock at
  * public/mocks/hero/services.html. Server component. Shared .rpm3 classes
  * (wrap / kicker / btn / appear) plus Services-specific rules in globals.css.
- * OWNER CORRECTION: h1 updated to "Eight ways..." and first metric to 8 / Core Services.
+ * 2026-07-22: metrics row removed and H1 de-counted when the advertised menu
+ * was trimmed to 4 core services (owner request; supersedes the earlier owner
+ * correction that set the H1 to "Eight ways..." and the first metric to 8 / Core Services).
  */
 export default function ServicesHero() {
   return (
     <section className="svc-hero">
       <div className="wrap">
         <p className="kicker appear">Our services</p>
-        <h1 className="appear">Eight ways to grow your business online.</h1>
+        <h1 className="appear">Every way to grow your business online.</h1>
         <p className="lede appear">
           From custom websites to AI search optimization, the digital marketing toolkit of a much
           larger agency, run by two people.
@@ -23,20 +25,6 @@ export default function ServicesHero() {
           <Link className="btn-ghost" href="/pricing">
             See Pricing
           </Link>
-        </div>
-        <div className="metrics appear">
-          <div>
-            <div className="metric-val">8</div>
-            <div className="metric-label">Core Services</div>
-          </div>
-          <div>
-            <div className="metric-val">100%</div>
-            <div className="metric-label">Built In-House</div>
-          </div>
-          <div>
-            <div className="metric-val">2</div>
-            <div className="metric-label">People on Every Project</div>
-          </div>
         </div>
       </div>
     </section>
