@@ -25,13 +25,30 @@ export default function DesignQuote() {
         >
           Design
         </h2>
-        <blockquote className="why-quote appear">
-          <p>
-            When Google shows an AI answer above the results, the top-ranked
-            page gets 58% fewer clicks. Ranking first no longer means getting
-            found. We build for the answer, not just the position.
-          </p>
-        </blockquote>
+        {/* The blockquote holds only the cited fact; our own positioning
+            line lives outside it so the quotation semantics stay honest. */}
+        <figure className="why-quote appear">
+          <blockquote>
+            <p>
+              When Google answers above the results, the top-ranked page
+              loses 58% of its clicks.
+            </p>
+          </blockquote>
+          <figcaption>
+            <cite>
+              <a
+                href="https://ahrefs.com/blog/ai-overviews-reduce-clicks/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ahrefs, 300,000-keyword study, 2026
+              </a>
+            </cite>
+          </figcaption>
+        </figure>
+        <p className="why-tagline appear">
+          We build for the answer, not just the position.
+        </p>
       </div>
     </section>
   );

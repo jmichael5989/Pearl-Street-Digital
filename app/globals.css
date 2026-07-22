@@ -664,6 +664,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 .rpm3 .why h2 { font-size: clamp(32px, 3.9vw, 58px); max-width: 15em; margin: 24px 0 14px; }
 .rpm3 .why-lede { color: var(--text); max-width: 38em; margin-bottom: 56px; }
 .rpm3 .why-quote { margin: 26px 0 0; max-width: clamp(420px, 62vw, 820px); }
+.rpm3 .why-quote blockquote { margin: 0; }
 .rpm3 .why-quote p {
   font-family: var(--display);
   font-weight: 500;
@@ -672,6 +673,37 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
   letter-spacing: -0.015em;
   color: var(--text);
   margin: 0;
+}
+.rpm3 .why-quote cite {
+  display: block;
+  font-style: normal;
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rpm3 .why-quote cite a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+}
+.rpm3 .why-quote cite a:hover,
+.rpm3 .why-quote cite a:focus-visible {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+.rpm3 .why-tagline {
+  margin: 40px 0 0;
+  max-width: clamp(420px, 62vw, 820px);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 .rpm3 .why-row {
   display: grid;
