@@ -254,8 +254,9 @@ price.
 - [x] app/services/page.tsx: update meta/OG/Twitter + CollectionPage
       descriptions (keep ItemList of all 8 — pages stay live)
 - [x] globals.css: small .toc-more style (muted line, inverted section)
-- [ ] Verify: tsc, Playwright render at 1440/375, no console errors
-- [ ] Commit + push
+- [x] Verify: tsc, Playwright render at 1440/375, no console errors
+- [x] Commit + push
+- [x] ServicesHero: metrics row removed, H1 de-counted (owner request)
 
 ### Out of scope (flagged)
 - Homepage ServicesList.tsx links all 8 services — same inconsistency,

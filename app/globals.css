@@ -901,10 +901,8 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 .rpm3 .svc-cta-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 38px; }
 .rpm3 .btn-ghost { display: inline-block; padding: 16px 32px; font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: transparent; color: var(--black); border: 1px solid var(--black); transition: background .25s, color .25s; cursor: pointer; }
 .rpm3 .btn-ghost:focus-visible { background: var(--black); color: var(--white); }
-.rpm3 .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 3vw, 48px); margin-top: clamp(48px, 6vw, 80px); border-top: 1px solid var(--line); padding-top: 42px; }
 .rpm3 .metric-val { font-family: var(--display); font-size: clamp(34px, 4vw, 56px); font-weight: 500; line-height: 1; letter-spacing: -0.02em; }
 .rpm3 .metric-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); margin-top: 12px; }
-@media (max-width: 720px) { .rpm3 .metrics { grid-template-columns: 1fr 1fr; gap: 30px; } }
 
 /* ===== intro slab ===== */
 .rpm3 .intro h2 { font-size: clamp(32px, 4.6vw, 64px); max-width: 24ch; margin: 24px 0 32px; }
@@ -946,7 +944,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 .rpm3 .faq-a-inner { overflow: hidden; }
 .rpm3 .faq-a p { padding-bottom: 24px; max-width: 65ch; color: var(--text); font-size: 16px; line-height: 1.6; }
 
-/* ---- SERVICE DETAIL HERO metrics (variable count; NOT the 4-col .metrics) ---- */
+/* ---- SERVICE DETAIL HERO metrics (variable count; base .metric-val/.metric-label rules above are shared/unscoped) ---- */
 .rpm3 .svc-hero-metrics { display: flex; flex-wrap: wrap; gap: clamp(28px, 5vw, 72px); margin-top: clamp(44px, 6vw, 76px); border-top: 1px solid var(--line); padding-top: 40px; }
 .rpm3 .svc-hero-metrics .metric-val { font-family: var(--display); font-size: clamp(34px, 4vw, 54px); font-weight: 500; line-height: 1; letter-spacing: -0.02em; font-feature-settings: "lnum" 1, "tnum" 1, "liga" 0, "calt" 0, "dlig" 0, "clig" 0; }
 .rpm3 .svc-hero-metrics .metric-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); margin-top: 12px; max-width: 16em; }
