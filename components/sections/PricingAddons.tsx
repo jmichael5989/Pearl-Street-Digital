@@ -5,8 +5,11 @@ import Link from "next/link";
  * Re-skin of the prior navy/brass PricingAddons.tsx to the .rpm3 design system,
  * matching public/mocks/hero/pricing.html verbatim.
  *
- * KEEP: addOns[] data array verbatim (all 11 services, names, descriptions, prices).
- * DROP: Tailwind utility classes, navy/brass tokens, inline styles.
+ * Menu trimmed 2026-07-22 from 11 add-ons to the 5 that tell the
+ * build -> rank -> get cited story (see tasks/todo.md). The cut services
+ * (social, email, reputation, brand identity, photography, custom AI) are
+ * still sellable to existing clients but are no longer advertised here;
+ * their /services pages remain live for SEO.
  *
  * Each addon tile is a <Link> to /contact#talk-to-us so the whole tile is clickable.
  */
@@ -25,58 +28,22 @@ const addOns: AddOn[] = [
     price: "From $99/mo",
   },
   {
-    name: "Google Ads management",
-    description:
-      "Campaign setup and ongoing optimization for paid search, landing pages, keyword bidding, and conversion tracking.",
-    price: "From $149/mo",
-  },
-  {
-    name: "Social media management",
-    description:
-      "Monthly content calendar, post scheduling, and engagement on the platforms that actually drive your customers.",
-    price: "From $149/mo",
-  },
-  {
-    name: "Email marketing",
-    description:
-      "Automated sequences, monthly newsletters, and list growth that turn one-time visitors into repeat customers.",
-    price: "From $99 setup",
-  },
-  {
-    name: "Monthly content",
-    description:
-      "Blog posts, landing pages, and on-site copy written for SEO and the way your customers actually search.",
-    price: "From $99/mo",
-  },
-  {
-    name: "Brand identity refresh",
-    description:
-      "Logo, color, type, and brand-guide updates when the website gets a glow-up but the rest of the brand hasn't.",
-    price: "From $99 one-time",
-  },
-  {
     name: "AI search optimization",
     description:
       "Get your business cited by ChatGPT, Google AI Overviews, Perplexity, and voice assistants. The next frontier of local visibility, before your competitors catch on.",
     price: "From $99/mo",
   },
   {
-    name: "Reputation management",
+    name: "Google Ads management",
     description:
-      "Monitor reviews across Google, Yelp, and Facebook. Respond professionally, drive new 5-star reviews, and grow the reputation your business has earned.",
+      "Campaign setup and ongoing optimization for paid search, landing pages, keyword bidding, and conversion tracking.",
     price: "From $149/mo",
   },
   {
-    name: "AI solutions",
+    name: "Monthly content",
     description:
-      "Custom AI integrations, chatbots, content generators, workflow automation, full apps like appealproai.com. Built from scratch, not bolted on.",
-    price: "Custom · $60/hr",
-  },
-  {
-    name: "Brand photography",
-    description:
-      "Half-day or full-day shoots for the website, social, and product imagery. Real photos of your business, not stock.",
-    price: "From $250/session",
+      "Blog posts, landing pages, and on-site copy written for SEO and the way your customers actually search.",
+    price: "From $99/mo",
   },
   {
     name: "E-commerce setup",

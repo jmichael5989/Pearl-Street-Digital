@@ -664,6 +664,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 .rpm3 .why h2 { font-size: clamp(32px, 3.9vw, 58px); max-width: 15em; margin: 24px 0 14px; }
 .rpm3 .why-lede { color: var(--text); max-width: 38em; margin-bottom: 56px; }
 .rpm3 .why-quote { margin: 26px 0 0; max-width: clamp(420px, 62vw, 820px); }
+.rpm3 .why-quote blockquote { margin: 0; }
 .rpm3 .why-quote p {
   font-family: var(--display);
   font-weight: 500;
@@ -672,6 +673,37 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
   letter-spacing: -0.015em;
   color: var(--text);
   margin: 0;
+}
+.rpm3 .why-quote cite {
+  display: block;
+  font-style: normal;
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rpm3 .why-quote cite a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+}
+.rpm3 .why-quote cite a:hover,
+.rpm3 .why-quote cite a:focus-visible {
+  color: var(--text);
+  border-bottom-color: var(--text);
+}
+.rpm3 .why-tagline {
+  margin: 40px 0 0;
+  max-width: clamp(420px, 62vw, 820px);
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(20px, 2vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 .rpm3 .why-row {
   display: grid;
@@ -982,8 +1014,17 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 .rpm3 .addon-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); }
 .rpm3 .addon-price { font-size: 14px; font-weight: 600; color: var(--text); }
 .rpm3 .addon-book { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
-@media (max-width: 880px) { .rpm3 .addon-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .rpm3 .addon-grid { grid-template-columns: 1fr; } .rpm3 .addon { border-right: none; } }
+/* 5 tiles in the grid: let the last one span the remaining columns so the
+   hairline-boxed grid never shows an empty cell (3-col: 3+2, 2-col: 2+2+full). */
+.rpm3 .addon-grid .addon:last-child:nth-child(3n + 2) { grid-column: span 2; }
+@media (max-width: 880px) {
+  .rpm3 .addon-grid { grid-template-columns: 1fr 1fr; }
+  .rpm3 .addon-grid .addon:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .rpm3 .addon-grid { grid-template-columns: 1fr; }
+  .rpm3 .addon { border-right: none; grid-column: auto !important; }
+}
 
 @media (hover: hover) and (pointer: fine) {
   .rpm3 .btn:hover { background: var(--white); color: var(--black); }

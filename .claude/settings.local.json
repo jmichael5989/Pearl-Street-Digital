@@ -66,7 +66,8 @@
       "Bash(gh api *)",
       "mcp__vercel__get_project",
       "Bash(curl -s \"http://localhost:3000/\" -o /tmp_page.html)",
-      "Bash(curl -s \"http://localhost:3000/\" -o page_check.html)"
+      "Bash(curl -s \"http://localhost:3000/\" -o page_check.html)",
+      "mcp__bf7c680d-5fdc-5ef4-b4a0-abadb619bf0a__subscribe_pr_activity"
     ]
   }
 }
