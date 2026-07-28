@@ -596,7 +596,7 @@ export default function VoxelHero() {
       function showReveal() {
         revealed = true;
         statementRef.current?.classList.add("reveal-in");
-        // Fade the Established eyebrow + CTA in above the horizon line, together
+        // Fade the location eyebrow + CTA in above the horizon line, together
         // with the statement (CSS: .voxel-hero.revealed).
         section!.classList.add("revealed");
         startScram();
@@ -647,7 +647,7 @@ export default function VoxelHero() {
         simFrames = 0;
         wordmarkMesh.visible = false;
         mesh.visible = true;
-        // The CTA + "Established 2025" are hidden during the hold and fade in at
+        // The CTA + location eyebrow are hidden during the hold and fade in at
         // showReveal (below), so nothing toggles here on the drop itself.
         if (revealTimer) clearTimeout(revealTimer);
         revealTimer = setTimeout(showReveal, REVEAL_DELAY_MS);
@@ -838,12 +838,12 @@ export default function VoxelHero() {
         </span>
       </h1>
 
-      {/* "Established 2025" eyebrow + the CTA. On the WebGL path both are hidden
+      {/* Location eyebrow + the CTA. On the WebGL path both are hidden
           during the wordmark hold and fade in above the horizon line once the
           shards settle (.voxel-hero.revealed), matching the statement's reveal.
           On the static fallback (no drop) they stay visible in the flowing
           column, in DOM order after the statement. */}
-      <p className="voxel-established">Est. 2025</p>
+      <p className="voxel-established">San Antonio, Texas</p>
 
       <Link className="voxel-cta" href="/contact#talk-to-us">
         Book a consultation

@@ -468,7 +468,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl) .voxel-statement:not(.reveal-in) {
 @media (hover: none), (pointer: coarse) {
   .voxel-hero .voxel-controls { display: none; }
 }
-/* "Est. 2025" line — sits below the statement, between it and the CTA, revealed
+/* HQ location line ("San Antonio, Texas") — sits below the statement, between it and the CTA, revealed
    with the statement after the drop. */
 .voxel-hero .voxel-established {
   position: absolute;
