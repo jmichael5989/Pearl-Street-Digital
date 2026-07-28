@@ -13,7 +13,7 @@ export default function AboutValues() {
         <p className="kicker appear">03 / Our approach</p>
         <h2 className="appear">How we work.</h2>
         <p className="ap-lede appear">
-          Six commitments that shape every project. None of them are unusual on
+          Five commitments that shape every project. None of them are unusual on
           their own, the package is the rare part.
         </p>
 
@@ -30,16 +30,6 @@ export default function AboutValues() {
         <div className="ap-row appear">
           <span className="spine">02</span>
           <div>
-            <h3>You own everything.</h3>
-          </div>
-          <p>
-            Your site, your content, your ad accounts, your analytics. If you
-            ever leave, the handoff is a Git repository and a coffee.
-          </p>
-        </div>
-        <div className="ap-row appear">
-          <span className="spine">03</span>
-          <div>
             <h3>Direct to the builder.</h3>
           </div>
           <p>
@@ -48,7 +38,7 @@ export default function AboutValues() {
           </p>
         </div>
         <div className="ap-row appear">
-          <span className="spine">04</span>
+          <span className="spine">03</span>
           <div>
             <h3>Speed to launch.</h3>
           </div>
@@ -58,7 +48,7 @@ export default function AboutValues() {
           </p>
         </div>
         <div className="ap-row appear">
-          <span className="spine">05</span>
+          <span className="spine">04</span>
           <div>
             <h3>Direct access.</h3>
           </div>
@@ -68,7 +58,7 @@ export default function AboutValues() {
           </p>
         </div>
         <div className="ap-row appear">
-          <span className="spine">06</span>
+          <span className="spine">05</span>
           <div>
             <h3>Flexible plans.</h3>
           </div>
