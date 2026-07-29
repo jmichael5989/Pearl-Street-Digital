@@ -80,20 +80,37 @@ export default async function BlogPostPage({
 
   const otherPosts = getSortedBlogPosts().filter((p) => p.slug !== post.slug);
 
+  // @id, mainEntityOfPage, and the expanded author/publisher nodes let
+  // generative engines (AI Overviews, ChatGPT, Perplexity, etc.) resolve
+  // this post's canonical identity and attribute it to a real author and
+  // publisher instead of treating it as an anonymous string of text.
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `https://rankpointmedia.com/blog/${post.slug}#post`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://rankpointmedia.com/blog/${post.slug}`,
+    },
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedAt,
+    // BlogPost has no dateModified field yet — reusing publishedAt until
+    // one exists. Swap this for a real dateModified as soon as the
+    // interface gains it, so this tracks actual edits.
+    dateModified: post.publishedAt,
     author: {
       "@type": "Person",
       name: post.author,
+      url: "https://rankpointmedia.com/about",
     },
     publisher: {
       "@type": "Organization",
       name: "Rank Point Media",
       url: "https://rankpointmedia.com",
+      // References the canonical Organization node in app/layout.tsx's
+      // @graph so this post resolves to the same org identity site-wide.
+      "@id": "https://rankpointmedia.com#org",
     },
     // Article schema requires `image` for Google Rich Results eligibility.
     // Falls back to the root dynamic OG image (1200x630) until per-post hero
