@@ -1,5 +1,4 @@
 import VoxelHero from "@/components/home/VoxelHero";
-import DesignQuote from "@/components/home/DesignQuote";
 import ServicesList from "@/components/home/ServicesList";
 import SpecTable from "@/components/home/SpecTable";
 import ContactSection from "@/components/home/ContactSection";
@@ -14,7 +13,6 @@ export default function Home() {
     <>
       <VoxelHero />
       <main className="rpm3">
-        <DesignQuote />
         <ServicesList />
         <SpecTable />
         <ContactSection />
