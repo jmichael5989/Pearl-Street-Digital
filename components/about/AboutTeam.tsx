@@ -18,8 +18,7 @@ export default function AboutTeam() {
         <p className="kicker appear">02 / The team</p>
         <h2 className="appear">Who you actually talk to.</h2>
         <p className="team-lede appear">
-          Two people. Every email, every call, every line of code, one of us. No
-          layers in between.
+          Every email, every call, every line of code, one of us.
         </p>
 
         <div className="people-row appear">
@@ -36,12 +35,10 @@ export default function AboutTeam() {
             <div className="person-name">Jon</div>
           </div>
           <p>
-            Jon writes the code, runs technical SEO, and tunes performance at
-            Rank Point Media. He holds an undergraduate degree in Economics and a
-            Master of Science from the University of Texas at San Antonio, and
+            Jon writes the code, runs technical SEO, and tunes performance. He
             spent 15+ years as a product manager at Fortune 150 companies before
-            founding RPM. The work here is custom-built, not configured from a
-            template.
+            founding RPM, and holds an Economics degree and a Master of Science
+            from the University of Texas at San Antonio.
           </p>
         </div>
         <div className="people-row appear">
@@ -58,11 +55,10 @@ export default function AboutTeam() {
             <div className="person-name">Stacie</div>
           </div>
           <p>
-            Stacie leads design, marketing, and social media at Rank Point
-            Media. She holds a graphic design degree from the University of Texas
-            at San Antonio and has built her career across web and interior
-            design firms, a dual background that shapes how RPM approaches visual
-            identity for local businesses.
+            Stacie leads design, marketing, and social. She holds a graphic
+            design degree from the University of Texas at San Antonio and built
+            her career across web and interior design firms, a dual background
+            that shapes how every site here handles visual identity.
           </p>
         </div>
       </div>

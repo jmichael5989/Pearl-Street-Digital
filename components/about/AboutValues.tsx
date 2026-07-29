@@ -13,7 +13,7 @@ export default function AboutValues() {
         <p className="kicker appear">03 / Our approach</p>
         <h2 className="appear">How we work.</h2>
         <p className="ap-lede appear">
-          Five commitments that shape every project. None of them are unusual on
+          Four commitments that shape every project. None of them are unusual on
           their own, the package is the rare part.
         </p>
 
@@ -33,8 +33,8 @@ export default function AboutValues() {
             <h3>Direct to the builder.</h3>
           </div>
           <p>
-            Every call is Jon or Stacie. No account managers, no project
-            coordinators. The people who write the code answer the email.
+            Jon answers the phone. Stacie answers the email. No account
+            managers, no intake queues, no escalation paths.
           </p>
         </div>
         <div className="ap-row appear">
@@ -49,16 +49,6 @@ export default function AboutValues() {
         </div>
         <div className="ap-row appear">
           <span className="spine">04</span>
-          <div>
-            <h3>Direct access.</h3>
-          </div>
-          <p>
-            Jon answers the phone. Stacie answers the email. No tickets, no
-            intake queues, no escalation paths.
-          </p>
-        </div>
-        <div className="ap-row appear">
-          <span className="spine">05</span>
           <div>
             <h3>Flexible plans.</h3>
           </div>
