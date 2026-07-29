@@ -97,7 +97,7 @@ The whole site runs on three colors, scoped under the `.rpm3` class in `app/glob
 - **No italics** except the "Point" wordmark (see Absolute Rules).
 
 ### Design System
-- **Body background**: White `#FFF` (`.rpm3`). No warm-white, no parchment alternating bands -- sections are separated by 1px grey hairlines, not fills.
+- **Body background**: White `#FFF` (`.rpm3`) by default; most sections are separated by 1px grey hairlines, not fills. **Owner-approved exception (2026-07-29):** a warm cream alternating band, via the `--surface` (`#F8F5EF`) / `--surface-edge` (`#E9E3D7`) tokens in `app/globals.css`, is kept deliberately (not a bug to fix) on exactly these sections: the homepage Services (`.svc`) and Contact (`.contact`); the About Team section (`.team`); the Services-index FAQ (`.faq`); and the Pricing Add-ons (`.addons`). This list is the full scope -- it does not license warm fills on any other section. New sections do not get the cream band by default; adding one elsewhere requires the same explicit owner approval as this exception.
 - **Hairlines**: 1px grey `#9C9C9C` (`--line`) for section tops, list-row dividers, and card/box borders.
 - **Inverted sections**: black `#000` (`.inverted`) for the inner-page heroes (/contact, /industries, /privacy, /terms) and the pre-footer + footer. The homepage hero is the VoxelHero (see Hero Section).
 - **Kickers/eyebrows**: mono uppercase label + trailing hairline, usually prefixed with a two-digit section numeral ("01 / Services").
