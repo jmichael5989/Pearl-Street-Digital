@@ -65,6 +65,10 @@ export default function VoxelHeader({
     };
     document.addEventListener("keydown", onKey);
     const scrollY = window.scrollY;
+    // URL at lock time. On cleanup we compare against it to tell "menu was
+    // dismissed in place" from "menu closed because we navigated" — the two
+    // cases need opposite scroll handling. See the restore guard below.
+    const lockedHref = window.location.href;
     const body = document.body;
     const prev = {
       position: body.style.position,
@@ -82,7 +86,14 @@ export default function VoxelHeader({
       body.style.top = prev.top;
       body.style.width = prev.width;
       body.style.overflow = prev.overflow;
-      window.scrollTo(0, scrollY);
+      // Only give the user their place back when the menu closed WITHOUT
+      // navigating (Escape, close button). If the URL changed, the new page
+      // owns its scroll position -- TransitionProvider has already sent it to
+      // the top -- and restoring the previous page's offset here is what was
+      // dropping users into the middle of the page they navigated to.
+      if (window.location.href === lockedHref) {
+        window.scrollTo(0, scrollY);
+      }
     };
   }, [open]);
 
