@@ -261,4 +261,22 @@ price.
 ### Out of scope (flagged)
 - Homepage ServicesList.tsx links all 8 services — same inconsistency,
   separate decision
+
+---
+
+## Task: Distill the About page (2026-07-29)
+
+Page was 327 words / 3,978px across 4 viewports before this pass, with
+"you deal directly with us" stated four times (hero, team lede, approach
+row 02, approach row 04).
+
+- [x] Merged approach rows 02 "Direct to the builder." and 04 "Direct
+      access." into a single row 02; renumbered spines to 01–04
+- [x] Deduped team lede — dropped the "Two people... No layers in
+      between" opener already owned by the hero
+- [x] Rewrote both bios (conservative — degrees and background kept,
+      just tightened)
+- [x] Deleted dead `components/about/AboutStory.tsx` (verified
+      unreferenced first)
+- [x] Reduced hero-to-team gap and `.ap-row` / `.people-row` padding
 - SERVICE_FAQS may reference cut services — audit only
