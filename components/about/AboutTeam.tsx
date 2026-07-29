@@ -16,10 +16,7 @@ export default function AboutTeam() {
     <section className="team">
       <div className="wrap">
         <p className="kicker appear">02 / The team</p>
-        <h2 className="appear">Who you actually talk to.</h2>
-        <p className="team-lede appear">
-          Every email, every call, every line of code, one of us.
-        </p>
+        <h2 className="appear">Meet the Design Team.</h2>
 
         <div className="people-row appear">
           <Image
