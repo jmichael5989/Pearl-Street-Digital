@@ -26,9 +26,8 @@ export default function ServicesList() {
         <p className="kicker appear">Services</p>
         <h2 className="appear">Code meets design.</h2>
         <p className="svc-lede appear">
-          We are a boutique creative studio crafting premium visual identities,
-          bespoke websites, and digital experiences for ambitious brands
-          worldwide.
+          We are an independent digital studio crafting premium visual
+          identities through strategy, design, and technology.
         </p>
 
         <div className="svc-row appear">
