@@ -1,0 +1,371 @@
+/* ==========================================================================
+   Scroll Card Deck — standalone demo styles
+   Monochrome black / grey / white on a warm cream page background, matching
+   Rank Point Media's three-color system. No gradients-as-color, no italics.
+   ========================================================================== */
+
+:root {
+  --cream: #f8f5ef;
+  --black: #000;
+  --grey: #9c9c9c;
+  --grey-light: #d8d5cd;
+  --white: #fff;
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis owns smooth scrolling; don't fight it */
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--black);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lenis adds this class to <html> while smooth-scrolling is active. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Page chrome: spacer sections above/below the deck so the effect can be
+   scrolled into and out of. Not part of the deck component itself.
+   -------------------------------------------------------------------------- */
+
+.spacer {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.spacer__inner {
+  max-width: 34rem;
+}
+
+.spacer__kicker {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin: 0 0 1rem;
+}
+
+.spacer h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+
+.spacer p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #3a3a3a;
+  margin: 0;
+}
+
+.spacer--bottom p {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--grey);
+  text-transform: uppercase;
+}
+
+.scroll-cue {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.scroll-cue::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 2.5rem;
+  margin: 0.75rem auto 0;
+  background: var(--grey);
+  animation: scroll-cue-pulse 1.8s ease-in-out infinite;
+}
+@keyframes scroll-cue-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* ==========================================================================
+   THE DECK COMPONENT
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   .deck — scroll runway only. Its sole job is to give ScrollTrigger enough
+   scrollable distance to drive the pin + animation. It renders nothing
+   itself; --count cards get ~100svh of scroll each.
+   -------------------------------------------------------------------------- */
+.deck {
+  --count: 4; /* number of cards — keep in sync with deck.js COUNT */
+
+  /* Card sizing (desktop default) */
+  --card-w: 27.375rem;
+  --card-h: calc(var(--card-w) * 1.26484);
+
+  position: relative;
+  height: calc(var(--count) * 100svh);
+  padding-top: 75svh;
+  margin-bottom: 25svh;
+}
+
+@media (max-width: 1080px) {
+  .deck {
+    --card-w: 25rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .deck {
+    --card-w: min(calc(100vw - 2rem), 22rem);
+    --card-h: calc(var(--card-w) * 1.35); /* stubbier ratio at small sizes */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   .deck__stage — the pinned stage. Fixed to the viewport center; cards are
+   positioned absolutely against it, each centered via negative-half offsets.
+   -------------------------------------------------------------------------- */
+.deck__stage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  perspective: 25rem;
+  height: 0;
+
+  /*
+   * DIVERGENCE FROM incredibles.dev: on the original homepage the deck is
+   * the only thing on the page, so a fixed-position stage never collides
+   * with other content. Here the deck sits between spacer sections, so the
+   * fixed stage must be invisible whenever its ScrollTrigger isn't active —
+   * otherwise it would render on top of the intro/outro spacers while the
+   * user scrolls past them. deck.js toggles this via the ScrollTrigger
+   * `onToggle` callback (self.isActive -> visibility).
+   */
+  visibility: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   .card — absolutely positioned against the stage, sized from --card-w/-h.
+   transform-origin sits ABOVE the card (50% -20%) on purpose: it makes the
+   stack fan/swing as it scales, instead of shrinking concentrically toward
+   its own center. Do not change this.
+   -------------------------------------------------------------------------- */
+.card {
+  --w: var(--card-w);
+  --h: var(--card-h);
+
+  position: absolute;
+  top: calc(50% - var(--h) / 2);
+  left: calc(50% - var(--w) / 2);
+  width: var(--w);
+  height: var(--h);
+  transform-origin: 50% -20%;
+  will-change: transform, opacity;
+
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--black);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.18);
+}
+
+/* Content sits under the overlay in paint order but above it in the
+   cascade is irrelevant — z-index controls this explicitly. */
+.card__inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.card__num {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  color: var(--grey);
+}
+
+.card__visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.25rem 0;
+  border: 1px solid var(--grey-light);
+  border-radius: 0.75rem;
+  background: linear-gradient(155deg, #fafafa, #ececec);
+}
+
+.card__visual svg {
+  width: 60%;
+  height: 60%;
+  stroke: var(--black);
+}
+
+.card h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.15;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #3a3a3a;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   .card__overlay — this IS the depth illusion. A flat black sheet whose
+   opacity ramps with distance-from-active (--fade), dimming cards stacked
+   behind the active one. Driven entirely by the --fade custom property,
+   set per-frame from deck.js.
+   -------------------------------------------------------------------------- */
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  border-radius: inherit;
+  opacity: var(--fade, 0);
+  pointer-events: none;
+  will-change: opacity;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   REDUCED MOTION FALLBACK
+   Applied via a class on <body> set by deck.js after checking
+   prefers-reduced-motion. No animation, no Lenis, no pin — just a static
+   vertical list of the four cards.
+   ========================================================================== */
+body.deck-static .deck {
+  height: auto;
+  padding-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+body.deck-static .deck__stage {
+  position: static;
+  visibility: visible;
+  perspective: none;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  top: auto;
+  left: auto;
+}
+
+body.deck-static .card {
+  position: static;
+  width: min(90vw, 27.375rem);
+  height: auto;
+  min-height: 20rem;
+  transform: none !important;
+}
+
+body.deck-static .card__overlay {
+  opacity: 0 !important;
+}
+
+/* ==========================================================================
+   DEBUG PANEL — plain DOM, no dependencies. Hidden by default, toggled
+   with the "d" key. Fixed top-right, monospace.
+   ========================================================================== */
+.deck-debug {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  width: 17.5rem;
+  max-width: calc(100vw - 2rem);
+  background: rgba(0, 0, 0, 0.92);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  border-radius: 0.5rem;
+  padding: 0.9rem 1rem 1.1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.35);
+  display: none;
+}
+
+.deck-debug.is-open {
+  display: block;
+}
+
+.deck-debug__title {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.deck-debug__readout {
+  color: var(--grey);
+  margin-bottom: 0.75rem;
+  white-space: pre;
+}
+
+.deck-debug__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.deck-debug__row label {
+  flex: 0 0 6.5rem;
+  color: #ddd;
+}
+
+.deck-debug__row input[type="range"] {
+  flex: 1;
+  accent-color: #fff;
+}
+
+.deck-debug__row output {
+  flex: 0 0 2.75rem;
+  text-align: right;
+  color: #fff;
+}
+
+.deck-debug__hint {
+  margin-top: 0.6rem;
+  color: var(--grey);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 0.5rem;
+}
