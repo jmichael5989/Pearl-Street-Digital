@@ -831,7 +831,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 .rpm3 .story-body { margin-top: 30px; display: flex; flex-direction: column; gap: 20px; max-width: 65ch; color: var(--text); }
 
 /* ===== team / people ===== */
-.rpm3 .team { padding-top: clamp(46px, 6vw, 88px); }
+.rpm3 .team { padding-top: clamp(46px, 6vw, 88px); background: var(--surface); border-top: 1px solid var(--surface-edge); }
 .rpm3 .team h2 { font-size: clamp(32px, 3.9vw, 58px); max-width: 24ch; margin: 24px 0 16px; }
 .rpm3 .team-lede { max-width: 42em; margin-bottom: 52px; color: var(--text); }
 .rpm3 .people-row { display: grid; grid-template-columns: auto 1fr 1.4fr; gap: clamp(22px, 3vw, 56px); padding: 40px 0; border-top: 1px solid var(--line); align-items: start; }
@@ -935,6 +935,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 @media (max-width: 760px) { .rpm3 .build-grid { grid-template-columns: 1fr; gap: 0; } .rpm3 .build-feature { padding: 26px 0; } }
 
 /* ===== FAQ ===== */
+.rpm3 .faq { background: var(--surface); border-top: 1px solid var(--surface-edge); border-bottom: 1px solid var(--surface-edge); }
 .rpm3 .faq h2 { font-size: clamp(32px, 4.6vw, 64px); max-width: 24ch; margin: 24px 0 0; }
 .rpm3 .faq-list { max-width: 760px; border-top: 1px solid var(--line); margin-top: clamp(48px, 6vh, 64px); }
 .rpm3 .faq-item { border-bottom: 1px solid var(--line); }
@@ -1011,6 +1012,7 @@ html.voxel-cap .voxel-hero:not(.no-webgl):not(.revealed) .voxel-cta {
 }
 
 /* ===== add-ons ===== */
+.rpm3 .addons { background: var(--surface); border-top: 1px solid var(--surface-edge); border-bottom: 1px solid var(--surface-edge); }
 .rpm3 .addons-head h2 { font-size: clamp(34px,4.4vw,64px); max-width: 24ch; margin: 22px 0 0; }
 .rpm3 .addons-lede { margin-top: 22px; max-width: 62ch; font-size: 18px; line-height: 1.6; color: var(--text); }
 .rpm3 .addon-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid var(--line); margin-top: clamp(40px,5vw,64px); }
