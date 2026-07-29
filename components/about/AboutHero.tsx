@@ -14,9 +14,8 @@ export default function AboutHero() {
         <p className="kicker appear">01 / About</p>
         <h1 className="appear">Code meets Design.</h1>
         <p className="lede appear">
-          Two people. Zero middlemen. Stacie architects the design and marketing
-          strategy, and Jon brings it to life with flawless code. You get a
-          custom-built website without agency markup.
+          Together we accomplish more. Even the most complex builds move with
+          relentless quality.
         </p>
         <div className="hero-links appear">
           <a className="u-link" href="#approach">
