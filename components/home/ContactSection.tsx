@@ -14,15 +14,18 @@ export default function ContactSection() {
           <div className="appear">
             <div className="next-step">
               <span className="next-num">i.</span>
-              <p>We review your message within one business day.</p>
+              <p>We read your message within one business day.</p>
             </div>
             <div className="next-step">
               <span className="next-num">ii.</span>
-              <p>Jon calls or emails back with a tailored read on what we would do.</p>
+              <p>
+                Jon calls or emails with what the work would involve and what it
+                would cost.
+              </p>
             </div>
             <div className="next-step">
               <span className="next-num">iii.</span>
-              <p>You decide whether we fit. No pressure either way.</p>
+              <p>You decide from there.</p>
             </div>
           </div>
           <div className="contact-direct appear">
