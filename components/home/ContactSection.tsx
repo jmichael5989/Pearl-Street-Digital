@@ -19,7 +19,7 @@ export default function ContactSection() {
             <div className="next-step">
               <span className="next-num">ii.</span>
               <p>
-                Jon calls or emails with what the work would involve and what it
+                We call or email with what the work would involve and what it
                 would cost.
               </p>
             </div>
