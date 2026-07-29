@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import ServiceDetailHero from "@/components/services/ServiceDetailHero";
+import AiSearchQuote from "@/components/services/AiSearchQuote";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import ServiceFeatures from "@/components/services/ServiceFeatures";
 import ServiceProcess from "@/components/services/ServiceProcess";
@@ -70,6 +71,7 @@ export default function AiSearchOptimizationPage() {
             { value: "2026", label: "Built for Now" },
           ]}
         />
+        <AiSearchQuote />
         <ServiceOverview service={service} />
         <ServiceFeatures service={service} />
         <ServiceProcess service={service} />
