@@ -11,7 +11,7 @@ export default function ContactContent({
         <p className="kicker appear">
           <span className="kicker-num">03</span> Get in touch
         </p>
-        <h2 className="appear">Two ways to reach us.</h2>
+        <h2 className="appear">Let&rsquo;s talk about your project.</h2>
         <p className="touch-lede appear">
           Tell us about your business in the message below, or reach Jon
           directly by{" "}

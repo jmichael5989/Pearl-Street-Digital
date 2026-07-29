@@ -6,7 +6,7 @@ export default function ContactSection() {
       <div className="wrap contact-grid">
         <div>
           <p className="kicker appear">Get in touch</p>
-          <h2 className="appear">Two ways to reach us.</h2>
+          <h2 className="appear">Let&rsquo;s talk about your project.</h2>
           <p className="contact-lede appear">
             Tell us about your business in the message, or reach Jon directly.
             You hear back within one business day.
