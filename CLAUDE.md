@@ -29,7 +29,6 @@ You are building the website for Rank Point Media, a two-person digital agency. 
 - Diff behavior between main and your changes when relevant
 - Ask yourself: "Would a staff engineer approve this?"
 - Run tests, check logs, demonstrate correctness
-- Run Lighthouse audit before marking any page task complete -- target 95+ on all four categories
 
 ## 5. Demand Elegance (Balanced)
 - For non-trivial changes: pause and ask "is there a more elegant way?"
@@ -110,7 +109,7 @@ The whole site runs on three colors, scoped under the `.rpm3` class in `app/glob
 ### Hero Section (LOCKED 2026-07-20 -- see [components/home/VoxelHero.tsx](components/home/VoxelHero.tsx))
 The homepage hero is the **VoxelHero**: a three.js + Rapier physics "voxel drop" composition, dynamically imported client-side so it stays off the server bundle and the LCP path. Prototyped at [public/mocks/hero/voxel-drop.html](public/mocks/hero/voxel-drop.html). This supersedes the retired Orbit hero (`HeroOrbit.tsx`) and, before it, the editorial two-column hero (`Hero.tsx`) -- both files are now deleted.
 - **Centered headline -- server-rendered and fully visible on first paint. It is the LCP element and must NEVER be gated behind the animation** (no opacity/blur reveal on the H1). H1 is the locked tagline "Websites that Rank" (no italic, no terminal period).
-- `prefers-reduced-motion: reduce` and the no-WebGL fallback drop to a static composition -- no physics, no motion. An IntersectionObserver pauses any loop off-screen (protects INP/battery and the Lighthouse 95+ mandate).
+- `prefers-reduced-motion: reduce` and the no-WebGL fallback drop to a static composition -- no physics, no motion. An IntersectionObserver pauses any loop off-screen (protects INP/battery).
 - **Inner-page heroes are three-color** (NOT the old navy DarkHero, deleted):
   - **Inverted black hero** (`.ind-hero.inverted` / `ContactHero` / `LegalHero`): /contact, /industries (+ detail), /privacy, /terms.
   - **Light hero** (`.svc-hero`, `.about-hero`, `.cs-hero`, `.blog-hero`, `.price-hero`): /services (+ detail), /about, /case-studies, /blog (+ posts), /pricing.
@@ -130,7 +129,7 @@ The homepage hero is the **VoxelHero**: a three.js + Rapier physics "voxel drop"
 - **No stock photo aesthetic** -- use real SA imagery or abstract patterns
 - **No lorem ipsum** -- all placeholder copy must be realistic SA-focused content
 - **Mobile-first** -- test at 320px, 375px, 768px, 1024px, 1440px
-- **Performance** -- Lighthouse 95+ on all categories, page load under 2 seconds
+- **Performance** -- keep pages fast; page load under 2 seconds. (The former Lighthouse 95+ mandate was retired by the owner 2026-07-29 -- performance still matters, but a fixed score is no longer a completion gate.)
 - **Accessibility** -- WCAG 2.1 AA, keyboard navigation, proper alt text
 
 ### Pricing (LAUNCH CONFIG)
@@ -159,7 +158,6 @@ The homepage hero is the **VoxelHero**: a three.js + Rapier physics "voxel drop"
 
 ## Quality Checklist (Run Before Completing ANY Page Task)
 
-- [ ] Lighthouse 95+ (Performance, Accessibility, Best Practices, SEO)
 - [ ] Mobile responsive at all 5 breakpoints
 - [ ] All CTAs link to contact page or trigger form
 - [ ] Meta title and description set with SA keywords
