@@ -36,7 +36,7 @@ export default function ContactContent({
               <div className="next-step">
                 <span className="next-num">ii.</span>
                 <p>
-                  Jon calls or emails with what the work would involve and what
+                  We call or email with what the work would involve and what
                   it would cost.
                 </p>
               </div>
